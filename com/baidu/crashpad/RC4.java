@@ -38,24 +38,24 @@ public class RC4 {
     private void processBytes(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
-            if (i2 + i3 <= bArr.length) {
-                if (i4 + i3 > bArr2.length) {
-                    throw new RuntimeException("output buffer too short");
-                }
-                for (int i5 = 0; i5 < i3; i5++) {
-                    int i6 = (this.x + 1) & 255;
-                    this.x = i6;
+            int i5 = i2 + i3;
+            if (i5 > bArr.length) {
+                String str = "input buffer too short, buffer length=" + bArr.length + ", input length=" + i5;
+            } else if (i4 + i3 > bArr2.length) {
+                String str2 = "output buffer too short, buffer length=" + bArr.length + ", output length=" + i5;
+            } else {
+                for (int i6 = 0; i6 < i3; i6++) {
+                    int i7 = (this.x + 1) & 255;
+                    this.x = i7;
                     byte[] bArr3 = this.engineState;
-                    int i7 = (bArr3[i6] + this.y) & 255;
-                    this.y = i7;
-                    byte b2 = bArr3[i6];
-                    bArr3[i6] = bArr3[i7];
-                    bArr3[i7] = b2;
-                    bArr2[i5 + i4] = (byte) (bArr3[(bArr3[i6] + bArr3[i7]) & 255] ^ bArr[i5 + i2]);
+                    int i8 = (bArr3[i7] + this.y) & 255;
+                    this.y = i8;
+                    byte b2 = bArr3[i7];
+                    bArr3[i7] = bArr3[i8];
+                    bArr3[i8] = b2;
+                    bArr2[i6 + i4] = (byte) (bArr3[(bArr3[i7] + bArr3[i8]) & 255] ^ bArr[i6 + i2]);
                 }
-                return;
             }
-            throw new RuntimeException("input buffer too short");
         }
     }
 

@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.e;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,8 +38,8 @@ public class HwNotifyActivity extends Activity {
             try {
                 Intent intent = getIntent();
                 if (intent != null && intent.getData() != null) {
-                    String d2 = f.d(this, intent);
-                    String c2 = f.c(this, intent);
+                    String d2 = e.d(this, intent);
+                    String c2 = e.c(this, intent);
                     if (!TextUtils.isEmpty(c2)) {
                         m.c(getApplicationContext(), intent, d2, c2);
                     }

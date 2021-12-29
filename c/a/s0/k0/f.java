@@ -1,119 +1,240 @@
 package c.a.s0.k0;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import c.a.d.f.p.m;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public static final ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f18921b;
+    public static String f13152b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f18922c;
+    public static String f13153c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f18923d;
+    public static boolean f13154d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MessageRedDotView f18924e;
+    public static String f13155e;
 
-    public f(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: f  reason: collision with root package name */
+    public static String f13156f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f13157g;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-763732813, "Lc/a/s0/k0/f;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-763732813, "Lc/a/s0/k0/f;");
                 return;
             }
         }
-        this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.f18921b = inflate;
-        this.f18922c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
-        this.f18923d = (ImageView) this.f18921b.findViewById(R.id.img_message);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.f18921b.findViewById(R.id.img_red_tip);
-        this.f18924e = messageRedDotView;
-        messageRedDotView.setShadowEnabled(false);
+        a = new ArrayList<>();
+        f13154d = false;
     }
 
-    public MessageRedDotView a() {
-        InterceptResult invokeV;
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f18924e : (MessageRedDotView) invokeV.objValue;
-    }
-
-    public ImageView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18923d : (ImageView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18921b : (View) invokeV.objValue;
-    }
-
-    public void d(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f18924e.onChangeSkinType();
-            this.f18923d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
-        }
-    }
-
-    public void e(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (z) {
-                this.f18924e.refresh(i2);
-                this.f18924e.setVisibility(0);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!f13154d) {
+                r(context);
             }
-            this.f18924e.setVisibility(8);
+            return f13154d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f13155e : (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f13152b == null) {
+                f13152b = d(TbadkCoreApplication.getInst().getApp());
+            }
+            return f13152b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        ActivityManager activityManager;
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
+                return null;
+            }
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f13156f : (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f13157g : (String) invokeV.objValue;
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            String packageName = TbadkCoreApplication.getInst().getPackageName();
+            String str = packageName + ":swan";
+            f13153c = str;
+            a.clear();
+            a.add(packageName);
+            a.add(packageName + ":remote");
+            a.add(packageName + ":cdnTachometer");
+            a.add(packageName + ":daemon");
+            a.add(packageName + ":third");
+            a.add(packageName + ":pluginInstaller");
+            a.add(packageName + ":xiaoying");
+            a.add(packageName + ":media");
+            a.add(packageName + ":kmyas__");
+            a.add(packageName + ":guardService");
+            a.add(packageName + ":warkup");
+            a.add(str);
+            a.add(packageName + ":bdservice_v1");
+            a.add(packageName + ":live");
+            m("initProcess-->CurrentProcessName=" + c());
         }
     }
 
-    public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
+    public static boolean h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.f18923d.getLayoutParams()).rightMargin = -m.f(this.a, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.f18924e.getLayoutParams()).rightMargin = -m.f(this.a, R.dimen.tbds10);
-            this.f18922c.getLayoutParams().width = m.f(this.a, R.dimen.ds88);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return str != null && str.equalsIgnoreCase(c());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? j(c()) : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Iterator<String> it = a.iterator();
+            while (it.hasNext()) {
+                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(f13153c)) {
+                    return true;
+                }
+                while (it.hasNext()) {
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? f13154d : invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? h(TbadkCoreApplication.getInst().getPackageName()) : invokeV.booleanValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65549, null, str) != null) || !TbadkCoreApplication.getInst().isDebugMode()) {
         }
     }
 
-    public void g(int i2) {
-        View view;
+    public static void n(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (view = this.f18921b) == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
+            f13155e = str;
+        }
+    }
+
+    public static void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            f13154d = z;
+        }
+    }
+
+    public static void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            f13156f = str;
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            f13157g = str;
+        }
+    }
+
+    public static void r(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65554, null, context) == null) || context == null) {
             return;
         }
-        view.setVisibility(i2);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 }

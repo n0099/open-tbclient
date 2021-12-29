@@ -14,13 +14,13 @@ public final class c {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f2118b;
+    public final int f2545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f2119c;
+    public final int f2546c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f2120d;
+    public final int f2547d;
 
     public c(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public final class c {
             }
         }
         this.a = i2;
-        this.f2118b = i3;
-        this.f2119c = i4;
-        this.f2120d = i5;
+        this.f2545b = i3;
+        this.f2546c = i4;
+        this.f2547d = i5;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2118b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2545b : invokeV.intValue;
     }
 
     public boolean equals(Object obj) {
@@ -56,7 +56,7 @@ public final class c {
             if (this != obj) {
                 if (obj instanceof c) {
                     c cVar = (c) obj;
-                    return this.a == cVar.a && this.f2118b == cVar.f2118b && this.f2119c == cVar.f2119c && this.f2120d == cVar.f2120d;
+                    return this.a == cVar.a && this.f2545b == cVar.f2545b && this.f2546c == cVar.f2546c && this.f2547d == cVar.f2547d;
                 }
                 return false;
             }
@@ -68,14 +68,14 @@ public final class c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.f2118b) * 31) + this.f2119c) * 31) + this.f2120d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.f2545b) * 31) + this.f2546c) * 31) + this.f2547d : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.f2118b + ", tokenCode=" + this.f2119c + ", modeCode=" + this.f2120d + SmallTailInfo.EMOTION_SUFFIX;
+            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.f2545b + ", tokenCode=" + this.f2546c + ", modeCode=" + this.f2547d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

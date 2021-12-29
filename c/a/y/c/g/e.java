@@ -19,10 +19,10 @@ public class e {
     public MediaMuxer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f27203b;
+    public volatile boolean f27626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f27204c;
+    public f f27627c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +52,7 @@ public class e {
                 return;
             }
         }
-        this.f27203b = false;
+        this.f27626b = false;
     }
 
     public synchronized int a(MediaFormat mediaFormat) {
@@ -83,8 +83,8 @@ public class e {
             }
             try {
                 this.a = new MediaMuxer(str, i2);
-                this.f27204c = fVar;
-                this.f27203b = false;
+                this.f27627c = fVar;
+                this.f27626b = false;
                 return true;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -97,12 +97,12 @@ public class e {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27203b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27626b : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f27203b) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f27626b) {
             return;
         }
         this.a.release();
@@ -116,12 +116,12 @@ public class e {
                 boolean z = true;
                 try {
                     this.a.start();
-                    this.f27203b = true;
+                    this.f27626b = true;
                 } catch (Exception unused) {
                     z = false;
                 }
-                if (this.f27204c != null) {
-                    this.f27204c.a(z);
+                if (this.f27627c != null) {
+                    this.f27627c.a(z);
                 }
             }
         }
@@ -134,12 +134,12 @@ public class e {
                 boolean z = false;
                 try {
                     this.a.stop();
-                    this.f27203b = false;
+                    this.f27626b = false;
                     z = true;
                 } catch (Exception unused) {
                 }
-                if (this.f27204c != null) {
-                    this.f27204c.b(z);
+                if (this.f27627c != null) {
+                    this.f27627c.b(z);
                 }
             }
         }

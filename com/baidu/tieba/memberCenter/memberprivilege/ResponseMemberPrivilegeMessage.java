@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberprivilege;
 
-import c.a.r0.s.m.c;
-import c.a.s0.f2.g.a;
+import c.a.s0.s.l.c;
+import c.a.t0.f2.g.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -66,9 +66,9 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
             if (aVar == null || (eVar = aVar.a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.a)) {
                 return;
             }
-            a.b bVar = eVar.f17569d;
-            if (bVar != null && bVar.f17562b > bVar.f17563c && !StringUtils.isNull(bVar.f17564d)) {
-                currentAccountObj.setMemberIconUrl(bVar.f17564d);
+            a.b bVar = eVar.f18074d;
+            if (bVar != null && bVar.f18067b > bVar.f18068c && !StringUtils.isNull(bVar.f18069d)) {
+                currentAccountObj.setMemberIconUrl(bVar.f18069d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }

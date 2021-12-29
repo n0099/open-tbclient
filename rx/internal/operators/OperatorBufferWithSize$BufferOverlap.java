@@ -17,13 +17,13 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final j<? super List<T>> f64930i;
+    public final j<? super List<T>> f64925i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final int f64931j;
+    public final int f64926j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f64932k;
+    public final int f64927k;
     public final ArrayDeque<List<T>> l;
     public final AtomicLong m;
 
@@ -57,13 +57,13 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j2, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f64930i) || j2 == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j2, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f64925i) || j2 == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f64932k, j2));
+                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f64927k, j2));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f64932k, j2 - 1), operatorBufferWithSize$BufferOverlap.f64931j));
+                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f64927k, j2 - 1), operatorBufferWithSize$BufferOverlap.f64926j));
                 }
             }
         }

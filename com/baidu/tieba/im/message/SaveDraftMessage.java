@@ -17,7 +17,7 @@ public abstract class SaveDraftMessage extends CustomMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46580b;
+        public String f46800b;
 
         public a() {
             Interceptable interceptable = $ic;

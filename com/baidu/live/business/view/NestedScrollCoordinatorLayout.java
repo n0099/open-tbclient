@@ -35,7 +35,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f35801b;
+        public final int[] f35957b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
                 }
             }
             this.a = 1;
-            this.f35801b = new int[2];
+            this.f35957b = new int[2];
         }
 
         @Override // com.baidu.live.framework.coordinatorlayout.CoordinatorLayout.Behavior
@@ -99,7 +99,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
                 if (i5 == 1) {
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr, null);
                 } else if (i5 == 0) {
-                    int[] iArr2 = this.f35801b;
+                    int[] iArr2 = this.f35957b;
                     iArr2[0] = iArr[0];
                     iArr2[1] = iArr[1];
                     nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr2, null);

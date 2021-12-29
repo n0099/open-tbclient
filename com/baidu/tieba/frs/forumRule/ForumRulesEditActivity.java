@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.d1.a1;
-import c.a.s0.d1.b2.b.b;
-import c.a.s0.d1.b2.f.a;
-import c.a.s0.d1.c1;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.g1;
-import c.a.s0.d1.i1;
+import c.a.t0.d1.a1;
+import c.a.t0.d1.b2.b.b;
+import c.a.t0.d1.b2.f.a;
+import c.a.t0.d1.c1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.g1;
+import c.a.t0.d1.i1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ForumRuleEditActivityConfig;
@@ -85,7 +85,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // c.a.s0.d1.b2.b.b
+    @Override // c.a.t0.d1.b2.b.b
     public void commitCallback(int i2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)}) == null) {
@@ -107,7 +107,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // c.a.s0.d1.b2.b.b
+    @Override // c.a.t0.d1.b2.b.b
     public void commitData(ForumRuleBaseData forumRuleBaseData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, forumRuleBaseData, z) == null) {
@@ -119,7 +119,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         }
     }
 
-    @Override // c.a.s0.d1.b2.b.b
+    @Override // c.a.t0.d1.b2.b.b
     public void draftCallback(int i2, ForumRuleBaseData forumRuleBaseData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, forumRuleBaseData, str) == null) {
@@ -128,18 +128,18 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             }
             if (i2 != 0) {
                 if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-                    this.mView.T(this.mBaseData, false);
+                    this.mView.N(this.mBaseData, false);
                 }
                 new BdTopToast(this, 2000).setIcon(false).setContent(str).show((ViewGroup) this.rootView.findViewById(f1.ll_forum_rule_all));
             } else if (forumRuleBaseData != null) {
-                this.mView.T(forumRuleBaseData, true);
+                this.mView.N(forumRuleBaseData, true);
             } else if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mfrom)) {
-                this.mView.T(this.mBaseData, false);
+                this.mView.N(this.mBaseData, false);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

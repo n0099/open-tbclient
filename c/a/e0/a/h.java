@@ -371,14 +371,14 @@ public final class h {
     public static final int Widget_AppCompat_Toolbar_Button_Navigation = 2131755846;
     public static final int Widget_Compat_NotificationActionContainer = 2131755847;
     public static final int Widget_Compat_NotificationActionText = 2131755848;
-    public static final int pass_base_ui_common_dialog_style = 2131756057;
-    public static final int sapi_sdk_anim_bottom = 2131756085;
-    public static final int sapi_sdk_anim_speech = 2131756087;
-    public static final int sapi_sdk_bottom_in_dialog = 2131756088;
-    public static final int sapi_sdk_empty_dialog = 2131756094;
-    public static final int sapi_sdk_explain_Camera_dialog = 2131756095;
-    public static final int sapi_sdk_loading_dialog = 2131756096;
-    public static final int sapi_sdk_result_proxy_activity = 2131756097;
-    public static final int sapi_sdk_translucent_activity_dialog = 2131756099;
+    public static final int pass_base_ui_common_dialog_style = 2131756054;
+    public static final int sapi_sdk_anim_bottom = 2131756082;
+    public static final int sapi_sdk_anim_speech = 2131756084;
+    public static final int sapi_sdk_bottom_in_dialog = 2131756085;
+    public static final int sapi_sdk_empty_dialog = 2131756091;
+    public static final int sapi_sdk_explain_Camera_dialog = 2131756092;
+    public static final int sapi_sdk_loading_dialog = 2131756093;
+    public static final int sapi_sdk_result_proxy_activity = 2131756094;
+    public static final int sapi_sdk_translucent_activity_dialog = 2131756096;
     public transient /* synthetic */ FieldHolder $fh;
 }

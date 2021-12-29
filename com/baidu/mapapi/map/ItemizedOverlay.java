@@ -27,7 +27,7 @@ public class ItemizedOverlay extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f36936c;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.f37092c;
         this.a = mapView;
     }
 

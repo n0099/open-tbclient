@@ -13,7 +13,6 @@ import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
@@ -25,7 +24,6 @@ public class VideoReceiver extends BroadcastReceiver {
     public static final String TAG = "BdVideoReceiver";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHeadsetConnected;
-    public boolean mLastIsCharging;
     public NetUtils.NetStatus mLastStatus;
     public int mLastVolume;
     public final VideoReceiverListener mListener;
@@ -33,8 +31,6 @@ public class VideoReceiver extends BroadcastReceiver {
     /* loaded from: classes10.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i2);
-
-        void onBatteryChargingChanged(boolean z);
 
         void onBluetoothHeadsetChanged(boolean z);
 
@@ -66,7 +62,6 @@ public class VideoReceiver extends BroadcastReceiver {
         }
         this.mLastStatus = NetUtils.NetStatus.NET_DOWN;
         this.mLastVolume = -1;
-        this.mLastIsCharging = false;
         this.mListener = videoReceiverListener;
     }
 
@@ -103,95 +98,74 @@ public class VideoReceiver extends BroadcastReceiver {
         }
     }
 
-    public boolean isBatteryCharging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mLastIsCharging : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action;
-        char c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, intent) == null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || this.mListener == null || (action = intent.getAction()) == null) {
             return;
         }
-        boolean z = true;
+        char c2 = 65535;
         switch (action.hashCode()) {
             case -2128145023:
                 if (action.equals("android.intent.action.SCREEN_OFF")) {
                     c2 = 1;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1940635523:
                 if (action.equals("android.media.VOLUME_CHANGED_ACTION")) {
                     c2 = '\b';
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1676458352:
                 if (action.equals("android.intent.action.HEADSET_PLUG")) {
                     c2 = 4;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1538406691:
                 if (action.equals("android.intent.action.BATTERY_CHANGED")) {
                     c2 = 7;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1454123155:
                 if (action.equals("android.intent.action.SCREEN_ON")) {
                     c2 = 2;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -1172645946:
                 if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                     c2 = 0;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -549244379:
                 if (action.equals("android.media.AUDIO_BECOMING_NOISY")) {
                     c2 = 5;
                     break;
                 }
-                c2 = 65535;
                 break;
             case -403228793:
                 if (action.equals("android.intent.action.CLOSE_SYSTEM_DIALOGS")) {
                     c2 = 3;
                     break;
                 }
-                c2 = 65535;
                 break;
             case 158859398:
                 if (action.equals("android.intent.action.CONFIGURATION_CHANGED")) {
                     c2 = '\t';
                     break;
                 }
-                c2 = 65535;
                 break;
             case 545516589:
                 if (action.equals("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED")) {
                     c2 = 6;
                     break;
                 }
-                c2 = 65535;
-                break;
-            default:
-                c2 = 65535;
                 break;
         }
         switch (c2) {
@@ -241,15 +215,6 @@ public class VideoReceiver extends BroadcastReceiver {
                 int intExtra2 = (intent.getIntExtra("level", 0) * 100) / intent.getIntExtra(AnimationProperty.SCALE, 1);
                 BdBatteryUtils.batter_level = intExtra2;
                 this.mListener.onBatteryChanged(intExtra2);
-                int intExtra3 = intent.getIntExtra("status", -1);
-                if (intExtra3 != 2 && intExtra3 != 5) {
-                    z = false;
-                }
-                if (this.mLastIsCharging != z) {
-                    this.mLastIsCharging = z;
-                    this.mListener.onBatteryChargingChanged(z);
-                    return;
-                }
                 return;
             case '\b':
                 onVolumeChanged(context);
@@ -264,7 +229,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
     public void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
             intentFilter.addAction("android.intent.action.DATE_CHANGED");
@@ -278,15 +243,14 @@ public class VideoReceiver extends BroadcastReceiver {
             intentFilter.addAction("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED");
             intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
             intentFilter.addAction("android.intent.action.CONFIGURATION_CHANGED");
-            Intent registerReceiver = BDPlayerConfig.getAppContext().registerReceiver(this, intentFilter);
+            BDPlayerConfig.getAppContext().registerReceiver(this, intentFilter);
             this.mLastStatus = NetUtils.getNetStatus();
-            this.mLastIsCharging = registerReceiver.getIntExtra("plugged", 0) != 0;
         }
     }
 
     public void unregisterReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             BDPlayerConfig.getAppContext().unregisterReceiver(this);
         }
     }

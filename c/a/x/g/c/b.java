@@ -14,13 +14,13 @@ public class b {
     public volatile int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f27041b;
+    public Class<?> f27482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<a> f27042c;
+    public WeakReference<a> f27483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c f27043d;
+    public c f27484d;
 
     public b(int i2, Class<?> cls, a aVar, c cVar) {
         Interceptable interceptable = $ic;
@@ -38,19 +38,19 @@ public class b {
             }
         }
         this.a = i2;
-        this.f27041b = cls;
-        this.f27042c = new WeakReference<>(aVar);
-        this.f27043d = cVar;
+        this.f27482b = cls;
+        this.f27483c = new WeakReference<>(aVar);
+        this.f27484d = cVar;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = 1;
-            WeakReference<a> weakReference = this.f27042c;
+            WeakReference<a> weakReference = this.f27483c;
             if (weakReference != null) {
                 weakReference.clear();
-                this.f27042c = null;
+                this.f27483c = null;
             }
         }
     }
@@ -58,14 +58,14 @@ public class b {
     public boolean b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj.getClass() == this.f27041b : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? obj.getClass() == this.f27482b : invokeL.booleanValue;
     }
 
     public void call(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || this.f27042c.get() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) || this.f27483c.get() == null) {
             return;
         }
-        this.f27043d.a(this.a, obj, this.f27042c.get());
+        this.f27484d.a(this.a, obj, this.f27483c.get());
     }
 }

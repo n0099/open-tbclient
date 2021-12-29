@@ -29,10 +29,10 @@ public class NHCreditMiniGroup extends BaseItemLayout {
     public NHTitleView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f53285b;
+    public LinearLayout f53288b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<BaseItemView> f53286c;
+    public List<BaseItemView> f53289c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NHCreditMiniGroup(Context context) {
@@ -52,14 +52,14 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f53286c = new ArrayList();
+        this.f53289c = new ArrayList();
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public List<BaseItemView> getChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53286c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53289c : (List) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
@@ -68,7 +68,7 @@ public class NHCreditMiniGroup extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_nh_credit_mini_layout"), this);
             this.a = (NHTitleView) findViewById(ResUtils.id(getContext(), "credit_mini_title"));
-            this.f53285b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
+            this.f53288b = (LinearLayout) findViewById(ResUtils.id(getContext(), "credit_mini_layout"));
         }
     }
 
@@ -93,10 +93,10 @@ public class NHCreditMiniGroup extends BaseItemLayout {
             this.a.setHasGap(this.mConfigData.isLayoutHasGap());
             int displayWidth = DisplayUtils.getDisplayWidth(getContext());
             if (this.mConfigData.list.length <= 2) {
-                this.f53285b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
+                this.f53288b.setLayoutParams(new FrameLayout.LayoutParams(displayWidth, -2));
                 dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.0f);
             } else {
-                this.f53285b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+                this.f53288b.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
                 dip2px = (int) ((displayWidth - (DisplayUtils.dip2px(getContext(), 15.0f) * 3.0f)) / 2.2d);
             }
             HomeCfgResponse.DataItem[] dataItemArr = this.mConfigData.list;
@@ -107,10 +107,10 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(dip2px, DisplayUtils.dip2px(getContext(), 98.5f));
                 layoutParams.width = dip2px;
                 layoutParams.setMargins(DisplayUtils.dip2px(getContext(), 15.0f), 0, 0, 0);
-                this.f53285b.addView(nHCreditMiniItem, layoutParams);
-                this.f53286c.add(nHCreditMiniItem);
+                this.f53288b.addView(nHCreditMiniItem, layoutParams);
+                this.f53289c.add(nHCreditMiniItem);
             }
-            this.f53285b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
+            this.f53288b.addView(new View(getContext()), new LinearLayout.LayoutParams(DisplayUtils.dip2px(getContext(), 15.0f), DisplayUtils.dip2px(getContext(), 98.5f)));
         }
     }
 
@@ -133,6 +133,6 @@ public class NHCreditMiniGroup extends BaseItemLayout {
                 return;
             }
         }
-        this.f53286c = new ArrayList();
+        this.f53289c = new ArrayList();
     }
 }

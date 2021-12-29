@@ -11,13 +11,13 @@ import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.u0;
+import com.fun.x0;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u0.b a;
+    public final x0.b a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -36,7 +36,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.a = new u0.b(str, pid);
+        this.a = new x0.b(str, pid);
     }
 
     @Override // com.fun.ad.sdk.FunNativeAd

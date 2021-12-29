@@ -11,20 +11,20 @@ public class k {
     public final Object a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<?> f1661b;
+    public final Class<?> f2088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f1662c;
+    public final int f2089c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final i<?> f1663d;
+    public final i<?> f2090d;
 
     @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.f1662c + "\n    tag:" + this.a + "\n    eventClass:" + this.f1661b + "\n    subscriber:" + this.f1663d + "\n}";
+            return "SubscribeInfo:{\n    threadMode:" + this.f2089c + "\n    tag:" + this.a + "\n    eventClass:" + this.f2088b + "\n    subscriber:" + this.f2090d + "\n}";
         }
         return (String) invokeV.objValue;
     }

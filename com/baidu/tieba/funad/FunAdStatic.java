@@ -1,9 +1,9 @@
 package com.baidu.tieba.funad;
 
-import c.a.s0.e1.a;
-import c.a.s0.e1.b;
-import c.a.s0.f1.c;
-import c.a.s0.f1.d;
+import c.a.t0.e1.a;
+import c.a.t0.e1.b;
+import c.a.t0.f1.c;
+import c.a.t0.f1.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;

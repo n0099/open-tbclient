@@ -1,75 +1,30 @@
 package c.a.d.f.p;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.Message;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Field f2623b;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Handler a;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler;
-        }
-
-        @Override // android.os.Handler
-        public void dispatchMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                try {
-                    super.dispatchMessage(message);
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                try {
-                    if (this.a != null) {
-                        this.a.handleMessage(message);
-                    }
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -84,31 +39,82 @@ public class v {
                 return;
             }
         }
-        try {
-            if (Build.VERSION.SDK_INT < 28) {
-                Field declaredField = Toast.class.getDeclaredField("mTN");
-                a = declaredField;
-                declaredField.setAccessible(true);
-                Field declaredField2 = a.getType().getDeclaredField("mHandler");
-                f2623b = declaredField2;
-                declaredField2.setAccessible(true);
-            }
-        } catch (Exception unused) {
-        }
+        Charset.forName("UTF-8");
+        a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
     }
 
-    public static void a(Toast toast) {
-        Object obj;
-        Handler handler;
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i2, int i3) throws GeneralSecurityException {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 28 || a == null || f2623b == null || (obj = a.get(toast)) == null || (handler = (Handler) f2623b.get(obj)) == null) {
-                    return;
-                }
-                f2623b.set(obj, new a(handler));
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i2, i3)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(2, secretKey);
+            return cipher.doFinal(bArr, i2, i3);
         }
+        return (byte[]) invokeLLII.objValue;
+    }
+
+    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, key);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] c(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(1, secretKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey e(byte[] bArr) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+    }
+
+    public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            int length = str.length();
+            char[] cArr = new char[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                cArr[i2] = (char) (((byte) str.charAt(i2)) & 255);
+            }
+            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
+        }
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
+            String bigInteger = new BigInteger(i2 * 5, new SecureRandom()).toString(36);
+            return bigInteger.length() > i2 ? bigInteger.substring(0, bigInteger.length()) : bigInteger;
+        }
+        return (String) invokeI.objValue;
     }
 }

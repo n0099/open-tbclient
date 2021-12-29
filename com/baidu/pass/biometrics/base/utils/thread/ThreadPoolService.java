@@ -23,21 +23,21 @@ public class ThreadPoolService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38653c;
+    public static final int f38809c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f38654d;
+    public static final ThreadFactory f38810d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38655e = 0;
+    public static final int f38811e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38656f = 1;
+    public static final int f38812f = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f38657b;
+    public Handler f38813b;
 
     /* loaded from: classes10.dex */
     public static class SingletonContainer {
@@ -89,8 +89,8 @@ public class ThreadPoolService {
                 return;
             }
         }
-        f38653c = Runtime.getRuntime().availableProcessors();
-        f38654d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+        f38809c = Runtime.getRuntime().availableProcessors();
+        f38810d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final AtomicInteger a;
@@ -139,7 +139,7 @@ public class ThreadPoolService {
     public void runInUiThread(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.f38657b.sendMessage(this.f38657b.obtainMessage(0, tPRunnable));
+            this.f38813b.sendMessage(this.f38813b.obtainMessage(0, tPRunnable));
         }
     }
 
@@ -156,7 +156,7 @@ public class ThreadPoolService {
                 return;
             }
         }
-        this.f38657b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+        this.f38813b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ThreadPoolService a;
@@ -196,7 +196,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f38653c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f38654d);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f38809c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f38810d);
         this.a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);

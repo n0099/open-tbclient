@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.d.m.e.a;
-import c.a.s0.o1.c.f.b;
+import c.a.d.n.e.a;
+import c.a.t0.o1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -71,7 +71,7 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernEmotionTipAdapter(Context context) {
-        super(context, b.f20725k);
+        super(context, b.f20766k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,33 +91,33 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: g0 */
-    public ConcernEmotionTipViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: Z */
+    public ConcernEmotionTipViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.concern_emotion_tip_layout, viewGroup, false)) : (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public View S(int i2, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernEmotionTipViewHolder})) == null) {
-            String str = bVar.f20727f;
+            String str = bVar.f20768f;
             if (str != null) {
                 concernEmotionTipViewHolder.tipText.setText(str);
             }
-            if (bVar.getType() == b.f20724j) {
-                if (bVar.f20726e == 2) {
+            if (bVar.getType() == b.f20765j) {
+                if (bVar.f20767e == 2) {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
                 } else {
                     concernEmotionTipViewHolder.tipText.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
                 }
             }
-            int i3 = bVar.f20726e;
+            int i3 = bVar.f20767e;
             if (i3 == 2) {
                 concernEmotionTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
             } else if (i3 == 3) {

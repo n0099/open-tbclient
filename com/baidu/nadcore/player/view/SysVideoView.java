@@ -32,25 +32,25 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38140e;
+    public final Context f38296e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final SysMediaPlayer f38141f;
+    public final SysMediaPlayer f38297f;
 
     /* renamed from: g  reason: collision with root package name */
-    public k f38142g;
+    public k f38298g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaPlayer.OnPreparedListener f38143h;
+    public MediaPlayer.OnPreparedListener f38299h;
 
     /* renamed from: i  reason: collision with root package name */
-    public MediaPlayer.OnVideoSizeChangedListener f38144i;
+    public MediaPlayer.OnVideoSizeChangedListener f38300i;
 
     /* renamed from: j  reason: collision with root package name */
-    public MediaPlayer.OnCompletionListener f38145j;
+    public MediaPlayer.OnCompletionListener f38301j;
 
     /* renamed from: k  reason: collision with root package name */
-    public MediaPlayer.OnSeekCompleteListener f38146k;
+    public MediaPlayer.OnSeekCompleteListener f38302k;
     public MediaPlayer.OnBufferingUpdateListener l;
     public MediaPlayer.OnErrorListener m;
     public MediaPlayer.OnInfoListener n;
@@ -125,8 +125,8 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
         public void b(Surface surface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surface) == null) {
-                this.a.f38141f.z(surface);
-                this.a.f38141f.A(this.a.f38140e, 10);
+                this.a.f38297f.z(surface);
+                this.a.f38297f.A(this.a.f38296e, 10);
             }
         }
     }
@@ -166,8 +166,8 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
-                this.a.f38141f.o(surfaceHolder);
-                this.a.f38141f.y(true);
+                this.a.f38297f.o(surfaceHolder);
+                this.a.f38297f.y(true);
             }
         }
     }
@@ -196,24 +196,24 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public final void d(int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && i2 == 258) {
-            k kVar = this.f38142g;
+            k kVar = this.f38298g;
             if (kVar != null) {
-                kVar.onVideoSizeChanged(this.f38141f.d(), this.f38141f.c());
+                kVar.onVideoSizeChanged(this.f38297f.d(), this.f38297f.c());
             }
-            this.f38141f.B();
+            this.f38297f.B();
         }
     }
 
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f38141f.v(this);
-            this.f38141f.r(this);
-            this.f38141f.x(this);
-            this.f38141f.q(this);
-            this.f38141f.w(this);
-            this.f38141f.s(this);
-            this.f38141f.t(this);
+            this.f38297f.v(this);
+            this.f38297f.r(this);
+            this.f38297f.x(this);
+            this.f38297f.q(this);
+            this.f38297f.w(this);
+            this.f38297f.s(this);
+            this.f38297f.t(this);
             f(false);
         }
     }
@@ -223,42 +223,42 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z && Build.VERSION.SDK_INT < 14) {
-                this.f38142g = new SurfaceView(this.f38140e, this.p);
+                this.f38298g = new SurfaceView(this.f38296e, this.p);
             } else {
-                this.f38142g = new TextureView(this.f38140e, this.o);
+                this.f38298g = new TextureView(this.f38296e, this.o);
             }
-            addView((View) this.f38142g, new FrameLayout.LayoutParams(-2, -2, 17));
+            addView((View) this.f38298g, new FrameLayout.LayoutParams(-2, -2, 17));
         }
     }
 
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38141f.a() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38297f.a() : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38141f.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38297f.b() : invokeV.intValue;
     }
 
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38141f.c() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38297f.c() : invokeV.intValue;
     }
 
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38141f.d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38297f.d() : invokeV.intValue;
     }
 
     public void muteOrUnmuteAudio(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f38141f.f(z);
+            this.f38297f.f(z);
         }
     }
 
@@ -276,7 +276,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void onCompletion(MediaPlayer mediaPlayer) {
         MediaPlayer.OnCompletionListener onCompletionListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, mediaPlayer) == null) || (onCompletionListener = this.f38145j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, mediaPlayer) == null) || (onCompletionListener = this.f38301j) == null) {
             return;
         }
         onCompletionListener.onCompletion(mediaPlayer);
@@ -316,7 +316,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void onPrepared(MediaPlayer mediaPlayer) {
         MediaPlayer.OnPreparedListener onPreparedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, mediaPlayer) == null) || (onPreparedListener = this.f38143h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, mediaPlayer) == null) || (onPreparedListener = this.f38299h) == null) {
             return;
         }
         onPreparedListener.onPrepared(mediaPlayer);
@@ -326,7 +326,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void onSeekComplete(MediaPlayer mediaPlayer) {
         MediaPlayer.OnSeekCompleteListener onSeekCompleteListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, mediaPlayer) == null) || (onSeekCompleteListener = this.f38146k) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, mediaPlayer) == null) || (onSeekCompleteListener = this.f38302k) == null) {
             return;
         }
         onSeekCompleteListener.onSeekComplete(mediaPlayer);
@@ -336,7 +336,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
         MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048590, this, mediaPlayer, i2, i3) == null) || (onVideoSizeChangedListener = this.f38144i) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048590, this, mediaPlayer, i2, i3) == null) || (onVideoSizeChangedListener = this.f38300i) == null) {
             return;
         }
         onVideoSizeChangedListener.onVideoSizeChanged(mediaPlayer, i2, i3);
@@ -345,28 +345,28 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f38141f.h();
+            this.f38297f.h();
         }
     }
 
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f38141f.j();
-            this.f38145j = null;
+            this.f38297f.j();
+            this.f38301j = null;
             this.l = null;
             this.m = null;
             this.n = null;
-            this.f38143h = null;
-            this.f38146k = null;
-            this.f38144i = null;
+            this.f38299h = null;
+            this.f38302k = null;
+            this.f38300i = null;
         }
     }
 
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f38141f.k();
+            this.f38297f.k();
         }
     }
 
@@ -380,7 +380,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.f38141f.p(z);
+            this.f38297f.p(z);
         }
     }
 
@@ -394,7 +394,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, onCompletionListener) == null) {
-            this.f38145j = onCompletionListener;
+            this.f38301j = onCompletionListener;
         }
     }
 
@@ -415,28 +415,28 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, onPreparedListener) == null) {
-            this.f38143h = onPreparedListener;
+            this.f38299h = onPreparedListener;
         }
     }
 
     public void setOnSeekCompleteListener(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, onSeekCompleteListener) == null) {
-            this.f38146k = onSeekCompleteListener;
+            this.f38302k = onSeekCompleteListener;
         }
     }
 
     public void setOnVideoSizeChangedListener(MediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, onVideoSizeChangedListener) == null) {
-            this.f38144i = onVideoSizeChangedListener;
+            this.f38300i = onVideoSizeChangedListener;
         }
     }
 
     public void setVideoURI(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048604, this, str, map) == null) {
-            this.f38141f.m(str, map);
+            this.f38297f.m(str, map);
             requestLayout();
             invalidate();
         }
@@ -445,14 +445,14 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.f38141f.B();
+            this.f38297f.B();
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            this.f38141f.C();
+            this.f38297f.C();
         }
     }
 
@@ -480,7 +480,7 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
     public void seekTo(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
-            this.f38141f.l(i2, i3);
+            this.f38297f.l(i2, i3);
         }
     }
 
@@ -505,9 +505,9 @@ public class SysVideoView extends FrameLayout implements MediaPlayer.OnPreparedL
         }
         this.o = new b(this);
         this.p = new c(this);
-        this.f38140e = context;
+        this.f38296e = context;
         SysMediaPlayer sysMediaPlayer = new SysMediaPlayer(context);
-        this.f38141f = sysMediaPlayer;
+        this.f38297f = sysMediaPlayer;
         sysMediaPlayer.u(new a(this));
         e(context);
     }

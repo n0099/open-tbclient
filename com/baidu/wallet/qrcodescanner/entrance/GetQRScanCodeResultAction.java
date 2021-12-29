@@ -57,7 +57,7 @@ public class GetQRScanCodeResultAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GetQRScanCodeResultAction f54770b;
+                public final /* synthetic */ GetQRScanCodeResultAction f54773b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -74,7 +74,7 @@ public class GetQRScanCodeResultAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f54770b = this;
+                    this.f54773b = this;
                     this.a = routerCallback;
                 }
 

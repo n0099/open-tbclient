@@ -21,13 +21,13 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f1892i;
+    public ViewGroup f2319i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdLayerSeekBar f1893j;
+    public BdLayerSeekBar f2320j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f1894k;
+    public int f2321k;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1892i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2319i : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -130,7 +130,7 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
             switch (c2) {
                 case 0:
                     p(false, false);
-                    this.f1893j.setPosition(pVar.g(2) + pVar.g(3));
+                    this.f2320j.setPosition(pVar.g(2) + pVar.g(3));
                     return;
                 case 1:
                     y(false);
@@ -152,7 +152,7 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
                     z(pVar.g(1), pVar.g(2), pVar.g(3));
                     return;
                 case '\b':
-                    this.f1893j.setVisibility(0);
+                    this.f2320j.setVisibility(0);
                     return;
             }
         }
@@ -184,8 +184,8 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
     public void onStartTrackingTouch(BdThumbSeekBar bdThumbSeekBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdThumbSeekBar) == null) {
-            this.f1894k = n().C();
-            o().Z();
+            this.f2321k = n().C();
+            o().S();
         }
     }
 
@@ -200,9 +200,9 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
             c.a.c0.s.c0.p w = c.a.c0.s.c0.f.w(LayerEvent.ACTION_SEEK);
             w.n(1, Integer.valueOf(bdThumbSeekBar.getProgress()));
             l(w);
-            n().y().F(this.f1894k, bdThumbSeekBar.getProgress());
-            o().a0(3000);
-            this.f1894k = 0;
+            n().y().F(this.f2321k, bdThumbSeekBar.getProgress());
+            o().T(3000);
+            this.f2321k = 0;
         }
     }
 
@@ -218,14 +218,14 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.q();
-            this.f1893j.setVisibility(0);
+            this.f2320j.setVisibility(0);
         }
     }
 
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f1893j.setDuration(n().r());
+            this.f2320j.setDuration(n().r());
         }
     }
 
@@ -242,9 +242,9 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             if (z) {
-                this.f1893j.switchToFull();
+                this.f2320j.switchToFull();
             } else {
-                this.f1893j.switchToHalf();
+                this.f2320j.switchToHalf();
             }
         }
     }
@@ -252,7 +252,7 @@ public abstract class d extends e implements View.OnClickListener, c.a.c0.s.f0.l
     public void z(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048588, this, i2, i3, i4) == null) {
-            this.f1893j.syncPos(i2, i3, i4);
+            this.f2320j.syncPos(i2, i3, i4);
         }
     }
 }

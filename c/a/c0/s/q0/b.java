@@ -27,7 +27,7 @@ public class b {
 
     /* renamed from: c.a.c0.s.q0.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0069b {
+    public static final class C0090b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0069b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0090b.a : (b) invokeV.objValue;
     }
 
     public void a(@NonNull e eVar) {

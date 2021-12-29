@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public interface a {
     void a(Activity activity, String str, String str2);
 
-    void aLiAuth(Activity activity, String str, c.a.g0.l.a<JSONObject> aVar);
+    void aLiAuth(Activity activity, String str, c.a.h0.l.a<JSONObject> aVar);
 
     boolean b(Context context);
 

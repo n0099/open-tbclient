@@ -1,40 +1,16 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.e;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bp implements com.kwad.sdk.core.d<e.a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public bp() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(e.a aVar, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         aVar.a = jSONObject.optString("SDKVersion");
@@ -131,43 +107,38 @@ public class bp implements com.kwad.sdk.core.d<e.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(e.a aVar, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "SDKVersion", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "SDKVersionCode", aVar.f58576b);
-            com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersion", aVar.f58577c);
-            com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersionCode", aVar.f58578d);
-            com.kwad.sdk.utils.t.a(jSONObject, "sdkType", aVar.f58579e);
-            com.kwad.sdk.utils.t.a(jSONObject, "appVersion", aVar.f58580f);
-            com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f58581g);
-            com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f58582h);
-            com.kwad.sdk.utils.t.a(jSONObject, "globalId", aVar.f58583i);
-            com.kwad.sdk.utils.t.a(jSONObject, "eGid", aVar.f58584j);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceSig", aVar.f58585k);
-            com.kwad.sdk.utils.t.a(jSONObject, "networkType", aVar.l);
-            com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, aVar.m);
-            com.kwad.sdk.utils.t.a(jSONObject, "model", aVar.n);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceBrand", aVar.o);
-            com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, aVar.p);
-            com.kwad.sdk.utils.t.a(jSONObject, "systemVersion", aVar.q);
-            com.kwad.sdk.utils.t.a(jSONObject, "osApi", aVar.r);
-            com.kwad.sdk.utils.t.a(jSONObject, "language", aVar.s);
-            com.kwad.sdk.utils.t.a(jSONObject, "locale", aVar.t);
-            com.kwad.sdk.utils.t.a(jSONObject, "uuid", aVar.u);
-            com.kwad.sdk.utils.t.a(jSONObject, "screenWidth", aVar.v);
-            com.kwad.sdk.utils.t.a(jSONObject, "screenHeight", aVar.w);
-            com.kwad.sdk.utils.t.a(jSONObject, "imei", aVar.x);
-            com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.y);
-            com.kwad.sdk.utils.t.a(jSONObject, "androidId", aVar.z);
-            com.kwad.sdk.utils.t.a(jSONObject, BaseStatisContent.MAC, aVar.A);
-            com.kwad.sdk.utils.t.a(jSONObject, "statusBarHeight", aVar.B);
-            com.kwad.sdk.utils.t.a(jSONObject, "titleBarHeight", aVar.C);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "SDKVersion", aVar.a);
+        com.kwad.sdk.utils.t.a(jSONObject, "SDKVersionCode", aVar.f58576b);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersion", aVar.f58577c);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkApiVersionCode", aVar.f58578d);
+        com.kwad.sdk.utils.t.a(jSONObject, "sdkType", aVar.f58579e);
+        com.kwad.sdk.utils.t.a(jSONObject, "appVersion", aVar.f58580f);
+        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f58581g);
+        com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.f58582h);
+        com.kwad.sdk.utils.t.a(jSONObject, "globalId", aVar.f58583i);
+        com.kwad.sdk.utils.t.a(jSONObject, "eGid", aVar.f58584j);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceSig", aVar.f58585k);
+        com.kwad.sdk.utils.t.a(jSONObject, "networkType", aVar.l);
+        com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_MANUFACTURER, aVar.m);
+        com.kwad.sdk.utils.t.a(jSONObject, "model", aVar.n);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceBrand", aVar.o);
+        com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, aVar.p);
+        com.kwad.sdk.utils.t.a(jSONObject, "systemVersion", aVar.q);
+        com.kwad.sdk.utils.t.a(jSONObject, "osApi", aVar.r);
+        com.kwad.sdk.utils.t.a(jSONObject, "language", aVar.s);
+        com.kwad.sdk.utils.t.a(jSONObject, "locale", aVar.t);
+        com.kwad.sdk.utils.t.a(jSONObject, "uuid", aVar.u);
+        com.kwad.sdk.utils.t.a(jSONObject, "screenWidth", aVar.v);
+        com.kwad.sdk.utils.t.a(jSONObject, "screenHeight", aVar.w);
+        com.kwad.sdk.utils.t.a(jSONObject, "imei", aVar.x);
+        com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.y);
+        com.kwad.sdk.utils.t.a(jSONObject, "androidId", aVar.z);
+        com.kwad.sdk.utils.t.a(jSONObject, BaseStatisContent.MAC, aVar.A);
+        com.kwad.sdk.utils.t.a(jSONObject, "statusBarHeight", aVar.B);
+        com.kwad.sdk.utils.t.a(jSONObject, "titleBarHeight", aVar.C);
+        return jSONObject;
     }
 }

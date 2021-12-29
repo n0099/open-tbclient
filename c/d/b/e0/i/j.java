@@ -36,13 +36,13 @@ public final class j implements t {
     public final w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.d.b.e0.h.f f28552b;
+    public volatile c.d.b.e0.h.f f28626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f28553c;
+    public Object f28627c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f28554d;
+    public volatile boolean f28628d;
 
     public j(w wVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -73,11 +73,11 @@ public final class j implements t {
             g gVar = (g) aVar;
             c.d.b.e call = gVar.call();
             p b2 = gVar.b();
-            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.a.f(), c(request.h()), call, b2, this.f28553c);
-            this.f28552b = fVar;
+            c.d.b.e0.h.f fVar = new c.d.b.e0.h.f(this.a.f(), c(request.h()), call, b2, this.f28627c);
+            this.f28626b = fVar;
             b0 b0Var = null;
             int i2 = 0;
-            while (!this.f28554d) {
+            while (!this.f28628d) {
                 try {
                     try {
                         d2 = gVar.d(request, fVar, null, null);
@@ -113,8 +113,8 @@ public final class j implements t {
                         if (!(d3.a() instanceof l)) {
                             if (!j(d2, d3.h())) {
                                 fVar.p();
-                                fVar = new c.d.b.e0.h.f(this.a.f(), c(d3.h()), call, b2, this.f28553c);
-                                this.f28552b = fVar;
+                                fVar = new c.d.b.e0.h.f(this.a.f(), c(d3.h()), call, b2, this.f28627c);
+                                this.f28626b = fVar;
                             } else if (fVar.c() != null) {
                                 throw new IllegalStateException("Closing the body of " + d2 + " didn't close its backing stream. Bad interceptor?");
                             }
@@ -144,8 +144,8 @@ public final class j implements t {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28554d = true;
-            c.d.b.e0.h.f fVar = this.f28552b;
+            this.f28628d = true;
+            c.d.b.e0.h.f fVar = this.f28626b;
             if (fVar != null) {
                 fVar.b();
             }
@@ -254,7 +254,7 @@ public final class j implements t {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28554d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28628d : invokeV.booleanValue;
     }
 
     public final boolean f(IOException iOException, boolean z) {
@@ -317,7 +317,7 @@ public final class j implements t {
     public void k(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-            this.f28553c = obj;
+            this.f28627c = obj;
         }
     }
 }

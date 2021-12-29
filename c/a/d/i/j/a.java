@@ -1,7 +1,7 @@
 package c.a.d.i.j;
 
 import android.text.TextUtils;
-import c.a.d.f.p.g;
+import c.a.d.f.p.h;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,27 +17,27 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2784d;
+    public static a f3212d;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f2785b;
+    public ArrayList<b> f3213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0091a f2786c;
+    public C0112a f3214c;
 
     /* renamed from: c.a.d.i.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0091a extends BdAsyncTask<String, Integer, Boolean> {
+    public class C0112a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f2787b;
+        public final /* synthetic */ a f3215b;
 
-        public C0091a(a aVar, b bVar) {
+        public C0112a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class a {
                     return;
                 }
             }
-            this.f2787b = aVar;
+            this.f3215b = aVar;
             this.a = bVar;
         }
 
@@ -64,7 +64,7 @@ public class a {
                     return false;
                 }
                 try {
-                    g.p(new File(str));
+                    h.p(new File(str));
                     c.a.d.i.h.a.b().m("plugin_del_unuse", "delete_unuse", str, null);
                 } catch (Throwable th) {
                     c.a.d.i.h.a.b().m("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
@@ -76,7 +76,7 @@ public class a {
                 File file = new File(str.substring(0, length - 4));
                 if (file.exists() && file.isDirectory()) {
                     try {
-                        g.p(file);
+                        h.p(file);
                         c.a.d.i.h.a.b().m("plugin_del_unuse", "delete_unuse", str, null);
                         return true;
                     } catch (Throwable th2) {
@@ -109,27 +109,27 @@ public class a {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                super.onPostExecute((C0091a) bool);
-                this.f2787b.f2786c = null;
-                if (this.f2787b.f2785b.size() > 0) {
-                    Iterator it = this.f2787b.f2785b.iterator();
+                super.onPostExecute((C0112a) bool);
+                this.f3215b.f3214c = null;
+                if (this.f3215b.f3213b.size() > 0) {
+                    Iterator it = this.f3215b.f3213b.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         b bVar = (b) it.next();
-                        if (this.f2787b.g(this.a, bVar)) {
-                            this.f2787b.f2785b.remove(bVar);
+                        if (this.f3215b.g(this.a, bVar)) {
+                            this.f3215b.f3213b.remove(bVar);
                             break;
                         }
                     }
                 }
-                if (bool != null && bool.booleanValue() && this.f2787b.a != null) {
-                    c cVar = this.f2787b.a;
+                if (bool != null && bool.booleanValue() && this.f3215b.a != null) {
+                    c cVar = this.f3215b.a;
                     b bVar2 = this.a;
-                    cVar.a(bVar2.f2788b, bVar2.a);
+                    cVar.a(bVar2.f3216b, bVar2.a);
                 }
-                this.f2787b.i();
+                this.f3215b.i();
             }
         }
     }
@@ -141,7 +141,7 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2788b;
+        public String f3216b;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class a {
                     return;
                 }
             }
-            this.f2788b = str;
+            this.f3216b = str;
             this.a = str2;
         }
     }
@@ -181,21 +181,21 @@ public class a {
                 return;
             }
         }
-        this.f2785b = new ArrayList<>();
+        this.f3213b = new ArrayList<>();
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f2784d == null) {
+            if (f3212d == null) {
                 synchronized (a.class) {
-                    if (f2784d == null) {
-                        f2784d = new a();
+                    if (f3212d == null) {
+                        f3212d = new a();
                     }
                 }
             }
-            return f2784d;
+            return f3212d;
         }
         return (a) invokeV.objValue;
     }
@@ -209,9 +209,9 @@ public class a {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f2788b)) {
+            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f3216b)) {
                 boolean z = false;
-                Iterator<b> it2 = this.f2785b.iterator();
+                Iterator<b> it2 = this.f3213b.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -221,7 +221,7 @@ public class a {
                     }
                 }
                 if (!z) {
-                    this.f2785b.add(next);
+                    this.f3213b.add(next);
                 }
             }
         }
@@ -231,15 +231,15 @@ public class a {
     public final boolean g(b bVar, b bVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f2788b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f2788b) || !bVar2.f2788b.equals(bVar.f2788b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f3216b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f3216b) || !bVar2.f3216b.equals(bVar.f3216b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f2785b.size() != 0 && this.f2786c == null) {
-            C0091a c0091a = new C0091a(this, this.f2785b.get(0));
-            this.f2786c = c0091a;
-            c0091a.execute(new String[0]);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f3213b.size() != 0 && this.f3214c == null) {
+            C0112a c0112a = new C0112a(this, this.f3213b.get(0));
+            this.f3214c = c0112a;
+            c0112a.execute(new String[0]);
         }
     }
 }

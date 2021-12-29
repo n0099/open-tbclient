@@ -22,12 +22,12 @@ public final class YYPluginBundleInfo {
     public final String packageName;
     public final int versionCode;
 
-    public YYPluginBundleInfo(String packageName, int i2, boolean z, String str) {
+    public YYPluginBundleInfo(String str, int i2, boolean z, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {packageName, Integer.valueOf(i2), Boolean.valueOf(z), str};
+            Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -37,11 +37,10 @@ public final class YYPluginBundleInfo {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(packageName, "packageName");
-        this.packageName = packageName;
+        this.packageName = str;
         this.versionCode = i2;
         this.needUpdate = z;
-        this.ext = str;
+        this.ext = str2;
     }
 
     public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i2, boolean z, String str2, int i3, Object obj) {
@@ -84,14 +83,10 @@ public final class YYPluginBundleInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ext : (String) invokeV.objValue;
     }
 
-    public final YYPluginBundleInfo copy(String packageName, int i2, boolean z, String str) {
+    public final YYPluginBundleInfo copy(String str, int i2, boolean z, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{packageName, Integer.valueOf(i2), Boolean.valueOf(z), str})) == null) {
-            Intrinsics.checkNotNullParameter(packageName, "packageName");
-            return new YYPluginBundleInfo(packageName, i2, z, str);
-        }
-        return (YYPluginBundleInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2})) == null) ? new YYPluginBundleInfo(str, i2, z, str2) : (YYPluginBundleInfo) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {

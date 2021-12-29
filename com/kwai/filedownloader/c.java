@@ -29,7 +29,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     public int f60457d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<a.InterfaceC2130a> f60458e;
+    public ArrayList<a.InterfaceC2137a> f60458e;
 
     /* renamed from: f  reason: collision with root package name */
     public final String f60459f;
@@ -285,7 +285,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ArrayList<a.InterfaceC2130a> arrayList = this.f60458e;
+            ArrayList<a.InterfaceC2137a> arrayList = this.f60458e;
             return arrayList != null && arrayList.size() > 0;
         }
         return invokeV.booleanValue;
@@ -312,7 +312,7 @@ public class c implements com.kwai.filedownloader.a, a.b, d.a {
     }
 
     @Override // com.kwai.filedownloader.d.a
-    public ArrayList<a.InterfaceC2130a> S() {
+    public ArrayList<a.InterfaceC2137a> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f60458e : (ArrayList) invokeV.objValue;

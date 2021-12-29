@@ -1,155 +1,206 @@
 package c.a.d.m;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.style.DynamicDrawableSpan;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.CheckData;
+import com.baidu.searchbox.pms.bean.ErrorInfo;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.callback.IDataInterceptor;
+import com.baidu.searchbox.pms.callback.PackageCallback;
+import com.baidu.searchbox.pms.download.DownloadOptions;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.init.response.ParseUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class g extends DynamicDrawableSpan {
+public class g extends RequestParams.Channel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Drawable f2970e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Uri f2971f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f2972g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Context f2973h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a f2974i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Rect f2975j;
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* loaded from: classes.dex */
-    public interface a {
-        Drawable a(g gVar);
+    public static class b implements IDataInterceptor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public JSONObject getUploadData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                h d2 = h.d();
+                d2.g();
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("com.baidu.titan.patch", String.valueOf(d2.b()));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.IDataInterceptor
+        public CheckData onReceiveData(JSONObject jSONObject, int i2, int i3, String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jSONObject, Integer.valueOf(i2), Integer.valueOf(i3), str})) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("com.baidu.titan.patch");
+                    PackageInfo parsePkgItem = ParseUtils.parsePkgItem("132", "com.baidu.titan.patch", jSONObject2);
+                    CheckData checkData = new CheckData();
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("product", "132/com.baidu.titan.patch");
+                    if (parsePkgItem != null && parsePkgItem.updateVersion > 0) {
+                        DownloadOptions downloadOptions = new DownloadOptions();
+                        downloadOptions.saveToDb = false;
+                        PmsManager.getInstance().download(parsePkgItem, downloadOptions, new c(null));
+                        if (!TextUtils.isEmpty(parsePkgItem.downloadUrl)) {
+                            jSONObject3.put("valid", 1);
+                        } else {
+                            jSONObject3.put("valid", 0);
+                        }
+                        jSONObject3.put("version", parsePkgItem.updateVersion);
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    checkData.items = arrayList;
+                    arrayList.add(jSONObject2);
+                    checkData.totalCount = 1;
+                    checkData.successCount = 1;
+                    return checkData;
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
+            return (CheckData) invokeCommon.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class c extends DefaultDownloadCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes.dex */
+        public class a implements f {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // c.a.d.m.f
+            public void a(String str, int i2, String str2) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeLIL(1048576, this, str, i2, str2) == null) && c.a.d.m.a.a) {
+                    String str3 = "install " + str + " result: " + i2;
+                }
+            }
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
+                super.onDownloadError(packageInfo, errorInfo);
+            }
+        }
+
+        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
+        public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
+                super.onDownloadSuccess(packageInfo, errorInfo);
+                j.b(AppRuntime.getAppContext(), new a(this), packageInfo, false);
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(a aVar, int i2, int i3) {
-        super(i3);
+    public g() {
+        super("132", "com.baidu.titan.patch", (PackageCallback) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1], (PackageCallback) objArr[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2975j = new Rect();
-        this.f2972g = i2;
-        this.f2974i = aVar;
-    }
-
-    public void a(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-            this.f2970e = drawable;
-        }
-    }
-
-    public void b(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
-            this.f2975j.set(i2, i3, i4, i5);
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) || (drawable = getDrawable()) == null) {
-            return;
-        }
-        canvas.save();
-        int i7 = drawable.getBounds().bottom;
-        if (((DynamicDrawableSpan) this).mVerticalAlignment == 0) {
-            i5 = i6;
-        }
-        canvas.translate(f2, i5 - (drawable.getBounds().bottom - 4));
-        drawable.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan
-    public Drawable getDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Drawable drawable = this.f2970e;
-            if (drawable == null) {
-                a aVar = this.f2974i;
-                drawable = aVar != null ? aVar.a(this) : null;
-            }
-            if (drawable != null) {
-                return drawable;
-            }
-            try {
-                if (this.f2971f != null) {
-                    InputStream openInputStream = this.f2973h.getContentResolver().openInputStream(this.f2971f);
-                    BitmapDrawable bitmapDrawable = new BitmapDrawable(this.f2973h.getResources(), BitmapFactory.decodeStream(openInputStream));
-                    try {
-                        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-                        openInputStream.close();
-                        return bitmapDrawable;
-                    } catch (Exception unused) {
-                        drawable = bitmapDrawable;
-                    }
-                } else {
-                    drawable = this.f2973h.getResources().getDrawable(this.f2972g);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                }
-            } catch (Exception unused2) {
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
-            if (this.f2970e == null && this.f2974i != null) {
-                if (fontMetricsInt != null) {
-                    int i4 = -this.f2975j.bottom;
-                    fontMetricsInt.ascent = i4;
-                    fontMetricsInt.descent = 0;
-                    fontMetricsInt.top = i4;
-                    fontMetricsInt.bottom = 0;
-                }
-                return this.f2975j.right;
-            }
-            return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
-        }
-        return invokeCommon.intValue;
+        setDataInterceptor(new b(null));
     }
 }

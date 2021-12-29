@@ -22,10 +22,10 @@ public class b extends c.a.c0.s.k0.a {
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public a f2025e;
+    public a f2452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HandlerThread f2026f;
+    public final HandlerThread f2453f;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -35,17 +35,17 @@ public class b extends c.a.c0.s.k0.a {
 
         /* renamed from: c.a.c0.s.k0.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0067a implements Runnable {
+        public class RunnableC0088a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ p f2027e;
+            public final /* synthetic */ p f2454e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f2028f;
+            public final /* synthetic */ a f2455f;
 
-            public RunnableC0067a(a aVar, p pVar) {
+            public RunnableC0088a(a aVar, p pVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,17 +60,17 @@ public class b extends c.a.c0.s.k0.a {
                         return;
                     }
                 }
-                this.f2028f = aVar;
-                this.f2027e = pVar;
+                this.f2455f = aVar;
+                this.f2454e = pVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2028f.a.i(this.f2027e)) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f2455f.a.i(this.f2454e)) {
                     return;
                 }
-                this.f2028f.a.g(this.f2027e);
+                this.f2455f.a.g(this.f2454e);
             }
         }
 
@@ -102,7 +102,7 @@ public class b extends c.a.c0.s.k0.a {
                 super.handleMessage(message);
                 Object obj = message.obj;
                 if (obj instanceof p) {
-                    m.b(new RunnableC0067a(this, (p) obj));
+                    m.b(new RunnableC0088a(this, (p) obj));
                 }
             }
         }
@@ -122,9 +122,9 @@ public class b extends c.a.c0.s.k0.a {
             }
         }
         HandlerThread handlerThread = new HandlerThread(HandlerMessenger.TAG);
-        this.f2026f = handlerThread;
+        this.f2453f = handlerThread;
         handlerThread.start();
-        this.f2025e = new a(this, this.f2026f.getLooper());
+        this.f2452e = new a(this, this.f2453f.getLooper());
     }
 
     @Override // c.a.c0.s.k0.a
@@ -138,7 +138,7 @@ public class b extends c.a.c0.s.k0.a {
     public void l(@NonNull p pVar) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) || (aVar = this.f2025e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) || (aVar = this.f2452e) == null) {
             return;
         }
         aVar.obtainMessage(153, pVar).sendToTarget();
@@ -149,12 +149,12 @@ public class b extends c.a.c0.s.k0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.release();
-            this.f2026f.quit();
-            a aVar = this.f2025e;
+            this.f2453f.quit();
+            a aVar = this.f2452e;
             if (aVar != null) {
                 aVar.removeMessages(153);
             }
-            this.f2025e = null;
+            this.f2452e = null;
         }
     }
 }

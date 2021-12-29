@@ -22,10 +22,10 @@ public class n extends g implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f1911f;
+    public ImageView f2338f;
 
     /* renamed from: g  reason: collision with root package name */
-    public PlayDrawable f1912g;
+    public PlayDrawable f2339g;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -33,10 +33,10 @@ public class n extends g implements View.OnClickListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f1913e;
+        public final /* synthetic */ boolean f2340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f1914f;
+        public final /* synthetic */ n f2341f;
 
         public a(n nVar, boolean z) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class n extends g implements View.OnClickListener {
                     return;
                 }
             }
-            this.f1914f = nVar;
-            this.f1913e = z;
+            this.f2341f = nVar;
+            this.f2340e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1913e) {
-                    this.f1914f.f1911f.setVisibility(0);
+                if (this.f2340e) {
+                    this.f2341f.f2338f.setVisibility(0);
                 } else {
-                    this.f1914f.f1911f.setVisibility(8);
+                    this.f2341f.f2338f.setVisibility(8);
                 }
             }
         }
@@ -88,15 +88,15 @@ public class n extends g implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1911f = new ImageView(getContext());
+            this.f2338f = new ImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c.a.c0.e0.a.d.b.b(42.0f), c.a.c0.e0.a.d.b.b(42.0f));
             layoutParams.gravity = 17;
-            this.f1912g = new PlayDrawable();
-            this.f1911f.setLayoutParams(layoutParams);
-            this.f1911f.setBackground(getContext().getResources().getDrawable(q.nad_videoplayer_playbtn_bg));
-            this.f1911f.setImageDrawable(this.f1912g);
-            this.f1911f.setOnClickListener(this);
-            this.f1911f.setVisibility(8);
+            this.f2339g = new PlayDrawable();
+            this.f2338f.setLayoutParams(layoutParams);
+            this.f2338f.setBackground(getContext().getResources().getDrawable(q.nad_videoplayer_playbtn_bg));
+            this.f2338f.setImageDrawable(this.f2339g);
+            this.f2338f.setOnClickListener(this);
+            this.f2338f.setVisibility(8);
         }
     }
 
@@ -105,7 +105,7 @@ public class n extends g implements View.OnClickListener {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1911f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2338f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -181,37 +181,37 @@ public class n extends g implements View.OnClickListener {
                     int g2 = pVar.g(1);
                     if (g2 != 904 && g2 != 956) {
                         if (702 == g2 && n().Y()) {
-                            this.f1912g.q(PlayDrawable.IconState.PAUSE_STATE);
+                            this.f2339g.q(PlayDrawable.IconState.PAUSE_STATE);
                             return;
                         }
                         return;
                     }
-                    this.f1912g.q(PlayDrawable.IconState.PAUSE_STATE);
-                    this.f1911f.setImageDrawable(this.f1912g);
+                    this.f2339g.q(PlayDrawable.IconState.PAUSE_STATE);
+                    this.f2338f.setImageDrawable(this.f2339g);
                     return;
                 case 1:
-                    this.f1912g.q(pVar.d(6) ? PlayDrawable.IconState.PAUSE_STATE : PlayDrawable.IconState.PLAY_STATE);
+                    this.f2339g.q(pVar.d(6) ? PlayDrawable.IconState.PAUSE_STATE : PlayDrawable.IconState.PLAY_STATE);
                     return;
                 case 2:
-                    this.f1912g.q(PlayDrawable.IconState.PLAY_STATE);
+                    this.f2339g.q(PlayDrawable.IconState.PLAY_STATE);
                     return;
                 case 3:
-                    this.f1912g.q(PlayDrawable.IconState.PAUSE_STATE);
+                    this.f2339g.q(PlayDrawable.IconState.PAUSE_STATE);
                     return;
                 case 4:
-                    if (this.f1911f.getVisibility() == 0) {
-                        this.f1911f.setVisibility(4);
+                    if (this.f2338f.getVisibility() == 0) {
+                        this.f2338f.setVisibility(4);
                         return;
                     }
                     return;
                 case 5:
-                    this.f1912g.q(this.f1891e.u().W() ? PlayDrawable.IconState.PLAY_STATE : PlayDrawable.IconState.PAUSE_STATE);
+                    this.f2339g.q(this.f2318e.u().W() ? PlayDrawable.IconState.PLAY_STATE : PlayDrawable.IconState.PAUSE_STATE);
                     return;
                 case 6:
-                    this.f1911f.setVisibility(4);
+                    this.f2338f.setVisibility(4);
                     return;
                 case 7:
-                    this.f1911f.setVisibility(0);
+                    this.f2338f.setVisibility(0);
                     return;
                 default:
                     return;
@@ -224,9 +224,9 @@ public class n extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
             if (playerStatus != PlayerStatus.PLAYING && playerStatus != PlayerStatus.PREPARED && playerStatus != PlayerStatus.PREPARING) {
-                this.f1912g.q(PlayDrawable.IconState.PLAY_STATE);
+                this.f2339g.q(PlayDrawable.IconState.PLAY_STATE);
             } else {
-                this.f1912g.q(PlayDrawable.IconState.PAUSE_STATE);
+                this.f2339g.q(PlayDrawable.IconState.PAUSE_STATE);
             }
         }
     }
@@ -244,7 +244,7 @@ public class n extends g implements View.OnClickListener {
             } else {
                 n().K0();
             }
-            this.f1912g.r(true);
+            this.f2339g.r(true);
         }
     }
 
@@ -253,11 +253,11 @@ public class n extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (n().V0() && n().f1() == 0) {
-                this.f1911f.postDelayed(new a(this, z), 200L);
+                this.f2338f.postDelayed(new a(this, z), 200L);
             } else if (z && !z2) {
-                this.f1911f.setVisibility(0);
+                this.f2338f.setVisibility(0);
             } else {
-                this.f1911f.setVisibility(8);
+                this.f2338f.setVisibility(8);
             }
         }
     }

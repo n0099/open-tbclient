@@ -14,13 +14,13 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f45327b;
+    public int f45514b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f45328c;
+    public int f45515c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f45329d;
+    public boolean f45516d;
 
     public GridSpacingItemDecoration(int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f45327b = i3;
-        this.f45328c = i4;
-        this.f45329d = z;
+        this.f45514b = i3;
+        this.f45515c = i4;
+        this.f45516d = z;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -50,21 +50,21 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
             int i2 = this.a;
             int i3 = childAdapterPosition % i2;
-            if (this.f45329d) {
-                int i4 = this.f45327b;
+            if (this.f45516d) {
+                int i4 = this.f45514b;
                 rect.left = i4 - ((i3 * i4) / i2);
                 rect.right = ((i3 + 1) * i4) / i2;
                 if (childAdapterPosition < i2) {
                     rect.top = i4;
                 }
-                rect.bottom = this.f45327b;
+                rect.bottom = this.f45514b;
                 return;
             }
-            int i5 = this.f45327b;
+            int i5 = this.f45514b;
             rect.left = (i3 * i5) / i2;
             rect.right = i5 - (((i3 + 1) * i5) / i2);
             if (childAdapterPosition >= i2) {
-                rect.top = this.f45328c;
+                rect.top = this.f45515c;
             }
         }
     }

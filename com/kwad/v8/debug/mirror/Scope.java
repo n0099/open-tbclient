@@ -49,7 +49,7 @@ public class Scope extends Mirror {
                 }
             }
             Global = new ScopeType("Global", 0, 0);
-            Local = new ScopeType(b.f33723i, 1, 1);
+            Local = new ScopeType(b.f33879i, 1, 1);
             With = new ScopeType("With", 2, 2);
             Closure = new ScopeType("Closure", 3, 3);
             Catch = new ScopeType("Catch", 4, 4);

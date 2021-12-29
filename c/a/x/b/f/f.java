@@ -13,7 +13,7 @@ public class f {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<LiveBaseFragment> f27006b;
+    public static WeakReference<LiveBaseFragment> f27447b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,10 +41,10 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             a = 0;
-            WeakReference<LiveBaseFragment> weakReference = f27006b;
+            WeakReference<LiveBaseFragment> weakReference = f27447b;
             if (weakReference != null) {
                 weakReference.clear();
-                f27006b = null;
+                f27447b = null;
             }
         }
     }

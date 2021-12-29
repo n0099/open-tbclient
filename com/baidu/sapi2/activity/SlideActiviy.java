@@ -360,7 +360,7 @@ public class SlideActiviy extends BaseActivity {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f39187b;
+                public final /* synthetic */ SlideActiviy f39343b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -377,7 +377,7 @@ public class SlideActiviy extends BaseActivity {
                             return;
                         }
                     }
-                    this.f39187b = this;
+                    this.f39343b = this;
                     this.a = i2;
                 }
 
@@ -385,10 +385,10 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f39187b.x != null) {
-                            this.f39187b.x.onPanelClosed(view);
+                        if (this.f39343b.x != null) {
+                            this.f39343b.x.onPanelClosed(view);
                         }
-                        this.f39187b.a(0.0f);
+                        this.f39343b.a(0.0f);
                     }
                 }
 
@@ -396,13 +396,13 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f39187b.x != null) {
-                            this.f39187b.x.onPanelOpened(view);
+                        if (this.f39343b.x != null) {
+                            this.f39343b.x.onPanelOpened(view);
                         }
-                        this.f39187b.a(0.0f);
-                        this.f39187b.mSlideHelper.setShadowDrawable(null);
-                        this.f39187b.finishActivityAfterSlideOver();
-                        this.f39187b.overridePendingTransition(0, 0);
+                        this.f39343b.a(0.0f);
+                        this.f39343b.mSlideHelper.setShadowDrawable(null);
+                        this.f39343b.finishActivityAfterSlideOver();
+                        this.f39343b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -410,7 +410,7 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f39187b.mSlideHelper.getMaskView();
+                        View maskView = this.f39343b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -418,11 +418,11 @@ public class SlideActiviy extends BaseActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f39187b.x != null) {
-                            this.f39187b.x.onPanelSlide(view, f2);
+                        if (this.f39343b.x != null) {
+                            this.f39343b.x.onPanelSlide(view, f2);
                         }
                         float f4 = this.a >> 2;
-                        this.f39187b.a((f2 * f4) - f4);
+                        this.f39343b.a((f2 * f4) - f4);
                     }
                 }
             });

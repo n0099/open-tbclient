@@ -18,8 +18,8 @@ import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.util.MethodUtils;
+import com.bytedance.pangle.util.g;
 import com.bytedance.pangle.util.h;
-import com.bytedance.pangle.util.i;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinkedHashMap<String, Integer> f55205b;
+    public LinkedHashMap<String, Integer> f55204b;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public final class a {
             }
         }
         a = new HashMap();
-        List<String> a2 = i.a();
+        List<String> a2 = h.a();
         if (a2 == null || a2.size() <= 0) {
             return;
         }
@@ -73,7 +73,7 @@ public final class a {
             }
         }
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        this.f55205b = linkedHashMap;
+        this.f55204b = linkedHashMap;
         linkedHashMap.put(Zeus.getAppApplication().getApplicationInfo().sourceDir, 0);
     }
 
@@ -134,7 +134,7 @@ public final class a {
                     synchronized (assetManager) {
                         int i5 = 0;
                         for (int i6 = 0; i6 < i2; i6++) {
-                            if (h.b()) {
+                            if (g.b()) {
                                 i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str}, new Class[]{String.class})).intValue();
                             } else if (Build.VERSION.SDK_INT >= 24 && Build.VERSION.SDK_INT <= 25) {
                                 i5 = ((Integer) MethodUtils.invokeMethod(assetManager, "addAssetPathNative", new Object[]{str, Boolean.valueOf(z)}, new Class[]{String.class, Boolean.TYPE})).intValue();
@@ -178,11 +178,11 @@ public final class a {
         AssetManager a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, assetManager, str, z)) == null) {
-            if (h.a()) {
+            if (g.a()) {
                 int i2 = Build.VERSION.SDK_INT;
                 if (i2 >= 21 && i2 <= 25) {
                     a2 = c(assetManager, str, z);
-                    if (!i.a(a2, str)) {
+                    if (!h.a(a2, str)) {
                         a2 = b(assetManager, str, z);
                     }
                 } else {
@@ -191,10 +191,10 @@ public final class a {
             } else {
                 a2 = a(assetManager, str);
             }
-            synchronized (this.f55205b) {
-                this.f55205b.put(str, 0);
+            synchronized (this.f55204b) {
+                this.f55204b.put(str, 0);
             }
-            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + i.b(a2));
+            ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor updateAssetManager, newAssetManager=" + a2 + ", assets=" + h.b(a2));
             return a2;
         }
         return (AssetManager) invokeLLZ.objValue;
@@ -205,11 +205,11 @@ public final class a {
         AssetManager assetManager2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, assetManager, str)) == null) {
-            List<String> a2 = i.a(assetManager);
+            List<String> a2 = h.a(assetManager);
             ArrayList<String> arrayList = new ArrayList();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
-                if (!a.containsKey(str2) && !this.f55205b.containsKey(str2) && !str2.equals(str)) {
+                if (!a.containsKey(str2) && !this.f55204b.containsKey(str2) && !str2.equals(str)) {
                     arrayList.add(str2);
                 }
             }
@@ -221,8 +221,8 @@ public final class a {
                     assetManager2 = (AssetManager) AssetManager.class.newInstance();
                 }
                 ZeusLogger.i(ZeusLogger.TAG_LOAD, "AssetManagerProcessor newAssetManager = ".concat(String.valueOf(assetManager2)));
-                synchronized (this.f55205b) {
-                    for (Map.Entry<String, Integer> entry : this.f55205b.entrySet()) {
+                synchronized (this.f55204b) {
+                    for (Map.Entry<String, Integer> entry : this.f55204b.entrySet()) {
                         if (!a.containsKey(entry.getKey())) {
                             sb.append(entry.getKey());
                             b(assetManager2, entry.getKey(), false);

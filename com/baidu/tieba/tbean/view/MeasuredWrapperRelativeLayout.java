@@ -17,13 +17,13 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f49917e;
+    public a f50157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f49918f;
+    public int f50158f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f49919g;
+    public boolean f50159g;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -55,9 +55,9 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
-            int i3 = this.f49918f;
+            int i3 = this.f50158f;
             if (i3 == 0) {
-                this.f49918f = size;
+                this.f50158f = size;
             } else if (i3 == size) {
             } else {
                 int i4 = i3 - size;
@@ -65,12 +65,12 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
                     return;
                 }
                 if (i4 > 0) {
-                    this.f49919g = true;
+                    this.f50159g = true;
                 } else {
-                    this.f49919g = false;
+                    this.f50159g = false;
                 }
-                b(this.f49919g, Math.abs(i4));
-                this.f49918f = size;
+                b(this.f50159g, Math.abs(i4));
+                this.f50158f = size;
             }
         }
     }
@@ -78,7 +78,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public final void b(boolean z, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f49917e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f50157e) == null) {
             return;
         }
         aVar.update(z, i2);
@@ -87,7 +87,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public boolean isKeyBoardVisibile() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49919g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f50159g : invokeV.booleanValue;
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -102,7 +102,7 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public void setKeyBoardListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f49917e = aVar;
+            this.f50157e = aVar;
         }
     }
 

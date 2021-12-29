@@ -183,7 +183,7 @@ public final class a extends c {
             this.n.H(bArr, i2);
             String F = F(this.n);
             if (F.isEmpty()) {
-                return b.f30398f;
+                return b.f30476f;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(F);
             C(spannableStringBuilder, this.p, 0, 0, spannableStringBuilder.length(), 16711680);

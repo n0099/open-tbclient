@@ -14,25 +14,25 @@ public class a {
     public p a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2036b;
+    public String f2463b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2037c;
+    public String f2464c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2038d;
+    public String f2465d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2039e;
+    public String f2466e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2040f;
+    public String f2467f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2041g;
+    public String f2468g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2042h;
+    public String f2469h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f2040f = str;
+            this.f2467f = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -62,7 +62,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f2036b = str;
+            this.f2463b = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -72,7 +72,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f2037c = str;
+            this.f2464c = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -82,7 +82,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f2038d = str;
+            this.f2465d = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -92,7 +92,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f2039e = str;
+            this.f2466e = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -102,7 +102,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f2041g = str;
+            this.f2468g = str;
             return this;
         }
         return (a) invokeL.objValue;
@@ -112,7 +112,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f2042h = str;
+            this.f2469h = str;
             return this;
         }
         return (a) invokeL.objValue;

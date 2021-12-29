@@ -8,8 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.t.g;
-import c.a.y0.t.h;
+import c.a.a1.t.g;
+import c.a.a1.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -239,25 +239,25 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject jSONObject = new JSONObject(str);
                 subTitleUnit.line = jSONObject.optString("line");
                 subTitleUnit.engLine = jSONObject.optString("engLine");
-                subTitleUnit.textSize = g.a(jSONObject.optString("textSize"), 0.0f);
-                subTitleUnit.scale = g.a(jSONObject.optString(AnimationProperty.SCALE), 0.0f);
+                subTitleUnit.textSize = g.b(jSONObject.optString("textSize"), 0.0f);
+                subTitleUnit.scale = g.b(jSONObject.optString(AnimationProperty.SCALE), 0.0f);
                 subTitleUnit.rotate = jSONObject.optInt(AnimationProperty.ROTATE);
                 subTitleUnit.textColor = jSONObject.optInt("textColor");
                 subTitleUnit.chineseShadowColor = jSONObject.optInt("chineseShadowColor");
                 subTitleUnit.isChineseBold = jSONObject.optInt("isChineseBold", -1);
                 subTitleUnit.isChineseItalic = jSONObject.optInt("isChineseItalic", -1);
                 subTitleUnit.engTextColor = jSONObject.optInt("engTextColor");
-                subTitleUnit.engTextSize = g.a(jSONObject.optString("engTextSize"), 0.0f);
+                subTitleUnit.engTextSize = g.b(jSONObject.optString("engTextSize"), 0.0f);
                 subTitleUnit.engShadowColor = jSONObject.optInt("engShadowColor");
                 subTitleUnit.isEngBold = jSONObject.optInt("isEngBold", -1);
                 subTitleUnit.isEngItalic = jSONObject.optInt("isEngItalic", -1);
                 subTitleUnit.startTime = jSONObject.optLong("startTime");
                 subTitleUnit.endTime = jSONObject.optLong("endTime");
-                subTitleUnit.energy = g.a(jSONObject.optString("energy"), 0.0f);
+                subTitleUnit.energy = g.b(jSONObject.optString("energy"), 0.0f);
                 subTitleUnit.currentIndex = jSONObject.optInt("currentIndex");
                 subTitleUnit.isPreviousRotated = jSONObject.optBoolean("isPreviousRotated");
-                subTitleUnit.leftPercent = g.a(jSONObject.optString("leftPercent"), 0.0f);
-                subTitleUnit.topPercent = g.a(jSONObject.optString("topPercent"), 0.0f);
+                subTitleUnit.leftPercent = g.b(jSONObject.optString("leftPercent"), 0.0f);
+                subTitleUnit.topPercent = g.b(jSONObject.optString("topPercent"), 0.0f);
                 subTitleUnit.x = jSONObject.optInt("x");
                 subTitleUnit.y = jSONObject.optInt("y");
                 subTitleUnit.width = jSONObject.optInt("width");
@@ -267,30 +267,30 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
                 JSONObject optJSONObject = jSONObject.optJSONObject("chinese_shadow_config");
                 if (optJSONObject != null) {
                     SubTitleConfig.ShadowConfig shadowConfig = new SubTitleConfig.ShadowConfig();
-                    shadowConfig.shadowRadius = g.a(optJSONObject.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig.shadowDx = g.a(optJSONObject.optString("shadowDx"), 0.0f);
-                    shadowConfig.shadowDy = g.a(optJSONObject.optString("shadowDy"), 2.0f);
+                    shadowConfig.shadowRadius = g.b(optJSONObject.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig.shadowDx = g.b(optJSONObject.optString("shadowDx"), 0.0f);
+                    shadowConfig.shadowDy = g.b(optJSONObject.optString("shadowDy"), 2.0f);
                     subTitleUnit.chineseShadowConfig = shadowConfig;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("eng_shadow_config");
                 if (optJSONObject2 != null) {
                     SubTitleConfig.ShadowConfig shadowConfig2 = new SubTitleConfig.ShadowConfig();
-                    shadowConfig2.shadowRadius = g.a(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
-                    shadowConfig2.shadowDx = g.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                    shadowConfig2.shadowDy = g.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                    shadowConfig2.shadowRadius = g.b(optJSONObject2.optString(AnimationProperty.SHADOW_RADIUS), 2.0f);
+                    shadowConfig2.shadowDx = g.b(optJSONObject2.optString("shadowDx"), 0.0f);
+                    shadowConfig2.shadowDy = g.b(optJSONObject2.optString("shadowDy"), 2.0f);
                     subTitleUnit.engShadowConfig = shadowConfig2;
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("chineseStrokeConfig");
                 if (optJSONObject3 != null) {
                     SubTitleConfig.StrokeConfig strokeConfig = new SubTitleConfig.StrokeConfig();
-                    strokeConfig.strokeWidth = g.a(optJSONObject3.optString("strokeWidth"), 0.0f);
+                    strokeConfig.strokeWidth = g.b(optJSONObject3.optString("strokeWidth"), 0.0f);
                     strokeConfig.strokeColor = optJSONObject3.optInt("strokeColor");
                     subTitleUnit.chineseStrokeConfig = strokeConfig;
                 }
                 JSONObject optJSONObject4 = jSONObject.optJSONObject("engStrokeConfig");
                 if (optJSONObject4 != null) {
                     SubTitleConfig.StrokeConfig strokeConfig2 = new SubTitleConfig.StrokeConfig();
-                    strokeConfig2.strokeWidth = g.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                    strokeConfig2.strokeWidth = g.b(optJSONObject4.optString("strokeWidth"), 0.0f);
                     strokeConfig2.strokeColor = optJSONObject4.optInt("strokeColor");
                     subTitleUnit.engStrokeConfig = strokeConfig2;
                 }

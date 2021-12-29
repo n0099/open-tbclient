@@ -29,7 +29,7 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public final SingleObserver<? super Boolean> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64574d;
+        public Disposable f64569d;
 
         public IsEmptyMaybeObserver(SingleObserver<? super Boolean> singleObserver) {
             Interceptable interceptable = $ic;
@@ -53,8 +53,8 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64574d.dispose();
-                this.f64574d = DisposableHelper.DISPOSED;
+                this.f64569d.dispose();
+                this.f64569d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -62,14 +62,14 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64574d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64569d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f64574d = DisposableHelper.DISPOSED;
+                this.f64569d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Boolean.TRUE);
             }
         }
@@ -78,7 +78,7 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f64574d = DisposableHelper.DISPOSED;
+                this.f64569d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -86,8 +86,8 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64574d, disposable)) {
-                this.f64574d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64569d, disposable)) {
+                this.f64569d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -96,7 +96,7 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f64574d = DisposableHelper.DISPOSED;
+                this.f64569d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Boolean.FALSE);
             }
         }

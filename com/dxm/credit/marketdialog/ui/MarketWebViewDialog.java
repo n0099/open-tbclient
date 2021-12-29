@@ -43,10 +43,10 @@ public class MarketWebViewDialog extends MarketBaseDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public WebView f55622j;
+    public WebView f55621j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Handler f55623k;
+    public Handler f55622k;
 
     /* loaded from: classes2.dex */
     public class a extends SafeWebView.SafeWebViewClient {
@@ -54,18 +54,18 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarketWebViewDialog f55624e;
+        public final /* synthetic */ MarketWebViewDialog f55623e;
 
         /* renamed from: com.dxm.credit.marketdialog.ui.MarketWebViewDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC2029a implements Runnable {
+        public class RunnableC2036a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f55625e;
+            public final /* synthetic */ a f55624e;
 
-            public RunnableC2029a(a aVar) {
+            public RunnableC2036a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,14 +80,14 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                         return;
                     }
                 }
-                this.f55625e = aVar;
+                this.f55624e = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f55625e.f55624e.isShowing() && this.f55625e.f55624e.isInQueue()) {
-                    this.f55625e.f55624e.dismiss();
+                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f55624e.f55623e.isShowing() && this.f55624e.f55623e.isInQueue()) {
+                    this.f55624e.f55623e.dismiss();
                 }
             }
         }
@@ -107,7 +107,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55624e = marketWebViewDialog;
+            this.f55623e = marketWebViewDialog;
         }
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
@@ -115,10 +115,10 @@ public class MarketWebViewDialog extends MarketBaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                if (this.f55624e.isShowing() || !this.f55624e.isInQueue()) {
+                if (this.f55623e.isShowing() || !this.f55623e.isInQueue()) {
                     return;
                 }
-                this.f55624e.f55623k.postDelayed(new RunnableC2029a(this), 3000L);
+                this.f55623e.f55622k.postDelayed(new RunnableC2036a(this), 3000L);
             }
         }
 
@@ -140,10 +140,10 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.e.b.a.b.b f55626e;
+        public final /* synthetic */ c.e.b.a.b.b f55625e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MarketWebViewDialog f55627f;
+        public final /* synthetic */ MarketWebViewDialog f55626f;
 
         public b(MarketWebViewDialog marketWebViewDialog, c.e.b.a.b.b bVar) {
             Interceptable interceptable = $ic;
@@ -160,18 +160,18 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55627f = marketWebViewDialog;
-            this.f55626e = bVar;
+            this.f55626f = marketWebViewDialog;
+            this.f55625e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f55627f.isShowing()) {
-                    this.f55627f.dismiss();
+                if (this.f55626f.isShowing()) {
+                    this.f55626f.dismiss();
                 }
-                this.f55627f.e(this.f55626e);
+                this.f55626f.e(this.f55625e);
             }
         }
     }
@@ -182,10 +182,10 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.e.b.a.b.b f55628e;
+        public final /* synthetic */ c.e.b.a.b.b f55627e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MarketWebViewDialog f55629f;
+        public final /* synthetic */ MarketWebViewDialog f55628f;
 
         public c(MarketWebViewDialog marketWebViewDialog, c.e.b.a.b.b bVar) {
             Interceptable interceptable = $ic;
@@ -202,16 +202,16 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55629f = marketWebViewDialog;
-            this.f55628e = bVar;
+            this.f55628f = marketWebViewDialog;
+            this.f55627e = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f55629f.showOnly();
-                this.f55629f.e(this.f55628e);
+                this.f55628f.showOnly();
+                this.f55628f.e(this.f55627e);
             }
         }
     }
@@ -256,7 +256,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MarketWebViewDialog f55630e;
+        public final /* synthetic */ MarketWebViewDialog f55629e;
 
         public e(MarketWebViewDialog marketWebViewDialog) {
             Interceptable interceptable = $ic;
@@ -273,7 +273,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                     return;
                 }
             }
-            this.f55630e = marketWebViewDialog;
+            this.f55629e = marketWebViewDialog;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -306,7 +306,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                 return;
             }
         }
-        this.f55623k = new Handler();
+        this.f55622k = new Handler();
         d();
     }
 
@@ -342,10 +342,10 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setCancelable(false);
             SafeWebView safeWebView = new SafeWebView(getContext());
-            this.f55622j = safeWebView;
+            this.f55621j = safeWebView;
             safeWebView.setLongClickable(true);
-            this.f55622j.setOnLongClickListener(new e(this));
-            WebView webView = this.f55622j;
+            this.f55621j.setOnLongClickListener(new e(this));
+            WebView webView = this.f55621j;
             this.mRootView = webView;
             setContentView(webView, new ViewGroup.LayoutParams(-1, -1));
         }
@@ -403,12 +403,12 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                 return false;
             }
             getWindow().setLayout(-1, -1);
-            this.f55622j.setBackgroundColor(Color.parseColor("#00000000"));
-            this.f55622j.setLayerType(1, null);
-            this.f55622j.setScrollContainer(false);
-            this.f55622j.setVerticalScrollBarEnabled(false);
-            this.f55622j.setHorizontalScrollBarEnabled(false);
-            WebSettings settings = this.f55622j.getSettings();
+            this.f55621j.setBackgroundColor(Color.parseColor("#00000000"));
+            this.f55621j.setLayerType(1, null);
+            this.f55621j.setScrollContainer(false);
+            this.f55621j.setVerticalScrollBarEnabled(false);
+            this.f55621j.setHorizontalScrollBarEnabled(false);
+            WebSettings settings = this.f55621j.getSettings();
             settings.setJavaScriptEnabled(true);
             settings.setDomStorageEnabled(true);
             settings.setUseWideViewPort(true);
@@ -417,11 +417,11 @@ public class MarketWebViewDialog extends MarketBaseDialog {
             settings.setDisplayZoomControls(false);
             String userAgentString = settings.getUserAgentString();
             settings.setUserAgentString(userAgentString + " " + BussinessUtils.getUA(getContext()));
-            this.f55622j.setWebViewClient(new a(this));
-            this.f55622j.addJavascriptInterface(this, LightappJsClient.LIGHTAPP_JS_NAME);
+            this.f55621j.setWebViewClient(new a(this));
+            this.f55621j.addJavascriptInterface(this, LightappJsClient.LIGHTAPP_JS_NAME);
             MarketDialogResponse.Dialog dialog = this.mData;
             if (dialog != null) {
-                this.f55622j.loadUrl(dialog.group_link_addr);
+                this.f55621j.loadUrl(dialog.group_link_addr);
             }
             return true;
         }
@@ -434,7 +434,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
         Runnable bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            c.e.b.a.b.b bVar2 = new c.e.b.a.b.b(this.f55622j, str2, str3);
+            c.e.b.a.b.b bVar2 = new c.e.b.a.b.b(this.f55621j, str2, str3);
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("method_name");
@@ -470,7 +470,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                         break;
                 }
                 if (c2 == 0) {
-                    handler = this.f55623k;
+                    handler = this.f55622k;
                     bVar = new b(this, bVar2);
                 } else if (c2 != 1) {
                     if (c2 == 2) {
@@ -517,7 +517,7 @@ public class MarketWebViewDialog extends MarketBaseDialog {
                         return;
                     }
                 } else {
-                    handler = this.f55623k;
+                    handler = this.f55622k;
                     bVar = new c(this, bVar2);
                 }
                 handler.post(bVar);

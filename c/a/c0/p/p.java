@@ -17,34 +17,34 @@ public class p {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1829b;
+    public final String f2256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1830c;
+    public final String f2257c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f1831d;
+    public final String f2258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f1832e;
+    public final double f2259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f1833f;
+    public final String f2260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final b f1834g;
+    public final b f2261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final a f1835h;
+    public final a f2262h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f1836i;
+    public final String f2263i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final String f1837j;
+    public final String f2264j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final boolean f1838k;
+    public final boolean f2265k;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -53,7 +53,7 @@ public class p {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1839b;
+        public String f2266b;
 
         public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class p {
                 return;
             }
             this.a = jSONObject.optString("desc");
-            this.f1839b = jSONObject.optString("cmd");
+            this.f2266b = jSONObject.optString("cmd");
         }
 
         public static a a(JSONObject jSONObject) {
@@ -91,7 +91,7 @@ public class p {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1840b;
+        public String f2267b;
 
         public b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class p {
                 return;
             }
             this.a = jSONObject.optString("desc");
-            this.f1840b = jSONObject.optString("cmd");
+            this.f2267b = jSONObject.optString("cmd");
         }
 
         public static b a(JSONObject jSONObject) {
@@ -138,17 +138,17 @@ public class p {
             }
         }
         this.a = jSONObject.optString("strict_mode");
-        this.f1829b = jSONObject.optString("app_icon");
-        this.f1830c = jSONObject.optString("app_name");
-        this.f1831d = jSONObject.optString("developer_name");
-        this.f1832e = jSONObject.optDouble("score", -1.0d);
-        this.f1833f = jSONObject.optString("version");
-        this.f1834g = b.a(jSONObject.optJSONObject("privacy"));
-        this.f1835h = a.a(jSONObject.optJSONObject("permission"));
+        this.f2256b = jSONObject.optString("app_icon");
+        this.f2257c = jSONObject.optString("app_name");
+        this.f2258d = jSONObject.optString("developer_name");
+        this.f2259e = jSONObject.optDouble("score", -1.0d);
+        this.f2260f = jSONObject.optString("version");
+        this.f2261g = b.a(jSONObject.optJSONObject("privacy"));
+        this.f2262h = a.a(jSONObject.optJSONObject("permission"));
         jSONObject.optDouble("app_icon_scale");
-        this.f1836i = jSONObject.optString("apk_size");
-        this.f1837j = jSONObject.optString("apk_url");
-        this.f1838k = a();
+        this.f2263i = jSONObject.optString("apk_size");
+        this.f2264j = jSONObject.optString("apk_url");
+        this.f2265k = a();
     }
 
     public static p c(JSONObject jSONObject) throws ParseError {
@@ -177,6 +177,6 @@ public class p {
         b bVar;
         a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f1831d) || TextUtils.isEmpty(this.f1833f) || (bVar = this.f1834g) == null || TextUtils.isEmpty(bVar.f1840b) || TextUtils.isEmpty(this.f1834g.a) || (aVar = this.f1835h) == null || TextUtils.isEmpty(aVar.f1839b) || TextUtils.isEmpty(this.f1835h.a)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.f2258d) || TextUtils.isEmpty(this.f2260f) || (bVar = this.f2261g) == null || TextUtils.isEmpty(bVar.f2267b) || TextUtils.isEmpty(this.f2261g.a) || (aVar = this.f2262h) == null || TextUtils.isEmpty(aVar.f2266b) || TextUtils.isEmpty(this.f2262h.a)) ? false : true : invokeV.booleanValue;
     }
 }

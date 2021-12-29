@@ -1,8 +1,5 @@
 package com.kwad.sdk.crash.utils;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,40 +11,35 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static Process a(String[] strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, strArr)) == null) ? Runtime.getRuntime().exec(strArr) : (Process) invokeL.objValue;
+        return Runtime.getRuntime().exec(strArr);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x009c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x009f */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0098 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x009b */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00f7  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x00f3  */
     /* JADX WARN: Type inference failed for: r2v3 */
     /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r5v1 */
+    /* JADX WARN: Type inference failed for: r5v0 */
     /* JADX WARN: Type inference failed for: r5v10 */
     /* JADX WARN: Type inference failed for: r5v11 */
-    /* JADX WARN: Type inference failed for: r5v12 */
-    /* JADX WARN: Type inference failed for: r5v13, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v12, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v13 */
     /* JADX WARN: Type inference failed for: r5v14 */
     /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16 */
-    /* JADX WARN: Type inference failed for: r5v3, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v3 */
     /* JADX WARN: Type inference failed for: r5v4 */
-    /* JADX WARN: Type inference failed for: r5v5 */
+    /* JADX WARN: Type inference failed for: r5v6 */
     /* JADX WARN: Type inference failed for: r5v7 */
     /* JADX WARN: Type inference failed for: r5v8 */
     /* JADX WARN: Type inference failed for: r5v9 */
+    /* JADX WARN: Type inference failed for: r6v0 */
     /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v10 */
-    /* JADX WARN: Type inference failed for: r6v11, types: [java.io.BufferedReader, java.io.Reader] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r6v10, types: [java.io.BufferedReader, java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r6v2, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r6v3 */
     /* JADX WARN: Type inference failed for: r6v4 */
     /* JADX WARN: Type inference failed for: r6v5 */
     /* JADX WARN: Type inference failed for: r6v6 */
@@ -58,7 +50,6 @@ public class c {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static List<String> a(String[] strArr, int i2) {
-        InterceptResult invokeLI;
         Process process;
         OutputStream outputStream;
         InputStream inputStream;
@@ -67,10 +58,6 @@ public class c {
         ?? r5;
         Process process2;
         Process process3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65537, null, strArr, i2)) != null) {
-            return (List) invokeLI.objValue;
-        }
         ArrayList arrayList = new ArrayList(20);
         InputStream inputStream2 = null;
         try {

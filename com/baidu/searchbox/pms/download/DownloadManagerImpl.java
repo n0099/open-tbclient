@@ -1,5 +1,6 @@
 package com.baidu.searchbox.pms.download;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -217,7 +218,12 @@ public class DownloadManagerImpl implements IDownloadManager {
                         sb.append(Log.getStackTraceString(exc));
                     }
                     int i5 = AnonymousClass3.$SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause[endCause.ordinal()];
-                    downloadTaskExt.mergeCallback.onError((i5 == 1 || i5 == 2) ? ErrorConstant.Code.DOWNLOAD_ERROR_WRITE : 2201, sb.toString());
+                    int i6 = (i5 == 1 || i5 == 2) ? ErrorConstant.Code.DOWNLOAD_ERROR_WRITE : 2201;
+                    if (downloadTaskExt.info.isHitNetWorkStrategy() && downloadTaskExt.info.retryCount < 1 && i6 == 2201) {
+                        this.this$0.onRetry(downloadTaskExt);
+                    } else {
+                        downloadTaskExt.mergeCallback.onError(i6, sb.toString());
+                    }
                 } else if (downloadTaskExt.info.type == 3) {
                     downloadTaskExt.mergeCallback.onPause();
                 } else {
@@ -248,13 +254,21 @@ public class DownloadManagerImpl implements IDownloadManager {
         InterceptResult invokeLL;
         PriorityStrategy.Priority priority;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, packageInfo, downloadOptions)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, packageInfo, downloadOptions)) == null) {
             if (downloadOptions != null) {
                 priority = getPriority(downloadOptions.priority);
             } else {
                 priority = getPriority(1);
             }
-            DownloadTask build = new DownloadTask.Builder(packageInfo.downloadUrl, new File(packageInfo.filePath)).setMinIntervalMillisCallbackProcess(100).setPassIfAlreadyCompleted(false).setConnectionCount(1).setPriority(priority).build();
+            String str = packageInfo.downloadUrl;
+            if (packageInfo.isHitTrafficLimit()) {
+                str = packageInfo.getTrafficUrl();
+            }
+            if (!TextUtils.isEmpty(packageInfo.netWorkStrategy) && packageInfo.retryCount < 1 && (downloadOptions == null || downloadOptions.priority < 3)) {
+                packageInfo.setXCDNEnable(true);
+                str = packageInfo.getNetWorkStrategyUrl();
+            }
+            DownloadTask build = new DownloadTask.Builder(str, new File(packageInfo.filePath)).setMinIntervalMillisCallbackProcess(100).setPassIfAlreadyCompleted(false).setConnectionCount(1).setPriority(priority).build();
             build.setTag(packageInfo.getKey());
             return build;
         }
@@ -264,7 +278,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     private PriorityStrategy.Priority getPriority(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -285,7 +299,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void innerStart(@NonNull List<PackageInfo> list, @Nullable DownloadOptions downloadOptions, @NonNull InnerCallback innerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, this, list, downloadOptions, innerCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, this, list, downloadOptions, innerCallback) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -306,10 +320,23 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onRetry(DownloadTaskExt downloadTaskExt) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, downloadTaskExt) == null) {
+            PackageInfo packageInfo = downloadTaskExt.info;
+            packageInfo.retryCount++;
+            this.mTasks.remove(packageInfo.getKey());
+            downloadTaskExt.task = createTask(packageInfo, null);
+            this.mTasks.put(packageInfo.getKey(), downloadTaskExt);
+            resume(packageInfo);
+        }
+    }
+
     private boolean prepareDownload(PackageInfo packageInfo, DownloadOptions downloadOptions, InnerCallback innerCallback) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, packageInfo, downloadOptions, innerCallback)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, packageInfo, downloadOptions, innerCallback)) == null) {
             if (downloadOptions == null) {
                 downloadOptions = new DownloadOptions();
             }

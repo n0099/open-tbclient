@@ -20,7 +20,7 @@ public interface w {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final byte[] f29816b;
+        public final byte[] f29894b;
 
         public a(String str, int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public interface w {
                 }
             }
             this.a = str;
-            this.f29816b = bArr;
+            this.f29894b = bArr;
         }
     }
 
@@ -49,13 +49,13 @@ public interface w {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f29817b;
+        public final String f29895b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final List<a> f29818c;
+        public final List<a> f29896c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final byte[] f29819d;
+        public final byte[] f29897d;
 
         public b(int i2, String str, List<a> list, byte[] bArr) {
             List<a> unmodifiableList;
@@ -74,14 +74,14 @@ public interface w {
                 }
             }
             this.a = i2;
-            this.f29817b = str;
+            this.f29895b = str;
             if (list == null) {
                 unmodifiableList = Collections.emptyList();
             } else {
                 unmodifiableList = Collections.unmodifiableList(list);
             }
-            this.f29818c = unmodifiableList;
-            this.f29819d = bArr;
+            this.f29896c = unmodifiableList;
+            this.f29897d = bArr;
         }
     }
 
@@ -99,16 +99,16 @@ public interface w {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29820b;
+        public final int f29898b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29821c;
+        public final int f29899c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29822d;
+        public int f29900d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29823e;
+        public String f29901e;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public d(int i2, int i3) {
@@ -134,9 +134,9 @@ public interface w {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f29822d;
-                this.f29822d = i2 == Integer.MIN_VALUE ? this.f29820b : i2 + this.f29821c;
-                this.f29823e = this.a + this.f29822d;
+                int i2 = this.f29900d;
+                this.f29900d = i2 == Integer.MIN_VALUE ? this.f29898b : i2 + this.f29899c;
+                this.f29901e = this.a + this.f29900d;
             }
         }
 
@@ -145,7 +145,7 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 d();
-                return this.f29823e;
+                return this.f29901e;
             }
             return (String) invokeV.objValue;
         }
@@ -155,14 +155,14 @@ public interface w {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 d();
-                return this.f29822d;
+                return this.f29900d;
             }
             return invokeV.intValue;
         }
 
         public final void d() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f29822d == Integer.MIN_VALUE) {
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f29900d == Integer.MIN_VALUE) {
                 throw new IllegalStateException("generateNewId() must be called before retrieving ids.");
             }
         }
@@ -189,9 +189,9 @@ public interface w {
                 str = "";
             }
             this.a = str;
-            this.f29820b = i3;
-            this.f29821c = i4;
-            this.f29822d = Integer.MIN_VALUE;
+            this.f29898b = i3;
+            this.f29899c = i4;
+            this.f29900d = Integer.MIN_VALUE;
         }
     }
 

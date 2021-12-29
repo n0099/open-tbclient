@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebpBitmapFactoryImpl implements WebpBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 20;

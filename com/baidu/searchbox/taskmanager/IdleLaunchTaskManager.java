@@ -2,13 +2,14 @@ package com.baidu.searchbox.taskmanager;
 
 import android.content.Context;
 import android.webkit.WebSettings;
-import c.a.r0.s.g0.b;
+import c.a.s0.s.g0.b;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.launch.SmartLaunchScheduler;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.SpeedStats;
 import com.baidu.searchbox.task.item.InitMainTabTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -97,6 +98,7 @@ public class IdleLaunchTaskManager {
                     new SmartLaunchStats().stats();
                     new TTIStats().stats();
                     new InitMainTabTask().execute();
+                    Loki.startTrack();
                 }
             }
         });

@@ -23,17 +23,17 @@ public abstract class a implements c.a.c0.s.p0.c {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1976b;
+    public String f2403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1977c;
+    public String f2404c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, String> f1978d;
+    public final HashMap<String, String> f2405d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.c0.s.q0.a f1979e;
+    public final c.a.c0.s.q0.a f2406e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public abstract class a implements c.a.c0.s.p0.c {
                 return;
             }
         }
-        this.f1978d = new HashMap<>();
-        this.f1979e = c.a.c0.s.q0.b.c().b();
+        this.f2405d = new HashMap<>();
+        this.f2406e = c.a.c0.s.q0.b.c().b();
         w("VideoKernel: " + getClass().getSimpleName() + " Created, HashCode = " + System.identityHashCode(this));
     }
 
@@ -69,7 +69,7 @@ public abstract class a implements c.a.c0.s.p0.c {
             return;
         }
         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            this.f1978d.put(entry.getKey(), entry.getValue());
+            this.f2405d.put(entry.getKey(), entry.getValue());
         }
     }
 
@@ -97,7 +97,7 @@ public abstract class a implements c.a.c0.s.p0.c {
             return;
         }
         w("setUserAgent = " + str);
-        this.f1978d.put("User-Agent", str);
+        this.f2405d.put("User-Agent", str);
     }
 
     public abstract void K(String str, @NonNull HashMap<String, String> hashMap);
@@ -107,12 +107,12 @@ public abstract class a implements c.a.c0.s.p0.c {
     public void M(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) {
-            this.f1976b = str;
+            this.f2403b = str;
             if (TextUtils.isEmpty(str) || !z) {
                 return;
             }
-            this.f1977c = this.f1976b;
-            w("setDataSourceAndPrepare " + this.f1976b);
+            this.f2404c = this.f2403b;
+            w("setDataSourceAndPrepare " + this.f2403b);
             p(PlayerStatus.PREPARING);
             C();
         }
@@ -121,9 +121,9 @@ public abstract class a implements c.a.c0.s.p0.c {
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            w("start()" + this.f1976b);
-            if (TextUtils.isEmpty(this.f1976b)) {
-                this.f1976b = "";
+            w("start()" + this.f2403b);
+            if (TextUtils.isEmpty(this.f2403b)) {
+                this.f2403b = "";
             } else {
                 x();
             }
@@ -134,7 +134,7 @@ public abstract class a implements c.a.c0.s.p0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             w(IntentConfig.STOP);
-            this.f1977c = null;
+            this.f2404c = null;
             p(PlayerStatus.STOP);
         }
     }
@@ -143,14 +143,14 @@ public abstract class a implements c.a.c0.s.p0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             w("stopPlayback");
-            this.f1977c = null;
+            this.f2404c = null;
         }
     }
 
     public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f1979e.h();
+            this.f2406e.h();
         }
     }
 
@@ -159,7 +159,7 @@ public abstract class a implements c.a.c0.s.p0.c {
     public void a(@NonNull c.a.c0.s.k0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
-            this.f1979e.b(cVar);
+            this.f2406e.b(cVar);
         }
     }
 
@@ -168,7 +168,7 @@ public abstract class a implements c.a.c0.s.p0.c {
         if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f1976b = str;
+        this.f2403b = str;
         p(PlayerStatus.PREPARING);
         C();
         N();
@@ -190,7 +190,7 @@ public abstract class a implements c.a.c0.s.p0.c {
     public PlayerStatus i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f1979e.c() : (PlayerStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f2406e.c() : (PlayerStatus) invokeV.objValue;
     }
 
     public abstract int j();
@@ -199,13 +199,13 @@ public abstract class a implements c.a.c0.s.p0.c {
     public c.a.c0.s.q0.a k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f1979e : (c.a.c0.s.q0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f2406e : (c.a.c0.s.q0.a) invokeV.objValue;
     }
 
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f1976b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f2403b : (String) invokeV.objValue;
     }
 
     public abstract int m();
@@ -213,7 +213,7 @@ public abstract class a implements c.a.c0.s.p0.c {
     public boolean n(@NonNull PlayerStatus... playerStatusArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, playerStatusArr)) == null) ? this.f1979e.e(playerStatusArr) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, playerStatusArr)) == null) ? this.f2406e.e(playerStatusArr) : invokeL.booleanValue;
     }
 
     public abstract void o(boolean z);
@@ -236,16 +236,16 @@ public abstract class a implements c.a.c0.s.p0.c {
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             w("onRelease");
             m.a(c());
-            this.f1979e.f();
-            this.f1977c = null;
-            this.f1976b = "";
+            this.f2406e.f();
+            this.f2404c = null;
+            this.f2403b = "";
         }
     }
 
     public void p(PlayerStatus playerStatus) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, playerStatus) == null) {
-            this.f1979e.g(playerStatus);
+            this.f2406e.g(playerStatus);
         }
     }
 
@@ -258,7 +258,7 @@ public abstract class a implements c.a.c0.s.p0.c {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.f1977c = null;
+            this.f2404c = null;
         }
     }
 
@@ -291,7 +291,7 @@ public abstract class a implements c.a.c0.s.p0.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             w("prepare");
-            if (PlayerStatus.isActiveStatus(i()) || TextUtils.isEmpty(this.f1976b)) {
+            if (PlayerStatus.isActiveStatus(i()) || TextUtils.isEmpty(this.f2403b)) {
                 return;
             }
             p(PlayerStatus.PREPARING);
@@ -318,7 +318,7 @@ public abstract class a implements c.a.c0.s.p0.c {
 
     public final void x() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || TextUtils.equals(this.f1977c, this.f1976b) || TextUtils.isEmpty(this.f1976b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || TextUtils.equals(this.f2404c, this.f2403b) || TextUtils.isEmpty(this.f2403b)) {
             return;
         }
         p(PlayerStatus.PREPARING);

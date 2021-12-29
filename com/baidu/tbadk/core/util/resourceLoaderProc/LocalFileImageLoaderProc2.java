@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.m;
-import c.a.d.m.d.a;
-import c.a.r0.c0.c;
+import c.a.d.f.p.n;
+import c.a.d.n.d.a;
+import c.a.s0.c0.c;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,8 +44,8 @@ public class LocalFileImageLoaderProc2 implements e<a> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = m.k(TbadkCoreApplication.getInst());
-            this.height = m.i(TbadkCoreApplication.getInst());
+            this.width = n.k(TbadkCoreApplication.getInst());
+            this.height = n.i(TbadkCoreApplication.getInst());
         }
     }
 

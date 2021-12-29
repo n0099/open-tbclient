@@ -16,18 +16,18 @@ public class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
             c.a.c0.w.a.a aVar2 = new c.a.c0.w.a.a();
             aVar2.h(aVar.d());
-            aVar2.n(aVar.f1512b);
-            aVar2.m(aVar.f1513c.status);
-            aVar2.j(aVar.f1514d);
-            aVar2.o(aVar.f1517g);
-            File file = aVar.f1518h;
+            aVar2.n(aVar.f1939b);
+            aVar2.m(aVar.f1940c.status);
+            aVar2.j(aVar.f1941d);
+            aVar2.o(aVar.f1944g);
+            File file = aVar.f1945h;
             if (file != null) {
                 aVar2.f(file.getAbsolutePath());
             } else {
                 aVar2.f("");
             }
-            aVar2.k((int) (aVar.f1519i * 1000.0f));
-            aVar2.p((int) (aVar.f1520j * 1000.0f));
+            aVar2.k((int) (aVar.f1946i * 1000.0f));
+            aVar2.p((int) (aVar.f1947j * 1000.0f));
             aVar2.l(aVar.l);
             aVar2.g(aVar.m);
             c.a.c0.g.d.d dVar = aVar.n;

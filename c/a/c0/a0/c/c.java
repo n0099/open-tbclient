@@ -31,7 +31,7 @@ public class c extends b {
                 return;
             }
         }
-        this.f38168c = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
+        this.f38324c = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 100L, TimeUnit.MILLISECONDS, new SynchronousQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell

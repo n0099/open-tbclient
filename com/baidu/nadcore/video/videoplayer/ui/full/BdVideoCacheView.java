@@ -26,20 +26,20 @@ public class BdVideoCacheView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38213h;
+    public static final int f38369h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38214i;
+    public static final int f38370i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38215e;
+    public final Context f38371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38216f;
+    public TextView f38372f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38217g;
+    public TextView f38373g;
     public BdVideoLoadingView mLoadingView;
 
     static {
@@ -57,8 +57,8 @@ public class BdVideoCacheView extends FrameLayout {
         }
         b.c(18.0f);
         b.c(22.0f);
-        f38213h = b.d(200.0f);
-        f38214i = b.d(200.0f);
+        f38369h = b.d(200.0f);
+        f38370i = b.d(200.0f);
         b.d(10.0f);
         b.d(25.0f);
         b.d(6.0f);
@@ -109,7 +109,7 @@ public class BdVideoCacheView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            BdVideoLoadingView bdVideoLoadingView = new BdVideoLoadingView(this.f38215e);
+            BdVideoLoadingView bdVideoLoadingView = new BdVideoLoadingView(this.f38371e);
             this.mLoadingView = bdVideoLoadingView;
             addView(bdVideoLoadingView, layoutParams);
         }
@@ -143,7 +143,7 @@ public class BdVideoCacheView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(f38213h, f38214i);
+            setMeasuredDimension(f38369h, f38370i);
         }
     }
 
@@ -180,7 +180,7 @@ public class BdVideoCacheView extends FrameLayout {
     public void setCacheHint(int i2) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.f38216f.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.f38372f.getVisibility() == 0) {
             if (i2 < 10) {
                 str = "   " + i2;
             } else if (i2 < 100) {
@@ -188,7 +188,7 @@ public class BdVideoCacheView extends FrameLayout {
             } else {
                 str = "";
             }
-            this.f38216f.setText(str + "%");
+            this.f38372f.setText(str + "%");
         }
     }
 
@@ -204,7 +204,7 @@ public class BdVideoCacheView extends FrameLayout {
     public void setSpeedHint(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f38217g.setText(a(i2));
+            this.f38373g.setText(a(i2));
         }
     }
 
@@ -241,7 +241,7 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        this.f38215e = context;
+        this.f38371e = context;
         b();
     }
 }

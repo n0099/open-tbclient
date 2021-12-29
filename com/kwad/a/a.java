@@ -26,7 +26,7 @@ public class a implements b.a {
 
     /* renamed from: com.kwad.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2061a {
+    public static class C2068a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ZipFile a;
@@ -34,7 +34,7 @@ public class a implements b.a {
         /* renamed from: b  reason: collision with root package name */
         public ZipEntry f57515b;
 
-        public C2061a(ZipFile zipFile, ZipEntry zipEntry) {
+        public C2068a(ZipFile zipFile, ZipEntry zipEntry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class a implements b.a {
         }
     }
 
-    private C2061a a(Context context, String[] strArr, String str, c cVar) {
+    private C2068a a(Context context, String[] strArr, String str, c cVar) {
         InterceptResult invokeLLLL;
         int i2;
         Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class a implements b.a {
                             cVar.a("Looking for %s in APK %s...", objArr);
                             ZipEntry entry = zipFile.getEntry(str3);
                             if (entry != null) {
-                                return new C2061a(zipFile, entry);
+                                return new C2068a(zipFile, entry);
                             }
                             i8++;
                             c2 = 0;
@@ -144,7 +144,7 @@ public class a implements b.a {
             }
             return null;
         }
-        return (C2061a) invokeLLLL.objValue;
+        return (C2068a) invokeLLLL.objValue;
     }
 
     private void a(Closeable closeable) {
@@ -184,10 +184,10 @@ public class a implements b.a {
         if (interceptable != null && interceptable.invokeLLLLL(1048576, this, context, strArr, str, file, cVar) != null) {
             return;
         }
-        C2061a c2061a = null;
+        C2068a c2068a = null;
         Closeable closeable2 = null;
         try {
-            C2061a a2 = a(context, strArr, str, cVar);
+            C2068a a2 = a(context, strArr, str, cVar);
             try {
                 if (a2 == null) {
                     throw new RuntimeException(str);
@@ -281,11 +281,11 @@ public class a implements b.a {
                 }
             } catch (Throwable th4) {
                 th = th4;
-                c2061a = a2;
-                if (c2061a != null) {
+                c2068a = a2;
+                if (c2068a != null) {
                     try {
-                        if (c2061a.a != null) {
-                            c2061a.a.close();
+                        if (c2068a.a != null) {
+                            c2068a.a.close();
                         }
                     } catch (IOException unused10) {
                     }

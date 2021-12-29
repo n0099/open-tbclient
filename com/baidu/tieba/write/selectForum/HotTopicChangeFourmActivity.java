@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import c.a.s0.n4.d;
-import c.a.s0.n4.e;
-import c.a.s0.n4.g;
-import c.a.s0.n4.h;
-import c.a.s0.n4.j;
+import c.a.t0.o4.d;
+import c.a.t0.o4.e;
+import c.a.t0.o4.g;
+import c.a.t0.o4.h;
+import c.a.t0.o4.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,24 +30,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFourmActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIMIT_COUNT = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.s0.n4.y.a mAdapter;
+    public c.a.t0.o4.y.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
     public boolean mUseOriginList;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicChangeFourmActivity f51387e;
+        public final /* synthetic */ HotTopicChangeFourmActivity f51636e;
 
         public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                     return;
                 }
             }
-            this.f51387e = hotTopicChangeFourmActivity;
+            this.f51636e = hotTopicChangeFourmActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
@@ -73,10 +73,10 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
-                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f51387e.mList.get(i2)).getForumId());
-                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f51387e.mList.get(i2)).getForumName());
-                this.f51387e.setResult(-1, intent);
-                this.f51387e.finish();
+                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f51636e.mList.get(i2)).getForumId());
+                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f51636e.mList.get(i2)).getForumName());
+                this.f51636e.setResult(-1, intent);
+                this.f51636e.finish();
             }
         }
     }
@@ -106,7 +106,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(j.change_fourm)), d.CAM_X0106);
             this.mListView = (BdListView) findViewById(g.hot_topic_listview);
-            this.mAdapter = new c.a.s0.n4.y.a(this);
+            this.mAdapter = new c.a.t0.o4.y.a(this);
             if (!this.mUseOriginList) {
                 int size = this.mList.size();
                 ArrayList arrayList = null;

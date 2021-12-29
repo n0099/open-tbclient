@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.a.d;
-import c.a.q0.a.f;
-import c.a.q0.a.g;
+import c.a.r0.a.d;
+import c.a.r0.a.f;
+import c.a.r0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
@@ -27,29 +27,29 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<MediaModel> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MediaModel f40080b;
+    public MediaModel f40236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f40081c;
+    public int f40237c;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SimpleDraweeView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f40082b;
+        public View f40238b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f40083c;
+        public View f40239c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view) {
@@ -70,8 +70,8 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 }
             }
             this.a = (SimpleDraweeView) view.findViewById(f.drag_photo_view);
-            this.f40082b = view.findViewById(f.album_thumbnail_video);
-            this.f40083c = view.findViewById(f.album_thumbnail_selected);
+            this.f40238b = view.findViewById(f.album_thumbnail_video);
+            this.f40239c = view.findViewById(f.album_thumbnail_selected);
         }
     }
 
@@ -90,7 +90,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.f40081c = context.getResources().getDimensionPixelSize(d.swanapp_preview_thumbnail);
+        this.f40237c = context.getResources().getDimensionPixelSize(d.swanapp_preview_thumbnail);
     }
 
     public MediaModel getItem(int i2) {
@@ -134,8 +134,8 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
             if (arrayList == null) {
                 return 0;
             }
-            MediaModel mediaModel2 = this.f40080b;
-            this.f40080b = mediaModel;
+            MediaModel mediaModel2 = this.f40236b;
+            this.f40236b = mediaModel;
             int size = arrayList.size();
             int i2 = 0;
             int i3 = -1;
@@ -163,7 +163,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.a = arrayList;
             if (arrayList != null && arrayList.size() == 1) {
-                this.f40080b = arrayList.get(0);
+                this.f40236b = arrayList.get(0);
             }
             notifyDataSetChanged();
         }
@@ -179,17 +179,17 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         }
         MediaModel mediaModel = arrayList.get(i2);
         aVar.a.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-        aVar.f40082b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-        aVar.f40083c.setVisibility(mediaModel.equals(this.f40080b) ? 0 : 8);
+        aVar.f40238b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+        aVar.f40239c.setVisibility(mediaModel.equals(this.f40236b) ? 0 : 8);
         ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(mediaModel.getPath())));
-        int i3 = this.f40081c;
+        int i3 = this.f40237c;
         newBuilderWithSource.setResizeOptions(new ResizeOptions(i3, i3));
         newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
         AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setOldController(aVar.a.getController()).setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).build();
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            c.a.q0.a.c1.a.C().c((GenericDraweeHierarchy) hierarchy, false);
+            c.a.r0.a.c1.a.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 

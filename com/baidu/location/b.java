@@ -43,27 +43,27 @@ public class b implements ServiceConnection {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.f35951g = new Messenger(iBinder);
-            if (this.a.f35951g == null) {
+            this.a.f36107g = new Messenger(iBinder);
+            if (this.a.f36107g == null) {
                 return;
             }
-            this.a.f35949e = true;
+            this.a.f36105e = true;
             z = this.a.x;
             if (z) {
-                this.a.f35952h.obtainMessage(2).sendToTarget();
+                this.a.f36108h.obtainMessage(2).sendToTarget();
                 return;
             }
             try {
                 Message obtain = Message.obtain((Handler) null, 11);
-                obtain.replyTo = this.a.f35953i;
+                obtain.replyTo = this.a.f36109i;
                 c2 = this.a.c();
                 obtain.setData(c2);
-                this.a.f35951g.send(obtain);
-                this.a.f35949e = true;
-                if (this.a.f35947c != null) {
+                this.a.f36107g.send(obtain);
+                this.a.f36105e = true;
+                if (this.a.f36103c != null) {
                     bool = this.a.A;
                     bool.booleanValue();
-                    this.a.f35952h.obtainMessage(4).sendToTarget();
+                    this.a.f36108h.obtainMessage(4).sendToTarget();
                 }
             } catch (Exception unused) {
             }
@@ -74,8 +74,8 @@ public class b implements ServiceConnection {
     public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f35951g = null;
-            this.a.f35949e = false;
+            this.a.f36107g = null;
+            this.a.f36105e = false;
         }
     }
 }

@@ -1,20 +1,13 @@
 package com.baidu.searchbox.launch.stats;
 
-import c.a.r0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
-import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
@@ -24,6 +17,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static final String IDLE_AND_FH = "idleAndFH";
     public static final String INIT_ACCOUNT = "initAccount";
     public static final String INIT_ACCOUNT_CHANGE = "initAccountChange";
+    public static final String INIT_ADRUNTIME = "initAdRuntime";
     public static final String INIT_ALL = "initAll";
     public static final String INIT_APP_CONFIG = "initAppConfig";
     public static final String INIT_AR = "initAR";
@@ -47,6 +41,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public static final String INIT_MSG_THREE = "initMsgThree";
     public static final String INIT_MSG_TWO = "initMsgTwo";
     public static final String INIT_PERSON_STATIC = "initPersonStatic";
+    public static final String INIT_PLAYER = "initPlayer";
     public static final String INIT_PLUGIN = "initPlugin";
     public static final String INIT_RUKA = "initRuka";
     public static final String INIT_SAPI = "initSapi";
@@ -104,6 +99,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     public long mInitMsgTwoEndTimestamp;
     public long mInitMsgTwoStartTimestamp;
     public long mInitPersonalizeStaticEndTimestamp;
+    public long mInitPlayerEndTimestamp;
     public long mInitPluginEndTimestamp;
     public long mInitRukaEndTimestamp;
     public long mInitSapiEndTimestamp;
@@ -163,6 +159,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         this.mInitRukaEndTimestamp = -1L;
         this.mInitAxeEndTimestamp = -1L;
         this.mInitAREndTimestamp = -1L;
+        this.mInitPlayerEndTimestamp = -1L;
         this.mInitMsgOneStartTimestamp = -1L;
         this.mInitMsgOneEndTimestamp = -1L;
         this.mInitMsgTwoStartTimestamp = -1L;
@@ -216,174 +213,540 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mCreateStartTimestamp : invokeV.longValue;
     }
 
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:183:0x042f
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public boolean packData(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-            super.packData(jSONObject);
-            if (jSONObject == null) {
-                return true;
-            }
-            long j2 = this.mAppCreateEndTimestamp;
-            long j3 = this.mCreateStartTimestamp;
-            long j4 = j2 - j3;
-            long j5 = j2 - j3;
-            long j6 = this.mInitBearEndTimestamp;
-            long j7 = j6 - j3;
-            long j8 = this.mIdleAndFHEndTimeStamp;
-            long j9 = j8 - j6;
-            long j10 = this.mSuperEndTimeStamp;
-            long j11 = j10 - j8;
-            long j12 = this.mInitPersonalizeStaticEndTimestamp;
-            long j13 = j12 - j10;
-            long j14 = this.mInitAccountChangeTimestamp;
-            long j15 = j14 - j12;
-            long j16 = this.mInitFaceEndTimestamp;
-            long j17 = j16 - j14;
-            long j18 = this.mWebViewSufEndTimestamp;
-            long j19 = j18 - j16;
-            long j20 = this.mGrowthFunnelEndTimestamp;
-            long j21 = j20 - j18;
-            long j22 = this.mInitVersionEndTimestamp;
-            long j23 = j22 - j20;
-            long j24 = this.mInitTasksEndTimestamp;
-            long j25 = j24 - j22;
-            long j26 = this.mPermissionUtilEndTimestamp;
-            long j27 = j26 - j24;
-            long j28 = this.mInitAdapterDimonEndTimestamp;
-            long j29 = j28 - j26;
-            long j30 = this.mCleanDirectoryEndTimestamp;
-            long j31 = j30 - j28;
-            long j32 = this.mSharePEndTimestamp;
-            long j33 = j32 - j30;
-            long j34 = this.mCmdRouterInitEndTimestamp;
-            long j35 = j34 - j32;
-            long j36 = this.mInitCmdEndTimestamp;
-            long j37 = j36 - j34;
-            long j38 = this.mInitAllEndTimestamp;
-            long j39 = j38 - j36;
-            long j40 = this.mInitGOEndTimestamp;
-            long j41 = j40 - j38;
-            long j42 = this.mInitLoginEndTimestamp;
-            long j43 = j42 - j40;
-            long j44 = this.mInitInterruptEndTimestamp;
-            long j45 = j44 - j42;
-            long j46 = this.mInitSapiEndTimestamp;
-            long j47 = j46 - j44;
-            long j48 = this.mInitPluginEndTimestamp;
-            long j49 = j48 - j46;
-            long j50 = this.mInitSwanEndTimestamp;
-            long j51 = j50 - j48;
-            long j52 = this.mInitLokiEndTimestamp;
-            long j53 = j52 - j50;
-            long j54 = this.mInitCountStatsEndTimestamp;
-            long j55 = j54 - j52;
-            long j56 = this.mInitUbcEndTimestamp;
-            long j57 = j56 - j54;
-            long j58 = this.mInitRukaEndTimestamp;
-            long j59 = j58 - j56;
-            long j60 = this.mInitAxeEndTimestamp;
-            long j61 = j60 - j58;
-            long j62 = this.mInitAREndTimestamp - j60;
-            long j63 = this.mInitMsgOneEndTimestamp - this.mInitMsgOneStartTimestamp;
-            long j64 = this.mInitMsgTwoEndTimestamp - this.mInitMsgTwoStartTimestamp;
-            long j65 = this.mInitMsgThreeEndTimestamp - this.mInitMsgThreeStartTimestamp;
-            long j66 = this.mInitMsgFourEndTimestamp - this.mInitMsgFourStartTimestamp;
-            long j67 = this.mInitMsgFiveEndTimestamp - this.mInitMsgFiveStartTimestamp;
-            long j68 = this.mInitMsgSixEndTimestamp - this.mInitMsgSixStartTimestamp;
-            long j69 = this.mInitMsgSevenEndTimestamp - this.mInitMsgSevenStartTimestamp;
-            long j70 = this.mInitMsgEightEndTimestamp - this.mInitMsgEightStartTimestamp;
-            long j71 = this.mInitMsgNineEndTimestamp - this.mInitMsgNineStartTimestamp;
-            long activityStartTime = SpeedStatsManager.getInstance().getActivityStartTime() - this.mAppCreateEndTimestamp;
-            if (j4 < 0 || j4 > 60000 || j15 < 0 || j15 > 60000 || activityStartTime < 0 || activityStartTime > 60000 || j27 < 0 || j27 > 60000 || j29 < 0 || j29 > 60000 || j31 < 0 || j31 > 60000 || j33 < 0 || j33 > 60000 || j35 < 0 || j35 > 60000 || j19 < 0 || j19 > 60000 || j37 < 0 || j37 > 60000 || j23 < 0 || j23 > 60000 || j39 < 0 || j39 > 60000 || j17 < 0 || j17 > 60000 || j25 < 0 || j25 > 60000 || j41 < 0 || j41 > 60000 || j43 < 0 || j43 > 60000 || j45 < 0 || j45 > 60000 || j47 < 0 || j47 > 60000 || j49 < 0 || j49 > 60000 || j51 < 0 || j51 > 60000 || j7 < 0 || j7 > 60000 || j53 < 0 || j53 > 60000 || j55 < 0 || j55 > 60000 || j57 < 0 || j57 > 60000 || j59 < 0 || j59 > 60000 || j61 < 0 || j61 > 60000 || j62 < 0 || j62 > 60000 || j63 < 0 || j63 > 60000 || j64 < 0 || j64 > 60000 || j65 < 0 || j65 > 60000 || j66 < 0 || j66 > 60000 || j67 < 0 || j67 > 60000 || j68 < 0 || j68 > 60000 || j69 < 0 || j69 > 60000 || j70 < 0 || j70 > 60000 || j71 < 0 || j71 > 60000 || j5 < 0 || j5 > 60000) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(IDLE_AND_FH, String.valueOf(j9));
-            hashMap.put("superOnCreate", String.valueOf(j11));
-            hashMap.put(INIT_PERSON_STATIC, String.valueOf(j13));
-            hashMap.put(INIT_ACCOUNT_CHANGE, String.valueOf(j15));
-            hashMap.put(PERMMISSION_UTIL, String.valueOf(j27));
-            hashMap.put(INIT_DIMON_ADAPT, String.valueOf(j29));
-            hashMap.put(CLEAN_DIRECTORY, String.valueOf(j31));
-            hashMap.put(SHAREP_GET, String.valueOf(j33));
-            hashMap.put(CMDROUTER_INIT, String.valueOf(j35));
-            hashMap.put(WEBVIEW_SUFFIX, String.valueOf(j19));
-            hashMap.put(GROWTH_FUNNEL, String.valueOf(j21));
-            hashMap.put(INIT_CMD, String.valueOf(j37));
-            hashMap.put(INIT_VERSION, String.valueOf(j23));
-            hashMap.put(INIT_ALL, String.valueOf(j39));
-            hashMap.put(INIT_FACE, String.valueOf(j17));
-            hashMap.put(INIT_TASKS, String.valueOf(j25));
-            if (b.j().k("static_opt_open", 0) > 0) {
-                hashMap.put(NOSTATIC_INIT_TASKS_COST, String.valueOf(j25));
-            } else {
-                hashMap.put(STATIC_INIT_TASKS_COST, String.valueOf(j25));
-            }
-            hashMap.put(INIT_GO_ACTION, String.valueOf(j41));
-            hashMap.put(INIT_ACCOUNT, String.valueOf(j43));
-            hashMap.put(INIT_INTERRUPT_RULE, String.valueOf(j45));
-            hashMap.put(INIT_SAPI, String.valueOf(j47));
-            hashMap.put(INIT_PLUGIN, String.valueOf(j49));
-            hashMap.put(INIT_SWAN, String.valueOf(j51));
-            hashMap.put(INIT_BEAR, String.valueOf(j7));
-            hashMap.put(INIT_LOKI, String.valueOf(j53));
-            hashMap.put(INIT_COUNT_STATS, String.valueOf(j55));
-            hashMap.put(INIT_RUKA, String.valueOf(j59));
-            hashMap.put(INIT_UBC, String.valueOf(j57));
-            hashMap.put(INIT_AXE, String.valueOf(j61));
-            hashMap.put(INIT_AR, String.valueOf(j62));
-            hashMap.put(INIT_MSG_ONE, String.valueOf(j63));
-            hashMap.put(INIT_MSG_TWO, String.valueOf(j64));
-            hashMap.put(INIT_MSG_THREE, String.valueOf(j65));
-            hashMap.put(INIT_MSG_FOUR, String.valueOf(j66));
-            hashMap.put(INIT_MSG_FIVE, String.valueOf(j67));
-            hashMap.put(INIT_MSG_SIX, String.valueOf(j68));
-            hashMap.put(INIT_MSG_SEVEN, String.valueOf(j69));
-            hashMap.put(INIT_MSG_EIGHT, String.valueOf(j70));
-            hashMap.put(INIT_MSG_NINE, String.valueOf(j71));
-            hashMap.put(ON_APP_START_END, String.valueOf(j5));
-            hashMap.put(ON_APP_END_2_ACTIVITY_START_GAP, String.valueOf(activityStartTime));
-            for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
-                hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
-            }
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
-            if (jsonData != null) {
-                try {
-                    jSONObject.put(SpeedStatsMainTable.APP_CREATE_STAGE, jsonData);
-                } catch (JSONException e2) {
-                    if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            JSONObject jsonData2 = SpeedStatsUtils.getJsonData(j5, null);
-            if (jsonData2 != null) {
-                try {
-                    jSONObject.put(ON_APP_START_END, jsonData2);
-                } catch (JSONException e3) {
-                    if (AppConfig.isDebug()) {
-                        e3.printStackTrace();
-                    }
-                }
-            }
-            JSONObject jsonData3 = SpeedStatsUtils.getJsonData(activityStartTime, null);
-            if (jsonData3 != null) {
-                try {
-                    jSONObject.put(ON_APP_END_2_ACTIVITY_START_GAP, jsonData3);
-                    return true;
-                } catch (JSONException e4) {
-                    if (AppConfig.isDebug()) {
-                        e4.printStackTrace();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    public boolean packData(org.json.JSONObject r94) {
+        /*
+            r93 = this;
+            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.AppCreateSpeedStats.$ic
+            if (r0 != 0) goto L46f
+        L4:
+            r1 = r93
+            r2 = r94
+            super.packData(r94)
+            r3 = 1
+            if (r2 != 0) goto Lf
+            return r3
+        Lf:
+            long r4 = r1.mAppCreateEndTimestamp
+            long r6 = r1.mCreateStartTimestamp
+            long r8 = r4 - r6
+            long r10 = r4 - r6
+            long r12 = r1.mInitBearEndTimestamp
+            long r6 = r12 - r6
+            long r14 = r1.mIdleAndFHEndTimeStamp
+            long r12 = r14 - r12
+            r16 = r4
+            long r3 = r1.mSuperEndTimeStamp
+            long r14 = r3 - r14
+            r18 = r14
+            long r14 = r1.mInitPersonalizeStaticEndTimestamp
+            long r3 = r14 - r3
+            r20 = r3
+            long r2 = r1.mInitAccountChangeTimestamp
+            long r4 = r2 - r14
+            long r14 = r1.mInitFaceEndTimestamp
+            long r2 = r14 - r2
+            r22 = r12
+            long r12 = r1.mWebViewSufEndTimestamp
+            long r14 = r12 - r14
+            r24 = r10
+            long r10 = r1.mGrowthFunnelEndTimestamp
+            long r12 = r10 - r12
+            r26 = r12
+            long r12 = r1.mInitVersionEndTimestamp
+            long r10 = r12 - r10
+            r28 = r6
+            long r6 = r1.mInitTasksEndTimestamp
+            long r12 = r6 - r12
+            r30 = r12
+            long r12 = r1.mPermissionUtilEndTimestamp
+            long r6 = r12 - r6
+            r32 = r2
+            long r2 = r1.mInitAdapterDimonEndTimestamp
+            long r12 = r2 - r12
+            r34 = r10
+            long r10 = r1.mCleanDirectoryEndTimestamp
+            long r2 = r10 - r2
+            r36 = r14
+            long r14 = r1.mSharePEndTimestamp
+            long r10 = r14 - r10
+            r38 = r10
+            long r10 = r1.mCmdRouterInitEndTimestamp
+            long r14 = r10 - r14
+            r40 = r14
+            long r14 = r1.mInitCmdEndTimestamp
+            long r10 = r14 - r10
+            r42 = r10
+            long r10 = r1.mInitAllEndTimestamp
+            long r14 = r10 - r14
+            r44 = r14
+            long r14 = r1.mInitGOEndTimestamp
+            long r10 = r14 - r10
+            r46 = r10
+            long r10 = r1.mInitLoginEndTimestamp
+            long r14 = r10 - r14
+            r48 = r14
+            long r14 = r1.mInitInterruptEndTimestamp
+            long r10 = r14 - r10
+            r50 = r10
+            long r10 = r1.mInitSapiEndTimestamp
+            long r14 = r10 - r14
+            r52 = r14
+            long r14 = r1.mInitPluginEndTimestamp
+            long r10 = r14 - r10
+            r54 = r10
+            long r10 = r1.mInitSwanEndTimestamp
+            long r14 = r10 - r14
+            r56 = r14
+            long r14 = r1.mInitLokiEndTimestamp
+            long r10 = r14 - r10
+            r58 = r10
+            long r10 = r1.mInitCountStatsEndTimestamp
+            long r14 = r10 - r14
+            r60 = r14
+            long r14 = r1.mInitUbcEndTimestamp
+            long r10 = r14 - r10
+            r62 = r10
+            long r10 = r1.mInitRukaEndTimestamp
+            long r14 = r10 - r14
+            r64 = r14
+            long r14 = r1.mInitAxeEndTimestamp
+            long r10 = r14 - r10
+            r66 = r10
+            long r10 = r1.mInitAREndTimestamp
+            long r14 = r10 - r14
+            r68 = r14
+            long r14 = r1.mInitPlayerEndTimestamp
+            long r10 = r14 - r10
+            long r14 = r16 - r14
+            r16 = r14
+            long r14 = r1.mInitMsgOneEndTimestamp
+            r70 = r10
+            long r10 = r1.mInitMsgOneStartTimestamp
+            long r14 = r14 - r10
+            long r10 = r1.mInitMsgTwoEndTimestamp
+            r72 = r14
+            long r14 = r1.mInitMsgTwoStartTimestamp
+            long r10 = r10 - r14
+            long r14 = r1.mInitMsgThreeEndTimestamp
+            r74 = r10
+            long r10 = r1.mInitMsgThreeStartTimestamp
+            long r14 = r14 - r10
+            long r10 = r1.mInitMsgFourEndTimestamp
+            r76 = r14
+            long r14 = r1.mInitMsgFourStartTimestamp
+            long r10 = r10 - r14
+            long r14 = r1.mInitMsgFiveEndTimestamp
+            r78 = r10
+            long r10 = r1.mInitMsgFiveStartTimestamp
+            long r14 = r14 - r10
+            long r10 = r1.mInitMsgSixEndTimestamp
+            r80 = r14
+            long r14 = r1.mInitMsgSixStartTimestamp
+            long r10 = r10 - r14
+            long r14 = r1.mInitMsgSevenEndTimestamp
+            r82 = r10
+            long r10 = r1.mInitMsgSevenStartTimestamp
+            long r14 = r14 - r10
+            long r10 = r1.mInitMsgEightEndTimestamp
+            r84 = r14
+            long r14 = r1.mInitMsgEightStartTimestamp
+            long r10 = r10 - r14
+            long r14 = r1.mInitMsgNineEndTimestamp
+            r86 = r10
+            long r10 = r1.mInitMsgNineStartTimestamp
+            long r14 = r14 - r10
+            com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
+            long r10 = r0.getActivityStartTime()
+            r88 = r14
+            long r14 = r1.mAppCreateEndTimestamp
+            long r10 = r10 - r14
+            r14 = 0
+            int r90 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r90 < 0) goto L46d
+            r90 = 60000(0xea60, double:2.9644E-319)
+            int r92 = (r8 > r90 ? 1 : (r8 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r4 > r14 ? 1 : (r4 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r4 > r90 ? 1 : (r4 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r10 > r14 ? 1 : (r10 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r10 > r90 ? 1 : (r10 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r6 > r14 ? 1 : (r6 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r6 > r90 ? 1 : (r6 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r12 > r14 ? 1 : (r12 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r12 > r90 ? 1 : (r12 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r2 > r14 ? 1 : (r2 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r2 > r90 ? 1 : (r2 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r38 > r14 ? 1 : (r38 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r38 > r90 ? 1 : (r38 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r40 > r14 ? 1 : (r40 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r40 > r90 ? 1 : (r40 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r36 > r14 ? 1 : (r36 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r36 > r90 ? 1 : (r36 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r42 > r14 ? 1 : (r42 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r42 > r90 ? 1 : (r42 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r34 > r14 ? 1 : (r34 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r34 > r90 ? 1 : (r34 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r44 > r14 ? 1 : (r44 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r44 > r90 ? 1 : (r44 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r32 > r14 ? 1 : (r32 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r32 > r90 ? 1 : (r32 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r30 > r14 ? 1 : (r30 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r30 > r90 ? 1 : (r30 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r46 > r14 ? 1 : (r46 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r46 > r90 ? 1 : (r46 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r48 > r14 ? 1 : (r48 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r48 > r90 ? 1 : (r48 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r50 > r14 ? 1 : (r50 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r50 > r90 ? 1 : (r50 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r52 > r14 ? 1 : (r52 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r52 > r90 ? 1 : (r52 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r54 > r14 ? 1 : (r54 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r54 > r90 ? 1 : (r54 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r56 > r14 ? 1 : (r56 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r56 > r90 ? 1 : (r56 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r28 > r14 ? 1 : (r28 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r28 > r90 ? 1 : (r28 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r58 > r14 ? 1 : (r58 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r58 > r90 ? 1 : (r58 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r60 > r14 ? 1 : (r60 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r60 > r90 ? 1 : (r60 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r62 > r14 ? 1 : (r62 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r62 > r90 ? 1 : (r62 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r64 > r14 ? 1 : (r64 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r64 > r90 ? 1 : (r64 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r66 > r14 ? 1 : (r66 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r66 > r90 ? 1 : (r66 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r68 > r14 ? 1 : (r68 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r68 > r90 ? 1 : (r68 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r70 > r14 ? 1 : (r70 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r70 > r90 ? 1 : (r70 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r16 > r14 ? 1 : (r16 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r16 > r90 ? 1 : (r16 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r72 > r14 ? 1 : (r72 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r72 > r90 ? 1 : (r72 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r74 > r14 ? 1 : (r74 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r74 > r90 ? 1 : (r74 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r76 > r14 ? 1 : (r76 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r76 > r90 ? 1 : (r76 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r78 > r14 ? 1 : (r78 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r78 > r90 ? 1 : (r78 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r80 > r14 ? 1 : (r80 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r80 > r90 ? 1 : (r80 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r82 > r14 ? 1 : (r82 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r82 > r90 ? 1 : (r82 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r84 > r14 ? 1 : (r84 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r84 > r90 ? 1 : (r84 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r86 > r14 ? 1 : (r86 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r86 > r90 ? 1 : (r86 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r88 > r14 ? 1 : (r88 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r92 = (r88 > r90 ? 1 : (r88 == r90 ? 0 : -1))
+            if (r92 > 0) goto L46d
+            int r92 = (r24 > r14 ? 1 : (r24 == r14 ? 0 : -1))
+            if (r92 < 0) goto L46d
+            int r14 = (r24 > r90 ? 1 : (r24 == r90 ? 0 : -1))
+            if (r14 <= 0) goto L254
+            goto L46d
+        L254:
+            java.util.HashMap r14 = new java.util.HashMap
+            r14.<init>()
+            java.lang.String r15 = java.lang.String.valueOf(r22)
+            java.lang.String r0 = "idleAndFH"
+            r14.put(r0, r15)
+            java.lang.String r0 = java.lang.String.valueOf(r18)
+            java.lang.String r15 = "superOnCreate"
+            r14.put(r15, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r20)
+            java.lang.String r15 = "initPersonStatic"
+            r14.put(r15, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r4)
+            java.lang.String r4 = "initAccountChange"
+            r14.put(r4, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r6)
+            java.lang.String r4 = "permissionUtil"
+            r14.put(r4, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r12)
+            java.lang.String r4 = "initDimonAdapter"
+            r14.put(r4, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r2)
+            java.lang.String r2 = "cleanDirectory"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r38)
+            java.lang.String r2 = "sharePreferGet"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r40)
+            java.lang.String r2 = "cmdRouterInit"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r36)
+            java.lang.String r2 = "webviewSuffix"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r26)
+            java.lang.String r2 = "growthFunnel"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r42)
+            java.lang.String r2 = "initCmd"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r34)
+            java.lang.String r2 = "initVersion"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r44)
+            java.lang.String r2 = "initAll"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r32)
+            java.lang.String r2 = "initFace"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r30)
+            java.lang.String r2 = "initTasks"
+            r14.put(r2, r0)
+            c.a.s0.s.g0.b r0 = c.a.s0.s.g0.b.j()
+            java.lang.String r2 = "static_opt_open"
+            r3 = 0
+            int r0 = r0.k(r2, r3)
+            if (r0 <= 0) goto L2f9
+            r0 = 1
+            goto L2fa
+        L2f9:
+            r0 = 0
+        L2fa:
+            if (r0 == 0) goto L306
+            java.lang.String r0 = java.lang.String.valueOf(r30)
+            java.lang.String r2 = "noStaticinitTasksCost"
+            r14.put(r2, r0)
+            goto L30f
+        L306:
+            java.lang.String r0 = java.lang.String.valueOf(r30)
+            java.lang.String r2 = "staticInitTasksCost"
+            r14.put(r2, r0)
+        L30f:
+            java.lang.String r0 = java.lang.String.valueOf(r46)
+            java.lang.String r2 = "initGoAction"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r48)
+            java.lang.String r2 = "initAccount"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r50)
+            java.lang.String r2 = "initInterruptRule"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r52)
+            java.lang.String r2 = "initSapi"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r54)
+            java.lang.String r2 = "initPlugin"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r56)
+            java.lang.String r2 = "initSwan"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r28)
+            java.lang.String r2 = "initBear"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r58)
+            java.lang.String r2 = "initLoki"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r60)
+            java.lang.String r2 = "initCountStats"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r64)
+            java.lang.String r2 = "initRuka"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r62)
+            java.lang.String r2 = "initUBC"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r66)
+            java.lang.String r2 = "initAxe"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r68)
+            java.lang.String r2 = "initAR"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r70)
+            java.lang.String r2 = "initPlayer"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r16)
+            java.lang.String r2 = "initAdRuntime"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r72)
+            java.lang.String r2 = "initMsgOne"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r74)
+            java.lang.String r2 = "initMsgTwo"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r76)
+            java.lang.String r2 = "initMsgThree"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r78)
+            java.lang.String r2 = "initMsgFour"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r80)
+            java.lang.String r2 = "initMsgFive"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r82)
+            java.lang.String r2 = "initMsgSix"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r84)
+            java.lang.String r2 = "initMsgSeven"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r86)
+            java.lang.String r2 = "initMsgEight"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r88)
+            java.lang.String r2 = "initMsgNine"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r24)
+            java.lang.String r2 = "onAppStart2End"
+            r14.put(r2, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r10)
+            java.lang.String r3 = "onAppEnd2ActivityStartGap"
+            r14.put(r3, r0)
+            java.util.Hashtable<java.lang.String, java.lang.Long> r0 = r1.mLaunchTaskDuration
+            java.util.Set r0 = r0.entrySet()
+            java.util.Iterator r0 = r0.iterator()
+        L403:
+            boolean r4 = r0.hasNext()
+            if (r4 == 0) goto L41f
+            java.lang.Object r4 = r0.next()
+            java.util.Map$Entry r4 = (java.util.Map.Entry) r4
+            java.lang.Object r5 = r4.getKey()
+            java.lang.Object r4 = r4.getValue()
+            java.lang.String r4 = java.lang.String.valueOf(r4)
+            r14.put(r5, r4)
+            goto L403
+        L41f:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r8, r14)
+            if (r0 == 0) goto L43c
+            java.lang.String r4 = "appCreate"
+            r5 = r94
+            r5.put(r4, r0)     // Catch: org.json.JSONException -> L42d
+            goto L43e
+        L42d:
+            r0 = move-exception
+            goto L432
+        L42f:
+            r0 = move-exception
+            r5 = r94
+        L432:
+            boolean r4 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r4 == 0) goto L43e
+            r0.printStackTrace()
+            goto L43e
+        L43c:
+            r5 = r94
+        L43e:
+            r4 = 0
+            r6 = r24
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r6, r4)
+            if (r0 == 0) goto L456
+            r5.put(r2, r0)     // Catch: org.json.JSONException -> L44b
+            goto L456
+        L44b:
+            r0 = move-exception
+            r2 = r0
+            boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r0 == 0) goto L456
+            r2.printStackTrace()
+        L456:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r10, r4)
+            if (r0 == 0) goto L46b
+            r5.put(r3, r0)     // Catch: org.json.JSONException -> L460
+            goto L46b
+        L460:
+            r0 = move-exception
+            r2 = r0
+            boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r0 == 0) goto L46b
+            r2.printStackTrace()
+        L46b:
+            r2 = 1
+            return r2
+        L46d:
+            r0 = 0
+            return r0
+        L46f:
+            r91 = r0
+            r92 = 1048581(0x100005, float:1.469375E-39)
+            com.baidu.titan.sdk.runtime.InterceptResult r0 = r91.invokeL(r92, r93, r94)
+            if (r0 == 0) goto L4
+            boolean r1 = r0.booleanValue
+            return r1
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.launch.stats.AppCreateSpeedStats.packData(org.json.JSONObject):boolean");
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -421,6 +784,7 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             this.mInitRukaEndTimestamp = -1L;
             this.mInitAxeEndTimestamp = -1L;
             this.mInitAREndTimestamp = -1L;
+            this.mInitPlayerEndTimestamp = -1L;
             this.mInitMsgOneEndTimestamp = -1L;
             this.mInitMsgTwoEndTimestamp = -1L;
             this.mInitMsgThreeEndTimestamp = -1L;
@@ -528,6 +892,8 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                     this.mInitBearEndTimestamp = j2;
                     return;
                 case RevenueServerConst.GetHasChargeInActivityResponse /* 2026 */:
+                case SpeedStatsStampTable.APP_CREATE_VIRTUAL_START_STAMP_KEY /* 2051 */:
+                case 2052:
                 default:
                     return;
                 case SpeedStatsStampTable.INIT_LOKI_STAMP_KEY /* 2027 */:
@@ -601,6 +967,9 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
                     return;
                 case SpeedStatsStampTable.INIT_MSG_NINE_START_STAMP_KEY /* 2050 */:
                     this.mInitMsgNineStartTimestamp = j2;
+                    return;
+                case SpeedStatsStampTable.INIT_PLAYER_STAMP_KEY /* 2053 */:
+                    this.mInitPlayerEndTimestamp = j2;
                     return;
             }
         }

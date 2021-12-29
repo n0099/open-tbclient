@@ -24,8 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import c.a.s0.j3.y;
-import c.a.s0.q0.a;
+import c.a.t0.j3.y;
+import c.a.t0.q0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -64,9 +64,9 @@ public class LegoListFragment extends BaseFragment {
     public boolean K;
     public int L;
     public View M;
-    public c.a.s0.x1.k N;
-    public c.a.s0.x1.o.l.l O;
-    public c.a.s0.x1.d P;
+    public c.a.t0.x1.k N;
+    public c.a.t0.x1.o.l.l O;
+    public c.a.t0.x1.d P;
     public View.OnLayoutChangeListener Q;
     public View.OnTouchListener R;
     public a.b S;
@@ -74,39 +74,39 @@ public class LegoListFragment extends BaseFragment {
     public Runnable U;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f46993e;
+    public LinearLayout f47213e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoNetworkView f46994f;
+    public NoNetworkView f47214f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LegoListView f46995g;
+    public LegoListView f47215g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.s0.x1.o.l.c f46996h;
+    public c.a.t0.x1.o.l.c f47216h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.s0.x1.o.l.m f46997i;
+    public c.a.t0.x1.o.l.m f47217i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.s0.q0.a f46998j;
+    public c.a.t0.q0.a f47218j;
 
     /* renamed from: k  reason: collision with root package name */
-    public long f46999k;
+    public long f47219k;
     public String l;
-    public c.a.s0.x1.p.e m;
-    public c.a.s0.x1.p.c n;
-    public c.a.s0.x1.s.a o;
-    public c.a.r0.g0.h p;
-    public c.a.r0.g0.g q;
+    public c.a.t0.x1.p.e m;
+    public c.a.t0.x1.p.c n;
+    public c.a.t0.x1.s.a o;
+    public c.a.s0.g0.h p;
+    public c.a.s0.g0.g q;
     public boolean r;
-    public c.a.s0.x1.j s;
+    public c.a.t0.x1.j s;
     public RelativeLayout t;
     public ImageView u;
     public ImageView v;
     public TbImageView w;
     public TbImageView x;
-    public c.a.s0.x1.o.h.a y;
+    public c.a.t0.x1.o.h.a y;
     public Rect z;
 
     /* loaded from: classes12.dex */
@@ -115,7 +115,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47000e;
+        public final /* synthetic */ LegoListFragment f47220e;
 
         public a(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -132,7 +132,7 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47000e = legoListFragment;
+            this.f47220e = legoListFragment;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -146,9 +146,9 @@ public class LegoListFragment extends BaseFragment {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f47000e.x.setVisibility(8);
-                this.f47000e.w.setVisibility(8);
-                this.f47000e.f46993e.setVisibility(0);
+                this.f47220e.x.setVisibility(8);
+                this.f47220e.w.setVisibility(8);
+                this.f47220e.f47213e.setVisibility(0);
             }
         }
 
@@ -163,8 +163,8 @@ public class LegoListFragment extends BaseFragment {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f47000e.f46993e.setVisibility(8);
-                this.f47000e.w.setVisibility(0);
+                this.f47220e.f47213e.setVisibility(8);
+                this.f47220e.w.setVisibility(0);
             }
         }
     }
@@ -212,7 +212,7 @@ public class LegoListFragment extends BaseFragment {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.a.f46993e.setVisibility(8);
+                this.a.f47213e.setVisibility(8);
                 if (this.a.y.b()) {
                     this.a.x.setVisibility(8);
                 }
@@ -226,12 +226,12 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.x1.p.d f47001e;
+        public final /* synthetic */ c.a.t0.x1.p.d f47221e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47002f;
+        public final /* synthetic */ LegoListFragment f47222f;
 
-        public c(LegoListFragment legoListFragment, c.a.s0.x1.p.d dVar) {
+        public c(LegoListFragment legoListFragment, c.a.t0.x1.p.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -246,28 +246,28 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47002f = legoListFragment;
-            this.f47001e = dVar;
+            this.f47222f = legoListFragment;
+            this.f47221e = dVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f47002f.mIsLogin) {
-                    if (this.f47002f.s != null) {
-                        this.f47002f.s.h(this.f47001e);
+                if (this.f47222f.mIsLogin) {
+                    if (this.f47222f.s != null) {
+                        this.f47222f.s.h(this.f47221e);
                         return;
                     }
                     return;
                 }
-                ViewHelper.skipToLoginActivity(this.f47002f.getActivity());
+                ViewHelper.skipToLoginActivity(this.f47222f.getActivity());
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class d implements c.a.s0.x1.s.b {
+    public class d implements c.a.t0.x1.s.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
@@ -290,13 +290,13 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // c.a.s0.x1.s.b
+        @Override // c.a.t0.x1.s.b
         public void a(boolean z, Message message, boolean z2, long j2, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j2), str, Integer.valueOf(i2)}) == null) {
                 if (z) {
                     LegoListFragment legoListFragment = this.a;
-                    legoListFragment.M(legoListFragment.getView());
+                    legoListFragment.K(legoListFragment.getView());
                 }
                 DataRes dataRes = (DataRes) message;
                 if (!z || (dataRes != null && dataRes.cards != null)) {
@@ -312,10 +312,10 @@ public class LegoListFragment extends BaseFragment {
                     if (this.a.s != null) {
                         this.a.s.g(this.a.n.e());
                     }
-                    this.a.f46995g.refreshView(this.a.n, false);
+                    this.a.f47215g.refreshView(this.a.n, false);
                     if (this.a.C && this.a.E) {
                         LegoListFragment legoListFragment2 = this.a;
-                        legoListFragment2.K(legoListFragment2.n.e());
+                        legoListFragment2.I(legoListFragment2.n.e());
                     }
                 } else if (this.a.getPageContext() == null || this.a.getPageContext().getResources() == null) {
                 } else {
@@ -325,14 +325,14 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // c.a.s0.x1.s.b
+        @Override // c.a.t0.x1.s.b
         public void b(long j2, String str, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, str2, Integer.valueOf(i2)}) == null) {
                 LegoListFragment legoListFragment = this.a;
-                legoListFragment.M(legoListFragment.getView());
+                legoListFragment.K(legoListFragment.getView());
                 if (this.a.n.a()) {
-                    this.a.f46995g.refreshView(this.a.n, false);
+                    this.a.f47215g.refreshView(this.a.n, false);
                 } else if (this.a.getPageContext() == null || this.a.getPageContext().getResources() == null) {
                 } else {
                     LegoListFragment legoListFragment2 = this.a;
@@ -341,7 +341,7 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // c.a.s0.x1.s.b
+        @Override // c.a.t0.x1.s.b
         public void c(long j2, String str, Message message, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), str, message, Boolean.valueOf(z)}) == null) {
@@ -355,7 +355,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47003e;
+        public final /* synthetic */ LegoListFragment f47223e;
 
         public e(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -372,24 +372,24 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47003e = legoListFragment;
+            this.f47223e = legoListFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47003e.o == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f47223e.o == null) {
                 return;
             }
-            this.f47003e.o.c(2, this.f47003e.m.a, this.f47003e.m.f25533b, 1, "");
-            this.f47003e.hideNetRefreshView();
-            LegoListFragment legoListFragment = this.f47003e;
-            legoListFragment.T(legoListFragment.getView(), false, this.f47003e.getResources().getDimensionPixelSize(R.dimen.ds360));
+            this.f47223e.o.c(2, this.f47223e.m.a, this.f47223e.m.f26021b, 1, "");
+            this.f47223e.hideNetRefreshView();
+            LegoListFragment legoListFragment = this.f47223e;
+            legoListFragment.O(legoListFragment.getView(), false, this.f47223e.getResources().getDimensionPixelSize(R.dimen.ds360));
         }
     }
 
     /* loaded from: classes12.dex */
-    public class f implements c.a.s0.x1.o.l.l {
+    public class f implements c.a.t0.x1.o.l.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
@@ -412,18 +412,18 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // c.a.s0.x1.o.l.l
+        @Override // c.a.t0.x1.o.l.l
         public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.f46997i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.f47217i == null) {
                 return;
             }
-            this.a.f46997i.l(str);
+            this.a.f47217i.l(str);
         }
     }
 
     /* loaded from: classes12.dex */
-    public class g implements c.a.s0.x1.d {
+    public class g implements c.a.t0.x1.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoListFragment a;
@@ -446,7 +446,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // c.a.s0.x1.d
+        @Override // c.a.t0.x1.d
         public void a(int i2, long j2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, str2}) == null) {
@@ -454,7 +454,7 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // c.a.s0.x1.d
+        @Override // c.a.t0.x1.d
         public void b(long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, str) == null) {
@@ -469,7 +469,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47004e;
+        public final /* synthetic */ LegoListFragment f47224e;
 
         public h(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -486,18 +486,18 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47004e = legoListFragment;
+            this.f47224e = legoListFragment;
         }
 
         @Override // android.view.View.OnLayoutChangeListener
         public void onLayoutChange(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-                this.f47004e.f46996h.u0(this.f47004e.getListViewLocationYInScreen());
-                if (this.f47004e.isFullScreen()) {
+                this.f47224e.f47216h.u0(this.f47224e.getListViewLocationYInScreen());
+                if (this.f47224e.isFullScreen()) {
                     return;
                 }
-                this.f47004e.f46996h.Q();
+                this.f47224e.f47216h.Q();
             }
         }
     }
@@ -508,7 +508,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47005e;
+        public final /* synthetic */ LegoListFragment f47225e;
 
         public i(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -525,7 +525,7 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47005e = legoListFragment;
+            this.f47225e = legoListFragment;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -533,11 +533,11 @@ public class LegoListFragment extends BaseFragment {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f47005e.f46996h.e0()) {
-                    if (this.f47005e.f46995g == null || view != this.f47005e.f46995g.getListView() || this.f47005e.f46998j == null) {
+                if (this.f47225e.f47216h.e0()) {
+                    if (this.f47225e.f47215g == null || view != this.f47225e.f47215g.getListView() || this.f47225e.f47218j == null) {
                         return false;
                     }
-                    this.f47005e.f46998j.c(motionEvent);
+                    this.f47225e.f47218j.c(motionEvent);
                     return false;
                 }
                 return true;
@@ -570,7 +570,7 @@ public class LegoListFragment extends BaseFragment {
             this.a = legoListFragment;
         }
 
-        @Override // c.a.s0.q0.a.b
+        @Override // c.a.t0.q0.a.b
         public void a(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
@@ -578,7 +578,7 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // c.a.s0.q0.a.b
+        @Override // c.a.t0.q0.a.b
         public void b(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
@@ -586,14 +586,14 @@ public class LegoListFragment extends BaseFragment {
             }
         }
 
-        @Override // c.a.s0.q0.a.b
+        @Override // c.a.t0.q0.a.b
         public void c(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             }
         }
 
-        @Override // c.a.s0.q0.a.b
+        @Override // c.a.t0.q0.a.b
         public void d(int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
@@ -607,22 +607,22 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47006e;
+        public int f47226e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f47007f;
+        public int f47227f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f47008g;
+        public boolean f47228g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f47009h;
+        public int f47229h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f47010i;
+        public int f47230i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47011j;
+        public final /* synthetic */ LegoListFragment f47231j;
 
         /* loaded from: classes12.dex */
         public class a implements Runnable {
@@ -630,7 +630,7 @@ public class LegoListFragment extends BaseFragment {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ k f47012e;
+            public final /* synthetic */ k f47232e;
 
             public a(k kVar) {
                 Interceptable interceptable = $ic;
@@ -647,16 +647,16 @@ public class LegoListFragment extends BaseFragment {
                         return;
                     }
                 }
-                this.f47012e = kVar;
+                this.f47232e = kVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    LegoListFragment legoListFragment = this.f47012e.f47011j;
-                    legoListFragment.S(1, legoListFragment.K);
-                    this.f47012e.f47008g = false;
+                    LegoListFragment legoListFragment = this.f47232e.f47231j;
+                    legoListFragment.N(1, legoListFragment.K);
+                    this.f47232e.f47228g = false;
                 }
             }
         }
@@ -667,7 +667,7 @@ public class LegoListFragment extends BaseFragment {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ k f47013e;
+            public final /* synthetic */ k f47233e;
 
             public b(k kVar) {
                 Interceptable interceptable = $ic;
@@ -684,14 +684,14 @@ public class LegoListFragment extends BaseFragment {
                         return;
                     }
                 }
-                this.f47013e = kVar;
+                this.f47233e = kVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f47013e.f47011j.f46995g.getListView().smoothScrollToPositionFromTop(this.f47013e.f47009h, this.f47013e.f47010i, 400);
+                    this.f47233e.f47231j.f47215g.getListView().smoothScrollToPositionFromTop(this.f47233e.f47229h, this.f47233e.f47230i, 400);
                 }
             }
         }
@@ -702,7 +702,7 @@ public class LegoListFragment extends BaseFragment {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ k f47014e;
+            public final /* synthetic */ k f47234e;
 
             public c(k kVar) {
                 Interceptable interceptable = $ic;
@@ -719,14 +719,14 @@ public class LegoListFragment extends BaseFragment {
                         return;
                     }
                 }
-                this.f47014e = kVar;
+                this.f47234e = kVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f47014e.f47011j.f46995g.getListView().smoothScrollToPositionFromTop(this.f47014e.f47009h, this.f47014e.f47010i, 400);
+                    this.f47234e.f47231j.f47215g.getListView().smoothScrollToPositionFromTop(this.f47234e.f47229h, this.f47234e.f47230i, 400);
                 }
             }
         }
@@ -746,12 +746,12 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47011j = legoListFragment;
-            this.f47006e = 0;
-            this.f47007f = 0;
-            this.f47008g = false;
-            this.f47009h = -1;
-            this.f47010i = 0;
+            this.f47231j = legoListFragment;
+            this.f47226e = 0;
+            this.f47227f = 0;
+            this.f47228g = false;
+            this.f47229h = -1;
+            this.f47230i = 0;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
@@ -767,22 +767,22 @@ public class LegoListFragment extends BaseFragment {
             boolean z;
             boolean z2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || !this.f47011j.f46996h.e0() || this.f47011j.f46995g == null || this.f47011j.f46995g.getListView() == null || this.f47011j.f46995g.getListView().getChildAt(0) == null) {
+            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i2, i3, i4) == null) || !this.f47231j.f47216h.e0() || this.f47231j.f47215g == null || this.f47231j.f47215g.getListView() == null || this.f47231j.f47215g.getListView().getChildAt(0) == null) {
                 return;
             }
-            this.f47011j.f46996h.Q();
-            boolean z3 = (i2 == this.f47006e && this.f47011j.K) ? false : true;
+            this.f47231j.f47216h.Q();
+            boolean z3 = (i2 == this.f47226e && this.f47231j.K) ? false : true;
             int i5 = (i3 + i2) - 1;
-            if (i5 == this.f47007f && !this.f47011j.K) {
+            if (i5 == this.f47227f && !this.f47231j.K) {
                 z3 = false;
             }
-            if (this.f47007f < i5) {
+            if (this.f47227f < i5) {
                 z = true;
-            } else if (this.f47006e > i2) {
+            } else if (this.f47226e > i2) {
                 z = true;
                 z2 = true;
-                if (z && !this.f47008g) {
-                    BaseAdapter adapter = this.f47011j.getAdapter();
+                if (z && !this.f47228g) {
+                    BaseAdapter adapter = this.f47231j.getAdapter();
                     if (z2) {
                         if (adapter != null && adapter.getCount() > i5) {
                             int i6 = i5 - 1;
@@ -794,11 +794,11 @@ public class LegoListFragment extends BaseFragment {
                             Object item2 = adapter.getItem(i5);
                             int page2 = item2 instanceof BaseLegoCardInfo ? ((BaseLegoCardInfo) item2).getPage() : 0;
                             if (page != 0 && page2 != 0 && page < page2) {
-                                this.f47008g = true;
-                                this.f47009h = i5;
-                                this.f47010i = 0;
-                                c.a.s0.x1.o.k.c.a = page2;
-                                this.f47011j.f46995g.getListView().post(new b(this));
+                                this.f47228g = true;
+                                this.f47229h = i5;
+                                this.f47230i = 0;
+                                c.a.t0.x1.o.k.c.a = page2;
+                                this.f47231j.f47215g.getListView().post(new b(this));
                             }
                         }
                     } else {
@@ -825,48 +825,48 @@ public class LegoListFragment extends BaseFragment {
                                         i9 = i10;
                                     }
                                 }
-                                this.f47008g = true;
+                                this.f47228g = true;
                                 if (ratio > 2.67d) {
-                                    this.f47009h = i7;
-                                    this.f47010i = (int) ((c.a.d.f.p.m.q(this.f47011j.getActivity()).widthPixels * 1.78d) + 0.5d);
+                                    this.f47229h = i7;
+                                    this.f47230i = (int) ((c.a.d.f.p.n.q(this.f47231j.getActivity()).widthPixels * 1.78d) + 0.5d);
                                 } else {
-                                    this.f47009h = i9;
-                                    this.f47010i = 0;
+                                    this.f47229h = i9;
+                                    this.f47230i = 0;
                                 }
-                                c.a.s0.x1.o.k.c.a = page3;
-                                this.f47011j.f46995g.getListView().post(new c(this));
+                                c.a.t0.x1.o.k.c.a = page3;
+                                this.f47231j.f47215g.getListView().post(new c(this));
                             }
                         }
                     }
                 }
-                this.f47006e = i2;
-                this.f47007f = i5;
-                if (this.f47010i > 0) {
-                    this.f47007f = i5 - 1;
+                this.f47226e = i2;
+                this.f47227f = i5;
+                if (this.f47230i > 0) {
+                    this.f47227f = i5 - 1;
                 }
-                this.f47011j.J = i2;
-                this.f47011j.I = i5;
+                this.f47231j.J = i2;
+                this.f47231j.I = i5;
                 if (z3) {
                     return;
                 }
-                LegoListFragment legoListFragment = this.f47011j;
-                legoListFragment.S(2, legoListFragment.K);
+                LegoListFragment legoListFragment = this.f47231j;
+                legoListFragment.N(2, legoListFragment.K);
                 return;
             } else {
                 z = false;
             }
             z2 = false;
             if (z) {
-                BaseAdapter adapter2 = this.f47011j.getAdapter();
+                BaseAdapter adapter2 = this.f47231j.getAdapter();
                 if (z2) {
                 }
             }
-            this.f47006e = i2;
-            this.f47007f = i5;
-            if (this.f47010i > 0) {
+            this.f47226e = i2;
+            this.f47227f = i5;
+            if (this.f47230i > 0) {
             }
-            this.f47011j.J = i2;
-            this.f47011j.I = i5;
+            this.f47231j.J = i2;
+            this.f47231j.I = i5;
             if (z3) {
             }
         }
@@ -876,22 +876,22 @@ public class LegoListFragment extends BaseFragment {
             View findFocus;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i2) == null) {
-                this.f47011j.L = i2;
-                if (1 == i2 && this.f47011j.M != null && (findFocus = this.f47011j.M.findFocus()) != null) {
+                this.f47231j.L = i2;
+                if (1 == i2 && this.f47231j.M != null && (findFocus = this.f47231j.M.findFocus()) != null) {
                     findFocus.clearFocus();
                 }
                 if (i2 == 0) {
-                    LegoListFragment legoListFragment = this.f47011j;
-                    legoListFragment.S(1, legoListFragment.K);
-                    if (this.f47008g) {
-                        this.f47011j.f46996h.K0(c.a.s0.x1.o.k.c.a);
-                        this.f47011j.f46995g.getListView().setSelectionFromTop(this.f47009h, this.f47010i);
-                        this.f47011j.f46996h.Q();
-                        this.f47011j.f46995g.getListView().post(new a(this));
+                    LegoListFragment legoListFragment = this.f47231j;
+                    legoListFragment.N(1, legoListFragment.K);
+                    if (this.f47228g) {
+                        this.f47231j.f47216h.K0(c.a.t0.x1.o.k.c.a);
+                        this.f47231j.f47215g.getListView().setSelectionFromTop(this.f47229h, this.f47230i);
+                        this.f47231j.f47216h.Q();
+                        this.f47231j.f47215g.getListView().post(new a(this));
                     }
                 }
-                if (this.f47011j.N != null) {
-                    this.f47011j.N.onScrollStateChanged(absListView, i2);
+                if (this.f47231j.N != null) {
+                    this.f47231j.N.onScrollStateChanged(absListView, i2);
                 }
             }
         }
@@ -903,7 +903,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47015e;
+        public final /* synthetic */ LegoListFragment f47235e;
 
         public l(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -920,16 +920,16 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47015e = legoListFragment;
+            this.f47235e = legoListFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47015e.f46997i == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47235e.f47217i == null) {
                 return;
             }
-            this.f47015e.f46997i.m();
+            this.f47235e.f47217i.m();
         }
     }
 
@@ -939,7 +939,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47016e;
+        public final /* synthetic */ LegoListFragment f47236e;
 
         public m(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -956,14 +956,14 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47016e = legoListFragment;
+            this.f47236e = legoListFragment;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47016e.endAnimation();
+                this.f47236e.endAnimation();
             }
         }
     }
@@ -974,7 +974,7 @@ public class LegoListFragment extends BaseFragment {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoListFragment f47017e;
+        public final /* synthetic */ LegoListFragment f47237e;
 
         public n(LegoListFragment legoListFragment) {
             Interceptable interceptable = $ic;
@@ -991,7 +991,7 @@ public class LegoListFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f47017e = legoListFragment;
+            this.f47237e = legoListFragment;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -1005,13 +1005,13 @@ public class LegoListFragment extends BaseFragment {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                if (this.f47017e.y.b()) {
-                    this.f47017e.f46993e.setVisibility(8);
-                    this.f47017e.W();
+                if (this.f47237e.y.b()) {
+                    this.f47237e.f47213e.setVisibility(8);
+                    this.f47237e.Q();
                     return;
                 }
-                this.f47017e.f46993e.setVisibility(0);
-                this.f47017e.w.setVisibility(8);
+                this.f47237e.f47213e.setVisibility(0);
+                this.f47237e.w.setVisibility(8);
             }
         }
 
@@ -1026,8 +1026,8 @@ public class LegoListFragment extends BaseFragment {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f47017e.f46993e.setVisibility(8);
-                this.f47017e.w.setVisibility(0);
+                this.f47237e.f47213e.setVisibility(8);
+                this.f47237e.w.setVisibility(0);
             }
         }
     }
@@ -1074,7 +1074,7 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final void K(List<c.a.s0.x1.p.d> list) {
+    public final void I(List<c.a.t0.x1.p.d> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || this.v == null) {
             return;
@@ -1084,9 +1084,9 @@ public class LegoListFragment extends BaseFragment {
             return;
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
-            if (list.get(i2).f25528d == 2) {
-                c.a.s0.x1.p.d dVar = list.get(i2);
-                if (!TextUtils.isEmpty(list.get(i2).f25527c)) {
+            if (list.get(i2).f26016d == 2) {
+                c.a.t0.x1.p.d dVar = list.get(i2);
+                if (!TextUtils.isEmpty(list.get(i2).f26015c)) {
                     this.v.setVisibility(0);
                     this.v.setOnClickListener(new c(this, dVar));
                 }
@@ -1094,18 +1094,18 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final void L() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c.a.d.f.p.k.z()) {
-                T(getView(), false, getResources().getDimensionPixelSize(R.dimen.ds360));
+            if (c.a.d.f.p.l.z()) {
+                O(getView(), false, getResources().getDimensionPixelSize(R.dimen.ds360));
             }
-            this.f46995g.setViewForeground();
+            this.f47215g.setViewForeground();
         }
     }
 
-    public final void M(View view) {
-        c.a.r0.g0.g gVar;
+    public final void K(View view) {
+        c.a.s0.g0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (gVar = this.q) == null) {
             return;
@@ -1114,16 +1114,16 @@ public class LegoListFragment extends BaseFragment {
         this.q = null;
     }
 
-    public final void O() {
+    public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.s0.x1.s.a c2 = c.a.s0.x1.r.b.d().c(getPageContext(), getUniqueId());
+            c.a.t0.x1.s.a c2 = c.a.t0.x1.r.b.d().c(getPageContext(), getUniqueId());
             this.o = c2;
             c2.b(new d(this));
         }
     }
 
-    public final LegoListView Q(c.a.s0.x1.d dVar) {
+    public final LegoListView M(c.a.t0.x1.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dVar)) == null) {
@@ -1139,24 +1139,24 @@ public class LegoListFragment extends BaseFragment {
         return (LegoListView) invokeL.objValue;
     }
 
-    public final void S(int i2, boolean z) {
+    public final void N(int i2, boolean z) {
         LegoListView legoListView;
-        c.a.s0.x1.n.a aVar;
+        c.a.t0.x1.n.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f46997i == null || (legoListView = this.f46995g) == null || legoListView.getListView() == null || (aVar = this.f46995g.cardListAdapter) == null || aVar.getCount() == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.f47217i == null || (legoListView = this.f47215g) == null || legoListView.getListView() == null || (aVar = this.f47215g.cardListAdapter) == null || aVar.getCount() == 0) {
             return;
         }
-        this.f46997i.j(this.J, this.I, z, i2);
+        this.f47217i.j(this.J, this.I, z, i2);
     }
 
-    public final void T(View view, boolean z, int i2) {
+    public final void O(View view, boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (this.q == null) {
                 if (i2 < 0) {
-                    this.q = new c.a.r0.g0.g(getActivity());
+                    this.q = new c.a.s0.g0.g(getActivity());
                 } else {
-                    this.q = new c.a.r0.g0.g(getActivity(), i2);
+                    this.q = new c.a.s0.g0.g(getActivity(), i2);
                 }
                 this.q.onChangeSkinType();
             }
@@ -1164,7 +1164,7 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final void V(Rect rect) {
+    public final void P(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, rect) == null) {
             int i2 = rect.right;
@@ -1184,7 +1184,7 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public final void W() {
+    public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.x.setVisibility(0);
@@ -1229,7 +1229,7 @@ public class LegoListFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            LegoListView legoListView = this.f46995g;
+            LegoListView legoListView = this.f47215g;
             if (legoListView == null) {
                 return null;
             }
@@ -1255,20 +1255,20 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             int[] iArr = new int[2];
-            this.f46995g.getLocationOnScreen(iArr);
+            this.f47215g.getLocationOnScreen(iArr);
             return iArr[1];
         }
         return invokeV.intValue;
     }
 
-    public c.a.s0.x1.o.l.m getPlaySwitchController() {
+    public c.a.t0.x1.o.l.m getPlaySwitchController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f46997i : (c.a.s0.x1.o.l.m) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f47217i : (c.a.t0.x1.o.l.m) invokeV.objValue;
     }
 
     public final void hideNetRefreshView() {
-        c.a.r0.g0.h hVar;
+        c.a.s0.g0.h hVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (hVar = this.p) == null) {
             return;
@@ -1280,7 +1280,7 @@ public class LegoListFragment extends BaseFragment {
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? !this.f46996h.e0() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? !this.f47216h.e0() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -1288,7 +1288,7 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            O();
+            L();
         }
     }
 
@@ -1296,8 +1296,8 @@ public class LegoListFragment extends BaseFragment {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            if (this.f46994f != null) {
-                this.f46994f.onChangeSkinType(c.a.d.a.j.a(getActivity()), i2);
+            if (this.f47214f != null) {
+                this.f47214f.onChangeSkinType(c.a.d.a.j.a(getActivity()), i2);
             }
             if (this.t != null) {
                 getBaseFragmentActivity().getLayoutMode().j(this.t);
@@ -1325,58 +1325,58 @@ public class LegoListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
-        c.a.s0.x1.o.h.a aVar;
+        c.a.t0.x1.o.h.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048596, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.A = c.a.d.f.p.m.k(getActivity());
+            this.A = c.a.d.f.p.n.k(getActivity());
             FrameLayout frameLayout = new FrameLayout(getActivity());
             LinearLayout linearLayout = new LinearLayout(getActivity());
-            this.f46993e = linearLayout;
+            this.f47213e = linearLayout;
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.f46993e.setOrientation(1);
+            this.f47213e.setOrientation(1);
             NoNetworkView noNetworkView = new NoNetworkView(getActivity());
-            this.f46994f = noNetworkView;
+            this.f47214f = noNetworkView;
             if (!this.E) {
-                this.f46993e.addView(noNetworkView);
-                if (c.a.d.f.p.m.C()) {
-                    this.f46994f.setVisibility(8);
+                this.f47213e.addView(noNetworkView);
+                if (c.a.d.f.p.n.C()) {
+                    this.f47214f.setVisibility(8);
                 } else {
-                    this.f46994f.setVisibility(0);
+                    this.f47214f.setVisibility(0);
                 }
             }
-            LegoListView Q = Q(this.P);
-            this.f46995g = Q;
-            Q.setDrawingCacheEnabled(false);
-            c.a.s0.x1.p.e eVar = new c.a.s0.x1.p.e();
+            LegoListView M = M(this.P);
+            this.f47215g = M;
+            M.setDrawingCacheEnabled(false);
+            c.a.t0.x1.p.e eVar = new c.a.t0.x1.p.e();
             this.m = eVar;
-            eVar.a = this.f46999k;
-            eVar.f25533b = this.l;
-            c.a.s0.x1.p.c cVar = new c.a.s0.x1.p.c(eVar);
+            eVar.a = this.f47219k;
+            eVar.f26021b = this.l;
+            c.a.t0.x1.p.c cVar = new c.a.t0.x1.p.c(eVar);
             this.n = cVar;
-            this.f46995g.refreshView(cVar, true);
-            this.f46993e.addView(this.f46995g);
-            this.f46995g.getListView().setOnScrollListener(this.T);
-            this.f46995g.getListView().addOnLayoutChangeListener(this.Q);
-            this.f46995g.getListView().setOnTouchListener(this.R);
-            c.a.s0.q0.a aVar2 = new c.a.s0.q0.a();
-            this.f46998j = aVar2;
+            this.f47215g.refreshView(cVar, true);
+            this.f47213e.addView(this.f47215g);
+            this.f47215g.getListView().setOnScrollListener(this.T);
+            this.f47215g.getListView().addOnLayoutChangeListener(this.Q);
+            this.f47215g.getListView().setOnTouchListener(this.R);
+            c.a.t0.q0.a aVar2 = new c.a.t0.q0.a();
+            this.f47218j = aVar2;
             aVar2.d(this.S);
-            this.f46997i = this.f46995g.getPlaySwitchController();
-            frameLayout.addView(this.f46993e, new FrameLayout.LayoutParams(-1, -1));
+            this.f47217i = this.f47215g.getPlaySwitchController();
+            frameLayout.addView(this.f47213e, new FrameLayout.LayoutParams(-1, -1));
             if (this.E) {
                 this.t.setVisibility(0);
                 this.v = (ImageView) this.t.findViewById(R.id.btn_share);
-                c.a.d.f.p.m.b(getActivity(), this.v, 20, 20, 20, 20);
+                c.a.d.f.p.n.b(getActivity(), this.v, 20, 20, 20, 20);
                 this.v.setVisibility(8);
                 this.u = (ImageView) this.t.findViewById(R.id.btn_close);
-                c.a.d.f.p.m.b(getActivity(), this.u, 20, 20, 20, 20);
+                c.a.d.f.p.n.b(getActivity(), this.u, 20, 20, 20, 20);
                 this.u.setOnClickListener(new m(this));
                 getBaseFragmentActivity().setSwipeBackEnabled(false);
                 if (this.D && (aVar = this.y) != null && aVar.c()) {
                     frameLayout.setBackgroundColor(getActivity().getResources().getColor(R.color.black_alpha100));
-                    int r = c.a.d.f.p.m.r(getActivity());
+                    int r = c.a.d.f.p.n.r(getActivity());
                     this.B = r;
-                    Rect rect = this.y.f25431b;
+                    Rect rect = this.y.f25921b;
                     this.z = rect;
                     rect.top -= r;
                     rect.bottom -= r;
@@ -1391,10 +1391,10 @@ public class LegoListFragment extends BaseFragment {
                     this.w.startLoad(this.y.a, 17, false);
                     frameLayout.addView(this.w, layoutParams);
                     if (this.y.b()) {
-                        Rect rect4 = this.y.f25433d;
+                        Rect rect4 = this.y.f25923d;
                         Rect rect5 = this.z;
                         float f2 = this.A / (rect5.right - rect5.left);
-                        this.H = c.a.d.f.p.m.f(getActivity(), R.dimen.ds10);
+                        this.H = c.a.d.f.p.n.f(getActivity(), R.dimen.ds10);
                         Rect rect6 = this.z;
                         float f3 = f2 * (rect6.bottom - rect6.top);
                         TbImageView tbImageView2 = new TbImageView(getActivity());
@@ -1404,14 +1404,14 @@ public class LegoListFragment extends BaseFragment {
                         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(i2, (int) (i2 * (((rect4.bottom - rect4.top) * 1.0d) / (rect4.right - rect4.left))));
                         layoutParams2.setMargins(0, (int) (f3 + this.H), 0, 0);
                         this.x.setLayoutParams(layoutParams2);
-                        this.x.startLoad(this.y.f25432c, 17, false);
+                        this.x.startLoad(this.y.f25922c, 17, false);
                         frameLayout.addView(this.x, layoutParams2);
                         this.x.setVisibility(8);
                     }
-                    V(this.z);
-                    this.f46993e.setVisibility(8);
+                    P(this.z);
+                    this.f47213e.setVisibility(8);
                 }
-                y.q().l().f(this.f46999k, this.l, this.F);
+                y.q().l().f(this.f47219k, this.l, this.F);
             } else {
                 RelativeLayout relativeLayout = this.t;
                 if (relativeLayout != null) {
@@ -1432,8 +1432,8 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            this.f46995g.onDestory();
-            c.a.s0.x1.o.l.m mVar = this.f46997i;
+            this.f47215g.onDestory();
+            c.a.t0.x1.o.l.m mVar = this.f47217i;
             if (mVar != null) {
                 mVar.c();
             }
@@ -1446,11 +1446,11 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onPause();
-            this.f46995g.setViewBackGround();
-            c.a.s0.x1.o.l.m mVar = this.f46997i;
+            this.f47215g.setViewBackGround();
+            c.a.t0.x1.o.l.m mVar = this.f47217i;
             if (mVar != null) {
                 mVar.n(false);
-                this.f46997i.t();
+                this.f47217i.t();
             }
             c.a.d.f.m.e.a().removeCallbacks(this.U);
         }
@@ -1464,13 +1464,13 @@ public class LegoListFragment extends BaseFragment {
             if (!TextUtils.isEmpty(this.G)) {
                 this.n.q(this.G);
                 if (this.n.n()) {
-                    K(this.n.e());
-                    this.f46995g.refreshView(this.n, true);
+                    I(this.n.e());
+                    this.f47215g.refreshView(this.n, true);
                     return;
                 }
             }
             if (isAdded() && isPrimary() && !this.r) {
-                L();
+                J();
             }
         }
     }
@@ -1480,8 +1480,8 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onResume();
-            this.f46995g.setViewForeground();
-            c.a.s0.x1.o.l.m mVar = this.f46997i;
+            this.f47215g.setViewForeground();
+            c.a.t0.x1.o.l.m mVar = this.f47217i;
             if (mVar != null) {
                 mVar.n(true);
                 c.a.d.f.m.e.a().postDelayed(this.U, 200L);
@@ -1492,16 +1492,16 @@ public class LegoListFragment extends BaseFragment {
     public void setAnimationInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
-            c.a.s0.x1.o.h.a a2 = c.a.s0.x1.o.h.a.a(str);
+            c.a.t0.x1.o.h.a a2 = c.a.t0.x1.o.h.a.a(str);
             this.y = a2;
             a2.d(str2);
         }
     }
 
-    public void setFloatVideoContainer(c.a.s0.x1.o.l.c cVar) {
+    public void setFloatVideoContainer(c.a.t0.x1.o.l.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, cVar) == null) {
-            this.f46996h = cVar;
+            this.f47216h = cVar;
             cVar.y0(this.O);
         }
     }
@@ -1548,14 +1548,14 @@ public class LegoListFragment extends BaseFragment {
         }
     }
 
-    public void setNavigationBarViewHolder(c.a.s0.x1.j jVar) {
+    public void setNavigationBarViewHolder(c.a.t0.x1.j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, jVar) == null) {
             this.s = jVar;
         }
     }
 
-    public void setOnScrollCallbackListener(c.a.s0.x1.k kVar) {
+    public void setOnScrollCallbackListener(c.a.t0.x1.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, kVar) == null) {
             this.N = kVar;
@@ -1572,7 +1572,7 @@ public class LegoListFragment extends BaseFragment {
     public void setPageId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048612, this, j2) == null) {
-            this.f46999k = j2;
+            this.f47219k = j2;
         }
     }
 
@@ -1581,7 +1581,7 @@ public class LegoListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048613, this, view, str, z) == null) {
             if (this.p == null) {
-                this.p = new c.a.r0.g0.h(getPageContext().getPageActivity(), new e(this));
+                this.p = new c.a.s0.g0.h(getPageContext().getPageActivity(), new e(this));
             }
             this.p.k(getResources().getDimensionPixelSize(R.dimen.ds160));
             this.p.m(str);

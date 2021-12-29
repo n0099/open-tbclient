@@ -2,45 +2,18 @@ package com.kwad.sdk.core.page.recycle;
 
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class d extends RecyclerView.Adapter<c> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<Presenter> a;
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
+    public List<Presenter> a = new ArrayList();
 
     public abstract c a(ViewGroup viewGroup, int i2);
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Presenter presenter : this.a) {
-                presenter.k();
-            }
+        for (Presenter presenter : this.a) {
+            presenter.k();
         }
     }
 
@@ -48,43 +21,29 @@ public abstract class d extends RecyclerView.Adapter<c> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onViewRecycled(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            super.onViewRecycled(cVar);
-            cVar.a.j();
-        }
+        super.onViewRecycled(cVar);
+        cVar.a.j();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(c cVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i2) == null) {
-            cVar.a.a(cVar.f58183b);
-        }
+        cVar.a.a(cVar.f58183b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: b */
     public final c onCreateViewHolder(ViewGroup viewGroup, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
-            c a = a(viewGroup, i2);
-            this.a.add(a.a);
-            return a;
-        }
-        return (c) invokeLI.objValue;
+        c a = a(viewGroup, i2);
+        this.a.add(a.a);
+        return a;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, recyclerView) == null) {
-            super.onDetachedFromRecyclerView(recyclerView);
-            a();
-        }
+        super.onDetachedFromRecyclerView(recyclerView);
+        a();
     }
 }

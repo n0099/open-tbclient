@@ -1,74 +1,54 @@
 package c.a.s0.n0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class e extends BaseCardInfo {
+/* loaded from: classes6.dex */
+public class e {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f19868f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public FeatureCardHot f19869e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-760962281, "Lc/a/s0/n0/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-760962281, "Lc/a/s0/n0/e;");
-                return;
-            }
-        }
-        f19868f = BdUniqueId.gen();
-    }
-
-    public e() {
+    public static void a(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeIL(65536, null, i2, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public FeatureCardHot g() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f19869e : (FeatureCardHot) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            TiebaStatic.log(new StatisticItem(str));
+        }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void c(String str, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f19868f : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLI(65538, null, str, i2) == null) {
+            TiebaStatic.log(new StatisticItem(str).addParam("obj_locate", i2));
+        }
     }
 
-    public void i(FeatureCardHot featureCardHot) {
+    public static void d(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, featureCardHot) == null) {
-            this.f19869e = featureCardHot;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i2, str) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            TiebaStatic.log(new StatisticItem(str));
         }
     }
 }

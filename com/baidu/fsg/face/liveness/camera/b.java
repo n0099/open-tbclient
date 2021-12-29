@@ -39,36 +39,36 @@ public class b {
     public static final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f35293b = 2;
+    public static final int f35449b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f35294c = 3;
+    public static final int f35450c = 3;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f35295d = 480;
+    public static final int f35451d = 480;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35296e = 640;
+    public static final int f35452e = 640;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f35297i = 0;
+    public static int f35453i = 0;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f35298j = "CameraInterface";
+    public static final String f35454j = "CameraInterface";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final float f35299k = 0.2f;
+    public static final float f35455k = 0.2f;
     public static int o = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Camera f35300f;
+    public Camera f35456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaRecorder f35301g;
+    public MediaRecorder f35457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SurfaceHolder f35302h;
+    public SurfaceHolder f35458h;
     public a l;
     public String m;
     public boolean n;
@@ -87,7 +87,7 @@ public class b {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f35303b;
+        public int f35459b;
 
         public a(int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class b {
                 }
             }
             this.a = i2;
-            this.f35303b = i3;
+            this.f35459b = i3;
         }
     }
 
@@ -148,7 +148,7 @@ public class b {
     public void b() {
         Camera camera;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (camera = this.f35300f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (camera = this.f35456f) == null) {
             return;
         }
         camera.startPreview();
@@ -158,11 +158,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             LogUtil.d("调用 stopPreview");
-            if (this.f35300f != null) {
+            if (this.f35456f != null) {
                 if (this.v && this.s) {
                     f();
                 }
-                this.f35300f.stopPreview();
+                this.f35456f.stopPreview();
             }
         }
     }
@@ -176,15 +176,15 @@ public class b {
                     if (this.v && this.s) {
                         f();
                     }
-                    if (this.f35302h != null && Build.VERSION.SDK_INT >= 14) {
-                        this.f35302h.getSurface().release();
+                    if (this.f35458h != null && Build.VERSION.SDK_INT >= 14) {
+                        this.f35458h.getSurface().release();
                     }
-                    if (this.f35300f != null) {
-                        this.f35300f.setPreviewCallback(null);
-                        this.f35300f.stopPreview();
-                        this.f35300f.release();
+                    if (this.f35456f != null) {
+                        this.f35456f.setPreviewCallback(null);
+                        this.f35456f.stopPreview();
+                        this.f35456f.release();
                         this.n = false;
-                        this.f35300f = null;
+                        this.f35456f = null;
                     }
                     this.p = true;
                 } catch (Exception e2) {
@@ -218,11 +218,11 @@ public class b {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             synchronized (this) {
                 try {
-                    if (this.f35301g != null && this.r) {
-                        this.f35301g.stop();
-                        this.f35301g.reset();
-                        this.f35301g.release();
-                        this.f35301g = null;
+                    if (this.f35457g != null && this.r) {
+                        this.f35457g.stop();
+                        this.f35457g.reset();
+                        this.f35457g.release();
+                        this.f35457g = null;
                     }
                 } catch (Exception e2) {
                     d.a(e2);
@@ -261,47 +261,47 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, activity)) == null) {
             try {
-                if (this.f35300f == null) {
+                if (this.f35456f == null) {
                     a(activity, 1);
                 }
-                if (this.f35300f == null) {
+                if (this.f35456f == null) {
                     this.r = false;
                     return false;
                 }
-                if (this.f35301g == null) {
-                    this.f35301g = new MediaRecorder();
+                if (this.f35457g == null) {
+                    this.f35457g = new MediaRecorder();
                 } else {
-                    this.f35301g.reset();
+                    this.f35457g.reset();
                 }
-                Camera.Parameters parameters = this.f35300f.getParameters();
+                Camera.Parameters parameters = this.f35456f.getParameters();
                 a a2 = a(activity, parameters, this.l);
-                Camera camera = this.f35300f;
+                Camera camera = this.f35456f;
                 Objects.requireNonNull(camera);
-                Camera.Size size = new Camera.Size(camera, a2.a, a2.f35303b);
+                Camera.Size size = new Camera.Size(camera, a2.a, a2.f35459b);
                 List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
                 if (supportedPreviewSizes != null && supportedPreviewSizes.contains(size)) {
-                    parameters.setPreviewSize(a2.a, a2.f35303b);
+                    parameters.setPreviewSize(a2.a, a2.f35459b);
                 }
-                this.f35300f.setParameters(parameters);
-                this.f35300f.unlock();
-                this.f35301g.setCamera(this.f35300f);
-                this.f35301g.setVideoSource(1);
-                this.f35301g.setAudioSource(1);
-                this.f35301g.setOutputFormat(2);
-                this.f35301g.setVideoEncodingBitRate(1048576);
-                this.f35301g.setVideoEncoder(2);
-                this.f35301g.setAudioEncoder(3);
-                this.f35301g.setVideoSize(a2.a, a2.f35303b);
+                this.f35456f.setParameters(parameters);
+                this.f35456f.unlock();
+                this.f35457g.setCamera(this.f35456f);
+                this.f35457g.setVideoSource(1);
+                this.f35457g.setAudioSource(1);
+                this.f35457g.setOutputFormat(2);
+                this.f35457g.setVideoEncodingBitRate(1048576);
+                this.f35457g.setVideoEncoder(2);
+                this.f35457g.setAudioEncoder(3);
+                this.f35457g.setVideoSize(a2.a, a2.f35459b);
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
                 Camera.getCameraInfo(o, cameraInfo);
-                this.f35301g.setOrientationHint(cameraInfo.orientation);
+                this.f35457g.setOrientationHint(cameraInfo.orientation);
                 File file = new File(g.a(activity));
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                this.f35301g.setOutputFile(new File(g.b(activity)).getAbsolutePath());
-                this.f35301g.prepare();
-                this.f35301g.start();
+                this.f35457g.setOutputFile(new File(g.b(activity)).getAbsolutePath());
+                this.f35457g.prepare();
+                this.f35457g.start();
                 this.r = true;
                 return true;
             } catch (Exception e2) {
@@ -320,11 +320,11 @@ public class b {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, activity, i2)) == null) {
             LogUtil.d("调用 doOpenCamera");
             this.q = i2;
-            Camera camera = this.f35300f;
+            Camera camera = this.f35456f;
             if (camera != null) {
                 camera.stopPreview();
-                this.f35300f.release();
-                this.f35300f = null;
+                this.f35456f.release();
+                this.f35456f = null;
             }
             if (a() == 1) {
                 this.p = false;
@@ -335,15 +335,15 @@ public class b {
                 o = 0;
             }
             try {
-                this.f35300f = Camera.open(o);
+                this.f35456f = Camera.open(o);
                 a(activity);
                 return true;
             } catch (Throwable th) {
                 d.a(th);
-                Camera camera2 = this.f35300f;
+                Camera camera2 = this.f35456f;
                 if (camera2 != null) {
                     camera2.release();
-                    this.f35300f = null;
+                    this.f35456f = null;
                 }
                 return false;
             }
@@ -355,12 +355,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, activity, surfaceHolder) == null) {
             LogUtil.d("调用 doStartPreview");
-            Camera camera = this.f35300f;
+            Camera camera = this.f35456f;
             if (camera != null) {
                 try {
-                    this.f35302h = surfaceHolder;
+                    this.f35458h = surfaceHolder;
                     camera.setPreviewDisplay(surfaceHolder);
-                    this.f35300f.startPreview();
+                    this.f35456f.startPreview();
                 } catch (Throwable th) {
                     d.a(th);
                 }
@@ -450,7 +450,7 @@ public class b {
                 public int b() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.l.f35303b : invokeV.intValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.l.f35459b : invokeV.intValue;
                 }
             };
             String c2 = g.c(context);
@@ -482,11 +482,11 @@ public class b {
             if (a2 != null && a2.size() != 0) {
                 Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
                 a aVar2 = new a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + f.a(activity));
-                float f2 = aVar2.f35303b / aVar2.a;
+                float f2 = aVar2.f35459b / aVar2.a;
                 a aVar3 = this.l;
-                float f3 = aVar3.a / aVar3.f35303b;
+                float f3 = aVar3.a / aVar3.f35459b;
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(aVar2.a + ProxyConfig.MATCH_ALL_SCHEMES + aVar2.f35303b);
+                arrayList.add(aVar2.a + ProxyConfig.MATCH_ALL_SCHEMES + aVar2.f35459b);
                 StringBuilder sb = new StringBuilder();
                 sb.append(f2);
                 sb.append("");
@@ -495,10 +495,10 @@ public class b {
                 for (int i2 = 0; i2 < a2.size(); i2++) {
                     a aVar4 = a2.get(i2);
                     int i3 = aVar4.a;
-                    float f4 = i3 / aVar4.f35303b;
+                    float f4 = i3 / aVar4.f35459b;
                     sb2.append(i3);
                     sb2.append(ProxyConfig.MATCH_ALL_SCHEMES);
-                    sb2.append(aVar4.f35303b);
+                    sb2.append(aVar4.f35459b);
                     sb2.append(ProxyConfig.MATCH_ALL_SCHEMES);
                     sb2.append(f4);
                     sb2.append("-");
@@ -530,7 +530,7 @@ public class b {
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (camera = this.f35300f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (camera = this.f35456f) == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
@@ -552,22 +552,22 @@ public class b {
                 Camera.getCameraInfo(o, cameraInfo);
                 if (cameraInfo.facing == 1) {
                     int i4 = (cameraInfo.orientation + i2) % 360;
-                    f35297i = i4;
-                    f35297i = (360 - i4) % 360;
+                    f35453i = i4;
+                    f35453i = (360 - i4) % 360;
                 } else {
-                    f35297i = ((cameraInfo.orientation - i2) + 360) % 360;
+                    f35453i = ((cameraInfo.orientation - i2) + 360) % 360;
                 }
-                this.f35300f.setDisplayOrientation(f35297i);
+                this.f35456f.setDisplayOrientation(f35453i);
             } else if (i3 == 8) {
                 int i5 = ((90 - i2) + 360) % 360;
-                f35297i = i5;
-                this.f35300f.setDisplayOrientation(i5);
+                f35453i = i5;
+                this.f35456f.setDisplayOrientation(i5);
             } else {
-                f35297i = ((90 - i2) + 360) % 360;
+                f35453i = ((90 - i2) + 360) % 360;
                 try {
-                    Method method = this.f35300f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
+                    Method method = this.f35456f.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
                     if (method != null) {
-                        method.invoke(this.f35300f, Integer.valueOf(f35297i));
+                        method.invoke(this.f35456f, Integer.valueOf(f35453i));
                     }
                 } catch (Exception e2) {
                     d.a(e2);
@@ -586,7 +586,7 @@ public class b {
             } else {
                 this.m = DebugKt.DEBUG_PROPERTY_VALUE_OFF;
             }
-            this.f35300f.setParameters(parameters);
+            this.f35456f.setParameters(parameters);
         }
         i2 = 0;
         i3 = Build.VERSION.SDK_INT;
@@ -596,7 +596,7 @@ public class b {
         }
         if (parameters.getSupportedFlashModes() == null) {
         }
-        this.f35300f.setParameters(parameters);
+        this.f35456f.setParameters(parameters);
     }
 
     private a a(Context context, Camera.Parameters parameters, a aVar) {
@@ -611,7 +611,7 @@ public class b {
             if (supportedVideoSizes == null || supportedVideoSizes.size() == 0 || supportedPreviewSizes == null || supportedPreviewSizes.size() == 0) {
                 return aVar;
             }
-            float f2 = aVar.f35303b / aVar.a;
+            float f2 = aVar.f35459b / aVar.a;
             a aVar2 = new a(0, 0);
             a aVar3 = new a(0, 0);
             a aVar4 = new a(0, 0);
@@ -621,10 +621,10 @@ public class b {
                 int i6 = size.width;
                 aVar3.a = i6;
                 int i7 = size.height;
-                aVar3.f35303b = i7;
-                if (i6 == aVar.a && i7 == aVar.f35303b) {
+                aVar3.f35459b = i7;
+                if (i6 == aVar.a && i7 == aVar.f35459b) {
                     aVar2.a = i6;
-                    aVar2.f35303b = i7;
+                    aVar2.f35459b = i7;
                     return aVar2;
                 }
                 for (int i8 = 0; i8 < supportedPreviewSizes.size(); i8++) {
@@ -632,14 +632,14 @@ public class b {
                     int i9 = size2.width;
                     aVar4.a = i9;
                     int i10 = size2.height;
-                    aVar4.f35303b = i10;
+                    aVar4.f35459b = i10;
                     int i11 = aVar3.a;
-                    if (i11 == i9 && (i4 = aVar3.f35303b) == i10 && i11 * i4 >= aVar5.a * aVar5.f35303b && i11 * i4 <= 921600) {
+                    if (i11 == i9 && (i4 = aVar3.f35459b) == i10 && i11 * i4 >= aVar5.a * aVar5.f35459b && i11 * i4 <= 921600) {
                         aVar5.a = i11;
-                        aVar5.f35303b = i4;
+                        aVar5.f35459b = i4;
                     }
                 }
-                if (Math.abs((size.width / size.height) - f2) < 0.01f && (i2 = aVar3.a) >= aVar2.a && (i3 = aVar3.f35303b) >= aVar2.f35303b) {
+                if (Math.abs((size.width / size.height) - f2) < 0.01f && (i2 = aVar3.a) >= aVar2.a && (i3 = aVar3.f35459b) >= aVar2.f35459b) {
                     if (i2 * i3 <= 921600) {
                         aVar2 = aVar3;
                     }
@@ -663,15 +663,15 @@ public class b {
             int i2 = 153600;
             int i3 = 921600;
             int i4 = aVar.a;
-            int i5 = aVar.f35303b;
+            int i5 = aVar.f35459b;
             if ((i4 * i5) / 4 > 921600) {
-                i3 = CameraUtils.f35314b;
+                i3 = CameraUtils.f35470b;
                 i2 = (i4 * i5) / 8;
             }
             ArrayList arrayList = new ArrayList();
             RimStatisticsUtil.onEventWithValue(com.baidu.fsg.face.liveness.d.F, i2 + "-" + i3);
             ArrayList arrayList2 = new ArrayList();
-            arrayList2.add(aVar.a + ProxyConfig.MATCH_ALL_SCHEMES + aVar.f35303b);
+            arrayList2.add(aVar.a + ProxyConfig.MATCH_ALL_SCHEMES + aVar.f35459b);
             StringBuilder sb = new StringBuilder();
             for (int i6 = 0; i6 < supportedPreviewSizes.size(); i6++) {
                 Camera.Size size = supportedPreviewSizes.get(i6);
@@ -697,8 +697,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, parameters, z)) == null) {
             a b2 = b(activity, parameters);
-            parameters.setPreviewSize(b2.a, b2.f35303b);
-            LogUtil.d("cameraSize.width:" + b2.a + ",cameraSize.height:" + b2.f35303b);
+            parameters.setPreviewSize(b2.a, b2.f35459b);
+            LogUtil.d("cameraSize.width:" + b2.a + ",cameraSize.height:" + b2.f35459b);
             return b2;
         }
         return (a) invokeLLZ.objValue;
@@ -709,7 +709,7 @@ public class b {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, parameters, aVar) == null) {
-            float f2 = aVar != null ? aVar.a / aVar.f35303b : 0.0f;
+            float f2 = aVar != null ? aVar.a / aVar.f35459b : 0.0f;
             List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
             if (supportedPictureSizes == null) {
                 return;
@@ -739,10 +739,10 @@ public class b {
 
     public void a(Camera.PreviewCallback previewCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, previewCallback) == null) || this.f35300f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, previewCallback) == null) || this.f35456f == null) {
             return;
         }
-        this.f35300f.setPreviewCallbackWithBuffer(previewCallback);
-        this.f35300f.addCallbackBuffer(new byte[((i().a * i().f35303b) * ImageFormat.getBitsPerPixel(this.f35300f.getParameters().getPreviewFormat())) / 8]);
+        this.f35456f.setPreviewCallbackWithBuffer(previewCallback);
+        this.f35456f.addCallbackBuffer(new byte[((i().a * i().f35459b) * ImageFormat.getBitsPerPixel(this.f35456f.getParameters().getPreviewFormat())) / 8]);
     }
 }

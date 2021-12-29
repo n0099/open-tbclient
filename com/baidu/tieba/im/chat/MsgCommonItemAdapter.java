@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.h.b;
-import c.a.d.m.e.a;
+import c.a.d.n.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -90,70 +90,70 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         this.m = tbPageContext;
     }
 
-    public final void g0() {
+    public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.p = System.currentTimeMillis() / 1000;
         }
     }
 
-    public boolean h0() {
+    public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : invokeV.booleanValue;
     }
 
-    public boolean i0() {
+    public boolean b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.q : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: j0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: c0 */
+    public View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             if (chatMessage != null && chatMessage.getCacheData() == null) {
                 chatMessage.setCacheData(new MsgCacheData());
             }
-            g0();
+            Z();
             return view;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void k0(boolean z) {
+    public void d0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.r = z;
         }
     }
 
-    public void l0(boolean z) {
+    public void e0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.q = z;
         }
     }
 
-    public void m0(c.a.d.f.h.a aVar) {
+    public void f0(c.a.d.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.n = aVar;
         }
     }
 
-    public void n0(b bVar) {
+    public void g0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.o = bVar;
         }
     }
 
-    public void o0(int i2) {
+    public void h0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.s = i2;

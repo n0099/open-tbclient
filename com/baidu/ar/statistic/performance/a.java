@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,21 +20,21 @@ public class a {
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C1748a> xm;
+    public BlockingQueue<C1755a> xm;
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static class C1748a {
+    /* loaded from: classes10.dex */
+    public static class C1755a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C1749a> xq;
+        public BlockingQueue<C1756a> xq;
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public static class C1749a {
+        /* loaded from: classes10.dex */
+        public static class C1756a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int count;
@@ -42,7 +42,7 @@ public class a {
             public String xr;
             public long xs;
 
-            public C1749a() {
+            public C1756a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class a {
             }
         }
 
-        public C1748a() {
+        public C1755a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,20 +102,20 @@ public class a {
                 jSONObject.put("mem_total", String.valueOf(this.xk));
                 jSONObject.put("mem_used", String.valueOf(this.xl));
                 JSONArray jSONArray = new JSONArray();
-                for (C1748a c1748a : this.xm) {
+                for (C1755a c1755a : this.xm) {
                     try {
                         JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("frame_index", c1748a.xn);
-                        jSONObject2.put("frame_in", c1748a.xo);
-                        jSONObject2.put("frame_out", c1748a.xp);
+                        jSONObject2.put("frame_index", c1755a.xn);
+                        jSONObject2.put("frame_in", c1755a.xo);
+                        jSONObject2.put("frame_out", c1755a.xp);
                         JSONArray jSONArray2 = new JSONArray();
-                        for (C1748a.C1749a c1749a : c1748a.xq) {
+                        for (C1755a.C1756a c1756a : c1755a.xq) {
                             try {
                                 JSONObject jSONObject3 = new JSONObject();
-                                jSONObject3.put("name", c1749a.name);
-                                jSONObject3.put("func", c1749a.xr);
-                                jSONObject3.put("time_cost", c1749a.xs);
-                                jSONObject3.put("count", c1749a.count);
+                                jSONObject3.put("name", c1756a.name);
+                                jSONObject3.put("func", c1756a.xr);
+                                jSONObject3.put("time_cost", c1756a.xs);
+                                jSONObject3.put("count", c1756a.count);
                                 jSONArray2.put(jSONObject3);
                             } catch (JSONException e2) {
                                 e2.printStackTrace();

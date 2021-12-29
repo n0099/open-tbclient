@@ -75,7 +75,7 @@ public class u implements p.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2, qVar)) == null) {
             if (qVar == null) {
-                qVar = q.f2099b;
+                qVar = q.f2526b;
             }
             int i3 = qVar.a;
             if (i3 != 0) {

@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.alasquare.live_tab.message;
 
-import c.a.d.f.p.l;
-import c.a.s0.a0.f.c.e.a;
-import c.a.s0.a0.f.c.e.d;
-import c.a.s0.a0.f.c.e.g;
-import c.a.s0.a0.f.c.e.h;
-import c.a.s0.a0.f.c.e.j;
+import c.a.d.f.p.m;
+import c.a.t0.a0.f.c.e.a;
+import c.a.t0.a0.f.c.e.d;
+import c.a.t0.a0.f.c.e.g;
+import c.a.t0.a0.f.c.e.h;
+import c.a.t0.a0.f.c.e.j;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
                 jVar.a(optJSONObject6, string);
             }
             String optString = optJSONObject.optString("show_switch", null);
-            if (l.isEmpty(optString)) {
+            if (m.isEmpty(optString)) {
                 return;
             }
             TbSingleton.getInstance().setYyCloudSwitch(optString);

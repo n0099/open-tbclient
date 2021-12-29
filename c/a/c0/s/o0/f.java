@@ -16,7 +16,7 @@ public class f {
     public final ArrayList<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.c0.s.e f2093b;
+    public final c.a.c0.s.e f2520b;
 
     public f(@NonNull c.a.c0.s.e eVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class f {
             }
         }
         this.a = new ArrayList<>();
-        this.f2093b = eVar;
+        this.f2520b = eVar;
     }
 
     public void a(a aVar) {
@@ -50,7 +50,7 @@ public class f {
     public c.a.c0.s.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2093b : (c.a.c0.s.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2520b : (c.a.c0.s.e) invokeV.objValue;
     }
 
     public void c() {

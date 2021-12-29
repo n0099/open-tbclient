@@ -27,10 +27,10 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public p f38420i;
+    public p f38576i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SimpleAdInfoView f38421j;
+    public SimpleAdInfoView f38577j;
 
     /* loaded from: classes10.dex */
     public class a implements SimpleAdInfoView.c {
@@ -39,7 +39,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         public final /* synthetic */ n a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HorizontalVideoTailView f38422b;
+        public final /* synthetic */ HorizontalVideoTailView f38578b;
 
         public a(HorizontalVideoTailView horizontalVideoTailView, n nVar) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f38422b = horizontalVideoTailView;
+            this.f38578b = horizontalVideoTailView;
             this.a = nVar;
         }
 
@@ -64,7 +64,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f38422b.h(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+                this.f38578b.h(ClogBuilder.LogType.FREE_CLICK, str, this.a);
             }
         }
     }
@@ -107,7 +107,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             super.init(context);
-            this.f38421j = (SimpleAdInfoView) findViewById(e.ad_app_info_view);
+            this.f38577j = (SimpleAdInfoView) findViewById(e.ad_app_info_view);
         }
     }
 
@@ -121,7 +121,7 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public void setAdInfo(p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pVar) == null) {
-            this.f38420i = pVar;
+            this.f38576i = pVar;
         }
     }
 
@@ -130,10 +130,10 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         l lVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (lVar = adBaseModel.f38067h) == null) {
+            if (adBaseModel == null || (lVar = adBaseModel.f38223h) == null) {
                 return false;
             }
-            return showTailFrame(lVar.f1808c);
+            return showTailFrame(lVar.f2235c);
         }
         return invokeL.booleanValue;
     }
@@ -187,18 +187,18 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, nVar)) == null) {
             nVar.o = false;
             boolean showTailFrame = super.showTailFrame(nVar);
-            p pVar = this.f38420i;
-            if (pVar != null && pVar.f1838k) {
+            p pVar = this.f38576i;
+            if (pVar != null && pVar.f2265k) {
                 Resources resources = getContext().getResources();
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f38421j.getLayoutParams();
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f38577j.getLayoutParams();
                 layoutParams.leftMargin = resources.getDimensionPixelOffset(c.nad_dimen_15dp);
                 layoutParams.rightMargin = resources.getDimensionPixelOffset(c.nad_dimen_15dp);
-                this.f38421j.setLayoutParams(layoutParams);
-                this.f38421j.setAdInfo(this.f38420i);
-                this.f38421j.setVisibility(0);
-                this.f38421j.setAfterListener(new a(this, nVar));
+                this.f38577j.setLayoutParams(layoutParams);
+                this.f38577j.setAdInfo(this.f38576i);
+                this.f38577j.setVisibility(0);
+                this.f38577j.setAfterListener(new a(this, nVar));
             } else {
-                this.f38421j.setVisibility(8);
+                this.f38577j.setVisibility(8);
             }
             return showTailFrame;
         }

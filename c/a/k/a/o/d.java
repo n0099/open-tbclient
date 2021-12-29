@@ -21,18 +21,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static d f3751e;
+    public static d f4166e;
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f3752b;
+    public Handler f4167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f3753c;
+    public Handler f4168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<c> f3754d;
+    public List<c> f4169d;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -67,8 +67,8 @@ public class d {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i2 = message.what;
                 if (i2 == 0) {
-                    if (this.a.f3754d != null) {
-                        Iterator it = this.a.f3754d.iterator();
+                    if (this.a.f4169d != null) {
+                        Iterator it = this.a.f4169d.iterator();
                         while (it.hasNext()) {
                             c cVar = (c) it.next();
                             if (this.a.e(cVar)) {
@@ -79,7 +79,7 @@ public class d {
                     }
                 } else if (i2 == 1) {
                     if (message.obj instanceof c) {
-                        this.a.f3754d.add((c) message.obj);
+                        this.a.f4169d.add((c) message.obj);
                     }
                 } else if (i2 != 2) {
                 } else {
@@ -105,25 +105,25 @@ public class d {
                 return;
             }
         }
-        this.f3754d = new ArrayList();
+        this.f4169d = new ArrayList();
         this.a = Executors.newFixedThreadPool(5);
         Executors.newSingleThreadExecutor();
-        this.f3752b = new a(this, b.a("threadpool").getLooper());
-        this.f3753c = new Handler(Looper.getMainLooper());
+        this.f4167b = new a(this, b.a("threadpool").getLooper());
+        this.f4168c = new Handler(Looper.getMainLooper());
     }
 
     public static d f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f3751e == null) {
+            if (f4166e == null) {
                 synchronized (d.class) {
-                    if (f3751e == null) {
-                        f3751e = new d();
+                    if (f4166e == null) {
+                        f4166e = new d();
                     }
                 }
             }
-            return f3751e;
+            return f4166e;
         }
         return (d) invokeV.objValue;
     }
@@ -131,8 +131,8 @@ public class d {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3752b.removeMessages(0);
-            this.f3752b.sendEmptyMessage(0);
+            this.f4167b.removeMessages(0);
+            this.f4167b.sendEmptyMessage(0);
         }
     }
 
@@ -164,7 +164,7 @@ public class d {
                 this.a.submit(bdRunnable);
                 return;
             } else {
-                this.f3752b.obtainMessage(1, bdRunnable).sendToTarget();
+                this.f4167b.obtainMessage(1, bdRunnable).sendToTarget();
                 return;
             }
         }
@@ -180,7 +180,7 @@ public class d {
     public void h(BdRunnable bdRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
-            this.f3753c.post(bdRunnable);
+            this.f4168c.post(bdRunnable);
         }
     }
 }

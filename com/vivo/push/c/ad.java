@@ -1,61 +1,41 @@
 package com.vivo.push.c;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.sdk.PushMessageCallback;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class ad implements Runnable {
+public final class ad extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f63033b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f63034c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f63035d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ ac f63036e;
-
-    public ad(ac acVar, int i2, List list, List list2, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad(com.vivo.push.o oVar) {
+        super(oVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {acVar, Integer.valueOf(i2), list, list2, str};
+            Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f63036e = acVar;
-        this.a = i2;
-        this.f63033b = list;
-        this.f63034c = list2;
-        this.f63035d = str;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Context context;
+    @Override // com.vivo.push.l
+    public final void a(com.vivo.push.o oVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ac acVar = this.f63036e;
-            PushMessageCallback pushMessageCallback = ((ab) acVar).f63032b;
-            context = acVar.a;
-            pushMessageCallback.onSetTags(context, this.a, this.f63033b, this.f63034c, this.f63035d);
+        if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
+            com.vivo.push.b.i iVar = (com.vivo.push.b.i) oVar;
+            com.vivo.push.e.a().a(iVar.g(), iVar.h(), new Object[0]);
+            com.vivo.push.m.b(new ae(this, iVar));
         }
     }
 }

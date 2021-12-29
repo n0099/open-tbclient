@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.t.c;
-import c.a.y0.t.h;
+import c.a.a1.t.c;
+import c.a.a1.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

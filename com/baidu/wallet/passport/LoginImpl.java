@@ -82,7 +82,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                 public final /* synthetic */ ILoginBackListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LoginImpl f53871b;
+                public final /* synthetic */ LoginImpl f53874b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -99,7 +99,7 @@ public class LoginImpl implements IWalletLoginListener, NoProguard {
                             return;
                         }
                     }
-                    this.f53871b = this;
+                    this.f53874b = this;
                     this.a = iLoginBackListener;
                 }
 

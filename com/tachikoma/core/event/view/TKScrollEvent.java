@@ -10,7 +10,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import com.tachikoma.core.event.base.TKBaseEvent;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKScrollEvent extends TKBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TK_EVENT_LIST_SCROLL = "scroll";

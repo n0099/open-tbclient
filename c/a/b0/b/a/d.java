@@ -37,10 +37,10 @@ public class d extends c.a.b0.b.a.a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f1282e;
+        public final /* synthetic */ List f1675e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d f1283f;
+        public final /* synthetic */ d f1676f;
 
         public a(d dVar, List list) {
             Interceptable interceptable = $ic;
@@ -57,17 +57,17 @@ public class d extends c.a.b0.b.a.a {
                     return;
                 }
             }
-            this.f1283f = dVar;
-            this.f1282e = list;
+            this.f1676f = dVar;
+            this.f1675e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1283f.E = this.f1282e;
-                for (int i2 = 0; i2 < this.f1282e.size(); i2++) {
-                    this.f1283f.C[i2] = ((Integer) this.f1282e.get(i2)).intValue();
+                this.f1676f.E = this.f1675e;
+                for (int i2 = 0; i2 < this.f1675e.size(); i2++) {
+                    this.f1676f.C[i2] = ((Integer) this.f1675e.get(i2)).intValue();
                 }
             }
         }

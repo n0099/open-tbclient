@@ -34,7 +34,7 @@ public class d implements com.kwai.filedownloader.a.a {
     public SQLiteDatabase a;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC2131a {
+    public class a implements a.InterfaceC2138a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
@@ -93,7 +93,7 @@ public class d implements com.kwai.filedownloader.a.a {
             this.f60444e = sparseArray2;
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -173,7 +173,7 @@ public class d implements com.kwai.filedownloader.a.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a(int i2, com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, cVar) == null) {
@@ -181,14 +181,14 @@ public class d implements com.kwai.filedownloader.a.a {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a(com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void b(com.kwai.filedownloader.c.c cVar) {
             SparseArray<com.kwai.filedownloader.c.c> sparseArray;
             Interceptable interceptable = $ic;
@@ -429,10 +429,10 @@ public class d implements com.kwai.filedownloader.a.a {
         }
     }
 
-    public a.InterfaceC2131a a(SparseArray<com.kwai.filedownloader.c.c> sparseArray, SparseArray<List<com.kwai.filedownloader.c.a>> sparseArray2) {
+    public a.InterfaceC2138a a(SparseArray<com.kwai.filedownloader.c.c> sparseArray, SparseArray<List<com.kwai.filedownloader.c.a>> sparseArray2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sparseArray, sparseArray2)) == null) ? new a(this, sparseArray, sparseArray2) : (a.InterfaceC2131a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sparseArray, sparseArray2)) == null) ? new a(this, sparseArray, sparseArray2) : (a.InterfaceC2138a) invokeLL.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a
@@ -595,10 +595,10 @@ public class d implements com.kwai.filedownloader.a.a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public a.InterfaceC2131a b() {
+    public a.InterfaceC2138a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this) : (a.InterfaceC2131a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new a(this) : (a.InterfaceC2138a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0040 */

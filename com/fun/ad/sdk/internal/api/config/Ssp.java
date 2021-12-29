@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.internal.api.config;
 
-import c.g.c0;
+import c.g.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class Ssp extends c0 {
+public final class Ssp extends d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<Pid> pids;
@@ -27,7 +27,7 @@ public final class Ssp extends c0 {
     public final String type;
 
     /* loaded from: classes3.dex */
-    public static class Pid extends c0 {
+    public static class Pid extends d0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final double basePrice;
@@ -134,7 +134,7 @@ public final class Ssp extends c0 {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(Long.valueOf(this.id), this.pid, this.type, Integer.valueOf(this.tmout), Float.valueOf(this.sample), Integer.valueOf(this.width), Integer.valueOf(this.height), Integer.valueOf(this.interval), Boolean.valueOf(this.isHorizontal)) : invokeV.intValue;
         }
 
-        @Override // c.g.c0
+        @Override // c.g.d0
         public void srzableInternal(ObjectOutput objectOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
@@ -239,7 +239,7 @@ public final class Ssp extends c0 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.sspId, this.type, this.pids) : invokeV.intValue;
     }
 
-    @Override // c.g.c0
+    @Override // c.g.d0
     public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {

@@ -45,7 +45,7 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f0405ce;
+        public static final int svgImage = 0x7f0405be;
         public static final int viewAspectRatio = 0x7f040489;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -67,16 +67,16 @@ public final class R {
     /* loaded from: classes2.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int center = 0x7f09066d;
-        public static final int centerCrop = 0x7f090671;
-        public static final int centerInside = 0x7f090672;
-        public static final int fitBottomStart = 0x7f090b6a;
-        public static final int fitCenter = 0x7f090b6b;
-        public static final int fitEnd = 0x7f090b6c;
-        public static final int fitStart = 0x7f090b6d;
-        public static final int fitXY = 0x7f090b6f;
-        public static final int focusCrop = 0x7f090ba2;
-        public static final int none = 0x7f0917e8;
+        public static final int center = 0x7f09066a;
+        public static final int centerCrop = 0x7f09066e;
+        public static final int centerInside = 0x7f09066f;
+        public static final int fitBottomStart = 0x7f090b66;
+        public static final int fitCenter = 0x7f090b67;
+        public static final int fitEnd = 0x7f090b68;
+        public static final int fitStart = 0x7f090b69;
+        public static final int fitXY = 0x7f090b6b;
+        public static final int focusCrop = 0x7f090b9f;
+        public static final int none = 0x7f0917ef;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

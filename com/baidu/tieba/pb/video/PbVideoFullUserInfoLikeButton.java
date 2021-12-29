@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.video;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.s0.s2.f;
-import c.a.s0.s2.h;
+import c.a.t0.s2.f;
+import c.a.t0.s2.h;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;

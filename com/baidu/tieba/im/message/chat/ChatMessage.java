@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.e.c.a;
 import c.a.d.f.m.b;
-import c.a.d.m.e.n;
+import c.a.d.n.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -396,7 +396,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // c.a.d.m.e.n
+    @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

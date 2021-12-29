@@ -2,7 +2,6 @@ package com.baidu.sofire.utility;
 
 import android.content.Context;
 import android.util.Base64;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
@@ -20,7 +19,7 @@ public final class x {
                 HashMap hashMap = new HashMap();
                 hashMap.put("0", str);
                 hashMap.put("1", Integer.valueOf(i2));
-                hashMap.put("2", Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
+                hashMap.put("2", Base64.encodeToString(com.baidu.sofire.b.a(th).getBytes(), 0).replace(StringUtils.LF, "").replace("\t", "").replace(StringUtils.CR, ""));
                 c.a(context, "1090102", (Map<String, Object>) hashMap, true);
             } catch (Throwable unused) {
                 c.a();

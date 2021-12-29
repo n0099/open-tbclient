@@ -22,6 +22,7 @@ public final class Ruka {
     public static volatile AtomicBoolean sANRInited;
     public static volatile AtomicBoolean sBlockInited;
     public static volatile AtomicBoolean sIsStartTrack;
+    public static int sLineMappingMode;
     public static volatile AtomicBoolean sLooperInited;
     public static long sProcessLaunchTime;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,6 +45,7 @@ public final class Ruka {
         sLooperInited = new AtomicBoolean(false);
         sBlockInited = new AtomicBoolean(false);
         sIsStartTrack = new AtomicBoolean(false);
+        sLineMappingMode = -1;
     }
 
     public Ruka() {
@@ -60,28 +62,42 @@ public final class Ruka {
         }
     }
 
+    public static int getLineMappingMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sLineMappingMode : invokeV.intValue;
+    }
+
     public static long getProcessLaunchTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? sProcessLaunchTime : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? sProcessLaunchTime : invokeV.longValue;
     }
 
     public static boolean isLooperMonitorStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
+    }
+
+    public static void setLineMappingMode(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65541, null, i2) == null) || i2 < 0) {
+            return;
+        }
+        sLineMappingMode = i2;
     }
 
     public static void setProcessLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65542, null, j2) == null) {
             sProcessLaunchTime = j2;
         }
     }
 
     public static void startAnrMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             if (AppConfig.isDebug()) {
                 IANRMonitor aNRMonitor = ANRProvider.getANRMonitor();
                 String str = "IANRMonitor = " + aNRMonitor.getClass().getSimpleName();
@@ -98,7 +114,7 @@ public final class Ruka {
 
     public static void startBlockMonitor(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, null, context, i2) == null) {
             if (AppConfig.isDebug()) {
                 IBlockMonitor blockMonitor = BlockProvider.getBlockMonitor();
                 String str = "iBlockMonitor = " + blockMonitor.getClass().getSimpleName();
@@ -115,7 +131,7 @@ public final class Ruka {
 
     public static void startLooperMonitor(Context context, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65547, null, context, i2) == null) {
             if (AppConfig.isDebug()) {
                 ILooperMonitor looperMonitor = LooperProvider.getLooperMonitor();
                 String str = "iLooperMonitor = " + looperMonitor.getClass().getSimpleName();
@@ -132,7 +148,7 @@ public final class Ruka {
 
     public static void startTrack(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, context) == null) || sIsStartTrack.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, context) == null) || sIsStartTrack.getAndSet(true)) {
             return;
         }
         Track.getInstance().startTrack(context);
@@ -140,35 +156,35 @@ public final class Ruka {
 
     public static void stopAnrMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             ANRProvider.getANRMonitor().stopANRMonitor();
         }
     }
 
     public static void stopBlockMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
             BlockProvider.getBlockMonitor().stopBlockMonitor();
         }
     }
 
     public static void stopLooperMonitor() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
             LooperProvider.getLooperMonitor().stopLooperMonitor();
         }
     }
 
     public static void startBlockMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             startBlockMonitor(context, 2000);
         }
     }
 
     public static void startLooperMonitor(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
             startLooperMonitor(context, 2000);
         }
     }

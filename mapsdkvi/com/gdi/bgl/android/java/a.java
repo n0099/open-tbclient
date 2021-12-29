@@ -12,7 +12,7 @@ public class a {
     public Typeface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64875b;
+    public int f64870b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -28,6 +28,6 @@ public class a {
             }
         }
         this.a = null;
-        this.f64875b = 0;
+        this.f64870b = 0;
     }
 }

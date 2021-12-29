@@ -8,10 +8,10 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
-import c.a.y0.t.g;
-import c.a.y0.t.m;
-import c.a.y0.t.t;
-import c.a.y0.t.w;
+import c.a.a1.t.g;
+import c.a.a1.t.m;
+import c.a.a1.t.t;
+import c.a.a1.t.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -389,20 +389,20 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             int integer2 = this.mOutHeight == 0 ? trackFormat.getInteger("height") : this.mOutHeight;
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
-                            int b2 = ((int) (g.b(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f27594b) {
-                                trackFormat.setInteger("rotation-degrees", b2);
+                            int c2 = ((int) (g.c(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
+                            if (t.f1491b) {
+                                trackFormat.setInteger("rotation-degrees", c2);
                             } else {
-                                trackFormat.setInteger("rotation-degrees", b2);
+                                trackFormat.setInteger("rotation-degrees", c2);
                             }
-                            if ((this.mOutWidth == 0 || this.mOutHeight == 0) && (b2 == 90 || b2 == 270)) {
+                            if ((this.mOutWidth == 0 || this.mOutHeight == 0) && (c2 == 90 || c2 == 270)) {
                                 int i2 = integer2;
                                 integer2 = integer;
                                 integer = i2;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
                             if (!w.a(extractMetadata)) {
-                                this.mSourceVideoDuration = g.c(extractMetadata, 0L);
+                                this.mSourceVideoDuration = g.d(extractMetadata, 0L);
                             }
                             this.mLastProgressPercent = 0;
                             String str = e3;

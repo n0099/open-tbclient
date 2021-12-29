@@ -1,48 +1,47 @@
 package com.vivo.push;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppAliasManager;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class n implements Runnable {
+public final class n extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f63084b;
-
-    public n(LocalAliasTagsManager localAliasTagsManager, List list) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager, list};
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f63084b = localAliasTagsManager;
-        this.a = list;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        List list;
-        ISubscribeAppAliasManager iSubscribeAppAliasManager;
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            Object obj = message.obj;
+            if (obj instanceof l) {
+                l lVar = (l) obj;
+                com.vivo.push.util.p.c("PushClientThread", "PushClientThread-handleMessage, task = ".concat(String.valueOf(lVar)));
+                lVar.run();
+            }
         }
-        iSubscribeAppAliasManager = this.f63084b.mSubscribeAppAliasManager;
-        iSubscribeAppAliasManager.setAliasSuccess((String) this.a.get(0));
     }
 }

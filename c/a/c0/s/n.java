@@ -60,9 +60,9 @@ public class n extends g {
             c.a.c0.s.j0.p pVar = new c.a.c0.s.j0.p();
             this.O = pVar;
             b(pVar);
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                iVar.l0(Boolean.FALSE);
+                iVar.e0(Boolean.FALSE);
             }
             v().setClickable(false);
             w0(true);
@@ -81,7 +81,7 @@ public class n extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPrepared();
-            int i2 = this.a.f2060d;
+            int i2 = this.a.f2487d;
             if (i2 > 0) {
                 o0(i2);
             }

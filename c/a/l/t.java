@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class t extends a<c.a.r0.s.r.a> {
+public class t extends a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3881j;
+    public View f4296j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ThreadLinkView f3882k;
+    public ThreadLinkView f4297k;
     public TextView l;
-    public c.a.r0.s.r.a m;
+    public c.a.s0.s.q.a m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(Context context) {
@@ -48,32 +48,32 @@ public class t extends a<c.a.r0.s.r.a> {
             }
         }
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().p != null && TbadkCoreApplication.getInst().getPersonalizeViewData().p.getParent() == null) {
-            this.f3881j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
+            this.f4296j = TbadkCoreApplication.getInst().getPersonalizeViewData().p;
         } else {
-            this.f3881j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
+            this.f4296j = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
         }
-        this.f3882k = (ThreadLinkView) this.f3881j.findViewById(R.id.link_thread_root);
-        this.l = (TextView) this.f3881j.findViewById(R.id.link_seg_title);
+        this.f4297k = (ThreadLinkView) this.f4296j.findViewById(R.id.link_thread_root);
+        this.l = (TextView) this.f4296j.findViewById(R.id.link_seg_title);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3881j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4296j : (View) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: n */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null) {
                 this.m = aVar;
                 d2 threadData = aVar.getThreadData();
-                c.a.s0.g0.m.j(threadData, this.l);
-                this.f3882k.setData(threadData);
+                c.a.t0.g0.m.j(threadData, this.l);
+                this.f4297k.setData(threadData);
                 return;
             }
             f().setVisibility(8);
@@ -84,12 +84,12 @@ public class t extends a<c.a.r0.s.r.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
-            this.f3882k.onChangeSkinType();
-            c.a.r0.s.r.a aVar = this.m;
+            this.f4297k.onChangeSkinType();
+            c.a.s0.s.q.a aVar = this.m;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            c.a.s0.g0.m.l(this.l, this.m.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.t0.g0.m.l(this.l, this.m.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 }

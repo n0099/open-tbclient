@@ -48,7 +48,7 @@ public class b implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, sSLSession)) == null) {
             try {
                 Certificate[] peerCertificates = sSLSession.getPeerCertificates();
-                eVar = this.a.f34668e;
+                eVar = this.a.f34824e;
                 String n = eVar.a().n();
                 if (!TextUtils.isEmpty(n) && peerCertificates != null && peerCertificates.length > 0) {
                     X509Certificate x509Certificate = (X509Certificate) peerCertificates[0];

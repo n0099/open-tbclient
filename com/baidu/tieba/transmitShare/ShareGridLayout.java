@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.d.f.p.m;
-import c.a.s0.c4.b;
+import c.a.d.f.p.n;
+import c.a.t0.d4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -24,19 +24,19 @@ public class ShareGridLayout extends ViewGroup implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50144e;
+    public Context f50394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50145f;
+    public int f50395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f50146g;
+    public int f50396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50147h;
+    public int f50397h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f50148i;
+    public int f50398i;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class ShareGridLayout extends ViewGroup implements b {
                 return;
             }
         }
-        DEFAULT_MARGIN_LEFT_RIGHT = m.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        DEFAULT_MARGIN_LEFT_RIGHT = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,12 +78,12 @@ public class ShareGridLayout extends ViewGroup implements b {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f50144e = context;
-            b(0, m.k(context) - (DEFAULT_MARGIN_LEFT_RIGHT * 2));
+            this.f50394e = context;
+            b(0, n.k(context) - (DEFAULT_MARGIN_LEFT_RIGHT * 2));
         }
     }
 
-    @Override // c.a.s0.c4.b
+    @Override // c.a.t0.d4.b
     public void addViewAtRow(int i2, @NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, view) == null) {
@@ -95,25 +95,25 @@ public class ShareGridLayout extends ViewGroup implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             int i4 = i3 - i2;
-            if (m.k(TbadkCoreApplication.getInst()) > 800 && this.f50145f * 5 <= i4) {
-                this.f50147h = 5;
+            if (n.k(TbadkCoreApplication.getInst()) > 800 && this.f50395f * 5 <= i4) {
+                this.f50397h = 5;
             } else {
-                this.f50147h = 4;
+                this.f50397h = 4;
             }
-            int i5 = this.f50145f;
-            int i6 = this.f50147h;
+            int i5 = this.f50395f;
+            int i6 = this.f50397h;
             double d2 = i4 - (i5 * i6);
             if (d2 <= 0.0d) {
-                this.f50148i = 0;
+                this.f50398i = 0;
             } else if (i6 == 5) {
-                this.f50148i = (int) Math.floor(d2 / 10.0d);
+                this.f50398i = (int) Math.floor(d2 / 10.0d);
             } else {
-                this.f50148i = (int) Math.floor(d2 / 8.0d);
+                this.f50398i = (int) Math.floor(d2 / 8.0d);
             }
         }
     }
 
-    @Override // c.a.s0.c4.b
+    @Override // c.a.t0.d4.b
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -126,23 +126,23 @@ public class ShareGridLayout extends ViewGroup implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             b(i2, i4);
-            int i6 = this.f50148i;
+            int i6 = this.f50398i;
             int childCount = getChildCount();
             int i7 = 0;
             int i8 = 0;
             int i9 = 0;
             while (i7 < childCount) {
-                getChildAt(i7).layout(i6, i8, this.f50145f + i6, this.f50146g + i8);
+                getChildAt(i7).layout(i6, i8, this.f50395f + i6, this.f50396g + i8);
                 i9++;
-                int i10 = i6 + this.f50145f;
-                int i11 = this.f50148i;
+                int i10 = i6 + this.f50395f;
+                int i11 = this.f50398i;
                 i6 = i10 + (i11 * 2);
-                if (i9 >= this.f50147h) {
+                if (i9 >= this.f50397h) {
                     i6 = i11;
                     i9 = 0;
                 }
                 i7++;
-                i8 = (i7 / this.f50147h) * this.f50146g;
+                i8 = (i7 / this.f50397h) * this.f50396g;
             }
         }
     }
@@ -151,33 +151,33 @@ public class ShareGridLayout extends ViewGroup implements b {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f50145f, Integer.MIN_VALUE);
-            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f50146g, Integer.MIN_VALUE);
+            int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f50395f, Integer.MIN_VALUE);
+            int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.f50396g, Integer.MIN_VALUE);
             int childCount = getChildCount();
             for (int i4 = 0; i4 < childCount; i4++) {
                 getChildAt(i4).measure(makeMeasureSpec, makeMeasureSpec2);
             }
-            int i5 = this.f50147h;
+            int i5 = this.f50397h;
             if (childCount <= i5) {
-                setMeasuredDimension(ViewGroup.resolveSize((this.f50145f * i5) + (this.f50148i * 2 * i5), i2), ViewGroup.resolveSize(this.f50146g, i3));
+                setMeasuredDimension(ViewGroup.resolveSize((this.f50395f * i5) + (this.f50398i * 2 * i5), i2), ViewGroup.resolveSize(this.f50396g, i3));
                 return;
             }
             int i6 = childCount / i5;
             if (childCount % i5 > 0) {
                 i6++;
             }
-            int i7 = this.f50145f;
-            int i8 = this.f50147h;
-            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f50148i * 2 * i8), i2), ViewGroup.resolveSize(this.f50146g * i6, i3));
+            int i7 = this.f50395f;
+            int i8 = this.f50397h;
+            setMeasuredDimension(ViewGroup.resolveSize((i7 * i8) + (this.f50398i * 2 * i8), i2), ViewGroup.resolveSize(this.f50396g * i6, i3));
         }
     }
 
-    @Override // c.a.s0.c4.b
+    @Override // c.a.t0.d4.b
     public void setItemParams(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            this.f50145f = i2;
-            this.f50146g = i3;
+            this.f50395f = i2;
+            this.f50396g = i3;
             requestLayout();
         }
     }

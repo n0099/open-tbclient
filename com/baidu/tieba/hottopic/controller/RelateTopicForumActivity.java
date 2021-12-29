@@ -3,9 +3,9 @@ package com.baidu.tieba.hottopic.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import c.a.d.a.e;
-import c.a.d.f.p.m;
-import c.a.s0.q1.j.j;
-import c.a.s0.q1.o.d;
+import c.a.d.f.p.n;
+import c.a.t0.q1.j.j;
+import c.a.t0.q1.o.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -167,7 +167,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
                     AntiHelper.u(this.a.getActivity(), this.a.likeModel.getErrorString());
                 } else if (StringUtils.isNull(this.a.likeModel.getErrorString())) {
                 } else {
-                    m.M(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
+                    n.M(TbadkCoreApplication.getInst(), this.a.likeModel.getErrorString());
                 }
             }
         }

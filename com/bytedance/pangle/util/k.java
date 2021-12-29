@@ -1,126 +1,110 @@
 package com.bytedance.pangle.util;
 
-import android.app.Application;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.ZeusConstants;
-import com.bytedance.pangle.log.ZeusLogger;
-import java.util.Locale;
+import java.io.File;
+import java.io.RandomAccessFile;
+import java.util.zip.CRC32;
+import java.util.zip.ZipException;
 /* loaded from: classes2.dex */
-public class k {
+public final class k {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile k f55234b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    public k() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Application appApplication = Zeus.getAppApplication();
-        this.a = appApplication.getSharedPreferences(ZeusConstants.BASE_LIB_NAME + "_meta_data_sp", 0);
-    }
+    /* loaded from: classes2.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
 
-    public static k a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f55234b == null) {
-                synchronized (k.class) {
-                    if (f55234b == null) {
-                        f55234b = new k();
-                    }
+        /* renamed from: b  reason: collision with root package name */
+        public long f55234b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return f55234b;
-        }
-        return (k) invokeV.objValue;
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str, true);
-            edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f55184b.getHostVersionCode());
         }
     }
 
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.remove("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str);
-            edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.i.a().f55184b.getHostVersionCode());
-        }
-    }
-
-    public final boolean d(String str) {
+    public static long a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.i.a().f55184b.getHostVersionCode() + "_" + str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("DELETED__".concat(String.valueOf(str)), true);
-            edit.apply();
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markDeletedFlag packageName=".concat(String.valueOf(str)));
-        }
-    }
-
-    public final int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int i2 = this.a.getInt("PLUGIN_API_VERSION_".concat(String.valueOf(str)), 0);
-            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getPluginApiVersion pluginPKg = " + str + ", pluginApiVersion = " + i2);
-            return i2;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void a(String str, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            String str2 = "INSTALLED_" + str + "-" + i2;
-            if (z) {
-                edit.putBoolean(str2, true);
-            } else {
-                edit.remove(str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
+            try {
+                return a(randomAccessFile, a(randomAccessFile));
+            } finally {
+                randomAccessFile.close();
             }
-            edit.apply();
         }
+        return invokeL.longValue;
     }
 
-    public final boolean a(String str, int i2) {
-        InterceptResult invokeLI;
+    public static a a(RandomAccessFile randomAccessFile) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i2)), false) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
+            long length = randomAccessFile.length() - 22;
+            if (length >= 0) {
+                long j2 = length - 65536;
+                long j3 = j2 >= 0 ? j2 : 0L;
+                int reverseBytes = Integer.reverseBytes(101010256);
+                do {
+                    randomAccessFile.seek(length);
+                    if (randomAccessFile.readInt() == reverseBytes) {
+                        randomAccessFile.skipBytes(2);
+                        randomAccessFile.skipBytes(2);
+                        randomAccessFile.skipBytes(2);
+                        randomAccessFile.skipBytes(2);
+                        a aVar = new a();
+                        aVar.f55234b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        return aVar;
+                    }
+                    length--;
+                } while (length >= j3);
+                throw new ZipException("End Of Central Directory signature not found");
+            }
+            throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
+        }
+        return (a) invokeL.objValue;
+    }
+
+    public static long a(RandomAccessFile randomAccessFile, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, aVar)) == null) {
+            CRC32 crc32 = new CRC32();
+            long j2 = aVar.f55234b;
+            randomAccessFile.seek(aVar.a);
+            int min = (int) Math.min(16384L, j2);
+            byte[] bArr = new byte[16384];
+            while (true) {
+                int read = randomAccessFile.read(bArr, 0, min);
+                if (read == -1) {
+                    break;
+                }
+                crc32.update(bArr, 0, read);
+                j2 -= read;
+                if (j2 == 0) {
+                    break;
+                }
+                min = (int) Math.min(16384L, j2);
+            }
+            return crc32.getValue();
+        }
+        return invokeLL.longValue;
     }
 }

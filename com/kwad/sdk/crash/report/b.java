@@ -3,18 +3,11 @@ package com.kwad.sdk.crash.report;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
 import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.h;
-import io.reactivex.annotations.SchedulerSupport;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -28,90 +21,40 @@ import java.util.Iterator;
 import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public abstract class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f58764b;
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f58764b = "";
-    }
+    public String f58764b = "";
 
     private String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45)) : (String) invokeL.objValue;
+        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
     }
 
     public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.a = cVar;
-        }
+        this.a = cVar;
     }
 
     @SuppressLint({"CheckResult"})
     public void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file) == null) {
-            com.kwad.sdk.core.d.a.a("ExceptionCollector", "reportException dir =" + file);
-            for (File file2 : file.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.report.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ b a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // java.io.FileFilter
-                public boolean accept(File file3) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file3)) == null) ? file3.getName().endsWith(".dump") : invokeL.booleanValue;
-                }
-            })) {
-                b(file2);
+        com.kwad.sdk.core.d.a.a("ExceptionCollector", "reportException dir =" + file);
+        for (File file2 : file.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.report.b.1
+            @Override // java.io.FileFilter
+            public boolean accept(File file3) {
+                return file3.getName().endsWith(".dump");
             }
+        })) {
+            b(file2);
         }
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x008b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x000d */
     public void a(File file, ExceptionMessage exceptionMessage) {
         BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048579, this, file, exceptionMessage) != null) {
-            return;
-        }
+        String readLine;
+        String str;
         try {
             MemoryInfo memoryInfo = new MemoryInfo(exceptionMessage.mMemoryInfo);
             ArrayList arrayList = new ArrayList();
@@ -119,21 +62,18 @@ public abstract class b {
             try {
                 try {
                     bufferedReader = new BufferedReader(new FileReader(file));
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (IOException e2) {
+                e = e2;
             }
             try {
                 ThreadInfo threadInfo = new ThreadInfo();
                 while (true) {
-                    String readLine = bufferedReader.readLine();
+                    readLine = bufferedReader.readLine();
                     if (readLine == null) {
-                        memoryInfo.mJavaThreads = arrayList;
-                        exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                        return;
+                        break;
                     } else if (readLine.isEmpty()) {
                         arrayList.add(threadInfo);
                         threadInfo = new ThreadInfo();
@@ -141,18 +81,25 @@ public abstract class b {
                         if (!readLine.startsWith("at ") && !readLine.startsWith("(no ")) {
                             threadInfo.mName = readLine;
                         }
-                        if (threadInfo.mTrace != null) {
-                            readLine = threadInfo.mTrace + readLine;
+                        if (threadInfo.mTrace == null) {
+                            str = readLine;
+                        } else {
+                            str = threadInfo.mTrace + readLine;
                         }
-                        threadInfo.mTrace = readLine;
+                        threadInfo.mTrace = str;
                         threadInfo.mTrace += "#";
                     }
                 }
+                memoryInfo.mJavaThreads = arrayList;
+                exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
+                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                bufferedReader2 = readLine;
             } catch (IOException e3) {
                 e = e3;
                 bufferedReader2 = bufferedReader;
                 com.kwad.sdk.core.d.a.b(e);
                 com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
+                bufferedReader2 = bufferedReader2;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;
@@ -166,46 +113,43 @@ public abstract class b {
 
     public void b(File file) {
         File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, file) == null) {
-            String a = f.a(file.getPath());
-            File file2 = new File(a + ".msg");
-            File file3 = new File(a + ".log");
-            File file4 = new File(a + ".blog");
-            File file5 = new File(a + ".jtrace");
-            ArrayList<File> arrayList = new ArrayList();
-            try {
-                ExceptionMessage a2 = a(file, file2, file3, a);
-                this.a.a(a2);
-                f.a(file4);
-                ArrayList arrayList2 = new ArrayList();
-                Collections.addAll(arrayList2, file3, file4);
-                Iterator it = arrayList2.iterator();
-                while (it.hasNext()) {
-                    if (!((File) it.next()).exists()) {
-                        it.remove();
-                    }
+        String a = f.a(file.getPath());
+        File file2 = new File(a + ".msg");
+        File file3 = new File(a + ".log");
+        File file4 = new File(a + ".blog");
+        File file5 = new File(a + ".jtrace");
+        ArrayList<File> arrayList = new ArrayList();
+        try {
+            ExceptionMessage a2 = a(file, file2, file3, a);
+            this.a.a(a2);
+            f.a(file4);
+            ArrayList arrayList2 = new ArrayList();
+            Collections.addAll(arrayList2, file3, file4);
+            Iterator it = arrayList2.iterator();
+            while (it.hasNext()) {
+                if (!((File) it.next()).exists()) {
+                    it.remove();
                 }
-                File file6 = new File(file.getParentFile().getParent(), SchedulerSupport.CUSTOM);
-                if (file6.exists()) {
-                    for (File file7 : file6.listFiles()) {
-                        if (!file7.isDirectory() && (file7.getName().startsWith(a2.mLogUUID) || file7.getName().startsWith(a(a2.mLogUUID)))) {
-                            arrayList.add(file7);
-                        }
-                    }
-                    arrayList2.addAll(arrayList);
-                }
-                h.b(file.getPath());
-                h.b(file3.getPath());
-                h.b(file4.getPath());
-                for (File file8 : arrayList) {
-                    h.b(file8.getPath());
-                }
-                h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.b.b.f58735b);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
             }
+            File file6 = new File(file.getParentFile().getParent(), "custom");
+            if (file6.exists()) {
+                for (File file7 : file6.listFiles()) {
+                    if (!file7.isDirectory() && (file7.getName().startsWith(a2.mLogUUID) || file7.getName().startsWith(a(a2.mLogUUID)))) {
+                        arrayList.add(file7);
+                    }
+                }
+                arrayList2.addAll(arrayList);
+            }
+            h.b(file.getPath());
+            h.b(file3.getPath());
+            h.b(file4.getPath());
+            for (File file8 : arrayList) {
+                h.b(file8.getPath());
+            }
+            h.b(file5.getPath());
+            f.b(com.kwad.sdk.crash.b.b.f58735b);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.a.b(th);
         }
     }
 
@@ -216,10 +160,6 @@ public abstract class b {
         StringBuilder sb3;
         StringBuilder sb4;
         StringBuilder sb5;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048581, this, file, exceptionMessage) != null) {
-            return;
-        }
         BufferedReader bufferedReader = null;
         try {
             try {

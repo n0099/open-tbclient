@@ -9,9 +9,9 @@ public interface c {
 
     String c();
 
-    String d();
-
     String getCuid();
+
+    String getIID();
 
     void invokeScheme(Context context, String str);
 }

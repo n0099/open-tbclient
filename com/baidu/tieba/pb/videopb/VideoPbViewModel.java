@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import c.a.r0.s.r.d2;
-import c.a.s0.s2.r.f;
-import c.a.s0.s2.y.d;
+import c.a.s0.s.q.d2;
+import c.a.t0.s2.r.f;
+import c.a.t0.s2.y.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -28,10 +28,10 @@ public class VideoPbViewModel extends ViewModel {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PbModel f48477b;
+    public PbModel f48698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f48478c;
+    public int f48699c;
 
     public VideoPbViewModel() {
         Interceptable interceptable = $ic;
@@ -47,13 +47,13 @@ public class VideoPbViewModel extends ViewModel {
             }
         }
         this.a = new d();
-        this.f48478c = 0;
+        this.f48699c = 0;
     }
 
     public void bindPbModel(PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) {
-            this.f48477b = pbModel;
+            this.f48698b = pbModel;
         }
     }
 
@@ -158,14 +158,14 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.f().getValue() == null) {
             return;
         }
-        f b0 = this.f48477b.b0(this.a.f().getValue());
+        f b0 = this.f48698b.b0(this.a.f().getValue());
         if (b0 != null) {
             this.a.j().addLast(this.a.b());
             this.a.o(b0);
             this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
             this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-            this.f48477b.p2(z ? 21 : 22);
-            this.f48477b.G1(b0);
+            this.f48698b.p2(z ? 21 : 22);
+            this.f48698b.G1(b0);
             this.a.s(true);
         }
     }
@@ -179,31 +179,31 @@ public class VideoPbViewModel extends ViewModel {
         this.a.o(pollLast);
         this.a.v(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
         this.a.x(this.a.j().peekLast() != null ? this.a.j().peekLast().O() : null);
-        this.f48477b.G1(pollLast);
+        this.f48698b.G1(pollLast);
         this.a.s(true);
     }
 
     public void loadTargetVideo(d2 d2Var) {
         f b0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, d2Var) == null) || d2Var == null || (b0 = this.f48477b.b0(d2Var)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, d2Var) == null) || d2Var == null || (b0 = this.f48698b.b0(d2Var)) == null) {
             return;
         }
         this.a.j().addLast(this.a.b());
         this.a.o(b0);
         this.a.v(!ListUtils.isEmpty(b0.f()) ? b0.f().get(0) : null);
         this.a.x(this.a.j().getLast() != null ? this.a.j().getLast().O() : null);
-        this.f48477b.p2(20);
-        this.f48477b.G1(b0);
+        this.f48698b.p2(20);
+        this.f48698b.G1(b0);
         this.a.s(true);
     }
 
     public void saveFirstLoadData(f fVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f48478c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, fVar, i2) == null) || i2 < this.f48699c) {
             return;
         }
-        this.f48478c = i2;
+        this.f48699c = i2;
         this.a.p(fVar);
         if (fVar != null) {
             d dVar = this.a;

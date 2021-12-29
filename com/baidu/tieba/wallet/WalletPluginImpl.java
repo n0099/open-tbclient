@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q0.d;
-import c.a.r0.q0.e;
-import c.a.r0.q0.f;
+import c.a.s0.r0.e;
+import c.a.s0.r0.f;
+import c.a.s0.r0.g;
 import com.alipay.sdk.app.PayTask;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WalletPluginImpl implements IWalletPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -119,11 +119,11 @@ public class WalletPluginImpl implements IWalletPlugin {
                         e2.printStackTrace();
                         str3 = null;
                     }
-                    e eVar = new e();
-                    eVar.a = this.val$tag;
-                    eVar.f12808b = i2;
-                    eVar.f12809c = str3;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
+                    f fVar = new f();
+                    fVar.a = this.val$tag;
+                    fVar.f13286b = i2;
+                    fVar.f13287c = str3;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                 }
             }
         }, map, str);
@@ -171,10 +171,10 @@ public class WalletPluginImpl implements IWalletPlugin {
                 public void onPayResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        e eVar = new e();
-                        eVar.f12808b = i2;
-                        eVar.f12809c = str2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, eVar));
+                        f fVar = new f();
+                        fVar.f13286b = i2;
+                        fVar.f13287c = str2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921335, fVar));
                     }
                 }
             });
@@ -225,11 +225,11 @@ public class WalletPluginImpl implements IWalletPlugin {
                 public void onPayResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        e eVar = new e();
-                        eVar.a = this.val$tag;
-                        eVar.f12808b = i2;
-                        eVar.f12809c = str2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
+                        f fVar = new f();
+                        fVar.a = this.val$tag;
+                        fVar.f13286b = i2;
+                        fVar.f13287c = str2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                     }
                 }
             });
@@ -405,17 +405,17 @@ public class WalletPluginImpl implements IWalletPlugin {
     }
 
     @Override // com.baidu.tieba.wallet.IWalletPlugin
-    public void doYYPay(f fVar) {
+    public void doYYPay(g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            PayActivityStatic.doYYPayTask(fVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gVar) == null) {
+            PayActivityStatic.doYYPayTask(gVar);
         }
     }
 
     @Override // com.baidu.tieba.wallet.IWalletPlugin
     public void gotoWalletService(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) && d.c().f()) {
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) && e.c().f()) {
             PayActivityStatic.initBaiduWallet();
             BaiduWallet.getInstance().gotoWalletService(context, str, "");
         }
@@ -431,7 +431,7 @@ public class WalletPluginImpl implements IWalletPlugin {
     @Override // com.baidu.tieba.wallet.IWalletPlugin
     public void openH5Module(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) && d.c().e()) {
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) && e.c().e()) {
             PayActivityStatic.initBaiduWallet();
             BaiduWallet.getInstance().openH5Module(context, str, true);
         }
@@ -449,7 +449,7 @@ public class WalletPluginImpl implements IWalletPlugin {
     @Override // com.baidu.tieba.wallet.IWalletPlugin
     public void startWallet(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, context) == null) && d.c().d()) {
+        if ((interceptable == null || interceptable.invokeL(1048589, this, context) == null) && e.c().d()) {
             PayActivityStatic.initBaiduWallet();
             BaiduWallet.getInstance().startWallet(context);
         }
@@ -509,11 +509,11 @@ public class WalletPluginImpl implements IWalletPlugin {
                             }
                         }
                         int i3 = i2 == 9000 ? 0 : i2 == 8000 ? 1 : i2 == 6001 ? 2 : 6;
-                        e eVar = new e();
-                        eVar.a = this.val$tag;
-                        eVar.f12808b = i3;
-                        eVar.f12809c = str2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, eVar));
+                        f fVar = new f();
+                        fVar.a = this.val$tag;
+                        fVar.f13286b = i3;
+                        fVar.f13287c = str2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921393, fVar));
                     }
                 }
             }.execute(str);

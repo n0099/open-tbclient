@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.b;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -27,18 +27,18 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2453c;
+    public static d f2880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static BdAsyncTaskParallel f2454d;
+    public static BdAsyncTaskParallel f2881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static BdAsyncTaskParallel f2455e;
+    public static BdAsyncTaskParallel f2882e;
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<e<?>> f2456b;
+    public SparseArray<e<?>> f2883b;
 
     /* loaded from: classes.dex */
     public class a<T> extends BdAsyncTask<String, Object, T> {
@@ -47,34 +47,34 @@ public class d {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f2457b;
+        public final int f2884b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2458c;
+        public int f2885c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f2459d;
+        public int f2886d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2460e;
+        public boolean f2887e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object[] f2461f;
+        public Object[] f2888f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f2462g;
+        public int f2889g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f2463h;
+        public long f2890h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final Map<c<T>, BdUniqueId> f2464i;
+        public final Map<c<T>, BdUniqueId> f2891i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final b f2465j;
+        public final b f2892j;
 
         /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ d f2466k;
+        public final /* synthetic */ d f2893k;
 
         public a(d dVar, String str, int i2, int i3, int i4, BdUniqueId bdUniqueId, c<T> cVar, boolean z, Object... objArr) {
             Interceptable interceptable = $ic;
@@ -91,51 +91,51 @@ public class d {
                     return;
                 }
             }
-            this.f2466k = dVar;
-            this.f2458c = 0;
-            this.f2459d = 0;
-            this.f2460e = false;
-            this.f2461f = null;
-            this.f2462g = 2;
-            this.f2464i = new HashMap();
-            this.f2465j = new b();
-            this.f2463h = System.currentTimeMillis();
+            this.f2893k = dVar;
+            this.f2885c = 0;
+            this.f2886d = 0;
+            this.f2887e = false;
+            this.f2888f = null;
+            this.f2889g = 2;
+            this.f2891i = new HashMap();
+            this.f2892j = new b();
+            this.f2890h = System.currentTimeMillis();
             this.a = str;
-            this.f2457b = i2;
-            this.f2458c = i3;
-            this.f2459d = i4;
-            this.f2460e = z;
-            this.f2461f = objArr;
+            this.f2884b = i2;
+            this.f2885c = i3;
+            this.f2886d = i4;
+            this.f2887e = z;
+            this.f2888f = objArr;
             b(cVar, bdUniqueId);
         }
 
         public void b(c<T> cVar, BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, bdUniqueId) == null) {
-                m.c();
-                if (this.f2464i.containsKey(cVar)) {
+                n.c();
+                if (this.f2891i.containsKey(cVar)) {
                     return;
                 }
-                this.f2464i.put(cVar, bdUniqueId);
+                this.f2891i.put(cVar, bdUniqueId);
             }
         }
 
         public void c(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-                m.c();
-                if (this.f2464i.size() == 0) {
+                n.c();
+                if (this.f2891i.size() == 0) {
                     cancel();
                     return;
                 }
-                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2464i.entrySet().iterator();
+                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2891i.entrySet().iterator();
                 while (it.hasNext()) {
                     BdUniqueId value = it.next().getValue();
                     if (value != null && value == bdUniqueId) {
                         it.remove();
                     }
                 }
-                if (this.f2464i.size() == 0) {
+                if (this.f2891i.size() == 0) {
                     cancel();
                 }
             }
@@ -147,32 +147,32 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                b bVar = this.f2465j;
+                b bVar = this.f2892j;
                 if (bVar != null && (aVar = bVar.a) != null) {
                     aVar.cancel();
                 }
-                if (this.f2464i.size() == 0) {
+                if (this.f2891i.size() == 0) {
                     return;
                 }
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2464i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2891i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
                         key.onCancelled(this.a);
                     }
                 }
-                this.f2464i.clear();
+                this.f2891i.clear();
             }
         }
 
         public void d(BdUniqueId bdUniqueId, c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, bdUniqueId, cVar) == null) {
-                m.c();
-                if (this.f2464i.size() == 0) {
+                n.c();
+                if (this.f2891i.size() == 0) {
                     cancel();
                     return;
                 }
-                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2464i.entrySet().iterator();
+                Iterator<Map.Entry<c<T>, BdUniqueId>> it = this.f2891i.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<c<T>, BdUniqueId> next = it.next();
                     c<T> key = next.getKey();
@@ -181,7 +181,7 @@ public class d {
                         it.remove();
                     }
                 }
-                if (this.f2464i.size() == 0) {
+                if (this.f2891i.size() == 0) {
                     cancel();
                 }
             }
@@ -190,12 +190,12 @@ public class d {
         public void e(c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-                m.c();
-                this.f2464i.remove(cVar);
+                n.c();
+                this.f2891i.remove(cVar);
                 if (cVar != null) {
                     cVar.onCancelled(this.a);
                 }
-                if (this.f2464i.size() == 0) {
+                if (this.f2891i.size() == 0) {
                     cancel();
                 }
             }
@@ -209,8 +209,8 @@ public class d {
             T t;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, strArr)) == null) {
-                c.a.d.f.l.a.m(true, System.currentTimeMillis() - this.f2463h);
-                e eVar = (e) this.f2466k.f2456b.get(this.f2457b);
+                c.a.d.f.l.a.m(true, System.currentTimeMillis() - this.f2890h);
+                e eVar = (e) this.f2893k.f2883b.get(this.f2884b);
                 if (eVar == null) {
                     return null;
                 }
@@ -223,17 +223,17 @@ public class d {
                 if (isCancelled()) {
                     return null;
                 }
-                T t2 = (T) eVar.getFromLocal(this.a, key, this.f2458c, this.f2459d, this.f2465j, this.f2461f);
+                T t2 = (T) eVar.getFromLocal(this.a, key, this.f2885c, this.f2886d, this.f2892j, this.f2888f);
                 if (t2 != null) {
                     return t2;
                 }
                 t = t2;
-                if (isCancelled() || this.f2460e) {
+                if (isCancelled() || this.f2887e) {
                     return null;
                 }
-                this.f2462g = 3;
+                this.f2889g = 3;
                 try {
-                    return (T) eVar.getFromRemote(this.a, key, this.f2458c, this.f2459d, this.f2465j, this.f2461f);
+                    return (T) eVar.getFromRemote(this.a, key, this.f2885c, this.f2886d, this.f2892j, this.f2888f);
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
                     return t;
@@ -247,13 +247,13 @@ public class d {
             e eVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                if (t != null && (eVar = (e) this.f2466k.f2456b.get(this.f2457b)) != null) {
-                    eVar.updateMemory(this.f2466k.g(this.a, this.f2457b), t, this.f2458c, this.f2459d, this.f2461f);
+                if (t != null && (eVar = (e) this.f2893k.f2883b.get(this.f2884b)) != null) {
+                    eVar.updateMemory(this.f2893k.g(this.a, this.f2884b), t, this.f2885c, this.f2886d, this.f2888f);
                 }
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2464i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2891i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
-                        key.onLoaded(t, this.a, this.f2462g);
+                        key.onLoaded(t, this.a, this.f2889g);
                     }
                 }
             }
@@ -263,7 +263,7 @@ public class d {
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr) == null) {
-                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2464i.entrySet()) {
+                for (Map.Entry<c<T>, BdUniqueId> entry : this.f2891i.entrySet()) {
                     c<T> key = entry.getKey();
                     if (key != null) {
                         key.onProgressUpdate(objArr);
@@ -302,25 +302,25 @@ public class d {
             }
         }
         this.a = BdUniqueId.gen();
-        this.f2456b = null;
+        this.f2883b = null;
         BdUniqueId gen = BdUniqueId.gen();
-        f2454d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
-        f2455e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
-        this.f2456b = new SparseArray<>();
+        f2881d = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, gen);
+        f2882e = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, gen);
+        this.f2883b = new SparseArray<>();
     }
 
     public static d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f2453c == null) {
+            if (f2880c == null) {
                 synchronized (d.class) {
-                    if (f2453c == null) {
-                        f2453c = new d();
+                    if (f2880c == null) {
+                        f2880c = new d();
                     }
                 }
             }
-            return f2453c;
+            return f2880c;
         }
         return (d) invokeV.objValue;
     }
@@ -404,7 +404,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            SparseArray<e<?>> sparseArray = this.f2456b;
+            SparseArray<e<?>> sparseArray = this.f2883b;
             if (sparseArray == null) {
                 return null;
             }
@@ -417,7 +417,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            e<?> eVar = this.f2456b.get(i2);
+            e<?> eVar = this.f2883b.get(i2);
             if (eVar == null) {
                 BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
                 return false;
@@ -450,7 +450,7 @@ public class d {
         Object fromMemory;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), cVar, Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), bdUniqueId, objArr})) == null) {
-            if (TextUtils.isEmpty(str) || (eVar = this.f2456b.get(i2)) == null) {
+            if (TextUtils.isEmpty(str) || (eVar = this.f2883b.get(i2)) == null) {
                 return null;
             }
             if (i3 < 0 || i4 < 0) {
@@ -476,8 +476,8 @@ public class d {
                         p = p(g2);
                         if (p == null) {
                         }
-                        H = k.H();
-                        boolean v = k.v();
+                        H = l.H();
+                        boolean v = l.v();
                         a aVar = new a(this, str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
                         aVar.setKey(g2);
                         aVar.setTag(this.a);
@@ -500,8 +500,8 @@ public class d {
                 p.b(cVar, bdUniqueId);
                 return null;
             }
-            H = k.H();
-            boolean v2 = k.v();
+            H = l.H();
+            boolean v2 = l.v();
             a aVar2 = new a(this, str, i2, i5, i6, bdUniqueId, cVar, z, objArr);
             aVar2.setKey(g2);
             aVar2.setTag(this.a);
@@ -511,9 +511,9 @@ public class d {
             }
             aVar2.setPriority(asyncTaskPriority);
             if (H && !v2) {
-                aVar2.setParallel(f2454d);
+                aVar2.setParallel(f2881d);
             } else if (eVar.getAsyncTaskParallel() != null) {
-                aVar2.setParallel(f2455e);
+                aVar2.setParallel(f2882e);
             } else {
                 aVar2.setParallel(eVar.getAsyncTaskParallel());
             }
@@ -536,7 +536,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            e<?> eVar = this.f2456b.get(i2);
+            e<?> eVar = this.f2883b.get(i2);
             if (eVar == null) {
                 BdLog.e("Can't find the ResourceLoaderProc with type " + i2);
                 return null;
@@ -551,8 +551,8 @@ public class d {
         if (interceptable == null || interceptable.invokeIL(1048588, this, i2, eVar) == null) {
             synchronized (this) {
                 if (eVar != null) {
-                    if (this.f2456b.get(i2) == null) {
-                        this.f2456b.put(i2, eVar);
+                    if (this.f2883b.get(i2) == null) {
+                        this.f2883b.put(i2, eVar);
                     } else {
                         throw new IllegalArgumentException("registerLoaderProc key has been registered. The key is " + i2);
                     }

@@ -13,13 +13,13 @@ public class v {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t f56358b;
+    public t f56357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f56359c;
+    public ServiceConnection f56358c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56360d;
+    public a f56359d;
 
     /* loaded from: classes3.dex */
     public interface a<T> {
@@ -40,6 +40,6 @@ public class v {
             }
         }
         this.a = null;
-        this.f56360d = null;
+        this.f56359d = null;
     }
 }

@@ -12,25 +12,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class JavaHandlerThread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HandlerThread a;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f51826e;
+        public final /* synthetic */ long f52082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f51827f;
+        public final /* synthetic */ long f52083f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f51828g;
+        public final /* synthetic */ JavaHandlerThread f52084g;
 
         public a(JavaHandlerThread javaHandlerThread, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -47,36 +47,36 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f51828g = javaHandlerThread;
-            this.f51826e = j2;
-            this.f51827f = j3;
+            this.f52084g = javaHandlerThread;
+            this.f52082e = j2;
+            this.f52083f = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51828g.nativeInitializeThread(this.f51826e, this.f51827f);
+                this.f52084g.nativeInitializeThread(this.f52082e, this.f52083f);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f51829e;
+        public final /* synthetic */ long f52085e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f51830f;
+        public final /* synthetic */ long f52086f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f51831g;
+        public final /* synthetic */ boolean f52087g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ JavaHandlerThread f51832h;
+        public final /* synthetic */ JavaHandlerThread f52088h;
 
         public b(JavaHandlerThread javaHandlerThread, long j2, long j3, boolean z) {
             Interceptable interceptable = $ic;
@@ -93,21 +93,21 @@ public class JavaHandlerThread {
                     return;
                 }
             }
-            this.f51832h = javaHandlerThread;
-            this.f51829e = j2;
-            this.f51830f = j3;
-            this.f51831g = z;
+            this.f52088h = javaHandlerThread;
+            this.f52085e = j2;
+            this.f52086f = j3;
+            this.f52087g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f51832h.nativeStopThread(this.f51829e, this.f51830f);
-                if (this.f51831g) {
+                this.f52088h.nativeStopThread(this.f52085e, this.f52086f);
+                if (this.f52087g) {
                     return;
                 }
-                this.f51832h.a.quit();
+                this.f52088h.a.quit();
             }
         }
     }

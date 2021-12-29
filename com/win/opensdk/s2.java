@@ -14,10 +14,10 @@ public final class s2 {
     public static final s2 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final s2 f63231b;
+    public static final s2 f63226b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ s2[] f63232c;
+    public static final /* synthetic */ s2[] f63227c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,8 +35,8 @@ public final class s2 {
         }
         a = new s2("COUNT", 0);
         s2 s2Var = new s2("COUNT_BACK", 1);
-        f63231b = s2Var;
-        f63232c = new s2[]{a, s2Var};
+        f63226b = s2Var;
+        f63227c = new s2[]{a, s2Var};
     }
 
     public s2(String str, int i2) {
@@ -67,6 +67,6 @@ public final class s2 {
     public static s2[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (s2[]) f63232c.clone() : (s2[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (s2[]) f63227c.clone() : (s2[]) invokeV.objValue;
     }
 }

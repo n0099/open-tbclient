@@ -2,10 +2,10 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.m;
-import c.a.d.m.d.a;
-import c.a.r0.c0.c;
-import c.a.r0.d0.i.d;
+import c.a.d.f.p.n;
+import c.a.d.n.d.a;
+import c.a.s0.c0.c;
+import c.a.s0.d0.i.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -45,8 +45,8 @@ public class LocalFileImageLoaderProc implements e<a> {
     private void initDefalutMaxSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.width = m.k(TbadkCoreApplication.getInst());
-            this.height = m.i(TbadkCoreApplication.getInst());
+            this.width = n.k(TbadkCoreApplication.getInst());
+            this.height = n.i(TbadkCoreApplication.getInst());
         }
     }
 
@@ -130,7 +130,7 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f31721h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f31864h + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }

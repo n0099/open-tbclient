@@ -37,12 +37,12 @@ public class TbAdvertStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.r0.a1.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<c.a.s0.b1.a> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage.getData() != null) {
-                    c.a.s0.w3.a j2 = c.a.s0.w3.a.j();
+                    c.a.t0.x3.a j2 = c.a.t0.x3.a.j();
                     j2.n(customMessage.getData());
                     return new CustomResponsedMessage<>(2921390, j2);
                 }
@@ -76,7 +76,7 @@ public class TbAdvertStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.s0.w3.a.j().m();
+                c.a.t0.x3.a.j().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;

@@ -13,13 +13,13 @@ public final class i {
     public final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29614b;
+    public final int f29692b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29615c;
+    public int f29693c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29616d;
+    public int f29694d;
 
     public i(byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -37,29 +37,29 @@ public final class i {
             }
         }
         this.a = bArr;
-        this.f29614b = bArr.length;
+        this.f29692b = bArr.length;
     }
 
     public final void a() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i3 = this.f29615c;
-            c.i.b.a.i0.a.f(i3 >= 0 && (i3 < (i2 = this.f29614b) || (i3 == i2 && this.f29616d == 0)));
+            int i3 = this.f29693c;
+            c.i.b.a.i0.a.f(i3 >= 0 && (i3 < (i2 = this.f29692b) || (i3 == i2 && this.f29694d == 0)));
         }
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f29615c * 8) + this.f29616d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f29693c * 8) + this.f29694d : invokeV.intValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            boolean z = (((this.a[this.f29615c] & 255) >> this.f29616d) & 1) == 1;
+            boolean z = (((this.a[this.f29693c] & 255) >> this.f29694d) & 1) == 1;
             e(1);
             return z;
         }
@@ -70,10 +70,10 @@ public final class i {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int i3 = this.f29615c;
-            int min = Math.min(i2, 8 - this.f29616d);
+            int i3 = this.f29693c;
+            int min = Math.min(i2, 8 - this.f29694d);
             int i4 = i3 + 1;
-            int i5 = ((this.a[i3] & 255) >> this.f29616d) & (255 >> (8 - min));
+            int i5 = ((this.a[i3] & 255) >> this.f29694d) & (255 >> (8 - min));
             while (min < i2) {
                 i5 |= (this.a[i4] & 255) << min;
                 min += 8;
@@ -90,13 +90,13 @@ public final class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             int i3 = i2 / 8;
-            int i4 = this.f29615c + i3;
-            this.f29615c = i4;
-            int i5 = this.f29616d + (i2 - (i3 * 8));
-            this.f29616d = i5;
+            int i4 = this.f29693c + i3;
+            this.f29693c = i4;
+            int i5 = this.f29694d + (i2 - (i3 * 8));
+            this.f29694d = i5;
             if (i5 > 7) {
-                this.f29615c = i4 + 1;
-                this.f29616d = i5 - 8;
+                this.f29693c = i4 + 1;
+                this.f29694d = i5 - 8;
             }
             a();
         }

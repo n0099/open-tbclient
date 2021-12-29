@@ -146,7 +146,7 @@ public class BundleInfo implements IBundleInfo {
             int columnIndex18 = cursor.getColumnIndex("removalbe");
             int columnIndex19 = cursor.getColumnIndex("size");
             int columnIndex20 = cursor.getColumnIndex("need_remove");
-            int columnIndex21 = cursor.getColumnIndex("abi");
+            int columnIndex21 = cursor.getColumnIndex(PackageTable.ABI);
             int columnIndex22 = cursor.getColumnIndex("ext");
             int columnIndex23 = cursor.getColumnIndex("silence");
             int columnIndex24 = cursor.getColumnIndex("silence_update");
@@ -280,7 +280,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("removalbe", Boolean.valueOf(bundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(bundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(bundleInfo.isNeedRemove()));
-            contentValues.put("abi", Integer.valueOf(bundleInfo.getAbi()));
+            contentValues.put(PackageTable.ABI, Integer.valueOf(bundleInfo.getAbi()));
             contentValues.put("ext", bundleInfo.getExt());
             contentValues.put("silence", Integer.valueOf(bundleInfo.getSilence()));
             contentValues.put("silence_update", Integer.valueOf(bundleInfo.getSilenceUpdate()));
@@ -776,7 +776,7 @@ public class BundleInfo implements IBundleInfo {
             bundleInfo.setRemovable(contentValues.getAsBoolean("removalbe").booleanValue());
             bundleInfo.setSize(contentValues.getAsLong("size").longValue());
             bundleInfo.setNeedRemove(contentValues.getAsBoolean("need_remove").booleanValue());
-            bundleInfo.setAbi(contentValues.getAsInteger("abi").intValue());
+            bundleInfo.setAbi(contentValues.getAsInteger(PackageTable.ABI).intValue());
             bundleInfo.setExt(contentValues.getAsString("ext"));
             bundleInfo.setSilence(contentValues.getAsInteger("silence").intValue());
             bundleInfo.setSilenceUpdate(contentValues.getAsInteger("silence_update").intValue());
@@ -815,7 +815,7 @@ public class BundleInfo implements IBundleInfo {
             contentValues.put("removalbe", Boolean.valueOf(iBundleInfo.isRemovable()));
             contentValues.put("size", Long.valueOf(iBundleInfo.getSize()));
             contentValues.put("need_remove", Boolean.valueOf(iBundleInfo.isNeedRemove()));
-            contentValues.put("abi", Integer.valueOf(iBundleInfo.getAbi()));
+            contentValues.put(PackageTable.ABI, Integer.valueOf(iBundleInfo.getAbi()));
             contentValues.put("ext", iBundleInfo.getExt());
             contentValues.put("silence", Integer.valueOf(iBundleInfo.getSilence()));
             contentValues.put("silence_update", Integer.valueOf(iBundleInfo.getSilenceUpdate()));

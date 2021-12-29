@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -60,9 +60,9 @@ public class LegoPageRequest extends NetMessage {
             builder.page_type = Integer.valueOf(this.pageType);
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
-            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst()));
             if (!TextUtils.isEmpty(this.params)) {
                 builder.params = this.params;
             }

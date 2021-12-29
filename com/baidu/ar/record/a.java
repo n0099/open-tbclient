@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a implements FrameRenderListener, IRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -45,7 +45,7 @@ public class a implements FrameRenderListener, IRecord {
     public long ud;
 
     /* renamed from: com.baidu.ar.record.a$3  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation;
         public static /* synthetic */ Interceptable $ic;

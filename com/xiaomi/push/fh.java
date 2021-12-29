@@ -74,7 +74,7 @@ public class fh extends fs {
             try {
                 this.a = new fc(((fs) this).f416a.getInputStream(), this);
                 this.f386a = new fd(((fs) this).f416a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f63466b + SmallTailInfo.EMOTION_SUFFIX);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f63461b + SmallTailInfo.EMOTION_SUFFIX);
                 this.f387a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
@@ -230,7 +230,7 @@ public class fh extends fs {
             }
             try {
                 int a = fdVar.a(faVar);
-                ((fl) this).f63468d = System.currentTimeMillis();
+                ((fl) this).f63463d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
                     gq.a(((fl) this).f401a, f2, a, false, true, System.currentTimeMillis());

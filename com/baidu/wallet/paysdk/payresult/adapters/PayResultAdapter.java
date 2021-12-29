@@ -22,7 +22,7 @@ public class PayResultAdapter extends BasePayResultAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownTimer f54109d;
+    public CountDownTimer f54112d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PayResultAdapter(BaseActivity baseActivity) {
@@ -49,16 +49,16 @@ public class PayResultAdapter extends BasePayResultAdapter {
     public void handleOKBtnOnclick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             if (payResultContent != null) {
                 if (payResultContent.isPaySuccess) {
-                    PayRequest payRequest = this.f54107b;
+                    PayRequest payRequest = this.f54110b;
                     if (payRequest != null && BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom)) {
                         GlobalUtils.hideKeyboard(this.a.get().getActivity());
-                        a(BeanConstants.EV_SCANCODE_EXIT, this.f54108c.notify);
+                        a(BeanConstants.EV_SCANCODE_EXIT, this.f54111c.notify);
                         return;
                     }
-                    PayCallBackManager.callBackClientSuccess(this.a.get().getActivity(), this.f54108c.notify);
+                    PayCallBackManager.callBackClientSuccess(this.a.get().getActivity(), this.f54111c.notify);
                     return;
                 }
                 PayCallBackManager.callBackClientPaying(this.a.get().getActivity());
@@ -75,16 +75,16 @@ public class PayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            if (this.f54108c == null || (payRequest = this.f54107b) == null) {
+            if (this.f54111c == null || (payRequest = this.f54110b) == null) {
                 return false;
             }
             if (!BeanConstants.PAY_FROM_B_SAO_C.equals(payRequest.mPayFrom) || BaiduPay.getInstance().getScanCallback() == null) {
                 return true;
             }
-            CountDownTimer countDownTimer = this.f54109d;
+            CountDownTimer countDownTimer = this.f54112d;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
-                this.f54109d = null;
+                this.f54112d = null;
             }
             CountDownTimer countDownTimer2 = new CountDownTimer(this, 3000L, 1000L) { // from class: com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter.1
                 public static /* synthetic */ Interceptable $ic;
@@ -119,7 +119,7 @@ public class PayResultAdapter extends BasePayResultAdapter {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         GlobalUtils.hideKeyboard(this.a.a.get().getActivity());
                         PayResultAdapter payResultAdapter = this.a;
-                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f54108c.notify);
+                        payResultAdapter.a(BeanConstants.EV_SCANCODE_EXIT, payResultAdapter.f54111c.notify);
                     }
                 }
 
@@ -130,7 +130,7 @@ public class PayResultAdapter extends BasePayResultAdapter {
                     }
                 }
             };
-            this.f54109d = countDownTimer2;
+            this.f54112d = countDownTimer2;
             countDownTimer2.start();
             return true;
         }

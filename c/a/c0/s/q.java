@@ -12,7 +12,7 @@ public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final q f2099b;
+    public static final q f2526b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -29,7 +29,7 @@ public class q {
                 return;
             }
         }
-        f2099b = new q();
+        f2526b = new q();
     }
 
     public q() {

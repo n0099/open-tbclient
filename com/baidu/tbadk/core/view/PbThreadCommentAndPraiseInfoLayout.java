@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.s.r.d2;
-import c.a.r0.s.r.f;
-import c.a.r0.s.v.c;
+import c.a.d.f.p.n;
+import c.a.s0.s.q.d2;
+import c.a.s0.s.q.f;
+import c.a.s0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
@@ -70,9 +70,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         f fVar = new f();
-        fVar.f13309b = 4;
-        fVar.f13311d = 2;
-        fVar.f13317j = str2;
+        fVar.f13685b = 4;
+        fVar.f13687d = 2;
+        fVar.f13693j = str2;
         this.mAgreeView.setStatisticData(fVar);
         this.mAgreeView.onAgreeClick();
     }
@@ -153,7 +153,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0107);
                 EMTextView eMTextView2 = this.mCommentGrabSofa;
-                int f2 = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+                int f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
                 int i2 = R.color.CAM_X0207;
                 SkinManager.setBackgroundShapeDrawable(eMTextView2, f2, i2, i2);
             }
@@ -273,10 +273,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int f2 = m.f(getContext(), R.dimen.tbds68);
-            int f3 = m.f(getContext(), R.dimen.T_X09);
-            int f4 = m.f(getContext(), R.dimen.tbds15);
-            int f5 = m.f(getContext(), R.dimen.tbds10);
+            int f2 = n.f(getContext(), R.dimen.tbds68);
+            int f3 = n.f(getContext(), R.dimen.T_X09);
+            int f4 = n.f(getContext(), R.dimen.tbds15);
+            int f5 = n.f(getContext(), R.dimen.tbds10);
             this.B = (LinearLayout) findViewById(R.id.share_num_container);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
             layoutParams2.weight = isVideoPbWorks() ? 0.2f : 0.25f;
@@ -320,7 +320,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 linearLayout.setOrientation(1);
                 ImageView imageView3 = (ImageView) findViewById(R.id.thread_info_commont_img);
                 RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(f2, f2);
-                layoutParams9.topMargin = m.f(getContext(), R.dimen.tbds25);
+                layoutParams9.topMargin = n.f(getContext(), R.dimen.tbds25);
                 layoutParams9.addRule(13, -1);
                 imageView3.setLayoutParams(layoutParams9);
                 WebPManager.setPureDrawable(imageView3, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -351,7 +351,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(0, -1);
-            layoutParams13.topMargin = m.f(getContext(), R.dimen.tbds18);
+            layoutParams13.topMargin = n.f(getContext(), R.dimen.tbds18);
             layoutParams2.weight = isVideoPbWorks() ? 0.2f : 0.25f;
             agreeView.setLayoutParams(layoutParams13);
             agreeView.adjustLayoutForPbFirstFloor();

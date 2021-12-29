@@ -17,25 +17,25 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28390b;
+    public long f28464b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28391c;
+    public String f28465c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f28392d;
+    public String f28466d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f28393e;
+    public String f28467e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f28394f;
+    public long f28468f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f28395g;
+    public String f28469g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f28396h;
+    public Map<String, Object> f28470h;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -57,20 +57,20 @@ public class f {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j2), str2, Long.valueOf(j3), str3, collection, map, str4})) == null) {
             f fVar = new f();
             fVar.a = str;
-            fVar.f28390b = j2;
-            fVar.f28392d = str2;
-            fVar.f28394f = j3;
-            fVar.f28393e = str3;
-            fVar.f28395g = str4;
+            fVar.f28464b = j2;
+            fVar.f28466d = str2;
+            fVar.f28468f = j3;
+            fVar.f28467e = str3;
+            fVar.f28469g = str4;
             if (collection != null) {
                 JSONArray jSONArray = new JSONArray();
                 for (String str5 : collection) {
                     jSONArray.put(str5);
                 }
-                fVar.f28391c = jSONArray.toString();
+                fVar.f28465c = jSONArray.toString();
             }
             if (map != null && !map.isEmpty()) {
-                fVar.f28396h = map;
+                fVar.f28470h = map;
             }
             return fVar;
         }
@@ -84,20 +84,20 @@ public class f {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(com.baidu.fsg.base.statistics.h.a, this.a);
-                jSONObject.put("et", this.f28390b);
-                jSONObject.put(com.baidu.fsg.base.statistics.h.f34764f, this.f28394f);
-                if (!TextUtils.isEmpty(this.f28392d)) {
-                    jSONObject.put(com.baidu.fsg.base.statistics.h.f34762d, this.f28392d);
+                jSONObject.put("et", this.f28464b);
+                jSONObject.put(com.baidu.fsg.base.statistics.h.f34920f, this.f28468f);
+                if (!TextUtils.isEmpty(this.f28466d)) {
+                    jSONObject.put(com.baidu.fsg.base.statistics.h.f34918d, this.f28466d);
                 }
-                jSONObject.putOpt(com.baidu.fsg.base.statistics.h.f34763e, this.f28393e);
-                if (this.f28391c != null) {
-                    jSONObject.put("ev", this.f28391c);
+                jSONObject.putOpt(com.baidu.fsg.base.statistics.h.f34919e, this.f28467e);
+                if (this.f28465c != null) {
+                    jSONObject.put("ev", this.f28465c);
                 }
-                if (!TextUtils.isEmpty(this.f28395g)) {
-                    jSONObject.put("at", this.f28395g);
+                if (!TextUtils.isEmpty(this.f28469g)) {
+                    jSONObject.put("at", this.f28469g);
                 }
-                if (this.f28396h != null && !this.f28396h.isEmpty()) {
-                    for (Map.Entry<String, Object> entry : this.f28396h.entrySet()) {
+                if (this.f28470h != null && !this.f28470h.isEmpty()) {
+                    for (Map.Entry<String, Object> entry : this.f28470h.entrySet()) {
                         if (entry.getValue() instanceof Integer) {
                             jSONObject.put(entry.getKey(), ((Integer) entry.getValue()).intValue());
                         } else if (entry.getValue() instanceof Long) {

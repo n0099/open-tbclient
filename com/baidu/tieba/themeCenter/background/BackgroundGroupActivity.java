@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
-import c.a.s0.b4.e.b;
-import c.a.s0.b4.e.c;
-import c.a.s0.b4.e.d;
-import c.a.s0.b4.h.e;
+import c.a.t0.c4.e.b;
+import c.a.t0.c4.e.c;
+import c.a.t0.c4.e.d;
+import c.a.t0.c4.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -83,7 +83,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,17 +91,17 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public c.a.r0.p0.d getPageStayDurationItem() {
+    public c.a.s0.q0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.r0.p0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.s0.q0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (c.a.r0.p0.d) invokeV.objValue;
+        return (c.a.s0.q0.d) invokeV.objValue;
     }
 
     public int getPropId() {

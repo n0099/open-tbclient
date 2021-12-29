@@ -23,7 +23,7 @@ public class ge extends gc {
     public b f437a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63511b;
+    public String f63506b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -35,16 +35,16 @@ public class ge extends gc {
         public static final /* synthetic */ a[] f438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f63512b;
+        public static final a f63507b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f63513c;
+        public static final a f63508c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f63514d;
+        public static final a f63509d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f63515e;
+        public static final a f63510e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,12 +61,12 @@ public class ge extends gc {
                 }
             }
             a = new a("chat", 0);
-            f63512b = new a("available", 1);
-            f63513c = new a("away", 2);
-            f63514d = new a("xa", 3);
+            f63507b = new a("available", 1);
+            f63508c = new a("away", 2);
+            f63509d = new a("xa", 3);
             a aVar = new a("dnd", 4);
-            f63515e = aVar;
-            f438a = new a[]{a, f63512b, f63513c, f63514d, aVar};
+            f63510e = aVar;
+            f438a = new a[]{a, f63507b, f63508c, f63509d, aVar};
         }
 
         public a(String str, int i2) {
@@ -111,25 +111,25 @@ public class ge extends gc {
         public static final /* synthetic */ b[] f439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f63516b;
+        public static final b f63511b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f63517c;
+        public static final b f63512c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f63518d;
+        public static final b f63513d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f63519e;
+        public static final b f63514e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f63520f;
+        public static final b f63515f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b f63521g;
+        public static final b f63516g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final b f63522h;
+        public static final b f63517h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,15 +146,15 @@ public class ge extends gc {
                 }
             }
             a = new b("available", 0);
-            f63516b = new b("unavailable", 1);
-            f63517c = new b(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, 2);
-            f63518d = new b("subscribed", 3);
-            f63519e = new b("unsubscribe", 4);
-            f63520f = new b("unsubscribed", 5);
-            f63521g = new b("error", 6);
+            f63511b = new b("unavailable", 1);
+            f63512c = new b(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, 2);
+            f63513d = new b("subscribed", 3);
+            f63514e = new b("unsubscribe", 4);
+            f63515f = new b("unsubscribed", 5);
+            f63516g = new b("error", 6);
             b bVar = new b("probe", 7);
-            f63522h = bVar;
-            f439a = new b[]{a, f63516b, f63517c, f63518d, f63519e, f63520f, f63521g, bVar};
+            f63517h = bVar;
+            f439a = new b[]{a, f63511b, f63512c, f63513d, f63514e, f63515f, f63516g, bVar};
         }
 
         public b(String str, int i2) {
@@ -208,14 +208,14 @@ public class ge extends gc {
             }
         }
         this.f437a = b.a;
-        this.f63511b = null;
+        this.f63506b = null;
         this.a = Integer.MIN_VALUE;
         this.f436a = null;
         if (bundle.containsKey("ext_pres_type")) {
             this.f437a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
-            this.f63511b = bundle.getString("ext_pres_status");
+            this.f63506b = bundle.getString("ext_pres_status");
         }
         if (bundle.containsKey("ext_pres_prio")) {
             this.a = bundle.getInt("ext_pres_prio");
@@ -241,7 +241,7 @@ public class ge extends gc {
             }
         }
         this.f437a = b.a;
-        this.f63511b = null;
+        this.f63506b = null;
         this.a = Integer.MIN_VALUE;
         this.f436a = null;
         a(bVar);
@@ -257,7 +257,7 @@ public class ge extends gc {
             if (bVar != null) {
                 a2.putString("ext_pres_type", bVar.toString());
             }
-            String str = this.f63511b;
+            String str = this.f63506b;
             if (str != null) {
                 a2.putString("ext_pres_status", str);
             }
@@ -266,7 +266,7 @@ public class ge extends gc {
                 a2.putInt("ext_pres_prio", i2);
             }
             a aVar = this.f436a;
-            if (aVar != null && aVar != a.f63512b) {
+            if (aVar != null && aVar != a.f63507b) {
                 a2.putString("ext_pres_mode", aVar.toString());
             }
             return a2;
@@ -312,9 +312,9 @@ public class ge extends gc {
                 sb.append("\"");
             }
             sb.append(">");
-            if (this.f63511b != null) {
+            if (this.f63506b != null) {
                 sb.append("<status>");
-                sb.append(gn.a(this.f63511b));
+                sb.append(gn.a(this.f63506b));
                 sb.append("</status>");
             }
             if (this.a != Integer.MIN_VALUE) {
@@ -323,7 +323,7 @@ public class ge extends gc {
                 sb.append("</priority>");
             }
             a aVar = this.f436a;
-            if (aVar != null && aVar != a.f63512b) {
+            if (aVar != null && aVar != a.f63507b) {
                 sb.append("<show>");
                 sb.append(this.f436a);
                 sb.append("</show>");
@@ -371,7 +371,7 @@ public class ge extends gc {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f63511b = str;
+            this.f63506b = str;
         }
     }
 }

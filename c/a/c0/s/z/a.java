@@ -13,19 +13,19 @@ public class a extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f2121d;
+    public d f2548d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f2122e;
+    public j f2549e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i f2123f;
+    public i f2550f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f2124g;
+    public e f2551g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f2125h;
+    public c f2552h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class a extends m {
     public void B() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = this.f2123f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (iVar = this.f2550f) == null) {
             return;
         }
         iVar.b();
@@ -53,7 +53,7 @@ public class a extends m {
     public void C() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f2123f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (iVar = this.f2550f) == null) {
             return;
         }
         iVar.a();
@@ -62,7 +62,7 @@ public class a extends m {
     public void D(boolean z, boolean z2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (cVar = this.f2125h) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (cVar = this.f2552h) == null) {
             return;
         }
         cVar.a(z, z2);
@@ -71,7 +71,7 @@ public class a extends m {
     public void E(boolean z) {
         j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (jVar = this.f2122e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (jVar = this.f2549e) == null) {
             return;
         }
         jVar.a(z);
@@ -80,7 +80,7 @@ public class a extends m {
     public void F(int i2, int i3) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (eVar = this.f2124g) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (eVar = this.f2551g) == null) {
             return;
         }
         eVar.a(i2, i3);
@@ -89,7 +89,7 @@ public class a extends m {
     public void G(int i2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (dVar = this.f2121d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (dVar = this.f2548d) == null) {
             return;
         }
         dVar.a(i2);
@@ -113,11 +113,11 @@ public class a extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.r();
-            this.f2121d = null;
-            this.f2122e = null;
-            this.f2124g = null;
-            this.f2123f = null;
-            this.f2125h = null;
+            this.f2548d = null;
+            this.f2549e = null;
+            this.f2551g = null;
+            this.f2550f = null;
+            this.f2552h = null;
         }
     }
 }

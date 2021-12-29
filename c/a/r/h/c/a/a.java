@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f11780b;
+    public static final char[] f5067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f11781c;
+    public static final byte[] f5068c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,10 +31,10 @@ public class a {
             }
         }
         a = "0123456789ABCDEF".toCharArray();
-        f11780b = "0123456789abcdef".toCharArray();
-        f11781c = new byte[128];
+        f5067b = "0123456789abcdef".toCharArray();
+        f5068c = new byte[128];
         for (int i2 = 0; i2 < 10; i2++) {
-            byte[] bArr = f11781c;
+            byte[] bArr = f5068c;
             bArr[i2 + 48] = (byte) i2;
             byte b2 = (byte) (i2 + 10);
             bArr[i2 + 65] = b2;
@@ -46,7 +46,7 @@ public class a {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
-            char[] cArr = z ? a : f11780b;
+            char[] cArr = z ? a : f5067b;
             char[] cArr2 = new char[bArr.length * 2];
             int i2 = 0;
             for (byte b2 : bArr) {

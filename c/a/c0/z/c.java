@@ -22,7 +22,7 @@ public class c implements d {
     public final SQLiteDatabase a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SQLiteDatabase f2151b;
+    public final SQLiteDatabase f2578b;
 
     public c(SQLiteDatabase sQLiteDatabase, SQLiteDatabase sQLiteDatabase2) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class c implements d {
             }
         }
         this.a = sQLiteDatabase;
-        this.f2151b = sQLiteDatabase2;
+        this.f2578b = sQLiteDatabase2;
     }
 
     @Override // c.a.c0.z.d
@@ -86,7 +86,7 @@ public class c implements d {
                 }
                 str = g.j(c2);
             }
-            Cursor rawQuery = this.f2151b.rawQuery(g.i(kVar, str), strArr);
+            Cursor rawQuery = this.f2578b.rawQuery(g.i(kVar, str), strArr);
             boolean moveToFirst = rawQuery.moveToFirst();
             if (moveToFirst) {
                 i.a(rawQuery, kVar);
@@ -266,7 +266,7 @@ public class c implements d {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, str, bVarArr, aVar)) == null) {
-            return this.f2151b.rawQuery("SELECT " + g.f(bVarArr) + aVar.k(), aVar.e());
+            return this.f2578b.rawQuery("SELECT " + g.f(bVarArr) + aVar.k(), aVar.e());
         }
         return (Cursor) invokeLLL.objValue;
     }
@@ -274,7 +274,7 @@ public class c implements d {
     public Cursor query(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f2151b.rawQuery(str, null) : (Cursor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.f2578b.rawQuery(str, null) : (Cursor) invokeL.objValue;
     }
 
     public int update(k kVar, c.a.c0.z.l.a aVar) {
@@ -286,7 +286,7 @@ public class c implements d {
     public Cursor query(c.a.c0.z.l.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bVar)) == null) ? this.f2151b.rawQuery(bVar.b(), bVar.a()) : (Cursor) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, bVar)) == null) ? this.f2578b.rawQuery(bVar.b(), bVar.a()) : (Cursor) invokeL.objValue;
     }
 
     public int update(String str, ContentValues contentValues, c.a.c0.z.l.a aVar) {

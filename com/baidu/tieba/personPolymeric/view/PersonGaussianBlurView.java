@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
-import c.a.r0.d1.n;
+import c.a.s0.e1.n;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f48911i;
+    public a f49132i;
 
     /* loaded from: classes12.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
@@ -126,12 +126,12 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        a aVar = this.f48911i;
+        a aVar = this.f49132i;
         if (aVar != null) {
             aVar.cancel();
         }
         a aVar2 = new a(this);
-        this.f48911i = aVar2;
+        this.f49132i = aVar2;
         aVar2.execute(bitmap);
     }
 }

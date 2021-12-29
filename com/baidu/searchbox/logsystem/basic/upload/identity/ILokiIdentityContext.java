@@ -11,9 +11,13 @@ public interface ILokiIdentityContext {
 
     String getFrom();
 
+    String getIID();
+
     String getSchemeHeader();
 
     String getSid();
 
     String getZid();
+
+    boolean hasPrivacyAuthority();
 }

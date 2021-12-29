@@ -142,29 +142,29 @@ public class SVGAImageView extends ImageView {
 
         /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C2147a implements SVGAParser.b {
+        public static final class C2154a implements SVGAParser.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
             /* renamed from: com.opensource.svgaplayer.SVGAImageView$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public static final class RunnableC2148a implements Runnable {
+            public static final class RunnableC2155a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C2147a f61184e;
+                public final /* synthetic */ C2154a f61184e;
 
                 /* renamed from: f  reason: collision with root package name */
                 public final /* synthetic */ SVGAVideoEntity f61185f;
 
-                public RunnableC2148a(C2147a c2147a, SVGAVideoEntity sVGAVideoEntity) {
+                public RunnableC2155a(C2154a c2154a, SVGAVideoEntity sVGAVideoEntity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c2147a, sVGAVideoEntity};
+                        Object[] objArr = {c2154a, sVGAVideoEntity};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -174,7 +174,7 @@ public class SVGAImageView extends ImageView {
                             return;
                         }
                     }
-                    this.f61184e = c2147a;
+                    this.f61184e = c2154a;
                     this.f61185f = sVGAVideoEntity;
                 }
 
@@ -202,7 +202,7 @@ public class SVGAImageView extends ImageView {
                 }
             }
 
-            public C2147a(a aVar) {
+            public C2154a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -224,7 +224,7 @@ public class SVGAImageView extends ImageView {
             public void a(SVGAVideoEntity sVGAVideoEntity) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, sVGAVideoEntity) == null) {
-                    this.a.f61181g.post(new RunnableC2148a(this, sVGAVideoEntity));
+                    this.a.f61181g.post(new RunnableC2155a(this, sVGAVideoEntity));
                 }
             }
 
@@ -262,11 +262,11 @@ public class SVGAImageView extends ImageView {
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                C2147a c2147a = new C2147a(this);
+                C2154a c2154a = new C2154a(this);
                 if (!StringsKt__StringsJVMKt.startsWith$default(this.f61179e, "http://", false, 2, null) && !StringsKt__StringsJVMKt.startsWith$default(this.f61179e, "https://", false, 2, null)) {
-                    this.f61180f.v(this.f61179e, c2147a);
+                    this.f61180f.v(this.f61179e, c2154a);
                 } else {
-                    this.f61180f.w(new URL(this.f61179e), c2147a);
+                    this.f61180f.w(new URL(this.f61179e), c2154a);
                 }
             }
         }

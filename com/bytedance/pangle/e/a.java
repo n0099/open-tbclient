@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.d;
+import com.bytedance.pangle.c;
 import com.bytedance.pangle.plugin.PluginManager;
 import java.io.File;
 /* loaded from: classes2.dex */
-public class a extends d.a {
+public class a extends c.a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,21 +45,21 @@ public class a extends d.a {
         return (a) invokeV.objValue;
     }
 
-    @Override // com.bytedance.pangle.d
+    @Override // com.bytedance.pangle.c
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? PluginManager.getInstance().checkPluginInstalled(str) : invokeL.booleanValue;
     }
 
-    @Override // com.bytedance.pangle.d
+    @Override // com.bytedance.pangle.c
     public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? PluginManager.getInstance().syncInstall(new File(str)) : invokeL.booleanValue;
     }
 
-    @Override // com.bytedance.pangle.d
+    @Override // com.bytedance.pangle.c
     public final int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

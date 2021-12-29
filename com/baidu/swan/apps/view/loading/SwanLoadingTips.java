@@ -19,7 +19,7 @@ public final class SwanLoadingTips {
     public final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40680b;
+    public int f40836b;
 
     public SwanLoadingTips() {
         Interceptable interceptable = $ic;
@@ -52,9 +52,9 @@ public final class SwanLoadingTips {
                 if (a.length == 0) {
                     return "";
                 }
-                int i2 = this.f40680b;
+                int i2 = this.f40836b;
                 String str = a[i2 % a.length];
-                this.f40680b = i2 + 1;
+                this.f40836b = i2 + 1;
                 return str;
             }
             return "";

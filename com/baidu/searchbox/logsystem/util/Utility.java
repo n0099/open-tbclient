@@ -118,29 +118,11 @@ public class Utility {
         return (String) invokeJ.objValue;
     }
 
-    public static String getAppVersion(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String appVersion = LokiOverlayRuntime.getLokiOverlayContext().getAppVersion();
-            if (TextUtils.isEmpty(appVersion)) {
-                try {
-                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
-                    return "0.8";
-                }
-            }
-            return appVersion;
-        }
-        return (String) invokeL.objValue;
-    }
-
     @TargetApi(23)
     public static String getMemoryStats(@NonNull Debug.MemoryInfo memoryInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, memoryInfo)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, memoryInfo)) != null) {
             return (String) invokeL.objValue;
         }
         Iterator<Map.Entry<String, String>> it = memoryInfo.getMemoryStats().entrySet().iterator();
@@ -152,7 +134,7 @@ public class Utility {
         while (true) {
             Map.Entry<String, String> next = it.next();
             sb.append(next.getKey());
-            sb.append(a.f31721h);
+            sb.append(a.f31864h);
             sb.append(next.getValue());
             if (!it.hasNext()) {
                 sb.append(ExtendedMessageFormat.END_FE);
@@ -167,12 +149,12 @@ public class Utility {
     public static long getProcessStartElapsedRealTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? Process.getStartElapsedRealtime() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Process.getStartElapsedRealtime() : invokeV.longValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
         }
     }
 
@@ -180,7 +162,7 @@ public class Utility {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
             if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                 return false;
@@ -194,7 +176,7 @@ public class Utility {
         InterceptResult invokeL;
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             return connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
         }
@@ -204,7 +186,7 @@ public class Utility {
     public static void obtainDBInfo(@NonNull Context context, @NonNull File file) {
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65545, null, context, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeLL(65544, null, context, file) == null) && file.exists() && file.isFile()) {
             FileWriter fileWriter2 = null;
             try {
                 try {
@@ -239,7 +221,7 @@ public class Utility {
 
     public static final void obtainDeviceInfo(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65546, null, context, file) != null) || !file.exists() || !file.isFile()) {
+        if ((interceptable != null && interceptable.invokeLL(65545, null, context, file) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         FileWriter fileWriter = null;
@@ -287,7 +269,7 @@ public class Utility {
         File parentFile;
         File parentFile2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, context, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeLL(65546, null, context, file) == null) && file.exists() && file.isFile()) {
             FileWriter fileWriter2 = null;
             try {
                 try {
@@ -380,7 +362,7 @@ public class Utility {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             r1 = interceptable;
-            if (r1.invokeL(65548, null, file) != null) {
+            if (r1.invokeL(65547, null, file) != null) {
                 return;
             }
         }
@@ -436,7 +418,7 @@ public class Utility {
 
     public static final void obtainMemoryInfo(@NonNull Context context, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65549, null, context, file) != null) || !file.exists() || !file.isFile()) {
+        if ((interceptable != null && interceptable.invokeLL(65548, null, context, file) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         FileWriter fileWriter = null;
@@ -503,7 +485,7 @@ public class Utility {
 
     public static final void obtainProcessFdInfo(@NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65550, null, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, file) == null) && file.exists() && file.isFile()) {
             InputStream inputStream = null;
             try {
                 try {
@@ -521,7 +503,7 @@ public class Utility {
 
     public static final void obtainProcessMaps(@NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, null, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeL(65550, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
             File file2 = new File("/proc/" + myPid + "/maps");
             if (file2.exists()) {
@@ -533,7 +515,7 @@ public class Utility {
     public static final void obtainProcessRunningStatus(@Nullable Context context, @NonNull File file, @NonNull String str, @NonNull LogExtra logExtra) {
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65552, null, context, file, str, logExtra) != null) || !file.exists() || !file.isFile()) {
+        if ((interceptable != null && interceptable.invokeLLLL(65551, null, context, file, str, logExtra) != null) || !file.exists() || !file.isFile()) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -601,7 +583,7 @@ public class Utility {
 
     public static final void obtainProcessSmaps(@NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeL(65552, null, file) == null) && file.exists() && file.isFile()) {
             File file2 = new File("/proc/self/smaps");
             if (file2.exists()) {
                 FileUtils.copyFile(file2, file);
@@ -611,7 +593,7 @@ public class Utility {
 
     public static final void obtainProcessStatus(@NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65554, null, file) == null) && file.exists() && file.isFile()) {
+        if ((interceptable == null || interceptable.invokeL(65553, null, file) == null) && file.exists() && file.isFile()) {
             int myPid = Process.myPid();
             File file2 = new File("/proc/" + myPid + "/status");
             if (file2.exists()) {
@@ -625,7 +607,7 @@ public class Utility {
         Set<Thread> keySet;
         FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, file) == null) && file.exists() && file.isFile() && (allStackTraces = Thread.getAllStackTraces()) != null && (keySet = allStackTraces.keySet()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65554, null, file) == null) && file.exists() && file.isFile() && (allStackTraces = Thread.getAllStackTraces()) != null && (keySet = allStackTraces.keySet()) != null) {
             FileWriter fileWriter2 = null;
             try {
                 try {
@@ -678,7 +660,7 @@ public class Utility {
 
     public static final void printFilePathInfo(@NonNull FileWriter fileWriter, @NonNull File file, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65556, null, fileWriter, file, str) == null) && file.exists()) {
+        if ((interceptable == null || interceptable.invokeLLL(65555, null, fileWriter, file, str) == null) && file.exists()) {
             try {
                 fileWriter.write(str + file.getAbsolutePath());
                 if (file.isFile()) {
@@ -704,7 +686,7 @@ public class Utility {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006d */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
@@ -716,7 +698,7 @@ public class Utility {
         FileInputStream fileInputStream;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65557, null, file, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65556, null, file, i2)) != null) {
             return (Pair) invokeLI.objValue;
         }
         FileInputStream fileInputStream2 = null;
@@ -801,7 +783,7 @@ public class Utility {
 
     public static void writeDBInfo(@NonNull FileWriter fileWriter, @NonNull File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65558, null, fileWriter, file) == null) && file.exists()) {
+        if ((interceptable == null || interceptable.invokeLL(65557, null, fileWriter, file) == null) && file.exists()) {
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 if (listFiles == null || listFiles.length <= 0) {
@@ -827,7 +809,7 @@ public class Utility {
 
     public static final void writeStringToFile(@NonNull File file, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65559, null, file, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65558, null, file, str) == null) {
             writeStringToFile(file, str, true);
         }
     }
@@ -835,7 +817,7 @@ public class Utility {
     public static final void writeStringToFile(@NonNull File file, @NonNull String str, boolean z) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65560, null, file, str, z) == null) && file.exists() && file.isFile() && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLLZ(65559, null, file, str, z) == null) && file.exists() && file.isFile() && !TextUtils.isEmpty(str)) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {

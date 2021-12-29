@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.e.d;
-import c.a.r0.s.r.e;
+import c.a.s0.s.q.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.afd.adapter.FacadeEmptyViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b extends c.a.d.m.e.a<d, FacadeEmptyViewHolder> {
+public class b extends c.a.d.n.e.a<d, FacadeEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
@@ -43,9 +43,9 @@ public class b extends c.a.d.m.e.a<d, FacadeEmptyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: g0 */
-    public FacadeEmptyViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: Z */
+    public FacadeEmptyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
@@ -57,9 +57,9 @@ public class b extends c.a.d.m.e.a<d, FacadeEmptyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, d dVar, FacadeEmptyViewHolder facadeEmptyViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public View S(int i2, View view, ViewGroup viewGroup, d dVar, FacadeEmptyViewHolder facadeEmptyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, dVar, facadeEmptyViewHolder})) == null) {

@@ -15,7 +15,7 @@ public class e {
     public static m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static m f1847b;
+    public static m f2274b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -57,14 +57,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m mVar = f1847b;
+            m mVar = f2274b;
             if (mVar == null) {
                 synchronized (e.class) {
-                    if (f1847b == null) {
+                    if (f2274b == null) {
                         if (a == null) {
                             a = (m) ServiceManager.getService(m.a);
                         }
-                        f1847b = a;
+                        f2274b = a;
                     }
                     if (TextUtils.equals("okhttp", "mixed")) {
                         return b.b().a("okhttp");
@@ -84,7 +84,7 @@ public class e {
         public k a;
 
         /* renamed from: b  reason: collision with root package name */
-        public k f1848b;
+        public k f2275b;
 
         /* loaded from: classes.dex */
         public class a implements m {
@@ -92,7 +92,7 @@ public class e {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ k f1849b;
+            public final /* synthetic */ k f2276b;
 
             public a(b bVar, k kVar) {
                 Interceptable interceptable = $ic;
@@ -109,20 +109,20 @@ public class e {
                         return;
                     }
                 }
-                this.f1849b = kVar;
+                this.f2276b = kVar;
             }
 
             @Override // c.a.c0.r.m
             public k a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1849b : (k) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2276b : (k) invokeV.objValue;
             }
         }
 
         /* renamed from: c.a.c0.r.e$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0059b {
+        public static class C0080b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -158,13 +158,13 @@ public class e {
                 }
             }
             this.a = null;
-            this.f1848b = null;
+            this.f2275b = null;
         }
 
         public static b b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0059b.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0080b.a : (b) invokeV.objValue;
         }
 
         public m a(String str) {
@@ -195,14 +195,14 @@ public class e {
                     }
                     kVar = this.a;
                 } else if (c2 == 1) {
-                    if (this.f1848b == null) {
+                    if (this.f2275b == null) {
                         synchronized (e.class) {
-                            if (this.f1848b == null) {
-                                this.f1848b = c.a.b(str);
+                            if (this.f2275b == null) {
+                                this.f2275b = c.a.b(str);
                             }
                         }
                     }
-                    kVar = this.f1848b;
+                    kVar = this.f2275b;
                 } else {
                     throw new IllegalStateException("Unexpected type:" + str);
                 }

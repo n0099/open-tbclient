@@ -1,5 +1,6 @@
 package c.a.c0.s.h0;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,10 +30,20 @@ public class k implements c.a.c0.j.e {
     }
 
     @Override // c.a.c0.j.e
-    public float getStaticDeviceScore() {
+    public float getLaunchSpeedScore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // c.a.c0.j.e
+    public float getStaticDeviceScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return -1.0f;
         }
         return invokeV.floatValue;

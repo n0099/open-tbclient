@@ -20,17 +20,17 @@ public final class z {
     public static final ThreadLocal<Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ThreadLocal<Map<String, Object>> f31543b;
+    public static final ThreadLocal<Map<String, Object>> f31686b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte f31544c;
+    public byte f31687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f31545d;
+    public AtomicInteger f31688d;
 
     /* renamed from: e  reason: collision with root package name */
-    public x f31546e;
+    public x f31689e;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +46,7 @@ public final class z {
             }
         }
         a = new ThreadLocal<>();
-        f31543b = new ThreadLocal<>();
+        f31686b = new ThreadLocal<>();
     }
 
     public z(x xVar) {
@@ -64,9 +64,9 @@ public final class z {
                 return;
             }
         }
-        this.f31544c = (byte) 0;
-        this.f31546e = xVar;
-        this.f31545d = new AtomicInteger();
+        this.f31687c = (byte) 0;
+        this.f31689e = xVar;
+        this.f31688d = new AtomicInteger();
     }
 
     public final Object a(Method method, Object[] objArr) {
@@ -81,19 +81,19 @@ public final class z {
             Type genericReturnType = method.getGenericReturnType();
             method.getAnnotations();
             a.set(null);
-            f31543b.set(null);
+            f31686b.set(null);
             if (operationType != null) {
                 String value = operationType.value();
-                int incrementAndGet = this.f31545d.incrementAndGet();
+                int incrementAndGet = this.f31688d.incrementAndGet();
                 try {
-                    if (this.f31544c == 0) {
+                    if (this.f31687c == 0) {
                         com.alipay.android.phone.mrpc.core.a.e eVar = new com.alipay.android.phone.mrpc.core.a.e(incrementAndGet, value, objArr);
-                        if (f31543b.get() != null) {
-                            eVar.a(f31543b.get());
+                        if (f31686b.get() != null) {
+                            eVar.a(f31686b.get());
                         }
                         byte[] a2 = eVar.a();
-                        f31543b.set(null);
-                        Object a3 = new com.alipay.android.phone.mrpc.core.a.d(genericReturnType, (byte[]) new j(this.f31546e.a(), method, incrementAndGet, value, a2, z).a()).a();
+                        f31686b.set(null);
+                        Object a3 = new com.alipay.android.phone.mrpc.core.a.d(genericReturnType, (byte[]) new j(this.f31689e.a(), method, incrementAndGet, value, a2, z).a()).a();
                         if (genericReturnType != Void.TYPE) {
                             a.set(a3);
                         }

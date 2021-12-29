@@ -32,31 +32,31 @@ public class n extends l {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35255b;
+    public String f35411b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35256c;
+    public String f35412c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35257d;
+    public String f35413d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35258e;
+    public String f35414e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35259f;
+    public String f35415f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f35260g;
+    public String f35416g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f35261h;
+    public String f35417h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f35262i;
+    public String f35418i;
 
     /* renamed from: j  reason: collision with root package name */
-    public LivenessRecogDTO f35263j;
+    public LivenessRecogDTO f35419j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(Context context) {
@@ -76,46 +76,46 @@ public class n extends l {
                 return;
             }
         }
-        this.f35259f = "1";
+        this.f35415f = "1";
         String zid2 = RimGlobalUtils.getZid2();
-        this.f35257d = zid2;
+        this.f35413d = zid2;
         if (TextUtils.isEmpty(zid2)) {
-            this.f35256c = RimGlobalUtils.getZid(context.getApplicationContext());
+            this.f35412c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f35260g = str;
+            this.f35416g = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f35261h = str;
+            this.f35417h = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f35262i = str;
+            this.f35418i = str;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f35255b = str;
+            this.f35411b = str;
         }
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f35258e = str;
+            this.f35414e = str;
         }
     }
 
@@ -133,38 +133,38 @@ public class n extends l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            LivenessRecogDTO livenessRecogDTO = this.f35263j;
+            LivenessRecogDTO livenessRecogDTO = this.f35419j;
             if (livenessRecogDTO != null) {
                 setSpParameter(livenessRecogDTO.spParams);
-                arrayList.add(new RestNameValuePair("processid", this.f35263j.processid));
-                LivenessRecogType livenessRecogType = this.f35263j.livenessType;
+                arrayList.add(new RestNameValuePair("processid", this.f35419j.processid));
+                LivenessRecogType livenessRecogType = this.f35419j.livenessType;
                 if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                     arrayList.add(new RestNameValuePair("type", "bduss"));
                     arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                     arrayList.add(new RestNameValuePair("type", "certinfo"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f35263j.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f35419j.exUid));
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("name", this.f35263j.realName);
-                        jSONObject.put("cert", this.f35263j.idCardNum);
-                        jSONObject.put("bankmobile", this.f35263j.phoneNum);
+                        jSONObject.put("name", this.f35419j.realName);
+                        jSONObject.put("cert", this.f35419j.idCardNum);
+                        jSONObject.put("bankmobile", this.f35419j.phoneNum);
                         arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                     arrayList.add(new RestNameValuePair("type", "authtoken"));
-                    arrayList.add(new RestNameValuePair("authtoken", this.f35263j.authToken));
+                    arrayList.add(new RestNameValuePair("authtoken", this.f35419j.authToken));
                 } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                     arrayList.add(new RestNameValuePair("type", "outer"));
-                    arrayList.add(new RestNameValuePair("exuid", this.f35263j.exUid));
+                    arrayList.add(new RestNameValuePair("exuid", this.f35419j.exUid));
                 }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f35263j.serviceType));
+                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f35419j.serviceType));
                 arrayList.add(new RestNameValuePair("app", "android"));
-                arrayList.add(new RestNameValuePair("skey", this.f35260g));
-                arrayList.add(new RestNameValuePair("data", this.f35261h));
-                arrayList.add(new RestNameValuePair("deviceId", this.f35262i));
+                arrayList.add(new RestNameValuePair("skey", this.f35416g));
+                arrayList.add(new RestNameValuePair("data", this.f35417h));
+                arrayList.add(new RestNameValuePair("deviceId", this.f35418i));
             }
             String randomString = RandomUtils.getRandomString(4096);
             arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
@@ -173,14 +173,14 @@ public class n extends l {
             } catch (UnsupportedEncodingException e3) {
                 e3.printStackTrace();
             }
-            arrayList.add(new RestNameValuePair("imgdigests", this.f35255b));
-            if (!TextUtils.isEmpty(this.f35257d)) {
-                arrayList.add(new RestNameValuePair("zid2", this.f35257d));
-            } else if (!TextUtils.isEmpty(this.f35256c)) {
-                arrayList.add(new RestNameValuePair("zid", this.f35256c));
+            arrayList.add(new RestNameValuePair("imgdigests", this.f35411b));
+            if (!TextUtils.isEmpty(this.f35413d)) {
+                arrayList.add(new RestNameValuePair("zid2", this.f35413d));
+            } else if (!TextUtils.isEmpty(this.f35412c)) {
+                arrayList.add(new RestNameValuePair("zid", this.f35412c));
             }
-            if (!TextUtils.isEmpty(this.f35258e)) {
-                arrayList.add(new RestNameValuePair("reqTimes", this.f35258e));
+            if (!TextUtils.isEmpty(this.f35414e)) {
+                arrayList.add(new RestNameValuePair("reqTimes", this.f35414e));
             }
             return arrayList;
         }
@@ -227,21 +227,21 @@ public class n extends l {
     public void a(LivenessRecogDTO livenessRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, livenessRecogDTO) == null) {
-            this.f35263j = livenessRecogDTO;
+            this.f35419j = livenessRecogDTO;
         }
     }
 
     public void b(LivenessRecogDTO livenessRecogDTO) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, livenessRecogDTO) == null) {
-            this.f35263j = livenessRecogDTO;
+            this.f35419j = livenessRecogDTO;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f35259f = z ? "1" : "0";
+            this.f35415f = z ? "1" : "0";
         }
     }
 
@@ -250,9 +250,9 @@ public class n extends l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (this.f35263j != null) {
-                sb.append("bduss=" + this.f35263j.bduss);
-                sb.append(";stoken=" + this.f35263j.stoken);
+            if (this.f35419j != null) {
+                sb.append("bduss=" + this.f35419j.bduss);
+                sb.append(";stoken=" + this.f35419j.stoken);
             }
             return PayUtils.encrypt("phone_number", sb.toString());
         }

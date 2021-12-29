@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.dynamic;
 
-import c.a.r0.d1.b0;
-import c.a.r0.l0.b.d;
-import c.a.r0.l0.b.g;
+import c.a.s0.e1.b0;
+import c.a.s0.l0.b.d;
+import c.a.s0.l0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44706common;
+    public CommonReq f44893common;
     public long forumId;
     public long lastThreadId;
     public int qType;
@@ -42,7 +42,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         }
     }
 
-    @Override // c.a.r0.l0.b.i
+    @Override // c.a.s0.l0.b.i
     public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.r0.l0.b.c
+    @Override // c.a.s0.l0.b.c
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l0.b.d
+    @Override // c.a.s0.l0.b.d
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.l0.b.d
+    @Override // c.a.s0.l0.b.d
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.l0.b.f
+    @Override // c.a.s0.l0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l0.b.f
+    @Override // c.a.s0.l0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class FrsDynamicRequestData extends OrmObject implements g, d {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l0.b.d
+    @Override // c.a.s0.l0.b.d
     public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

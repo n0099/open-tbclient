@@ -3,6 +3,7 @@ package com.baidu.searchbox.ruka;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.block.impl.BlockMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -93,6 +94,6 @@ public class BlockProvider {
     public static IBlockMonitor getBlockMonitor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? EMPTY : (IBlockMonitor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? BlockMonitor_Factory.get() : (IBlockMonitor) invokeV.objValue;
     }
 }

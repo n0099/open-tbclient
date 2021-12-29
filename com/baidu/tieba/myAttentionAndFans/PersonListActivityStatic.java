@@ -4,10 +4,10 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.r0.e.c;
-import c.a.r0.e.d;
-import c.a.r0.e.e;
+import c.a.d.f.p.n;
+import c.a.s0.e.c;
+import c.a.s0.e.d;
+import c.a.s0.e.e;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyForbiddenFansActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
@@ -45,7 +45,7 @@ public class PersonListActivityStatic {
             }
         }
 
-        @Override // c.a.r0.e.e
+        @Override // c.a.s0.e.e
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class PersonListActivityStatic {
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, R.color.CAM_X0302);
-                    layoutParams.setMargins(m.f(context, R.dimen.ds8), 0, m.f(context, R.dimen.ds8), 0);
+                    layoutParams.setMargins(n.f(context, R.dimen.ds8), 0, n.f(context, R.dimen.ds8), 0);
                     layoutParams.gravity = 16;
                     a.setLayoutParams(layoutParams);
                 }

@@ -22,22 +22,22 @@ public class SelectRuleView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42551e;
+    public int f42739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42552f;
+    public int f42740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42553g;
+    public int f42741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f42554h;
+    public List<String> f42742h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<String> f42555i;
+    public List<String> f42743i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<String> f42556j;
+    public List<String> f42744j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleView(Context context) {
@@ -97,21 +97,21 @@ public class SelectRuleView extends LinearLayout {
 
     public void onSkinTypeChange(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f42553g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f42741g == i2) {
             return;
         }
-        int i3 = this.f42551e;
+        int i3 = this.f42739e;
         if (i3 == 0) {
-            setData(this.f42554h, this.f42555i);
+            setData(this.f42742h, this.f42743i);
         } else if (i3 == 1) {
-            setData(this.f42556j, this.f42554h, this.f42555i);
+            setData(this.f42744j, this.f42742h, this.f42743i);
         }
     }
 
     public void setColumn(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f42552f = i2;
+            this.f42740f = i2;
         }
     }
 
@@ -124,8 +124,8 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f42554h = list;
-        this.f42555i = list2;
+        this.f42742h = list;
+        this.f42743i = list2;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list);
         List<String> arrayList2 = new ArrayList<>();
@@ -139,13 +139,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i2 = 0;
         while (true) {
-            int i3 = this.f42552f;
+            int i3 = this.f42740f;
             if (i2 >= ((size + i3) - 1) / i3) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f42551e);
-            int i4 = this.f42552f;
+            selectRuleRowItem.setType(this.f42739e);
+            int i4 = this.f42740f;
             int i5 = i2 * i4;
             i2++;
             int i6 = i4 * i2;
@@ -157,7 +157,7 @@ public class SelectRuleView extends LinearLayout {
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f42551e = i2;
+            this.f42739e = i2;
         }
     }
 
@@ -201,9 +201,9 @@ public class SelectRuleView extends LinearLayout {
                 return;
             }
         }
-        this.f42551e = 0;
-        this.f42552f = 2;
-        this.f42553g = 3;
+        this.f42739e = 0;
+        this.f42740f = 2;
+        this.f42741g = 3;
         c();
     }
 
@@ -216,9 +216,9 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f42554h = list2;
-        this.f42555i = list3;
-        this.f42556j = list;
+        this.f42742h = list2;
+        this.f42743i = list3;
+        this.f42744j = list;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list2);
         List<String> arrayList2 = new ArrayList<>();
@@ -240,13 +240,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i2 = 0;
         while (true) {
-            int i3 = this.f42552f;
+            int i3 = this.f42740f;
             if (i2 >= ((size + i3) - 1) / i3) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f42551e);
-            int i4 = this.f42552f;
+            selectRuleRowItem.setType(this.f42739e);
+            int i4 = this.f42740f;
             int i5 = i2 * i4;
             i2++;
             int i6 = i4 * i2;

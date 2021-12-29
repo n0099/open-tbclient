@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.util.j;
+import com.bytedance.pangle.util.i;
 /* loaded from: classes2.dex */
 public final class a extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -31,19 +31,19 @@ public final class a extends BroadcastReceiver {
     public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            if (c.a().f55203c.contains(Integer.valueOf(hashCode()))) {
+            if (c.a().f55202c.contains(Integer.valueOf(hashCode()))) {
                 c.a().a(context, intent);
             } else {
-                j.a(new Runnable(this, context, intent) { // from class: com.bytedance.pangle.receiver.a.1
+                i.a(new Runnable(this, context, intent) { // from class: com.bytedance.pangle.receiver.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Intent f55199b;
+                    public final /* synthetic */ Intent f55198b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f55200c;
+                    public final /* synthetic */ a f55199c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -60,16 +60,16 @@ public final class a extends BroadcastReceiver {
                                 return;
                             }
                         }
-                        this.f55200c = this;
+                        this.f55199c = this;
                         this.a = context;
-                        this.f55199b = intent;
+                        this.f55198b = intent;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            c.a().a(this.a, this.f55199b);
+                            c.a().a(this.a, this.f55198b);
                         }
                     }
                 });

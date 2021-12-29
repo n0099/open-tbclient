@@ -24,10 +24,10 @@ public class CheckRealNameModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47541e;
+    public b f47762e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f47542f;
+    public c.a.d.c.g.a f47763f;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -65,8 +65,8 @@ public class CheckRealNameModel extends BdBaseModel {
             }
             if (((responsedMessage instanceof CheckRealNameHttpResponseMessage) || (responsedMessage instanceof CheckRealNameSocketResponseMessage)) && (responsedMessage.getOrginalMessage().getExtra() instanceof CheckRealNameRequestNetMessage)) {
                 CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = (CheckRealNameRequestNetMessage) responsedMessage.getOrginalMessage().getExtra();
-                if (this.a.f47541e != null) {
-                    this.a.f47541e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
+                if (this.a.f47762e != null) {
+                    this.a.f47762e.a(responsedMessage.getError(), responsedMessage.getErrorString(), checkRealNameRequestNetMessage.getObjSource(), checkRealNameRequestNetMessage.getObjTag());
                 }
             }
         }
@@ -95,15 +95,15 @@ public class CheckRealNameModel extends BdBaseModel {
                 return;
             }
         }
-        this.f47542f = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
+        this.f47763f = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
         z();
-        registerListener(this.f47542f);
+        registerListener(this.f47763f);
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f47541e = bVar;
+            this.f47762e = bVar;
         }
     }
 
@@ -149,8 +149,8 @@ public class CheckRealNameModel extends BdBaseModel {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.s0.v3.f0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            c.a.s0.v3.f0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            c.a.t0.w3.f0.a.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            c.a.t0.w3.f0.a.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

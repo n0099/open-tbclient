@@ -16,13 +16,13 @@ public final class f {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f30110b;
+    public final long f30188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f30111c;
+    public final String f30189c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30112d;
+    public int f30190d;
 
     public f(String str, long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class f {
                 return;
             }
         }
-        this.f30111c = str == null ? "" : str;
+        this.f30189c = str == null ? "" : str;
         this.a = j2;
-        this.f30110b = j3;
+        this.f30188b = j3;
     }
 
     public f a(f fVar, String str) {
@@ -50,19 +50,19 @@ public final class f {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fVar, str)) == null) {
             String c2 = c(str);
             if (fVar != null && c2.equals(fVar.c(str))) {
-                long j2 = this.f30110b;
+                long j2 = this.f30188b;
                 if (j2 != -1) {
                     long j3 = this.a;
                     if (j3 + j2 == fVar.a) {
-                        long j4 = fVar.f30110b;
+                        long j4 = fVar.f30188b;
                         return new f(c2, j3, j4 != -1 ? j2 + j4 : -1L);
                     }
                 }
-                long j5 = fVar.f30110b;
+                long j5 = fVar.f30188b;
                 if (j5 != -1) {
                     long j6 = fVar.a;
                     if (j6 + j5 == this.a) {
-                        long j7 = this.f30110b;
+                        long j7 = this.f30188b;
                         return new f(c2, j6, j7 != -1 ? j5 + j7 : -1L);
                     }
                 }
@@ -75,13 +75,13 @@ public final class f {
     public Uri b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f30111c) : (Uri) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? u.d(str, this.f30189c) : (Uri) invokeL.objValue;
     }
 
     public String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f30111c) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? u.c(str, this.f30189c) : (String) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -95,7 +95,7 @@ public final class f {
                 return false;
             }
             f fVar = (f) obj;
-            return this.a == fVar.a && this.f30110b == fVar.f30110b && this.f30111c.equals(fVar.f30111c);
+            return this.a == fVar.a && this.f30188b == fVar.f30188b && this.f30189c.equals(fVar.f30189c);
         }
         return invokeL.booleanValue;
     }
@@ -104,10 +104,10 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f30112d == 0) {
-                this.f30112d = ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + ((int) this.a)) * 31) + ((int) this.f30110b)) * 31) + this.f30111c.hashCode();
+            if (this.f30190d == 0) {
+                this.f30190d = ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + ((int) this.a)) * 31) + ((int) this.f30188b)) * 31) + this.f30189c.hashCode();
             }
-            return this.f30112d;
+            return this.f30190d;
         }
         return invokeV.intValue;
     }

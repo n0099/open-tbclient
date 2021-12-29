@@ -57,7 +57,7 @@ public class i0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: r */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (smartAppBottomLayout = this.l) == null) {

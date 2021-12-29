@@ -18,10 +18,10 @@ public class a extends i {
     public AdBaseModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f1664b;
+    public View f2091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View.OnClickListener f1665c;
+    public View.OnClickListener f2092c;
 
     public a(AdBaseModel adBaseModel, View view) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class a extends i {
             }
         }
         this.a = adBaseModel;
-        this.f1664b = view;
+        this.f2091b = view;
     }
 
     @Override // c.a.c0.h0.i
@@ -48,12 +48,12 @@ public class a extends i {
         if (interceptable == null || interceptable.invokeL(1048576, this, adOperator) == null) {
             Toast.makeText(c.a.c0.e.a.b(), "on click : operator btn", 1).show();
             if (adOperator.a == AdOperator.TYPE.CHECK) {
-                c.a.c0.d.c.b(adOperator.f38073d);
+                c.a.c0.d.c.b(adOperator.f38229d);
                 f(ClogBuilder.LogType.CLICK, "button", this.a);
             }
-            View.OnClickListener onClickListener = this.f1665c;
+            View.OnClickListener onClickListener = this.f2092c;
             if (onClickListener != null) {
-                onClickListener.onClick(this.f1664b);
+                onClickListener.onClick(this.f2091b);
             }
         }
     }
@@ -61,20 +61,20 @@ public class a extends i {
     public final void f(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
         c.a.c0.p.j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f38063d) == null || TextUtils.isEmpty(jVar.f1800b)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, str, adBaseModel) == null) || adBaseModel == null || (jVar = adBaseModel.f38219d) == null || TextUtils.isEmpty(jVar.f2227b)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.r(logType);
         clogBuilder.g(str);
-        clogBuilder.m(adBaseModel.f38063d.f1800b);
+        clogBuilder.m(adBaseModel.f38219d.f2227b);
         c.a.c0.x.a.b(clogBuilder);
     }
 
     public void g(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f1665c = onClickListener;
+            this.f2092c = onClickListener;
         }
     }
 }

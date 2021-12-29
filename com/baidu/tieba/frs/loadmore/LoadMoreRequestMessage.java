@@ -2,10 +2,10 @@ package com.baidu.tieba.frs.loadmore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
-import c.a.r0.d1.i;
-import c.a.s0.j3.j0.a;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
+import c.a.s0.e1.i;
+import c.a.t0.j3.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -70,8 +70,8 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.user_id = Long.valueOf(b.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
             builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            int k2 = m.k(TbadkCoreApplication.getInst());
-            int i2 = m.i(TbadkCoreApplication.getInst());
+            int k2 = n.k(TbadkCoreApplication.getInst());
+            int i2 = n.i(TbadkCoreApplication.getInst());
             builder.pn = Integer.valueOf(this.pn);
             builder.st_type = Integer.valueOf(this.st_type);
             builder.scr_h = Integer.valueOf(i2);
@@ -79,7 +79,7 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
-            builder.ad_context_list = c.a.s0.j3.l0.b.f().d("FRS");
+            builder.ad_context_list = c.a.t0.j3.l0.b.f().d("FRS");
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.e(this.adFloorInfo);
             builder.ad_ext_params = b2.a();

@@ -11,16 +11,16 @@ public class ab {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f37442b = false;
+    public static boolean f37598b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f37443c = "M";
+    public static String f37599c = "M";
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f37444d = false;
+    public static boolean f37600d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f37445e = true;
+    public static boolean f37601e = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

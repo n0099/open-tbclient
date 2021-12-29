@@ -33,7 +33,7 @@ public class i extends BaseBean<PayResponse> {
     public PwdRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f53993b;
+    public PayRequest f53996b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -54,9 +54,9 @@ public class i extends BaseBean<PayResponse> {
             }
         }
         this.a = null;
-        this.f53993b = null;
+        this.f53996b = null;
         this.a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-        this.f53993b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+        this.f53996b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -82,18 +82,18 @@ public class i extends BaseBean<PayResponse> {
                 String seed = PasswordController.getSeed();
                 arrayList.add(new RestNameValuePair("mobilepwd", PasswordController.handlePwd(this.a.mPayPass, seed)));
                 arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
-            } else if (!PayDataCache.getInstance().isPassFree() && this.f53993b != null && !com.baidu.wallet.paysdk.a.b.a()) {
-                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f53993b.otp_seed);
+            } else if (!PayDataCache.getInstance().isPassFree() && this.f53996b != null && !com.baidu.wallet.paysdk.a.b.a()) {
+                String generateOTPKey = WalletFingerprint.getInstance(this.mContext).generateOTPKey(this.f53996b.otp_seed);
                 String sn = WalletFingerprint.getInstance(this.mContext).getSN();
                 if (!TextUtils.isEmpty(generateOTPKey) && !TextUtils.isEmpty(sn)) {
                     arrayList.add(new RestNameValuePair("f_token_code", SecurePay.getInstance().encrypt(generateOTPKey)));
                     arrayList.add(new RestNameValuePair("f_serial_num", SecurePay.getInstance().encrypt(sn)));
                 }
             }
-            PayRequest payRequest = this.f53993b;
+            PayRequest payRequest = this.f53996b;
             if (payRequest != null && !TextUtils.isEmpty(payRequest.mSmsCode)) {
-                arrayList.add(new RestNameValuePair("message_vcode", this.f53993b.mSmsCode));
-                this.f53993b.mSmsCode = null;
+                arrayList.add(new RestNameValuePair("message_vcode", this.f53996b.mSmsCode));
+                this.f53996b.mSmsCode = null;
             }
             DirectPayContentResponse payResponse = PayDataCache.getInstance().getPayResponse();
             if (payResponse != null && (directPayPay = payResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null && (creditInfo = creditPay.credit_info) != null && (instalmentPlanArr = creditInfo.instalment_plan) != null && instalmentPlanArr.length > 0) {
@@ -105,40 +105,40 @@ public class i extends BaseBean<PayResponse> {
             if (!TextUtils.isEmpty(PayDataCache.getInstance().getPaySessionInfo())) {
                 arrayList.add(new RestNameValuePair("session_info", PayDataCache.getInstance().getPaySessionInfo()));
             }
-            PayRequest payRequest2 = this.f53993b;
+            PayRequest payRequest2 = this.f53996b;
             if (payRequest2 != null && !TextUtils.isEmpty(payRequest2.withholding_auth)) {
-                arrayList.add(new RestNameValuePair("need_open_authorize", this.f53993b.withholding_auth));
+                arrayList.add(new RestNameValuePair("need_open_authorize", this.f53996b.withholding_auth));
             }
-            PayRequest payRequest3 = this.f53993b;
+            PayRequest payRequest3 = this.f53996b;
             if (payRequest3 != null && !TextUtils.isEmpty(payRequest3.mSecurityParams)) {
-                arrayList.add(new RestNameValuePair("security_sdk_param", this.f53993b.mSecurityParams));
+                arrayList.add(new RestNameValuePair("security_sdk_param", this.f53996b.mSecurityParams));
             }
             UserData.UserModel userInfo = PayDataCache.getInstance().getUserInfo();
             if (userInfo != null && !TextUtils.isEmpty(userInfo.getPassfreeMsg())) {
-                arrayList.add(new RestNameValuePair("need_open_passfree", String.valueOf(this.f53993b.getOpenPassFreeFlag())));
+                arrayList.add(new RestNameValuePair("need_open_passfree", String.valueOf(this.f53996b.getOpenPassFreeFlag())));
             }
-            if (!TextUtils.isEmpty(this.f53993b.getmBankCardNumber())) {
-                arrayList.add(new RestNameValuePair("card_no_required", PayUtils.encrypt("card_no", this.f53993b.getmBankCardNumber())));
+            if (!TextUtils.isEmpty(this.f53996b.getmBankCardNumber())) {
+                arrayList.add(new RestNameValuePair("card_no_required", PayUtils.encrypt("card_no", this.f53996b.getmBankCardNumber())));
             }
-            if (!TextUtils.isEmpty(this.f53993b.getmCvv2())) {
-                arrayList.add(new RestNameValuePair("verify_code_required", PayUtils.encrypt("cvv2", this.f53993b.getmCvv2())));
+            if (!TextUtils.isEmpty(this.f53996b.getmCvv2())) {
+                arrayList.add(new RestNameValuePair("verify_code_required", PayUtils.encrypt("cvv2", this.f53996b.getmCvv2())));
             }
-            if (!TextUtils.isEmpty(this.f53993b.getmIdCard())) {
-                arrayList.add(new RestNameValuePair("certificate_code_required", PayUtils.encrypt("identity_code", this.f53993b.getmIdCard())));
+            if (!TextUtils.isEmpty(this.f53996b.getmIdCard())) {
+                arrayList.add(new RestNameValuePair("certificate_code_required", PayUtils.encrypt("identity_code", this.f53996b.getmIdCard())));
             }
-            this.f53993b.setmBankCardNumber("");
-            this.f53993b.setmCvv2("");
-            this.f53993b.setmIdCard("");
-            PayRequestCache.getInstance().addBeanRequestToCache(BeanConstants.REQUEST_ID_PAY, this.f53993b);
-            PayRequest payRequest4 = this.f53993b;
+            this.f53996b.setmBankCardNumber("");
+            this.f53996b.setmCvv2("");
+            this.f53996b.setmIdCard("");
+            PayRequestCache.getInstance().addBeanRequestToCache(BeanConstants.REQUEST_ID_PAY, this.f53996b);
+            PayRequest payRequest4 = this.f53996b;
             if (payRequest4 != null && !TextUtils.isEmpty(payRequest4.mLivingKey)) {
-                arrayList.add(new RestNameValuePair("living_key", this.f53993b.mLivingKey));
-                this.f53993b.mLivingKey = null;
+                arrayList.add(new RestNameValuePair("living_key", this.f53996b.mLivingKey));
+                this.f53996b.mLivingKey = null;
             }
-            PayRequest payRequest5 = this.f53993b;
+            PayRequest payRequest5 = this.f53996b;
             if (payRequest5 != null && !TextUtils.isEmpty(payRequest5.mLivingResultCode)) {
-                arrayList.add(new RestNameValuePair("living_result_code", this.f53993b.mLivingResultCode));
-                this.f53993b.mLivingResultCode = null;
+                arrayList.add(new RestNameValuePair("living_result_code", this.f53996b.mLivingResultCode));
+                this.f53996b.mLivingResultCode = null;
             }
             return arrayList;
         }

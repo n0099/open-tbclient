@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
-import c.a.d.f.p.m;
-import c.a.r0.a.t;
+import c.a.d.f.p.n;
+import c.a.s0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -42,7 +42,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f49381e;
+        public final /* synthetic */ NewUserRedPackageActivity f49604e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f49381e = newUserRedPackageActivity;
+            this.f49604e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f49381e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f49381e.mBgImage.getId()) {
+                if (view.getId() != this.f49604e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f49604e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f49381e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f49381e.getPageContext(), new String[]{this.f49381e.mData.clickUrl});
-                                this.f49381e.finish();
+                            if (this.f49604e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f49604e.getPageContext(), new String[]{this.f49604e.mData.clickUrl});
+                                this.f49604e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f49381e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f49381e.getActivity(), true, 25046)));
+                        this.f49604e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f49604e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f49381e.finish();
+                this.f49604e.finish();
             }
         }
     }
@@ -105,14 +105,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        c.a.d.m.d.a aVar;
+        c.a.d.n.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (c.a.d.m.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (c.a.d.n.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());
@@ -166,7 +166,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setContentView(R.layout.activity_new_user_red_package);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(m.f(this, R.dimen.tbds31));
+            roundRelativeLayout.setAllCornerRound(n.f(this, R.dimen.tbds31));
             this.mBgImage = (ImageView) findViewById(R.id.img_bg);
             this.mCloseBtnImage = (ImageView) findViewById(R.id.img_btn_close);
             this.mBgImage.setOnClickListener(this.mOnClickListener);

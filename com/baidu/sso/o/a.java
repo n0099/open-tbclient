@@ -11,26 +11,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.IOpenID;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.sso.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes10.dex */
-    public static abstract class AbstractBinderC1850a extends Binder implements a {
+    /* loaded from: classes11.dex */
+    public static abstract class AbstractBinderC1857a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.sso.o.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes10.dex */
-        public static class C1851a implements a {
+        /* loaded from: classes11.dex */
+        public static class C1858a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39729b;
+            public IBinder f39885b;
 
-            public C1851a(IBinder iBinder) {
+            public C1858a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f39729b = iBinder;
+                this.f39885b = iBinder;
             }
 
             public String a(String str, String str2, String str3) {
@@ -60,11 +60,11 @@ public interface a extends IInterface {
                         obtain.writeString(str);
                         obtain.writeString(str2);
                         obtain.writeString(str3);
-                        if (this.f39729b.transact(1, obtain, obtain2, 0) || AbstractBinderC1850a.a() == null) {
+                        if (this.f39885b.transact(1, obtain, obtain2, 0) || AbstractBinderC1857a.a() == null) {
                             obtain2.readException();
                             readString = obtain2.readString();
                         } else {
-                            readString = ((C1851a) AbstractBinderC1850a.a()).a(str, str2, str3);
+                            readString = ((C1858a) AbstractBinderC1857a.a()).a(str, str2, str3);
                         }
                         return readString;
                     } finally {
@@ -79,14 +79,14 @@ public interface a extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39729b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39885b : (IBinder) invokeV.objValue;
             }
         }
 
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1851a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1858a.a : (a) invokeV.objValue;
         }
 
         public static a a(IBinder iBinder) {
@@ -97,7 +97,7 @@ public interface a extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1851a(iBinder) : (a) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C1858a(iBinder) : (a) queryLocalInterface;
             }
             return (a) invokeL.objValue;
         }

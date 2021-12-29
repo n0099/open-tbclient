@@ -164,7 +164,7 @@ public final class DecodedBitStreamParser {
             }
         }
         C40_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        char[] cArr = {'!', '\"', '#', '$', '%', Typography.amp, ExtendedMessageFormat.QUOTE, '(', ')', '*', '+', ',', SignatureImpl.SEP, '.', '/', ':', ';', Typography.less, a.f31721h, Typography.greater, '?', '@', '[', FileUtil.WINDOWS_SEPARATOR, ']', '^', '_'};
+        char[] cArr = {'!', '\"', '#', '$', '%', Typography.amp, ExtendedMessageFormat.QUOTE, '(', ')', '*', '+', ',', SignatureImpl.SEP, '.', '/', ':', ';', Typography.less, a.f31864h, Typography.greater, '?', '@', '[', FileUtil.WINDOWS_SEPARATOR, ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;

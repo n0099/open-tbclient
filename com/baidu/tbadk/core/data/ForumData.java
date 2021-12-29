@@ -2,16 +2,16 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.m.e.n;
-import c.a.r0.s.r.b0;
-import c.a.r0.s.r.d0;
-import c.a.r0.s.r.f2;
-import c.a.r0.s.r.g0;
-import c.a.r0.s.r.g2;
-import c.a.r0.s.r.i2;
-import c.a.r0.s.r.l;
-import c.a.r0.s.r.m0;
-import c.a.r0.s.r.p2;
+import c.a.d.n.e.n;
+import c.a.s0.s.q.b0;
+import c.a.s0.s.q.d0;
+import c.a.s0.s.q.f2;
+import c.a.s0.s.q.g0;
+import c.a.s0.s.q.g2;
+import c.a.s0.s.q.i2;
+import c.a.s0.s.q.l;
+import c.a.s0.s.q.m0;
+import c.a.s0.s.q.p2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -514,7 +514,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // c.a.d.m.e.n
+    @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -707,7 +707,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
             }
             this.top_code.j(forumInfo.top_code);
-            this.news_info.L0(forumInfo.news_info);
+            this.news_info.M0(forumInfo.news_info);
             this.mAcrossForumIcon = forumInfo.across_forum_show;
             this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             this.forumGameLabel = forumInfo.forum_game_label;
@@ -1098,7 +1098,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
                 BdLog.e(e7.getMessage());
             }
             try {
-                this.news_info.K0(jSONObject.optJSONObject("news_info"));
+                this.news_info.L0(jSONObject.optJSONObject("news_info"));
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }

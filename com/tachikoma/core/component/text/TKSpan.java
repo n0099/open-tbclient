@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKSpan extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DP;
@@ -66,7 +66,7 @@ public class TKSpan extends TKBase<View> {
     public final List<SpanItem> mSpanItems;
     public List<SpanItemData> mSpans;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SpanItemData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

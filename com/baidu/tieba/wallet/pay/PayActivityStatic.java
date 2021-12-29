@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q0.b;
-import c.a.r0.q0.f;
-import c.a.r0.q0.g;
+import c.a.s0.r0.a;
+import c.a.s0.r0.c;
+import c.a.s0.r0.g;
+import c.a.s0.r0.h;
+import c.a.s0.s.g0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -49,8 +51,10 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.PayScene;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
 import tv.athena.revenue.payui.view.IYYPayAmountView;
-/* loaded from: classes12.dex */
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes13.dex */
 public class PayActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WX_RECHARGE_RESULT_ERROR_CODE = "_wxapi_baseresp_errcode";
@@ -61,7 +65,7 @@ public class PayActivityStatic {
     public static final int YY_PAY_USE_CHANNEL_YY_LIVE = 30;
     public static BroadcastReceiver broadcastReceiver;
     public static IWechatProxyCallback wxPayCallback;
-    public static b yyPayResultCallback;
+    public static c yyPayResultCallback;
     public static YYPayUIKit yyPayUIKit;
     public static YYPayUIKit yyPayUIKitYYLive;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +105,7 @@ public class PayActivityStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String p = c.a.r0.s.g0.b.j().p("version_name", "");
+            String p = b.j().p("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName(context.getString(R.string.app_name));
@@ -165,32 +169,75 @@ public class PayActivityStatic {
         }
     }
 
-    public static void doYYPayTask(f fVar) {
+    public static void doYYPayTask(g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, fVar) == null) || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, gVar) == null) || gVar == null) {
             return;
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = fVar.f12817e;
-        Object obj = fVar.a;
+        yyPayResultCallback = gVar.f13295e;
+        Object obj = gVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        if (!TextUtils.isEmpty(fVar.f12815c)) {
-            viewParams.payAmountDialogTitle = fVar.f12815c;
+        viewParams.closeOnSuccess = gVar.f13297g;
+        if (!TextUtils.isEmpty(gVar.f13293c)) {
+            viewParams.payAmountDialogTitle = gVar.f13293c;
         }
-        Long l = fVar.f12816d;
+        Long l = gVar.f13294d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
+                int i2 = gVar.f13296f;
+                if (i2 == 1) {
+                    viewParams.payScene = PayScene.DIALOG_PAY_SCENE;
+                } else if (i2 != 3) {
+                    viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
+                } else {
+                    viewParams.payScene = PayScene.DIALOG_TARGET_PAY;
+                }
             }
         }
+        c cVar = yyPayResultCallback;
+        if (cVar instanceof a) {
+            viewParams.viewEventListener = new AbsViewEventHandler((a) cVar) { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a val$absPayAllResult;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {r6};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$absPayAllResult = r6;
+                }
+
+                @Override // tv.athena.revenue.payui.view.AbsViewEventHandler, tv.athena.revenue.payui.view.IViewEventListener
+                public void onViewStateChange(PayDialogType payDialogType) {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, payDialogType) == null) || payDialogType == null) {
+                        return;
+                    }
+                    this.val$absPayAllResult.b((byte) payDialogType.ordinal());
+                }
+            };
+        }
         if (obj != null) {
-            IPayCallback<CurrencyChargeMessage> iPayCallback = new IPayCallback() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.3
+            IPayCallback<CurrencyChargeMessage> iPayCallback = new IPayCallback() { // from class: com.baidu.tieba.wallet.pay.PayActivityStatic.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,9 +246,9 @@ public class PayActivityStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -209,12 +256,12 @@ public class PayActivityStatic {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+                public void onFail(int i3, String str, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, payCallBackBean) == null) || PayActivityStatic.yyPayResultCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str, payCallBackBean) == null) || PayActivityStatic.yyPayResultCallback == null) {
                         return;
                     }
-                    PayActivityStatic.yyPayResultCallback.onFail(i2, str);
+                    PayActivityStatic.yyPayResultCallback.onFail(i3, str);
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
@@ -241,22 +288,22 @@ public class PayActivityStatic {
                         PayActivityStatic.yyPayResultCallback.a(null);
                         return;
                     }
-                    g gVar = new g();
+                    h hVar = new h();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    gVar.f12823g = currencyChargeMessage.status;
-                    gVar.f12818b = currencyChargeMessage.appid;
-                    gVar.f12824h = Long.valueOf(currencyChargeMessage.uid);
-                    gVar.f12825i = currencyChargeMessage.usedChannel;
-                    gVar.f12820d = currencyChargeMessage.currencyType;
-                    gVar.a = Long.valueOf(currencyChargeMessage.amount);
-                    gVar.f12819c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    gVar.f12822f = currencyChargeMessage.orderId;
-                    gVar.f12821e = currencyChargeMessage.expand;
-                    PayActivityStatic.yyPayResultCallback.a(gVar);
+                    hVar.f13303g = currencyChargeMessage.status;
+                    hVar.f13298b = currencyChargeMessage.appid;
+                    hVar.f13304h = Long.valueOf(currencyChargeMessage.uid);
+                    hVar.f13305i = currencyChargeMessage.usedChannel;
+                    hVar.f13300d = currencyChargeMessage.currencyType;
+                    hVar.a = Long.valueOf(currencyChargeMessage.amount);
+                    hVar.f13299c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    hVar.f13302f = currencyChargeMessage.orderId;
+                    hVar.f13301e = currencyChargeMessage.expand;
+                    PayActivityStatic.yyPayResultCallback.a(hVar);
                 }
             };
-            if (fVar.f12814b == 0) {
-                yyPayUIKit.startPayDialog((Activity) obj, null, iPayCallback);
+            if (gVar.f13292b == 0) {
+                yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
             }

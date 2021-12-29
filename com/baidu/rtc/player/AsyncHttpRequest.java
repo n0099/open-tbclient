@@ -69,7 +69,7 @@ public class AsyncHttpRequest {
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: c.a.k0.d.a
+            new Thread(new Runnable() { // from class: c.a.l0.d.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

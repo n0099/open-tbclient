@@ -103,7 +103,7 @@ public final class l implements k {
                 try {
                     ByteBuffer byteBuffer2 = null;
                     try {
-                        if (com.bytedance.pangle.util.h.c()) {
+                        if (com.bytedance.pangle.util.g.c()) {
                             try {
                                 intValue = ((Integer) FieldUtils.readField(com.bytedance.pangle.a.a.a.a(OsConstants.class, "MAP_POPULATE"), (Object) null)).intValue();
                             } catch (IllegalAccessException e2) {

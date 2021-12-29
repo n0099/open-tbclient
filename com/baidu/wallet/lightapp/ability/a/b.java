@@ -63,16 +63,16 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                     public final /* synthetic */ ILightappInvokerCallback a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f53343b;
+                    public final /* synthetic */ int f53346b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Activity f53344c;
+                    public final /* synthetic */ Activity f53347c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f53345d;
+                    public final /* synthetic */ String f53348d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ b f53346e;
+                    public final /* synthetic */ b f53349e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -89,11 +89,11 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                                 return;
                             }
                         }
-                        this.f53346e = this;
+                        this.f53349e = this;
                         this.a = iLightappInvokerCallback;
-                        this.f53343b = r8;
-                        this.f53344c = activity;
-                        this.f53345d = str2;
+                        this.f53346b = r8;
+                        this.f53347c = activity;
+                        this.f53348d = str2;
                     }
 
                     @Override // com.baidu.wallet.base.controllers.IdCardDetectionController.IIdCardDetectionListener
@@ -102,7 +102,7 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                         if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str3) == null) {
                             if (i3 != -1) {
                                 if (i3 == -2) {
-                                    this.f53346e.a(this.a, this.f53345d, LightappConstants.ERRCODE_CANCEL, "取消", "#callCameraFail");
+                                    this.f53349e.a(this.a, this.f53348d, LightappConstants.ERRCODE_CANCEL, "取消", "#callCameraFail");
                                     return;
                                 }
                                 return;
@@ -110,7 +110,7 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                             NativeAbilityTakePictureModel nativeAbilityTakePictureModel = new NativeAbilityTakePictureModel(1);
                             NativeAbilityTakePictureModel.Data data = nativeAbilityTakePictureModel.cnt;
                             data.errCode = LightappConstants.ERRCODE_NO_PERMISSION;
-                            data.des = PhoneUtils.getApplicationName(this.f53344c) + "没有访问相机的权限";
+                            data.des = PhoneUtils.getApplicationName(this.f53347c) + "没有访问相机的权限";
                             this.a.onResult(1, nativeAbilityTakePictureModel.toJson());
                         }
                     }
@@ -134,7 +134,7 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                                 public final /* synthetic */ NativeAbilityTakePictureModel a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass1 f53347b;
+                                public final /* synthetic */ AnonymousClass1 f53350b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -151,7 +151,7 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                                             return;
                                         }
                                     }
-                                    this.f53347b = this;
+                                    this.f53350b = this;
                                     this.a = r7;
                                 }
 
@@ -161,12 +161,12 @@ public class b extends com.baidu.wallet.lightapp.ability.b {
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, str3) == null) {
                                         NativeAbilityTakePictureModel nativeAbilityTakePictureModel = this.a;
                                         nativeAbilityTakePictureModel.cnt.image = str3;
-                                        this.f53347b.a.onResult(0, nativeAbilityTakePictureModel.toJson());
+                                        this.f53350b.a.onResult(0, nativeAbilityTakePictureModel.toJson());
                                     }
                                 }
                             };
                             ImageBase64Utils imageBase64Utils = ImageBase64Utils.getInstance();
-                            int i3 = this.f53343b;
+                            int i3 = this.f53346b;
                             if (i3 > 0) {
                                 imageBase64Utils.getImageBase64(string, -1, i3, imageBase64Listener);
                             } else {

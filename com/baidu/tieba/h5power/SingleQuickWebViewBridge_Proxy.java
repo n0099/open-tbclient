@@ -1,10 +1,10 @@
 package com.baidu.tieba.h5power;
 
-import c.a.d.f.p.l;
-import c.a.s0.v3.n0.d.a;
-import c.a.s0.v3.n0.d.b;
-import c.a.s0.v3.n0.d.c;
-import c.a.s0.v3.n0.d.e;
+import c.a.d.f.p.m;
+import c.a.t0.w3.n0.d.a;
+import c.a.t0.w3.n0.d.b;
+import c.a.t0.w3.n0.d.c;
+import c.a.t0.w3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
@@ -67,7 +67,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         this.mNotificationNameList.add("RequestByNativeToH5");
     }
 
-    @Override // c.a.s0.v3.n0.d.a
+    @Override // c.a.t0.w3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         int i2;
@@ -274,6 +274,16 @@ public class SingleQuickWebViewBridge_Proxy extends a {
                     cVar2.t(goToEditPost.b());
                     cVar2.o(goToEditPost.a());
                     cVar2.w(goToEditPost.e());
+                }
+                cVar2.y(0);
+            } else if (b2.equals("activity/personlizedSwitchChange")) {
+                cVar2.r(true);
+                c personlizedSwitchChange = this.mJsBridge.personlizedSwitchChange(e2.optString("personlizedSwitchStatus"));
+                if (personlizedSwitchChange != null) {
+                    cVar2.x(personlizedSwitchChange.f());
+                    cVar2.t(personlizedSwitchChange.b());
+                    cVar2.o(personlizedSwitchChange.a());
+                    cVar2.w(personlizedSwitchChange.e());
                 }
                 cVar2.y(0);
             } else if (b2.equals("router/videoImmersivePage")) {
@@ -532,13 +542,13 @@ public class SingleQuickWebViewBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.s0.v3.n0.d.a
+    @Override // c.a.t0.w3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
             c cVar = null;
-            if (l.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+            if (m.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
@@ -575,7 +585,7 @@ public class SingleQuickWebViewBridge_Proxy extends a {
             List<b> list = this.mAsyncCallBackMethodList.get(str);
             if (cVar != null && list != null) {
                 Iterator<b> it = list.iterator();
-                if (!l.isEmpty(cVar.e())) {
+                if (!m.isEmpty(cVar.e())) {
                     while (it.hasNext()) {
                         b next = it.next();
                         if (next.b().equals(cVar.e())) {

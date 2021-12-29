@@ -2,9 +2,8 @@ package com.baidu.tbadk.core;
 
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.h;
-import c.a.r0.s.j;
-import c.a.s0.s1.h.i;
+import c.a.s0.s.h;
+import c.a.t0.s1.h.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -184,17 +183,17 @@ public class LaunchStatic {
             h.a();
             SyncSwitch.initSyncSwitch();
         }
-        c.a.s0.v3.o0.a.a();
-        c.a.s0.s1.y.b.a();
-        c.a.s0.s1.b.a();
+        c.a.t0.w3.o0.a.a();
+        c.a.t0.s1.y.b.a();
+        c.a.t0.s1.b.a();
         ImMemoryCacheRegister.j();
         i.i();
-        c.a.r0.m.c.f();
-        j.a();
+        c.a.s0.m.c.f();
+        ServiceStaticInit.init();
         WalletStaticInit.init();
-        c.a.r0.s.u.a.d();
-        c.a.r0.s.y.c.a();
-        c.a.r0.p.a.d();
+        c.a.s0.s.t.a.d();
+        c.a.s0.s.x.c.a();
+        c.a.s0.p.a.d();
         a();
     }
 
@@ -247,9 +246,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            c.a.r0.a0.b.a().c();
-            c.a.s0.v3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.s0.v3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
+            c.a.s0.a0.b.a().c();
+            c.a.t0.w3.f0.a.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, c.a.t0.w3.f0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

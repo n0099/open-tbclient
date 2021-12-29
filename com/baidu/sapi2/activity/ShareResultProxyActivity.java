@@ -36,30 +36,30 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_VERSION = "key_version";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f39179h = "ShareResultProxyActivity";
+    public static final String f39335h = "ShareResultProxyActivity";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f39180i = "key_launch_share_activity_status";
+    public static final String f39336i = "key_launch_share_activity_status";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39181b;
+    public String f39337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39182c;
+    public String f39338c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39183d;
+    public String f39339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<PassNameValuePair> f39184e;
+    public ArrayList<PassNameValuePair> f39340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f39185f;
+    public String f39341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f39186g;
+    public boolean f39342g;
 
     public ShareResultProxyActivity() {
         Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f39186g = true;
+            this.f39342g = true;
             this.a = getIntent().getStringExtra(KEY_PKG);
             if (ShareLoginModel.getInstance().isMeetShareV4(this, this.a)) {
-                Log.d(f39179h, "openShareLogin: is meet share_v4");
+                Log.d(f39335h, "openShareLogin: is meet share_v4");
                 ShareLoginModel.getInstance().openV4ShareLogin(this, this.a, "product");
                 ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "0");
                 return;
             }
-            Log.d(f39179h, "openShareLogin: is not share_v4");
+            Log.d(f39335h, "openShareLogin: is not share_v4");
             b();
         }
     }
@@ -96,12 +96,12 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Intent intent = getIntent();
             this.a = intent.getStringExtra(KEY_PKG);
-            this.f39181b = intent.getStringExtra("key_url");
-            this.f39182c = intent.getStringExtra(KEY_TRACE_ID);
-            this.f39183d = intent.getStringExtra("key_session_id");
-            this.f39184e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-            this.f39185f = intent.getStringExtra("key_version");
-            new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.f39181b, this.f39182c, this.f39183d, this.f39184e, this.f39185f, "product");
+            this.f39337b = intent.getStringExtra("key_url");
+            this.f39338c = intent.getStringExtra(KEY_TRACE_ID);
+            this.f39339d = intent.getStringExtra("key_session_id");
+            this.f39340e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
+            this.f39341f = intent.getStringExtra("key_version");
+            new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.f39337b, this.f39338c, this.f39339d, this.f39340e, this.f39341f, "product");
             ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "1");
         }
     }
@@ -178,9 +178,9 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             attributes.flags = 32;
             window.setAttributes(attributes);
             if (bundle != null) {
-                this.f39186g = bundle.getBoolean(f39180i, false);
+                this.f39342g = bundle.getBoolean(f39336i, false);
             }
-            if (!this.f39186g) {
+            if (!this.f39342g) {
                 a();
             }
             LogUtil.logActivity(this, "onCreate");
@@ -191,7 +191,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            bundle.putBoolean(f39180i, this.f39186g);
+            bundle.putBoolean(f39336i, this.f39342g);
             super.onSaveInstanceState(bundle);
         }
     }

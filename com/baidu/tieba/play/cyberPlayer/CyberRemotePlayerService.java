@@ -1,7 +1,7 @@
 package com.baidu.tieba.play.cyberPlayer;
 
 import android.content.Intent;
-import c.a.s0.z2.q.c;
+import c.a.t0.z2.u.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.remote.RemotePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,10 +33,10 @@ public class CyberRemotePlayerService extends RemotePlayerService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long e2 = c.e();
+            long e2 = d.e();
             if (e2 == 0) {
-                c.f();
-                return c.e();
+                d.f();
+                return d.e();
             }
             return e2;
         }
@@ -49,7 +49,7 @@ public class CyberRemotePlayerService extends RemotePlayerService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i2, i3)) == null) {
             if (intent != null && intent.getBooleanExtra("pcdn", false)) {
-                c.f();
+                d.f();
             }
             return super.onStartCommand(intent, i2, i3);
         }

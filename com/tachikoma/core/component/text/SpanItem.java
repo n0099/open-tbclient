@@ -14,7 +14,7 @@ import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpanItem extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STYLE_BOLD = "bold";

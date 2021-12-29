@@ -14,19 +14,19 @@ public final class a implements l {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f29362b;
+    public final int[] f29440b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long[] f29363c;
+    public final long[] f29441c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long[] f29364d;
+    public final long[] f29442d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long[] f29365e;
+    public final long[] f29443e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f29366f;
+    public final long f29444f;
 
     public a(int[] iArr, long[] jArr, long[] jArr2, long[] jArr3) {
         Interceptable interceptable = $ic;
@@ -43,23 +43,23 @@ public final class a implements l {
                 return;
             }
         }
-        this.f29362b = iArr;
-        this.f29363c = jArr;
-        this.f29364d = jArr2;
-        this.f29365e = jArr3;
+        this.f29440b = iArr;
+        this.f29441c = jArr;
+        this.f29442d = jArr2;
+        this.f29443e = jArr3;
         int length = iArr.length;
         this.a = length;
         if (length > 0) {
-            this.f29366f = jArr2[length - 1] + jArr3[length - 1];
+            this.f29444f = jArr2[length - 1] + jArr3[length - 1];
         } else {
-            this.f29366f = 0L;
+            this.f29444f = 0L;
         }
     }
 
     public int a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? v.e(this.f29365e, j2, true, true) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? v.e(this.f29443e, j2, true, true) : invokeJ.intValue;
     }
 
     @Override // c.i.b.a.a0.l
@@ -76,13 +76,13 @@ public final class a implements l {
     public long c(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f29363c[a(j2)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.f29441c[a(j2)] : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29366f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29444f : invokeV.longValue;
     }
 }

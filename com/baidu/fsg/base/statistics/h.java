@@ -16,34 +16,34 @@ public class h {
     public static final String a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34760b = "et";
+    public static final String f34916b = "et";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34761c = "ev";
+    public static final String f34917c = "ev";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34762d = "eg";
+    public static final String f34918d = "eg";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34763e = "lk";
+    public static final String f34919e = "lk";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34764f = "nu";
+    public static final String f34920f = "nu";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34765g = "extra1";
+    public static final String f34921g = "extra1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34766h = "extra2";
+    public static final String f34922h = "extra2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34767i = "extra3";
+    public static final String f34923i = "extra3";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34768j = "extra4";
+    public static final String f34924j = "extra4";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34769k = "extra5";
+    public static final String f34925k = "extra5";
     public static final String l = "extra6";
     public static final String m = "extra7";
     public static final String n = "extra8";
@@ -100,11 +100,11 @@ public class h {
             try {
                 jSONObject.put(a, this.p);
                 jSONObject.put("et", this.q);
-                jSONObject.put(f34764f, this.u);
+                jSONObject.put(f34920f, this.u);
                 if (!TextUtils.isEmpty(this.s)) {
-                    jSONObject.putOpt(f34762d, this.s);
+                    jSONObject.putOpt(f34918d, this.s);
                 }
-                jSONObject.putOpt(f34763e, this.t);
+                jSONObject.putOpt(f34919e, this.t);
                 if (this.r != null) {
                     jSONObject.put("ev", this.r);
                 }

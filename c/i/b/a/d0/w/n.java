@@ -24,27 +24,27 @@ public final class n implements c.i.b.a.a0.e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Pattern f30178g;
+    public static final Pattern f30256g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Pattern f30179h;
+    public static final Pattern f30257h;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f30180b;
+    public final s f30258b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.l f30181c;
+    public final c.i.b.a.i0.l f30259c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.i.b.a.a0.g f30182d;
+    public c.i.b.a.a0.g f30260d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f30183e;
+    public byte[] f30261e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30184f;
+    public int f30262f;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public final class n implements c.i.b.a.a0.e {
                 return;
             }
         }
-        f30178g = Pattern.compile("LOCAL:([^,]+)");
-        f30179h = Pattern.compile("MPEGTS:(\\d+)");
+        f30256g = Pattern.compile("LOCAL:([^,]+)");
+        f30257h = Pattern.compile("MPEGTS:(\\d+)");
     }
 
     public n(String str, s sVar) {
@@ -79,9 +79,9 @@ public final class n implements c.i.b.a.a0.e {
             }
         }
         this.a = str;
-        this.f30180b = sVar;
-        this.f30181c = new c.i.b.a.i0.l();
-        this.f30183e = new byte[1024];
+        this.f30258b = sVar;
+        this.f30259c = new c.i.b.a.i0.l();
+        this.f30261e = new byte[1024];
     }
 
     @Override // c.i.b.a.a0.e
@@ -96,9 +96,9 @@ public final class n implements c.i.b.a.a0.e {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            c.i.b.a.a0.m a = this.f30182d.a(0, 3);
+            c.i.b.a.a0.m a = this.f30260d.a(0, 3);
             a.b(Format.createTextSampleFormat((String) null, "text/vtt", (String) null, -1, 0, this.a, (DrmInitData) null, j2));
-            this.f30182d.j();
+            this.f30260d.j();
             return a;
         }
         return (c.i.b.a.a0.m) invokeJ.objValue;
@@ -109,7 +109,7 @@ public final class n implements c.i.b.a.a0.e {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
             return;
         }
-        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f30183e);
+        c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(this.f30261e);
         try {
             c.i.b.a.e0.r.h.d(lVar);
             long j2 = 0;
@@ -118,9 +118,9 @@ public final class n implements c.i.b.a.a0.e {
                 String k2 = lVar.k();
                 if (!TextUtils.isEmpty(k2)) {
                     if (k2.startsWith("X-TIMESTAMP-MAP")) {
-                        Matcher matcher = f30178g.matcher(k2);
+                        Matcher matcher = f30256g.matcher(k2);
                         if (matcher.find()) {
-                            Matcher matcher2 = f30179h.matcher(k2);
+                            Matcher matcher2 = f30257h.matcher(k2);
                             if (matcher2.find()) {
                                 j3 = c.i.b.a.e0.r.h.c(matcher.group(1));
                                 j2 = s.f(Long.parseLong(matcher2.group(1)));
@@ -138,11 +138,11 @@ public final class n implements c.i.b.a.a0.e {
                         return;
                     }
                     long c2 = c.i.b.a.e0.r.h.c(a.group(1));
-                    long b2 = this.f30180b.b(s.i((j2 + c2) - j3));
+                    long b2 = this.f30258b.b(s.i((j2 + c2) - j3));
                     c.i.b.a.a0.m b3 = b(b2 - c2);
-                    this.f30181c.H(this.f30183e, this.f30184f);
-                    b3.a(this.f30181c, this.f30184f);
-                    b3.c(b2, 1, this.f30184f, 0, null);
+                    this.f30259c.H(this.f30261e, this.f30262f);
+                    b3.a(this.f30259c, this.f30262f);
+                    b3.c(b2, 1, this.f30262f, 0, null);
                     return;
                 }
             }
@@ -167,17 +167,17 @@ public final class n implements c.i.b.a.a0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, fVar, kVar)) == null) {
             int length = (int) fVar.getLength();
-            int i2 = this.f30184f;
-            byte[] bArr = this.f30183e;
+            int i2 = this.f30262f;
+            byte[] bArr = this.f30261e;
             if (i2 == bArr.length) {
-                this.f30183e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
+                this.f30261e = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
             }
-            byte[] bArr2 = this.f30183e;
-            int i3 = this.f30184f;
+            byte[] bArr2 = this.f30261e;
+            int i3 = this.f30262f;
             int read = fVar.read(bArr2, i3, bArr2.length - i3);
             if (read != -1) {
-                int i4 = this.f30184f + read;
-                this.f30184f = i4;
+                int i4 = this.f30262f + read;
+                this.f30262f = i4;
                 if (length == -1 || i4 != length) {
                     return 0;
                 }
@@ -192,7 +192,7 @@ public final class n implements c.i.b.a.a0.e {
     public void f(c.i.b.a.a0.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
-            this.f30182d = gVar;
+            this.f30260d = gVar;
             gVar.p(new l.a(-9223372036854775807L));
         }
     }

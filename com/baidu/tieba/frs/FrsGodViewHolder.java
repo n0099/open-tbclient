@@ -2,7 +2,7 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.s0.d1.f1;
+import c.a.t0.d1.f1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

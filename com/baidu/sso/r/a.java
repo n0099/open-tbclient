@@ -13,40 +13,40 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kuaishou.weapon.un.g;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f39730b;
+    public static final a f39886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f39731c;
+    public static final a f39887c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f39732d;
+    public static final a f39888d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f39733e;
+    public static final a f39889e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f39734f;
+    public static final a f39890f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f39735g;
+    public static final a f39891g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f39736h;
+    public static final a f39892h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f39737i;
+    public static final a f39893i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final a f39738j;
+    public static final a f39894j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final a f39739k;
+    public static final a f39895k;
     public static final a l;
     public static final /* synthetic */ a[] m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,19 +66,19 @@ public final class a {
             }
         }
         a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f39730b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f39731c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f39732d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f39733e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f39734f = new a("MOTO", 5, 4, "motorola");
-        f39735g = new a("LENOVO", 6, 5, "lenovo");
-        f39736h = new a("ASUS", 7, 6, "asus");
-        f39737i = new a(g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
-        f39738j = new a("MEIZU", 9, 8, "meizu");
-        f39739k = new a("ALPS", 10, 9, "alps");
+        f39886b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        f39887c = new a("XIAOMI", 2, 1, "Xiaomi");
+        f39888d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        f39889e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f39890f = new a("MOTO", 5, 4, "motorola");
+        f39891g = new a("LENOVO", 6, 5, "lenovo");
+        f39892h = new a("ASUS", 7, 6, "asus");
+        f39893i = new a(g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
+        f39894j = new a("MEIZU", 9, 8, "meizu");
+        f39895k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
         l = aVar;
-        m = new a[]{a, f39730b, f39731c, f39732d, f39733e, f39734f, f39735g, f39736h, f39737i, f39738j, f39739k, aVar};
+        m = new a[]{a, f39886b, f39887c, f39888d, f39889e, f39890f, f39891g, f39892h, f39893i, f39894j, f39895k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {

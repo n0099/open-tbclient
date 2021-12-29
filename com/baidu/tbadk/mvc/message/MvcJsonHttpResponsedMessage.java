@@ -3,9 +3,9 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import c.a.d.f.d.l;
 import c.a.d.f.j.a.e;
-import c.a.r0.l0.b.d;
-import c.a.r0.l0.b.h;
-import c.a.r0.s.s.a;
+import c.a.s0.l0.b.d;
+import c.a.s0.l0.b.h;
+import c.a.s0.s.r.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -124,7 +124,7 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                             return;
                         }
                         e2.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof c.a.r0.l0.b.e) {
+                    } else if (mvcHttpMessage.getRequestData() instanceof c.a.s0.l0.b.e) {
                         a.f();
                         l<String> h2 = a.h(v, currentAccount);
                         if (h2 == null) {

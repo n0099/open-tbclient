@@ -25,7 +25,7 @@ public final class a implements IBeanFactory {
 
     /* renamed from: com.baidu.wallet.personal.beans.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static class C1997a {
+    public static class C2004a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public final class a implements IBeanFactory {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1997a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2004a.a : (a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

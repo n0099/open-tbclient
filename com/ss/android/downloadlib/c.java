@@ -4,14 +4,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.k;
@@ -23,49 +15,15 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c implements h {
-    public static /* synthetic */ Interceptable $ic = null;
     public static String a = "c";
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f61940b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1020732127, "Lcom/ss/android/downloadlib/c;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1020732127, "Lcom/ss/android/downloadlib/c;");
-        }
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f61940b = new Handler(Looper.getMainLooper());
-    }
+    public Handler f61940b = new Handler(Looper.getMainLooper());
 
     @Override // com.ss.android.socialbase.appdownloader.c.h
     public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
-        DownloadModel a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, downloadInfo, baseException, i2) == null) || downloadInfo == null) {
+        final DownloadModel a2;
+        if (downloadInfo == null) {
             return;
         }
         if (i2 == -1 && baseException != null) {
@@ -100,35 +58,10 @@ public class c implements h {
             BaseException baseException2 = null;
             if (baseException != null) {
                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("toast_without_network", 0) == 1 && baseException.getErrorCode() == 1049) {
-                    this.f61940b.post(new Runnable(this) { // from class: com.ss.android.downloadlib.c.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ c a;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.a = this;
-                        }
-
+                    this.f61940b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                j.c().a(5, j.getContext(), null, "无网络，请检查网络设置", null, 0);
-                            }
+                            j.c().a(5, j.getContext(), null, "无网络，请检查网络设置", null, 0);
                         }
                     });
                 }
@@ -142,45 +75,12 @@ public class c implements h {
                         a(downloadInfo);
                     }
                     if ((j.l() == null || !j.l().d()) && (a2 = com.ss.android.downloadlib.addownload.b.f.a().a(a3.b())) != null && a2.isShowToast()) {
-                        com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
+                        final com.ss.android.socialbase.downloader.g.a a4 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
                         if (a4.a("show_no_enough_space_toast", 0) == 1) {
-                            this.f61940b.post(new Runnable(this, a4, a2) { // from class: com.ss.android.downloadlib.c.2
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ com.ss.android.socialbase.downloader.g.a a;
-
-                                /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ DownloadModel f61941b;
-
-                                /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ c f61942c;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, a4, a2};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.f61942c = this;
-                                    this.a = a4;
-                                    this.f61941b = a2;
-                                }
-
+                            this.f61940b.post(new Runnable() { // from class: com.ss.android.downloadlib.c.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        j.c().a(2, j.getContext(), this.f61941b, this.a.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
-                                    }
+                                    j.c().a(2, j.getContext(), a2, a4.a("no_enough_space_toast_text", "您的存储空间不足，请清理后再试"), null, 0);
                                 }
                             });
                         }
@@ -195,96 +95,44 @@ public class c implements h {
         }
     }
 
-    private void a(DownloadInfo downloadInfo, com.ss.android.downloadad.api.a.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, downloadInfo, bVar) == null) {
-            long a2 = l.a(Environment.getDataDirectory(), -1L);
-            long min = Math.min(524288000L, l.a(Environment.getDataDirectory()) / 10);
-            long totalBytes = downloadInfo.getTotalBytes();
-            double d2 = (totalBytes * 2.5d) + min;
-            if (a2 > -1 && totalBytes > -1) {
-                double d3 = a2;
-                if (d3 < d2 && d2 - d3 > com.ss.android.downloadlib.addownload.d.b()) {
-                    com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
-                }
+    private void a(final DownloadInfo downloadInfo, final com.ss.android.downloadad.api.a.b bVar) {
+        final long a2 = l.a(Environment.getDataDirectory(), -1L);
+        long min = Math.min(524288000L, l.a(Environment.getDataDirectory()) / 10);
+        final long totalBytes = downloadInfo.getTotalBytes();
+        final double d2 = (totalBytes * 2.5d) + min;
+        if (a2 > -1 && totalBytes > -1) {
+            double d3 = a2;
+            if (d3 < d2 && d2 - d3 > com.ss.android.downloadlib.addownload.d.b()) {
+                com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
-            com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2173a(this, bVar, a2, totalBytes, d2, downloadInfo) { // from class: com.ss.android.downloadlib.c.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f61943b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f61944c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ double f61945d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ DownloadInfo f61946e;
-
-                /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ c f61947f;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, bVar, Long.valueOf(a2), Long.valueOf(totalBytes), Double.valueOf(d2), downloadInfo};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f61947f = this;
-                    this.a = bVar;
-                    this.f61943b = a2;
-                    this.f61944c = totalBytes;
-                    this.f61945d = d2;
-                    this.f61946e = downloadInfo;
-                }
-
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
-                public void b() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (!l.b(this.a)) {
-                            long j2 = this.f61943b;
-                            if (j2 <= -1 || this.f61944c <= -1 || j2 >= this.f61945d) {
-                                return;
-                            }
-                            com.ss.android.downloadlib.d.a.a().a("clean_space_install", com.ss.android.downloadlib.addownload.d.a("install_no_enough_space"), this.a);
-                            if (com.ss.android.downloadlib.addownload.d.a(this.f61946e, ((long) this.f61945d) - this.f61943b)) {
-                                com.ss.android.socialbase.downloader.a.a.a().b(this);
-                                this.a.g(true);
-                                return;
-                            }
-                            return;
-                        }
-                        com.ss.android.socialbase.downloader.a.a.a().b(this);
-                    }
-                }
-
-                @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2173a
-                public void c() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    }
-                }
-            });
         }
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2180a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+            public void b() {
+                if (!l.b(bVar)) {
+                    long j2 = a2;
+                    if (j2 <= -1 || totalBytes <= -1 || j2 >= d2) {
+                        return;
+                    }
+                    com.ss.android.downloadlib.d.a.a().a("clean_space_install", com.ss.android.downloadlib.addownload.d.a("install_no_enough_space"), bVar);
+                    if (com.ss.android.downloadlib.addownload.d.a(downloadInfo, ((long) d2) - a2)) {
+                        com.ss.android.socialbase.downloader.a.a.a().b(this);
+                        bVar.g(true);
+                        return;
+                    }
+                    return;
+                }
+                com.ss.android.socialbase.downloader.a.a.a().b(this);
+            }
+
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2180a
+            public void c() {
+            }
+        });
     }
 
     private void a(@NonNull DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, this, downloadInfo) == null) && com.ss.android.downloadlib.g.e.f(downloadInfo.getId())) {
+        if (com.ss.android.downloadlib.g.e.f(downloadInfo.getId())) {
             d.a().b(new com.ss.android.downloadlib.addownload.c.b(downloadInfo));
         }
     }

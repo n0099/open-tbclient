@@ -15,22 +15,22 @@ public final class L {
     public static final L a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final L f63179b;
+    public static final L f63174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final L f63180c;
+    public static final L f63175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final L f63181d;
+    public static final L f63176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final L f63182e;
+    public static final L f63177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final L f63183f;
+    public static final L f63178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ L[] f63184g;
+    public static final /* synthetic */ L[] f63179g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public final class L {
             }
         }
         a = new L("BANNER", 0);
-        f63179b = new L("INTERSTITIAL", 1);
-        f63180c = new L(Constant.TYPE_NATIVE, 2);
-        f63181d = new L("Video", 3);
-        f63182e = new L("SPLASH", 4);
+        f63174b = new L("INTERSTITIAL", 1);
+        f63175c = new L(Constant.TYPE_NATIVE, 2);
+        f63176d = new L("Video", 3);
+        f63177e = new L("SPLASH", 4);
         L l = new L("DRAW_VIDEO", 5);
-        f63183f = l;
-        f63184g = new L[]{a, f63179b, f63180c, f63181d, f63182e, l};
+        f63178f = l;
+        f63179g = new L[]{a, f63174b, f63175c, f63176d, f63177e, l};
     }
 
     public L(String str, int i2) {
@@ -84,6 +84,6 @@ public final class L {
     public static L[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f63184g.clone() : (L[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f63179g.clone() : (L[]) invokeV.objValue;
     }
 }

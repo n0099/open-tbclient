@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.View;
-import c.a.d.f.p.b;
-import c.a.d.f.p.m;
+import c.a.d.f.p.c;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class ShareUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +72,8 @@ public class ShareUtils {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        b.a(this.val$shareContent.t);
-                        m.M(this.val$activity, view.getResources().getString(R.string.copy_pb_url_success));
+                        c.a(this.val$shareContent.t);
+                        n.M(this.val$activity, view.getResources().getString(R.string.copy_pb_url_success));
                     }
                 }
             });

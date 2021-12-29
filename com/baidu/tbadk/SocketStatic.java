@@ -2,13 +2,14 @@ package com.baidu.tbadk;
 
 import android.os.Build;
 import c.a.d.e.a;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -65,7 +66,7 @@ public class SocketStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && PermissionUtil.isAgreePrivacyPolicy() && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
                     a.c().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -92,9 +93,9 @@ public class SocketStatic {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && k.z()) {
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && l.z()) {
                                 if (BdSocketLinkService.isClose()) {
-                                    c.a.r0.f0.a.b(0, 0, 0, 1, 6);
+                                    c.a.s0.f0.a.b(0, 0, 0, 1, 6);
                                     BdSocketLinkService.setAvailable(true);
                                     BdSocketLinkService.startService(false, "net succ");
                                 }

@@ -17,13 +17,13 @@ public class a<T extends c> {
     public final Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2094b;
+    public int f2521b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2095c;
+    public int f2522c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f2096d;
+    public final int f2523d;
 
     public a(int i2) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public class a<T extends c> {
                 return;
             }
         }
-        this.f2095c = 0;
+        this.f2522c = 0;
         i2 = i2 <= 0 ? 2 : i2;
-        this.f2096d = i2;
+        this.f2523d = i2;
         this.a = new Object[i2];
     }
 
@@ -50,17 +50,17 @@ public class a<T extends c> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f2094b > 0) {
-                if (this.f2095c >= this.f2096d) {
-                    h.j("acquire(), active player is overSize : " + this.f2096d);
+            if (this.f2521b > 0) {
+                if (this.f2522c >= this.f2523d) {
+                    h.j("acquire(), active player is overSize : " + this.f2523d);
                 }
-                int i2 = this.f2094b;
+                int i2 = this.f2521b;
                 int i3 = i2 - 1;
                 Object[] objArr = this.a;
                 T t = (T) objArr[i3];
                 objArr[i3] = null;
-                this.f2094b = i2 - 1;
-                this.f2095c++;
+                this.f2521b = i2 - 1;
+                this.f2522c++;
                 t.onInit();
                 return t;
             }
@@ -74,23 +74,23 @@ public class a<T extends c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.f2094b > 0) {
-                if (this.f2095c >= this.f2096d) {
-                    h.j("acquire(" + str + "), active player is overSize : " + this.f2096d);
+            if (this.f2521b > 0) {
+                if (this.f2522c >= this.f2523d) {
+                    h.j("acquire(" + str + "), active player is overSize : " + this.f2523d);
                 }
                 int i2 = -1;
-                for (int i3 = 0; i3 < this.f2094b; i3++) {
+                for (int i3 = 0; i3 < this.f2521b; i3++) {
                     if (((c) this.a[i3]).verify(str)) {
                         i2 = i3;
                     }
                 }
                 if (i2 != -1) {
-                    this.f2095c++;
+                    this.f2522c++;
                     Object[] objArr = this.a;
                     T t = (T) objArr[i2];
                     objArr[i2] = null;
                     while (true) {
-                        int i4 = this.f2094b;
+                        int i4 = this.f2521b;
                         if (i2 < i4 - 1) {
                             Object[] objArr2 = this.a;
                             int i5 = i2 + 1;
@@ -98,7 +98,7 @@ public class a<T extends c> {
                             i2 = i5;
                         } else {
                             this.a[i4 - 1] = null;
-                            this.f2094b = i4 - 1;
+                            this.f2521b = i4 - 1;
                             t.onInit();
                             return t;
                         }
@@ -124,11 +124,11 @@ public class a<T extends c> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || e(t)) {
             return;
         }
-        int i2 = this.f2094b;
+        int i2 = this.f2521b;
         Object[] objArr = this.a;
         if (i2 < objArr.length) {
             objArr[i2] = t;
-            this.f2094b = i2 + 1;
+            this.f2521b = i2 + 1;
             return;
         }
         int i3 = 0;
@@ -139,7 +139,7 @@ public class a<T extends c> {
                 objArr2[i3] = objArr2[i4];
                 i3 = i4;
             } else {
-                objArr2[this.f2094b - 1] = t;
+                objArr2[this.f2521b - 1] = t;
                 return;
             }
         }
@@ -149,7 +149,7 @@ public class a<T extends c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
-            for (int i2 = 0; i2 < this.f2094b; i2++) {
+            for (int i2 = 0; i2 < this.f2521b; i2++) {
                 if (this.a[i2] == t) {
                     return true;
                 }
@@ -165,7 +165,7 @@ public class a<T extends c> {
             return;
         }
         d(t);
-        this.f2095c--;
+        this.f2522c--;
         t.onRelease();
     }
 }

@@ -6,8 +6,8 @@ import android.media.MediaMetadataRetriever;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.a1.t.h;
 import c.a.b0.b.a.g;
-import c.a.y0.t.h;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
@@ -38,12 +38,12 @@ public class a {
 
     /* renamed from: c.a.b0.b.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0017a implements d<MediaTransition> {
+    public static class C0037a implements d<MediaTransition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MediaTrack a;
 
-        public C0017a(MediaTrack mediaTrack) {
+        public C0037a(MediaTrack mediaTrack) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -275,7 +275,7 @@ public class a {
                         next.start = j5;
                         next.end = j5 + (j7 - j8);
                     }
-                    c.a.y0.t.c.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
+                    c.a.a1.t.c.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
                     j5 = next.end;
                 } else if (j8 == 0) {
                     if (h.e(arrayList)) {
@@ -283,7 +283,7 @@ public class a {
                         long j9 = (j5 + j2) - mediaAEffect.duration;
                         next.end = j9;
                         j3 = j9 - j5;
-                        c.a.y0.t.c.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j2);
+                        c.a.a1.t.c.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j2);
                         j5 = j9;
                     } else {
                         j3 = j6;
@@ -313,12 +313,12 @@ public class a {
                             if (j15 != j11) {
                                 long j16 = (j14 + ((j15 - j14) / 2)) - (j4 / 2);
                                 mediaOneAEffect.end = j16;
-                                c.a.y0.t.c.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j4);
+                                c.a.a1.t.c.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j4);
                                 for (MediaOneAEffect mediaOneAEffect2 : arrayList4) {
                                     mediaOneAEffect2.start = j16;
                                     j16 += mediaOneAEffect2.end;
                                     mediaOneAEffect2.end = j16;
-                                    c.a.y0.t.c.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
+                                    c.a.a1.t.c.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
                                 }
                                 j13 = j15;
                                 j12 = j16;
@@ -328,7 +328,7 @@ public class a {
                         if (j12 != 0) {
                             mediaOneAEffect.start = j12;
                             mediaOneAEffect.end = j13;
-                            c.a.y0.t.c.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
+                            c.a.a1.t.c.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
                         }
                         j11 = 0;
                     }
@@ -654,7 +654,7 @@ public class a {
                                 boolean equals2 = "footer".equals(key);
                                 String str8 = str5;
                                 if (TextUtils.isEmpty(value.shaderConfigKey)) {
-                                    value.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                    value.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                 }
                                 if (equals) {
                                     str6 = key;
@@ -694,7 +694,7 @@ public class a {
                                         MediaAEffect m35clone = mediaTrackConfig.effectConfigMap.get(str3).m35clone();
                                         mediaSegment.mediaAEffect = m35clone;
                                         if (TextUtils.isEmpty(m35clone.shaderConfigKey)) {
-                                            mediaSegment.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                            mediaSegment.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                         }
                                         mediaSegment.effectConfigKey = str3;
                                         if (!TextUtils.equals(str, "random_with_video") && !TextUtils.equals(str, "order_with_video") && TextUtils.equals(mediaSegment.type, "video") && mediaSegment.mediaAEffect.isSceneEffect()) {
@@ -718,7 +718,7 @@ public class a {
                                 MediaAEffect m35clone2 = mediaTrackConfig.effectConfigMap.get(mediaSegment2.effectConfigKey).m35clone();
                                 mediaSegment2.mediaAEffect = m35clone2;
                                 if (TextUtils.isEmpty(m35clone2.shaderConfigKey)) {
-                                    mediaSegment2.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                    mediaSegment2.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                 }
                             }
                         }
@@ -796,7 +796,7 @@ public class a {
                                     MediaAEffect m35clone = mediaAEffect3.m35clone();
                                     mediaSegment.mediaAEffect = m35clone;
                                     if (TextUtils.isEmpty(m35clone.shaderConfigKey)) {
-                                        mediaSegment.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                        mediaSegment.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                     }
                                 }
                                 mediaSegment.effectConfigKey = str2;
@@ -810,7 +810,7 @@ public class a {
                                 MediaAEffect m35clone2 = mediaTrackConfig.effectConfigMap.get(mediaSegment2.effectConfigKey).m35clone();
                                 mediaSegment2.mediaAEffect = m35clone2;
                                 if (TextUtils.isEmpty(m35clone2.shaderConfigKey)) {
-                                    mediaSegment2.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                    mediaSegment2.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                 }
                             }
                             i2++;
@@ -849,7 +849,7 @@ public class a {
 
     public static void f(MediaTrack mediaTrack, Map<String, ShaderConfig> map, MediaTrack mediaTrack2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, mediaTrack, map, mediaTrack2) == null) || mediaTrack.mediaSegments.size() < c.a.b0.b.a.k.c.f1314j) {
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, mediaTrack, map, mediaTrack2) == null) || mediaTrack.mediaSegments.size() < c.a.b0.b.a.k.c.f1707j) {
             return;
         }
         MediaSegment mediaSegment = mediaTrack2.superpositionHeader;
@@ -982,7 +982,7 @@ public class a {
                         arrayList2.add((MediaTransition) mediaTransition.clone());
                     }
                     if (i3 > 0) {
-                        arrayList2.addAll(n(arrayList, i3, new C0017a(mediaTrack2), (mediaTrack2 == null || TextUtils.isEmpty(mediaTrack2.transitionMode) || !mediaTrack2.transitionMode.contains("random")) ? false : false));
+                        arrayList2.addAll(n(arrayList, i3, new C0037a(mediaTrack2), (mediaTrack2 == null || TextUtils.isEmpty(mediaTrack2.transitionMode) || !mediaTrack2.transitionMode.contains("random")) ? false : false));
                     }
                     if (mediaTransition2 != null && arrayList2.size() < size) {
                         arrayList2.add((MediaTransition) mediaTransition2.clone());
@@ -1167,7 +1167,7 @@ public class a {
                                 MediaAEffect mediaAEffect = map2.get(mediaSegment12.effectConfigKey);
                                 mediaSegment12.mediaAEffect = mediaAEffect;
                                 if (mediaAEffect != null && TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                                    mediaSegment12.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                                    mediaSegment12.mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                                 }
                             }
                         }
@@ -1189,7 +1189,7 @@ public class a {
             MediaAEffect mediaAEffect = mediaTrackConfig.effectConfigMap.get(str);
             if (mediaAEffect != null) {
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                    mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                 }
                 arrayList.add(str);
             }
@@ -1281,7 +1281,7 @@ public class a {
                         if (arrayList.size() > 0) {
                             dVar.Y(arrayList);
                         }
-                    } else if (!TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1307c) && !TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1309e) && !TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1310f)) {
+                    } else if (!TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1700c) && !TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1702e) && !TextUtils.equals(entry.getKey(), c.a.b0.b.a.k.c.f1703f)) {
                         dVar = new c.a.b0.b.a.c(TextUtils.isEmpty(value.vertexShader) ? "attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nuniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nvarying vec2 textureCoordinate;\n \nvoid main()\n{\n    gl_Position = uMVPMatrix * position;\n    textureCoordinate = (uTexMatrix * inputTextureCoordinate).xy;\n}" : v(context, value.resourcePath, value.vertexShader), o(context, value.resourcePath, value.fragmentShader, entry.getKey()));
                     } else {
                         dVar = new c.a.b0.b.a.d(c.a.b0.b.a.d.W(1), o(context, value.resourcePath, value.fragmentShader, entry.getKey()));
@@ -1302,7 +1302,7 @@ public class a {
             while (it.hasNext()) {
                 MediaSegment next = it.next();
                 if (!TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_HEADER, next.type) && !TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER, next.type)) {
-                    if (TextUtils.isEmpty(next.lutConfigKey) || (!TextUtils.equals(next.lutConfigKey, c.a.b0.b.a.k.c.f1307c) && !next.lutConfigKey.contains(c.a.b0.b.a.k.c.f1308d))) {
+                    if (TextUtils.isEmpty(next.lutConfigKey) || (!TextUtils.equals(next.lutConfigKey, c.a.b0.b.a.k.c.f1700c) && !next.lutConfigKey.contains(c.a.b0.b.a.k.c.f1701d))) {
                         next.lutConfigKey = null;
                     }
                     next.shaderConfigKey = null;
@@ -1575,7 +1575,7 @@ public class a {
             mediaAEffect = mediaTrackConfig.effectConfigMap.get(mediaAEffectKeyData.headerEffectKey);
             if (mediaAEffect != null) {
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                    mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
                 }
                 mediaAEffect.name = mediaAEffectKeyData.headerEffectKey;
                 mediaAEffect2 = mediaAEffect;
@@ -1593,7 +1593,7 @@ public class a {
         }
         if (i2 == i3 - 1 && (mediaAEffect = mediaTrackConfig.effectConfigMap.get(mediaAEffectKeyData.footerEffectKey)) != null) {
             if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1306b;
+                mediaAEffect.shaderConfigKey = c.a.b0.b.a.k.c.f1699b;
             }
             mediaAEffect.name = mediaAEffectKeyData.footerEffectKey;
             mediaAEffect2 = mediaAEffect;

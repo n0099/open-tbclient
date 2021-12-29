@@ -95,15 +95,15 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(a.InterfaceC2131a interfaceC2131a) {
+    public static void a(a.InterfaceC2138a interfaceC2138a) {
         long j2;
         long j3;
         String d2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, interfaceC2131a) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, interfaceC2138a) == null) {
             String str = "refreshed data count: %d , delete data count: %d, reset id count: %d. consume %d";
-            Iterator<com.kwai.filedownloader.c.c> it = interfaceC2131a.iterator();
+            Iterator<com.kwai.filedownloader.c.c> it = interfaceC2138a.iterator();
             c.d b2 = a().b();
             long currentTimeMillis = System.currentTimeMillis();
             long j4 = 0;
@@ -150,7 +150,7 @@ public class b {
                                                 j3 = j4;
                                                 str = str2;
                                                 com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
-                                                interfaceC2131a.a();
+                                                interfaceC2138a.a();
                                                 if (com.kwai.filedownloader.e.d.a) {
                                                     com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, str, Long.valueOf(j3), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(System.currentTimeMillis() - j2));
                                                 }
@@ -175,22 +175,22 @@ public class b {
                                                 com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, "the id is changed on restoring from db: old[%d] -> new[%d]", Integer.valueOf(a2), Integer.valueOf(a3));
                                             }
                                             next.a(a3);
-                                            interfaceC2131a.a(a2, next);
+                                            interfaceC2138a.a(a2, next);
                                             j6++;
                                         }
-                                        interfaceC2131a.b(next);
+                                        interfaceC2138a.b(next);
                                         j4 = j3 + 1;
                                     } else {
                                         try {
                                             it.remove();
-                                            interfaceC2131a.a(next);
+                                            interfaceC2138a.a(next);
                                             j5++;
                                             j4 = j3;
                                         } catch (Throwable th2) {
                                             th = th2;
                                             str = str2;
                                             com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
-                                            interfaceC2131a.a();
+                                            interfaceC2138a.a();
                                             if (com.kwai.filedownloader.e.d.a) {
                                             }
                                             throw th;
@@ -206,7 +206,7 @@ public class b {
                             j3 = j4;
                             str = str2;
                             com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
-                            interfaceC2131a.a();
+                            interfaceC2138a.a();
                             if (com.kwai.filedownloader.e.d.a) {
                             }
                             throw th;
@@ -230,7 +230,7 @@ public class b {
             long j7 = currentTimeMillis;
             long j8 = j4;
             com.kwai.filedownloader.e.f.b(com.kwai.filedownloader.e.c.a());
-            interfaceC2131a.a();
+            interfaceC2138a.a();
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.c(com.kwai.filedownloader.a.a.class, str3, Long.valueOf(j8), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(System.currentTimeMillis() - j7));
             }

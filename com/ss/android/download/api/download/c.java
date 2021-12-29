@@ -1,18 +1,9 @@
 package com.ss.android.download.api.download;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 @Deprecated
 /* loaded from: classes3.dex */
 public class c implements DownloadEventConfig {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -51,17 +42,8 @@ public class c implements DownloadEventConfig {
     public String p;
     public String q;
 
-    /* renamed from: com.ss.android.download.api.download.c$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes3.dex */
     public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -100,191 +82,98 @@ public class c implements DownloadEventConfig {
         public String p;
         public String q;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public c a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c(this, null) : (c) invokeV.objValue;
+            return new c(this);
         }
-    }
-
-    public /* synthetic */ c(a aVar, AnonymousClass1 anonymousClass1) {
-        this(aVar);
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickButtonTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return this.a;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickContinueLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61636f : (String) invokeV.objValue;
+        return this.f61636f;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickInstallLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61637g : (String) invokeV.objValue;
+        return this.f61637g;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickItemTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return null;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61633c : (String) invokeV.objValue;
+        return this.f61633c;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickPauseLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61635e : (String) invokeV.objValue;
+        return this.f61635e;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickStartLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61634d : (String) invokeV.objValue;
+        return this.f61634d;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public int getDownloadScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
+        return 0;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public Object getExtraEventObject() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.l : invokeV.objValue;
+        return this.l;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public JSONObject getExtraJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
+        return null;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public JSONObject getParamsJson() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
+        return null;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getRefer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.q : (String) invokeV.objValue;
+        return this.q;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getStorageDenyLabel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f61640j : (String) invokeV.objValue;
+        return this.f61640j;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public boolean isEnableClickEvent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f61632b : invokeV.booleanValue;
+        return this.f61632b;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public boolean isEnableV3Event() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : invokeV.booleanValue;
+        return this.m;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public void setDownloadScene(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-        }
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public void setRefer(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-        }
     }
 
     public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 
     public c(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = aVar.a;
         this.f61632b = aVar.f61642b;
         this.f61633c = aVar.f61643c;

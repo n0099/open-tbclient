@@ -26,28 +26,28 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public MethodChannel f4403e;
+    public MethodChannel f4610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f4404f;
+    public Context f4611f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f4405g;
+    public d f4612g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LongSparseArray<c.a.p.a.c> f4406h;
+    public LongSparseArray<c.a.p.a.c> f4613h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final BroadcastReceiver f4407i;
+    public final BroadcastReceiver f4614i;
 
     /* renamed from: c.a.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0198a implements c.a {
+    public class C0210a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0198a(a aVar) {
+        public C0210a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -69,7 +69,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public void a(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.a.f4406h.delete(j2);
+                this.a.f4613h.delete(j2);
             }
         }
     }
@@ -105,7 +105,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 HashMap hashMap = new HashMap();
                 hashMap.put("result", Integer.valueOf(i2));
                 hashMap.put("freeSpaceSize", Long.valueOf(j2));
-                this.a.f4403e.invokeMethod("onDeleteComplete", hashMap);
+                this.a.f4610e.invokeMethod("onDeleteComplete", hashMap);
             }
         }
     }
@@ -141,8 +141,8 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 int intExtra = intent.getIntExtra("state", 0);
                 boolean z = true;
                 z = (intExtra == 0 || intExtra != 1) ? false : false;
-                for (int i2 = 0; i2 < this.this$0.f4406h.size(); i2++) {
-                    c.a.p.a.c valueAt = this.this$0.f4406h.valueAt(i2);
+                for (int i2 = 0; i2 < this.this$0.f4613h.size(); i2++) {
+                    c.a.p.a.c valueAt = this.this$0.f4613h.valueAt(i2);
                     if (valueAt != null) {
                         valueAt.b(z);
                     }
@@ -158,10 +158,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
         public final Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final BinaryMessenger f4408b;
+        public final BinaryMessenger f4615b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final TextureRegistry f4409c;
+        public final TextureRegistry f4616c;
 
         public d(Context context, BinaryMessenger binaryMessenger, TextureRegistry textureRegistry) {
             Interceptable interceptable = $ic;
@@ -179,8 +179,8 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 }
             }
             this.a = context;
-            this.f4408b = binaryMessenger;
-            this.f4409c = textureRegistry;
+            this.f4615b = binaryMessenger;
+            this.f4616c = textureRegistry;
         }
     }
 
@@ -197,7 +197,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 return;
             }
         }
-        this.f4407i = new c(this);
+        this.f4614i = new c(this);
     }
 
     public void b(String str, int i2, HashMap hashMap, String str2) {
@@ -206,7 +206,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
             return;
         }
         try {
-            CyberPlayerManager.install(this.f4404f, str, str2, i2, CyberRemotePlayerService.class, hashMap, (CyberPlayerManager.InstallListener) null);
+            CyberPlayerManager.install(this.f4611f, str, str2, i2, CyberRemotePlayerService.class, hashMap, (CyberPlayerManager.InstallListener) null);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -223,15 +223,15 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, flutterPluginBinding) == null) {
-            this.f4405g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
+            this.f4612g = new d(flutterPluginBinding.getApplicationContext(), flutterPluginBinding.getBinaryMessenger(), flutterPluginBinding.getTextureRegistry());
             MethodChannel methodChannel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "cyberplayer");
-            this.f4403e = methodChannel;
+            this.f4610e = methodChannel;
             methodChannel.setMethodCallHandler(this);
-            this.f4404f = flutterPluginBinding.getApplicationContext();
-            this.f4406h = new LongSparseArray<>();
+            this.f4611f = flutterPluginBinding.getApplicationContext();
+            this.f4613h = new LongSparseArray<>();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.HEADSET_PLUG");
-            this.f4404f.registerReceiver(this.f4407i, intentFilter);
+            this.f4611f.registerReceiver(this.f4614i, intentFilter);
         }
     }
 
@@ -239,10 +239,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, flutterPluginBinding) == null) {
-            this.f4403e.setMethodCallHandler(null);
-            this.f4404f.unregisterReceiver(this.f4407i);
-            for (int i2 = 0; i2 < this.f4406h.size(); i2++) {
-                c.a.p.a.c valueAt = this.f4406h.valueAt(i2);
+            this.f4610e.setMethodCallHandler(null);
+            this.f4611f.unregisterReceiver(this.f4614i);
+            for (int i2 = 0; i2 < this.f4613h.size(); i2++) {
+                c.a.p.a.c valueAt = this.f4613h.valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a();
                 }
@@ -260,10 +260,10 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
                 String str2 = (String) methodCall.argument("clarityInfo");
                 int intValue = ((Integer) methodCall.argument("switchMediaSource")).intValue();
                 HashMap hashMap = (HashMap) methodCall.argument("options");
-                TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f4405g.f4409c.createSurfaceTexture();
-                c.a.p.a.c cVar = new c.a.p.a.c(this.f4405g.a, this.f4405g.f4408b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
-                cVar.e(new C0198a(this));
-                this.f4406h.put(createSurfaceTexture.id(), cVar);
+                TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.f4612g.f4616c.createSurfaceTexture();
+                c.a.p.a.c cVar = new c.a.p.a.c(this.f4612g.a, this.f4612g.f4615b, createSurfaceTexture, hashMap, str, str2, intValue, booleanValue);
+                cVar.e(new C0210a(this));
+                this.f4613h.put(createSurfaceTexture.id(), cVar);
                 result.success(Long.valueOf(createSurfaceTexture.id()));
             } else if (methodCall.method.equals("init")) {
                 HashMap hashMap2 = (HashMap) methodCall.arguments;

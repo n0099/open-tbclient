@@ -12,7 +12,7 @@ public class f extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k f1850b;
+    public final k f2277b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -27,14 +27,14 @@ public class f extends b {
                 return;
             }
         }
-        this.f1850b = b("okhttp");
+        this.f2277b = b("okhttp");
     }
 
     @Override // c.a.c0.r.m
     public k a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1850b : (k) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2277b : (k) invokeV.objValue;
     }
 
     @Override // c.a.c0.r.b

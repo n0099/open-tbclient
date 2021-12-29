@@ -7,8 +7,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.q0.d;
-import c.a.s0.f2.f.f;
+import c.a.s0.r0.e;
+import c.a.t0.f2.f.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -48,7 +48,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     public String mPackedId;
     public String mReferPage;
     public HttpMessageListener mRequestMemberPayInfoListener;
-    public c.a.s0.f2.f.a mView;
+    public c.a.t0.f2.f.a mView;
 
     /* loaded from: classes12.dex */
     public class a implements Animation.AnimationListener {
@@ -262,7 +262,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mView = new c.a.s0.f2.f.a(this);
+            this.mView = new c.a.t0.f2.f.a(this);
         }
     }
 
@@ -306,7 +306,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)}) == null) {
             PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j2), String.valueOf(j3), String.valueOf(j4), true, false, PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
             payConfig.setFrom(4);
-            c.a.s0.f2.f.a aVar = this.mView;
+            c.a.t0.f2.f.a aVar = this.mView;
             if (aVar == null || aVar.i() == null) {
                 str = "";
             } else {
@@ -317,7 +317,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             payConfig.setAutoPay(i2);
             payConfig.setPropsMon(String.valueOf(j4));
             payConfig.paymentPosKey = str;
-            d.c().a(payConfig, getPageContext().getPageActivity());
+            e.c().a(payConfig, getPageContext().getPageActivity());
         }
     }
 
@@ -365,14 +365,14 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.s0.f2.f.a aVar;
+        c.a.t0.f2.f.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (aVar = this.mView) == null) {
             return;
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.f17541i, d2.f17542j / 100, d2.l, d2.n);
+            startDealIntentService(d2.f18046i, d2.f18047j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

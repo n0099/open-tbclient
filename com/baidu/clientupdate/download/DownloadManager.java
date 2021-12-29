@@ -292,16 +292,16 @@ public final class DownloadManager {
                     }
                     download.a = currentTimeMillis;
                     int progress = download.getProgress();
-                    if (progress != download.f34315c) {
+                    if (progress != download.f34471c) {
                         this.this$0.notifyProgressChange(j2, progress);
-                        download.f34315c = progress;
+                        download.f34471c = progress;
                     }
-                    if (currentTimeMillis - download.f34314b > 2000) {
+                    if (currentTimeMillis - download.f34470b > 2000) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                        download.f34314b = currentTimeMillis;
+                        download.f34470b = currentTimeMillis;
                     }
                 }
             }
@@ -405,7 +405,7 @@ public final class DownloadManager {
             return;
         }
         if (downloadState == DownloadState.CANCEL) {
-            if (download.f34316d) {
+            if (download.f34472d) {
                 try {
                     new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
                 } catch (Exception e2) {
@@ -560,11 +560,11 @@ public final class DownloadManager {
                         try {
                             try {
                                 httpURLConnection = (HttpURLConnection) new URL(this.val$mUrl).openConnection();
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Throwable th) {
+                                th = th;
                             }
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Exception e2) {
+                            e = e2;
                         }
                         try {
                             httpURLConnection.setConnectTimeout(5000);
@@ -1110,7 +1110,7 @@ public final class DownloadManager {
                         for (int i2 = 0; i2 < this.val$downloadIds.length; i2++) {
                             Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadIds[i2]));
                             if (download != null) {
-                                download.f34316d = true;
+                                download.f34472d = true;
                                 this.this$0.mTaskManager.stopDownload(download.mUrl, this.val$downloadIds[i2], false);
                             }
                         }
@@ -1126,7 +1126,7 @@ public final class DownloadManager {
             for (int i2 = 0; i2 < jArr.length; i2++) {
                 Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i2]));
                 if (download != null) {
-                    download.f34316d = false;
+                    download.f34472d = false;
                     this.mTaskManager.stopDownload(download.mUrl, jArr[i2], false);
                 }
             }

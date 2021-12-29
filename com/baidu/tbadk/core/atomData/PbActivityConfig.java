@@ -7,8 +7,8 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.r.d2;
-import c.a.r0.s.r.n1;
+import c.a.s0.s.q.d2;
+import c.a.s0.s.q.n1;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -868,10 +868,17 @@ public class PbActivityConfig extends IntentConfig {
         return (PbActivityConfig) invokeL.objValue;
     }
 
+    public void setThreadId(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, str) == null) {
+            getIntent().putExtra("thread_id", str);
+        }
+    }
+
     public void setUnKnowPbType(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048625, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("unKnowPbType", str);
@@ -880,7 +887,7 @@ public class PbActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048625, this, uri) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, uri) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra(IntentConfig.KEY_URI, uri);
@@ -888,7 +895,7 @@ public class PbActivityConfig extends IntentConfig {
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, str) == null) {
             getIntent().putExtra("big_pic_type", str);
         }
     }
@@ -896,7 +903,7 @@ public class PbActivityConfig extends IntentConfig {
     public PbActivityConfig setVideoOriginArea(Rect rect) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, rect)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, rect)) == null) {
             getIntent().putExtra("video_origin_area", rect);
             return this;
         }
@@ -905,7 +912,7 @@ public class PbActivityConfig extends IntentConfig {
 
     public void setVideo_source(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
             this.key_video_source_value = str;
             getIntent().putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         }
@@ -914,7 +921,7 @@ public class PbActivityConfig extends IntentConfig {
     public void showOpenEditorTips(String str) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048629, this, str) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, str) == null) || (intent = getIntent()) == null) {
             return;
         }
         intent.putExtra("key_open_editor_tips", str);

@@ -70,7 +70,7 @@ public class s extends h {
                 return;
             }
         }
-        m = c.a.d.f.p.m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
+        m = c.a.d.f.p.n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,7 +153,7 @@ public class s extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: u */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             if (aVar != null && aVar.getThreadData() != null && aVar.getThreadData().t0() != null) {

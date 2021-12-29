@@ -19,7 +19,7 @@ public final class d {
     public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String[] f1469b;
+    public static String[] f1896b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -40,7 +40,7 @@ public final class d {
                 return;
             }
         }
-        f1469b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
+        f1896b = new String[]{"lib/arm64-v8a", "lib/armeabi", "lib/x86", "lib/mips"};
     }
 
     public static long a(InputStream inputStream, OutputStream outputStream, int i2) {

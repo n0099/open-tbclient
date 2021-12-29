@@ -49,7 +49,7 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
                     e2.printStackTrace();
                     e a = a.a("", "1517888290046");
                     this.adModel = a;
-                    a.f3061d = e2;
+                    a.f3489d = e2;
                     return;
                 }
             }

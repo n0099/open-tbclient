@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.model;
 
 import c.a.d.a.f;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.n4.e0.l.a f51622e;
+    public c.a.t0.o4.e0.l.a f51876e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f51623f;
+    public c.a.d.c.g.a f51877f;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +70,8 @@ public class StickerModel extends BdBaseModel {
                 } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                     list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                 }
-                if (this.a.f51622e != null) {
-                    this.a.f51622e.e(list);
+                if (this.a.f51876e != null) {
+                    this.a.f51876e.e(list);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class StickerModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_STICKET_LIST, 309475);
-        this.f51623f = aVar;
+        this.f51877f = aVar;
         registerListener(aVar);
     }
 
@@ -123,9 +123,9 @@ public class StickerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (k.A()) {
-                c.a.s0.v3.f0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                c.a.s0.v3.f0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+            if (l.A()) {
+                c.a.t0.w3.f0.a.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                c.a.t0.w3.f0.a.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -136,10 +136,10 @@ public class StickerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void x(c.a.s0.n4.e0.l.a aVar) {
+    public void x(c.a.t0.o4.e0.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f51622e = aVar;
+            this.f51876e = aVar;
         }
     }
 }

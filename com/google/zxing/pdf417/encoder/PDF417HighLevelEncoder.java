@@ -2,7 +2,7 @@ package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.parser.JSONLexer;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public final class PDF417HighLevelEncoder {
             }
         }
         TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, Base64.INTERNAL_PADDING, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
-        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 34, 124, 42, 40, 41, 63, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 125, 39, 0};
+        TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, PublicSuffixDatabase.EXCEPTION_MARKER, 13, 9, 44, 58, 10, UtilsBlink.VER_TYPE_SEPARATOR, 46, 36, 47, 34, 124, 42, 40, 41, 63, ContentUtil.GZIP_HEAD_2, 125, 39, 0};
         MIXED = new byte[128];
         PUNCTUATION = new byte[128];
         DEFAULT_ENCODING = Charset.forName("ISO-8859-1");

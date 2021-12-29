@@ -18,7 +18,7 @@ public final class hl {
     public static final /* synthetic */ hl[] f499a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hl f63590b;
+    public static final hl f63585b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -39,7 +39,7 @@ public final class hl {
         }
         a = new hl("MISC_CONFIG", 0, 1);
         hl hlVar = new hl("PLUGIN_CONFIG", 1, 2);
-        f63590b = hlVar;
+        f63585b = hlVar;
         f499a = new hl[]{a, hlVar};
     }
 
@@ -72,7 +72,7 @@ public final class hl {
                 if (i2 != 2) {
                     return null;
                 }
-                return f63590b;
+                return f63585b;
             }
             return a;
         }

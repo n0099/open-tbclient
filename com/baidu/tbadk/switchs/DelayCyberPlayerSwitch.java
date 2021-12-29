@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.r0.b.d;
-import c.a.r0.s.g0.b;
+import c.a.s0.b.d;
+import c.a.s0.s.g0.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ public class DelayCyberPlayerSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                if (d.E()) {
+                if (d.G()) {
                     type = 0;
                 } else {
                     type = b.j().k(KEY_SWITCH, 1);

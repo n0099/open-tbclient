@@ -1,6 +1,7 @@
 package com.baidu.searchbox.perfframe;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -121,7 +122,7 @@ public class PerfFrame implements IPerfFrame {
     }
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
-    public void submitPerformanceData(String str, String str2, long j2, long j3, String str3, String str4, String str5) {
+    public void submitPerformanceData(@NonNull String str, @NonNull String str2, long j2, long j3, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;

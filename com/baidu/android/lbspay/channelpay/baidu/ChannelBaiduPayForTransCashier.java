@@ -127,7 +127,7 @@ public class ChannelBaiduPayForTransCashier {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ChannelBaiduPayForTransCashier f32477b;
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f32617b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public class ChannelBaiduPayForTransCashier {
                         return;
                     }
                 }
-                this.f32477b = this;
+                this.f32617b = this;
                 this.a = context;
             }
 
@@ -162,7 +162,7 @@ public class ChannelBaiduPayForTransCashier {
             public void onPayResult(int i2, String str3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                    this.f32477b.handlepayResult(this.a, i2, str3);
+                    this.f32617b.handlepayResult(this.a, i2, str3);
                 }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);

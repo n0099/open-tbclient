@@ -1,21 +1,22 @@
 package com.vivo.push.b;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.vivo.push.model.UnvarnishedMessage;
 /* loaded from: classes4.dex */
-public final class o extends u {
+public final class o extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
+    public UnvarnishedMessage a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o() {
-        super(8);
+        super(3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,34 +32,53 @@ public final class o extends u {
         }
     }
 
-    @Override // com.vivo.push.b.u, com.vivo.push.y
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("tags_list", this.a);
+            aVar.a("msg_v1", this.a.unpackToJson());
         }
     }
 
-    public final ArrayList<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "OnListTagCommand" : (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.u, com.vivo.push.y
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            this.a = aVar.b("tags_list");
+            String a = aVar.a("msg_v1");
+            if (TextUtils.isEmpty(a)) {
+                return;
+            }
+            UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a);
+            this.a = unvarnishedMessage;
+            unvarnishedMessage.setMsgId(f());
         }
+    }
+
+    public final UnvarnishedMessage e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (UnvarnishedMessage) invokeV.objValue;
+    }
+
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnMessageCommand" : (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            UnvarnishedMessage unvarnishedMessage = this.a;
+            if (unvarnishedMessage == null) {
+                return null;
+            }
+            return unvarnishedMessage.unpackToJson();
+        }
+        return (String) invokeV.objValue;
     }
 }

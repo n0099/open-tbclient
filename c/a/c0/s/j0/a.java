@@ -16,10 +16,10 @@ public abstract class a extends j implements c.a.c0.s.f0.k {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f1983i;
+    public FrameLayout f2410i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.a.c0.s.f0.a f1984j;
+    public c.a.c0.s.f0.a f2411j;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,49 +34,49 @@ public abstract class a extends j implements c.a.c0.s.f0.k {
                 return;
             }
         }
-        this.f1983i = new FrameLayout(this.f1987g);
-        V(8);
+        this.f2410i = new FrameLayout(this.f2414g);
+        O(8);
     }
 
     @Override // c.a.c0.s.j0.b
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            K(this);
+            H(this);
         }
     }
 
-    public void O(View view) {
+    public void K(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.f1983i.addView(view);
+            this.f2410i.addView(view);
         }
     }
 
-    public boolean Q() {
+    public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1983i.getVisibility() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2410i.getVisibility() == 0 : invokeV.booleanValue;
     }
 
-    public void S() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f1983i.removeAllViews();
+            this.f2410i.removeAllViews();
         }
     }
 
-    public void T(c.a.c0.s.f0.a aVar) {
+    public void N(c.a.c0.s.f0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f1984j = aVar;
+            this.f2411j = aVar;
         }
     }
 
-    public void V(int i2) {
+    public void O(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f1983i.setVisibility(i2);
+            this.f2410i.setVisibility(i2);
         }
     }
 
@@ -85,7 +85,7 @@ public abstract class a extends j implements c.a.c0.s.f0.k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pVar)) == null) {
-            c.a.c0.s.f0.a aVar = this.f1984j;
+            c.a.c0.s.f0.a aVar = this.f2411j;
             if (aVar == null) {
                 return false;
             }
@@ -99,7 +99,7 @@ public abstract class a extends j implements c.a.c0.s.f0.k {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1983i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2410i : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.k
@@ -114,11 +114,11 @@ public abstract class a extends j implements c.a.c0.s.f0.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLayerRelease();
-            K(null);
-            c.a.c0.s.f0.a aVar = this.f1984j;
+            H(null);
+            c.a.c0.s.f0.a aVar = this.f2411j;
             if (aVar != null) {
                 aVar.onLayerRelease();
-                this.f1984j = null;
+                this.f2411j = null;
             }
         }
     }

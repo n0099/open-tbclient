@@ -6,10 +6,9 @@ import android.text.TextUtils;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.r0.e.f;
-import c.a.r0.u.j;
-import c.a.s0.z.a;
+import c.a.s0.e.f;
+import c.a.s0.u.m;
+import c.a.t0.z.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -79,8 +78,8 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
             }
             UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
             aVar.a = true;
-            aVar.f42048d = "1".equals(queryParameter2);
-            aVar.f42047c = queryParameter;
+            aVar.f42214d = "1".equals(queryParameter2);
+            aVar.f42213c = queryParameter;
             MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
         }
     }
@@ -117,7 +116,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 this.val$alaPersonCenterConfig = r7;
             }
 
-            @Override // c.a.r0.e.f
+            @Override // c.a.s0.e.f
             public void onFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -125,7 +124,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
                 }
             }
 
-            @Override // c.a.r0.e.f
+            @Override // c.a.s0.e.f
             public void onSwitchGet(boolean z) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -177,7 +176,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (!(interceptable == null || interceptable.invokeL(1048581, this, toWhereParam) == null) || toWhereParam.getResult() == null) {
             return;
         }
-        c.a.r0.s.d0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
+        c.a.s0.s.d0.b.g(TbadkCoreApplication.getInst(), toWhereParam.getResult().intValue(), false);
     }
 
     @Override // com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilityOpenPageAuto.HostUtilityOpenPage
@@ -195,7 +194,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
     public void goToSendThread(TiebaUtilityOpenPageAuto.SendThreadParam sendThreadParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, sendThreadParam) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new j(1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new m(1)));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
@@ -239,7 +238,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, sMAppMapParam) == null) {
             HashMap result = sMAppMapParam.getResult();
-            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || l.isEmpty((String) result.get("h5_url"))) {
+            if (a.b((String) result.get("id"), (String) result.get("link"), "1191000600000000", Integer.valueOf(((Boolean) result.get("is_game")).booleanValue() ? 1 : 0)) || c.a.d.f.p.m.isEmpty((String) result.get("h5_url"))) {
                 return;
             }
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
@@ -267,7 +266,7 @@ public class UtilityOpenPage implements TiebaUtilityOpenPageAuto.HostUtilityOpen
         if (interceptable == null || interceptable.invokeL(1048589, this, signProcessParam) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
-                c.a.r0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
+                c.a.s0.t.d.f.c().a(((TbPageContextSupport) currentActivity).getPageContext(), (ViewGroup) currentActivity.getWindow().getDecorView());
             }
         }
     }

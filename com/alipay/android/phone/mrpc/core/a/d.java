@@ -40,7 +40,7 @@ public final class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                String str = new String(this.f31489b);
+                String str = new String(this.f31632b);
                 StringBuilder sb = new StringBuilder("threadid = ");
                 sb.append(Thread.currentThread().getId());
                 sb.append("; rpc response:  ");
@@ -53,7 +53,7 @@ public final class d extends a {
                 throw new RpcException(Integer.valueOf(i2), jSONObject.optString("tips"));
             } catch (Exception e2) {
                 StringBuilder sb2 = new StringBuilder("response  =");
-                sb2.append(new String(this.f31489b));
+                sb2.append(new String(this.f31632b));
                 sb2.append(":");
                 sb2.append(e2);
                 throw new RpcException((Integer) 10, sb2.toString() == null ? "" : e2.getMessage());

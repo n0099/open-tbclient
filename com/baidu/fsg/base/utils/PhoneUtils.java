@@ -25,7 +25,6 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -60,34 +59,34 @@ public final class PhoneUtils {
     public static final String a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34823b = "_rim_pay.preferences";
+    public static final String f34979b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34824c = "cuid_1";
+    public static final String f34980c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34825d = "cuid_2";
+    public static final String f34981d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34826e = "wime";
+    public static final String f34982e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34827f = "identity_code";
+    public static final String f34983f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34828g = "phone_number";
+    public static final String f34984g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34829h = "card_no";
+    public static final String f34985h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34830i = "valid_date";
+    public static final String f34986i = "valid_date";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34831j = "cvv2";
+    public static final String f34987j = "cvv2";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34832k = "imei";
+    public static final String f34988k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
     public static CPUInfo n;
@@ -107,7 +106,7 @@ public final class PhoneUtils {
         public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f34833b = "features";
+        public static final String f34989b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -192,7 +191,7 @@ public final class PhoneUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f34823b, "imei", "");
+            String str = (String) SharedPreferencesUtils.getParam(context, f34979b, "imei", "");
             if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
                     String str2 = "从文件里面获取imei号=" + str;
@@ -222,7 +221,7 @@ public final class PhoneUtils {
             for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
                 stringBuffer.append((char) (random.nextInt(10) | 48));
             }
-            SharedPreferencesUtils.setParam(context, f34823b, "imei", stringBuffer.toString());
+            SharedPreferencesUtils.setParam(context, f34979b, "imei", stringBuffer.toString());
             return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
@@ -683,7 +682,7 @@ public final class PhoneUtils {
                 for (String str : split) {
                     StringBuilder sb = new StringBuilder();
                     sb.append(str);
-                    sb.append(TrackUI.SEPERATOR);
+                    sb.append("\t");
                     sb.toString();
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;

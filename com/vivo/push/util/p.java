@@ -13,10 +13,10 @@ public final class p {
     public static final o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f63142b;
+    public static boolean f63149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f63143c;
+    public static boolean f63150c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,13 +33,46 @@ public final class p {
             }
         }
         a = new n();
-        f63142b = z.b("persist.sys.log.ctrl", "no").equals("yes");
+        b();
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f63142b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f63149b : invokeV.booleanValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            f63149b = aa.b("persist.sys.log.ctrl", "no").equals("yes");
+        }
+    }
+
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) ? a.c(str, str2) : invokeLL.intValue;
+    }
+
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? a.d(str, str2) : invokeLL.intValue;
+    }
+
+    public static int e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) ? a.e(str, str2) : invokeLL.intValue;
+    }
+
+    public static void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            b();
+            f63150c = z;
+        }
     }
 
     public static int b(String str, String str2) {
@@ -48,29 +81,10 @@ public final class p {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) ? a.b(str, str2) : invokeLL.intValue;
     }
 
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? a.c(str, str2) : invokeLL.intValue;
-    }
-
-    public static int d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) ? a.d(str, str2) : invokeLL.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) ? a.e(str, str2) : invokeLL.intValue;
-    }
-
-    public static void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            f63142b = z;
-            f63143c = z;
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            a.c(context, str);
         }
     }
 
@@ -80,24 +94,17 @@ public final class p {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, th)) == null) ? a.b(str, str2, th) : invokeLLL.intValue;
     }
 
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
-            a.c(context, str);
-        }
-    }
-
-    public static void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) {
-            a.b(context, str);
-        }
-    }
-
     public static int a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? a.a(str, str2) : invokeLL.intValue;
+    }
+
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, str) == null) {
+            a.b(context, str);
+        }
     }
 
     public static int a(String str, Throwable th) {

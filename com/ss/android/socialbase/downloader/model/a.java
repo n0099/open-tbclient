@@ -5,13 +5,6 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.depend.ae;
 import com.ss.android.socialbase.downloader.depend.ah;
 import com.ss.android.socialbase.downloader.depend.e;
@@ -60,563 +53,436 @@ public interface a extends IInterface {
 
     /* renamed from: com.ss.android.socialbase.downloader.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractBinderC2197a extends Binder implements a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public AbstractBinderC2197a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
+    public static abstract class AbstractBinderC2204a extends Binder implements a {
+        public AbstractBinderC2204a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.model.DownloadAidlTask");
         }
 
         public static a a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
-                    return (a) queryLocalInterface;
-                }
-                return new C2198a(iBinder);
+            if (iBinder == null) {
+                return null;
             }
-            return (a) invokeL.objValue;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+            if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
+                return (a) queryLocalInterface;
+            }
+            return new C2205a(iBinder);
         }
 
         public static a m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2198a.a : (a) invokeV.objValue;
+            return C2205a.a;
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+            return this;
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 != 1598968902) {
-                    switch (i2) {
-                        case 1:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            DownloadInfo a = a();
-                            parcel2.writeNoException();
-                            if (a != null) {
-                                parcel2.writeInt(1);
-                                a.writeToParcel(parcel2, 1);
-                            } else {
-                                parcel2.writeInt(0);
-                            }
-                            return true;
-                        case 2:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            com.ss.android.socialbase.downloader.depend.e b2 = b();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(b2 != null ? b2.asBinder() : null);
-                            return true;
-                        case 3:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            int a2 = a(parcel.readInt());
-                            parcel2.writeNoException();
-                            parcel2.writeInt(a2);
-                            return true;
-                        case 4:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            i a3 = a(parcel.readInt(), parcel.readInt());
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(a3 != null ? a3.asBinder() : null);
-                            return true;
-                        case 5:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            i b3 = b(parcel.readInt());
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(b3 != null ? b3.asBinder() : null);
-                            return true;
-                        case 6:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            y c2 = c();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(c2 != null ? c2.asBinder() : null);
-                            return true;
-                        case 7:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            ae d2 = d();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(d2 != null ? d2.asBinder() : null);
-                            return true;
-                        case 8:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            h e2 = e();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(e2 != null ? e2.asBinder() : null);
-                            return true;
-                        case 9:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            f f2 = f();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(f2 != null ? f2.asBinder() : null);
-                            return true;
-                        case 10:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            u g2 = g();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(g2 != null ? g2.asBinder() : null);
-                            return true;
-                        case 11:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            ah h2 = h();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(h2 != null ? h2.asBinder() : null);
-                            return true;
-                        case 12:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            p i4 = i();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(i4 != null ? i4.asBinder() : null);
-                            return true;
-                        case 13:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            j j2 = j();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(j2 != null ? j2.asBinder() : null);
-                            return true;
-                        case 14:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            g k2 = k();
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(k2 != null ? k2.asBinder() : null);
-                            return true;
-                        case 15:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            int l = l();
-                            parcel2.writeNoException();
-                            parcel2.writeInt(l);
-                            return true;
-                        case 16:
-                            parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                            l c3 = c(parcel.readInt());
-                            parcel2.writeNoException();
-                            parcel2.writeStrongBinder(c3 != null ? c3.asBinder() : null);
-                            return true;
-                        default:
-                            return super.onTransact(i2, parcel, parcel2, i3);
-                    }
+            if (i2 != 1598968902) {
+                switch (i2) {
+                    case 1:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        DownloadInfo a = a();
+                        parcel2.writeNoException();
+                        if (a != null) {
+                            parcel2.writeInt(1);
+                            a.writeToParcel(parcel2, 1);
+                        } else {
+                            parcel2.writeInt(0);
+                        }
+                        return true;
+                    case 2:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        com.ss.android.socialbase.downloader.depend.e b2 = b();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(b2 != null ? b2.asBinder() : null);
+                        return true;
+                    case 3:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        int a2 = a(parcel.readInt());
+                        parcel2.writeNoException();
+                        parcel2.writeInt(a2);
+                        return true;
+                    case 4:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        i a3 = a(parcel.readInt(), parcel.readInt());
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(a3 != null ? a3.asBinder() : null);
+                        return true;
+                    case 5:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        i b3 = b(parcel.readInt());
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(b3 != null ? b3.asBinder() : null);
+                        return true;
+                    case 6:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        y c2 = c();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(c2 != null ? c2.asBinder() : null);
+                        return true;
+                    case 7:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        ae d2 = d();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(d2 != null ? d2.asBinder() : null);
+                        return true;
+                    case 8:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        h e2 = e();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(e2 != null ? e2.asBinder() : null);
+                        return true;
+                    case 9:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        f f2 = f();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(f2 != null ? f2.asBinder() : null);
+                        return true;
+                    case 10:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        u g2 = g();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(g2 != null ? g2.asBinder() : null);
+                        return true;
+                    case 11:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        ah h2 = h();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(h2 != null ? h2.asBinder() : null);
+                        return true;
+                    case 12:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        p i4 = i();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(i4 != null ? i4.asBinder() : null);
+                        return true;
+                    case 13:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        j j2 = j();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(j2 != null ? j2.asBinder() : null);
+                        return true;
+                    case 14:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        g k2 = k();
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(k2 != null ? k2.asBinder() : null);
+                        return true;
+                    case 15:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        int l = l();
+                        parcel2.writeNoException();
+                        parcel2.writeInt(l);
+                        return true;
+                    case 16:
+                        parcel.enforceInterface("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                        l c3 = c(parcel.readInt());
+                        parcel2.writeNoException();
+                        parcel2.writeStrongBinder(c3 != null ? c3.asBinder() : null);
+                        return true;
+                    default:
+                        return super.onTransact(i2, parcel, parcel2, i3);
                 }
-                parcel2.writeString("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                return true;
             }
-            return invokeCommon.booleanValue;
+            parcel2.writeString("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+            return true;
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.model.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2198a implements a {
-            public static /* synthetic */ Interceptable $ic;
+        public static class C2205a implements a {
             public static a a;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
             public IBinder f62572b;
 
-            public C2198a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
+            public C2205a(IBinder iBinder) {
                 this.f62572b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(1, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().a();
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(1, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().a();
                     }
+                    obtain2.readException();
+                    return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (DownloadInfo) invokeV.objValue;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f62572b : (IBinder) invokeV.objValue;
+                return this.f62572b;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public com.ss.android.socialbase.downloader.depend.e b() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(2, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().b();
-                        }
-                        obtain2.readException();
-                        return e.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(2, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().b();
                     }
+                    obtain2.readException();
+                    return e.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (com.ss.android.socialbase.downloader.depend.e) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public y c() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(6, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().c();
-                        }
-                        obtain2.readException();
-                        return y.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(6, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().c();
                     }
+                    obtain2.readException();
+                    return y.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (y) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public ae d() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(7, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().d();
-                        }
-                        obtain2.readException();
-                        return ae.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(7, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().d();
                     }
+                    obtain2.readException();
+                    return ae.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (ae) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public h e() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(8, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().e();
-                        }
-                        obtain2.readException();
-                        return h.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(8, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().e();
                     }
+                    obtain2.readException();
+                    return h.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (h) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public f f() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(9, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().f();
-                        }
-                        obtain2.readException();
-                        return f.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(9, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().f();
                     }
+                    obtain2.readException();
+                    return f.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (f) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public u g() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(10, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().g();
-                        }
-                        obtain2.readException();
-                        return u.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(10, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().g();
                     }
+                    obtain2.readException();
+                    return u.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (u) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public ah h() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(11, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().h();
-                        }
-                        obtain2.readException();
-                        return ah.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(11, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().h();
                     }
+                    obtain2.readException();
+                    return ah.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (ah) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public p i() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(12, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().i();
-                        }
-                        obtain2.readException();
-                        return p.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(12, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().i();
                     }
+                    obtain2.readException();
+                    return p.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (p) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public j j() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(13, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().j();
-                        }
-                        obtain2.readException();
-                        return j.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(13, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().j();
                     }
+                    obtain2.readException();
+                    return j.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (j) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public g k() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(14, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().k();
-                        }
-                        obtain2.readException();
-                        return g.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(14, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().k();
                     }
+                    obtain2.readException();
+                    return g.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (g) invokeV.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public int l() throws RemoteException {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        if (!this.f62572b.transact(15, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().l();
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    if (!this.f62572b.transact(15, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().l();
                     }
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return invokeV.intValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public i b(int i2) throws RemoteException {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        obtain.writeInt(i2);
-                        if (!this.f62572b.transact(5, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().b(i2);
-                        }
-                        obtain2.readException();
-                        return i.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    obtain.writeInt(i2);
+                    if (!this.f62572b.transact(5, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().b(i2);
                     }
+                    obtain2.readException();
+                    return i.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (i) invokeI.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public l c(int i2) throws RemoteException {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        obtain.writeInt(i2);
-                        if (!this.f62572b.transact(16, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().c(i2);
-                        }
-                        obtain2.readException();
-                        return l.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    obtain.writeInt(i2);
+                    if (!this.f62572b.transact(16, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().c(i2);
                     }
+                    obtain2.readException();
+                    return l.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (l) invokeI.objValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public int a(int i2) throws RemoteException {
-                InterceptResult invokeI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        obtain.writeInt(i2);
-                        if (!this.f62572b.transact(3, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().a(i2);
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    obtain.writeInt(i2);
+                    if (!this.f62572b.transact(3, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().a(i2);
                     }
+                    obtain2.readException();
+                    return obtain2.readInt();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return invokeI.intValue;
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
             public i a(int i2, int i3) throws RemoteException {
-                InterceptResult invokeII;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                        obtain.writeInt(i2);
-                        obtain.writeInt(i3);
-                        if (!this.f62572b.transact(4, obtain, obtain2, 0) && AbstractBinderC2197a.m() != null) {
-                            return AbstractBinderC2197a.m().a(i2, i3);
-                        }
-                        obtain2.readException();
-                        return i.a.a(obtain2.readStrongBinder());
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
+                    obtain.writeInt(i2);
+                    obtain.writeInt(i3);
+                    if (!this.f62572b.transact(4, obtain, obtain2, 0) && AbstractBinderC2204a.m() != null) {
+                        return AbstractBinderC2204a.m().a(i2, i3);
                     }
+                    obtain2.readException();
+                    return i.a.a(obtain2.readStrongBinder());
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (i) invokeII.objValue;
             }
         }
     }

@@ -15,7 +15,7 @@ public class b extends com.baidu.platform.base.a implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetSuggestionResultListener f38868b;
+    public OnGetSuggestionResultListener f39024b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b extends com.baidu.platform.base.a implements a {
                 return;
             }
         }
-        this.f38868b = null;
+        this.f39024b = null;
     }
 
     @Override // com.baidu.platform.core.f.a
@@ -38,7 +38,7 @@ public class b extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f38868b = null;
+            this.f39024b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +48,7 @@ public class b extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetSuggestionResultListener) == null) {
             this.a.lock();
-            this.f38868b = onGetSuggestionResultListener;
+            this.f39024b = onGetSuggestionResultListener;
             this.a.unlock();
         }
     }
@@ -59,8 +59,8 @@ public class b extends com.baidu.platform.base.a implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, suggestionSearchOption)) == null) {
             c cVar = new c();
-            cVar.a(SearchType.f38826f);
-            return a(new d(suggestionSearchOption), this.f38868b, cVar);
+            cVar.a(SearchType.f38982f);
+            return a(new d(suggestionSearchOption), this.f39024b, cVar);
         }
         return invokeL.booleanValue;
     }

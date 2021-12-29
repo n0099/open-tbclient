@@ -19,24 +19,24 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33525b = "b";
+    public static final String f33681b = "b";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f33526c = false;
+    public static final boolean f33682c = false;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33527d;
+    public String f33683d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33528e;
+    public String f33684e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f33529f;
+    public String f33685f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f33530g;
+    public boolean f33686g;
 
     static {
         InterceptResult invokeClinit;
@@ -101,19 +101,19 @@ public class b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33527d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33683d : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33528e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33684e : (String) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33529f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33685f : (String) invokeV.objValue;
     }
 
     public String e() {
@@ -125,6 +125,6 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33530g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33686g : invokeV.booleanValue;
     }
 }

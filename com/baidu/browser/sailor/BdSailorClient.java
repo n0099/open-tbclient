@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DownloadTaskType {
         public static final /* synthetic */ DownloadTaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface IDownloadTaskListener extends INoProGuard {
         void onDownloadCancel(String str, long j2, long j3, String str2);
 

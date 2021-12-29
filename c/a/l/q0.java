@@ -21,19 +21,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
+public class q0 extends c.a.l.a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3875j;
+    public View f4290j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f3876k;
+    public TextView f4291k;
     public TextView l;
     public OriginalThreadCardView m;
-    public c.a.r0.s.r.a n;
+    public c.a.s0.s.q.a n;
     public boolean o;
     public OriginalThreadCardView.b p;
 
@@ -71,9 +71,9 @@ public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
                 this.a.c().a(this.a.m, this.a.n);
             }
             String g0 = this.a.n.getThreadData().g0();
-            c.a.s0.g0.m.a(g0);
+            c.a.t0.g0.m.a(g0);
             this.a.r(g0);
-            this.a.f3795e.o(new a.C0165a(1));
+            this.a.f4210e.o(new a.C0186a(1));
         }
     }
 
@@ -90,7 +90,7 @@ public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
                 return;
             }
         }
-        q = c.a.d.f.p.m.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        q = c.a.d.f.p.n.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,13 +114,13 @@ public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
         this.o = false;
         this.p = new a(this);
         if (TbadkCoreApplication.getInst().getPersonalizeViewData().q != null && TbadkCoreApplication.getInst().getPersonalizeViewData().q.getParent() == null) {
-            this.f3875j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
+            this.f4290j = TbadkCoreApplication.getInst().getPersonalizeViewData().q;
         } else {
-            this.f3875j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
+            this.f4290j = LayoutInflater.from(context).inflate(R.layout.card_transmit_thread_layout, (ViewGroup) null, false);
         }
-        this.f3876k = (TextView) this.f3875j.findViewById(R.id.thread_card_title);
-        this.l = (TextView) this.f3875j.findViewById(R.id.thread_card_abstract);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f3875j.findViewById(R.id.original_thread_view);
+        this.f4291k = (TextView) this.f4290j.findViewById(R.id.thread_card_title);
+        this.l = (TextView) this.f4290j.findViewById(R.id.thread_card_abstract);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f4290j.findViewById(R.id.original_thread_view);
         this.m = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.p);
     }
@@ -129,11 +129,11 @@ public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3875j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4290j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.s0.g0.d0<c.a.r0.s.r.a> d0Var) {
+    public void k(c.a.t0.g0.d0<c.a.s0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d0Var) == null) {
             super.k(d0Var);
@@ -151,23 +151,23 @@ public class q0 extends c.a.l.a<c.a.r0.s.r.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: q */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || aVar.getThreadData() == null) {
             return;
         }
         this.n = aVar;
-        ThreadCardUtils.setTitle(this.f3876k, aVar.getThreadData(), this.o);
-        ThreadCardUtils.setAbstract(this.l, this.f3876k, aVar.getThreadData(), q, this.o);
+        ThreadCardUtils.setTitle(this.f4291k, aVar.getThreadData(), this.o);
+        ThreadCardUtils.setAbstract(this.l, this.f4291k, aVar.getThreadData(), q, this.o);
         this.m.fillData(aVar.getThreadData().A1);
     }
 
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            c.a.s0.g0.m.l(this.f3876k, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            c.a.s0.g0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.m.setReadState(c.a.s0.g0.m.k(str));
+            c.a.t0.g0.m.l(this.f4291k, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            c.a.t0.g0.m.l(this.l, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.m.setReadState(c.a.t0.g0.m.k(str));
         }
     }
 

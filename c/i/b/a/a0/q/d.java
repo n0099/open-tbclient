@@ -24,16 +24,16 @@ public final class d {
         public final long[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f29503b;
+        public final int[] f29581b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29504c;
+        public final int f29582c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long[] f29505d;
+        public final long[] f29583d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f29506e;
+        public final int[] f29584e;
 
         public /* synthetic */ b(long[] jArr, int[] iArr, int i2, long[] jArr2, int[] iArr2, a aVar) {
             this(jArr, iArr, i2, jArr2, iArr2);
@@ -55,10 +55,10 @@ public final class d {
                 }
             }
             this.a = jArr;
-            this.f29503b = iArr;
-            this.f29504c = i2;
-            this.f29505d = jArr2;
-            this.f29506e = iArr2;
+            this.f29581b = iArr;
+            this.f29582c = i2;
+            this.f29583d = jArr2;
+            this.f29584e = iArr2;
         }
     }
 

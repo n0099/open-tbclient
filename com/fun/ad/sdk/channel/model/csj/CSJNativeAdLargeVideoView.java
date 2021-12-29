@@ -22,7 +22,7 @@ public final class CSJNativeAdLargeVideoView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f56221f;
+    public FrameLayout f56220f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context) {
@@ -100,14 +100,14 @@ public final class CSJNativeAdLargeVideoView extends e0 {
                     TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
                     int adViewHeight = tTFeedAd.getAdViewHeight();
                     int adViewWidth = tTFeedAd.getAdViewWidth();
-                    ViewGroup.LayoutParams layoutParams = this.f56221f.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.f56220f.getLayoutParams();
                     layoutParams.width = adViewWidth;
                     layoutParams.height = adViewHeight;
-                    this.f56221f.setLayoutParams(layoutParams);
-                    this.f56221f.requestLayout();
+                    this.f56220f.setLayoutParams(layoutParams);
+                    this.f56220f.requestLayout();
                 }
-                this.f56221f.removeAllViews();
-                this.f56221f.addView(adView);
+                this.f56220f.removeAllViews();
+                this.f56220f.addView(adView);
             }
         }
     }
@@ -117,7 +117,7 @@ public final class CSJNativeAdLargeVideoView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f56221f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f56220f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 
@@ -126,11 +126,11 @@ public final class CSJNativeAdLargeVideoView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56221f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f56220f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
             layoutParams.height = (int) (i6 / 1.78f);
-            this.f56221f.setLayoutParams(layoutParams);
+            this.f56220f.setLayoutParams(layoutParams);
         }
     }
 }

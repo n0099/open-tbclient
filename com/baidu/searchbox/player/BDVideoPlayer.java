@@ -16,8 +16,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.searchbox.player.callback.VideoPlayerCallbackBaseManager;
-import com.baidu.searchbox.player.config.PlayerProperty;
-import com.baidu.searchbox.player.config.PlayerPropertyConfig;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.ControlEventTrigger;
 import com.baidu.searchbox.player.event.InternalSyncControlEventTrigger;
@@ -76,11 +74,9 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public String mKey;
     public LayerContainer mLayerContainer;
     public IMessenger mMessenger;
-    public PlayerPropertyConfig mPlayerConfig;
     public ViewGroup mPlayerContainer;
     public final PlayerEventTrigger mPlayerEventTrigger;
     public PluginManager mPluginManager;
-    public final PlayerProperty mProperty;
     public IKernelLayerReuseHelper mReuseHelper;
     public int mScaleMode;
     public float mSpeed;
@@ -160,9 +156,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         public void onVideoEventNotify(VideoEvent videoEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoEvent) == null) {
-                if (videoEvent.getType() == 1 && videoEvent.getSender() != this) {
-                    this.this$0.onPlayerConfigChange(videoEvent);
-                }
                 this.this$0.getPlayerCallbackManager().dispatchPlayerAction(videoEvent);
             }
         }
@@ -206,7 +199,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void createEnv(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mContainerLayoutParams = new ViewGroup.LayoutParams(-1, -1);
             this.mVideoTask = new VideoTask();
             initMessenger();
@@ -221,11 +214,18 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     private void createSessionId(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
             if (z || TextUtils.isEmpty(this.mVideoTask.sessionId)) {
                 this.mVideoTask.sessionId = VideoSessionManager.getInstance().getSessionId(getVideoUniqueKey());
             }
         }
+    }
+
+    @NonNull
+    private InternalSyncControlEventTrigger getInternalSyncControlEventTrigger() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? this.mSyncControlEventTrigger : (InternalSyncControlEventTrigger) invokeV.objValue;
     }
 
     private void initMessenger() {
@@ -437,26 +437,19 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return invokeV.intValue;
     }
 
-    @Nullable
-    public PlayerPropertyConfig getConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mPlayerConfig : (PlayerPropertyConfig) invokeV.objValue;
-    }
-
     @NonNull
     @PublicMethod
     public ControlEventTrigger getControlEventTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mControlEventTrigger : (ControlEventTrigger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.mControlEventTrigger : (ControlEventTrigger) invokeV.objValue;
     }
 
     @PublicMethod
     public int getDecodeMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
                 return baseKernelLayer.getDecodeMode();
@@ -470,7 +463,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return this.mVideoTask.duration;
@@ -484,7 +477,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getDurationMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return this.mVideoTask.duration * 1000;
@@ -494,26 +487,19 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return invokeV.intValue;
     }
 
-    @NonNull
-    public InternalSyncControlEventTrigger getInternalSyncControlEventTrigger() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mSyncControlEventTrigger : (InternalSyncControlEventTrigger) invokeV.objValue;
-    }
-
     @Nullable
     @PublicMethod(version = "11.26.0.0")
     public String getKLayerCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mKLayerCacheKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mKLayerCacheKey : (String) invokeV.objValue;
     }
 
     @Nullable
     public String getKLogId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             return baseKernelLayer != null ? baseKernelLayer.getKernelLogId() : "";
         }
@@ -525,20 +511,20 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public LayerContainer getLayerContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mLayerContainer : (LayerContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mLayerContainer : (LayerContainer) invokeV.objValue;
     }
 
     @PublicMethod
     public int getLoopCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mVideoLoopCount : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mVideoLoopCount : invokeV.intValue;
     }
 
     public IMessenger getMessenger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mMessenger : (IMessenger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.mMessenger : (IMessenger) invokeV.objValue;
     }
 
     @NonNull
@@ -546,13 +532,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoPlayerCallbackBaseManager getPlayerCallbackManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mCallbackManager : (VideoPlayerCallbackBaseManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mCallbackManager : (VideoPlayerCallbackBaseManager) invokeV.objValue;
     }
 
     public PlayerEventTrigger getPlayerEventTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mPlayerEventTrigger : (PlayerEventTrigger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mPlayerEventTrigger : (PlayerEventTrigger) invokeV.objValue;
     }
 
     @Nullable
@@ -560,14 +546,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public BaseKernelLayer getPlayerKernelLayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mKernelLayer : (BaseKernelLayer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mKernelLayer : (BaseKernelLayer) invokeV.objValue;
     }
 
     @PublicMethod
     public int getPlayerStageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return -1;
         }
         return invokeV.intValue;
@@ -577,7 +563,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return 0;
@@ -591,7 +577,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return 0;
@@ -605,7 +591,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public IKernelLayerReuseHelper getReuseHelper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             if (this.mReuseHelper == null) {
                 this.mReuseHelper = new SimpleKernelReuseHelper();
             }
@@ -618,7 +604,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getScaleMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mScaleMode : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mScaleMode : invokeV.intValue;
     }
 
     @Nullable
@@ -626,7 +612,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public String getServerIpInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
                 return baseKernelLayer.getServerIpInfo();
@@ -640,14 +626,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public String getSessionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.mVideoTask.sessionId : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.mVideoTask.sessionId : (String) invokeV.objValue;
     }
 
     @PublicMethod(version = "12.2.0.0")
     public float getSpeed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mSpeed : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.mSpeed : invokeV.floatValue;
     }
 
     @NonNull
@@ -656,7 +642,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public IPlayerStatisticsDispatcher getStatDispatcher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? SimpleVideoStatisticsDispatcher.EMPTY : (IPlayerStatisticsDispatcher) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? SimpleVideoStatisticsDispatcher.EMPTY : (IPlayerStatisticsDispatcher) invokeV.objValue;
     }
 
     @NonNull
@@ -664,7 +650,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public StatisticsEventTrigger getStatEventTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.mStatEventTrigger : (StatisticsEventTrigger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mStatEventTrigger : (StatisticsEventTrigger) invokeV.objValue;
     }
 
     @NonNull
@@ -672,7 +658,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public PlayerStatus getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             return baseKernelLayer == null ? PlayerStatus.IDLE : baseKernelLayer.getStatus();
         }
@@ -683,7 +669,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getSyncPositionMs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return 0;
@@ -697,7 +683,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getVideoHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
                 return baseKernelLayer.getVideoHeight();
@@ -711,7 +697,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public VideoTask getVideoTask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.mVideoTask : (VideoTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.mVideoTask : (VideoTask) invokeV.objValue;
     }
 
     @NonNull
@@ -719,14 +705,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public String getVideoUniqueKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.mKey : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.mKey : (String) invokeV.objValue;
     }
 
     @PublicMethod
     public String getVideoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             return baseKernelLayer == null ? "" : baseKernelLayer.getVideoUrl();
         }
@@ -737,7 +723,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public int getVideoWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
                 return baseKernelLayer.getVideoWidth();
@@ -750,7 +736,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void goBackOrForeground(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048628, this, z) == null) {
             BdVideoLog.i(wrapMessage("goBackOrForeground(" + z + SmallTailInfo.EMOTION_SUFFIX));
             this.mIsForeground = z;
             getStatDispatcher().goBackOrForeground(z, getLoopCount());
@@ -763,21 +749,21 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void initCallBackManager() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048629, this) == null) {
             this.mCallbackManager = new VideoPlayerCallbackBaseManager();
         }
     }
 
     public void initPlayer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
         }
     }
 
     @PublicMethod
     public void insertLayer(@NonNull AbsLayer absLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, absLayer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, absLayer) == null) {
             this.mLayerContainer.insertLayer(absLayer, (FrameLayout.LayoutParams) null);
         }
     }
@@ -786,63 +772,63 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public boolean isAttachToContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.mLayerContainer.getParent() != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mLayerContainer.getParent() != null : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? getStatus() == PlayerStatus.COMPLETE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? getStatus() == PlayerStatus.COMPLETE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? getStatus() == PlayerStatus.ERROR : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? getStatus() == PlayerStatus.ERROR : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.mIsForeground : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.mIsForeground : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isHasAudioFocus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mHasAudioFocus : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.mHasAudioFocus : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isIdle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? getStatus() == PlayerStatus.IDLE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? getStatus() == PlayerStatus.IDLE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? this.mIsMute : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) ? this.mIsMute : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? getStatus() == PlayerStatus.PAUSE : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? getStatus() == PlayerStatus.PAUSE : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPlayerMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? isGlobalMute() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) ? isGlobalMute() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.IBVideoPlayer
@@ -850,40 +836,40 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? getStatus() == PlayerStatus.PLAYING : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? getStatus() == PlayerStatus.PLAYING : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPrepared() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? getStatus() == PlayerStatus.PREPARED : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? getStatus() == PlayerStatus.PREPARED : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isPreparing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? getStatus() == PlayerStatus.PREPARING : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? getStatus() == PlayerStatus.PREPARING : invokeV.booleanValue;
     }
 
     @PublicMethod
     public boolean isStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? getStatus() == PlayerStatus.STOP : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) ? getStatus() == PlayerStatus.STOP : invokeV.booleanValue;
     }
 
     public boolean isUseCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.isUseCache : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) ? this.isUseCache : invokeV.booleanValue;
     }
 
     public boolean matchStatus(@NonNull PlayerStatus... playerStatusArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, playerStatusArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, playerStatusArr)) == null) {
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
                 return false;
@@ -897,7 +883,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void mute(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048647, this, z) == null) {
             BdVideoLog.i(wrapMessage("mute(" + z + SmallTailInfo.EMOTION_SUFFIX));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -910,7 +896,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void onAudioFocusChanged(int i2) {
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048650, this, i2) == null) || (activity = getActivity()) == null || isPlayerMute()) {
+        if (!(interceptable == null || interceptable.invokeI(1048648, this, i2) == null) || (activity = getActivity()) == null || isPlayerMute()) {
             return;
         }
         activity.runOnUiThread(new Runnable(this, i2) { // from class: com.baidu.searchbox.player.BDVideoPlayer.1
@@ -955,14 +941,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onBufferingUpdate(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
             getPlayerEventTrigger().onBufferingUpdate(i2);
         }
     }
 
     public void onCompletion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048650, this) == null) {
             abandonAudioFocus();
             getPlayerEventTrigger().onCompletion();
             getStatDispatcher().end(getLoopCount());
@@ -974,7 +960,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public boolean onError(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048653, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048651, this, i2, i3, obj)) == null) {
             getPlayerEventTrigger().onError(i2, i3, obj);
             getStatDispatcher().onError(i2, i3, obj);
             getStatEventTrigger().onError(i2, i3, obj);
@@ -987,7 +973,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public boolean onInfo(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048654, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048652, this, i2, i3, obj)) == null) {
             getPlayerEventTrigger().onInfo(i2, i3, obj);
             getStatDispatcher().onInfo(i2, i3, obj != null ? obj.toString() : "");
             getStatEventTrigger().onInfo(i2, i3, obj);
@@ -996,39 +982,27 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         return invokeIIL.booleanValue;
     }
 
-    public void onKernelLayerPreDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-        }
-    }
-
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public boolean onMediaSourceChanged(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048656, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048653, this, i2, i3, obj)) == null) {
             getPlayerEventTrigger().onMediaSourceChanged(i2, i3, obj);
             return true;
         }
         return invokeIIL.booleanValue;
     }
 
-    public void onPlayerConfigChange(VideoEvent videoEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, videoEvent) == null) {
-        }
-    }
-
     public void onPrepared() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
             getPlayerEventTrigger().onPrepared();
         }
     }
 
     public void onSeekComplete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
             getPlayerEventTrigger().onSeekComplete();
         }
     }
@@ -1036,7 +1010,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Override // com.baidu.searchbox.player.kernel.IKernelPlayer
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048660, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048656, this, i2, i3, i4, i5) == null) {
             getPlayerEventTrigger().onVideoSizeChanged(i2, i3, i4, i5);
         }
     }
@@ -1045,7 +1019,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
             pause(0);
         }
     }
@@ -1053,7 +1027,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void pauseInternal(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048663, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048659, this, z) == null) {
             pause(z ? 1 : 0);
         }
     }
@@ -1062,7 +1036,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void play(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048660, this, str) == null) {
             BdVideoLog.i(wrapMessage("play(), url = " + str));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -1076,7 +1050,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void prepare() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048665, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
             BdVideoLog.i(wrapMessage("prepare()"));
             getControlEventTrigger().prepare();
             getInternalSyncControlEventTrigger().prepare();
@@ -1086,7 +1060,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
             BdVideoLog.i(wrapMessage("release()"));
             getStatDispatcher().stop(getLoopCount());
             getStatEventTrigger().onPlayerStop(getLoopCount());
@@ -1107,7 +1081,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void releaseKernelLayer() {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048667, this) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048663, this) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.pause();
@@ -1117,7 +1091,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void releaseTrigger() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048664, this) == null) {
             getStatEventTrigger().release();
             getPlayerEventTrigger().release();
             getControlEventTrigger().release();
@@ -1127,7 +1101,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void removeInterceptor(@NonNull IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048669, this, iVideoEventInterceptor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048665, this, iVideoEventInterceptor) == null) {
             this.mMessenger.removeInterceptor(iVideoEventInterceptor);
         }
     }
@@ -1135,7 +1109,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void removePlugin(@NonNull AbsPlugin absPlugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048670, this, absPlugin) == null) {
+        if (interceptable == null || interceptable.invokeL(1048666, this, absPlugin) == null) {
             this.mPluginManager.removePlugin(absPlugin);
         }
     }
@@ -1143,14 +1117,14 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void replaceVideoHolder(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048671, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048667, this, viewGroup) == null) {
             this.mPlayerContainer = viewGroup;
         }
     }
 
     public void requestAudioFocus() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048672, this) == null) || this.mHasAudioFocus) {
+        if (!(interceptable == null || interceptable.invokeV(1048668, this) == null) || this.mHasAudioFocus) {
             return;
         }
         if (this.mAudioManager == null) {
@@ -1167,7 +1141,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void restoreVideoTask(@NonNull BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048673, this, baseKernelLayer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048669, this, baseKernelLayer) == null) {
             this.mVideoTask.videoUrl = baseKernelLayer.getVideoUrl();
             this.mVideoTask.duration = baseKernelLayer.getDuration();
             this.mVideoTask.position = baseKernelLayer.getPosition();
@@ -1179,7 +1153,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048674, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
             BdVideoLog.i(wrapMessage("resume()"));
             if (this.mKernelLayer != null && isPause()) {
                 if (!isPlayerMute()) {
@@ -1195,7 +1169,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void resumeFromError() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048675, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048671, this) == null) {
             BdVideoLog.i(wrapMessage("resumeFromError()"));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
@@ -1210,7 +1184,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void resumePlayer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048676, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
             BdVideoLog.i(wrapMessage("resumePlayer(" + z + SmallTailInfo.EMOTION_SUFFIX));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -1238,7 +1212,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void seekTo(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048677, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048673, this, i2) == null) {
             getControlEventTrigger().seekToMs(i2 * 1000, 3);
         }
     }
@@ -1246,7 +1220,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void seekToMs(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048678, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048674, this, i2) == null) {
             getControlEventTrigger().seekToMs(i2, 3);
         }
     }
@@ -1254,7 +1228,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void sendEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048679, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048675, this, videoEvent) == null) {
             this.mMessenger.notifyEvent(videoEvent);
         }
     }
@@ -1263,7 +1237,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setClarityInfo(@Nullable String str) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048680, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048676, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setClarityInfo(str);
@@ -1273,7 +1247,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setDecodeMode(int i2) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048681, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048677, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setDecodeMode(i2);
@@ -1283,7 +1257,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setExternalInfo(String str, Object obj) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048682, this, str, obj) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048678, this, str, obj) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setExternalInfo(str, obj);
@@ -1292,7 +1266,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setGlobalMuteMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048683, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048679, this, z) == null) {
             sGlobalMute = z;
             setMuteMode(z);
         }
@@ -1301,7 +1275,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setHasReplaceUrl(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048684, this, z) == null) && z && this.mKernelLayer != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048680, this, z) == null) && z && this.mKernelLayer != null) {
             BdVideoLog.i(wrapMessage("setHasReplaceUrl(" + z + SmallTailInfo.EMOTION_SUFFIX));
             this.mKernelLayer.updateFreeProxy(null);
         }
@@ -1311,7 +1285,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setHttpHeader(HashMap<String, String> hashMap) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048685, this, hashMap) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048681, this, hashMap) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setHttpHeader(hashMap);
@@ -1320,7 +1294,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setInterceptor(@Nullable IVideoEventInterceptor iVideoEventInterceptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048686, this, iVideoEventInterceptor) == null) {
+        if (interceptable == null || interceptable.invokeL(1048682, this, iVideoEventInterceptor) == null) {
             this.mMessenger.setInterceptor(iVideoEventInterceptor);
         }
     }
@@ -1328,7 +1302,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod(version = "11.26.0.0")
     public void setKLayerCacheKey(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048687, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048683, this, str) == null) {
             this.mKLayerCacheKey = str;
         }
     }
@@ -1337,7 +1311,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setLooping(boolean z) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048688, this, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048684, this, z) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setLooping(z);
@@ -1346,7 +1320,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setMuteMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048689, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048685, this, z) == null) {
             BdVideoLog.i(wrapMessage("setMuteMode(" + z + SmallTailInfo.EMOTION_SUFFIX));
             this.mIsMute = z;
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
@@ -1365,7 +1339,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setOption(String str, String str2) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048690, this, str, str2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048686, this, str, str2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setOption(str, str2);
@@ -1374,7 +1348,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @Deprecated
     public void setParameter(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048691, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048687, this, str, i2) == null) {
         }
     }
 
@@ -1382,7 +1356,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setPlayConf(@Nullable String str) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048692, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048688, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setPlayConf(str);
@@ -1391,7 +1365,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048693, this, iVideoPlayerCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048689, this, iVideoPlayerCallback) == null) {
             getPlayerCallbackManager().setVideoPlayerCallback(iVideoPlayerCallback);
         }
     }
@@ -1399,7 +1373,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setProxy(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048694, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048690, this, str) == null) {
             BdVideoLog.i(wrapMessage("setProxy(" + str + SmallTailInfo.EMOTION_SUFFIX));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -1413,7 +1387,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setRadius(float f2) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048695, this, f2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048691, this, f2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setRadius(f2);
@@ -1421,7 +1395,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void setReuseHelper(@NonNull IKernelLayerReuseHelper iKernelLayerReuseHelper) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048696, this, iKernelLayerReuseHelper) == null) {
+        if (interceptable == null || interceptable.invokeL(1048692, this, iKernelLayerReuseHelper) == null) {
             this.mReuseHelper = iKernelLayerReuseHelper;
         }
     }
@@ -1429,7 +1403,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setSpeed(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048697, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048693, this, f2) == null) {
             this.mSpeed = f2;
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer != null) {
@@ -1441,21 +1415,21 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void setStageInfo(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048698, this, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048694, this, str, str2, str3) == null) {
             BdVideoLog.i(wrapMessage("setStageInfo(" + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + str3 + SmallTailInfo.EMOTION_SUFFIX));
         }
     }
 
     public void setTraceId(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048699, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048695, this, str) == null) {
             this.mVideoTask.traceId = str;
         }
     }
 
     public void setUseCache(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048700, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048696, this, z) == null) {
             this.isUseCache = z;
         }
     }
@@ -1464,7 +1438,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048697, this, str) == null) {
             BdVideoLog.i(wrapMessage("setUserAgent(" + str + SmallTailInfo.EMOTION_SUFFIX));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -1480,7 +1454,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         BaseKernelLayer baseKernelLayer;
         View bVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048702, this, drawable) == null) || (baseKernelLayer = this.mKernelLayer) == null || (bVideoView = baseKernelLayer.getVideoKernel().getBVideoView()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048698, this, drawable) == null) || (baseKernelLayer = this.mKernelLayer) == null || (bVideoView = baseKernelLayer.getVideoKernel().getBVideoView()) == null) {
             return;
         }
         bVideoView.setBackground(drawable);
@@ -1491,7 +1465,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setVideoRotation(int i2) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048703, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048699, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.setVideoRotation(i2);
@@ -1501,7 +1475,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setVideoScalingMode(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048704, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048700, this, i2) == null) {
             BdVideoLog.i(wrapMessage("setVideoScalingMode(" + i2 + SmallTailInfo.EMOTION_SUFFIX));
             BaseKernelLayer baseKernelLayer = this.mKernelLayer;
             if (baseKernelLayer == null) {
@@ -1515,7 +1489,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setVideoUniqueKey(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048705, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
             this.mKey = str;
         }
     }
@@ -1524,22 +1498,15 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setVideoUrl(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048706, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048702, this, str) == null) {
             setVideoUrl(str, true);
-        }
-    }
-
-    public void setupConfig(@Nullable PlayerPropertyConfig playerPropertyConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048708, this, playerPropertyConfig) == null) {
-            this.mPlayerConfig = playerPropertyConfig;
         }
     }
 
     @PublicMethod
     public void setupKernelLayer(@Nullable BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048709, this, baseKernelLayer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048704, this, baseKernelLayer) == null) {
             getStatDispatcher().startInitPlayerKernel();
             if (baseKernelLayer != null) {
                 attachKernelLayer(baseKernelLayer);
@@ -1552,7 +1519,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void setupPlayer(@NonNull Context context, @Nullable BaseKernelLayer baseKernelLayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048711, this, context, baseKernelLayer) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048706, this, context, baseKernelLayer) == null) {
             setupTrigger();
             setupKernelLayer(baseKernelLayer);
             setupLayers(context);
@@ -1562,13 +1529,13 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
 
     public void setupPlugin(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048712, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048707, this, context) == null) {
         }
     }
 
     public void setupTrigger() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048713, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048708, this) == null) {
             getStatEventTrigger().setMessenger(this.mMessenger);
             getPlayerEventTrigger().setMessenger(this.mMessenger);
             getControlEventTrigger().setMessenger(this.mMessenger);
@@ -1580,7 +1547,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048714, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048709, this) == null) {
             BdVideoLog.i(wrapMessage("start()"));
             doPlay();
         }
@@ -1590,7 +1557,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048715, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048710, this) == null) {
             BdVideoLog.i(wrapMessage("stop()"));
             if (this.mKernelLayer == null) {
                 return;
@@ -1608,7 +1575,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void switchMediaSource(int i2) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048716, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048711, this, i2) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.switchMediaSource(i2);
@@ -1618,7 +1585,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void syncStatus(@NonNull PlayerStatus playerStatus) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048717, this, playerStatus) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048712, this, playerStatus) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.getVideoSession().statusChangeNotify(playerStatus);
@@ -1628,7 +1595,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void updateFreeProxy(@Nullable String str) {
         BaseKernelLayer baseKernelLayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048718, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048713, this, str) == null) || (baseKernelLayer = this.mKernelLayer) == null) {
             return;
         }
         baseKernelLayer.updateFreeProxy(str);
@@ -1637,7 +1604,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void updateStatisticsContent(@NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048719, this, obj) == null) {
+        if (interceptable == null || interceptable.invokeL(1048714, this, obj) == null) {
             VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_UPDATE_CONTENT);
             obtainEvent.putExtra(13, obj);
             getStatEventTrigger().triggerEvent(obtainEvent);
@@ -1648,7 +1615,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         InterceptResult invokeL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048720, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048715, this, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (TextUtils.isEmpty(this.mKey)) {
                 str2 = "Player@" + System.identityHashCode(this);
@@ -1743,7 +1710,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void pause(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
             BdVideoLog.i(wrapMessage("pause(" + i2 + SmallTailInfo.EMOTION_SUFFIX));
             if (this.mKernelLayer == null) {
                 return;
@@ -1759,7 +1726,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     @PublicMethod
     public void setVideoUrl(@NonNull String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048707, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048703, this, str, z) == null) {
             BdVideoLog.i(wrapMessage("setVideoUrl = " + str));
             this.mVideoTask.videoUrl = str;
             createSessionId(z);
@@ -1767,9 +1734,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str, @Nullable String str2) {
-        this(context, baseKernelLayer, str, str2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1779,27 +1744,8 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (BaseKernelLayer) objArr2[1], (String) objArr2[2], (String) objArr2[3], (PlayerPropertyConfig) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public BDVideoPlayer(@Nullable Context context, @Nullable BaseKernelLayer baseKernelLayer, @NonNull String str, @Nullable String str2, @Nullable PlayerPropertyConfig playerPropertyConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, baseKernelLayer, str, str2, playerPropertyConfig};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
@@ -1813,7 +1759,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         this.mVideoLoopCount = 0;
         this.isUseCache = false;
         this.mScaleMode = 2;
-        this.mProperty = new PlayerProperty();
         this.mKey = str;
         this.mKLayerCacheKey = str2;
         BdVideoLog.i(wrapMessage("BDVideoPlayer(" + context + ",  kernelLayer@" + System.identityHashCode(baseKernelLayer) + ", key@" + this.mKey + SmallTailInfo.EMOTION_SUFFIX));
@@ -1822,7 +1767,6 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         createEnv(context);
         initPlayer();
         setupPlayer(context, baseKernelLayer);
-        setupConfig(playerPropertyConfig);
         getStatDispatcher().endInitPlayer();
     }
 }

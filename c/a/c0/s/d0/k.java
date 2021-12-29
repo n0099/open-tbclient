@@ -19,7 +19,7 @@ public final class k implements c.a.c0.s.f0.i {
     public c.a.c0.s.j0.i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.s.j0.i f1956b;
+    public c.a.c0.s.j0.i f2383b;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public final class k implements c.a.c0.s.f0.i {
             i(player, player.u());
             c.a.c0.s.j0.i k2 = player.k();
             if (k2 != null) {
-                if (!Intrinsics.areEqual(k2, this.f1956b)) {
-                    j(this.f1956b);
-                    this.f1956b = null;
+                if (!Intrinsics.areEqual(k2, this.f2383b)) {
+                    j(this.f2383b);
+                    this.f2383b = null;
                 } else if (!Intrinsics.areEqual(k2, this.a)) {
                     j(this.a);
                     this.a = null;
@@ -83,10 +83,10 @@ public final class k implements c.a.c0.s.f0.i {
                 e(player, iVar);
                 return;
             }
-            if (this.f1956b == null) {
-                this.f1956b = f(player.o());
+            if (this.f2383b == null) {
+                this.f2383b = f(player.o());
             }
-            e(player, this.f1956b);
+            e(player, this.f2383b);
         }
     }
 
@@ -103,8 +103,8 @@ public final class k implements c.a.c0.s.f0.i {
             }
             Intrinsics.checkNotNullExpressionValue(vid, "player.videoSeries?.vid ?: return false");
             s sVar = (s) (!(iVar instanceof s) ? null : iVar);
-            if (Intrinsics.areEqual(vid, sVar != null ? sVar.D0() : null)) {
-                return PlayerStatus.isActiveStatus(iVar != null ? iVar.X() : null);
+            if (Intrinsics.areEqual(vid, sVar != null ? sVar.w0() : null)) {
+                return PlayerStatus.isActiveStatus(iVar != null ? iVar.Q() : null);
             }
             return false;
         }
@@ -142,7 +142,7 @@ public final class k implements c.a.c0.s.f0.i {
             c.a.c0.s.j0.i k2 = player.k();
             c.a.c0.s.v0.h.a("ReuseHelper: detach,cache is " + k2 + ",cacheKey is " + str);
             if (k2 != null) {
-                k2.e0();
+                k2.X();
                 c.a.c0.s.x.a.a().c(str, k2);
             }
             return true;
@@ -152,12 +152,12 @@ public final class k implements c.a.c0.s.f0.i {
 
     public c.a.c0.s.j0.i h(c.a.c0.s.e player, String str) {
         InterceptResult invokeLL;
-        c.a.c0.s.i0.a Z;
+        c.a.c0.s.i0.a S;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, player, str)) == null) {
             Intrinsics.checkNotNullParameter(player, "player");
             c.a.c0.s.j0.i b2 = c.a.c0.s.x.a.a().b(str);
-            if (Intrinsics.areEqual((b2 == null || (Z = b2.Z()) == null) ? null : Boolean.valueOf(Z.verify(player.o())), Boolean.TRUE)) {
+            if (Intrinsics.areEqual((b2 == null || (S = b2.S()) == null) ? null : Boolean.valueOf(S.verify(player.o())), Boolean.TRUE)) {
                 c.a.c0.s.x.a.a().d(str);
                 player.A0(true);
                 if (b2.u() != null) {
@@ -190,7 +190,7 @@ public final class k implements c.a.c0.s.f0.i {
                     c.a.c0.s.v0.h.a("detachCache,cacheKey:" + str + ", kernelLayer:" + A);
                     c.a.c0.s.j0.i iVar2 = this.a;
                     if (iVar2 != null) {
-                        iVar2.e0();
+                        iVar2.X();
                     }
                     c.a.c0.s.x.a.a().c(str, this.a);
                     this.a = null;
@@ -204,8 +204,8 @@ public final class k implements c.a.c0.s.f0.i {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, iVar) == null) || iVar == null) {
             return;
         }
-        iVar.e0();
-        iVar.y0();
-        iVar.g0();
+        iVar.X();
+        iVar.r0();
+        iVar.Z();
     }
 }

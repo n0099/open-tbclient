@@ -15,7 +15,7 @@ public class d extends com.baidu.platform.base.a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f38853b;
+    public OnGetDistricSearchResultListener f39009b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class d extends com.baidu.platform.base.a implements e {
                 return;
             }
         }
-        this.f38853b = null;
+        this.f39009b = null;
     }
 
     @Override // com.baidu.platform.core.a.e
@@ -38,7 +38,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f38853b = null;
+            this.f39009b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +48,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetDistricSearchResultListener) == null) {
             this.a.lock();
-            this.f38853b = onGetDistricSearchResultListener;
+            this.f39009b = onGetDistricSearchResultListener;
             this.a.unlock();
         }
     }
@@ -60,7 +60,7 @@ public class d extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, districtSearchOption)) == null) {
             b bVar = new b();
             bVar.a(SearchType.p);
-            return a(new a(districtSearchOption), this.f38853b, bVar);
+            return a(new a(districtSearchOption), this.f39009b, bVar);
         }
         return invokeL.booleanValue;
     }

@@ -11,10 +11,10 @@ public class c {
     public c.b.b.n.i[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float[] f28021b;
+    public float[] f28095b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d[] f28022c;
+    public d[] f28096c;
 
     public c() {
         Interceptable interceptable = $ic;

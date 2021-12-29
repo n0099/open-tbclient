@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns.d.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +49,11 @@ public abstract class b<T> extends a<T> {
             if (!TextUtils.isEmpty(c2)) {
                 sb.append(c2);
             }
-            return q + sb.toString();
+            String str = q + sb.toString();
+            if (!DnsUtil.DEBUG || TextUtils.isEmpty(DnsUtil.httpDnsDebugExtraQueryParams)) {
+                return str;
+            }
+            return str + "&" + DnsUtil.httpDnsDebugExtraQueryParams;
         }
         return (String) invokeV.objValue;
     }

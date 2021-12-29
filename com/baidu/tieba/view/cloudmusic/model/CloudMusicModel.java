@@ -25,10 +25,10 @@ public class CloudMusicModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.s0.m4.l.j.a<CloudMusicData> f51023e;
+    public c.a.t0.n4.l.j.a<CloudMusicData> f51272e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f51024f;
+    public final HttpMessageListener f51273f;
 
     /* loaded from: classes12.dex */
     public static class VideoCloudMusicWithTagResponseMessage extends JsonHttpResponsedMessage {
@@ -100,8 +100,8 @@ public class CloudMusicModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && this.a.f51023e != null) {
-                this.a.f51023e.a(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003371 && (httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) && this.a.f51272e != null) {
+                this.a.f51272e.a(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
             }
         }
     }
@@ -124,11 +124,11 @@ public class CloudMusicModel extends BdBaseModel {
                 return;
             }
         }
-        this.f51024f = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS);
+        this.f51273f = new a(this, CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS);
         y();
-        this.f51024f.setTag(getUniqueId());
-        this.f51024f.setSelfListener(true);
-        registerListener(this.f51024f);
+        this.f51273f.setTag(getUniqueId());
+        this.f51273f.setSelfListener(true);
+        registerListener(this.f51273f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -152,13 +152,13 @@ public class CloudMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void x(c.a.s0.m4.l.j.a<CloudMusicData> aVar) {
+    public void x(c.a.t0.n4.l.j.a<CloudMusicData> aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.f51023e = aVar;
+        this.f51272e = aVar;
     }
 
     public final void y() {

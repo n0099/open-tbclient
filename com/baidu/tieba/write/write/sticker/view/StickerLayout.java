@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import c.a.r0.d1.m;
-import c.a.s0.n4.e0.n.b.c;
+import c.a.s0.e1.m;
+import c.a.t0.o4.e0.n.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,34 +16,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class StickerLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f51647e;
+    public Context f51901e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<StickerView> f51648f;
+    public List<StickerView> f51902f;
 
     /* renamed from: g  reason: collision with root package name */
-    public FrameLayout.LayoutParams f51649g;
+    public FrameLayout.LayoutParams f51903g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f51650h;
+    public int f51904h;
 
-    /* loaded from: classes12.dex */
-    public class a implements c.a.s0.n4.e0.n.b.a {
+    /* loaded from: classes13.dex */
+    public class a implements c.a.t0.o4.e0.n.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StickerView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f51651b;
+        public final /* synthetic */ c f51905b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ StickerLayout f51652c;
+        public final /* synthetic */ StickerLayout f51906c;
 
         public a(StickerLayout stickerLayout, StickerView stickerView, c cVar) {
             Interceptable interceptable = $ic;
@@ -60,19 +60,19 @@ public class StickerLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f51652c = stickerLayout;
+            this.f51906c = stickerLayout;
             this.a = stickerView;
-            this.f51651b = cVar;
+            this.f51905b = cVar;
         }
 
-        @Override // c.a.s0.n4.e0.n.b.a
+        @Override // c.a.t0.o4.e0.n.b.a
         public void a(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, stickerView) == null) {
             }
         }
 
-        @Override // c.a.s0.n4.e0.n.b.a
+        @Override // c.a.t0.o4.e0.n.b.a
         public void b(StickerView stickerView, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stickerView, z) == null) {
@@ -83,21 +83,21 @@ public class StickerLayout extends FrameLayout {
             }
         }
 
-        @Override // c.a.s0.n4.e0.n.b.a
+        @Override // c.a.t0.o4.e0.n.b.a
         public void c(StickerView stickerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, stickerView) == null) {
             }
         }
 
-        @Override // c.a.s0.n4.e0.n.b.a
+        @Override // c.a.t0.o4.e0.n.b.a
         public void onDelete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f51652c.removeView(this.a);
-                this.f51652c.f51648f.remove(this.a);
-                this.f51652c.redraw();
-                c cVar = this.f51651b;
+                this.f51906c.removeView(this.a);
+                this.f51906c.f51902f.remove(this.a);
+                this.f51906c.redraw();
+                c cVar = this.f51905b;
                 if (cVar != null) {
                     cVar.a();
                 }
@@ -130,12 +130,12 @@ public class StickerLayout extends FrameLayout {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, cVar)) == null) {
-            StickerView stickerView = new StickerView(this.f51647e);
+            StickerView stickerView = new StickerView(this.f51901e);
             stickerView.setImageBitmap(bitmap);
-            stickerView.setLayoutParams(this.f51649g);
+            stickerView.setLayoutParams(this.f51903g);
             stickerView.setmOnStickerActionListener(new a(this, stickerView, cVar));
             addView(stickerView);
-            this.f51648f.add(stickerView);
+            this.f51902f.add(stickerView);
             redraw();
             if (cVar != null) {
                 cVar.d();
@@ -148,9 +148,9 @@ public class StickerLayout extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f51647e = context;
-            this.f51648f = new ArrayList();
-            this.f51649g = new FrameLayout.LayoutParams(-1, -1);
+            this.f51901e = context;
+            this.f51902f = new ArrayList();
+            this.f51903g = new FrameLayout.LayoutParams(-1, -1);
         }
     }
 
@@ -158,7 +158,7 @@ public class StickerLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.f51648f)) {
+            if (ListUtils.isEmpty(this.f51902f)) {
                 return null;
             }
             redraw();
@@ -170,17 +170,17 @@ public class StickerLayout extends FrameLayout {
     public List<StickerView> getStickerViews() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51648f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f51902f : (List) invokeV.objValue;
     }
 
     public void redraw() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f51648f.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f51902f.size() <= 0) {
             return;
         }
-        for (StickerView stickerView : this.f51648f) {
+        for (StickerView stickerView : this.f51902f) {
             if (stickerView != null) {
-                stickerView.setRemoveRes(this.f51650h);
+                stickerView.setRemoveRes(this.f51904h);
                 stickerView.setEdit(false);
             }
         }
@@ -189,7 +189,7 @@ public class StickerLayout extends FrameLayout {
     public void removeAllSticker(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            Iterator<StickerView> it = this.f51648f.iterator();
+            Iterator<StickerView> it = this.f51902f.iterator();
             while (it.hasNext()) {
                 StickerView next = it.next();
                 if (next != null) {
@@ -207,7 +207,7 @@ public class StickerLayout extends FrameLayout {
     public void setRemoveRes(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51650h = i2;
+            this.f51904h = i2;
         }
     }
 

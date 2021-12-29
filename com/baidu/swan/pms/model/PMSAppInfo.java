@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.q.i.g;
-import c.a.q0.q.i.h;
+import c.a.r0.q.i.g;
+import c.a.r0.q.i.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -171,11 +171,11 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = gVar.f11026g;
-        this.versionCode = gVar.f11028i;
-        this.versionName = gVar.f11029j;
+        this.appId = gVar.f11761g;
+        this.versionCode = gVar.f11763i;
+        this.versionName = gVar.f11764j;
         this.type = gVar.o;
-        this.pkgSize = gVar.f11030k;
+        this.pkgSize = gVar.f11765k;
     }
 
     public void copySubPkgInfo(h hVar) {
@@ -184,10 +184,10 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = hVar.o;
-        this.versionCode = hVar.f11028i;
-        this.versionName = hVar.f11029j;
+        this.versionCode = hVar.f11763i;
+        this.versionName = hVar.f11764j;
         this.type = hVar.q;
-        this.pkgSize = hVar.f11030k;
+        this.pkgSize = hVar.f11765k;
     }
 
     public void countLaunch(long j2) {

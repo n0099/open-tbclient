@@ -17,6 +17,46 @@ import com.vivo.vms.IPCCallback;
 public interface IPCInvoke extends IInterface {
 
     /* loaded from: classes4.dex */
+    public static class Default implements IPCInvoke {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // com.vivo.vms.IPCInvoke
+        public Bundle asyncCall(Bundle bundle, IPCCallback iPCCallback) throws RemoteException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, iPCCallback)) == null) {
+                return null;
+            }
+            return (Bundle) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IPCInvoke {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCInvoke";
@@ -26,6 +66,7 @@ public interface IPCInvoke extends IInterface {
         /* loaded from: classes4.dex */
         public static class Proxy implements IPCInvoke {
             public static /* synthetic */ Interceptable $ic;
+            public static IPCInvoke sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
@@ -70,7 +111,9 @@ public interface IPCInvoke extends IInterface {
                             obtain.writeInt(0);
                         }
                         obtain.writeStrongBinder(iPCCallback != null ? iPCCallback.asBinder() : null);
-                        this.mRemote.transact(1, obtain, obtain2, 0);
+                        if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            return Stub.getDefaultImpl().asyncCall(bundle, iPCCallback);
+                        }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                     } finally {
@@ -118,6 +161,25 @@ public interface IPCInvoke extends IInterface {
                 return new Proxy(iBinder);
             }
             return (IPCInvoke) invokeL.objValue;
+        }
+
+        public static IPCInvoke getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IPCInvoke) invokeV.objValue;
+        }
+
+        public static boolean setDefaultImpl(IPCInvoke iPCInvoke) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iPCInvoke)) == null) {
+                if (Proxy.sDefaultImpl != null || iPCInvoke == null) {
+                    return false;
+                }
+                Proxy.sDefaultImpl = iPCInvoke;
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface

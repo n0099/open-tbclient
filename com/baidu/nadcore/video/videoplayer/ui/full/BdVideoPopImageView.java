@@ -31,25 +31,25 @@ public class BdVideoPopImageView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38221e;
+    public final Context f38377e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38222f;
+    public int f38378f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38223g;
+    public int f38379g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38224h;
+    public String f38380h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38225i;
+    public String f38381i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f38226j;
+    public Paint f38382j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Drawable f38227k;
+    public Drawable f38383k;
     public Rect l;
     public int m;
     public int n;
@@ -94,13 +94,13 @@ public class BdVideoPopImageView extends View {
                 return;
             }
         }
-        this.f38222f = t;
-        this.f38223g = u;
-        this.f38224h = "";
-        this.f38225i = "";
+        this.f38378f = t;
+        this.f38379g = u;
+        this.f38380h = "";
+        this.f38381i = "";
         this.m = q;
         this.n = p;
-        this.f38221e = context;
+        this.f38377e = context;
         a();
     }
 
@@ -108,13 +108,13 @@ public class BdVideoPopImageView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f38226j = paint;
+            this.f38382j = paint;
             paint.setAntiAlias(true);
-            this.f38226j.setTextSize(p);
-            this.f38226j.setColor(-1);
-            this.f38226j.setTextAlign(Paint.Align.CENTER);
+            this.f38382j.setTextSize(p);
+            this.f38382j.setColor(-1);
+            this.f38382j.setTextAlign(Paint.Align.CENTER);
             this.l = new Rect();
-            this.f38227k = this.f38221e.getResources().getDrawable(q.nad_videoplayer_play_pop_bg);
+            this.f38383k = this.f38377e.getResources().getDrawable(q.nad_videoplayer_play_pop_bg);
         }
     }
 
@@ -124,7 +124,7 @@ public class BdVideoPopImageView extends View {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Drawable drawable = this.f38227k;
+            Drawable drawable = this.f38383k;
             if (drawable != null) {
                 this.l.set(0, 0, measuredWidth, measuredHeight);
                 drawable.setBounds(this.l);
@@ -132,14 +132,14 @@ public class BdVideoPopImageView extends View {
             }
             Bitmap bitmap = this.o;
             if (bitmap != null) {
-                canvas.drawBitmap(this.o, (measuredWidth - bitmap.getWidth()) / 2, r, this.f38226j);
+                canvas.drawBitmap(this.o, (measuredWidth - bitmap.getWidth()) / 2, r, this.f38382j);
             } else {
-                this.f38226j.setTextSize(this.m);
-                canvas.drawText(this.f38224h, measuredWidth >> 1, r * 2, this.f38226j);
+                this.f38382j.setTextSize(this.m);
+                canvas.drawText(this.f38380h, measuredWidth >> 1, r * 2, this.f38382j);
             }
             int i2 = (measuredHeight / 2) + s;
-            this.f38226j.setTextSize(this.n);
-            canvas.drawText(this.f38225i, measuredWidth >> 1, i2, this.f38226j);
+            this.f38382j.setTextSize(this.n);
+            canvas.drawText(this.f38381i, measuredWidth >> 1, i2, this.f38382j);
         }
     }
 
@@ -147,35 +147,35 @@ public class BdVideoPopImageView extends View {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            setMeasuredDimension(this.f38222f, this.f38223g);
+            setMeasuredDimension(this.f38378f, this.f38379g);
         }
     }
 
     public void setBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38227k = this.f38221e.getResources().getDrawable(i2);
+            this.f38383k = this.f38377e.getResources().getDrawable(i2);
         }
     }
 
     public void setHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f38223g = i2;
+            this.f38379g = i2;
         }
     }
 
     public void setIcon(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.o = BitmapFactory.decodeResource(this.f38221e.getResources(), i2);
+            this.o = BitmapFactory.decodeResource(this.f38377e.getResources(), i2);
         }
     }
 
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f38225i = str;
+            this.f38381i = str;
             invalidate();
         }
     }
@@ -190,7 +190,7 @@ public class BdVideoPopImageView extends View {
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f38224h = str;
+            this.f38380h = str;
         }
     }
 
@@ -204,14 +204,14 @@ public class BdVideoPopImageView extends View {
     public void setWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f38222f = i2;
+            this.f38378f = i2;
         }
     }
 
     public void setMsg(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38225i = this.f38221e.getResources().getString(i2);
+            this.f38381i = this.f38377e.getResources().getString(i2);
         }
     }
 }

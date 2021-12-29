@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -26,10 +26,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f44839e;
+    public LinearLayout f45026e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f44840f;
+    public b f45027f;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -37,15 +37,15 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.g1.a f44841e;
+        public final /* synthetic */ c.a.t0.g1.a f45028e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f44842f;
+        public final /* synthetic */ int f45029f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ GameRankHorizontalLayout f44843g;
+        public final /* synthetic */ GameRankHorizontalLayout f45030g;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, c.a.s0.g1.a aVar, int i2) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, c.a.t0.g1.a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,27 +60,27 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f44843g = gameRankHorizontalLayout;
-            this.f44841e = aVar;
-            this.f44842f = i2;
+            this.f45030g = gameRankHorizontalLayout;
+            this.f45028e = aVar;
+            this.f45029f = i2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44843g.f44840f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45030g.f45027f == null) {
                 return;
             }
-            this.f44843g.f44840f.a(this.f44841e, this.f44842f);
-            if (c.a.r0.s.g0.b.j().k("game_rank_list_show_times", 0) != 0) {
-                c.a.r0.s.g0.b.j().v("game_rank_list_show_times", 0);
+            this.f45030g.f45027f.a(this.f45028e, this.f45029f);
+            if (c.a.s0.s.g0.b.j().k("game_rank_list_show_times", 0) != 0) {
+                c.a.s0.s.g0.b.j().v("game_rank_list_show_times", 0);
             }
         }
     }
 
     /* loaded from: classes12.dex */
     public interface b {
-        void a(c.a.s0.g1.a aVar, int i2);
+        void a(c.a.t0.g1.a aVar, int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,12 +110,12 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
             setFillViewport(true);
             setHorizontalScrollBarEnabled(false);
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f44839e = linearLayout;
+            this.f45026e = linearLayout;
             addView(linearLayout, -1, -1);
         }
     }
 
-    public final View c(c.a.s0.g1.a aVar, int i2) {
+    public final View c(c.a.t0.g1.a aVar, int i2) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
@@ -150,10 +150,10 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         return (View) invokeLI.objValue;
     }
 
-    public void setData(c.a.s0.g1.b bVar) {
+    public void setData(c.a.t0.g1.b bVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f44839e) == null || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) || (linearLayout = this.f45026e) == null || bVar == null) {
             return;
         }
         linearLayout.removeAllViews();
@@ -162,26 +162,26 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         }
         for (int i2 = 0; i2 < bVar.d().size(); i2++) {
             View c2 = c(bVar.d().get(i2), i2);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(m.f(getContext(), R.dimen.ds468), m.f(getContext(), R.dimen.ds190));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(getContext(), R.dimen.ds468), n.f(getContext(), R.dimen.ds190));
             if (i2 != 0) {
-                layoutParams.leftMargin = m.f(getContext(), R.dimen.ds8);
+                layoutParams.leftMargin = n.f(getContext(), R.dimen.ds8);
             } else {
-                layoutParams.leftMargin = m.f(getContext(), R.dimen.ds40);
+                layoutParams.leftMargin = n.f(getContext(), R.dimen.ds40);
             }
             if (i2 == bVar.d().size() - 1) {
-                layoutParams.rightMargin = m.f(getContext(), R.dimen.ds40);
+                layoutParams.rightMargin = n.f(getContext(), R.dimen.ds40);
             } else {
                 layoutParams.rightMargin = 0;
             }
             c2.setLayoutParams(layoutParams);
-            this.f44839e.addView(c2);
+            this.f45026e.addView(c2);
         }
     }
 
     public void setOnCardClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f44840f = bVar;
+            this.f45027f = bVar;
         }
     }
 

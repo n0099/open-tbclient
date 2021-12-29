@@ -56,7 +56,7 @@ public class a implements d {
                         }
                         StringBuilder sb = this.a;
                         sb.append(str);
-                        sb.append(com.alipay.sdk.encrypt.a.f31721h);
+                        sb.append(com.alipay.sdk.encrypt.a.f31864h);
                         sb.append(obj);
                     }
                 } catch (Exception unused) {

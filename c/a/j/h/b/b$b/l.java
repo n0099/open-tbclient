@@ -16,7 +16,7 @@ public final class l {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Integer f3563b;
+    public Integer f3991b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public l() {
@@ -53,7 +53,7 @@ public final class l {
             }
         }
         this.a = str;
-        this.f3563b = num;
+        this.f3991b = num;
     }
 
     public final String a() {
@@ -65,7 +65,7 @@ public final class l {
     public final void b(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
-            this.f3563b = num;
+            this.f3991b = num;
         }
     }
 
@@ -79,7 +79,7 @@ public final class l {
     public final Integer d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3563b : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3991b : (Integer) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -89,7 +89,7 @@ public final class l {
             if (this != obj) {
                 if (obj instanceof l) {
                     l lVar = (l) obj;
-                    return Intrinsics.areEqual(this.a, lVar.a) && Intrinsics.areEqual(this.f3563b, lVar.f3563b);
+                    return Intrinsics.areEqual(this.a, lVar.a) && Intrinsics.areEqual(this.f3991b, lVar.f3991b);
                 }
                 return false;
             }
@@ -104,7 +104,7 @@ public final class l {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            Integer num = this.f3563b;
+            Integer num = this.f3991b;
             return hashCode + (num != null ? num.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -114,7 +114,7 @@ public final class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ResponseParams(responseMessage=" + this.a + ", responseStatusCode=" + this.f3563b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ResponseParams(responseMessage=" + this.a + ", responseStatusCode=" + this.f3991b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

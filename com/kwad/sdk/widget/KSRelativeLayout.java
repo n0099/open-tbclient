@@ -11,21 +11,12 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class KSRelativeLayout extends RelativeLayout implements j {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -43,74 +34,24 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     /* renamed from: f  reason: collision with root package name */
     public final z.a f60314f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSRelativeLayout(@NonNull Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = new AtomicBoolean(true);
         this.f60313e = 0.0f;
         this.f60314f = new z.a();
         a(context, null);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = new AtomicBoolean(true);
         this.f60313e = 0.0f;
         this.f60314f = new z.a();
         a(context, attributeSet);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KSRelativeLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = new AtomicBoolean(true);
         this.f60313e = 0.0f;
         this.f60314f = new z.a();
@@ -118,36 +59,31 @@ public class KSRelativeLayout extends RelativeLayout implements j {
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, context, attributeSet) == null) {
-            if (attributeSet != null) {
-                int i2 = R.attr.ksad_ratio;
-                int[] iArr = {i2};
-                Arrays.sort(iArr);
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f60313e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
-                obtainStyledAttributes.recycle();
-            }
-            h hVar = new h(this, this);
-            this.f60310b = hVar;
-            hVar.a(c());
-            i iVar = new i();
-            this.f60312d = iVar;
-            iVar.a(context, attributeSet);
+        if (attributeSet != null) {
+            int i2 = R.attr.ksad_ratio;
+            int[] iArr = {i2};
+            Arrays.sort(iArr);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
+            this.f60313e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, i2), 0.0f);
+            obtainStyledAttributes.recycle();
         }
+        h hVar = new h(this, this);
+        this.f60310b = hVar;
+        hVar.a(c());
+        i iVar = new i();
+        this.f60312d = iVar;
+        iVar.a(context, attributeSet);
     }
 
     private void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && this.a.getAndSet(false)) {
+        if (this.a.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewAttached");
             a();
         }
     }
 
     private void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || this.a.getAndSet(true)) {
+        if (this.a.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("KSRelativeLayout", "onViewDetached");
@@ -156,176 +92,118 @@ public class KSRelativeLayout extends RelativeLayout implements j {
 
     @CallSuper
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f60310b.b();
-        }
+        this.f60310b.b();
     }
 
     @Override // com.kwad.sdk.widget.j
     @CallSuper
     public void a(View view) {
-        j jVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (jVar = this.f60311c) == null) {
-            return;
+        j jVar = this.f60311c;
+        if (jVar != null) {
+            jVar.a(view);
         }
-        jVar.a(view);
     }
 
     @CallSuper
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f60310b.c();
-        }
+        this.f60310b.c();
     }
 
     public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            this.f60312d.c(canvas);
-            super.dispatchDraw(canvas);
-            this.f60312d.d(canvas);
-        }
+        this.f60312d.c(canvas);
+        super.dispatchDraw(canvas);
+        this.f60312d.d(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.f60314f.a(getWidth(), getHeight());
-                this.f60314f.a(motionEvent.getX(), motionEvent.getY());
-            } else if (action == 1) {
-                this.f60314f.b(motionEvent.getX(), motionEvent.getY());
-            }
-            return super.dispatchTouchEvent(motionEvent);
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f60314f.a(getWidth(), getHeight());
+            this.f60314f.a(motionEvent.getX(), motionEvent.getY());
+        } else if (action == 1) {
+            this.f60314f.b(motionEvent.getX(), motionEvent.getY());
         }
-        return invokeL.booleanValue;
+        return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
-            this.f60312d.a(canvas);
-            super.draw(canvas);
-            this.f60312d.b(canvas);
-        }
+        this.f60312d.a(canvas);
+        super.draw(canvas);
+        this.f60312d.b(canvas);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60314f : (z.a) invokeV.objValue;
+        return this.f60314f;
     }
 
     public float getVisiblePercent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60310b.a() : invokeV.floatValue;
+        return this.f60310b.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @Deprecated
     public void onAttachedToWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onAttachedToWindow();
-            d();
-        }
+        super.onAttachedToWindow();
+        d();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     @Deprecated
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.onDetachedFromWindow();
-            e();
-        }
+        super.onDetachedFromWindow();
+        e();
     }
 
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onFinishTemporaryDetach();
-            d();
-        }
+        super.onFinishTemporaryDetach();
+        d();
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            if (this.f60313e != 0.0f) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f60313e), 1073741824);
-            }
-            super.onMeasure(i2, i3);
+        if (this.f60313e != 0.0f) {
+            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f60313e), 1073741824);
         }
+        super.onMeasure(i2, i3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
-            this.f60310b.a(i2, i3, i4, i5);
-            super.onSizeChanged(i2, i3, i4, i5);
-            this.f60310b.b(i2, i3, i4, i5);
-            this.f60312d.a(i2, i3);
-        }
+        this.f60310b.a(i2, i3, i4, i5);
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f60310b.b(i2, i3, i4, i5);
+        this.f60312d.a(i2, i3);
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.onStartTemporaryDetach();
-            e();
-        }
+        super.onStartTemporaryDetach();
+        e();
     }
 
     public void setRadius(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.f60312d.a(f2);
-            postInvalidate();
-        }
+        this.f60312d.a(f2);
+        postInvalidate();
     }
 
     public void setRatio(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f60313e = f2;
-        }
+        this.f60313e = f2;
     }
 
     public void setViewVisibleListener(j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jVar) == null) {
-            this.f60311c = jVar;
-        }
+        this.f60311c = jVar;
     }
 
     public void setVisiblePercent(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.f60310b.a(f2);
-        }
+        this.f60310b.a(f2);
     }
 }

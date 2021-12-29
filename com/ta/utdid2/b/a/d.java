@@ -46,7 +46,7 @@ public class d {
         public Map a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakHashMap<b.InterfaceC2203b, Object> f22a;
+        public WeakHashMap<b.InterfaceC2210b, Object> f22a;
 
         /* renamed from: b  reason: collision with root package name */
         public final File f62694b;
@@ -200,7 +200,7 @@ public class d {
 
         /* renamed from: com.ta.utdid2.b.a.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public final class C2204a implements b.a {
+        public final class C2211a implements b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -211,7 +211,7 @@ public class d {
             /* renamed from: k  reason: collision with root package name */
             public boolean f62697k;
 
-            public C2204a(a aVar) {
+            public C2211a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -262,7 +262,7 @@ public class d {
                 InterceptResult invokeV;
                 boolean z;
                 ArrayList arrayList;
-                HashSet<b.InterfaceC2203b> hashSet;
+                HashSet<b.InterfaceC2210b> hashSet;
                 boolean e2;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -302,9 +302,9 @@ public class d {
                     if (z) {
                         for (int size = arrayList.size() - 1; size >= 0; size--) {
                             String str = (String) arrayList.get(size);
-                            for (b.InterfaceC2203b interfaceC2203b : hashSet) {
-                                if (interfaceC2203b != null) {
-                                    interfaceC2203b.a(this.a, str);
+                            for (b.InterfaceC2210b interfaceC2210b : hashSet) {
+                                if (interfaceC2210b != null) {
+                                    interfaceC2210b.a(this.a, str);
                                 }
                             }
                         }
@@ -403,7 +403,7 @@ public class d {
         public b.a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2204a(this) : (b.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2211a(this) : (b.a) invokeV.objValue;
         }
 
         private FileOutputStream a(File file) {

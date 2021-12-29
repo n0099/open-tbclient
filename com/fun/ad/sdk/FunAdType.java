@@ -4,9 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FunAdType {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String BAIDU_EXPRESS_INTERSTITIAL = "baiduExpressInterstitial";
     public static final String BAIDU_FEED = "baiduFeed";
     public static final String BAIDU_FULLSCREEN_VIDEO = "baiduFullScreenVideo";
     public static final String BAIDU_NATIVE_CPU = "baiduNativeCpu";

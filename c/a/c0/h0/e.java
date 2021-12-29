@@ -12,10 +12,10 @@ public abstract class e implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1707e;
+    public long f2134e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1708f;
+    public long f2135f;
 
     public e(long j2, long j3) {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public abstract class e implements Runnable {
                 return;
             }
         }
-        this.f1707e = j2;
-        this.f1708f = j3;
+        this.f2134e = j2;
+        this.f2135f = j3;
     }
 
     public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1707e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2134e : invokeV.longValue;
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1708f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2135f : invokeV.longValue;
     }
 
     public abstract void c();

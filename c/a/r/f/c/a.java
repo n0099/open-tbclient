@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.r.f.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0765a {
+    /* loaded from: classes.dex */
+    public static class C0230a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
 
-        public C0765a(byte[] bArr, int i2) {
+        public C0230a(byte[] bArr, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,7 +81,7 @@ public class a {
         return invokeI.intValue;
     }
 
-    public static C0765a b(byte[] bArr) {
+    public static C0230a b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
@@ -110,9 +110,9 @@ public class a {
             if (i4 > 0 && i3 < i2) {
                 bArr2[i3] = (byte) (bArr2[i3] << i4);
             }
-            return new C0765a(bArr2, length);
+            return new C0230a(bArr2, length);
         }
-        return (C0765a) invokeL.objValue;
+        return (C0230a) invokeL.objValue;
     }
 
     public static byte[] c(byte[] bArr, int i2) {

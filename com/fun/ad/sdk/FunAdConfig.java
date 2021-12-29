@@ -14,7 +14,7 @@ import com.kwad.sdk.api.KsCustomController;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FunAdConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_TYPE_NO_POPUP = 0;
@@ -41,60 +41,62 @@ public final class FunAdConfig {
     public final KsCustomController ksCustomCtr;
     public final boolean logEnabled;
     public final int splashButtonType;
+    public final boolean supportMultiProcess;
     public final int titleBarTheme;
     public final TTCustomController ttCustomCtr;
     public final String userId;
 
     /* renamed from: com.fun.ad.sdk.FunAdConfig$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f56189b;
+        public String f56188b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f56190c;
+        public String f56189c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f56191d;
+        public boolean f56190d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56192e;
+        public int f56191e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56193f;
+        public int f56192f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f56194g;
+        public int f56193g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f56195h;
+        public boolean f56194h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f56196i;
+        public boolean f56195i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f56197j;
+        public boolean f56196j;
 
         /* renamed from: k  reason: collision with root package name */
-        public boolean f56198k;
+        public boolean f56197k;
         public boolean l;
-        public TTCustomController m;
-        public KsCustomController n;
-        public String o;
-        public Set<String> p;
-        public boolean q;
+        public boolean m;
+        public TTCustomController n;
+        public KsCustomController o;
+        public String p;
+        public Set<String> q;
         public boolean r;
         public boolean s;
+        public boolean t;
 
         public Builder(@NonNull Context context) {
             Interceptable interceptable = $ic;
@@ -111,21 +113,21 @@ public final class FunAdConfig {
                     return;
                 }
             }
-            this.f56191d = false;
-            this.f56192e = -1;
-            this.f56193f = 1;
-            this.f56194g = 0;
-            this.f56195h = false;
-            this.f56196i = false;
-            this.f56197j = false;
-            this.f56198k = true;
-            this.l = false;
-            this.m = null;
+            this.f56190d = false;
+            this.f56191e = -1;
+            this.f56192f = 1;
+            this.f56193g = 0;
+            this.f56194h = false;
+            this.f56195i = false;
+            this.f56196j = false;
+            this.f56197k = true;
+            this.m = false;
             this.n = null;
-            this.p = new HashSet();
-            this.q = true;
+            this.o = null;
+            this.q = new HashSet();
             this.r = true;
             this.s = true;
+            this.t = true;
             this.a = context.getApplicationContext();
         }
 
@@ -139,7 +141,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.p.add(str);
+                this.q.add(str);
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -149,7 +151,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f56190c = str;
+                this.f56189c = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -159,7 +161,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f56189b = str;
+                this.f56188b = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -169,7 +171,7 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.f56194g = i2;
+                this.f56193g = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -179,7 +181,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.l = z;
+                this.m = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -189,7 +191,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.q = z;
+                this.r = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -199,7 +201,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-                this.s = z;
+                this.t = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -209,7 +211,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-                this.r = z;
+                this.s = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -219,7 +221,7 @@ public final class FunAdConfig {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ksCustomController)) == null) {
-                this.n = ksCustomController;
+                this.o = ksCustomController;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -229,7 +231,7 @@ public final class FunAdConfig {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-                this.f56197j = z;
+                this.f56196j = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -239,17 +241,27 @@ public final class FunAdConfig {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                this.f56193f = i2;
+                this.f56192f = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
+        public Builder setSupportMultiProcess(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+                this.l = z;
+                return this;
+            }
+            return (Builder) invokeZ.objValue;
+        }
+
         public Builder setTTCustomController(TTCustomController tTCustomController) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, tTCustomController)) == null) {
-                this.m = tTCustomController;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, tTCustomController)) == null) {
+                this.n = tTCustomController;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -258,8 +270,8 @@ public final class FunAdConfig {
         public Builder setTitleBarTheme(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-                this.f56192e = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+                this.f56191e = i2;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -268,8 +280,8 @@ public final class FunAdConfig {
         public Builder setUseCloudAdConfiguration(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-                this.f56198k = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+                this.f56197k = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -278,8 +290,8 @@ public final class FunAdConfig {
         public Builder setUseTextureView(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
-                this.f56191d = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
+                this.f56190d = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -288,8 +300,8 @@ public final class FunAdConfig {
         public Builder setUserId(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                this.o = str;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+                this.p = str;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -298,8 +310,8 @@ public final class FunAdConfig {
         public Builder setVideoDataFlowAutoStart(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
-                this.f56196i = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+                this.f56195i = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -308,8 +320,8 @@ public final class FunAdConfig {
         public Builder setVideoSoundEnable(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
-                this.f56195h = z;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048595, this, z)) == null) {
+                this.f56194h = z;
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -332,23 +344,24 @@ public final class FunAdConfig {
             }
         }
         this.appContext = builder.a;
-        this.appName = builder.f56189b;
-        this.appId = builder.f56190c;
-        this.isUseTextureView = builder.f56191d;
-        this.titleBarTheme = builder.f56192e;
-        this.splashButtonType = builder.f56193f;
-        this.downLoadType = builder.f56194g;
-        this.isVideoSoundEnable = builder.f56195h;
-        this.isVideoDataFlowAutoStart = builder.f56196i;
-        this.logEnabled = builder.f56197j;
-        this.isUseCloudAdConfiguration = builder.f56198k;
-        this.isFilterDeepLinkAd = builder.l;
-        this.userId = builder.o;
-        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.p);
-        this.ttCustomCtr = builder.m;
-        this.ksCustomCtr = builder.n;
-        this.ksCanReadICCID = builder.q;
-        this.ksCanReadNearbyWifiList = builder.r;
-        this.ksCanReadMacAddress = builder.s;
+        this.appName = builder.f56188b;
+        this.appId = builder.f56189c;
+        this.isUseTextureView = builder.f56190d;
+        this.titleBarTheme = builder.f56191e;
+        this.splashButtonType = builder.f56192f;
+        this.downLoadType = builder.f56193g;
+        this.isVideoSoundEnable = builder.f56194h;
+        this.isVideoDataFlowAutoStart = builder.f56195i;
+        this.logEnabled = builder.f56196j;
+        this.isUseCloudAdConfiguration = builder.f56197k;
+        this.isFilterDeepLinkAd = builder.m;
+        this.userId = builder.p;
+        this.forbiddenPlatforms = Collections.unmodifiableSet(builder.q);
+        this.ttCustomCtr = builder.n;
+        this.ksCustomCtr = builder.o;
+        this.ksCanReadICCID = builder.r;
+        this.ksCanReadNearbyWifiList = builder.s;
+        this.ksCanReadMacAddress = builder.t;
+        this.supportMultiProcess = builder.l;
     }
 }

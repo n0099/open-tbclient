@@ -2,7 +2,7 @@ package c.a.m.h;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public final class c {
     public static byte[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 89, 39, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, 14, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? new byte[]{-71, 92, 64, -96, ContentUtil.GZIP_HEAD_2, 89, 39, 119, -7, 115, 0, 56, 80, 20, YogaNodeJNIBase.HAS_NEW_LAYOUT, -64, -23, -79, -32, -55, 2, 124, -48, -16, 14, -95, -96, -96, -56, -88, -55, 63} : (byte[]) invokeV.objValue;
     }
 
     public static byte[] g() {

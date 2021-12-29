@@ -16,7 +16,7 @@ public class StatisticManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static SensorStatisticApi f56165e;
+    public static SensorStatisticApi f56164e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -62,9 +62,9 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
-                f56165e.onEvent(str);
+                f56164e.onEvent(str);
             }
         }
     }
@@ -73,9 +73,9 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
-                f56165e.onEventEnd(str);
+                f56164e.onEventEnd(str);
             }
         }
     }
@@ -84,11 +84,11 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65545, null, str, i2, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tresultCode: " + i2;
                 String str5 = "\tvalue: " + str2;
-                f56165e.onEventEndWithValue(str, i2, str2);
+                f56164e.onEventEndWithValue(str, i2, str2);
             }
         }
     }
@@ -97,13 +97,13 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65549, null, str, i2, collection) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 String str3 = "\tresultCode: " + i2;
                 if (collection != null) {
                     String str4 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventEndWithValues(str, i2, collection);
+                f56164e.onEventEndWithValues(str, i2, collection);
             }
         }
     }
@@ -112,9 +112,9 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
-                f56165e.onEventStart(str);
+                f56164e.onEventStart(str);
             }
         }
     }
@@ -123,10 +123,10 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, null, str, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tvalue: " + str2;
-                f56165e.onEventWithValue(str, str2);
+                f56164e.onEventWithValue(str, str2);
             }
         }
     }
@@ -135,12 +135,12 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65560, null, str, collection) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 if (collection != null) {
                     String str3 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventWithValues(str, collection);
+                f56164e.onEventWithValues(str, collection);
             }
         }
     }
@@ -149,7 +149,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65564, null) == null) {
             a();
-            SensorStatisticApi sensorStatisticApi = f56165e;
+            SensorStatisticApi sensorStatisticApi = f56164e;
             if (sensorStatisticApi != null) {
                 sensorStatisticApi.triggerSending();
             }
@@ -169,17 +169,17 @@ public class StatisticManager implements NoProguard {
                 return;
             }
         }
-        f56165e = SensorStatisticApi.getInstance();
+        f56164e = SensorStatisticApi.getInstance();
     }
 
     public static void onEvent(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
-                f56165e.onEvent(str, str2);
+                f56164e.onEvent(str, str2);
             }
         }
     }
@@ -188,10 +188,10 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65542, null, str, i2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 String str3 = "\tresultCode: " + i2;
-                f56165e.onEventEnd(str, i2);
+                f56164e.onEventEnd(str, i2);
             }
         }
     }
@@ -200,11 +200,11 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65559, null, str, str2, str3) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str4 = "\tEventId: " + str;
                 String str5 = "\tabType: " + str3;
                 String str6 = "\tvalue: " + str2;
-                f56165e.onEventWithValue(str, str2, str3);
+                f56164e.onEventWithValue(str, str2, str3);
             }
         }
     }
@@ -213,7 +213,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65562, null, str, collection, map) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 if (collection != null) {
                     String str3 = "\tvalues: " + collection.toString();
@@ -221,7 +221,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str4 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventWithValues(str, collection, map);
+                f56164e.onEventWithValues(str, collection, map);
             }
         }
     }
@@ -230,12 +230,12 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65546, null, str, i2, str2, str3) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str4 = "\tEventId: " + str;
                 String str5 = "\tresultCode: " + i2;
                 String str6 = "\tvalue: " + str2;
                 String str7 = "\tabType: " + str3;
-                f56165e.onEventEndWithValue(str, i2, str2, str3);
+                f56164e.onEventEndWithValue(str, i2, str2, str3);
             }
         }
     }
@@ -244,7 +244,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65551, null, str, i2, collection, map) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 String str3 = "\tresultCode: " + i2;
                 if (collection != null) {
@@ -253,7 +253,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str5 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventEndWithValues(str, i2, collection, map);
+                f56164e.onEventEndWithValues(str, i2, collection, map);
             }
         }
     }
@@ -262,10 +262,10 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
-                f56165e.onEventEnd(str, str2);
+                f56164e.onEventEnd(str, str2);
             }
         }
     }
@@ -274,13 +274,13 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65561, null, str, collection, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
                 if (collection != null) {
                     String str5 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventWithValues(str, collection, str2);
+                f56164e.onEventWithValues(str, collection, str2);
             }
         }
     }
@@ -289,10 +289,10 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tvalue: " + str2;
-                f56165e.onEventEndWithValue(str, str2);
+                f56164e.onEventEndWithValue(str, str2);
             }
         }
     }
@@ -301,14 +301,14 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65550, null, str, i2, collection, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tresultCode: " + i2;
                 String str5 = "\tabType: " + str2;
                 if (collection != null) {
                     String str6 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventEndWithValues(str, i2, collection, str2);
+                f56164e.onEventEndWithValues(str, i2, collection, str2);
             }
         }
     }
@@ -317,11 +317,11 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i2, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tresultCode: " + i2;
                 String str5 = "\tabType: " + str2;
-                f56165e.onEventEnd(str, i2, str2);
+                f56164e.onEventEnd(str, i2, str2);
             }
         }
     }
@@ -330,7 +330,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65563, null, str, collection, map, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
                 if (collection != null) {
@@ -339,7 +339,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str6 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventWithValues(str, collection, map, str2);
+                f56164e.onEventWithValues(str, collection, map, str2);
             }
         }
     }
@@ -348,11 +348,11 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, str3) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str4 = "\tEventId: " + str;
                 String str5 = "\tvalue: " + str2;
                 String str6 = "\tabType: " + str3;
-                f56165e.onEventEndWithValue(str, str2, str3);
+                f56164e.onEventEndWithValue(str, str2, str3);
             }
         }
     }
@@ -361,7 +361,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, Integer.valueOf(i2), collection, map, str2}) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tresultCode: " + i2;
                 String str5 = "\tabType: " + str2;
@@ -371,7 +371,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str7 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventEndWithValues(str, i2, collection, map, str2);
+                f56164e.onEventEndWithValues(str, i2, collection, map, str2);
             }
         }
     }
@@ -380,12 +380,12 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, collection) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 if (collection != null) {
                     String str3 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventEndWithValues(str, collection);
+                f56164e.onEventEndWithValues(str, collection);
             }
         }
     }
@@ -394,7 +394,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65555, null, str, collection, map) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str2 = "\tEventId: " + str;
                 if (collection != null) {
                     String str3 = "\tvalues: " + collection.toString();
@@ -402,7 +402,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str4 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventEndWithValues(str, collection, map);
+                f56164e.onEventEndWithValues(str, collection, map);
             }
         }
     }
@@ -411,13 +411,13 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65554, null, str, collection, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
                 if (collection != null) {
                     String str5 = "\tvalues: " + collection.toString();
                 }
-                f56165e.onEventEndWithValues(str, collection, str2);
+                f56164e.onEventEndWithValues(str, collection, str2);
             }
         }
     }
@@ -426,7 +426,7 @@ public class StatisticManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65556, null, str, collection, map, str2) == null) {
             a();
-            if (f56165e != null) {
+            if (f56164e != null) {
                 String str3 = "\tEventId: " + str;
                 String str4 = "\tabType: " + str2;
                 if (collection != null) {
@@ -435,7 +435,7 @@ public class StatisticManager implements NoProguard {
                 if (map != null) {
                     String str6 = "\tkv: " + map.toString();
                 }
-                f56165e.onEventEndWithValues(str, collection, map, str2);
+                f56164e.onEventEndWithValues(str, collection, map, str2);
             }
         }
     }

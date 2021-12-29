@@ -22,22 +22,22 @@ public class PluginStatus extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32111e;
+    public String f32253e;
 
     /* renamed from: f  reason: collision with root package name */
-    public PluginPackageManager.PluginStatus f32112f;
+    public PluginPackageManager.PluginStatus f32254f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f32113g;
+    public int f32255g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32114h;
+    public String f32256h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32115i;
+    public String f32257i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f32116j;
+    public boolean f32258j;
 
     public PluginStatus() {
         Interceptable interceptable = $ic;
@@ -56,24 +56,24 @@ public class PluginStatus extends OrmObject {
     public int getErrorCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32113g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32255g : invokeV.intValue;
     }
 
     public String getErrorMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32114h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32256h : (String) invokeV.objValue;
     }
 
     public String getPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32111e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32253e : (String) invokeV.objValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32115i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32257i : (String) invokeV.objValue;
     }
 }

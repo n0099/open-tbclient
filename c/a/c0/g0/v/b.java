@@ -22,13 +22,13 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1634e;
+    public boolean f2061e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1635f;
+    public int f2062f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<View> f1636g;
+    public WeakReference<View> f2063g;
 
     /* loaded from: classes.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
@@ -36,10 +36,10 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Application f1637e;
+        public final /* synthetic */ Application f2064e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f1638f;
+        public final /* synthetic */ b f2065f;
 
         public a(b bVar, Application application) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
                     return;
                 }
             }
-            this.f1638f = bVar;
-            this.f1637e = application;
+            this.f2065f = bVar;
+            this.f2064e = application;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
             View view;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && (view = (View) this.f1638f.f1636g.get()) != null && activity == view.getContext()) {
-                this.f1638f.f1634e = false;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && (view = (View) this.f2065f.f2063g.get()) != null && activity == view.getContext()) {
+                this.f2065f.f2061e = false;
             }
         }
 
@@ -74,7 +74,7 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
             View view;
             Application application;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || (view = (View) this.f1638f.f1636g.get()) == null || activity != view.getContext() || (application = this.f1637e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || (view = (View) this.f2065f.f2063g.get()) == null || activity != view.getContext() || (application = this.f2064e) == null) {
                 return;
             }
             application.unregisterActivityLifecycleCallbacks(this);
@@ -91,8 +91,8 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public void onActivityResumed(@NonNull Activity activity) {
             View view;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view = (View) this.f1638f.f1636g.get()) != null && activity == view.getContext()) {
-                this.f1638f.f1634e = true;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view = (View) this.f2065f.f2063g.get()) != null && activity == view.getContext()) {
+                this.f2065f.f2061e = true;
             }
         }
 
@@ -133,9 +133,9 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        this.f1634e = false;
-        this.f1635f = -1;
-        this.f1636g = new WeakReference<>(view);
+        this.f2061e = false;
+        this.f2062f = -1;
+        this.f2063g = new WeakReference<>(view);
         c();
     }
 
@@ -157,10 +157,10 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
         View view;
         int measuredHeight;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f1636g.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view = this.f2063g.get()) == null) {
             return;
         }
-        if (this.f1635f < ((int) (f.c.f(view.getContext()) * 0.85f)) || this.f1634e) {
+        if (this.f2062f < ((int) (f.c.f(view.getContext()) * 0.85f)) || this.f2061e) {
             if (ViewCompat.isAttachedToWindow(view)) {
                 Rect rect = new Rect();
                 view.getWindowVisibleDisplayFrame(rect);
@@ -172,10 +172,10 @@ public class b implements ViewTreeObserver.OnGlobalLayoutListener {
             } else {
                 measuredHeight = view.getMeasuredHeight();
             }
-            if (this.f1635f == measuredHeight || measuredHeight <= 0) {
+            if (this.f2062f == measuredHeight || measuredHeight <= 0) {
                 return;
             }
-            this.f1635f = measuredHeight;
+            this.f2062f = measuredHeight;
             view.getLayoutParams().height = measuredHeight;
             view.requestLayout();
         }

@@ -2,12 +2,6 @@ package com.kwad.sdk.d;
 
 import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsVideoPlayConfig;
@@ -18,8 +12,6 @@ import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
 /* loaded from: classes3.dex */
 public class a implements KsInterstitialAd {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public KsScene a;
     @NonNull
 
@@ -33,80 +25,49 @@ public class a implements KsInterstitialAd {
     public b f58799d;
 
     public a(@NonNull KsScene ksScene, @NonNull AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksScene, adTemplate};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = ksScene;
         this.f58797b = adTemplate;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getECPM() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.core.response.a.a.F(d.j(this.f58797b)) : invokeV.intValue;
+        return com.kwad.sdk.core.response.a.a.F(d.j(this.f58797b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.kwad.sdk.core.response.a.a.E(d.j(this.f58797b)) : invokeV.intValue;
+        return com.kwad.sdk.core.response.a.a.E(d.j(this.f58797b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getMaterialType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.kwad.sdk.core.response.a.a.R(d.j(this.f58797b)) : invokeV.intValue;
+        return com.kwad.sdk.core.response.a.a.R(d.j(this.f58797b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public boolean isVideo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.kwad.sdk.core.response.a.a.P(d.j(this.f58797b)) : invokeV.booleanValue;
+        return com.kwad.sdk.core.response.a.a.P(d.j(this.f58797b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, adExposureFailedReason) == null) {
-            com.kwad.sdk.core.report.a.a(this.f58797b, i2, adExposureFailedReason);
-        }
+        com.kwad.sdk.core.report.a.a(this.f58797b, i2, adExposureFailedReason);
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void setAdInteractionListener(@NonNull KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
-            this.f58798c = adInteractionListener;
-            b bVar = this.f58799d;
-            if (bVar != null) {
-                bVar.a(adInteractionListener);
-            }
+        this.f58798c = adInteractionListener;
+        b bVar = this.f58799d;
+        if (bVar != null) {
+            bVar.a(adInteractionListener);
         }
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void setBidEcpm(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            AdTemplate adTemplate = this.f58797b;
-            adTemplate.mBidEcpm = i2;
-            com.kwad.sdk.core.report.a.m(adTemplate);
-        }
+        AdTemplate adTemplate = this.f58797b;
+        adTemplate.mBidEcpm = i2;
+        com.kwad.sdk.core.report.a.m(adTemplate);
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
@@ -114,29 +75,26 @@ public class a implements KsInterstitialAd {
         AdTemplate adTemplate;
         int i2;
         DevelopMangerPlugin.DevelopValue a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, ksVideoPlayConfig) == null) {
-            if (activity == null) {
-                com.kwad.sdk.core.d.a.e("StayAdHelper", "showInterstitialAd activity must not be null");
-                return;
-            }
-            DevelopMangerPlugin developMangerPlugin = (DevelopMangerPlugin) f.a(DevelopMangerPlugin.class);
-            if (developMangerPlugin != null && (a = developMangerPlugin.a("KEY_INIT_VOICE_STATUS")) != null) {
-                ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
-            }
-            if (ksVideoPlayConfig.isVideoSoundEnable()) {
-                adTemplate = this.f58797b;
-                i2 = 2;
-            } else {
-                adTemplate = this.f58797b;
-                i2 = 1;
-            }
-            adTemplate.mInitVoiceStatus = i2;
-            if (this.f58799d == null) {
-                b bVar = new b(activity, this.f58797b, ksVideoPlayConfig, this.f58798c);
-                this.f58799d = bVar;
-                bVar.a();
-            }
+        if (activity == null) {
+            com.kwad.sdk.core.d.a.e("StayAdHelper", "showInterstitialAd activity must not be null");
+            return;
+        }
+        DevelopMangerPlugin developMangerPlugin = (DevelopMangerPlugin) f.a(DevelopMangerPlugin.class);
+        if (developMangerPlugin != null && (a = developMangerPlugin.a("KEY_INIT_VOICE_STATUS")) != null) {
+            ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
+        }
+        if (ksVideoPlayConfig.isVideoSoundEnable()) {
+            adTemplate = this.f58797b;
+            i2 = 2;
+        } else {
+            adTemplate = this.f58797b;
+            i2 = 1;
+        }
+        adTemplate.mInitVoiceStatus = i2;
+        if (this.f58799d == null) {
+            b bVar = new b(activity, this.f58797b, ksVideoPlayConfig, this.f58798c);
+            this.f58799d = bVar;
+            bVar.a();
         }
     }
 }

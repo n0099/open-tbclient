@@ -171,7 +171,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public final /* synthetic */ CouponListResponse.CodeCoupon a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ MyCouponListActivity f54660b;
+                        public final /* synthetic */ MyCouponListActivity f54663b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -188,7 +188,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                                     return;
                                 }
                             }
-                            this.f54660b = this;
+                            this.f54663b = this;
                             this.a = codeCoupon;
                         }
 
@@ -196,7 +196,7 @@ public class MyCouponListActivity extends CouponBaseActivity {
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.f54660b.getActivity(), this.a.url);
+                                BaiduWalletDelegate.getInstance().openH5Module(this.f54663b.getActivity(), this.a.url);
                             }
                         }
                     });

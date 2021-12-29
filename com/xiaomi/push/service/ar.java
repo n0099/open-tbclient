@@ -51,7 +51,7 @@ public class ar {
                     if (z && hqVar.f520a) {
                         arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
-                        int i2 = as.f63820b[a2.ordinal()];
+                        int i2 = as.f63815b[a2.ordinal()];
                         arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m445a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m444a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
                     }
                 }

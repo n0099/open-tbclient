@@ -1,57 +1,59 @@
 package com.baidu.android.pushservice.f;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.pushservice.PushSettings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 /* loaded from: classes9.dex */
-public class a implements b {
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a() {
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
             }
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter printWriter = new PrintWriter(stringWriter);
+            th.printStackTrace(printWriter);
+            printWriter.close();
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void a(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            String str3 = "BDPushSDK-" + str;
         }
     }
 
-    @Override // com.baidu.android.pushservice.f.b
-    public int a() {
-        InterceptResult invokeV;
+    public static void a(String str, Throwable th, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, th, context) == null) {
+            b(str, a(th), context);
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.android.pushservice.f.b
-    public void a(Context context, ComponentName componentName, int i2) {
+    public static void b(String str, String str2, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, componentName, i2) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("package", context.getPackageName());
-            bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
-            bundle.putInt("badgenumber", i2);
-            try {
-                context.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            String str3 = "BDPushSDK-" + str;
+        }
+    }
+
+    public static void c(String str, String str2, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, context) == null) && PushSettings.e(context) && str2 != null) {
+            String str3 = "BDPushSDK-" + str;
         }
     }
 }

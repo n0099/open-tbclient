@@ -13,15 +13,15 @@ public interface a {
     public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f1498b = new C0030a();
+    public static final a f1925b = new C0051a();
 
     /* renamed from: c.a.c0.f0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0030a implements a {
+    public static class C0051a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0030a() {
+        public C0051a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

@@ -24,7 +24,6 @@ import com.coremedia.iso.boxes.sampleentry.SubtitleSampleEntry;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.drm.DrmInitData;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -43,18 +42,18 @@ public class c extends DefaultHandler implements o.a<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f30097c;
+    public static final Pattern f30175c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f30098d;
+    public static final Pattern f30176d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f30099e;
+    public static final Pattern f30177e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final XmlPullParserFactory f30100b;
+    public final XmlPullParserFactory f30178b;
 
     /* loaded from: classes9.dex */
     public static final class a {
@@ -63,19 +62,19 @@ public class c extends DefaultHandler implements o.a<b> {
         public final Format a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f30101b;
+        public final String f30179b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final h f30102c;
+        public final h f30180c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f30103d;
+        public final String f30181d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ArrayList<DrmInitData.SchemeData> f30104e;
+        public final ArrayList<DrmInitData.SchemeData> f30182e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<d> f30105f;
+        public final ArrayList<d> f30183f;
 
         public a(Format format, String str, h hVar, String str2, ArrayList<DrmInitData.SchemeData> arrayList, ArrayList<d> arrayList2) {
             Interceptable interceptable = $ic;
@@ -93,11 +92,11 @@ public class c extends DefaultHandler implements o.a<b> {
                 }
             }
             this.a = format;
-            this.f30101b = str;
-            this.f30102c = hVar;
-            this.f30103d = str2;
-            this.f30104e = arrayList;
-            this.f30105f = arrayList2;
+            this.f30179b = str;
+            this.f30180c = hVar;
+            this.f30181d = str2;
+            this.f30182e = arrayList;
+            this.f30183f = arrayList2;
         }
     }
 
@@ -114,9 +113,9 @@ public class c extends DefaultHandler implements o.a<b> {
                 return;
             }
         }
-        f30097c = Pattern.compile("(\\d+)(?:/(\\d+))?");
-        f30098d = Pattern.compile("CC([1-4])=.*");
-        f30099e = Pattern.compile("([1-9]|[1-5][0-9]|6[0-3])=.*");
+        f30175c = Pattern.compile("(\\d+)(?:/(\\d+))?");
+        f30176d = Pattern.compile("CC([1-4])=.*");
+        f30177e = Pattern.compile("([1-9]|[1-5][0-9]|6[0-3])=.*");
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -235,7 +234,7 @@ public class c extends DefaultHandler implements o.a<b> {
         if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, xmlPullParser, f2)) == null) {
             String attributeValue = xmlPullParser.getAttributeValue(null, "frameRate");
             if (attributeValue != null) {
-                Matcher matcher = f30097c.matcher(attributeValue);
+                Matcher matcher = f30175c.matcher(attributeValue);
                 if (matcher.matches()) {
                     int parseInt = Integer.parseInt(matcher.group(1));
                     String group = matcher.group(2);
@@ -388,12 +387,12 @@ public class c extends DefaultHandler implements o.a<b> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, list)) == null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 d dVar = list.get(i2);
-                if ("urn:scte:dash:cc:cea-608:2015".equals(dVar.a) && (str = dVar.f30106b) != null) {
-                    Matcher matcher = f30098d.matcher(str);
+                if ("urn:scte:dash:cc:cea-608:2015".equals(dVar.a) && (str = dVar.f30184b) != null) {
+                    Matcher matcher = f30176d.matcher(str);
                     if (matcher.matches()) {
                         return Integer.parseInt(matcher.group(1));
                     }
-                    String str2 = "Unable to parse CEA-608 channel number from: " + dVar.f30106b;
+                    String str2 = "Unable to parse CEA-608 channel number from: " + dVar.f30184b;
                 }
             }
             return -1;
@@ -408,12 +407,12 @@ public class c extends DefaultHandler implements o.a<b> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, list)) == null) {
             for (int i2 = 0; i2 < list.size(); i2++) {
                 d dVar = list.get(i2);
-                if ("urn:scte:dash:cc:cea-708:2015".equals(dVar.a) && (str = dVar.f30106b) != null) {
-                    Matcher matcher = f30099e.matcher(str);
+                if ("urn:scte:dash:cc:cea-708:2015".equals(dVar.a) && (str = dVar.f30184b) != null) {
+                    Matcher matcher = f30177e.matcher(str);
                     if (matcher.matches()) {
                         return Integer.parseInt(matcher.group(1));
                     }
-                    String str2 = "Unable to parse CEA-708 service block number from: " + dVar.f30106b;
+                    String str2 = "Unable to parse CEA-708 service block number from: " + dVar.f30184b;
                 }
             }
             return -1;
@@ -490,9 +489,9 @@ public class c extends DefaultHandler implements o.a<b> {
                         String str3 = str2;
                         e eVar = (e) K.first;
                         long j3 = j2;
-                        if (eVar.f30108b != -9223372036854775807L) {
+                        if (eVar.f30186b != -9223372036854775807L) {
                             long longValue = ((Long) K.second).longValue();
-                            long j4 = longValue == -9223372036854775807L ? -9223372036854775807L : eVar.f30108b + longValue;
+                            long j4 = longValue == -9223372036854775807L ? -9223372036854775807L : eVar.f30186b + longValue;
                             arrayList.add(eVar);
                             j2 = j4;
                             str2 = str3;
@@ -692,7 +691,7 @@ public class c extends DefaultHandler implements o.a<b> {
             do {
                 xmlPullParser.next();
             } while (!w.c(xmlPullParser, "Role"));
-            return ("urn:mpeg:dash:role:2011".equals(T) && FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT.equals(T2)) ? 1 : 0;
+            return ("urn:mpeg:dash:role:2011".equals(T) && "main".equals(T2)) ? 1 : 0;
         }
         return invokeL.intValue;
     }
@@ -703,10 +702,10 @@ public class c extends DefaultHandler implements o.a<b> {
         long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, xmlPullParser, eVar)) == null) {
-            long I = I(xmlPullParser, "timescale", eVar != null ? eVar.f30121b : 1L);
-            long I2 = I(xmlPullParser, "presentationTimeOffset", eVar != null ? eVar.f30122c : 0L);
-            long j4 = eVar != null ? eVar.f30130d : 0L;
-            long j5 = eVar != null ? eVar.f30131e : 0L;
+            long I = I(xmlPullParser, "timescale", eVar != null ? eVar.f30199b : 1L);
+            long I2 = I(xmlPullParser, "presentationTimeOffset", eVar != null ? eVar.f30200c : 0L);
+            long j4 = eVar != null ? eVar.f30208d : 0L;
+            long j5 = eVar != null ? eVar.f30209e : 0L;
             String attributeValue = xmlPullParser.getAttributeValue(null, "indexRange");
             if (attributeValue != null) {
                 String[] split = attributeValue.split("-");
@@ -733,10 +732,10 @@ public class c extends DefaultHandler implements o.a<b> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xmlPullParser, bVar)) == null) {
-            long I = I(xmlPullParser, "timescale", bVar != null ? bVar.f30121b : 1L);
-            long I2 = I(xmlPullParser, "presentationTimeOffset", bVar != null ? bVar.f30122c : 0L);
-            long I3 = I(xmlPullParser, "duration", bVar != null ? bVar.f30124e : -9223372036854775807L);
-            int H = H(xmlPullParser, "startNumber", bVar != null ? bVar.f30123d : 1);
+            long I = I(xmlPullParser, "timescale", bVar != null ? bVar.f30199b : 1L);
+            long I2 = I(xmlPullParser, "presentationTimeOffset", bVar != null ? bVar.f30200c : 0L);
+            long I3 = I(xmlPullParser, "duration", bVar != null ? bVar.f30202e : -9223372036854775807L);
+            int H = H(xmlPullParser, "startNumber", bVar != null ? bVar.f30201d : 1);
             List<f> list = null;
             f fVar = null;
             List<h.d> list2 = null;
@@ -758,10 +757,10 @@ public class c extends DefaultHandler implements o.a<b> {
                     fVar = bVar.a;
                 }
                 if (list2 == null) {
-                    list2 = bVar.f30125f;
+                    list2 = bVar.f30203f;
                 }
                 if (list == null) {
-                    list = bVar.f30126g;
+                    list = bVar.f30204g;
                 }
             }
             return h(fVar, I, I2, H, I3, list2, list);
@@ -773,13 +772,13 @@ public class c extends DefaultHandler implements o.a<b> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, xmlPullParser, cVar)) == null) {
-            long I = I(xmlPullParser, "timescale", cVar != null ? cVar.f30121b : 1L);
-            long I2 = I(xmlPullParser, "presentationTimeOffset", cVar != null ? cVar.f30122c : 0L);
-            long I3 = I(xmlPullParser, "duration", cVar != null ? cVar.f30124e : -9223372036854775807L);
-            int H = H(xmlPullParser, "startNumber", cVar != null ? cVar.f30123d : 1);
+            long I = I(xmlPullParser, "timescale", cVar != null ? cVar.f30199b : 1L);
+            long I2 = I(xmlPullParser, "presentationTimeOffset", cVar != null ? cVar.f30200c : 0L);
+            long I3 = I(xmlPullParser, "duration", cVar != null ? cVar.f30202e : -9223372036854775807L);
+            int H = H(xmlPullParser, "startNumber", cVar != null ? cVar.f30201d : 1);
             f fVar = null;
-            j U = U(xmlPullParser, VodClient.PATH_MEDIA, cVar != null ? cVar.f30128h : null);
-            j U2 = U(xmlPullParser, JoinPoint.INITIALIZATION, cVar != null ? cVar.f30127g : null);
+            j U = U(xmlPullParser, VodClient.PATH_MEDIA, cVar != null ? cVar.f30206h : null);
+            j U2 = U(xmlPullParser, JoinPoint.INITIALIZATION, cVar != null ? cVar.f30205g : null);
             List<h.d> list = null;
             do {
                 xmlPullParser.next();
@@ -794,7 +793,7 @@ public class c extends DefaultHandler implements o.a<b> {
                     fVar = cVar.a;
                 }
                 if (list == null) {
-                    list = cVar.f30125f;
+                    list = cVar.f30203f;
                 }
             }
             return i(fVar, I, I2, H, I3, list, U2, U);
@@ -908,19 +907,19 @@ public class c extends DefaultHandler implements o.a<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048596, this, aVar, str, str2, arrayList, arrayList2)) == null) {
             Format format = aVar.a;
-            String str3 = aVar.f30103d;
+            String str3 = aVar.f30181d;
             if (str3 != null) {
                 str2 = str3;
             }
-            ArrayList<DrmInitData.SchemeData> arrayList3 = aVar.f30104e;
+            ArrayList<DrmInitData.SchemeData> arrayList3 = aVar.f30182e;
             arrayList3.addAll(arrayList);
             if (!arrayList3.isEmpty()) {
                 o(arrayList3);
                 format = format.copyWithDrmInitData(new DrmInitData(str2, arrayList3));
             }
-            ArrayList<d> arrayList4 = aVar.f30105f;
+            ArrayList<d> arrayList4 = aVar.f30183f;
             arrayList4.addAll(arrayList2);
-            return g.l(str, -1L, format, aVar.f30101b, aVar.f30102c, arrayList4);
+            return g.l(str, -1L, format, aVar.f30179b, aVar.f30180c, arrayList4);
         }
         return (g) invokeLLLLL.objValue;
     }
@@ -982,7 +981,7 @@ public class c extends DefaultHandler implements o.a<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, uri, inputStream)) == null) {
             try {
-                XmlPullParser newPullParser = this.f30100b.newPullParser();
+                XmlPullParser newPullParser = this.f30178b.newPullParser();
                 newPullParser.setInput(inputStream, null);
                 if (newPullParser.next() == 2 && "MPD".equals(newPullParser.getName())) {
                     return J(newPullParser, uri.toString());
@@ -1224,9 +1223,9 @@ public class c extends DefaultHandler implements o.a<b> {
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0095  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00a9  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00f9  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0094  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00f8  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1263,10 +1262,10 @@ public class c extends DefaultHandler implements o.a<b> {
                         z = false;
                         uuid = null;
                     } else {
-                        byte[] b2 = c.i.b.a.a0.q.h.b(c.i.b.a.b.f29837c, new UUID[]{UUID.fromString(attributeValue3)}, null);
+                        byte[] b2 = c.i.b.a.a0.q.h.b(c.i.b.a.b.f29915c, new UUID[]{UUID.fromString(attributeValue3)}, null);
                         z = false;
                         bArr = attributeValue2;
-                        uuid = c.i.b.a.b.f29837c;
+                        uuid = c.i.b.a.b.f29915c;
                         bArr2 = b2;
                     }
                     do {
@@ -1277,9 +1276,9 @@ public class c extends DefaultHandler implements o.a<b> {
                     return Pair.create(bArr, uuid != null ? new DrmInitData.SchemeData(uuid, "video/mp4", bArr2, z) : null);
                 }
                 if (c2 == 1) {
-                    uuid = c.i.b.a.b.f29839e;
+                    uuid = c.i.b.a.b.f29917e;
                 } else if (c2 == 2) {
-                    uuid = c.i.b.a.b.f29838d;
+                    uuid = c.i.b.a.b.f29916d;
                 }
                 bArr = null;
                 bArr2 = bArr;
@@ -1300,8 +1299,8 @@ public class c extends DefaultHandler implements o.a<b> {
                                 bArr2 = decode;
                                 uuid = d2;
                             }
-                        } else if (uuid == c.i.b.a.b.f29839e && w.e(xmlPullParser, "mspr:pro") && xmlPullParser.next() == 4) {
-                            bArr2 = c.i.b.a.a0.q.h.a(c.i.b.a.b.f29839e, Base64.decode(xmlPullParser.getText(), 0));
+                        } else if (uuid == c.i.b.a.b.f29917e && w.e(xmlPullParser, "mspr:pro") && xmlPullParser.next() == 4) {
+                            bArr2 = c.i.b.a.a0.q.h.a(c.i.b.a.b.f29917e, Base64.decode(xmlPullParser.getText(), 0));
                         }
                     }
                 } while (!w.c(xmlPullParser, "ContentProtection"));
@@ -1338,7 +1337,7 @@ public class c extends DefaultHandler implements o.a<b> {
         }
         this.a = str;
         try {
-            this.f30100b = XmlPullParserFactory.newInstance();
+            this.f30178b = XmlPullParserFactory.newInstance();
         } catch (XmlPullParserException e2) {
             throw new RuntimeException("Couldn't create XmlPullParserFactory instance", e2);
         }

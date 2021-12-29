@@ -32,9 +32,9 @@ public class s implements p.a {
     }
 
     @Override // c.g.p.a
-    public FunAdLoader a(i iVar) {
+    public FunAdLoader a(k kVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iVar)) == null) ? new u0(this.a, iVar) : (FunAdLoader) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kVar)) == null) ? new y0(this.a, kVar) : (FunAdLoader) invokeL.objValue;
     }
 }

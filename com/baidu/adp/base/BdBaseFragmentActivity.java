@@ -16,9 +16,9 @@ import c.a.d.a.f;
 import c.a.d.a.g;
 import c.a.d.a.i;
 import c.a.d.f.l.d;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import c.a.d.g.a.h;
-import c.a.d.m.e.q;
+import c.a.d.n.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -47,7 +47,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseFragmentActivity f32013e;
+        public final /* synthetic */ BdBaseFragmentActivity f32156e;
 
         public a(BdBaseFragmentActivity bdBaseFragmentActivity) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
                     return;
                 }
             }
-            this.f32013e = bdBaseFragmentActivity;
+            this.f32156e = bdBaseFragmentActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseFragmentActivity bdBaseFragmentActivity = this.f32013e;
+                BdBaseFragmentActivity bdBaseFragmentActivity = this.f32156e;
                 bdBaseFragmentActivity.onPreLoad(bdBaseFragmentActivity.onGetPreLoadListView());
             }
         }
@@ -363,7 +363,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            m.M(getApplicationContext(), str);
+            n.M(getApplicationContext(), str);
         }
     }
 

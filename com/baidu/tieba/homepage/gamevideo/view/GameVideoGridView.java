@@ -19,13 +19,13 @@ public class GameVideoGridView extends BdGridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45721e;
+    public int f45908e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Animation f45722f;
+    public Animation f45909f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GridLayoutAnimationController f45723g;
+    public GridLayoutAnimationController f45910g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i2) {
@@ -46,23 +46,23 @@ public class GameVideoGridView extends BdGridView {
                 return;
             }
         }
-        this.f45721e = -1;
+        this.f45908e = -1;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f45722f == null) {
-                this.f45722f = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
+            if (this.f45909f == null) {
+                this.f45909f = AnimationUtils.loadAnimation(getContext(), R.anim.game_choose_slide_in_top);
             }
-            if (this.f45723g == null) {
-                GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.f45722f);
-                this.f45723g = gridLayoutAnimationController;
+            if (this.f45910g == null) {
+                GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.f45909f);
+                this.f45910g = gridLayoutAnimationController;
                 gridLayoutAnimationController.setColumnDelay(0.4f);
-                this.f45723g.setRowDelay(0.2f);
-                this.f45723g.setDirection(0);
-                this.f45723g.setDirectionPriority(0);
+                this.f45910g.setRowDelay(0.2f);
+                this.f45910g.setDirection(0);
+                this.f45910g.setDirectionPriority(0);
             }
         }
     }
@@ -70,7 +70,7 @@ public class GameVideoGridView extends BdGridView {
     public void onDestroy() {
         Animation animation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animation = this.f45722f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animation = this.f45909f) == null) {
             return;
         }
         animation.cancel();
@@ -81,7 +81,7 @@ public class GameVideoGridView extends BdGridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
-            int i4 = this.f45721e;
+            int i4 = this.f45908e;
             if (i4 <= size && i4 > -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -92,18 +92,18 @@ public class GameVideoGridView extends BdGridView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f45721e = i2;
+            this.f45908e = i2;
         }
     }
 
     public void showAppearAnim() {
         GridLayoutAnimationController gridLayoutAnimationController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gridLayoutAnimationController = this.f45723g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gridLayoutAnimationController = this.f45910g) == null) {
             return;
         }
         setLayoutAnimation(gridLayoutAnimationController);
-        this.f45723g.start();
+        this.f45910g.start();
         startLayoutAnimation();
     }
 
@@ -126,7 +126,7 @@ public class GameVideoGridView extends BdGridView {
                 return;
             }
         }
-        this.f45721e = -1;
+        this.f45908e = -1;
         a();
     }
 
@@ -148,7 +148,7 @@ public class GameVideoGridView extends BdGridView {
                 return;
             }
         }
-        this.f45721e = -1;
+        this.f45908e = -1;
         a();
     }
 }

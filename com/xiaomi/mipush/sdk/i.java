@@ -195,15 +195,15 @@ public class i {
                 if (i2 == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63266c;
+                    afVar = af.f63261c;
                 } else if (i2 == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63267d;
+                    afVar = af.f63262d;
                 } else if (i2 == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f63268e;
+                    afVar = af.f63263e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -236,7 +236,7 @@ public class i {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(e.a);
-            String a3 = a(e.f63284b);
+            String a3 = a(e.f63279b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }

@@ -33,28 +33,28 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0014\b&\u0018\u0000 72\u00020\u0001:\u00017B\u0007¢\u0006\u0004\b6\u0010\u0004J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\r\u0010\u0005\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0004J\r\u0010\u0006\u001a\u00020\u0002¢\u0006\u0004\b\u0006\u0010\u0004J\u000f\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0004J\r\u0010\b\u001a\u00020\u0002¢\u0006\u0004\b\b\u0010\u0004J\u000f\u0010\n\u001a\u00020\tH'¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\r\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u000f\u0010\u0004J\u000f\u0010\u0010\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0010\u0010\u0004J#\u0010\u0015\u001a\u00020\u00022\b\u0010\u0012\u001a\u0004\u0018\u00010\u00112\b\u0010\u0014\u001a\u0004\u0018\u00010\u0013H\u0004¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0017\u0010\u0004J\u0019\u0010\u001a\u001a\u00020\u00022\b\u0010\u0019\u001a\u0004\u0018\u00010\u0018H\u0014¢\u0006\u0004\b\u001a\u0010\u001bJ\u000f\u0010\u001c\u001a\u00020\u0002H\u0014¢\u0006\u0004\b\u001c\u0010\u0004JI\u0010&\u001a\u00020\u00022\u0006\u0010\u001e\u001a\u00020\u001d2\u0006\u0010 \u001a\u00020\u001f2\b\u0010!\u001a\u0004\u0018\u00010\u00112\b\u0010\"\u001a\u0004\u0018\u00010\u00112\b\u0010#\u001a\u0004\u0018\u00010\u00112\f\u0010%\u001a\b\u0012\u0004\u0012\u00020\u00020$¢\u0006\u0004\b&\u0010'R\"\u0010(\u001a\u00020\u001f8\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b(\u0010)\u001a\u0004\b*\u0010+\"\u0004\b,\u0010-R\"\u0010.\u001a\u00020\u00138\u0006@\u0006X\u0086.¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b0\u00101\"\u0004\b2\u00103R\u0018\u00104\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u00105¨\u00068"}, d2 = {"Lcom/baidu/bdtask/ui/components/dialog/BaseActivityDialog;", "Landroid/app/Activity;", "", "dialogCancelUbc", "()V", "dialogClickUbc", "dialogCloseUbc", "dialogShowUbc", "disMiss", "", "getBtnLayout", "()I", "Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "getData", "()Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "initExtraView", "initView", "", "url", "Landroid/view/View;", "view", "loadImageAsync", "(Ljava/lang/String;Landroid/view/View;)V", "onAttachedToWindow", "Landroid/os/Bundle;", "savedInstanceState", "onCreate", "(Landroid/os/Bundle;)V", MissionEvent.MESSAGE_PAUSE, "Landroid/widget/TextView;", "textBtn", "Landroid/widget/ImageView;", "imageBtn", "btnText", "btnTextColor", "btnBgUrl", "Lkotlin/Function0;", "clickAction", "showButton", "(Landroid/widget/TextView;Landroid/widget/ImageView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/Function0;)V", "bgImg", "Landroid/widget/ImageView;", "getBgImg", "()Landroid/widget/ImageView;", "setBgImg", "(Landroid/widget/ImageView;)V", "closeBtn", "Landroid/view/View;", "getCloseBtn", "()Landroid/view/View;", "setCloseBtn", "(Landroid/view/View;)V", "data", "Lcom/baidu/bdtask/component/dialog/TaskDialogViewData;", "<init>", "Companion", "lib-bdtask-ui-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a extends Activity {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final C1768a f33937c;
+    public static final C1775a f34093c;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f33938b;
+    public ImageView f34094b;
 
     /* renamed from: d  reason: collision with root package name */
-    public TaskDialogViewData f33939d;
+    public TaskDialogViewData f34095d;
 
     /* renamed from: com.baidu.bdtask.ui.components.dialog.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
-    public static final class C1768a {
+    /* loaded from: classes10.dex */
+    public static final class C1775a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1768a() {
+        public C1775a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,18 +68,18 @@ public abstract class a extends Activity {
             }
         }
 
-        public /* synthetic */ C1768a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C1775a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f33940e;
+        public final /* synthetic */ a f34096e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public abstract class a extends Activity {
                     return;
                 }
             }
-            this.f33940e = aVar;
+            this.f34096e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -105,23 +105,23 @@ public abstract class a extends Activity {
             c.a.j.j.e.a.a d2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TaskDialogViewData a = this.f33940e.a();
+                TaskDialogViewData a = this.f34096e.a();
                 if (a != null && (v = BDPTask.m.v()) != null && (d2 = v.d()) != null) {
-                    d2.b(a.getTaskInfoSingleKey(), c.a.j.g.f.c.f3528c.a());
+                    d2.b(a.getTaskInfoSingleKey(), c.a.j.g.f.c.f3956c.a());
                 }
-                this.f33940e.e();
-                this.f33940e.b();
+                this.f34096e.e();
+                this.f34096e.b();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Function0 f33941e;
+        public final /* synthetic */ Function0 f34097e;
 
         public c(Function0 function0) {
             Interceptable interceptable = $ic;
@@ -138,25 +138,25 @@ public abstract class a extends Activity {
                     return;
                 }
             }
-            this.f33941e = function0;
+            this.f34097e = function0;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f33941e.invoke();
+                this.f34097e.invoke();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Function0 f33942e;
+        public final /* synthetic */ Function0 f34098e;
 
         public d(Function0 function0) {
             Interceptable interceptable = $ic;
@@ -173,14 +173,14 @@ public abstract class a extends Activity {
                     return;
                 }
             }
-            this.f33942e = function0;
+            this.f34098e = function0;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f33942e.invoke();
+                this.f34098e.invoke();
             }
         }
     }
@@ -198,7 +198,7 @@ public abstract class a extends Activity {
                 return;
             }
         }
-        f33937c = new C1768a(null);
+        f34093c = new C1775a(null);
     }
 
     public a() {
@@ -223,7 +223,7 @@ public abstract class a extends Activity {
             getLayoutInflater().inflate(c(), frameLayout);
             View findViewById = findViewById(e.dialog_content_img);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.dialog_content_img)");
-            this.f33938b = (ImageView) findViewById;
+            this.f34094b = (ImageView) findViewById;
             View findViewById2 = findViewById(e.dialog_close);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.dialog_close)");
             this.a = findViewById2;
@@ -236,7 +236,7 @@ public abstract class a extends Activity {
             Bundle extras = intent.getExtras();
             Serializable serializable = extras != null ? extras.getSerializable("data") : null;
             TaskDialogViewData taskDialogViewData = serializable instanceof TaskDialogViewData ? serializable : null;
-            this.f33939d = taskDialogViewData;
+            this.f34095d = taskDialogViewData;
             if (taskDialogViewData == null) {
                 b();
             }
@@ -259,7 +259,7 @@ public abstract class a extends Activity {
     public final TaskDialogViewData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33939d : (TaskDialogViewData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34095d : (TaskDialogViewData) invokeV.objValue;
     }
 
     public final void b() {
@@ -275,16 +275,16 @@ public abstract class a extends Activity {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TaskDialogViewData taskDialogViewData = this.f33939d;
+            TaskDialogViewData taskDialogViewData = this.f34095d;
             String closeBg = taskDialogViewData != null ? taskDialogViewData.getCloseBg() : null;
             View view = this.a;
             if (view == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("closeBtn");
             }
             a(closeBg, view);
-            TaskDialogViewData taskDialogViewData2 = this.f33939d;
+            TaskDialogViewData taskDialogViewData2 = this.f34095d;
             String bgUrl = taskDialogViewData2 != null ? taskDialogViewData2.getBgUrl() : null;
-            ImageView imageView = this.f33938b;
+            ImageView imageView = this.f34094b;
             if (imageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("bgImg");
             }

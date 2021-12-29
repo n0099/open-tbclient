@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
-import c.a.r0.s.i0.n.b;
+import c.a.d.f.p.n;
+import c.a.s0.s.i0.n.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
@@ -38,7 +38,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.r0.s.i0.t.b
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, c.a.s0.s.i0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
@@ -62,13 +62,13 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             if (i2 == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = m.f(getContext(), R.dimen.tbds196);
+                    layoutParams.width = n.f(getContext(), R.dimen.tbds196);
                     setLayoutParams(layoutParams);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = m.f(getContext(), R.dimen.tbds156);
+                    layoutParams2.width = n.f(getContext(), R.dimen.tbds156);
                     setLayoutParams(layoutParams2);
                 }
             }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.newinterest.model.msg;
 
-import c.a.s0.o2.c.b;
+import c.a.t0.o2.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

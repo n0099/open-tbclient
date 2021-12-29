@@ -37,9 +37,9 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            animationListener = this.a.f36805d;
+            animationListener = this.a.f36961d;
             if (animationListener != null) {
-                animationListener2 = this.a.f36805d;
+                animationListener2 = this.a.f36961d;
                 animationListener2.onAnimationCancel();
             }
         }
@@ -51,9 +51,9 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            animationListener = this.a.f36805d;
+            animationListener = this.a.f36961d;
             if (animationListener != null) {
-                animationListener2 = this.a.f36805d;
+                animationListener2 = this.a.f36961d;
                 animationListener2.onAnimationEnd();
             }
         }
@@ -65,9 +65,9 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            animationListener = this.a.f36805d;
+            animationListener = this.a.f36961d;
             if (animationListener != null) {
-                animationListener2 = this.a.f36805d;
+                animationListener2 = this.a.f36961d;
                 animationListener2.onAnimationRepeat();
             }
         }
@@ -79,9 +79,9 @@ public class b implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            animationListener = this.a.f36805d;
+            animationListener = this.a.f36961d;
             if (animationListener != null) {
-                animationListener2 = this.a.f36805d;
+                animationListener2 = this.a.f36961d;
                 animationListener2.onAnimationStart();
             }
         }

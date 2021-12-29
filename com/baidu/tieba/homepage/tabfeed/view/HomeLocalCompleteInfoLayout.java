@@ -8,9 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import c.a.l.q;
-import c.a.s0.o1.j.c;
+import c.a.t0.o1.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
@@ -27,13 +27,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f45919e;
+    public TextView f46117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f45920f;
+    public EMTextView f46118f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f45921g;
+    public ImageView f46119g;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -41,7 +41,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomeLocalCompleteInfoLayout f45922e;
+        public final /* synthetic */ HomeLocalCompleteInfoLayout f46120e;
 
         public a(HomeLocalCompleteInfoLayout homeLocalCompleteInfoLayout) {
             Interceptable interceptable = $ic;
@@ -58,17 +58,17 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
                     return;
                 }
             }
-            this.f45922e = homeLocalCompleteInfoLayout;
+            this.f46120e = homeLocalCompleteInfoLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45922e.getContext() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46120e.getContext() == null) {
                 return;
             }
-            c.f();
-            PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.f45922e.getContext());
+            c.g();
+            PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.f46120e.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
         }
@@ -99,32 +99,32 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, m.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, n.f(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int f2 = m.f(getContext(), R.dimen.M_W_X005);
+            int f2 = n.f(getContext(), R.dimen.M_W_X005);
             setPadding(f2, 0, f2, 0);
             TextView textView = new TextView(getContext());
-            this.f45919e = textView;
+            this.f46117e = textView;
             textView.setText(getContext().getString(R.string.home_local_complete_info_title));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
-            addView(this.f45919e, layoutParams);
+            addView(this.f46117e, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
-            this.f45920f = eMTextView;
+            this.f46118f = eMTextView;
             eMTextView.setText(getContext().getString(R.string.home_local_go_complete));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, m.f(getContext(), R.dimen.tbds75));
-            int f3 = m.f(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(f3, m.f(getContext(), R.dimen.M_H_X005), f3, m.f(getContext(), R.dimen.tbds38));
-            int f4 = m.f(getContext(), R.dimen.M_W_X007);
-            this.f45920f.setGravity(16);
-            this.f45920f.setPadding(f4, 0, f4, 0);
-            addView(this.f45920f, layoutParams2);
-            this.f45920f.setOnClickListener(new a(this));
-            this.f45921g = new ImageView(getContext());
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds75));
+            int f3 = n.f(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(f3, n.f(getContext(), R.dimen.M_H_X005), f3, n.f(getContext(), R.dimen.tbds38));
+            int f4 = n.f(getContext(), R.dimen.M_W_X007);
+            this.f46118f.setGravity(16);
+            this.f46118f.setPadding(f4, 0, f4, 0);
+            addView(this.f46118f, layoutParams2);
+            this.f46118f.setOnClickListener(new a(this));
+            this.f46119g = new ImageView(getContext());
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds57);
-            addView(this.f45921g, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
+            addView(this.f46119g, new LinearLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
         }
     }
 
@@ -132,16 +132,16 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            TextView textView = this.f45919e;
+            TextView textView = this.f46117e;
             if (textView != null) {
-                c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(textView);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(textView);
                 d2.v(R.color.CAM_X0105);
                 d2.z(R.dimen.T_X06);
                 d2.A(R.string.F_X01);
             }
-            EMTextView eMTextView = this.f45920f;
+            EMTextView eMTextView = this.f46118f;
             if (eMTextView != null) {
-                c.a.r0.s.v.c d3 = c.a.r0.s.v.c.d(eMTextView);
+                c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(eMTextView);
                 d3.v(R.color.CAM_X0302);
                 d3.z(R.dimen.T_X08);
                 d3.A(R.string.F_X01);
@@ -149,11 +149,11 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
                 d3.l(R.dimen.L_X02);
                 d3.k(R.color.CAM_X0302);
             }
-            ImageView imageView = this.f45921g;
+            ImageView imageView = this.f46119g;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            c.a.r0.s.v.c d4 = c.a.r0.s.v.c.d(this);
+            c.a.s0.s.u.c d4 = c.a.s0.s.u.c.d(this);
             d4.n(R.string.J_X06);
             d4.f(R.color.CAM_X0205);
         }
@@ -162,7 +162,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements q {
     public void setCloseClickListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (imageView = this.f45921g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (imageView = this.f46119g) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);

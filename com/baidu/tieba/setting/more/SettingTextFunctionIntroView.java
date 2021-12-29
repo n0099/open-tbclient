@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d.f.p.m;
-import c.a.r0.s.g0.b;
+import c.a.d.f.p.n;
+import c.a.s0.s.g0.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.VersionData;
@@ -56,7 +56,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, m.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -93,6 +93,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, m.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
     }
 }

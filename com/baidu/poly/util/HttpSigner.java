@@ -1,7 +1,7 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import c.a.g0.l.b;
+import c.a.h0.l.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class HttpSigner {
             sb.append(str);
             sb.append("=");
             sb.append(nativeGetStatisticsKey(i2));
-            return c.a.g0.m.i.b.c(sb.toString());
+            return c.a.h0.m.i.b.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
@@ -103,7 +103,7 @@ public class HttpSigner {
         sb.append(nativeGetCommissionSk());
         sb.append("&");
         sb.append(bVar.a("timestamp"));
-        bVar.d("sign", c.a.g0.m.i.b.c(sb.toString()));
+        bVar.d("sign", c.a.h0.m.i.b.c(sb.toString()));
     }
 
     public static native String nativeGetAppId(int i2);

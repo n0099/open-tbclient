@@ -2,10 +2,10 @@ package com.baidu.tieba.write.vcode.newVcode;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.t.c.m0;
-import c.a.s0.n4.c0.a.a.a;
-import c.a.s0.n4.c0.a.a.b;
-import c.a.s0.n4.c0.a.a.c;
+import c.a.s0.t.c.m0;
+import c.a.t0.o4.c0.a.a.a;
+import c.a.t0.o4.c0.a.a.b;
+import c.a.t0.o4.c0.a.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         WriteData writeData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (writeData = this.mWriteData) != null && writeData.getType() == 3) {
-            c.a.r0.s.d0.b.g(getPageContext().getPageActivity(), 200, false);
+            c.a.s0.s.d0.b.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 
@@ -191,7 +191,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             this.mWriteModel = newWriteModel;
             newWriteModel.setWriteData(this.mWriteData);
             if (this.mWriteData.getWriteImagesInfo() != null) {
-                this.mWriteModel.e0(this.mWriteData.getWriteImagesInfo().size() > 0);
+                this.mWriteModel.g0(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
             b vcodePresenterFromType = getVcodePresenterFromType();
             this.mPresenter = vcodePresenterFromType;

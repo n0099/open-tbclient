@@ -1,13 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.a;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,116 +16,57 @@ import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes2.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: com.bytedance.sdk.openadsdk.api.a.c$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(504412083, "Lcom/bytedance/sdk/openadsdk/api/a/c$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(504412083, "Lcom/bytedance/sdk/openadsdk/api/a/c$a;");
-                    return;
-                }
-            }
-            a = new c(null);
-        }
-    }
-
-    public /* synthetic */ c(AnonymousClass1 anonymousClass1) {
-        this();
+        public static final c a = new c();
     }
 
     public static c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (c) invokeV.objValue;
+        return a.a;
     }
 
     private X509TrustManager b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            try {
-                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustManagerFactory.init((KeyStore) null);
-                TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
-                if (trustManagers.length == 1 && (trustManagers[0] instanceof X509TrustManager)) {
-                    return (X509TrustManager) trustManagers[0];
-                }
-                throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
-            } catch (GeneralSecurityException e2) {
-                throw new IOException("No System TLS", e2);
+        try {
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            trustManagerFactory.init((KeyStore) null);
+            TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
+            if (trustManagers.length == 1 && (trustManagers[0] instanceof X509TrustManager)) {
+                return (X509TrustManager) trustManagers[0];
             }
+            throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
+        } catch (GeneralSecurityException e2) {
+            throw new IOException("No System TLS", e2);
         }
-        return (X509TrustManager) invokeV.objValue;
     }
 
     public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0086 */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007e, code lost:
-        if (r6 != null) goto L29;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x007a, code lost:
+        if (r5 != null) goto L27;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0080, code lost:
-        r6.disconnect();
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007c, code lost:
+        r5.disconnect();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x008d, code lost:
-        if (r6 == null) goto L28;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0089, code lost:
+        if (r5 == null) goto L26;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
         return null;
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0095 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [javax.net.ssl.HttpsURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v4 */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0091 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String a(boolean z, String str, byte[] bArr) {
-        InterceptResult invokeCommon;
         HttpsURLConnection httpsURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        ?? r0 = 0;
+        HttpsURLConnection httpsURLConnection2 = null;
         try {
+            URL url = new URL(str);
+            HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
+            httpsURLConnection = (HttpsURLConnection) url.openConnection();
             try {
-                URL url = new URL(str);
-                HttpsURLConnection.setDefaultSSLSocketFactory(a(b()));
-                httpsURLConnection = (HttpsURLConnection) url.openConnection();
                 try {
                     httpsURLConnection.setConnectTimeout(5000);
                     httpsURLConnection.setHostnameVerifier(com.bytedance.sdk.openadsdk.api.a.a.a);
@@ -165,10 +98,10 @@ public class c {
                 }
             } catch (Throwable th) {
                 th = th;
-                r0 = str;
-                if (r0 != 0) {
+                httpsURLConnection2 = httpsURLConnection;
+                if (httpsURLConnection2 != null) {
                     try {
-                        r0.disconnect();
+                        httpsURLConnection2.disconnect();
                     } catch (Exception unused2) {
                     }
                 }
@@ -179,18 +112,13 @@ public class c {
             httpsURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
-            if (r0 != 0) {
+            if (httpsURLConnection2 != null) {
             }
             throw th;
         }
     }
 
     public static byte[] a(InputStream inputStream, int i2) throws IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) != null) {
-            return (byte[]) invokeLI.objValue;
-        }
         if (inputStream == null) {
             return null;
         }
@@ -212,35 +140,25 @@ public class c {
     }
 
     public static String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str != null) {
-                String[] split = str.split(";", 0);
-                for (int i2 = 1; i2 < split.length; i2++) {
-                    String[] split2 = split[i2].trim().split("=", 0);
-                    if (split2.length == 2 && split2[0].equals("charset")) {
-                        return split2[1];
-                    }
+        if (str != null) {
+            String[] split = str.split(";", 0);
+            for (int i2 = 1; i2 < split.length; i2++) {
+                String[] split2 = split[i2].trim().split("=", 0);
+                if (split2.length == 2 && split2[0].equals("charset")) {
+                    return split2[1];
                 }
             }
-            return str2;
         }
-        return (String) invokeLL.objValue;
+        return str2;
     }
 
     private SSLSocketFactory a(X509TrustManager x509TrustManager) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, x509TrustManager)) == null) {
-            try {
-                SSLContext sSLContext = SSLContext.getInstance("TLS");
-                sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
-                return sSLContext.getSocketFactory();
-            } catch (GeneralSecurityException e2) {
-                throw new IOException("No System TLS", e2);
-            }
+        try {
+            SSLContext sSLContext = SSLContext.getInstance("TLS");
+            sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
+            return sSLContext.getSocketFactory();
+        } catch (GeneralSecurityException e2) {
+            throw new IOException("No System TLS", e2);
         }
-        return (SSLSocketFactory) invokeL.objValue;
     }
 }

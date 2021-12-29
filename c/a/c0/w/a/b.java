@@ -34,34 +34,34 @@ public final class b extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final StringColumn f2134b;
+    public final StringColumn f2561b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final IntegerColumn f2135c;
+    public final IntegerColumn f2562c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final IntegerColumn f2136d;
+    public final IntegerColumn f2563d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final StringColumn f2137e;
+    public final StringColumn f2564e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final StringColumn f2138f;
+    public final StringColumn f2565f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final StringColumn f2139g;
+    public final StringColumn f2566g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final IntegerColumn f2140h;
+    public final IntegerColumn f2567h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final IntegerColumn f2141i;
+    public final IntegerColumn f2568i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final LongColumn f2142j;
+    public final LongColumn f2569j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final LongColumn f2143k;
+    public final LongColumn f2570k;
     public final StringColumn l;
     public final StringColumn m;
     public final StringColumn n;
@@ -112,21 +112,21 @@ public final class b extends j {
                 return;
             }
         }
-        this.f2134b = new StringColumn(p);
-        this.f2135c = new IntegerColumn(q);
-        this.f2136d = new IntegerColumn(r);
-        this.f2137e = new StringColumn(s);
-        this.f2138f = new StringColumn(t);
-        this.f2139g = new StringColumn(u);
-        this.f2140h = new IntegerColumn(v);
-        this.f2141i = new IntegerColumn(w);
-        this.f2142j = new LongColumn(x);
-        this.f2143k = new LongColumn(y);
+        this.f2561b = new StringColumn(p);
+        this.f2562c = new IntegerColumn(q);
+        this.f2563d = new IntegerColumn(r);
+        this.f2564e = new StringColumn(s);
+        this.f2565f = new StringColumn(t);
+        this.f2566g = new StringColumn(u);
+        this.f2567h = new IntegerColumn(v);
+        this.f2568i = new IntegerColumn(w);
+        this.f2569j = new LongColumn(x);
+        this.f2570k = new LongColumn(y);
         this.l = new StringColumn(z);
         this.m = new StringColumn(A);
         StringColumn stringColumn = new StringColumn(B);
         this.n = stringColumn;
-        this.o = new Column[]{this.f2134b, this.f2135c, this.f2136d, this.f2137e, this.f2138f, this.f2139g, this.f2140h, this.f2141i, this.f2142j, this.f2143k, this.l, this.m, stringColumn};
+        this.o = new Column[]{this.f2561b, this.f2562c, this.f2563d, this.f2564e, this.f2565f, this.f2566g, this.f2567h, this.f2568i, this.f2569j, this.f2570k, this.l, this.m, stringColumn};
     }
 
     @Override // c.a.c0.z.j

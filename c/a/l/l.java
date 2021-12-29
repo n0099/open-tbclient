@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.s.r.a l;
+    public c.a.s0.s.q.a l;
     public ForumGoodsEnterLayout m;
     public int n;
     public final View.OnClickListener o;
@@ -27,7 +27,7 @@ public class l extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f3839e;
+        public final /* synthetic */ l f4254e;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class l extends h {
                     return;
                 }
             }
-            this.f3839e = lVar;
+            this.f4254e = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3839e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4254e.c() == null) {
                 return;
             }
-            this.f3839e.c().a(view, this.f3839e.l);
+            this.f4254e.c().a(view, this.f4254e.l);
         }
     }
 
@@ -76,8 +76,8 @@ public class l extends h {
             }
         }
         this.o = new a(this);
-        int f2 = c.a.d.f.p.m.f(context, R.dimen.M_H_X003);
-        int f3 = c.a.d.f.p.m.f(context, c.a.r0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
+        int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
+        int f3 = c.a.d.f.p.n.f(context, c.a.s0.b.g.b.e(R.dimen.tbds21, R.dimen.tbds0));
         q(f2);
         p(f3);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
@@ -103,7 +103,7 @@ public class l extends h {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int f2 = c.a.d.f.p.m.f(this.f3796f, R.dimen.M_H_X003);
+            int f2 = c.a.d.f.p.n.f(this.f4211f, R.dimen.M_H_X003);
             q(f2);
             p(0);
             v(this.m, f2, 0);
@@ -113,11 +113,11 @@ public class l extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.l = aVar;
-            this.m.setSourceForPb(this.f3795e.i());
+            this.m.setSourceForPb(this.f4210e.i());
             this.m.setFrstype(this.n);
             this.m.setData(aVar);
         }

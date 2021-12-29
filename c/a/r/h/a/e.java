@@ -8,31 +8,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class e extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f11753d;
+    public b f5040d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Class<?> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f11754b;
+        public Method f5041b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f11755c;
+        public Method f5042c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public final class e extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    return ((Long) this.f11755c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f5042c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new n.a("");
                 }
@@ -72,8 +72,8 @@ public final class e extends d {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
                     this.a = Class.forName(n.a(h.a()), true, Object.class.getClassLoader());
-                    this.f11754b = n.b(this.a, n.a(h.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f11755c = n.b(this.a, n.a(h.c()), null);
+                    this.f5041b = n.b(this.a, n.a(h.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f5042c = n.b(this.a, n.a(h.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -84,7 +84,7 @@ public final class e extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i2, i3) == null) {
                 try {
-                    this.f11754b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f5041b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
                 } catch (Exception unused) {
                     throw new n.a("");
                 }
@@ -114,9 +114,9 @@ public final class e extends d {
             }
         }
         this.a = 32;
-        this.f11751b = i2;
-        this.f11752c = i3;
-        this.f11753d = new b(null);
+        this.f5038b = i2;
+        this.f5039c = i3;
+        this.f5040d = new b(null);
     }
 
     @Override // c.a.r.h.a.d
@@ -126,9 +126,9 @@ public final class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             try {
-                Object g2 = this.f11753d.g();
-                this.f11753d.f(g2, bArr, i2, i3);
-                j2 = this.f11753d.b(g2);
+                Object g2 = this.f5040d.g();
+                this.f5040d.f(g2, bArr, i2, i3);
+                j2 = this.f5040d.b(g2);
             } catch (Exception unused) {
                 j2 = 4294967295L;
             }

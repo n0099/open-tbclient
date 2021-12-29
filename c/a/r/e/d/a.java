@@ -18,16 +18,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class a extends c.a.r.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r.e.a f11620g;
+    public c.a.r.e.a f4907g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11621h;
+    public boolean f4908h;
 
     public a(boolean z) {
         Interceptable interceptable = $ic;
@@ -44,14 +44,14 @@ public class a extends c.a.r.e.a {
                 return;
             }
         }
-        this.f11621h = z;
+        this.f4908h = z;
     }
 
     @Override // c.a.r.e.a
     public void a(String str, Bundle bundle, a.c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
-            this.f11620g.a(str, bundle, cVar);
+            this.f4907g.a(str, bundle, cVar);
         }
     }
 
@@ -59,7 +59,7 @@ public class a extends c.a.r.e.a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f11620g.d();
+            this.f4907g.d();
         }
     }
 
@@ -67,7 +67,7 @@ public class a extends c.a.r.e.a {
     public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f11620g.e(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f4907g.e(str) : invokeL.booleanValue;
     }
 
     @Override // c.a.r.e.a
@@ -75,14 +75,14 @@ public class a extends c.a.r.e.a {
         c.a.r.e.a bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.f11621h ? i() : j()) {
+            if (this.f4908h ? i() : j()) {
                 bVar2 = new c.a.r.e.c.a();
             } else {
-                bVar2 = new b(this.f11621h ? ".helios.ipc.default" : ".helios.ipc.isolate");
+                bVar2 = new b(this.f4908h ? ".helios.ipc.default" : ".helios.ipc.isolate");
             }
-            this.f11620g = bVar2;
-            bVar2.b(this.f11590e);
-            this.f11620g.c(bVar);
+            this.f4907g = bVar2;
+            bVar2.b(this.f4877e);
+            this.f4907g.c(bVar);
         }
     }
 
@@ -90,7 +90,7 @@ public class a extends c.a.r.e.a {
     public a.d g(String str, Bundle bundle) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.f11620g.g(str, bundle) : (a.d) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.f4907g.g(str, bundle) : (a.d) invokeLL.objValue;
     }
 
     public final String h() {
@@ -120,7 +120,7 @@ public class a extends c.a.r.e.a {
                 th = th2;
             }
             c.a.r.h.c.a.c.b(bufferedReader);
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f11590e.f11593c.getSystemService("activity")).getRunningAppProcesses();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.f4877e.f4880c.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                     if (runningAppProcessInfo.pid == Process.myPid()) {
@@ -142,7 +142,7 @@ public class a extends c.a.r.e.a {
             if (h2 == null) {
                 return true;
             }
-            Context context = this.f11590e.f11593c;
+            Context context = this.f4877e.f4880c;
             String str = context.getApplicationInfo().processName;
             if (TextUtils.isEmpty(str)) {
                 str = context.getPackageName();

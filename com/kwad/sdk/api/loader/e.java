@@ -6,11 +6,6 @@ import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.core.RequestParamsUtils;
@@ -30,8 +25,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -41,7 +34,7 @@ public class e {
     public int f57577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f57578d;
+    public Map<String, String> f57578d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
     public IKsAdSDK f57579e;
@@ -54,184 +47,156 @@ public class e {
     }
 
     public e(String str, IKsAdSDK iKsAdSDK) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iKsAdSDK};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f57578d = new HashMap();
         this.f57576b = str;
         this.a = str;
         this.f57579e = iKsAdSDK;
     }
 
     private String a() {
-        InterceptResult invokeV;
         int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            String valueOf = String.valueOf(Loader.get().a(Loader.get().getContext()));
-            IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
-            if (ksAdSDKImpl != null) {
-                if (TextUtils.isEmpty(valueOf)) {
-                    valueOf = ksAdSDKImpl.getSDKVersion();
-                }
-                i2 = ksAdSDKImpl.getSDKVersionCode();
-            } else {
-                i2 = -1;
+        String valueOf = String.valueOf(Loader.get().a(Loader.get().getContext()));
+        IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
+        if (ksAdSDKImpl != null) {
+            if (TextUtils.isEmpty(valueOf)) {
+                valueOf = ksAdSDKImpl.getSDKVersion();
             }
-            JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
-            JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
-            JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("sdkApiVersion", "3.3.17.4");
-                jSONObject.put("sdkApiVersionCode", 3031704);
-                jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
-                jSONObject.put("SDKVersionCode", i2);
-                jSONObject.put("sdkType", 1);
-                jSONObject.put(DI.APP_INFO_NAME, appInfo);
-                jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
-                jSONObject.put("networkInfo", networkInfo);
-                jSONObject.put("sdkAbi", s.b());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            if (this.f57579e != null) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("version", "3.3.17.4");
-                    jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                    jSONObject2.put("message", this.f57579e.getRM(jSONObject.toString()));
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                }
-                this.f57579e.sR(this.f57576b.replace("https://open.e.kuaishou.com", ""), this.f57578d, jSONObject2.toString());
-                return jSONObject2.toString();
-            }
-            return jSONObject.toString();
+            i2 = ksAdSDKImpl.getSDKVersionCode();
+        } else {
+            i2 = -1;
         }
-        return (String) invokeV.objValue;
+        JSONObject appInfo = Loader.get().getKsAdSDKImpl().getAppInfo();
+        JSONObject deviceInfo = Loader.get().getKsAdSDKImpl().getDeviceInfo();
+        JSONObject networkInfo = Loader.get().getKsAdSDKImpl().getNetworkInfo();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("sdkApiVersion", "3.3.17.4");
+            jSONObject.put("sdkApiVersionCode", 3031704);
+            jSONObject.put(CommandMessage.SDK_VERSION, valueOf);
+            jSONObject.put("SDKVersionCode", i2);
+            jSONObject.put("sdkType", 1);
+            jSONObject.put(DI.APP_INFO_NAME, appInfo);
+            jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
+            jSONObject.put("networkInfo", networkInfo);
+            jSONObject.put("sdkAbi", s.b());
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        if (this.f57579e != null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("version", "3.3.17.4");
+                jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
+                jSONObject2.put("message", this.f57579e.getRM(jSONObject.toString()));
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+            this.f57579e.sR(this.f57576b.replace("https://open.e.kuaishou.com", ""), this.f57578d, jSONObject2.toString());
+            return jSONObject2.toString();
+        }
+        return jSONObject.toString();
     }
 
     public static String a(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[1024];
+        while (true) {
+            try {
                 try {
-                    try {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                            return null;
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                            return null;
-                        }
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
                     }
-                } finally {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } catch (Throwable th) {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                if (inputStream != null) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
+                try {
+                    byteArrayOutputStream.close();
+                    return null;
+                } catch (IOException e6) {
+                    e6.printStackTrace();
+                    return null;
+                }
             }
-            return new String(byteArrayOutputStream.toByteArray());
         }
-        return (String) invokeL.objValue;
+        String str = new String(byteArrayOutputStream.toByteArray());
+        if (inputStream != null) {
+            try {
+                inputStream.close();
+            } catch (IOException e7) {
+                e7.printStackTrace();
+            }
+        }
+        try {
+            byteArrayOutputStream.close();
+        } catch (IOException e8) {
+            e8.printStackTrace();
+        }
+        return str;
     }
 
     private URLConnection a(String str, int i2, int i3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            URLConnection openConnection = new URL(str).openConnection();
-            TLSConnectionUtils.wrapHttpURLConnection(openConnection);
-            a("Accept-Language", "zh-CN");
-            if (i2 > 0) {
-                openConnection.setConnectTimeout(i2);
-            }
-            if (i3 > 0) {
-                openConnection.setReadTimeout(i3);
-            }
-            openConnection.setUseCaches(z);
-            openConnection.setDoInput(true);
-            a(HTTP.CONN_DIRECTIVE, "keep-alive");
-            a(BOSTokenRequest.CHARSET, "UTF-8");
-            return openConnection;
+        URLConnection openConnection = new URL(str).openConnection();
+        TLSConnectionUtils.wrapHttpURLConnection(openConnection);
+        a("Accept-Language", "zh-CN");
+        if (i2 > 0) {
+            openConnection.setConnectTimeout(i2);
         }
-        return (URLConnection) invokeCommon.objValue;
+        if (i3 > 0) {
+            openConnection.setReadTimeout(i3);
+        }
+        openConnection.setUseCaches(z);
+        openConnection.setDoInput(true);
+        a(HTTP.CONN_DIRECTIVE, "keep-alive");
+        a(BOSTokenRequest.CHARSET, "UTF-8");
+        return openConnection;
     }
 
     private void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, str, str2) == null) {
-            this.f57578d.put(str, str2);
-        }
+        this.f57578d.put(str, str2);
     }
 
     @Nullable
     private HttpURLConnection b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.a, 10000, 30000, false);
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setInstanceFollowRedirects(true);
-            a("Content-Type", "application/json; charset=UTF-8");
-            a("User-Agent", RequestParamsUtils.getUserAgent());
-            IKsAdSDK iKsAdSDK = this.f57579e;
-            if (iKsAdSDK != null) {
-                iKsAdSDK.addHp(this.f57578d);
-            }
-            return httpURLConnection;
+        if (TextUtils.isEmpty(this.a)) {
+            return null;
         }
-        return (HttpURLConnection) invokeV.objValue;
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.a, 10000, 30000, false);
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        httpURLConnection.setInstanceFollowRedirects(true);
+        a("Content-Type", "application/json; charset=UTF-8");
+        a("User-Agent", RequestParamsUtils.getUserAgent());
+        IKsAdSDK iKsAdSDK = this.f57579e;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.addHp(this.f57578d);
+        }
+        return httpURLConnection;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(65543, this, aVar) != null) {
-            return;
-        }
         HttpURLConnection httpURLConnection = null;
         try {
             try {
@@ -287,44 +252,12 @@ public class e {
         }
     }
 
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            i.a(new Runnable(this, aVar) { // from class: com.kwad.sdk.api.loader.e.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f57580b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, aVar};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f57580b = this;
-                    this.a = aVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f57580b.b(this.a);
-                    }
-                }
-            });
-        }
+    public void a(final a aVar) {
+        i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.e.1
+            @Override // java.lang.Runnable
+            public void run() {
+                e.this.b(aVar);
+            }
+        });
     }
 }

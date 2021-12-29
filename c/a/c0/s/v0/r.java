@@ -19,10 +19,10 @@ public class r {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f2115b;
+    public static int f2542b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2116c;
+    public static final int f2543c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class r {
             }
         }
         a = c.a.c0.s.d.f();
-        f2115b = -1;
-        f2116c = c.a.c0.e0.a.d.b.a(15.0f);
+        f2542b = -1;
+        f2543c = c.a.c0.e0.a.d.b.a(15.0f);
     }
 
     public static int a(Context context) {
@@ -148,18 +148,18 @@ public class r {
             if (a) {
                 c.a.c0.f.a.e("VideoNotchUtils", "isNotch start");
             }
-            if (f2115b == -1) {
+            if (f2542b == -1) {
                 if (Build.VERSION.SDK_INT < 24) {
-                    f2115b = 0;
-                } else if (f2115b == -1) {
-                    f2115b = a(context);
+                    f2542b = 0;
+                } else if (f2542b == -1) {
+                    f2542b = a(context);
                     c.a.c0.f.a.e("VideoNotchUtils", "isNotch from getNotchState");
                 }
             }
             if (a) {
                 c.a.c0.f.a.e("VideoNotchUtils", "isNotch end");
             }
-            return f2115b == 1;
+            return f2542b == 1;
         }
         return invokeL.booleanValue;
     }
@@ -183,8 +183,8 @@ public class r {
     public static void j(@NonNull c.a.c0.s.j0.o oVar, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65546, null, oVar, i2, i3) == null) {
-            int max = Math.max(i2, f2116c);
-            int max2 = Math.max(i3, f2116c);
+            int max = Math.max(i2, f2543c);
+            int max2 = Math.max(i3, f2543c);
             if (oVar.getContentView() == null || !(oVar.getContentView() instanceof ViewGroup)) {
                 return;
             }

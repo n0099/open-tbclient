@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,7 +112,7 @@ public abstract class IMMediaBaseHttpRequest extends BaseHttpRequest {
             jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
             return jSONObject;

@@ -20,7 +20,7 @@ public final class b {
             synchronized (b.class) {
                 hashMap = new HashMap();
                 String a = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
-                String a2 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31677g, "");
+                String a2 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f31820g, "");
                 String a3 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
                 String a4 = com.alipay.security.mobile.module.a.a.a(map, "appName", "");
                 String a5 = com.alipay.security.mobile.module.a.a.a(map, "appKeyClient", "");

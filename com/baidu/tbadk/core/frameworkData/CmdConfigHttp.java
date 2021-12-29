@@ -82,6 +82,7 @@ public class CmdConfigHttp {
     public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
+    public static final int CMD_FETCH_STAMP = 1003522;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FOLLOW_SWITCH = 1002005;
     public static final int CMD_FORUM_BROADCAST_MAJOR_HISTORY = 1003471;
@@ -139,6 +140,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_IMAGE_WATERMARK_TYPE = 1003448;
     public static final int CMD_GET_INTEREST_LABEL_LIST = 1003333;
     public static final int CMD_GET_LEVLE_INFO = 1001710;
+    public static final int CMD_GET_LOCAL_CHANNEL_TOPIC_LIST = 1003521;
     public static final int CMD_GET_LOCAL_PUSH_DATA = 1003416;
     public static final int CMD_GET_MANGA_COVER = 1003097;
     public static final int CMD_GET_MERCATOR = 1003456;
@@ -224,6 +226,7 @@ public class CmdConfigHttp {
     public static final int CMD_NEG_DELETE_THREAD = 1003185;
     public static final int CMD_NEG_FEED_BACK = 1003184;
     public static final int CMD_NEW_USER_GET_MONEY = 1003459;
+    public static final int CMD_NOVEL_PAY = 1003523;
     public static final int CMD_OFFICIAL_ACCOUNT_PUSH = 1003419;
     public static final int CMD_PAYMENT_CONFIRM_INFO = 1001536;
     public static final int CMD_PAYMENT_PAY = 1001537;

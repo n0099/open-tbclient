@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.s0.v1.b.a;
+import c.a.d.f.p.n;
+import c.a.t0.v1.b.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -30,16 +30,16 @@ public class LabelItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46944e;
+    public boolean f47164e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46945f;
+    public int f47165f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46946g;
+    public int f47166g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f46947h;
+    public Paint f47167h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LabelItemView(Context context) {
@@ -74,11 +74,11 @@ public class LabelItemView extends LinearLayout {
             setWeightSum(3.0f);
             setOrientation(0);
             Paint paint = new Paint();
-            this.f46947h = paint;
+            this.f47167h = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f46947h.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f46947h.setStrokeWidth(1.0f);
-            this.f46946g = m.f(getContext(), R.dimen.ds46);
+            this.f47167h.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f47167h.setStrokeWidth(1.0f);
+            this.f47166g = n.f(getContext(), R.dimen.ds46);
             for (int i2 = 0; i2 < 3; i2++) {
                 addView(a());
             }
@@ -92,15 +92,15 @@ public class LabelItemView extends LinearLayout {
             super.dispatchDraw(canvas);
             int width = getWidth() / 3;
             int height = getHeight();
-            for (int i2 = 1; i2 < this.f46945f; i2++) {
+            for (int i2 = 1; i2 < this.f47165f; i2++) {
                 int i3 = width * i2;
-                int i4 = this.f46946g;
-                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f46947h);
+                int i4 = this.f47166g;
+                canvas.drawLine(i3, (height - i4) / 2, i3 + 1, (i4 + height) / 2, this.f47167h);
             }
-            if (this.f46944e) {
+            if (this.f47164e) {
                 return;
             }
-            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f46947h);
+            canvas.drawLine(0.0f, height - 1, getWidth(), height, this.f47167h);
         }
     }
 
@@ -110,11 +110,11 @@ public class LabelItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f46944e = z;
-        this.f46945f = Math.min(list.size(), 3);
+        this.f47164e = z;
+        this.f47165f = Math.min(list.size(), 3);
         int i3 = 0;
         while (true) {
-            i2 = this.f46945f;
+            i2 = this.f47165f;
             if (i3 >= i2) {
                 break;
             }
@@ -122,14 +122,14 @@ public class LabelItemView extends LinearLayout {
             if (aVar != null && (getChildAt(i3) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i3);
                 textView.setVisibility(0);
-                String str = aVar.f24722b;
-                if (!StringUtils.isNull(str) && aVar.f24722b.length() > 4) {
-                    str = aVar.f24722b.substring(0, 3) + "...";
+                String str = aVar.f25234b;
+                if (!StringUtils.isNull(str) && aVar.f25234b.length() > 4) {
+                    str = aVar.f25234b.substring(0, 3) + "...";
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(aVar.f24723c);
+                textView.setSelected(aVar.f25235c);
                 textView.setTag(aVar);
             }
             i3++;

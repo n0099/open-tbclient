@@ -2,41 +2,25 @@ package com.kwad.sdk.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.api.core.ResContext;
 /* loaded from: classes3.dex */
 public class am {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static int a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            Resources a = a(context);
-            if (a == null) {
-                a = context.getResources();
-            }
-            return a.getIdentifier(str, "drawable", context.getPackageName());
+        Resources a = a(context);
+        if (a == null) {
+            a = context.getResources();
         }
-        return invokeLL.intValue;
+        return a.getIdentifier(str, "drawable", context.getPackageName());
     }
 
     public static Resources a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof ResContext) {
-                applicationContext = ((ResContext) applicationContext).getDelegatedContext();
-            }
-            return applicationContext.getResources();
+        if (context == null) {
+            return null;
         }
-        return (Resources) invokeL.objValue;
+        Context applicationContext = context.getApplicationContext();
+        if (applicationContext instanceof ResContext) {
+            applicationContext = ((ResContext) applicationContext).getDelegatedContext();
+        }
+        return applicationContext.getResources();
     }
 }

@@ -20,10 +20,10 @@ public class b extends BaseBean<CouponDetailResponse> {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54641b;
+    public String f54644b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54642c;
+    public String f54645c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -55,14 +55,14 @@ public class b extends BaseBean<CouponDetailResponse> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f54641b = str;
+            this.f54644b = str;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f54642c = str;
+            this.f54645c = str;
         }
     }
 
@@ -81,8 +81,8 @@ public class b extends BaseBean<CouponDetailResponse> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("card_type", "" + this.a));
-            arrayList.add(new RestNameValuePair("coupon_num", this.f54641b));
-            arrayList.add(new RestNameValuePair("template_num", this.f54642c));
+            arrayList.add(new RestNameValuePair("coupon_num", this.f54644b));
+            arrayList.add(new RestNameValuePair("template_num", this.f54645c));
             arrayList.add(new RestNameValuePair("is_new_type", "1"));
             return arrayList;
         }

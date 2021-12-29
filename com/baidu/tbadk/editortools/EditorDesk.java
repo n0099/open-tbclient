@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.d.f.p.m;
-import c.a.r0.x.h;
-import c.a.r0.x.n;
+import c.a.s0.x.h;
+import c.a.s0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -29,22 +28,22 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinkedList<h> f42221f;
+    public LinkedList<h> f42387f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinkedList<n> f42222g;
+    public LinkedList<n> f42388g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Integer> f42223h;
+    public List<Integer> f42389h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f42224i;
+    public List<Integer> f42390i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42225j;
+    public int f42391j;
 
     /* renamed from: k  reason: collision with root package name */
-    public n f42226k;
+    public n f42392k;
     public boolean l;
     public boolean m;
     public EditorTools n;
@@ -56,7 +55,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorDesk f42227e;
+        public final /* synthetic */ EditorDesk f42393e;
 
         public a(EditorDesk editorDesk) {
             Interceptable interceptable = $ic;
@@ -73,16 +72,16 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                     return;
                 }
             }
-            this.f42227e = editorDesk;
+            this.f42393e = editorDesk;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42227e.f42226k == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f42393e.f42392k == null) {
                 return;
             }
-            this.f42227e.f42226k.display();
+            this.f42393e.f42392k.display();
         }
     }
 
@@ -104,41 +103,41 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                 return;
             }
         }
-        this.f42223h = new LinkedList();
-        this.f42224i = new LinkedList();
-        this.f42225j = R.color.CAM_X0206;
-        this.f42226k = null;
+        this.f42389h = new LinkedList();
+        this.f42390i = new LinkedList();
+        this.f42391j = R.color.CAM_X0206;
+        this.f42392k = null;
         this.l = true;
         this.m = false;
         this.o = new a(this);
-        this.f42221f = new LinkedList<>();
-        this.f42222g = new LinkedList<>();
+        this.f42387f = new LinkedList<>();
+        this.f42388g = new LinkedList<>();
         this.n = editorTools;
-        this.f42223h.add(2);
-        this.f42223h.add(5);
-        this.f42223h.add(6);
-        this.f42224i.add(12);
-        this.f42224i.add(16);
+        this.f42389h.add(2);
+        this.f42389h.add(5);
+        this.f42389h.add(6);
+        this.f42390i.add(12);
+        this.f42390i.add(16);
     }
 
     public void addLauncher(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hVar) == null) {
-            this.f42221f.add(hVar);
+            this.f42387f.add(hVar);
         }
     }
 
     public void addToolView(n nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar) == null) {
-            this.f42222g.add(nVar);
+            this.f42388g.add(nVar);
         }
     }
 
     public void build() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Iterator<n> it = this.f42222g.iterator();
+            Iterator<n> it = this.f42388g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next.getToolId() == 2) {
@@ -158,7 +157,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public final void c(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) && (nVar instanceof MoreDeskView)) {
-            ((MoreDeskView) nVar).addLaunchers(this.f42221f);
+            ((MoreDeskView) nVar).addLaunchers(this.f42387f);
             nVar.init();
         }
     }
@@ -166,11 +165,11 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public void changeToKeyboard() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n nVar = this.f42226k;
+            n nVar = this.f42392k;
             if (nVar != null) {
                 nVar.hide();
             }
-            this.f42226k = null;
+            this.f42392k = null;
         }
     }
 
@@ -184,11 +183,11 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
             }
             if ((this.l && f(i2)) || e(i2)) {
                 this.n.hideTools();
-                m.K(getContext(), ((Activity) getContext()).getCurrentFocus());
+                c.a.d.f.p.n.K(getContext(), ((Activity) getContext()).getCurrentFocus());
                 return;
             }
             boolean z = this.m;
-            Iterator<n> it = this.f42222g.iterator();
+            Iterator<n> it = this.f42388g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (!z && TbadkCoreApplication.getInst().isKeyboardHeightCanUsed() && (next instanceof View)) {
@@ -199,7 +198,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                     this.m = true;
                 }
                 if (next.getToolId() == i2) {
-                    this.f42226k = next;
+                    this.f42392k = next;
                     if (this.l) {
                         next.display();
                     }
@@ -212,7 +211,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
                 if (editorTools != null) {
                     editorTools.hideSoftKey();
                 } else {
-                    m.w(getContext(), ((Activity) getContext()).getCurrentFocus());
+                    c.a.d.f.p.n.w(getContext(), ((Activity) getContext()).getCurrentFocus());
                 }
                 e.a().postDelayed(this.o, 250L);
             }
@@ -223,9 +222,9 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f42226k = null;
-            this.f42221f.clear();
-            this.f42222g.clear();
+            this.f42392k = null;
+            this.f42387f.clear();
+            this.f42388g.clear();
         }
     }
 
@@ -233,7 +232,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            Iterator<n> it = this.f42222g.iterator();
+            Iterator<n> it = this.f42388g.iterator();
             while (it.hasNext()) {
                 if (it.next().getToolId() == i2) {
                     return true;
@@ -255,8 +254,8 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            n nVar = this.f42226k;
-            return nVar != null && nVar.getToolId() != i2 && 2 == i2 && this.f42224i.contains(Integer.valueOf(this.f42226k.getToolId()));
+            n nVar = this.f42392k;
+            return nVar != null && nVar.getToolId() != i2 && 2 == i2 && this.f42390i.contains(Integer.valueOf(this.f42392k.getToolId()));
         }
         return invokeI.booleanValue;
     }
@@ -265,8 +264,8 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            n nVar = this.f42226k;
-            return nVar != null && nVar.getToolId() == i2 && this.f42223h.contains(Integer.valueOf(this.f42226k.getToolId()));
+            n nVar = this.f42392k;
+            return nVar != null && nVar.getToolId() == i2 && this.f42389h.contains(Integer.valueOf(this.f42392k.getToolId()));
         }
         return invokeI.booleanValue;
     }
@@ -275,7 +274,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            Iterator<h> it = this.f42221f.iterator();
+            Iterator<h> it = this.f42387f.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next.getToolId() == i2) {
@@ -291,7 +290,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            Iterator<n> it = this.f42222g.iterator();
+            Iterator<n> it = this.f42388g.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next.getToolId() == i2) {
@@ -307,7 +306,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            Iterator<n> it = this.f42222g.iterator();
+            Iterator<n> it = this.f42388g.iterator();
             while (it.hasNext()) {
                 if (((View) it.next()).getVisibility() == 0) {
                     return true;
@@ -329,18 +328,18 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            n nVar = this.f42226k;
+            n nVar = this.f42392k;
             if (nVar != null) {
                 nVar.hide();
             }
-            this.f42226k = null;
+            this.f42392k = null;
             setVisibility(8);
         }
     }
 
     public void hideWhenKeyboardNotShow() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f42226k == null) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f42392k == null) {
             setVisibility(8);
         }
     }
@@ -354,15 +353,15 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            int i3 = this.f42225j;
+            int i3 = this.f42391j;
             if (i3 > 0) {
                 SkinManager.setBackgroundColor(this, i3, i2);
             }
-            Iterator<h> it = this.f42221f.iterator();
+            Iterator<h> it = this.f42387f.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i2);
             }
-            Iterator<n> it2 = this.f42222g.iterator();
+            Iterator<n> it2 = this.f42388g.iterator();
             while (it2.hasNext()) {
                 n next = it2.next();
                 if (next != null) {
@@ -408,14 +407,14 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
             super.setBackgroundColor(getContext().getResources().getColor(i2));
-            this.f42225j = i2;
+            this.f42391j = i2;
         }
     }
 
     public void setDeskLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            Iterator<h> it = this.f42221f.iterator();
+            Iterator<h> it = this.f42387f.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next != null && (next instanceof View)) {
@@ -429,7 +428,7 @@ public class EditorDesk extends KPSwitchFSPanelFrameLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            Iterator<h> it = this.f42221f.iterator();
+            Iterator<h> it = this.f42387f.iterator();
             while (it.hasNext()) {
                 h next = it.next();
                 if (next instanceof View) {

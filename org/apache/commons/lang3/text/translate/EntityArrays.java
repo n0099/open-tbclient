@@ -1,7 +1,6 @@
 package org.apache.commons.lang3.text.translate;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ public class EntityArrays {
         String[][] strArr4 = {new String[]{"'", "&apos;"}};
         APOS_ESCAPE = strArr4;
         APOS_UNESCAPE = invert(strArr4);
-        String[][] strArr5 = {new String[]{"\b", "\\b"}, new String[]{StringUtils.LF, "\\n"}, new String[]{TrackUI.SEPERATOR, "\\t"}, new String[]{"\f", "\\f"}, new String[]{StringUtils.CR, "\\r"}};
+        String[][] strArr5 = {new String[]{"\b", "\\b"}, new String[]{StringUtils.LF, "\\n"}, new String[]{"\t", "\\t"}, new String[]{"\f", "\\f"}, new String[]{StringUtils.CR, "\\r"}};
         JAVA_CTRL_CHARS_ESCAPE = strArr5;
         JAVA_CTRL_CHARS_UNESCAPE = invert(strArr5);
     }

@@ -16,10 +16,10 @@ public class DeskLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42331e;
+    public View f42505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42332f;
+    public boolean f42506f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeskLinearLayout(Context context) {
@@ -46,10 +46,10 @@ public class DeskLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f42332f) {
+            if (this.f42506f) {
                 canvas.save();
-                canvas.translate(this.f42331e.getLeft(), this.f42331e.getTop());
-                this.f42331e.draw(canvas);
+                canvas.translate(this.f42505e.getLeft(), this.f42505e.getTop());
+                this.f42505e.draw(canvas);
                 canvas.restore();
             }
         }
@@ -61,12 +61,12 @@ public class DeskLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
             View childAt = getChildAt(0);
-            if (this.f42331e == null || childAt == null) {
+            if (this.f42505e == null || childAt == null) {
                 return;
             }
-            int measuredWidth = childAt.getMeasuredWidth() - this.f42331e.getMeasuredWidth();
-            View view = this.f42331e;
-            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f42331e.getMeasuredHeight());
+            int measuredWidth = childAt.getMeasuredWidth() - this.f42505e.getMeasuredWidth();
+            View view = this.f42505e;
+            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f42505e.getMeasuredHeight());
         }
     }
 
@@ -75,9 +75,9 @@ public class DeskLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            View view = this.f42331e;
+            View view = this.f42505e;
             if (view != null) {
-                this.f42331e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f42331e.getLayoutParams().height));
+                this.f42505e.measure(LinearLayout.getChildMeasureSpec(i2, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i3, 0, this.f42505e.getLayoutParams().height));
             }
         }
     }
@@ -85,14 +85,14 @@ public class DeskLinearLayout extends LinearLayout {
     public void setNewView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f42331e = view;
+            this.f42505e = view;
         }
     }
 
     public void setNewViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f42332f = z;
+            this.f42506f = z;
             invalidate();
         }
     }

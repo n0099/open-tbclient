@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdSoundGate {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f33765c;
+    public static BdSoundGate f33921c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33766b;
+    public int f33922b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,10 +57,10 @@ public class BdSoundGate {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f33765c == null) {
-                f33765c = new BdSoundGate();
+            if (f33921c == null) {
+                f33921c = new BdSoundGate();
             }
-            return f33765c;
+            return f33921c;
         }
         return (BdSoundGate) invokeV.objValue;
     }
@@ -76,13 +76,13 @@ public class BdSoundGate {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33766b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33922b : invokeV.intValue;
     }
 
     public void c(int i2, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.f33766b = i2;
+            this.f33922b = i2;
             this.a = getChanger(i2, f2, f3, f4);
         }
     }

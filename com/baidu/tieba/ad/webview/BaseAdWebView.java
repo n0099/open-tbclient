@@ -19,7 +19,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.m.f;
+import c.a.s0.m.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ad.download.AdDownloadData;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseAdWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUESTCODE_FILECHOOSER = 15689;
@@ -40,7 +40,7 @@ public abstract class BaseAdWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f43116e;
+    public e f43304e;
     public Context mContext;
     public DownloadCacheKey mDownloadCacheKey;
     public boolean mDownloadPicOnLoad;
@@ -50,13 +50,13 @@ public abstract class BaseAdWebView extends WebView {
     public BaseAdWebView mWebview;
     public String mWebviewUrl;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseAdWebView f43117c;
+        public final /* synthetic */ BaseAdWebView f43305c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BaseAdWebView baseAdWebView, BaseAdWebView baseAdWebView2, Activity activity) {
@@ -77,7 +77,7 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.f43117c = baseAdWebView;
+            this.f43305c = baseAdWebView;
         }
 
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
@@ -97,7 +97,7 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,14 +133,14 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BaseAdWebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f43118b;
+        public Activity f43306b;
 
         public c(BaseAdWebView baseAdWebView, Activity activity) {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public abstract class BaseAdWebView extends WebView {
                 }
             }
             this.a = baseAdWebView;
-            this.f43118b = activity;
+            this.f43306b = activity;
         }
 
         @Override // android.webkit.WebViewClient
@@ -201,15 +201,15 @@ public abstract class BaseAdWebView extends WebView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
                 super.shouldOverrideUrlLoading(webView, str);
                 try {
-                    if (this.f43118b != null) {
+                    if (this.f43306b != null) {
                         if (str.startsWith("tel:")) {
-                            this.f43118b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f43306b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                             return true;
                         } else if (str.startsWith(BaseAdWebView.SCHEME_WTAI_MC)) {
-                            this.f43118b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            this.f43306b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                            this.f43118b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            this.f43306b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                             return true;
                         }
                     }
@@ -222,12 +222,12 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface d {
         void onDownloadStart(DownloadCacheKey downloadCacheKey);
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface e {
         void onScrollChanged(int i2, int i3, int i4, int i5);
     }
@@ -408,7 +408,7 @@ public abstract class BaseAdWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048587, this, i2, i3, i4, i5) == null) {
             super.onScrollChanged(i2, i3, i4, i5);
-            e eVar = this.f43116e;
+            e eVar = this.f43304e;
             if (eVar != null) {
                 eVar.onScrollChanged(i2, i3, i4, i5);
             }
@@ -458,7 +458,7 @@ public abstract class BaseAdWebView extends WebView {
     public void setWebViewScrollListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, eVar) == null) {
-            this.f43116e = eVar;
+            this.f43304e = eVar;
         }
     }
 
@@ -469,8 +469,8 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         downloadCacheKey.mDownloadUrl = str;
-        String g2 = c.a.s0.v.l.a.g(str, str2, str3);
-        boolean z = c.a.s0.v.l.a.b(c.a.s0.v.l.a.e(g2), str3) == 3;
+        String g2 = c.a.t0.v.l.a.g(str, str2, str3);
+        boolean z = c.a.t0.v.l.a.b(c.a.t0.v.l.a.e(g2), str3) == 3;
         if (TextUtils.isEmpty(g2)) {
             String[] split = str.split("/");
             g2 = split.length > 1 ? split[split.length - 1] : str;
@@ -479,7 +479,7 @@ public abstract class BaseAdWebView extends WebView {
             }
         }
         this.mDownloadCacheKey.mPackageName = g2;
-        AdDownloadData b2 = c.a.s0.v.g.e.d().b(this.mDownloadCacheKey);
+        AdDownloadData b2 = c.a.t0.v.g.e.d().b(this.mDownloadCacheKey);
         b2.setupPkgName(g2);
         b2.setupDownloadUrl(str);
         handleDownload(this.mDownloadCacheKey, z);

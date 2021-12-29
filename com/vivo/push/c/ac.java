@@ -1,81 +1,61 @@
 package com.vivo.push.c;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class ac extends ab {
+public final class ac implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(com.vivo.push.y yVar) {
-        super(yVar);
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ List f63037b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ List f63038c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f63039d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ aa f63040e;
+
+    public ac(aa aaVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yVar};
+            Object[] objArr = {aaVar, Integer.valueOf(i2), list, list2, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((com.vivo.push.y) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f63040e = aaVar;
+        this.a = i2;
+        this.f63037b = list;
+        this.f63038c = list2;
+        this.f63039d = str;
     }
 
-    @Override // com.vivo.push.v
-    public final void a(com.vivo.push.y yVar) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            com.vivo.push.b.v vVar = (com.vivo.push.b.v) yVar;
-            ArrayList<String> d2 = vVar.d();
-            List<String> e2 = vVar.e();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            ArrayList arrayList3 = new ArrayList();
-            ArrayList arrayList4 = new ArrayList();
-            int h2 = vVar.h();
-            String g2 = vVar.g();
-            if (d2 != null) {
-                for (String str : d2) {
-                    if (str.startsWith("ali/")) {
-                        arrayList2.add(str.replace("ali/", ""));
-                    } else if (str.startsWith("tag/")) {
-                        arrayList.add(str.replace("tag/", ""));
-                    }
-                }
-            }
-            if (e2 != null) {
-                for (String str2 : e2) {
-                    if (str2.startsWith("ali/")) {
-                        arrayList4.add(str2.replace("ali/", ""));
-                    } else if (str2.startsWith("tag/")) {
-                        arrayList3.add(str2.replace("tag/", ""));
-                    }
-                }
-            }
-            if (arrayList.size() > 0 || arrayList3.size() > 0) {
-                if (arrayList.size() > 0) {
-                    com.vivo.push.p.a().a(arrayList);
-                }
-                com.vivo.push.p.a().a(vVar.g(), arrayList3.size() > 0 ? 10000 : h2);
-                com.vivo.push.w.b(new ad(this, h2, arrayList, arrayList3, g2));
-            }
-            if (arrayList2.size() > 0 || arrayList4.size() > 0) {
-                if (arrayList2.size() > 0) {
-                    com.vivo.push.p.a().b((String) arrayList2.get(0));
-                }
-                com.vivo.push.p.a().a(vVar.g(), h2);
-                com.vivo.push.w.b(new ae(this, h2, arrayList2, arrayList4, g2));
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            aa aaVar = this.f63040e;
+            PushMessageCallback pushMessageCallback = ((z) aaVar).f63061b;
+            context = aaVar.a;
+            pushMessageCallback.onSetAlias(context, this.a, this.f63037b, this.f63038c, this.f63039d);
         }
     }
 }

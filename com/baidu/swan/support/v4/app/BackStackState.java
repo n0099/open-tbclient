@@ -3,8 +3,8 @@ package com.baidu.swan.support.v4.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.q0.r.a.a.f;
-import c.a.q0.r.a.a.n;
+import c.a.r0.r.a.a.f;
+import c.a.r0.r.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -101,39 +101,39 @@ public final class BackStackState implements Parcelable {
             }
         }
         int i4 = 0;
-        for (f.d dVar = fVar.f11179f; dVar != null; dVar = dVar.a) {
-            ArrayList<Fragment> arrayList = dVar.f11204i;
+        for (f.d dVar = fVar.f11914f; dVar != null; dVar = dVar.a) {
+            ArrayList<Fragment> arrayList = dVar.f11939i;
             if (arrayList != null) {
                 i4 += arrayList.size();
             }
         }
-        this.mOps = new int[(fVar.f11181h * 7) + i4];
+        this.mOps = new int[(fVar.f11916h * 7) + i4];
         if (fVar.o) {
             int i5 = 0;
-            for (f.d dVar2 = fVar.f11179f; dVar2 != null; dVar2 = dVar2.a) {
+            for (f.d dVar2 = fVar.f11914f; dVar2 != null; dVar2 = dVar2.a) {
                 int[] iArr = this.mOps;
                 int i6 = i5 + 1;
-                iArr[i5] = dVar2.f11198c;
+                iArr[i5] = dVar2.f11933c;
                 int i7 = i6 + 1;
-                Fragment fragment = dVar2.f11199d;
-                iArr[i6] = fragment != null ? fragment.f41199j : -1;
+                Fragment fragment = dVar2.f11934d;
+                iArr[i6] = fragment != null ? fragment.f41355j : -1;
                 int[] iArr2 = this.mOps;
                 int i8 = i7 + 1;
-                iArr2[i7] = dVar2.f11200e;
+                iArr2[i7] = dVar2.f11935e;
                 int i9 = i8 + 1;
-                iArr2[i8] = dVar2.f11201f;
+                iArr2[i8] = dVar2.f11936f;
                 int i10 = i9 + 1;
-                iArr2[i9] = dVar2.f11202g;
+                iArr2[i9] = dVar2.f11937g;
                 int i11 = i10 + 1;
-                iArr2[i10] = dVar2.f11203h;
-                ArrayList<Fragment> arrayList2 = dVar2.f11204i;
+                iArr2[i10] = dVar2.f11938h;
+                ArrayList<Fragment> arrayList2 = dVar2.f11939i;
                 if (arrayList2 != null) {
                     int size = arrayList2.size();
                     int i12 = i11 + 1;
                     this.mOps[i11] = size;
                     int i13 = 0;
                     while (i13 < size) {
-                        this.mOps[i12] = dVar2.f11204i.get(i13).f41199j;
+                        this.mOps[i12] = dVar2.f11939i.get(i13).f41355j;
                         i13++;
                         i12++;
                     }
@@ -178,36 +178,36 @@ public final class BackStackState implements Parcelable {
             while (i2 < this.mOps.length) {
                 f.d dVar = new f.d();
                 int i4 = i2 + 1;
-                dVar.f11198c = this.mOps[i2];
+                dVar.f11933c = this.mOps[i2];
                 if (n.x) {
                     String str = "Instantiate " + fVar + " op #" + i3 + " base fragment #" + this.mOps[i4];
                 }
                 int i5 = i4 + 1;
                 int i6 = this.mOps[i4];
                 if (i6 >= 0) {
-                    dVar.f11199d = nVar.f11218d.get(i6);
+                    dVar.f11934d = nVar.f11953d.get(i6);
                 } else {
-                    dVar.f11199d = null;
+                    dVar.f11934d = null;
                 }
                 int[] iArr = this.mOps;
                 int i7 = i5 + 1;
-                dVar.f11200e = iArr[i5];
+                dVar.f11935e = iArr[i5];
                 int i8 = i7 + 1;
-                dVar.f11201f = iArr[i7];
+                dVar.f11936f = iArr[i7];
                 int i9 = i8 + 1;
-                dVar.f11202g = iArr[i8];
+                dVar.f11937g = iArr[i8];
                 int i10 = i9 + 1;
-                dVar.f11203h = iArr[i9];
+                dVar.f11938h = iArr[i9];
                 int i11 = i10 + 1;
                 int i12 = iArr[i10];
                 if (i12 > 0) {
-                    dVar.f11204i = new ArrayList<>(i12);
+                    dVar.f11939i = new ArrayList<>(i12);
                     int i13 = 0;
                     while (i13 < i12) {
                         if (n.x) {
                             String str2 = "Instantiate " + fVar + " set remove fragment #" + this.mOps[i11];
                         }
-                        dVar.f11204i.add(nVar.f11218d.get(this.mOps[i11]));
+                        dVar.f11939i.add(nVar.f11953d.get(this.mOps[i11]));
                         i13++;
                         i11++;
                     }

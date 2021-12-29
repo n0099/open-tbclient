@@ -24,10 +24,10 @@ public class SearchMajorModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f47311e;
+    public b f47532e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HttpMessageListener f47312f;
+    public HttpMessageListener f47533f;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -76,9 +76,9 @@ public class SearchMajorModel extends BdBaseModel {
             errorData.setError_msg(str);
             SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
             if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().a)) {
-                this.a.f47311e.onSuccess(searchMajorHttpResponsedMessage.getData().a);
+                this.a.f47532e.onSuccess(searchMajorHttpResponsedMessage.getData().a);
             } else {
-                this.a.f47311e.onError(errorData);
+                this.a.f47532e.onError(errorData);
             }
         }
     }
@@ -109,10 +109,10 @@ public class SearchMajorModel extends BdBaseModel {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_SEARCH_MAJOR);
-        this.f47312f = aVar;
+        this.f47533f = aVar;
         aVar.setSelfListener(true);
-        registerListener(this.f47312f);
-        this.f47311e = bVar;
+        registerListener(this.f47533f);
+        this.f47532e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -14,16 +14,16 @@ public class b implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f27138e;
+    public float[] f27561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f27139f;
+    public float[] f27562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27140g;
+    public boolean f27563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27141h;
+    public boolean f27564h;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -39,13 +39,13 @@ public class b implements Cloneable {
             }
         }
         float[] fArr = new float[16];
-        this.f27138e = fArr;
+        this.f27561e = fArr;
         Matrix.setIdentityM(fArr, 0);
         float[] fArr2 = new float[16];
-        this.f27139f = fArr2;
+        this.f27562f = fArr2;
         Matrix.setIdentityM(fArr2, 0);
-        this.f27140g = false;
-        this.f27141h = false;
+        this.f27563g = false;
+        this.f27564h = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,8 +62,8 @@ public class b implements Cloneable {
                 bVar = null;
             }
             if (bVar != null) {
-                bVar.g((float[]) this.f27138e.clone());
-                bVar.h((float[]) this.f27139f.clone());
+                bVar.g((float[]) this.f27561e.clone());
+                bVar.h((float[]) this.f27562f.clone());
             }
             return bVar;
         }
@@ -73,38 +73,38 @@ public class b implements Cloneable {
     public float[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27138e : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27561e : (float[]) invokeV.objValue;
     }
 
     public float[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27139f : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27562f : (float[]) invokeV.objValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27141h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27564h : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27140g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27563g : invokeV.booleanValue;
     }
 
     public void g(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
-            this.f27138e = fArr;
+            this.f27561e = fArr;
         }
     }
 
     public void h(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
-            this.f27139f = fArr;
+            this.f27562f = fArr;
         }
     }
 

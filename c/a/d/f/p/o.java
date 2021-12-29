@@ -1,63 +1,116 @@
 package c.a.d.f.p;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.util.HashMap;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-502488795, "Lc/a/d/f/p/o;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-502488795, "Lc/a/d/f/p/o;");
-                return;
-            }
+    public static void a(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, cursor) == null) || cursor == null) {
+            return;
         }
-        HashMap<String, String> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("java.lang.String", "java.lang.String");
-        a.put("java.lang.Integer", "java.lang.Integer");
-        a.put("java.lang.Double", "java.lang.Double");
-        a.put("java.lang.Float", "java.lang.Float");
-        a.put("java.lang.Boolean", "java.lang.Boolean");
-        a.put("java.lang.Character", "java.lang.Character");
-        a.put("java.lang.Short", "java.lang.Short");
-        a.put("java.lang.Long", "java.lang.Long");
-        a.put("java.lang.Byte", "java.lang.Byte");
-        a.put("java.util.Date", "java.util.Date");
-        a.put("java.lang.Integer", "java.lang.Integer");
-        a.put("java.lang.Integer", "java.lang.Integer");
+        try {
+            cursor.close();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
     }
 
-    public static Object a(Object obj, Field field) {
-        InterceptResult invokeLL;
+    public static void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, obj, field)) == null) {
-            Object obj2 = null;
-            if (obj != null && field != null) {
-                boolean isAccessible = field.isAccessible();
-                field.setAccessible(true);
-                try {
-                    obj2 = field.get(obj);
-                } catch (Throwable unused) {
-                }
-                field.setAccessible(isAccessible);
-            }
-            return obj2;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, sQLiteDatabase) == null) || sQLiteDatabase == null) {
+            return;
         }
-        return invokeLL.objValue;
+        try {
+            sQLiteDatabase.close();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public static void c(SQLiteStatement sQLiteStatement) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, sQLiteStatement) == null) || sQLiteStatement == null) {
+            return;
+        }
+        try {
+            sQLiteStatement.close();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public static void d(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
+    }
+
+    public static void e(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream) == null) || inputStream == null) {
+            return;
+        }
+        try {
+            inputStream.close();
+        } catch (IOException e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public static void f(OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, outputStream) == null) || outputStream == null) {
+            return;
+        }
+        try {
+            outputStream.close();
+        } catch (IOException e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public static void g(Reader reader) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, reader) == null) || reader == null) {
+            return;
+        }
+        try {
+            reader.close();
+        } catch (IOException e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public static void h(Writer writer) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, writer) == null) || writer == null) {
+            return;
+        }
+        try {
+            writer.close();
+        } catch (IOException e2) {
+            BdLog.e(e2.getMessage());
+        }
     }
 }

@@ -30,7 +30,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +187,7 @@ public class j implements e {
             a(context, jSONObject);
             jSONObject.put("os_type", "android");
             jSONObject.put(HttpConstants.OS_VERSION, Build.MODEL);
-            jSONObject.put("device_type", Build.BRAND);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
             jSONObject.put("user_id", uuid);
             jSONObject.put("device_id", uuid);
             jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.SDK_INT);

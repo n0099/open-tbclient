@@ -17,7 +17,7 @@ public class v {
     public ExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ExecutorService f36079b;
+    public ExecutorService f36235b;
 
     /* renamed from: com.baidu.location.b.v$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -96,11 +96,11 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                if (this.f36079b == null || this.f36079b.isShutdown()) {
-                    this.f36079b = null;
-                    this.f36079b = Executors.newFixedThreadPool(2);
+                if (this.f36235b == null || this.f36235b.isShutdown()) {
+                    this.f36235b = null;
+                    this.f36235b = Executors.newFixedThreadPool(2);
                 }
-                executorService = this.f36079b;
+                executorService = this.f36235b;
             }
             return executorService;
         }
@@ -114,7 +114,7 @@ public class v {
             if (executorService != null) {
                 executorService.shutdown();
             }
-            ExecutorService executorService2 = this.f36079b;
+            ExecutorService executorService2 = this.f36235b;
             if (executorService2 != null) {
                 executorService2.shutdown();
             }

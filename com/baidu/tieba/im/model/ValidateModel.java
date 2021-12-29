@@ -2,12 +2,12 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.d1.k0;
-import c.a.r0.d1.n0;
-import c.a.r0.d1.s;
-import c.a.s0.s1.h.d;
-import c.a.s0.s1.k.b;
+import c.a.d.f.p.n;
+import c.a.s0.e1.k0;
+import c.a.s0.e1.n0;
+import c.a.s0.e1.s;
+import c.a.t0.s1.h.d;
+import c.a.t0.s1.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -140,7 +140,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.r0.d1.k0
+            @Override // c.a.s0.e1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -229,7 +229,7 @@ public class ValidateModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.r0.d1.k0
+                @Override // c.a.s0.e1.k0
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -268,7 +268,7 @@ public class ValidateModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.r0.d1.k0
+                @Override // c.a.s0.e1.k0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -281,7 +281,7 @@ public class ValidateModel {
     public static void setGroupName(ValidateItemData validateItemData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
-            if (!BdBaseApplication.getInst().isDebugMode() || m.B()) {
+            if (!BdBaseApplication.getInst().isDebugMode() || n.B()) {
                 ImMessageCenterPojo i2 = b.o().i(str, 1);
                 validateItemData.setGroupName(i2 != null ? i2.getGroup_name() : "");
             }
@@ -318,7 +318,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.r0.d1.k0
+            @Override // c.a.s0.e1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

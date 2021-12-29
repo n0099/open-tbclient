@@ -18,13 +18,13 @@ import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.d.m.e.q;
-import c.a.r0.g0.g;
-import c.a.r0.g0.h;
-import c.a.r0.s.a;
-import c.a.r0.s.c;
-import c.a.r0.s.i0.d;
+import c.a.d.f.p.n;
+import c.a.d.n.e.q;
+import c.a.s0.g0.g;
+import c.a.s0.g0.h;
+import c.a.s0.s.a;
+import c.a.s0.s.c;
+import c.a.s0.s.i0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -580,7 +580,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            m.w(getApplicationContext(), getWindow().getDecorView());
+            n.w(getApplicationContext(), getWindow().getDecorView());
             dismissAllDialog();
             dismissAllPopupWindow();
             super.finish();
@@ -1093,7 +1093,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
-                m.M(getActivity(), str);
+                n.M(getActivity(), str);
             } else {
                 this.customToast.showToast(str, 2000);
             }
@@ -1301,7 +1301,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             }
             ProgressBar progressBar3 = this.mProgressBar;
             if (progressBar3 != null) {
-                progressBar3.setPadding(m.d(getActivity(), i2), m.d(getActivity(), i3), 0, 0);
+                progressBar3.setPadding(n.d(getActivity(), i2), n.d(getActivity(), i3), 0, 0);
                 this.mProgressBar.setVisibility(0);
             }
         }
@@ -1357,7 +1357,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             String name = getClass().getName();
             String str = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-                m.L(getActivity(), i2);
+                n.L(getActivity(), i2);
             } else {
                 this.customToast.showToast(i2, 2000);
             }
@@ -1370,7 +1370,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(str);
             } else {
-                m.M(getActivity(), str);
+                n.M(getActivity(), str);
             }
         }
     }
@@ -1381,7 +1381,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (z) {
                 showToast(i2);
             } else {
-                m.L(getActivity(), i2);
+                n.L(getActivity(), i2);
             }
         }
     }

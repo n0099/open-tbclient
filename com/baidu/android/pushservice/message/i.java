@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.h.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,34 +20,34 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33216b;
+    public String f33366b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33217c;
+    public String f33367c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33218d;
+    public String f33368d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33219e;
+    public String f33369e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f33220f;
+    public String f33370f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f33221g;
+    public String f33371g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f33222h;
+    public String f33372h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33223i;
+    public String f33373i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f33224j;
+    public String f33374j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f33225k;
+    public int f33375k;
     public String l;
     public String m;
 
@@ -72,23 +72,23 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             PublicMsg publicMsg = new PublicMsg();
             try {
-                publicMsg.mMsgId = this.f33224j;
-                publicMsg.mAppId = this.f33223i;
-                if (TextUtils.isEmpty(this.f33221g) && TextUtils.isEmpty(this.f33222h)) {
-                    publicMsg.mTitle = this.f33219e;
-                    publicMsg.mDescription = this.f33220f;
+                publicMsg.mMsgId = this.f33374j;
+                publicMsg.mAppId = this.f33373i;
+                if (TextUtils.isEmpty(this.f33371g) && TextUtils.isEmpty(this.f33372h)) {
+                    publicMsg.mTitle = this.f33369e;
+                    publicMsg.mDescription = this.f33370f;
                     publicMsg.mUrl = this.a;
-                    str = this.f33217c;
+                    str = this.f33367c;
                 } else {
-                    publicMsg.mTitle = this.f33221g;
-                    publicMsg.mDescription = this.f33222h;
-                    publicMsg.mUrl = this.f33216b;
-                    str = this.f33218d;
+                    publicMsg.mTitle = this.f33371g;
+                    publicMsg.mDescription = this.f33372h;
+                    publicMsg.mUrl = this.f33366b;
+                    str = this.f33368d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e2.getMessage(), context.getApplicationContext());
+                com.baidu.android.pushservice.f.a.b("ProxyPushMessage", "Public Message Parsing Fail:\r\n" + e2.getMessage(), context.getApplicationContext());
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return null;
             }
@@ -134,13 +134,13 @@ public class i {
                 try {
                     JSONObject jSONObject = jSONArray.getJSONObject(i2);
                     if (!jSONObject.isNull("Appid")) {
-                        this.f33223i = jSONObject.getString("Appid");
+                        this.f33373i = jSONObject.getString("Appid");
                     }
                     if (!jSONObject.isNull("Msgid")) {
-                        this.f33224j = jSONObject.getString("Msgid");
+                        this.f33374j = jSONObject.getString("Msgid");
                     }
                     if (!jSONObject.isNull("Type")) {
-                        this.f33225k = jSONObject.getInt("Type");
+                        this.f33375k = jSONObject.getInt("Type");
                     }
                     if (!jSONObject.isNull("msgBody")) {
                         this.l = jSONObject.getString("msgBody");

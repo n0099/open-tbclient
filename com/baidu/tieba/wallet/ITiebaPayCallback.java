@@ -1,5 +1,5 @@
 package com.baidu.tieba.wallet;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface ITiebaPayCallback {
     public static final int STATE_CODE_CANCEL = 2;
     public static final int STATE_CODE_FAILD = 3;

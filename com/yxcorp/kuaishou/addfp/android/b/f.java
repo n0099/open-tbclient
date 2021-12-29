@@ -15,21 +15,21 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f63949b;
+    public static Context f63944b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Class f63950c;
+    public final Class f63945c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f63951d;
+    public i f63946d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f63952e;
+    public String[] f63947e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String[] f63953f;
+    public String[] f63948f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public final class f {
                 return;
             }
         }
-        this.f63952e = null;
-        this.f63953f = null;
-        this.f63950c = b();
+        this.f63947e = null;
+        this.f63948f = null;
+        this.f63945c = b();
         this.a = new h(this);
-        this.f63951d = new i(this);
+        this.f63946d = new i(this);
     }
 
     public /* synthetic */ f(byte b2) {
@@ -65,7 +65,7 @@ public final class f {
             String a = a(str);
             if (a != null && str2 != null) {
                 try {
-                    obj = this.f63950c.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    obj = this.f63945c.getDeclaredMethod("getService", String.class).invoke(null, str);
                     try {
                         Field declaredField = Class.forName(a + "$Stub").getDeclaredField(str2);
                         declaredField.setAccessible(true);
@@ -103,7 +103,7 @@ public final class f {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            f63949b = context;
+            f63944b = context;
             fVar = g.a;
             return fVar;
         }
@@ -120,7 +120,7 @@ public final class f {
             Parcel obtain2 = Parcel.obtain();
             String str2 = null;
             try {
-                ((IBinder) this.f63950c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                ((IBinder) this.f63945c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
                 str2 = obtain2.readString();
             } finally {
                 try {

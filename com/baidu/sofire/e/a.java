@@ -11,31 +11,31 @@ public final class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39591b;
+    public String f39747b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39592c;
+    public int f39748c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39593d;
+    public String f39749d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39594e;
+    public long f39750e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39595f;
+    public int f39751f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39596g;
+    public int f39752g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39597h;
+    public int f39753h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39598i;
+    public int f39754i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f39599j;
+    public String f39755j;
 
     public a() {
         Interceptable interceptable = $ic;

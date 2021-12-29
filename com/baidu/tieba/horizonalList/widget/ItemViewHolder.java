@@ -1,7 +1,7 @@
 package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
-import c.a.s0.p1.b.c;
+import c.a.t0.p1.b.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -53,7 +53,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                 public final /* synthetic */ WalletApiExtListener.SyncLoginStatusCb a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f53909b;
+                public final /* synthetic */ b f53912b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -70,7 +70,7 @@ public class b implements WalletApiExtListener.LoginstatuSyncListener {
                             return;
                         }
                     }
-                    this.f53909b = this;
+                    this.f53912b = this;
                     this.a = syncLoginStatusCb;
                 }
 

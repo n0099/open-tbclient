@@ -10,10 +10,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.android.pushservice.h;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.i;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.g;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.i;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.down.utils.Constants;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
@@ -41,39 +41,40 @@ import org.json.JSONObject;
 public class d extends b {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: e  reason: collision with root package name */
-    public static int f32548e = -1;
+    /* renamed from: d  reason: collision with root package name */
+    public static int f32692d = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f32549f = -1;
+    public static int f32693f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f32550g = -1;
+    public static int f32694g = -1;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f32551h = -1;
+    public static int f32695h = -1;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f32552i = -1;
+    public static int f32696i = -1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f32553j = -1;
+    public static int f32697j = -1;
 
     /* renamed from: k  reason: collision with root package name */
-    public static int f32554k = -1;
-    public static d l;
-    public static String[] t;
+    public static int f32698k = -1;
+    public static int l = -1;
+    public static d m;
+    public static String[] u;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: d  reason: collision with root package name */
-    public String f32555d;
-    public int m;
-    public c n;
-    public int o;
+    /* renamed from: e  reason: collision with root package name */
+    public String f32699e;
+    public int n;
+    public c o;
     public int p;
-    public final String q;
+    public int q;
     public final String r;
-    public Map<String, c> s;
+    public final String s;
+    public Map<String, c> t;
 
     /* loaded from: classes9.dex */
     public interface a {
@@ -93,7 +94,7 @@ public class d extends b {
                 return;
             }
         }
-        t = new String[]{"/default.prop", SnapshotConstant.DeviceFilePathConstants.DEVICE_BUILD_CONFIG, "/system/default.prop", "/data/local.prop"};
+        u = new String[]{"/default.prop", SnapshotConstant.DeviceFilePathConstants.DEVICE_BUILD_CONFIG, "/system/default.prop", "/data/local.prop"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,12 +115,12 @@ public class d extends b {
                 return;
             }
         }
-        this.f32555d = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updateconfig";
-        this.o = 0;
-        this.p = com.baidu.android.pushservice.a.a();
-        this.q = CloudStabilityUBCUtils.KEY_RESPONSE_CODE;
-        this.r = "responseResult";
-        this.f32537c = "/data/data/" + this.a.getPackageName() + "/files/bdpush_modeconfig.json";
+        this.f32699e = "https://api.tuisong.baidu.com/rest/3.0/clientfile/updateconfig";
+        this.p = 0;
+        this.q = com.baidu.android.pushservice.a.a();
+        this.r = CloudStabilityUBCUtils.KEY_RESPONSE_CODE;
+        this.s = "responseResult";
+        this.f32681c = "/data/data/" + this.a.getPackageName() + "/files/bdpush_modeconfig.json";
         e();
     }
 
@@ -133,18 +134,18 @@ public class d extends b {
                 return null;
             }
             String upperCase = str.toUpperCase();
-            if (!Build.MANUFACTURER.toUpperCase().equalsIgnoreCase("unknown") || (map = this.s) == null) {
-                Map<String, c> map2 = this.s;
-                if (map2 != null && map2.containsKey(upperCase) && a(this.s.get(upperCase), upperCase)) {
-                    cVar = this.s.get(upperCase);
+            if (!Build.MANUFACTURER.toUpperCase().equalsIgnoreCase("unknown") || (map = this.t) == null) {
+                Map<String, c> map2 = this.t;
+                if (map2 != null && map2.containsKey(upperCase) && a(this.t.get(upperCase), upperCase)) {
+                    cVar = this.t.get(upperCase);
                     return cVar;
                 }
                 return null;
             }
             for (Map.Entry<String, c> entry : map.entrySet()) {
                 String key = entry.getKey();
-                if (a(this.s.get(key), key)) {
-                    cVar = this.s.get(key);
+                if (a(this.t.get(key), key)) {
+                    cVar = this.t.get(key);
                     return cVar;
                 }
             }
@@ -157,14 +158,14 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (l == null) {
+            if (m == null) {
                 synchronized (d.class) {
-                    if (l == null) {
-                        l = new d(context);
+                    if (m == null) {
+                        m = new d(context);
                     }
                 }
             }
-            return l;
+            return m;
         }
         return (d) invokeL.objValue;
     }
@@ -175,10 +176,10 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, hashMap)) == null) {
             HashMap<String, String> hashMap2 = new HashMap<>();
-            this.f32555d = (h.f() ? h.a() : h.b()) + "/rest/3.0/clientfile/updateconf";
+            this.f32699e = (g.f() ? g.a() : g.b()) + "/rest/3.0/clientfile/updateconf";
             int i2 = 2;
             do {
-                com.baidu.android.pushservice.e.b b2 = com.baidu.android.pushservice.e.c.b(this.a, this.f32555d, "POST", hashMap, "BCCS_SDK/3.0", h.c());
+                com.baidu.android.pushservice.d.b b2 = com.baidu.android.pushservice.d.c.b(this.a, this.f32699e, "POST", hashMap, "BCCS_SDK/3.0", g.c());
                 if (b2 != null) {
                     int b3 = b2.b();
                     hashMap2.put(CloudStabilityUBCUtils.KEY_RESPONSE_CODE, b3 + "");
@@ -198,7 +199,7 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, cVar) == null) {
             i.a(this.a, "com.baidu.android.pushservice.config.MODE_MANUFACTURER_CACHE", cVar != null ? cVar.toString() : "CONFIG_MANUFACTURER_DEFAULT");
-            i.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", this.m);
+            i.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", this.n);
             l();
         }
     }
@@ -311,7 +312,7 @@ public class d extends b {
                     } else {
                         str4 = "manufaturer can not Matched, osversion is not REGULAR ";
                     }
-                    com.baidu.android.pushservice.g.a.a("ModeConfig", str4, this.a);
+                    com.baidu.android.pushservice.f.a.a("ModeConfig", str4, this.a);
                 }
             }
             if (cVar != null && cVar.e() != null && cVar.e().size() > 0) {
@@ -324,7 +325,7 @@ public class d extends b {
                             Class<?> cls = Class.forName("android.os.SystemProperties");
                             str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, fVar.a());
                         }
-                        if ((str.equalsIgnoreCase("HUAWEI") || str.equalsIgnoreCase("HONOR")) && !m.i() && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.k(this.a)) {
+                        if ((str.equalsIgnoreCase("HUAWEI") || str.equalsIgnoreCase("HONOR")) && !m.j() && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.k(this.a)) {
                             str2 = Constants.SDK_VER;
                         }
                         if (str.equalsIgnoreCase("OPPO") && PushSettings.i(this.a) && !p(this.a)) {
@@ -346,7 +347,7 @@ public class d extends b {
                             } else {
                                 str3 = "versioncode != configversioncode, manufaturer can not Matched, osversion is not EQUAL ";
                             }
-                            com.baidu.android.pushservice.g.a.a("ModeConfig", str3, this.a);
+                            com.baidu.android.pushservice.f.a.a("ModeConfig", str3, this.a);
                         } else {
                             continue;
                         }
@@ -357,7 +358,7 @@ public class d extends b {
             if (cVar == null || cVar.h() != 1) {
                 return false;
             }
-            return (m.f() || m.g()) && p(this.a);
+            return (m.g() || m.h()) && p(this.a);
         }
         return invokeLL.booleanValue;
     }
@@ -366,10 +367,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            if (f32553j == -1) {
-                f32553j = i.b(context, "enable_newcid", 0);
+            if (f32698k == -1) {
+                f32698k = i.b(context, "enable_newcid", 0);
             }
-            return f32553j == 1;
+            return f32698k == 1;
         }
         return invokeL.booleanValue;
     }
@@ -378,10 +379,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            if (f32551h == -1) {
-                f32551h = i.b(context, "enable_conn_for_proxy", 0);
+            if (f32696i == -1) {
+                f32696i = i.b(context, "enable_conn_for_proxy", 0);
             }
-            return f32551h == 1;
+            return f32696i == 1;
         }
         return invokeL.booleanValue;
     }
@@ -390,10 +391,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, context)) == null) {
-            if (f32554k == -1) {
-                f32554k = i.b(context, "enable_front_switch", 0);
+            if (l == -1) {
+                l = i.b(context, "enable_front_switch", 0);
             }
-            return f32554k == 1;
+            return l == 1;
         }
         return invokeL.booleanValue;
     }
@@ -402,10 +403,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, context)) == null) {
-            if (f32550g == -1) {
-                f32550g = (com.baidu.android.pushservice.a.a(context.getPackageName()) || i.b(context, "enable_single_conn", 1) == 1) ? 1 : 0;
+            if (f32695h == -1) {
+                f32695h = (com.baidu.android.pushservice.a.a(context.getPackageName()) || i.b(context, "enable_single_conn", 1) == 1) ? 1 : 0;
             }
-            return f32550g == 1;
+            return f32695h == 1;
         }
         return invokeL.booleanValue;
     }
@@ -446,10 +447,10 @@ public class d extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            if (f32548e == -1) {
-                f32548e = i.b(context, "enable_stat_upload", 0);
+            if (f32693f == -1) {
+                f32693f = i.b(context, "enable_stat_upload", 0);
             }
-            return f32548e == 1;
+            return f32693f == 1;
         }
         return invokeL.booleanValue;
     }
@@ -499,16 +500,16 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, this) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(this.f32536b);
-                this.m = jSONObject.getInt("version");
-                this.s = new HashMap();
+                JSONObject jSONObject = new JSONObject(this.f32680b);
+                this.n = jSONObject.getInt("version");
+                this.t = new HashMap();
                 JSONArray jSONArray = jSONObject.getJSONArray("modeconfig");
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     c cVar = new c(this.a, jSONArray.getString(i2));
-                    this.s.put(cVar.b(), cVar);
+                    this.t.put(cVar.b(), cVar);
                 }
-                c a2 = a(Build.MANUFACTURER.toUpperCase());
-                this.n = a2;
+                c a2 = a(m.a(true));
+                this.o = a2;
                 a(a2);
             } catch (Exception unused) {
             }
@@ -520,7 +521,7 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, this)) == null) {
             int b2 = i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_VERSION", -1);
-            this.m = b2;
+            this.n = b2;
             if (b2 == -1) {
                 return false;
             }
@@ -531,7 +532,7 @@ public class d extends b {
             if (a2.equals("CONFIG_MANUFACTURER_DEFAULT")) {
                 return true;
             }
-            this.n = new c(this.a, a2);
+            this.o = new c(this.a, a2);
             return true;
         }
         return invokeV.booleanValue;
@@ -561,14 +562,14 @@ public class d extends b {
                 return true;
             }
             long b2 = i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
-            File file = new File(this.f32537c);
+            File file = new File(this.f32681c);
             if (file.exists()) {
                 long j2 = 0;
                 if (b2 <= 0 || b2 != file.lastModified()) {
                     return true;
                 }
                 long b3 = i.b(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED");
-                for (String str : t) {
+                for (String str : u) {
                     File file2 = new File(str);
                     if (file2.exists()) {
                         j2 = (file2.lastModified() / 10) + j2;
@@ -600,18 +601,18 @@ public class d extends b {
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            File file = new File(this.f32537c);
+            File file = new File(this.f32681c);
             if (file.exists()) {
-                i.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED", file.lastModified());
+                i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED", file.lastModified());
                 long j2 = 0;
-                for (String str : t) {
+                for (String str : u) {
                     File file2 = new File(str);
                     if (file2.exists()) {
                         j2 = (file2.lastModified() / 10) + j2;
                     }
                 }
-                i.a(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED", j2);
-                i.a(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE", System.currentTimeMillis());
+                i.b(this.a, "com.baidu.android.pushservice.config.BUILD_LAST_MODIFIED", j2);
+                i.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE", System.currentTimeMillis());
             }
         }
     }
@@ -750,8 +751,8 @@ public class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, context)) == null) {
             try {
-                if (m.h() && PushSettings.j(context)) {
-                    return Class.forName("com.vivo.push.PushManager") != null;
+                if (m.i() && PushSettings.j(context)) {
+                    return Class.forName("com.vivo.push.PushClient") != null;
                 }
                 return false;
             } catch (Throwable unused) {
@@ -806,7 +807,7 @@ public class d extends b {
                 if (!TextUtils.isEmpty(m.n(this.a))) {
                 }
                 j2 = b3;
-            } else if (m.e() && PushSettings.i(this.a) && !m(this.a)) {
+            } else if (m.f() && PushSettings.i(this.a) && !m(this.a)) {
                 if (!TextUtils.isEmpty(m.n(this.a))) {
                 }
                 j2 = b3;
@@ -814,25 +815,25 @@ public class d extends b {
                 if (!TextUtils.isEmpty(m.n(this.a))) {
                 }
                 j2 = b3;
-            } else if (!m.h() || !PushSettings.j(this.a) || n(this.a)) {
-                if ((m.f() || m.g()) && PushSettings.i(this.a) && !m(this.a)) {
+            } else if (!m.i() || !PushSettings.j(this.a) || n(this.a)) {
+                if ((m.g() || m.h()) && PushSettings.i(this.a) && !m(this.a)) {
                 }
                 b2 = i.b(this.a, "last_update_config_time");
                 currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - b2 <= b3) {
-                    com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "ModeConfig-updateConfig", (short) 100, str, currentTimeMillis, aVar) { // from class: com.baidu.android.pushservice.b.d.2
+                    com.baidu.android.pushservice.g.e.a().a(new com.baidu.android.pushservice.g.c(this, "ModeConfig-updateConfig", (short) 100, str, currentTimeMillis, aVar) { // from class: com.baidu.android.pushservice.b.d.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ String a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ long f32557b;
+                        public final /* synthetic */ long f32701b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ a f32558c;
+                        public final /* synthetic */ a f32702c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ d f32559d;
+                        public final /* synthetic */ d f32703d;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -853,102 +854,103 @@ public class d extends b {
                                     return;
                                 }
                             }
-                            this.f32559d = this;
+                            this.f32703d = this;
                             this.a = str;
-                            this.f32557b = currentTimeMillis;
-                            this.f32558c = aVar;
+                            this.f32701b = currentTimeMillis;
+                            this.f32702c = aVar;
                         }
 
-                        @Override // com.baidu.android.pushservice.h.c
+                        @Override // com.baidu.android.pushservice.g.c
                         public void a() {
                             JSONObject jSONObject;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 try {
                                     HashMap hashMap = new HashMap();
-                                    com.baidu.android.pushservice.d.b.a(this.f32559d.a, hashMap);
-                                    hashMap.put("version", this.f32559d.m + "");
+                                    com.baidu.android.pushservice.httpapi.b.a(this.f32703d.a, hashMap);
+                                    hashMap.put("version", this.f32703d.n + "");
                                     hashMap.put("model", Build.MODEL);
                                     hashMap.put("osSdkInt", Build.VERSION.SDK_INT + "");
                                     hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.a);
-                                    if ((m.d() && PushSettings.k(this.f32559d.a)) || ((m.b() && PushSettings.g(this.f32559d.a)) || ((m.c() && PushSettings.h(this.f32559d.a)) || ((m.e() && PushSettings.i(this.f32559d.a)) || (m.h() && PushSettings.j(this.f32559d.a)))))) {
-                                        hashMap.put("rom_version", m.n(this.f32559d.a));
+                                    hashMap.put("front_conn_avaliable", d.f32692d + "");
+                                    if ((m.d() && PushSettings.k(this.f32703d.a)) || ((m.b() && PushSettings.g(this.f32703d.a)) || ((m.c() && PushSettings.h(this.f32703d.a)) || ((m.f() && PushSettings.i(this.f32703d.a)) || (m.i() && PushSettings.j(this.f32703d.a)))))) {
+                                        hashMap.put("rom_version", m.n(this.f32703d.a));
                                     }
-                                    if ((m.f() || m.g()) && PushSettings.i(this.f32559d.a)) {
-                                        hashMap.put("rom_version", m.n(this.f32559d.a));
-                                        hashMap.put("support_proxy", d.p(this.f32559d.a) ? "1" : "0");
+                                    if ((m.g() || m.h()) && PushSettings.i(this.f32703d.a)) {
+                                        hashMap.put("rom_version", m.n(this.f32703d.a));
+                                        hashMap.put("support_proxy", d.p(this.f32703d.a) ? "1" : "0");
                                     }
-                                    hashMap.put("manufacture", Build.MANUFACTURER);
+                                    hashMap.put("manufacture", m.a(false));
                                     hashMap.put("sdk_version", ((int) com.baidu.android.pushservice.a.a()) + "");
-                                    hashMap.put("cuid", DeviceId.getCUID(this.f32559d.a));
-                                    hashMap.put("package_name", this.f32559d.a.getPackageName());
+                                    hashMap.put("cuid", DeviceId.getCUID(this.f32703d.a));
+                                    hashMap.put("package_name", this.f32703d.a.getPackageName());
                                     long currentTimeMillis2 = System.currentTimeMillis();
-                                    HashMap a2 = this.f32559d.a(hashMap);
+                                    HashMap a2 = this.f32703d.a(hashMap);
                                     String str2 = (String) a2.get("responseResult");
                                     if (!TextUtils.isEmpty(str2) && (jSONObject = (JSONObject) new JSONObject(str2).get("response_params")) != null) {
                                         if (jSONObject.getInt("status") == 1) {
                                             String string = jSONObject.getString("sdkconfig");
-                                            if (!TextUtils.isEmpty(string) && this.f32559d.a(this.f32559d.a, string)) {
-                                                this.f32559d.e();
+                                            if (!TextUtils.isEmpty(string) && this.f32703d.a(this.f32703d.a, string)) {
+                                                this.f32703d.e();
                                             }
                                         }
-                                        i.a(this.f32559d.a, "last_update_config_time", this.f32557b);
+                                        i.b(this.f32703d.a, "last_update_config_time", this.f32701b);
                                         int optInt = jSONObject.optInt("newcid", -1);
                                         if (optInt != -1) {
-                                            int unused = d.f32553j = optInt;
-                                            i.a(this.f32559d.a, "enable_newcid", optInt);
+                                            int unused = d.f32698k = optInt;
+                                            i.a(this.f32703d.a, "enable_newcid", optInt);
                                         }
                                         int optInt2 = jSONObject.optInt("mode", -1);
                                         if (optInt2 != -1) {
-                                            int unused2 = d.f32551h = optInt2;
-                                            i.a(this.f32559d.a, "enable_conn_for_proxy", optInt2);
+                                            int unused2 = d.f32696i = optInt2;
+                                            i.a(this.f32703d.a, "enable_conn_for_proxy", optInt2);
                                         }
                                         int optInt3 = jSONObject.optInt("front_switch", -1);
                                         if (optInt3 != -1) {
-                                            int unused3 = d.f32554k = optInt3;
-                                            i.a(this.f32559d.a, "enable_front_switch", optInt3);
+                                            int unused3 = d.l = optInt3;
+                                            i.a(this.f32703d.a, "enable_front_switch", optInt3);
                                         }
                                         int optInt4 = jSONObject.optInt("enable_bddns", -1);
                                         if (optInt4 != -1) {
-                                            int unused4 = d.f32552i = optInt4;
-                                            i.a(this.f32559d.a, "bddns_enable", optInt4);
+                                            int unused4 = d.f32697j = optInt4;
+                                            i.a(this.f32703d.a, "bddns_enable", optInt4);
                                         }
                                         int optInt5 = jSONObject.optInt("single", -1);
                                         if (optInt5 != -1) {
-                                            int unused5 = d.f32550g = optInt5;
-                                            i.a(this.f32559d.a, "enable_single_conn", optInt5);
+                                            int unused5 = d.f32695h = optInt5;
+                                            i.a(this.f32703d.a, "enable_single_conn", optInt5);
                                         }
-                                        i.a(this.f32559d.a, "cloud_update_config_time", jSONObject.optInt("update_time", 0));
+                                        i.a(this.f32703d.a, "cloud_update_config_time", jSONObject.optInt("update_time", 0));
                                         int optInt6 = jSONObject.optInt("bind_time", -1);
                                         if (optInt6 != -1) {
-                                            i.a(this.f32559d.a, "push_bind_interval", optInt6);
+                                            i.a(this.f32703d.a, "push_bind_interval", optInt6);
                                         }
                                         int optInt7 = jSONObject.optInt("stat", -1);
                                         if (optInt7 != -1) {
-                                            int unused6 = d.f32548e = optInt7;
-                                            i.a(this.f32559d.a, "enable_stat_upload", optInt7);
+                                            int unused6 = d.f32693f = optInt7;
+                                            i.a(this.f32703d.a, "enable_stat_upload", optInt7);
                                         }
                                         int optInt8 = jSONObject.optInt("stat_real_time", -1);
                                         if (optInt8 != -1) {
-                                            int unused7 = d.f32549f = optInt8;
-                                            i.a(this.f32559d.a, "enable_stat_real_time", optInt8);
+                                            int unused7 = d.f32694g = optInt8;
+                                            i.a(this.f32703d.a, "enable_stat_real_time", optInt8);
                                         }
                                         int optInt9 = jSONObject.optInt("stat_time", -1);
                                         if (optInt9 != -1) {
-                                            i.a(this.f32559d.a, "stat_upload_interval", optInt9);
+                                            i.a(this.f32703d.a, "stat_upload_interval", optInt9);
                                         }
-                                        i.b(this.f32559d.a, "keep_alive_pkgs", jSONObject.optString("keep_alive", null));
-                                        i.a(this.f32559d.a, "key_vip_type", jSONObject.optInt("vip_type", 3));
+                                        i.b(this.f32703d.a, "keep_alive_pkgs", jSONObject.optString("keep_alive", null));
+                                        i.a(this.f32703d.a, "key_vip_type", jSONObject.optInt("vip_type", 3));
                                         JSONObject optJSONObject = jSONObject.optJSONObject("upload_control");
                                         if (optJSONObject != null) {
-                                            this.f32559d.a(optJSONObject);
+                                            this.f32703d.a(optJSONObject);
                                         }
                                     }
                                     int parseInt = Integer.parseInt((String) a2.get(CloudStabilityUBCUtils.KEY_RESPONSE_CODE));
-                                    new b.d(this.f32559d.a).d(501001L).c(parseInt).a(currentTimeMillis2).b(System.currentTimeMillis()).a(this.f32559d.f32555d).c(parseInt != 200 ? str2 : "").a();
+                                    new b.d(this.f32703d.a).d(501001L).c(parseInt).a(currentTimeMillis2).b(System.currentTimeMillis()).a(this.f32703d.f32699e).c(parseInt != 200 ? str2 : "").a();
                                 } catch (Exception unused8) {
                                 }
-                                a aVar2 = this.f32558c;
+                                a aVar2 = this.f32702c;
                                 if (aVar2 != null) {
                                     aVar2.a();
                                 }
@@ -958,13 +960,13 @@ public class d extends b {
                     return;
                 }
                 if (aVar != null) {
-                    com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c(this, "updateConfig-local", (short) 99, aVar) { // from class: com.baidu.android.pushservice.b.d.1
+                    com.baidu.android.pushservice.g.e.a().a(new com.baidu.android.pushservice.g.c(this, "updateConfig-local", (short) 99, aVar) { // from class: com.baidu.android.pushservice.b.d.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ a a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ d f32556b;
+                        public final /* synthetic */ d f32700b;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -985,11 +987,11 @@ public class d extends b {
                                     return;
                                 }
                             }
-                            this.f32556b = this;
+                            this.f32700b = this;
                             this.a = aVar;
                         }
 
-                        @Override // com.baidu.android.pushservice.h.c
+                        @Override // com.baidu.android.pushservice.g.c
                         public void a() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1015,47 +1017,47 @@ public class d extends b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : invokeV.intValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.p : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q : invokeV.intValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c cVar = this.n;
+            c cVar = this.o;
             if (cVar == null) {
                 return true;
             }
             if (cVar.c() == 5) {
-                this.o = 5;
+                this.p = 5;
                 return true;
-            } else if (this.n.c() == 6) {
-                this.o = 6;
+            } else if (this.o.c() == 6) {
+                this.p = 6;
                 return true;
-            } else if (this.n.c() == 7) {
-                this.o = 7;
+            } else if (this.o.c() == 7) {
+                this.p = 7;
                 return true;
-            } else if (this.n.c() == 8) {
-                this.o = 8;
+            } else if (this.o.c() == 8) {
+                this.p = 8;
                 return true;
-            } else if (this.n.c() == 9) {
-                this.o = 9;
+            } else if (this.o.c() == 9) {
+                this.p = 9;
                 return true;
             } else {
-                if (this.n.c() == 2 && !TextUtils.isEmpty(this.n.f())) {
+                if (this.o.c() == 2 && !TextUtils.isEmpty(this.o.f())) {
                     try {
-                        PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.n.f(), 16448);
+                        PackageInfo packageInfo = this.a.getPackageManager().getPackageInfo(this.o.f(), 16448);
                         if (packageInfo != null) {
                             int i2 = packageInfo.versionCode;
-                            if ((this.n.a() != null && (this.n.a().f32546b != -1 ? !(i2 < this.n.a().a || i2 > this.n.a().f32546b) : i2 >= this.n.a().a)) && BaiduAppSSOJni.encodeBySha1(packageInfo.signatures[0].toByteArray()).equalsIgnoreCase(this.n.g())) {
-                                this.p = m.g(this.a, this.n.f());
-                                this.o = this.a.getPackageName().equalsIgnoreCase(this.n.f()) ? 3 : 4;
+                            if ((this.o.a() != null && (this.o.a().f32690b != -1 ? !(i2 < this.o.a().a || i2 > this.o.a().f32690b) : i2 >= this.o.a().a)) && BaiduAppSSOJni.encodeBySha1(packageInfo.signatures[0].toByteArray()).equalsIgnoreCase(this.o.g())) {
+                                this.q = m.g(this.a, this.o.f());
+                                this.p = this.a.getPackageName().equalsIgnoreCase(this.o.f()) ? 3 : 4;
                                 return true;
                             }
                         }
@@ -1063,7 +1065,7 @@ public class d extends b {
                         return false;
                     }
                 }
-                com.baidu.android.pushservice.g.a.a("ModeConfig", " Current Mode = " + this.o, this.a);
+                com.baidu.android.pushservice.f.a.a("ModeConfig", " Current Mode = " + this.p, this.a);
                 return false;
             }
         }
@@ -1078,10 +1080,10 @@ public class d extends b {
             if ((k2 || !j2) && a()) {
                 i();
             }
-            if (this.n != null) {
+            if (this.o != null) {
                 d();
             } else {
-                com.baidu.android.pushservice.g.a.a("ModeConfig", "Config File Not Matched", this.a);
+                com.baidu.android.pushservice.f.a.a("ModeConfig", "Config File Not Matched", this.a);
             }
         }
     }

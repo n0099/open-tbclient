@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.p.a.j1;
-import c.p.a.j3;
-import c.p.a.r0;
+import c.q.a.j1;
+import c.q.a.j3;
+import c.q.a.r0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +80,7 @@ public class PBMediaView extends FrameLayout {
             }
         }
         this.a = new j3(context);
-        addView(this.a.f31180c, new FrameLayout.LayoutParams(-1, -1));
+        addView(this.a.f31323c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
             int b2 = r0.b(context, 15);

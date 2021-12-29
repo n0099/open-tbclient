@@ -19,10 +19,10 @@ public class BeanResponseBase implements NoProguard {
     public static final String a = "系统开小差，等一会儿再试吧";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33297b = "content";
+    public static final String f33453b = "content";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33298c = "data";
+    public static final String f33454c = "data";
     public transient /* synthetic */ FieldHolder $fh;
     public Session cashdesk;
     public JSONObject content;

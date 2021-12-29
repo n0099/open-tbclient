@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class b extends c.a.j0.b.b.a<c> {
+public class b extends c.a.k0.b.b.a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public class b extends c.a.j0.b.b.a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.j0.b.b.a
+    @Override // c.a.k0.b.b.a
     /* renamed from: a */
     public c createService() throws ServiceNotFoundException {
         InterceptResult invokeV;

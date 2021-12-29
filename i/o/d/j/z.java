@@ -15,7 +15,7 @@ public class z<E> extends b0<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f64494k;
+    public static final int f64489k;
     public static final long l;
     public static final long m;
     public static final long n;
@@ -36,7 +36,7 @@ public class z<E> extends b0<E> {
                 return;
             }
         }
-        f64494k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+        f64489k = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
         p = new Object();
         int b2 = f0.a.b(Object[].class);
         if (4 == b2) {
@@ -81,12 +81,12 @@ public class z<E> extends b0<E> {
         int b2 = i.b(i2);
         long j2 = b2 - 1;
         E[] eArr = (E[]) new Object[b2 + 1];
-        this.f64483h = eArr;
-        this.f64482g = j2;
+        this.f64478h = eArr;
+        this.f64477g = j2;
         a(b2);
-        this.f64478j = eArr;
-        this.f64477i = j2;
-        this.f64481f = j2 - 1;
+        this.f64473j = eArr;
+        this.f64472i = j2;
+        this.f64476f = j2 - 1;
         n(0L);
     }
 
@@ -118,7 +118,7 @@ public class z<E> extends b0<E> {
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f64480e = Math.min(i2 / 4, f64494k);
+            this.f64475e = Math.min(i2 / 4, f64489k);
         }
     }
 
@@ -144,7 +144,7 @@ public class z<E> extends b0<E> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            this.f64478j = eArr;
+            this.f64473j = eArr;
             return (E) e(eArr, c(j2, j3));
         }
         return (E) invokeCommon.objValue;
@@ -154,7 +154,7 @@ public class z<E> extends b0<E> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            this.f64478j = eArr;
+            this.f64473j = eArr;
             long c2 = c(j2, j3);
             E e2 = (E) e(eArr, c2);
             if (e2 == null) {
@@ -181,8 +181,8 @@ public class z<E> extends b0<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j2), Long.valueOf(j3), e2, Long.valueOf(j4)}) == null) {
             E[] eArr2 = (E[]) new Object[eArr.length];
-            this.f64483h = eArr2;
-            this.f64481f = (j4 + j2) - 1;
+            this.f64478h = eArr2;
+            this.f64476f = (j4 + j2) - 1;
             l(eArr2, j3, e2);
             m(eArr, eArr2);
             l(eArr, j3, p);
@@ -228,16 +228,16 @@ public class z<E> extends b0<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f64483h;
+                E[] eArr = this.f64478h;
                 long j2 = this.producerIndex;
-                long j3 = this.f64482g;
+                long j3 = this.f64477g;
                 long c2 = c(j2, j3);
-                if (j2 < this.f64481f) {
+                if (j2 < this.f64476f) {
                     return o(eArr, e2, j2, c2);
                 }
-                long j4 = this.f64480e + j2;
+                long j4 = this.f64475e + j2;
                 if (e(eArr, c(j4, j3)) == null) {
-                    this.f64481f = j4 - 1;
+                    this.f64476f = j4 - 1;
                     return o(eArr, e2, j2, c2);
                 } else if (e(eArr, c(1 + j2, j3)) != null) {
                     return o(eArr, e2, j2, c2);
@@ -256,9 +256,9 @@ public class z<E> extends b0<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            E[] eArr = this.f64478j;
+            E[] eArr = this.f64473j;
             long j2 = this.consumerIndex;
-            long j3 = this.f64477i;
+            long j3 = this.f64472i;
             E e2 = (E) e(eArr, c(j2, j3));
             return e2 == p ? h(f(eArr), j2, j3) : e2;
         }
@@ -270,9 +270,9 @@ public class z<E> extends b0<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            E[] eArr = this.f64478j;
+            E[] eArr = this.f64473j;
             long j2 = this.consumerIndex;
-            long j3 = this.f64477i;
+            long j3 = this.f64472i;
             long c2 = c(j2, j3);
             E e2 = (E) e(eArr, c2);
             boolean z = e2 == p;

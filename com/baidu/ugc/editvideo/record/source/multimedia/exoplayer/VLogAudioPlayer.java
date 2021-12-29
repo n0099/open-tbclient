@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.t.c;
-import c.a.y0.t.g;
+import c.a.a1.t.c;
+import c.a.a1.t.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -577,14 +577,14 @@ public class VLogAudioPlayer {
                 AudioPlayData audioPlayData2 = list.get(i2);
                 if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                     mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                    int b2 = g.b(mediaMetadataRetriever.extractMetadata(9), 0);
-                    audioPlayData2.realDuration = b2;
+                    int c2 = g.c(mediaMetadataRetriever.extractMetadata(9), 0);
+                    audioPlayData2.realDuration = c2;
                     if (audioPlayData == null) {
-                        if (b2 <= 0) {
+                        if (c2 <= 0) {
                         }
                         audioPlayData = audioPlayData2;
                     } else {
-                        if (b2 <= audioPlayData.realDuration) {
+                        if (c2 <= audioPlayData.realDuration) {
                         }
                         audioPlayData = audioPlayData2;
                     }

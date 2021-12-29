@@ -4,12 +4,15 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import c.a.r0.a.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout;
+import com.baidu.tieba.videoplay.view.VideoChannelViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener F;
+    public final CustomMessageListener C;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -124,6 +127,48 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
+    /* loaded from: classes12.dex */
+    public class d implements VideoChannelHeaderLayout.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ VideoChannelFragment a;
+
+        public d(VideoChannelFragment videoChannelFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {videoChannelFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = videoChannelFragment;
+        }
+
+        @Override // com.baidu.tieba.videoplay.view.VideoChannelHeaderLayout.d
+        public void a() {
+            VideoChannelViewPager videoChannelViewPager;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                VideoChannelFragment videoChannelFragment = this.a;
+                if (videoChannelFragment.mainHeaderLayout == null || (videoChannelViewPager = videoChannelFragment.mainViewPager) == null || ListUtils.getItem(videoChannelFragment.fragmentTabStructures, videoChannelViewPager.getCurrentItem()) == null) {
+                    return;
+                }
+                VideoChannelFragment videoChannelFragment2 = this.a;
+                if (((c.a.s0.i0.c) ListUtils.getItem(videoChannelFragment2.fragmentTabStructures, videoChannelFragment2.mainViewPager.getCurrentItem())).a instanceof BaseFragment) {
+                    VideoChannelFragment videoChannelFragment3 = this.a;
+                    videoChannelFragment3.mainHeaderLayout.achieveRefresh(((BaseFragment) ((c.a.s0.i0.c) ListUtils.getItem(videoChannelFragment3.fragmentTabStructures, videoChannelFragment3.mainViewPager.getCurrentItem())).a).getUniqueId());
+                }
+            }
+        }
+    }
+
     public VideoChannelFragment() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -137,7 +182,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
                 return;
             }
         }
-        this.F = new a(this, 2921391);
+        this.C = new a(this, 2921391);
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
@@ -169,7 +214,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            registerListener(this.F);
+            registerListener(this.C);
         }
     }
 
@@ -178,7 +223,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.F);
+            MessageManager.getInstance().unRegisterListener(this.C);
         }
     }
 
@@ -187,8 +232,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPause();
-            if (d.y().A(c.a.r0.a.c.c0)) {
-                d.y().G();
+            if (c.a.s0.a.d.y().A(c.a.s0.a.c.c0)) {
+                c.a.s0.a.d.y().G();
             }
         }
     }
@@ -200,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (d.y().A(c.a.r0.a.c.c0)) {
-                d.y().G();
+            } else if (c.a.s0.a.d.y().A(c.a.s0.a.c.c0)) {
+                c.a.s0.a.d.y().G();
             }
         }
     }
@@ -215,10 +260,20 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         }
     }
 
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
+    public void setViewPagerOnAchieveRefresh() {
+        VideoChannelHeaderLayout videoChannelHeaderLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (videoChannelHeaderLayout = this.mainHeaderLayout) == null) {
+            return;
+        }
+        videoChannelHeaderLayout.setOnAchieveRefresh(new d(this));
+    }
+
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            d.y().P(c.a.r0.a.c.c0);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            c.a.s0.a.d.y().P(c.a.s0.a.c.c0);
         }
     }
 
@@ -226,13 +281,13 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "715" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "715" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public ViewGroup taskAttachParentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mTaskFloatingView : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mTaskFloatingView : (ViewGroup) invokeV.objValue;
     }
 }

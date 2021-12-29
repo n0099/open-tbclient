@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -27,7 +27,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public c.a.s0.f2.d.a mView;
+    public c.a.t0.f2.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
@@ -137,7 +137,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (view.getId() == R.id.go_to_exchange) {
             requestTCodeInfo();
         } else {
-            m.w(getPageContext().getPageActivity(), this.mView.b());
+            n.w(getPageContext().getPageActivity(), this.mView.b());
         }
     }
 
@@ -161,7 +161,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            c.a.s0.f2.d.a aVar = new c.a.s0.f2.d.a(this);
+            c.a.t0.f2.d.a aVar = new c.a.t0.f2.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

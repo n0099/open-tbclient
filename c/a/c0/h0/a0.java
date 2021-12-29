@@ -13,10 +13,10 @@ public class a0 {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1666b;
+    public int f2093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f1667c;
+    public a f2094c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -25,7 +25,7 @@ public class a0 {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float[] f1668b;
+        public float[] f2095b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class a0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fArr)) == null) {
-                this.f1668b = fArr;
+                this.f2095b = fArr;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -82,7 +82,7 @@ public class a0 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            this.f1666b = i2;
+            this.f2093b = i2;
             return this;
         }
         return (a0) invokeI.objValue;
@@ -102,7 +102,7 @@ public class a0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f1667c = aVar;
+            this.f2094c = aVar;
             return this;
         }
         return (a0) invokeL.objValue;

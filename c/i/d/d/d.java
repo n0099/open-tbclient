@@ -17,10 +17,10 @@ public abstract class d extends c {
     public final ByteBuffer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f31000b;
+    public final int f31078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f31001c;
+    public final int f31079c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public d(int i2) {
@@ -118,7 +118,7 @@ public abstract class d extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.a.flip();
-            while (this.a.remaining() >= this.f31001c) {
+            while (this.a.remaining() >= this.f31079c) {
                 o(this.a);
             }
             this.a.compact();
@@ -146,12 +146,12 @@ public abstract class d extends c {
                 n();
                 return this;
             }
-            int position = this.f31000b - this.a.position();
+            int position = this.f31078b - this.a.position();
             for (int i2 = 0; i2 < position; i2++) {
                 this.a.put(byteBuffer.get());
             }
             m();
-            while (byteBuffer.remaining() >= this.f31001c) {
+            while (byteBuffer.remaining() >= this.f31079c) {
                 o(byteBuffer);
             }
             this.a.put(byteBuffer);
@@ -177,8 +177,8 @@ public abstract class d extends c {
         }
         n.d(i3 % i2 == 0);
         this.a = ByteBuffer.allocate(i3 + 7).order(ByteOrder.LITTLE_ENDIAN);
-        this.f31000b = i3;
-        this.f31001c = i2;
+        this.f31078b = i3;
+        this.f31079c = i2;
     }
 
     @Override // c.i.d.d.f, c.i.d.d.j

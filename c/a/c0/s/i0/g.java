@@ -15,7 +15,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f1981e;
+    public e f2408e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void a(@Nullable e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f1981e = eVar;
+            this.f2408e = eVar;
         }
     }
 
@@ -60,7 +60,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void onBufferingUpdate(MediaPlayer mediaPlayer, int i2) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2) == null) || (eVar = this.f1981e) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i2) == null) || (eVar = this.f2408e) == null) {
             return;
         }
         eVar.onBufferingUpdate(i2);
@@ -70,7 +70,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void onCompletion(MediaPlayer mediaPlayer) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) || (eVar = this.f1981e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) || (eVar = this.f2408e) == null) {
             return;
         }
         eVar.onCompletion();
@@ -81,7 +81,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, mediaPlayer, i2, i3)) == null) {
-            e eVar = this.f1981e;
+            e eVar = this.f2408e;
             if (eVar != null) {
                 return eVar.onError(i2, i3, null);
             }
@@ -95,8 +95,8 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, mediaPlayer, i2, i3)) == null) {
-            if (this.f1981e != null) {
-                return this.f1981e.onInfo(b(i2), i3, null);
+            if (this.f2408e != null) {
+                return this.f2408e.onInfo(b(i2), i3, null);
             }
             return false;
         }
@@ -107,7 +107,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void onPrepared(MediaPlayer mediaPlayer) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, mediaPlayer) == null) || (eVar = this.f1981e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, mediaPlayer) == null) || (eVar = this.f2408e) == null) {
             return;
         }
         eVar.onPrepared();
@@ -117,7 +117,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void onSeekComplete(MediaPlayer mediaPlayer) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, mediaPlayer) == null) || (eVar = this.f1981e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, mediaPlayer) == null) || (eVar = this.f2408e) == null) {
             return;
         }
         eVar.onSeekComplete();
@@ -127,7 +127,7 @@ public class g implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompleti
     public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaPlayer, i2, i3) == null) || (eVar = this.f1981e) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaPlayer, i2, i3) == null) || (eVar = this.f2408e) == null) {
             return;
         }
         eVar.onVideoSizeChanged(i2, i3, 0, 0);

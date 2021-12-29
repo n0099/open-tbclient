@@ -31,34 +31,34 @@ public class NetImageView extends ImageView {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33269b = "NetImageView";
+    public static final String f33425b = "NetImageView";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f33270c;
+    public static String f33426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f33271d;
+    public static String f33427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f33272e;
+    public static String f33428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f33273f;
+    public static String f33429f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f33274g;
+    public static String f33430g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f33275h;
+    public static String f33431h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f33276i;
+    public static String f33432i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f33277j;
+    public static String f33433j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static Handler f33278k;
+    public static Handler f33434k;
     public static HashMap<String, Integer> l;
     public transient /* synthetic */ FieldHolder $fh;
     public String m;
@@ -134,10 +134,10 @@ public class NetImageView extends ImageView {
                     public final /* synthetic */ NetImageView a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f33282b;
+                    public final /* synthetic */ String f33438b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f33283c;
+                    public final /* synthetic */ a f33439c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -154,15 +154,15 @@ public class NetImageView extends ImageView {
                                 return;
                             }
                         }
-                        this.f33283c = this;
+                        this.f33439c = this;
                         this.a = netImageView;
-                        this.f33282b = str;
+                        this.f33438b = str;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && TextUtils.equals(this.a.m, this.f33282b)) {
+                        if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && TextUtils.equals(this.a.m, this.f33438b)) {
                             this.a.onLoadUrlError(true);
                         }
                     }
@@ -178,22 +178,22 @@ public class NetImageView extends ImageView {
                 return;
             }
             NetImageView netImageView = weakReference.get();
-            if (NetImageView.f33278k == null || netImageView == null) {
+            if (NetImageView.f33434k == null || netImageView == null) {
                 return;
             }
-            NetImageView.f33278k.post(new Runnable(this, netImageView, str, bitmap) { // from class: com.baidu.apollon.base.widget.NetImageView.a.1
+            NetImageView.f33434k.post(new Runnable(this, netImageView, str, bitmap) { // from class: com.baidu.apollon.base.widget.NetImageView.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NetImageView a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f33279b;
+                public final /* synthetic */ String f33435b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Bitmap f33280c;
+                public final /* synthetic */ Bitmap f33436c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f33281d;
+                public final /* synthetic */ a f33437d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -210,17 +210,17 @@ public class NetImageView extends ImageView {
                             return;
                         }
                     }
-                    this.f33281d = this;
+                    this.f33437d = this;
                     this.a = netImageView;
-                    this.f33279b = str;
-                    this.f33280c = bitmap;
+                    this.f33435b = str;
+                    this.f33436c = bitmap;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.setRemoteDrawable(this.f33279b, this.f33280c);
+                        this.a.setRemoteDrawable(this.f33435b, this.f33436c);
                     }
                 }
             });
@@ -241,23 +241,23 @@ public class NetImageView extends ImageView {
             }
         }
         a = ApollonConstants.DEBUG & true;
-        f33270c = "ldpi";
-        f33271d = "mdpi";
-        f33272e = "hdpi";
-        f33273f = "xhdpi";
-        f33274g = "xxhdpi";
-        f33275h = "xxxhdpi";
-        f33276i = "tvdpi";
-        f33277j = "density";
+        f33426c = "ldpi";
+        f33427d = "mdpi";
+        f33428e = "hdpi";
+        f33429f = "xhdpi";
+        f33430g = "xxhdpi";
+        f33431h = "xxxhdpi";
+        f33432i = "tvdpi";
+        f33433j = "density";
         HashMap<String, Integer> hashMap = new HashMap<>();
         l = hashMap;
-        hashMap.put(f33270c, 120);
-        l.put(f33271d, 160);
-        l.put(f33276i, 213);
-        l.put(f33272e, 240);
-        l.put(f33273f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
-        l.put(f33274g, 480);
-        l.put(f33275h, 640);
+        hashMap.put(f33426c, 120);
+        l.put(f33427d, 160);
+        l.put(f33432i, 213);
+        l.put(f33428e, 240);
+        l.put(f33429f, Integer.valueOf((int) MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP));
+        l.put(f33430g, 480);
+        l.put(f33431h, 640);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -306,7 +306,7 @@ public class NetImageView extends ImageView {
         if (!(interceptable == null || interceptable.invokeL(65546, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        String attributeValue = attributeSet.getAttributeValue(null, f33277j);
+        String attributeValue = attributeSet.getAttributeValue(null, f33433j);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }
@@ -484,10 +484,10 @@ public class NetImageView extends ImageView {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, context) == null) {
-            if (f33278k == null) {
+            if (f33434k == null) {
                 synchronized (NetImageView.class) {
-                    if (f33278k == null) {
-                        f33278k = new Handler(context.getMainLooper());
+                    if (f33434k == null) {
+                        f33434k = new Handler(context.getMainLooper());
                     }
                 }
             }

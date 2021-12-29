@@ -22,10 +22,10 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46891b;
+        public String f47111b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f46892c;
+        public ArrayList<String> f47112c;
 
         public TBCdnMobileListData() {
             Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 }
             }
             this.a = null;
-            this.f46891b = null;
-            this.f46892c = new ArrayList<>();
+            this.f47111b = null;
+            this.f47112c = new ArrayList<>();
         }
     }
 
@@ -84,15 +84,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f46892c.size() <= 5; i3++) {
+                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f47112c.size() <= 5; i3++) {
                         String string = optJSONArray.getString(i3);
                         if (string != null) {
-                            this.mobileCdnData.f46892c.add(string);
+                            this.mobileCdnData.f47112c.add(string);
                         }
                     }
                 }
                 this.mobileCdnData.a = optJSONObject.optString("testimg_url");
-                this.mobileCdnData.f46891b = optJSONObject.optString("testimg_md5");
+                this.mobileCdnData.f47111b = optJSONObject.optString("testimg_md5");
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

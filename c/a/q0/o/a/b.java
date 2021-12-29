@@ -1,5 +1,0 @@
-package c.a.q0.o.a;
-/* loaded from: classes6.dex */
-public interface b {
-    void a(a aVar);
-}

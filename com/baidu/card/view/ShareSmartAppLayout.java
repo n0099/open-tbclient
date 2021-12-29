@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import c.a.l.p;
-import c.a.r0.s.r.a;
-import c.a.r0.s.r.d2;
-import c.a.s0.g0.d0;
+import c.a.s0.s.q.a;
+import c.a.s0.s.q.d2;
+import c.a.t0.g0.d0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
@@ -24,7 +24,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d0<a> f34224e;
+    public d0<a> f34380e;
     public AppletsCellView mAppletsCellView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public d0<a> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34224e : (d0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34380e : (d0) invokeV.objValue;
     }
 
     public void setFromCDN(boolean z) {
@@ -73,7 +73,7 @@ public class ShareSmartAppLayout extends LinearLayout implements p<a> {
     public void setSubClickListener(d0<a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, d0Var) == null) {
-            this.f34224e = d0Var;
+            this.f34380e = d0Var;
         }
     }
 

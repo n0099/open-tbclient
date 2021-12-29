@@ -17,25 +17,25 @@ public class DisplayInfoView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f39424e;
+    public double f39580e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f39425f;
+    public double f39581f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39426g;
+    public int f39582g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f39427h;
+    public String f39583h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f39428i;
+    public String f39584i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final Context f39429j;
+    public final Context f39585j;
 
     /* renamed from: k  reason: collision with root package name */
-    public d f39430k;
+    public d f39586k;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -43,7 +43,7 @@ public class DisplayInfoView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DisplayInfoView f39431e;
+        public final /* synthetic */ DisplayInfoView f39587e;
 
         public a(DisplayInfoView displayInfoView) {
             Interceptable interceptable = $ic;
@@ -60,16 +60,16 @@ public class DisplayInfoView extends LinearLayout {
                     return;
                 }
             }
-            this.f39431e = displayInfoView;
+            this.f39587e = displayInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39431e.f39430k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39587e.f39586k == null) {
                 return;
             }
-            this.f39431e.f39430k.c();
+            this.f39587e.f39586k.c();
         }
     }
 
@@ -79,7 +79,7 @@ public class DisplayInfoView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DisplayInfoView f39432e;
+        public final /* synthetic */ DisplayInfoView f39588e;
 
         public b(DisplayInfoView displayInfoView) {
             Interceptable interceptable = $ic;
@@ -96,16 +96,16 @@ public class DisplayInfoView extends LinearLayout {
                     return;
                 }
             }
-            this.f39432e = displayInfoView;
+            this.f39588e = displayInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39432e.f39430k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f39588e.f39586k == null) {
                 return;
             }
-            this.f39432e.f39430k.a();
+            this.f39588e.f39586k.a();
         }
     }
 
@@ -141,8 +141,8 @@ public class DisplayInfoView extends LinearLayout {
                 if (str.indexOf("版本") == -1) {
                     str = str3;
                 }
-                this.a.f39428i = str;
-                this.a.f39427h = str2;
+                this.a.f39584i = str;
+                this.a.f39583h = str2;
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -152,7 +152,7 @@ public class DisplayInfoView extends LinearLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
-                this.a.f39430k = dVar;
+                this.a.f39586k = dVar;
                 return this;
             }
             return (c) invokeL.objValue;
@@ -162,7 +162,7 @@ public class DisplayInfoView extends LinearLayout {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.a.f39426g = i2;
+                this.a.f39582g = i2;
                 return this;
             }
             return (c) invokeI.objValue;
@@ -190,12 +190,12 @@ public class DisplayInfoView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            TextView textView = new TextView(this.f39429j);
+            TextView textView = new TextView(this.f39585j);
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             textView.setText(str);
-            textView.setTextColor(this.f39426g);
-            textView.setTextSize(1, (int) ((this.f39424e * displayMetrics.widthPixels) / displayMetrics.density));
-            addView(textView, g(this.f39425f));
+            textView.setTextColor(this.f39582g);
+            textView.setTextSize(1, (int) ((this.f39580e * displayMetrics.widthPixels) / displayMetrics.density));
+            addView(textView, g(this.f39581f));
             return textView;
         }
         return (TextView) invokeL.objValue;
@@ -217,8 +217,8 @@ public class DisplayInfoView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f(this.f39428i);
-            f(this.f39427h);
+            f(this.f39584i);
+            f(this.f39583h);
             f("隐私").setOnClickListener(new a(this));
             f("权限").setOnClickListener(new b(this));
         }
@@ -251,11 +251,11 @@ public class DisplayInfoView extends LinearLayout {
                 return;
             }
         }
-        this.f39424e = 0.027777777777777776d;
-        this.f39425f = 0.0196078431372549d;
-        this.f39426g = -1728053248;
+        this.f39580e = 0.027777777777777776d;
+        this.f39581f = 0.0196078431372549d;
+        this.f39582g = -1728053248;
         setOrientation(0);
-        this.f39429j = context;
+        this.f39585j = context;
         removeAllViews();
     }
 }

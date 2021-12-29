@@ -2,11 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,138 +13,99 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class t {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static <T> List<T> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    Object obj = jSONArray.get(i2);
-                    if (obj != null) {
-                        arrayList.add(obj);
-                    }
-                }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
+        ArrayList arrayList = new ArrayList();
+        if (TextUtils.isEmpty(str)) {
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if (obj != null) {
+                    arrayList.add(obj);
+                }
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        return arrayList;
     }
 
     public static <T extends com.kwad.sdk.core.b> List<T> a(String str, @NonNull com.kwad.sdk.core.c<T> cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cVar)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    T a = cVar.a();
-                    a.parseJson(jSONObject);
-                    arrayList.add(a);
-                }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-            }
+        ArrayList arrayList = new ArrayList();
+        if (TextUtils.isEmpty(str)) {
             return arrayList;
         }
-        return (List) invokeLL.objValue;
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                T a = cVar.a();
+                a.parseJson(jSONObject);
+                arrayList.add(a);
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        return arrayList;
     }
 
     public static JSONArray a(@NonNull List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (String str : list) {
-                jSONArray.put(str);
-            }
-            return jSONArray;
+        JSONArray jSONArray = new JSONArray();
+        for (String str : list) {
+            jSONArray.put(str);
         }
-        return (JSONArray) invokeL.objValue;
+        return jSONArray;
     }
 
     public static JSONObject a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null && !map.isEmpty()) {
-                try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        jSONObject.put(entry.getKey(), entry.getValue());
-                    }
-                } catch (Exception unused) {
+        JSONObject jSONObject = new JSONObject();
+        if (map != null && !map.isEmpty()) {
+            try {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
                 }
+            } catch (Exception unused) {
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return jSONObject;
     }
 
     public static void a(JSONArray jSONArray, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, jSONObject) == null) {
-            jSONArray.put(jSONObject);
-        }
+        jSONArray.put(jSONObject);
     }
 
     public static void a(JSONObject jSONObject, String str, double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{jSONObject, str, Double.valueOf(d2)}) == null) {
-            try {
-                jSONObject.put(str, d2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, d2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, str, Float.valueOf(f2)}) == null) {
-            try {
-                jSONObject.put(str, f2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, f2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, jSONObject, str, i2) == null) {
-            try {
-                jSONObject.put(str, i2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, i2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{jSONObject, str, Long.valueOf(j2)}) == null) {
-            try {
-                jSONObject.put(str, j2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, j2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, com.kwad.sdk.core.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65545, null, jSONObject, str, bVar) == null) || bVar == null) {
+        if (bVar == null) {
             return;
         }
         try {
@@ -158,18 +115,14 @@ public class t {
     }
 
     public static void a(JSONObject jSONObject, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, jSONObject, str, str2) == null) {
-            try {
-                jSONObject.put(str, str2);
-            } catch (JSONException unused) {
-            }
+        try {
+            jSONObject.put(str, str2);
+        } catch (JSONException unused) {
         }
     }
 
     public static void a(JSONObject jSONObject, String str, List<?> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, jSONObject, str, list) == null) || list == null) {
+        if (list == null) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
@@ -196,8 +149,7 @@ public class t {
     }
 
     public static void a(JSONObject jSONObject, String str, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65548, null, jSONObject, str, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0 && jSONObject != null && !TextUtils.isEmpty(str)) {
+        if (jSONArray != null && jSONArray.length() != 0 && jSONObject != null && !TextUtils.isEmpty(str)) {
             try {
                 jSONObject.put(str, jSONArray);
             } catch (JSONException unused) {
@@ -206,8 +158,7 @@ public class t {
     }
 
     public static void a(JSONObject jSONObject, String str, JSONObject jSONObject2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, str, jSONObject2) == null) && jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
+        if (jSONObject2 != null && jSONObject != null && !TextUtils.isEmpty(str)) {
             try {
                 jSONObject.put(str, jSONObject2);
             } catch (JSONException unused) {
@@ -216,8 +167,7 @@ public class t {
     }
 
     public static void a(JSONObject jSONObject, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65550, null, jSONObject, str, z) == null) && jSONObject != null && !TextUtils.isEmpty(str)) {
+        if (jSONObject != null && !TextUtils.isEmpty(str)) {
             try {
                 jSONObject.put(str, z);
             } catch (JSONException unused) {
@@ -226,8 +176,7 @@ public class t {
     }
 
     public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, jSONObject, jSONObject2) == null) || jSONObject == null || jSONObject2 == null) {
+        if (jSONObject == null || jSONObject2 == null) {
             return;
         }
         Iterator<String> keys = jSONObject2.keys();
@@ -244,44 +193,34 @@ public class t {
     }
 
     public static Map<String, String> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String optString = jSONObject.optString(next, "");
-                    if (TextUtils.isEmpty(optString) || TextUtils.equals(StringUtil.NULL_STRING, optString)) {
-                        optString = "";
-                    }
-                    hashMap.put(next, optString);
+        HashMap hashMap = new HashMap();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next, "");
+                if (TextUtils.isEmpty(optString) || TextUtils.equals(StringUtil.NULL_STRING, optString)) {
+                    optString = "";
                 }
-            } catch (JSONException unused) {
+                hashMap.put(next, optString);
             }
-            return hashMap;
+        } catch (JSONException unused) {
         }
-        return (Map) invokeL.objValue;
+        return hashMap;
     }
 
     public static <T> JSONArray b(@NonNull List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, list)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (Object obj : list) {
-                if (!(obj instanceof JSONObject)) {
-                    if (!(obj instanceof com.kwad.sdk.core.b)) {
-                        throw new IllegalArgumentException("<T> now suppprt type: " + obj.getClass().getName());
-                    }
-                    obj = ((com.kwad.sdk.core.b) obj).toJson();
+        JSONArray jSONArray = new JSONArray();
+        for (Object obj : list) {
+            if (!(obj instanceof JSONObject)) {
+                if (!(obj instanceof com.kwad.sdk.core.b)) {
+                    throw new IllegalArgumentException("<T> now suppprt type: " + obj.getClass().getName());
                 }
-                jSONArray.put(obj);
+                obj = ((com.kwad.sdk.core.b) obj).toJson();
             }
-            return jSONArray;
+            jSONArray.put(obj);
         }
-        return (JSONArray) invokeL.objValue;
+        return jSONArray;
     }
 }

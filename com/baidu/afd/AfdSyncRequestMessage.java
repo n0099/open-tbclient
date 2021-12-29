@@ -5,7 +5,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import c.a.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -103,7 +103,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam("android_id", androidId());
             addParam("ot", "2");
             addParam("ct", "2");
-            addParam("nt", String.valueOf(k.I()));
+            addParam("nt", String.valueOf(l.I()));
             addParam("uid", TbadkCoreApplication.getCurrentAccount());
             addParam("is_https", 1);
         }

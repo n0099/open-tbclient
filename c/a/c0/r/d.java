@@ -24,22 +24,22 @@ public class d {
         public final /* synthetic */ Ref.LongRef a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f1841b;
+        public final /* synthetic */ Ref.ObjectRef f2268b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f1842c;
+        public final /* synthetic */ Ref.ObjectRef f2269c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ Ref.ObjectRef f1843d;
+        public final /* synthetic */ Ref.ObjectRef f2270d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.k.a f1844e;
+        public final /* synthetic */ c.a.c0.k.a f2271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ File f1845f;
+        public final /* synthetic */ File f2272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Ref.BooleanRef f1846g;
+        public final /* synthetic */ Ref.BooleanRef f2273g;
 
         public a(Ref.LongRef longRef, Ref.ObjectRef objectRef, Ref.ObjectRef objectRef2, Ref.ObjectRef objectRef3, c.a.c0.k.a aVar, File file, Ref.BooleanRef booleanRef) {
             Interceptable interceptable = $ic;
@@ -57,19 +57,19 @@ public class d {
                 }
             }
             this.a = longRef;
-            this.f1841b = objectRef;
-            this.f1842c = objectRef2;
-            this.f1843d = objectRef3;
-            this.f1844e = aVar;
-            this.f1845f = file;
-            this.f1846g = booleanRef;
+            this.f2268b = objectRef;
+            this.f2269c = objectRef2;
+            this.f2270d = objectRef3;
+            this.f2271e = aVar;
+            this.f2272f = file;
+            this.f2273g = booleanRef;
         }
 
         @Override // c.a.c0.r.p.a
         public void a(Exception exc, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) {
-                this.f1844e.accept(new o(false, this.a.element, (String) this.f1841b.element, (String) this.f1842c.element, exc));
+                this.f2271e.accept(new o(false, this.a.element, (String) this.f2268b.element, (String) this.f2269c.element, exc));
             }
         }
 
@@ -81,22 +81,22 @@ public class d {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i2) == null) {
                 if (headers != null && inputStream != null) {
-                    this.f1841b.element = headers.d("ETag");
-                    this.f1842c.element = headers.d("Last-Modified");
+                    this.f2268b.element = headers.d("ETag");
+                    this.f2269c.element = headers.d("Last-Modified");
                     if (i2 == 200) {
-                        FileOutputStream fileOutputStream = new FileOutputStream(this.f1845f);
+                        FileOutputStream fileOutputStream = new FileOutputStream(this.f2272f);
                         this.a.element = c.a.c0.d0.h.b(inputStream, fileOutputStream);
                         c.a.c0.e.d.a(inputStream);
                         c.a.c0.e.d.a(fileOutputStream);
                     } else if (i2 != 304) {
-                        this.f1846g.element = false;
-                        Ref.ObjectRef objectRef = this.f1843d;
+                        this.f2273g.element = false;
+                        Ref.ObjectRef objectRef = this.f2270d;
                         objectRef.element = new Exception("Unsupport http code:" + i2);
                     }
-                    this.f1844e.accept(new o(this.f1846g.element, this.a.element, (String) this.f1841b.element, (String) this.f1842c.element, (Exception) this.f1843d.element));
+                    this.f2271e.accept(new o(this.f2273g.element, this.a.element, (String) this.f2268b.element, (String) this.f2269c.element, (Exception) this.f2270d.element));
                     return;
                 }
-                this.f1844e.accept(new o(false, this.a.element, (String) this.f1841b.element, (String) this.f1842c.element, (Exception) this.f1843d.element));
+                this.f2271e.accept(new o(false, this.a.element, (String) this.f2268b.element, (String) this.f2269c.element, (Exception) this.f2270d.element));
             }
         }
     }
@@ -131,8 +131,8 @@ public class d {
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = meta.a;
             Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-            objectRef2.element = meta.f1851b;
-            if (!meta.f1852c) {
+            objectRef2.element = meta.f2278b;
+            if (!meta.f2279c) {
                 if (!TextUtils.isEmpty((String) objectRef.element)) {
                     dVar.a("If-None-Match", (String) objectRef.element);
                 }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.d.f.p.m;
-import c.a.r0.n.f;
+import c.a.d.f.p.n;
+import c.a.s0.n.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.GridSpaceItemDecoration;
@@ -43,7 +43,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f45884b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f46082b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f45884b = homePageTabFeedCollegeSecondActivity;
+            this.f46082b = homePageTabFeedCollegeSecondActivity;
             this.a = list;
         }
 
@@ -78,7 +78,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f45885e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f46083e;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -95,11 +95,11 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f45885e = homePageTabFeedCollegeSecondActivity;
+            this.f46083e = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.n.f
+        @Override // c.a.s0.n.f
         /* renamed from: b */
         public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.n.f
+        @Override // c.a.s0.n.f
         /* renamed from: d */
         public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -120,13 +120,13 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 if (i3 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f45885e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f45885e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.f46083e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f46083e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
                 } else if (i3 != 4) {
                     return;
                 }
             }
-            this.f45885e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f45885e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.f46083e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f46083e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 
@@ -179,9 +179,9 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                         gridLayoutManager.setSpanSizeLookup(new a(this, resultData));
                         this.bdRecyclerView.setLayoutManager(gridLayoutManager);
-                        int f2 = m.f(this, R.dimen.tbds44);
-                        int f3 = m.f(this, R.dimen.tbds44);
-                        this.bdRecyclerView.addItemDecoration(new GridSpaceItemDecoration(f2, m.f(this, R.dimen.tbds11), f3));
+                        int f2 = n.f(this, R.dimen.tbds44);
+                        int f3 = n.f(this, R.dimen.tbds44);
+                        this.bdRecyclerView.addItemDecoration(new GridSpaceItemDecoration(f2, n.f(this, R.dimen.tbds11), f3));
                     }
                 }
                 this.adapter = new HomePageTabFeedCollegeSecondListAdapter(this, resultData);

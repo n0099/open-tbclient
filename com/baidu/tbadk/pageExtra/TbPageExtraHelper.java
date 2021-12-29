@@ -12,7 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import c.a.d.f.m.e;
-import c.a.r0.n0.c;
+import c.a.s0.o0.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragment;
@@ -38,7 +38,7 @@ public class TbPageExtraHelper {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, String> f42386b;
+    public static HashMap<String, String> f42567b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes11.dex */
@@ -47,7 +47,7 @@ public class TbPageExtraHelper {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f42387e;
+        public final /* synthetic */ String f42568e;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -64,14 +64,14 @@ public class TbPageExtraHelper {
                     return;
                 }
             }
-            this.f42387e = str;
+            this.f42568e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.a = (String) TbPageExtraHelper.f42386b.get(this.f42387e);
+                String unused = TbPageExtraHelper.a = (String) TbPageExtraHelper.f42567b.get(this.f42568e);
             }
         }
     }
@@ -89,7 +89,7 @@ public class TbPageExtraHelper {
                 return;
             }
         }
-        f42386b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
+        f42567b = new HashMap<String, String>() { // from class: com.baidu.tbadk.pageExtra.TbPageExtraHelper.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,7 +139,7 @@ public class TbPageExtraHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) {
-            c.a.r0.n0.a e2 = e(view);
+            c.a.s0.o0.a e2 = e(view);
             if (e2 == null || e2.getTbFragmentExtra() == null) {
                 return null;
             }
@@ -148,22 +148,22 @@ public class TbPageExtraHelper {
         return (BaseFragment) invokeL.objValue;
     }
 
-    public static c.a.r0.n0.a e(View view) {
+    public static c.a.s0.o0.a e(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) {
             ViewParent parent = view.getParent();
-            c.a.r0.n0.a aVar = null;
+            c.a.s0.o0.a aVar = null;
             if (parent instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) parent;
-                if (viewGroup instanceof c.a.r0.n0.a) {
-                    aVar = (c.a.r0.n0.a) parent;
+                if (viewGroup instanceof c.a.s0.o0.a) {
+                    aVar = (c.a.s0.o0.a) parent;
                     r(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
                 if (aVar == null) {
                     Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
-                    if (tag instanceof c.a.r0.n0.a) {
-                        aVar = (c.a.r0.n0.a) tag;
+                    if (tag instanceof c.a.s0.o0.a) {
+                        aVar = (c.a.s0.o0.a) tag;
                         r(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     }
                 }
@@ -179,7 +179,7 @@ public class TbPageExtraHelper {
             }
             return null;
         }
-        return (c.a.r0.n0.a) invokeL.objValue;
+        return (c.a.s0.o0.a) invokeL.objValue;
     }
 
     public static c f(View view) {
@@ -188,7 +188,7 @@ public class TbPageExtraHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
             BaseFragment d2 = d(view);
             c tbPageExtra = d2 != null ? d2.getTbPageExtra() : null;
-            return (tbPageExtra == null || tbPageExtra.e()) ? k(g(view)) : tbPageExtra;
+            return (tbPageExtra == null || tbPageExtra.f()) ? k(g(view)) : tbPageExtra;
         }
         return (c) invokeL.objValue;
     }
@@ -273,8 +273,12 @@ public class TbPageExtraHelper {
                 }
             }
             stack.clear();
-            if (cVar == null || cVar.e()) {
+            if (cVar == null || cVar.f()) {
+                String b2 = cVar == null ? "" : cVar.b();
                 c tbPageExtra = baseFragmentActivity.getTbPageExtra();
+                if (tbPageExtra != null) {
+                    tbPageExtra.h(b2);
+                }
                 r(baseFragmentActivity, "CurrentActivityExtra-->" + tbPageExtra);
                 return tbPageExtra;
             }
@@ -338,7 +342,7 @@ public class TbPageExtraHelper {
     public static boolean p(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f42386b.get(str) == "a028" : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) ? f42567b.get(str) == "a028" : invokeL.booleanValue;
     }
 
     public static final void q(FragmentManager fragmentManager) {
@@ -378,10 +382,10 @@ public class TbPageExtraHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65556, null, cVar) == null) && n() && cVar != null) {
             String a2 = cVar.a();
-            String d2 = cVar.d();
+            String e2 = cVar.e();
+            ArrayList<String> d2 = cVar.d();
             ArrayList<String> c2 = cVar.c();
-            ArrayList<String> b2 = cVar.b();
-            r(cVar, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + d2 + ",preList=" + c2.toString() + ",nextList=" + b2.toString());
+            r(cVar, "Current TbPageExtra:currentPageKey=" + a2 + ",prePageKey=" + e2 + ",preList=" + d2.toString() + ",nextList=" + c2.toString());
         }
     }
 
@@ -416,7 +420,7 @@ public class TbPageExtraHelper {
 
     public static void w(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f42386b.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeL(65559, null, str) == null) && !StringUtil.isEmpty(str) && f42567b.containsKey(str)) {
             e.a().postDelayed(new a(str), 100L);
         }
     }

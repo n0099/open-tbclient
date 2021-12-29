@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.q0.r.a.a.l;
-import c.a.q0.r.a.a.n;
+import c.a.r0.r.a.a.l;
+import c.a.r0.r.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -101,7 +101,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.f41199j;
+        this.mIndex = fragment.f41355j;
         this.mFromLayout = fragment.s;
         this.mFragmentId = fragment.A;
         this.mContainerId = fragment.B;
@@ -134,13 +134,13 @@ public final class FragmentState implements Parcelable {
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
             }
-            this.mInstance = Fragment.p0(context, this.mClassName, this.mArguments);
+            this.mInstance = Fragment.d0(context, this.mClassName, this.mArguments);
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(context.getClassLoader());
-                this.mInstance.f41197h = this.mSavedFragmentState;
+                this.mInstance.f41353h = this.mSavedFragmentState;
             }
-            this.mInstance.l1(this.mIndex, fragment);
+            this.mInstance.e1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.s = this.mFromLayout;
             fragment3.u = true;
@@ -149,7 +149,7 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = lVar.f11211e;
+            fragment3.w = lVar.f11946e;
             if (n.x) {
                 String str = "Instantiated fragment " + this.mInstance;
             }

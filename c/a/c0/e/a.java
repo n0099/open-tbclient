@@ -18,10 +18,10 @@ public class a {
     public static Application a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static e f1470b;
+    public static e f1897b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f1471c;
+    public static f f1898c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f1471c = c().a();
+        f1898c = c().a();
     }
 
     public a() {
@@ -57,7 +57,7 @@ public class a {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1471c : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1898c : (f) invokeV.objValue;
     }
 
     public static Context b() {
@@ -70,17 +70,17 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f1470b == null) {
+            if (f1897b == null) {
                 synchronized (a.class) {
-                    if (f1470b == null) {
-                        f1470b = (e) ServiceManager.getService(e.a);
+                    if (f1897b == null) {
+                        f1897b = (e) ServiceManager.getService(e.a);
                     }
-                    if (f1470b == null) {
-                        f1470b = e.f1472b;
+                    if (f1897b == null) {
+                        f1897b = e.f1899b;
                     }
                 }
             }
-            return f1470b;
+            return f1897b;
         }
         return (e) invokeV.objValue;
     }

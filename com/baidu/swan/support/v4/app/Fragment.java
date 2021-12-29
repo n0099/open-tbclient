@@ -24,13 +24,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.a.a.j;
-import c.a.q0.r.a.a.l;
-import c.a.q0.r.a.a.m;
-import c.a.q0.r.a.a.n;
-import c.a.q0.r.a.a.r;
-import c.a.q0.r.a.c.c;
-import c.a.q0.r.a.c.f;
+import c.a.r0.r.a.a.j;
+import c.a.r0.r.a.a.l;
+import c.a.r0.r.a.a.m;
+import c.a.r0.r.a.a.n;
+import c.a.r0.r.a.a.r;
+import c.a.r0.r.a.c.c;
+import c.a.r0.r.a.c.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -80,25 +80,25 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public SharedElementCallback c0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41194e;
+    public int f41350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f41195f;
+    public View f41351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41196g;
+    public int f41352g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bundle f41197h;
+    public Bundle f41353h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SparseArray<Parcelable> f41198i;
+    public SparseArray<Parcelable> f41354i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f41199j;
+    public int f41355j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f41200k;
+    public String f41356k;
     public Bundle l;
     public Fragment m;
     public int n;
@@ -166,7 +166,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.a = fragment;
         }
 
-        @Override // c.a.q0.r.a.a.j
+        @Override // c.a.r0.r.a.a.j
         @Nullable
         public View a(int i2) {
             InterceptResult invokeI;
@@ -181,7 +181,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return (View) invokeI.objValue;
         }
 
-        @Override // c.a.q0.r.a.a.j
+        @Override // c.a.r0.r.a.a.j
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -219,8 +219,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 return;
             }
         }
-        this.f41194e = 0;
-        this.f41199j = -1;
+        this.f41350e = 0;
+        this.f41355j = -1;
         this.n = -1;
         this.I = true;
         this.P = true;
@@ -235,13 +235,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.c0 = null;
     }
 
-    public static Fragment o0(Context context, String str) {
+    public static Fragment c0(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? p0(context, str, null) : (Fragment) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? d0(context, str, null) : (Fragment) invokeLL.objValue;
     }
 
-    public static Fragment p0(Context context, String str, @Nullable Bundle bundle) {
+    public static Fragment d0(Context context, String str, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, bundle)) == null) {
@@ -268,7 +268,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (Fragment) invokeLLL.objValue;
     }
 
-    public static boolean v0(Context context, String str) {
+    public static boolean o0(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
@@ -286,22 +286,18 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeLL.booleanValue;
     }
 
-    public boolean A0(MenuItem menuItem) {
-        InterceptResult invokeL;
+    public void A0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, menuItem)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
         }
-        return invokeL.booleanValue;
     }
 
-    public Animation B0(int i2, boolean z, int i3) {
-        InterceptResult invokeCommon;
+    @Deprecated
+    public void B0(Activity activity, AttributeSet attributeSet, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, attributeSet, bundle) == null) {
+            this.J = true;
         }
-        return (Animation) invokeCommon.objValue;
     }
 
     public LayoutInflater C(Bundle bundle) {
@@ -312,26 +308,32 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             u();
             n nVar = this.y;
             nVar.J();
-            c.a.q0.r.a.d.a.a(n, nVar);
+            c.a.r0.r.a.d.a.a(n, nVar);
             return n;
         }
         return (LayoutInflater) invokeL.objValue;
     }
 
-    public void C0(Menu menu, MenuInflater menuInflater) {
+    public void C0(Context context, AttributeSet attributeSet, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, menu, menuInflater) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, attributeSet, bundle) == null) {
+            this.J = true;
+            l lVar = this.x;
+            Activity activity = lVar == null ? null : lVar.getActivity();
+            if (activity != null) {
+                this.J = false;
+                B0(activity, attributeSet, bundle);
+            }
         }
     }
 
-    @Nullable
-    public View D0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
+    public boolean D0(MenuItem menuItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, menuItem)) == null) {
+            return false;
         }
-        return (View) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 
     public Object E() {
@@ -344,9 +346,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeV.objValue;
     }
 
-    public void E0() {
+    public void E0(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, menu) == null) {
         }
     }
 
@@ -360,10 +362,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeV.objValue;
     }
 
-    public void F0() {
+    public void F0(Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.J = true;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, menu) == null) {
         }
     }
 
@@ -373,95 +374,62 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.X : invokeV.objValue;
     }
 
-    public void G0() {
+    public void G0(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048586, this, i2, strArr, iArr) == null) {
+        }
+    }
+
+    public Object H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            Object obj = this.Y;
+            return obj == e0 ? G() : obj;
+        }
+        return invokeV.objValue;
+    }
+
+    public void H0(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
+        }
+    }
+
+    public final String I(@StringRes int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
+    }
+
+    public void I0(View view, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, view, bundle) == null) {
+        }
+    }
+
+    public final String J(@StringRes int i2, Object... objArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
+    }
+
+    public void J0(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             this.J = true;
         }
     }
 
-    public void H0(boolean z) {
+    public void K0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    @Deprecated
-    public void I0(Activity activity, AttributeSet attributeSet, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048588, this, activity, attributeSet, bundle) == null) {
-            this.J = true;
-        }
-    }
-
-    public void J0(Context context, AttributeSet attributeSet, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, context, attributeSet, bundle) == null) {
-            this.J = true;
-            l lVar = this.x;
-            Activity activity = lVar == null ? null : lVar.getActivity();
-            if (activity != null) {
-                this.J = false;
-                I0(activity, attributeSet, bundle);
-            }
-        }
-    }
-
-    public boolean K0(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, menuItem)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void L0(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, menu) == null) {
-        }
-    }
-
-    public void M0(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, menu) == null) {
-        }
-    }
-
-    public void N0(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048593, this, i2, strArr, iArr) == null) {
-        }
-    }
-
-    public void O0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
-        }
-    }
-
-    public void P0(View view, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, view, bundle) == null) {
-        }
-    }
-
-    public void Q0(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            this.J = true;
-        }
-    }
-
-    public void R0(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.V();
             }
             this.J = false;
-            w0(bundle);
+            p0(bundle);
             if (this.J) {
                 n nVar2 = this.y;
                 if (nVar2 != null) {
@@ -474,9 +442,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void S0(Configuration configuration) {
+    public void L0(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) {
             onConfigurationChanged(configuration);
             n nVar = this.y;
             if (nVar != null) {
@@ -485,14 +453,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public boolean T0(MenuItem menuItem) {
+    public boolean M0(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, menuItem)) == null) {
             if (this.D) {
                 return false;
             }
-            if (A0(menuItem)) {
+            if (t0(menuItem)) {
                 return true;
             }
             n nVar = this.y;
@@ -501,10 +469,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeL.booleanValue;
     }
 
-    public void U0(Bundle bundle) {
+    public final Fragment N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.m : (Fragment) invokeV.objValue;
+    }
+
+    public void N0(Bundle bundle) {
         Parcelable parcelable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.V();
@@ -516,7 +490,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             } else if (bundle == null || (parcelable = bundle.getParcelable("android:support:fragments")) == null) {
             } else {
                 if (this.y == null) {
-                    q0();
+                    f0();
                 }
                 this.y.b0(parcelable, null);
                 this.y.q();
@@ -524,16 +498,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public boolean V0(Menu menu, MenuInflater menuInflater) {
+    public boolean O0(Menu menu, MenuInflater menuInflater) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, menu, menuInflater)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, menu, menuInflater)) == null) {
             boolean z = false;
             if (this.D) {
                 return false;
             }
             if (this.H && this.I) {
-                C0(menu, menuInflater);
+                v0(menu, menuInflater);
                 z = true;
             }
             n nVar = this.y;
@@ -542,38 +516,28 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeLL.booleanValue;
     }
 
-    public Object W() {
+    public final int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            Object obj = this.Y;
-            return obj == e0 ? G() : obj;
-        }
-        return invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.o : invokeV.intValue;
     }
 
-    public View W0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View P0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048603, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048600, this, layoutInflater, viewGroup, bundle)) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.V();
             }
-            return D0(layoutInflater, viewGroup, bundle);
+            return w0(layoutInflater, viewGroup, bundle);
         }
         return (View) invokeLLL.objValue;
     }
 
-    public final String X(@StringRes int i2) {
-        InterceptResult invokeI;
+    public void Q0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
-    }
-
-    public void X0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.s();
@@ -587,15 +551,21 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void Y0() {
+    public final CharSequence R(@StringRes int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? getResources().getText(i2) : (CharSequence) invokeI.objValue;
+    }
+
+    public void R0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.t();
             }
             this.J = false;
-            F0();
+            y0();
             if (this.J) {
                 r rVar = this.Q;
                 if (rVar != null) {
@@ -608,9 +578,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void Z0() {
+    public void S0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             onLowMemory();
             n nVar = this.y;
             if (nVar != null) {
@@ -619,14 +589,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public boolean a1(MenuItem menuItem) {
+    public boolean T0(MenuItem menuItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, menuItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, menuItem)) == null) {
             if (this.D) {
                 return false;
             }
-            if (this.H && this.I && K0(menuItem)) {
+            if (this.H && this.I && D0(menuItem)) {
                 return true;
             }
             n nVar = this.y;
@@ -635,13 +605,19 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeL.booleanValue;
     }
 
-    public void b1(Menu menu) {
+    public boolean U() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, menu) == null) || this.D) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.P : invokeV.booleanValue;
+    }
+
+    public void U0(Menu menu) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048607, this, menu) == null) || this.D) {
             return;
         }
         if (this.H && this.I) {
-            L0(menu);
+            E0(menu);
         }
         n nVar = this.y;
         if (nVar != null) {
@@ -649,15 +625,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final String c0(@StringRes int i2, Object... objArr) {
-        InterceptResult invokeIL;
+    public void V0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
-    }
-
-    public void c1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.x();
@@ -671,22 +641,23 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final Fragment d0() {
+    @Nullable
+    public View W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.m : (Fragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.M : (View) invokeV.objValue;
     }
 
-    public boolean d1(Menu menu) {
+    public boolean W0(Menu menu) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, menu)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, menu)) == null) {
             boolean z = false;
             if (this.D) {
                 return false;
             }
             if (this.H && this.I) {
-                M0(menu);
+                F0(menu);
                 z = true;
             }
             n nVar = this.y;
@@ -695,9 +666,36 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeL.booleanValue;
     }
 
-    public void e1() {
+    public void X() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            this.f41355j = -1;
+            this.f41356k = null;
+            this.p = false;
+            this.q = false;
+            this.r = false;
+            this.s = false;
+            this.t = false;
+            this.u = false;
+            this.v = 0;
+            this.w = null;
+            this.y = null;
+            this.x = null;
+            this.A = 0;
+            this.B = 0;
+            this.C = null;
+            this.D = false;
+            this.E = false;
+            this.G = false;
+            this.Q = null;
+            this.R = false;
+            this.S = false;
+        }
+    }
+
+    public void X0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.z();
@@ -706,7 +704,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.R = false;
                 if (!this.S) {
                     this.S = true;
-                    this.Q = this.x.i(this.f41200k, false, false);
+                    this.Q = this.x.i(this.f41356k, false, false);
                 }
                 r rVar = this.Q;
                 if (rVar != null) {
@@ -720,21 +718,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void Y0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, obj)) == null) ? super.equals(obj) : invokeL.booleanValue;
-    }
-
-    public final int f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.o : invokeV.intValue;
-    }
-
-    public void f1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.V();
@@ -755,17 +741,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final CharSequence g0(@StringRes int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048618, this, i2)) == null) ? getResources().getText(i2) : (CharSequence) invokeI.objValue;
-    }
-
-    public void g1(Bundle bundle) {
+    public void Z0(Bundle bundle) {
         Parcelable e02;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, bundle) == null) {
-            O0(bundle);
+        if (interceptable == null || interceptable.invokeL(1048614, this, bundle) == null) {
+            H0(bundle);
             n nVar = this.y;
             if (nVar == null || (e02 = nVar.e0()) == null) {
                 return;
@@ -774,48 +754,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final FragmentActivity getActivity() {
-        InterceptResult invokeV;
+    public void a1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            l lVar = this.x;
-            if (lVar == null) {
-                return null;
-            }
-            return (FragmentActivity) lVar.getActivity();
-        }
-        return (FragmentActivity) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            l lVar = this.x;
-            if (lVar == null) {
-                return null;
-            }
-            return lVar.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            l lVar = this.x;
-            if (lVar != null) {
-                return lVar.getContext().getResources();
-            }
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public void h1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.V();
@@ -839,21 +780,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final int hashCode() {
-        InterceptResult invokeV;
+    public void b1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? super.hashCode() : invokeV.intValue;
-    }
-
-    public boolean i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.P : invokeV.booleanValue;
-    }
-
-    public void i1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             n nVar = this.y;
             if (nVar != null) {
                 nVar.C();
@@ -867,16 +796,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final void j1(Bundle bundle) {
+    public final void c1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, bundle) == null) {
-            SparseArray<Parcelable> sparseArray = this.f41198i;
+        if (interceptable == null || interceptable.invokeL(1048617, this, bundle) == null) {
+            SparseArray<Parcelable> sparseArray = this.f41354i;
             if (sparseArray != null) {
                 this.N.restoreHierarchyState(sparseArray);
-                this.f41198i = null;
+                this.f41354i = null;
             }
             this.J = false;
-            Q0(bundle);
+            J0(bundle);
             if (this.J) {
                 return;
             }
@@ -884,10 +813,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void k1(Bundle bundle) {
+    public void d1(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, bundle) == null) {
-            if (this.f41199j < 0) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, bundle) == null) {
+            if (this.f41355j < 0) {
                 this.l = bundle;
                 return;
             }
@@ -895,64 +824,51 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final void l1(int i2, Fragment fragment) {
+    public final void e1(int i2, Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048629, this, i2, fragment) == null) {
-            this.f41199j = i2;
+        if (interceptable == null || interceptable.invokeIL(1048619, this, i2, fragment) == null) {
+            this.f41355j = i2;
             if (fragment != null) {
-                this.f41200k = fragment.f41200k + ":" + this.f41199j;
+                this.f41356k = fragment.f41356k + ":" + this.f41355j;
                 return;
             }
-            this.f41200k = "android:fragment:" + this.f41199j;
+            this.f41356k = "android:fragment:" + this.f41355j;
         }
     }
 
-    @Nullable
-    public View m0() {
-        InterceptResult invokeV;
+    public final boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.M : (View) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, obj)) == null) ? super.equals(obj) : invokeL.booleanValue;
     }
 
-    public void m1(Fragment fragment, int i2) {
+    public void f0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048631, this, fragment, i2) == null) {
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            n nVar = new n();
+            this.y = nVar;
+            nVar.j(this.x, new a(this), this);
+        }
+    }
+
+    public void f1(Fragment fragment, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048622, this, fragment, i2) == null) {
             this.m = fragment;
             this.o = i2;
         }
     }
 
-    public void n0() {
+    public final boolean g0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
-            this.f41199j = -1;
-            this.f41200k = null;
-            this.p = false;
-            this.q = false;
-            this.r = false;
-            this.s = false;
-            this.t = false;
-            this.u = false;
-            this.v = 0;
-            this.w = null;
-            this.y = null;
-            this.x = null;
-            this.A = 0;
-            this.B = 0;
-            this.C = null;
-            this.D = false;
-            this.E = false;
-            this.G = false;
-            this.Q = null;
-            this.R = false;
-            this.S = false;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.x != null && this.p : invokeV.booleanValue;
     }
 
-    public void n1(boolean z) {
+    public void g1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
-            if (!this.P && z && this.f41194e < 4) {
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            if (!this.P && z && this.f41350e < 4) {
                 this.w.W(this);
             }
             this.P = z;
@@ -960,17 +876,80 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    public final FragmentActivity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            l lVar = this.x;
+            if (lVar == null) {
+                return null;
+            }
+            return (FragmentActivity) lVar.getActivity();
+        }
+        return (FragmentActivity) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            l lVar = this.x;
+            if (lVar == null) {
+                return null;
+            }
+            return lVar.getContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public final Resources getResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            l lVar = this.x;
+            if (lVar != null) {
+                return lVar.getContext().getResources();
+            }
+            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public final int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? super.hashCode() : invokeV.intValue;
+    }
+
+    public final boolean i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.E : invokeV.booleanValue;
+    }
+
+    public final boolean m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.D : invokeV.booleanValue;
+    }
+
+    public final boolean n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.v > 0 : invokeV.booleanValue;
+    }
+
     @Override // android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, configuration) == null) {
+        if (interceptable == null || interceptable.invokeL(1048632, this, configuration) == null) {
             this.J = true;
         }
     }
 
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048635, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, bundle) == null) {
             this.J = true;
         }
     }
@@ -978,18 +957,18 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     @Override // android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048636, this, contextMenu, view, contextMenuInfo) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048634, this, contextMenu, view, contextMenuInfo) == null) {
             getActivity().onCreateContextMenu(contextMenu, view, contextMenuInfo);
         }
     }
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048635, this) == null) {
             this.J = true;
             if (!this.S) {
                 this.S = true;
-                this.Q = this.x.i(this.f41200k, this.R, false);
+                this.Q = this.x.i(this.f41356k, this.R, false);
             }
             r rVar = this.Q;
             if (rVar != null) {
@@ -1001,28 +980,28 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     @Override // android.content.ComponentCallbacks
     public void onLowMemory() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             this.J = true;
         }
     }
 
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
             this.J = true;
         }
     }
 
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
             this.J = true;
         }
     }
 
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
             this.J = true;
             if (this.R) {
                 return;
@@ -1030,7 +1009,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.R = true;
             if (!this.S) {
                 this.S = true;
-                this.Q = this.x.i(this.f41200k, true, false);
+                this.Q = this.x.i(this.f41356k, true, false);
             }
             r rVar = this.Q;
             if (rVar != null) {
@@ -1041,14 +1020,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
             this.J = true;
         }
     }
 
     public void p(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048643, this, str, fileDescriptor, printWriter, strArr) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048641, this, str, fileDescriptor, printWriter, strArr) == null) {
             printWriter.print(str);
             printWriter.print("mFragmentId=#");
             printWriter.print(Integer.toHexString(this.A));
@@ -1058,11 +1037,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             printWriter.println(this.C);
             printWriter.print(str);
             printWriter.print("mState=");
-            printWriter.print(this.f41194e);
+            printWriter.print(this.f41350e);
             printWriter.print(" mIndex=");
-            printWriter.print(this.f41199j);
+            printWriter.print(this.f41355j);
             printWriter.print(" mWho=");
-            printWriter.print(this.f41200k);
+            printWriter.print(this.f41356k);
             printWriter.print(" mBackStackNesting=");
             printWriter.println(this.v);
             printWriter.print(str);
@@ -1112,15 +1091,15 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mArguments=");
                 printWriter.println(this.l);
             }
-            if (this.f41197h != null) {
+            if (this.f41353h != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedFragmentState=");
-                printWriter.println(this.f41197h);
+                printWriter.println(this.f41353h);
             }
-            if (this.f41198i != null) {
+            if (this.f41354i != null) {
                 printWriter.print(str);
                 printWriter.print("mSavedViewState=");
-                printWriter.println(this.f41198i);
+                printWriter.println(this.f41354i);
             }
             if (this.m != null) {
                 printWriter.print(str);
@@ -1149,13 +1128,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 printWriter.print("mInnerView=");
                 printWriter.println(this.M);
             }
-            if (this.f41195f != null) {
+            if (this.f41351f != null) {
                 printWriter.print(str);
                 printWriter.print("mAnimatingAway=");
-                printWriter.println(this.f41195f);
+                printWriter.println(this.f41351f);
                 printWriter.print(str);
                 printWriter.print("mStateAfterAnimating=");
-                printWriter.println(this.f41196g);
+                printWriter.println(this.f41352g);
             }
             if (this.Q != null) {
                 printWriter.print(str);
@@ -1172,10 +1151,17 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
+    public void p0(@Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048642, this, bundle) == null) {
+            this.J = true;
+        }
+    }
+
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
             Boolean bool = this.a0;
             if (bool == null) {
                 return true;
@@ -1185,19 +1171,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeV.booleanValue;
     }
 
-    public void q0() {
+    public void q0(int i2, int i3, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
-            n nVar = new n();
-            this.y = nVar;
-            nVar.j(this.x, new a(this), this);
+        if (interceptable == null || interceptable.invokeIIL(1048644, this, i2, i3, intent) == null) {
         }
     }
 
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             Boolean bool = this.Z;
             if (bool == null) {
                 return true;
@@ -1207,15 +1190,17 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeV.booleanValue;
     }
 
-    public final boolean r0() {
-        InterceptResult invokeV;
+    @Deprecated
+    public void r0(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) ? this.x != null && this.p : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048646, this, activity) == null) {
+            this.J = true;
+        }
     }
 
     public final void requestPermissions(@NonNull String[] strArr, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048648, this, strArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048647, this, strArr, i2) == null) {
             l lVar = this.x;
             if (lVar != null) {
                 lVar.q(this, strArr, i2);
@@ -1225,15 +1210,22 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final boolean s0() {
-        InterceptResult invokeV;
+    public void s0(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) ? this.E : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048648, this, context) == null) {
+            this.J = true;
+            l lVar = this.x;
+            Activity activity = lVar == null ? null : lVar.getActivity();
+            if (activity != null) {
+                this.J = false;
+                r0(activity);
+            }
+        }
     }
 
     public void startActivity(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, intent) == null) {
             l lVar = this.x;
             if (lVar != null) {
                 lVar.s(this, intent, -1);
@@ -1245,7 +1237,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void startActivityForResult(Intent intent, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048651, this, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048650, this, intent, i2) == null) {
             l lVar = this.x;
             if (lVar != null) {
                 lVar.s(this, intent, i2);
@@ -1258,24 +1250,27 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final Bundle t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? this.l : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) ? this.l : (Bundle) invokeV.objValue;
     }
 
-    public final boolean t0() {
-        InterceptResult invokeV;
+    public boolean t0(MenuItem menuItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) ? this.D : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, menuItem)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             StringBuilder sb = new StringBuilder(128);
             c.a(this, sb);
-            if (this.f41199j >= 0) {
+            if (this.f41355j >= 0) {
                 sb.append(" #");
-                sb.append(this.f41199j);
+                sb.append(this.f41355j);
             }
             if (this.A != 0) {
                 sb.append(" id=0x");
@@ -1294,10 +1289,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final m u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             if (this.y == null) {
-                q0();
-                int i2 = this.f41194e;
+                f0();
+                int i2 = this.f41350e;
                 if (i2 >= 5) {
                     this.y.A();
                 } else if (i2 >= 4) {
@@ -1313,28 +1308,40 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (m) invokeV.objValue;
     }
 
-    public final boolean u0() {
-        InterceptResult invokeV;
+    public Animation u0(int i2, boolean z, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) ? this.v > 0 : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048655, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+            return null;
+        }
+        return (Animation) invokeCommon.objValue;
     }
 
     public Object v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) ? this.T : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) ? this.T : invokeV.objValue;
     }
 
-    public void w0(@Nullable Bundle bundle) {
+    public void v0(Menu menu, MenuInflater menuInflater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, bundle) == null) {
-            this.J = true;
+        if (interceptable == null || interceptable.invokeLL(1048657, this, menu, menuInflater) == null) {
         }
     }
 
-    public void x0(int i2, int i3, Intent intent) {
+    @Nullable
+    public View w0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048659, this, i2, i3, intent) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048658, this, layoutInflater, viewGroup, bundle)) == null) {
+            return null;
+        }
+        return (View) invokeLLL.objValue;
+    }
+
+    public void x0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048659, this) == null) {
         }
     }
 
@@ -1344,10 +1351,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) ? this.V : invokeV.objValue;
     }
 
-    @Deprecated
-    public void y0(Activity activity) {
+    public void y0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeV(1048661, this) == null) {
             this.J = true;
         }
     }
@@ -1358,16 +1364,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.w : (m) invokeV.objValue;
     }
 
-    public void z0(Context context) {
+    public void z0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, context) == null) {
+        if (interceptable == null || interceptable.invokeV(1048663, this) == null) {
             this.J = true;
-            l lVar = this.x;
-            Activity activity = lVar == null ? null : lVar.getActivity();
-            if (activity != null) {
-                this.J = false;
-                y0(activity);
-            }
         }
     }
 

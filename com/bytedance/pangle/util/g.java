@@ -1,54 +1,53 @@
 package com.bytedance.pangle.util;
 
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 /* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j2) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{inputStream, outputStream, Long.valueOf(j2)}) == null) || inputStream == null) {
-            return;
-        }
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
-        try {
-            byte[] bArr = new byte[4096];
-            int i2 = 0;
-            while (true) {
-                int read = bufferedInputStream.read(bArr);
-                if (read == -1) {
-                    break;
-                }
-                bufferedOutputStream.write(bArr, 0, read);
-                i2 += read;
-            }
-            bufferedOutputStream.flush();
-            if (j2 > 0 && i2 != j2) {
-                throw new IOException("copy is not completed");
-            }
-        } finally {
-            bufferedInputStream.close();
-            bufferedOutputStream.close();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
     }
 
-    public static void a(Closeable closeable) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            return i2 >= 21 && i2 <= 23;
         }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Build.VERSION.SDK_INT > 23 : invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 < 28) {
+                return i2 == 27 && Build.VERSION.PREVIEW_SDK_INT > 0;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT == 29 : invokeV.booleanValue;
     }
 }

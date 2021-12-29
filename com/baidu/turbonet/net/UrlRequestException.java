@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class UrlRequestException extends IOException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_ADDRESS_UNREACHABLE = 9;

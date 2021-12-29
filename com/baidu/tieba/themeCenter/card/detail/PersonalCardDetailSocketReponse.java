@@ -1,6 +1,6 @@
 package com.baidu.tieba.themeCenter.card.detail;
 
-import c.a.s0.b4.a;
+import c.a.t0.c4.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

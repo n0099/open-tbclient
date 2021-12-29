@@ -1,120 +1,309 @@
 package c.a.r0.m;
 
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Build;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.r0.s.a0.l;
-import c.a.r0.s.a0.n;
-import c.a.r0.s.a0.o;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class b extends n {
+public class b implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(l lVar) {
-        super(lVar);
+    /* renamed from: e  reason: collision with root package name */
+    public List<c.a.r0.m.o.c> f11602e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SensorManager f11603f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public double f11604g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LocationClient f11605h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public boolean f11606i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public BDLocation f11607j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public boolean f11608k;
+
+    /* loaded from: classes6.dex */
+    public class a implements BDLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if (bDLocation == null || this.a.f11602e.size() <= 0) {
+                    this.a.n();
+                    return;
+                }
+                this.a.f11607j = bDLocation;
+                for (c.a.r0.m.o.c cVar : this.a.f11602e) {
+                    if (cVar.f11650k) {
+                        MyLocationData build = new MyLocationData.Builder().direction(bDLocation.getDirection()).accuracy(bDLocation.getGpsAccuracyStatus()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).satellitesNum(bDLocation.getSatelliteNumber()).build();
+                        BaiduMap map = cVar.l.getMap();
+                        map.setMyLocationEnabled(true);
+                        map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                        map.setMyLocationData(build);
+                    }
+                }
+            }
+        }
+    }
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((l) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f11606i = false;
+        this.f11608k = false;
+        this.f11602e = new ArrayList(1);
+        l();
     }
 
-    @o(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
+    public c.a.r0.m.o.c d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (c.a.r0.m.o.c cVar : this.f11602e) {
+                if (cVar != null && TextUtils.equals(cVar.f11649j, str)) {
+                    return cVar;
+                }
+            }
+            return null;
+        }
+        return (c.a.r0.m.o.c) invokeL.objValue;
+    }
+
+    public BDLocation e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MODEL;
-            int k2 = m.k(getContext());
-            int i2 = m.i(getContext());
-            String str3 = String.valueOf(k2) + "," + String.valueOf(i2);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            try {
-                jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", str);
-                jSONObject.put("model", str2);
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str3);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11607j : (BDLocation) invokeV.objValue;
     }
 
-    @o(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f11605h == null) {
+            LocationClient locationClient = new LocationClient(AppRuntime.getAppContext());
+            this.f11605h = locationClient;
+            locationClient.registerLocationListener(new a(this));
+            LocationClientOption locationClientOption = new LocationClientOption();
+            locationClientOption.setOpenGps(true);
+            locationClientOption.setCoorType(CoordType.GCJ02.name());
+            locationClientOption.setScanSpan(1000);
+            this.f11605h.setLocOption(locationClientOption);
+        }
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
-        int i2;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (k.H()) {
-                i2 = 1;
-                str = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
-            } else if (k.t()) {
-                i2 = 3;
-                str = "2G";
-            } else if (k.u()) {
-                i2 = 4;
-                str = "3G";
-            } else if (k.v()) {
-                i2 = 5;
-                str = "4G";
-            } else {
-                i2 = 0;
-                str = "NotReachable";
-            }
-            try {
-                jSONObject.put("netStatus", i2);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LocationClient locationClient = this.f11605h;
+            return locationClient != null && locationClient.isStarted();
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @o(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            for (c.a.r0.m.o.c cVar : this.f11602e) {
+                cVar.l.onPause();
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n();
+            this.f11608k = false;
+            if (Build.VERSION.SDK_INT > 19) {
+                for (c.a.r0.m.o.c cVar : this.f11602e) {
+                    cVar.l.onDestroy();
+                }
+            }
+            this.f11602e.clear();
+        }
+    }
+
+    public boolean insert(c.a.r0.m.o.c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cVar)) == null) {
+            if (cVar == null) {
+                return false;
+            }
+            this.f11602e.add(cVar);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            c.a.r0.m.o.c d2 = d(str);
+            if (d2 != null) {
+                this.f11602e.remove(d2);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            l();
+            for (c.a.r0.m.o.c cVar : this.f11602e) {
+                cVar.l.onResume();
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f11608k) {
+            f();
+            LocationClient locationClient = this.f11605h;
+            if (locationClient == null || locationClient.isStarted()) {
+                return;
+            }
+            this.f11605h.start();
+            m();
+            c.a.r0.a.e0.d.o("map", "start location");
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.f11606i) {
             return;
         }
-        BdToast.c(getContext(), jSONObject.optString("message")).q();
+        SensorManager sensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
+        this.f11603f = sensorManager;
+        if (sensorManager != null) {
+            sensorManager.registerListener(this, sensorManager.getDefaultSensor(3), 2);
+            this.f11606i = true;
+        }
     }
 
-    @Override // c.a.r0.s.a0.n
-    public String f() {
-        InterceptResult invokeV;
+    public final void n() {
+        LocationClient locationClient;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f11608k && (locationClient = this.f11605h) != null && locationClient.isStarted()) {
+            this.f11605h.stop();
+            o();
+            c.a.r0.a.e0.d.o("map", "stop location");
+        }
+    }
+
+    public final void o() {
+        SensorManager sensorManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (sensorManager = this.f11603f) != null && this.f11606i) {
+            sensorManager.unregisterListener(this);
+            this.f11606i = false;
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onAccuracyChanged(Sensor sensor, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, sensor, i2) == null) {
+        }
+    }
+
+    @Override // android.hardware.SensorEventListener
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, sensorEvent) == null) {
+            double d2 = sensorEvent.values[0];
+            if (Math.abs(d2 - this.f11604g) > 1.0d) {
+                for (c.a.r0.m.o.c cVar : this.f11602e) {
+                    MyLocationData locationData = cVar.l.getMap().getLocationData();
+                    if (locationData != null && cVar.f11650k) {
+                        cVar.l.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d2).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
+                        f();
+                    }
+                }
+            }
+            this.f11604g = d2;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            if (z) {
+                this.f11608k = true;
+                l();
+                return;
+            }
+            n();
+            this.f11608k = false;
+        }
     }
 }

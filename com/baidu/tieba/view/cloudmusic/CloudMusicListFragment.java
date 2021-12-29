@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.s0.m4.l.e;
-import c.a.s0.m4.l.f;
-import c.a.s0.m4.l.g;
-import c.a.s0.m4.l.h.a;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.t0.n4.l.e;
+import c.a.t0.n4.l.f;
+import c.a.t0.n4.l.g;
+import c.a.t0.n4.l.h.a;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -41,25 +41,25 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdListView f51008e;
+    public BdListView f51257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.m4.l.h.a f51009f;
+    public c.a.t0.n4.l.h.a f51258f;
 
     /* renamed from: g  reason: collision with root package name */
-    public e f51010g;
+    public e f51259g;
 
     /* renamed from: h  reason: collision with root package name */
-    public CloudMusicData.MusicTagList f51011h;
+    public CloudMusicData.MusicTagList f51260h;
 
     /* renamed from: i  reason: collision with root package name */
-    public PbListView f51012i;
+    public PbListView f51261i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51013j;
+    public int f51262j;
 
     /* renamed from: k  reason: collision with root package name */
-    public NoDataView f51014k;
+    public NoDataView f51263k;
     public int l;
     public g m;
     public TbMusicData n;
@@ -96,10 +96,10 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921307 || this.a.f51009f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921307 || this.a.f51258f == null) {
                 return;
             }
-            this.a.f51009f.notifyDataSetChanged();
+            this.a.f51258f.notifyDataSetChanged();
         }
     }
 
@@ -109,7 +109,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicListFragment f51015e;
+        public final /* synthetic */ CloudMusicListFragment f51264e;
 
         public b(CloudMusicListFragment cloudMusicListFragment) {
             Interceptable interceptable = $ic;
@@ -126,17 +126,17 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                     return;
                 }
             }
-            this.f51015e = cloudMusicListFragment;
+            this.f51264e = cloudMusicListFragment;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                if (k.z()) {
-                    this.f51015e.f51010g.a(this.f51015e.f51009f.getItem(i2), i2);
+                if (l.z()) {
+                    this.f51264e.f51259g.a(this.f51264e.f51258f.getItem(i2), i2);
                 } else {
-                    m.L(this.f51015e.getPageContext().getPageActivity(), R.string.neterror);
+                    n.L(this.f51264e.getPageContext().getPageActivity(), R.string.neterror);
                 }
             }
         }
@@ -155,7 +155,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
                 return;
             }
         }
-        this.f51013j = 0;
+        this.f51262j = 0;
         this.l = 1;
         this.o = new a(this, 2921307);
     }
@@ -173,70 +173,70 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         return (CloudMusicListFragment) invokeL.objValue;
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void displayLoadingMore(boolean z) {
         PbListView pbListView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (pbListView = this.f51012i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (pbListView = this.f51261i) == null) {
             return;
         }
         if (z) {
             if (pbListView.b().getParent() == null) {
-                this.f51008e.setNextPage(this.f51012i);
+                this.f51257e.setNextPage(this.f51261i);
             }
-            this.f51012i.P();
-            this.f51012i.R();
+            this.f51261i.P();
+            this.f51261i.R();
             return;
         }
         pbListView.f();
-        this.f51008e.setNextPage(null);
+        this.f51257e.setNextPage(null);
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void displayNoDataView(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.f51014k.setVisibility(0);
+                this.f51263k.setVisibility(0);
             } else {
-                this.f51014k.setVisibility(8);
+                this.f51263k.setVisibility(8);
             }
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void displayNoMore() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            PbListView pbListView = this.f51012i;
+            PbListView pbListView = this.f51261i;
             if (pbListView != null) {
                 if (pbListView.b().getParent() == null) {
-                    this.f51008e.setNextPage(this.f51012i);
+                    this.f51257e.setNextPage(this.f51261i);
                 }
-                this.f51012i.D(getPageContext().getResources().getString(R.string.cloud_music_from_baidu_music));
-                this.f51012i.f();
+                this.f51261i.D(getPageContext().getResources().getString(R.string.cloud_music_from_baidu_music));
+                this.f51261i.f();
             }
             this.l = 0;
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void downloadCancel(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f51009f.f(i2, false);
+            this.f51258f.f(i2, false);
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void downloadError(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f51009f.f(i2, false);
+            this.f51258f.f(i2, false);
             if (getPageContext() == null && getPageContext().getPageActivity() == null) {
                 return;
             }
-            m.L(getPageContext().getPageActivity(), R.string.download_error);
+            n.L(getPageContext().getPageActivity(), R.string.download_error);
         }
     }
 
@@ -245,8 +245,8 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BdListView bdListView = this.f51008e;
-            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f51008e.getChildAt(0)) != null && childAt.getTop() == 0;
+            BdListView bdListView = this.f51257e;
+            return bdListView != null && bdListView.getFirstVisiblePosition() == 0 && (childAt = this.f51257e.getChildAt(0)) != null && childAt.getTop() == 0;
         }
         return invokeV.booleanValue;
     }
@@ -257,7 +257,7 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mSkinType = i2;
-            this.f51012i.d(i2);
+            this.f51261i.d(i2);
         }
     }
 
@@ -278,33 +278,33 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.fragment_cloud_music_list, viewGroup, false);
-            this.f51011h = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
-            this.f51008e = (BdListView) inflate.findViewById(R.id.cloud_music_list_view);
-            c.a.s0.m4.l.h.a aVar = new c.a.s0.m4.l.h.a(getPageContext());
-            this.f51009f = aVar;
-            this.f51008e.setAdapter((ListAdapter) aVar);
-            this.f51008e.setExOnSrollToBottomListener(this);
-            this.f51008e.setDivider(null);
-            this.f51009f.e(this);
-            c.a.s0.m4.l.h.a aVar2 = this.f51009f;
+            this.f51260h = (CloudMusicData.MusicTagList) getArguments().getSerializable("music_list_key");
+            this.f51257e = (BdListView) inflate.findViewById(R.id.cloud_music_list_view);
+            c.a.t0.n4.l.h.a aVar = new c.a.t0.n4.l.h.a(getPageContext());
+            this.f51258f = aVar;
+            this.f51257e.setAdapter((ListAdapter) aVar);
+            this.f51257e.setExOnSrollToBottomListener(this);
+            this.f51257e.setDivider(null);
+            this.f51258f.e(this);
+            c.a.t0.n4.l.h.a aVar2 = this.f51258f;
             if (aVar2 != null && (tbMusicData = this.n) != null) {
                 aVar2.d(tbMusicData.id);
             }
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
-            this.f51012i = pbListView;
+            this.f51261i = pbListView;
             pbListView.a();
-            this.f51012i.p(R.color.CAM_X0201);
-            this.f51012i.d(TbadkCoreApplication.getInst().getSkinType());
+            this.f51261i.p(R.color.CAM_X0201);
+            this.f51261i.d(TbadkCoreApplication.getInst().getSkinType());
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), inflate, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.ds200)), NoDataViewFactory.e.a(R.string.no_data_text), null);
-            this.f51014k = a2;
+            this.f51263k = a2;
             a2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList musicTagList = this.f51011h;
-            if (musicTagList != null && (eVar = this.f51010g) != null && (page = musicTagList.page) != null) {
-                this.f51013j = musicTagList.tag_id;
+            CloudMusicData.MusicTagList musicTagList = this.f51260h;
+            if (musicTagList != null && (eVar = this.f51259g) != null && (page = musicTagList.page) != null) {
+                this.f51262j = musicTagList.tag_id;
                 this.l = page.has_more;
                 eVar.c(musicTagList);
             }
-            this.f51008e.setOnItemClickListener(new b(this));
+            this.f51257e.setOnItemClickListener(new b(this));
             registerListener(this.o);
             return inflate;
         }
@@ -316,11 +316,11 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            e eVar = this.f51010g;
+            e eVar = this.f51259g;
             if (eVar != null) {
                 eVar.cancelLoadData();
             }
-            c.a.s0.m4.l.i.a.b().c();
+            c.a.t0.n4.l.i.a.b().c();
         }
     }
 
@@ -329,27 +329,27 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroyView();
-            this.f51010g.b();
+            this.f51259g.b();
         }
     }
 
-    @Override // c.a.s0.m4.l.h.a.c
+    @Override // c.a.t0.n4.l.h.a.c
     public void onMusicChooseClick(View view, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048587, this, view, str, i2) == null) {
             Intent intent = new Intent();
             intent.putExtra("music_resource", str);
-            c.a.s0.m4.l.h.a aVar = this.f51009f;
+            c.a.t0.n4.l.h.a aVar = this.f51258f;
             if (aVar != null && aVar.getItem(i2) != null) {
-                intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.f51009f.getItem(i2).music_id)));
+                intent.putExtra("music_id", StringUtils.string(Integer.valueOf(this.f51258f.getItem(i2).music_id)));
                 TbMusicData tbMusicData = new TbMusicData();
-                tbMusicData.id = String.valueOf(this.f51009f.getItem(i2).music_id);
-                tbMusicData.title = this.f51009f.getItem(i2).name;
-                tbMusicData.singer = this.f51009f.getItem(i2).author;
-                tbMusicData.url = this.f51009f.getItem(i2).resource;
-                tbMusicData.icon = this.f51009f.getItem(i2).image;
+                tbMusicData.id = String.valueOf(this.f51258f.getItem(i2).music_id);
+                tbMusicData.title = this.f51258f.getItem(i2).name;
+                tbMusicData.singer = this.f51258f.getItem(i2).author;
+                tbMusicData.url = this.f51258f.getItem(i2).resource;
+                tbMusicData.icon = this.f51258f.getItem(i2).image;
                 tbMusicData.type = 2;
-                tbMusicData.localPath = c.a.s0.w0.c.d.a.h().g(tbMusicData.url);
+                tbMusicData.localPath = c.a.t0.w0.c.d.a.h().g(tbMusicData.url);
                 intent.putExtra("music_data", tbMusicData);
             }
             g gVar = this.m;
@@ -365,15 +365,15 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
     public void onScrollToBottom(BdListView bdListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bdListView) == null) {
-            if (!k.z()) {
-                m.L(getPageContext().getPageActivity(), R.string.neterror);
+            if (!l.z()) {
+                n.L(getPageContext().getPageActivity(), R.string.neterror);
                 return;
             }
-            e eVar = this.f51010g;
+            e eVar = this.f51259g;
             if (eVar == null || this.l == 0) {
                 return;
             }
-            eVar.d(this.f51013j);
+            eVar.d(this.f51262j);
         }
     }
 
@@ -391,31 +391,31 @@ public class CloudMusicListFragment extends BaseFragment implements BdListView.q
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void setPresenter(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, eVar) == null) {
-            this.f51010g = eVar;
+            this.f51259g = eVar;
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void showMusicListData(CloudMusicData.MusicTagList musicTagList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, musicTagList) == null) {
-            this.f51011h = musicTagList;
-            c.a.s0.m4.l.h.a aVar = this.f51009f;
+            this.f51260h = musicTagList;
+            c.a.t0.n4.l.h.a aVar = this.f51258f;
             if (aVar != null) {
                 aVar.b(musicTagList.music_list);
             }
         }
     }
 
-    @Override // c.a.s0.m4.l.f
+    @Override // c.a.t0.n4.l.f
     public void showMusicLoading(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f51009f.f(i2, true);
+            this.f51258f.f(i2, true);
         }
     }
 }

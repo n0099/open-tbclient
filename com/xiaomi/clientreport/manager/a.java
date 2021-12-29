@@ -58,7 +58,7 @@ public class a {
     public ExecutorService f42a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f63263b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f63258b;
 
     static {
         InterceptResult invokeClinit;
@@ -93,7 +93,7 @@ public class a {
         }
         this.f42a = Executors.newSingleThreadExecutor();
         this.f41a = new HashMap<>();
-        this.f63263b = new HashMap<>();
+        this.f63258b = new HashMap<>();
         this.f36a = context;
     }
 
@@ -102,11 +102,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f63263b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f63258b;
             if (hashMap != null) {
                 int i2 = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f63263b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f63258b.get(str);
                     i2 += arrayList != null ? arrayList.size() : 0;
                 }
                 return i2;
@@ -311,7 +311,7 @@ public class a {
             this.f37a = config;
             this.f38a = iEventProcessor;
             this.f39a = iPerfProcessor;
-            iEventProcessor.setEventMap(this.f63263b);
+            iEventProcessor.setEventMap(this.f63258b);
             this.f39a.setPerfMap(this.f41a);
         }
     }

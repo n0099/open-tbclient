@@ -18,15 +18,15 @@ public abstract class c extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31827c = "v1";
+    public static final String f31970c = "v1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31828d = "v2";
+    public static final String f31971d = "v2";
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31829b;
+    public final String f31972b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(Activity activity, String str) {
@@ -47,7 +47,7 @@ public abstract class c extends FrameLayout {
             }
         }
         this.a = activity;
-        this.f31829b = str;
+        this.f31972b = str;
     }
 
     public abstract void a(String str);
@@ -69,7 +69,7 @@ public abstract class c extends FrameLayout {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f31829b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "v1".equals(this.f31972b) : invokeV.booleanValue;
     }
 
     public static void a(WebView webView) {

@@ -13,7 +13,7 @@ public interface m {
     public static final ServiceReference a = new ServiceReference("nad.core", "exp");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final m f1779b = new a();
+    public static final m f2206b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements m {

@@ -24,7 +24,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f44594b;
+        public boolean f44781b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44594b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44781b : invokeV.booleanValue;
         }
 
         public void c(boolean z) {
@@ -62,7 +62,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f44594b = z;
+                this.f44781b = z;
             }
         }
     }

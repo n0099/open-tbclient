@@ -13,10 +13,10 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1142b;
+    public boolean f1534b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1143c;
+    public boolean f1535c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class a {
             }
         }
         this.a = true;
-        this.f1142b = true;
-        this.f1143c = true;
+        this.f1534b = true;
+        this.f1535c = true;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f1142b = z;
+            this.f1534b = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f1143c = z;
+            this.f1535c = z;
         }
     }
 
@@ -70,7 +70,7 @@ public class a {
             if (!super.equals(obj)) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    if (aVar.f1142b != this.f1142b || aVar.f1143c != this.f1143c || aVar.a != this.a) {
+                    if (aVar.f1534b != this.f1534b || aVar.f1535c != this.f1535c || aVar.a != this.a) {
                     }
                 }
                 return false;

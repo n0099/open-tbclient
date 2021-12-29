@@ -22,7 +22,7 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PrecashierCreateOrderResponse f54792b;
+    public PrecashierCreateOrderResponse f54795b;
 
     public RemotePaySplashActivity() {
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
                 return;
             }
             this.a = intent.getIntExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, 0);
-            this.f54792b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
+            this.f54795b = (PrecashierCreateOrderResponse) intent.getSerializableExtra(BaiduPay.PRECASHIER_PAY_RESPONSE);
         }
     }
 
@@ -96,7 +96,7 @@ public class RemotePaySplashActivity extends PayBaseBeanActivity {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Intent intent = new Intent(this, WelcomeActivity.class);
             intent.putExtra(SapiAccount.SAPI_ACCOUNT_FROMTYPE, this.a);
-            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f54792b;
+            PrecashierCreateOrderResponse precashierCreateOrderResponse = this.f54795b;
             if (precashierCreateOrderResponse != null) {
                 intent.putExtra(BaiduPay.PRECASHIER_PAY_RESPONSE, precashierCreateOrderResponse);
             }

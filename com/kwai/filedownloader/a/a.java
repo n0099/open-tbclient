@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2131a extends Iterable<com.kwai.filedownloader.c.c> {
+    public interface InterfaceC2138a extends Iterable<com.kwai.filedownloader.c.c> {
         void a();
 
         void a(int i2, com.kwai.filedownloader.c.c cVar);
@@ -38,7 +38,7 @@ public interface a {
 
     void a(com.kwai.filedownloader.c.c cVar);
 
-    InterfaceC2131a b();
+    InterfaceC2138a b();
 
     com.kwai.filedownloader.c.c b(int i2);
 

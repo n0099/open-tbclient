@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.s;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG;
@@ -52,7 +52,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     public e mWifiManagerDelegate;
     public String mWifiSSID;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class NetworkConnectivityIntentFilter extends IntentFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface Observer {
         void a(int i2);
 
@@ -94,7 +94,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         void f(int[] iArr);
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static abstract class RegistrationPolicy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,13 +145,13 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NetworkChangeNotifierAutoDetect f51937e;
+        public final /* synthetic */ NetworkChangeNotifierAutoDetect f52193e;
 
         public a(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
             Interceptable interceptable = $ic;
@@ -168,25 +168,25 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f51937e = networkChangeNotifierAutoDetect;
+            this.f52193e = networkChangeNotifierAutoDetect;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f51937e.mRegistered) {
-                if (this.f51937e.mIgnoreNextBroadcast) {
-                    this.f51937e.mIgnoreNextBroadcast = false;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f52193e.mRegistered) {
+                if (this.f52193e.mIgnoreNextBroadcast) {
+                    this.f52193e.mIgnoreNextBroadcast = false;
                     return;
                 }
-                d currentNetworkState = this.f51937e.getCurrentNetworkState();
-                this.f51937e.connectionTypeChanged(currentNetworkState);
-                this.f51937e.maxBandwidthChanged(currentNetworkState);
+                d currentNetworkState = this.f52193e.getCurrentNetworkState();
+                this.f52193e.connectionTypeChanged(currentNetworkState);
+                this.f52193e.maxBandwidthChanged(currentNetworkState);
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -341,17 +341,17 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f51952b;
+        public final int f52208b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f51953c;
+        public final int f52209c;
 
         public d(boolean z, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -369,20 +369,20 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 }
             }
             this.a = z;
-            this.f51952b = i2;
-            this.f51953c = i3;
+            this.f52208b = i2;
+            this.f52209c = i3;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51953c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52209c : invokeV.intValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f51952b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52208b : invokeV.intValue;
         }
 
         public boolean c() {
@@ -392,17 +392,17 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final WifiManager f51954b;
+        public final WifiManager f52210b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f51955c;
+        public final boolean f52211c;
 
         public e(Context context) {
             Interceptable interceptable = $ic;
@@ -421,14 +421,14 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             }
             this.a = context;
             boolean z = context.getPackageManager().checkPermission(s.f57420d, this.a.getPackageName()) == 0;
-            this.f51955c = z;
-            this.f51954b = z ? (WifiManager) this.a.getSystemService("wifi") : null;
+            this.f52211c = z;
+            this.f52210b = z ? (WifiManager) this.a.getSystemService("wifi") : null;
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f51955c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f52211c : invokeV.booleanValue;
         }
 
         public int b() {
@@ -436,7 +436,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             WifiInfo c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (!this.f51955c || this.f51954b == null || (c2 = c()) == null) {
+                if (!this.f52211c || this.f52210b == null || (c2 = c()) == null) {
                     return -1;
                 }
                 return c2.getLinkSpeed();
@@ -450,9 +450,9 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 try {
                     try {
-                        return this.f51954b.getConnectionInfo();
+                        return this.f52210b.getConnectionInfo();
                     } catch (NullPointerException unused) {
-                        return this.f51954b.getConnectionInfo();
+                        return this.f52210b.getConnectionInfo();
                     }
                 } catch (NullPointerException unused2) {
                     return null;
@@ -863,31 +863,31 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
     }
 
     @TargetApi(21)
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Network a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NetworkChangeNotifierAutoDetect f51938b;
+        public final /* synthetic */ NetworkChangeNotifierAutoDetect f52194b;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f51939e;
+            public final /* synthetic */ int f52195e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f51940f;
+            public final /* synthetic */ int f52196f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ boolean f51941g;
+            public final /* synthetic */ boolean f52197g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ c f51942h;
+            public final /* synthetic */ c f52198h;
 
             public a(c cVar, int i2, int i3, boolean z) {
                 Interceptable interceptable = $ic;
@@ -904,38 +904,38 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f51942h = cVar;
-                this.f51939e = i2;
-                this.f51940f = i3;
-                this.f51941g = z;
+                this.f52198h = cVar;
+                this.f52195e = i2;
+                this.f52196f = i3;
+                this.f52197g = z;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f51942h.f51938b.mObserver.e(this.f51939e, this.f51940f);
-                    if (this.f51941g) {
-                        this.f51942h.f51938b.mObserver.a(this.f51940f);
-                        this.f51942h.f51938b.mObserver.f(new int[]{this.f51939e});
+                    this.f52198h.f52194b.mObserver.e(this.f52195e, this.f52196f);
+                    if (this.f52197g) {
+                        this.f52198h.f52194b.mObserver.a(this.f52196f);
+                        this.f52198h.f52194b.mObserver.f(new int[]{this.f52195e});
                     }
                 }
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f51943e;
+            public final /* synthetic */ int f52199e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f51944f;
+            public final /* synthetic */ int f52200f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ c f51945g;
+            public final /* synthetic */ c f52201g;
 
             public b(c cVar, int i2, int i3) {
                 Interceptable interceptable = $ic;
@@ -952,33 +952,33 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f51945g = cVar;
-                this.f51943e = i2;
-                this.f51944f = i3;
+                this.f52201g = cVar;
+                this.f52199e = i2;
+                this.f52200f = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f51945g.f51938b.mObserver.e(this.f51943e, this.f51944f);
+                    this.f52201g.f52194b.mObserver.e(this.f52199e, this.f52200f);
                 }
             }
         }
 
         /* renamed from: com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect$c$c  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public class RunnableC1947c implements Runnable {
+        /* loaded from: classes13.dex */
+        public class RunnableC1954c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f51946e;
+            public final /* synthetic */ int f52202e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f51947f;
+            public final /* synthetic */ c f52203f;
 
-            public RunnableC1947c(c cVar, int i2) {
+            public RunnableC1954c(c cVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -993,29 +993,29 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f51947f = cVar;
-                this.f51946e = i2;
+                this.f52203f = cVar;
+                this.f52202e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f51947f.f51938b.mObserver.c(this.f51946e);
+                    this.f52203f.f52194b.mObserver.c(this.f52202e);
                 }
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class d implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Network f51948e;
+            public final /* synthetic */ Network f52204e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f51949f;
+            public final /* synthetic */ c f52205f;
 
             public d(c cVar, Network network) {
                 Interceptable interceptable = $ic;
@@ -1032,29 +1032,29 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f51949f = cVar;
-                this.f51948e = network;
+                this.f52205f = cVar;
+                this.f52204e = network;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f51949f.f51938b.mObserver.d(NetworkChangeNotifierAutoDetect.networkToNetId(this.f51948e));
+                    this.f52205f.f52194b.mObserver.d(NetworkChangeNotifierAutoDetect.networkToNetId(this.f52204e));
                 }
             }
         }
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class e implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f51950e;
+            public final /* synthetic */ int f52206e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f51951f;
+            public final /* synthetic */ c f52207f;
 
             public e(c cVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -1071,15 +1071,15 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                         return;
                     }
                 }
-                this.f51951f = cVar;
-                this.f51950e = i2;
+                this.f52207f = cVar;
+                this.f52206e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f51951f.f51938b.mObserver.a(this.f51950e);
+                    this.f52207f.f52194b.mObserver.a(this.f52206e);
                 }
             }
         }
@@ -1113,7 +1113,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f51938b = networkChangeNotifierAutoDetect;
+            this.f52194b = networkChangeNotifierAutoDetect;
             this.a = null;
         }
 
@@ -1122,9 +1122,9 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, network, networkCapabilities)) == null) {
                 if (networkCapabilities == null) {
-                    networkCapabilities = this.f51938b.mConnectivityManagerDelegate.c(network);
+                    networkCapabilities = this.f52194b.mConnectivityManagerDelegate.c(network);
                 }
-                return networkCapabilities == null || (networkCapabilities.hasTransport(4) && !this.f51938b.mConnectivityManagerDelegate.j(network));
+                return networkCapabilities == null || (networkCapabilities.hasTransport(4) && !this.f52194b.mConnectivityManagerDelegate.j(network));
             }
             return invokeLL.booleanValue;
         }
@@ -1149,9 +1149,9 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             NetworkCapabilities c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Network[] allNetworksFiltered = NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(this.f51938b.mConnectivityManagerDelegate, null);
+                Network[] allNetworksFiltered = NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(this.f52194b.mConnectivityManagerDelegate, null);
                 this.a = null;
-                if (allNetworksFiltered.length == 1 && (c2 = this.f51938b.mConnectivityManagerDelegate.c(allNetworksFiltered[0])) != null && c2.hasTransport(4)) {
+                if (allNetworksFiltered.length == 1 && (c2 = this.f52194b.mConnectivityManagerDelegate.c(allNetworksFiltered[0])) != null && c2.hasTransport(4)) {
                     this.a = allNetworksFiltered[0];
                 }
             }
@@ -1161,7 +1161,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
         public void onAvailable(Network network) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, network) == null) {
-                NetworkCapabilities c2 = this.f51938b.mConnectivityManagerDelegate.c(network);
+                NetworkCapabilities c2 = this.f52194b.mConnectivityManagerDelegate.c(network);
                 if (b(network, c2)) {
                     return;
                 }
@@ -1170,8 +1170,8 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                     this.a = network;
                 }
                 int networkToNetId = NetworkChangeNotifierAutoDetect.networkToNetId(network);
-                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51938b;
-                this.f51938b.runOnThread(new a(this, networkToNetId, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.f(network)), hasTransport));
+                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f52194b;
+                this.f52194b.runOnThread(new a(this, networkToNetId, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.f(network)), hasTransport));
             }
         }
 
@@ -1182,8 +1182,8 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
                 return;
             }
             int networkToNetId = NetworkChangeNotifierAutoDetect.networkToNetId(network);
-            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51938b;
-            this.f51938b.runOnThread(new b(this, networkToNetId, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.f(network))));
+            NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f52194b;
+            this.f52194b.runOnThread(new b(this, networkToNetId, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.f(network))));
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -1192,7 +1192,7 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (!(interceptable == null || interceptable.invokeLI(1048582, this, network, i2) == null) || b(network, null)) {
                 return;
             }
-            this.f51938b.runOnThread(new RunnableC1947c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
+            this.f52194b.runOnThread(new RunnableC1954c(this, NetworkChangeNotifierAutoDetect.networkToNetId(network)));
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
@@ -1201,14 +1201,14 @@ public class NetworkChangeNotifierAutoDetect extends BroadcastReceiver {
             if (!(interceptable == null || interceptable.invokeL(1048583, this, network) == null) || c(network)) {
                 return;
             }
-            this.f51938b.runOnThread(new d(this, network));
+            this.f52194b.runOnThread(new d(this, network));
             if (this.a != null) {
                 this.a = null;
-                for (Network network2 : NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(this.f51938b.mConnectivityManagerDelegate, network)) {
+                for (Network network2 : NetworkChangeNotifierAutoDetect.getAllNetworksFiltered(this.f52194b.mConnectivityManagerDelegate, network)) {
                     onAvailable(network2);
                 }
-                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f51938b;
-                this.f51938b.runOnThread(new e(this, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.e())));
+                NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect = this.f52194b;
+                this.f52194b.runOnThread(new e(this, networkChangeNotifierAutoDetect.getCurrentConnectionType(networkChangeNotifierAutoDetect.mConnectivityManagerDelegate.e())));
             }
         }
 

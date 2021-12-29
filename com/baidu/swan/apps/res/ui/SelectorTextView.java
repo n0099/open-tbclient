@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import c.a.q0.a.k;
+import c.a.r0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SelectorTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f40281f;
+    public static final boolean f40437f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40282e;
+    public boolean f40438e;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        f40281f = k.a;
+        f40437f = k.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,7 +60,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f40282e = false;
+        this.f40438e = false;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -71,14 +71,14 @@ public class SelectorTextView extends TextView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    boolean z = f40281f;
-                    if (this.f40282e) {
+                    boolean z = f40437f;
+                    if (this.f40438e) {
                         setAlpha(0.5f);
                     } else {
                         setAlpha(0.4f);
                     }
                 } else if (action == 1 || action == 3) {
-                    boolean z2 = f40281f;
+                    boolean z2 = f40437f;
                     setAlpha(1.0f);
                 }
             }
@@ -90,7 +90,7 @@ public class SelectorTextView extends TextView {
     public void setMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f40282e = z;
+            this.f40438e = z;
         }
     }
 
@@ -113,7 +113,7 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f40282e = false;
+        this.f40438e = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -135,6 +135,6 @@ public class SelectorTextView extends TextView {
                 return;
             }
         }
-        this.f40282e = false;
+        this.f40438e = false;
     }
 }

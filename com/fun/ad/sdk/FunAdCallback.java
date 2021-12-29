@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface FunAdCallback {
     void onAdClicked(String str, String str2, String str3);
 

@@ -33,17 +33,17 @@ public class a extends g {
 
     /* renamed from: c.a.c0.s.l0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0068a implements Runnable {
+    public class RunnableC0089a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f2029e;
+        public final /* synthetic */ int f2456e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f2030f;
+        public final /* synthetic */ a f2457f;
 
-        public RunnableC0068a(a aVar, int i2) {
+        public RunnableC0089a(a aVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,18 +58,18 @@ public class a extends g {
                     return;
                 }
             }
-            this.f2030f = aVar;
-            this.f2029e = i2;
+            this.f2457f = aVar;
+            this.f2456e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f2029e;
+                int i2 = this.f2456e;
                 if (i2 == -2 || i2 == -1) {
-                    this.f2030f.f0(2);
-                    this.f2030f.a();
+                    this.f2457f.f0(2);
+                    this.f2457f.a();
                 }
             }
         }
@@ -110,10 +110,10 @@ public class a extends g {
     public void A1(@NonNull BdVideoSeries bdVideoSeries) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdVideoSeries) == null) {
-            this.P.O(8);
+            this.P.K(8);
             J1();
-            this.O.Q(true);
-            this.O.S(8);
+            this.O.L(true);
+            this.O.M(8);
             super.B1(bdVideoSeries, true);
         }
     }
@@ -170,11 +170,11 @@ public class a extends g {
     public void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            i iVar = this.f1957b;
+            i iVar = this.f2384b;
             if (iVar != null && iVar.getContentView() != null) {
-                this.f1957b.getContentView().setVisibility(0);
+                this.f2384b.getContentView().setVisibility(0);
             }
-            if (TextUtils.isEmpty(this.a.f2058b)) {
+            if (TextUtils.isEmpty(this.a.f2485b)) {
                 return;
             }
             l();
@@ -186,11 +186,11 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             w1();
-            if (this.f1957b != null) {
+            if (this.f2384b != null) {
                 R0().stop(w());
                 q().i();
                 H().j(w());
-                this.f1957b.y0();
+                this.f2384b.r0();
                 l.a(getActivity(), false);
             }
             e eVar = this.A;
@@ -199,7 +199,7 @@ public class a extends g {
             }
             c.a.c0.s.l0.b.a aVar = this.O;
             if (aVar != null) {
-                aVar.O();
+                aVar.K();
             }
         }
     }
@@ -234,7 +234,7 @@ public class a extends g {
         if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (activity = getActivity()) == null || X()) {
             return;
         }
-        activity.runOnUiThread(new RunnableC0068a(this, i2));
+        activity.runOnUiThread(new RunnableC0089a(this, i2));
     }
 
     @Override // c.a.c0.s.f, c.a.c0.s.e
@@ -244,7 +244,7 @@ public class a extends g {
             w1();
             c.a.c0.s.l0.b.a aVar = this.O;
             if (aVar != null) {
-                aVar.Q(i2 == 1);
+                aVar.L(i2 == 1);
             }
             if (I1()) {
                 if (W() || a0()) {
@@ -310,7 +310,7 @@ public class a extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPrepared();
-            c.a.c0.s.v0.h.b("AdMiniVideoPlayer", "onPrepared position:" + this.a.f2060d);
+            c.a.c0.s.v0.h.b("AdMiniVideoPlayer", "onPrepared position:" + this.a.f2487d);
         }
     }
 

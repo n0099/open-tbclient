@@ -18,7 +18,7 @@ public class MaxListView extends ListView {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f53666b;
+    public Context f53669b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxListView(Context context) {
@@ -38,14 +38,14 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53666b = context;
+        this.f53669b = context;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = DisplayUtils.dip2px(this.f53666b, 400.0f);
+            this.a = DisplayUtils.dip2px(this.f53669b, 400.0f);
         }
     }
 
@@ -93,7 +93,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53666b = context;
+        this.f53669b = context;
         a();
     }
 
@@ -116,7 +116,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f53666b = context;
+        this.f53669b = context;
         a();
     }
 }

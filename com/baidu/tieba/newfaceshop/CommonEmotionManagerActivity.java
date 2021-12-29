@@ -3,7 +3,7 @@ package com.baidu.tieba.newfaceshop;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
@@ -52,7 +52,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             setContentView(R.layout.common_emotion_manager_activity);
             this.mRootView = (FrameLayout) findViewById(R.id.container);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = m.r(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = n.r(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.mUrl = stringExtra;

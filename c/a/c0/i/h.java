@@ -14,7 +14,7 @@ public class h {
     public static m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static k f1777b;
+    public static k f2204b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,17 +50,17 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1777b == null) {
+            if (f2204b == null) {
                 synchronized (h.class) {
-                    if (f1777b == null) {
-                        f1777b = (k) ServiceManager.getService(k.a);
+                    if (f2204b == null) {
+                        f2204b = (k) ServiceManager.getService(k.a);
                     }
-                    if (f1777b == null) {
-                        f1777b = k.f1778b;
+                    if (f2204b == null) {
+                        f2204b = k.f2205b;
                     }
                 }
             }
-            return f1777b;
+            return f2204b;
         }
         return (k) invokeV.objValue;
     }
@@ -75,7 +75,7 @@ public class h {
                         a = (m) ServiceManager.getService(m.a);
                     }
                     if (a == null) {
-                        a = m.f1779b;
+                        a = m.f2206b;
                     }
                 }
             }

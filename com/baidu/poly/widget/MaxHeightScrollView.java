@@ -6,8 +6,8 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import c.a.g0.e;
-import c.a.g0.k;
+import c.a.h0.e;
+import c.a.h0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,10 +20,10 @@ public class MaxHeightScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f38919e;
+    public float f39075e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f38920f;
+    public float f39076f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaxHeightScrollView(Context context) {
@@ -60,8 +60,8 @@ public class MaxHeightScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k.MaxHeightScrollView);
-            this.f38919e = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_maxHeightRatio, -1.0f);
-            this.f38920f = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_minHeightRatio, -1.0f);
+            this.f39075e = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_maxHeightRatio, -1.0f);
+            this.f39076f = obtainStyledAttributes.getFloat(k.MaxHeightScrollView_minHeightRatio, -1.0f);
             obtainStyledAttributes.recycle();
         }
     }
@@ -70,13 +70,13 @@ public class MaxHeightScrollView extends ScrollView {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            if (this.f38919e > 0.0f || this.f38920f > 0.0f) {
+            if (this.f39075e > 0.0f || this.f39076f > 0.0f) {
                 int size = View.MeasureSpec.getSize(i3);
-                float f2 = this.f38919e;
+                float f2 = this.f39075e;
                 if (f2 > 0.0f) {
                     size = (int) Math.min(a(f2), size);
                 }
-                float f3 = this.f38920f;
+                float f3 = this.f39076f;
                 if (f3 > 0.0f) {
                     size = (int) Math.max(a(f3), size);
                 }

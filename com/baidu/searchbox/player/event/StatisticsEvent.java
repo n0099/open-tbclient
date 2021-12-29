@@ -45,7 +45,6 @@ public class StatisticsEvent extends VideoEvent {
     public static final int KEY_LOOP_COUNT = 1;
     public static final int KEY_MPD_TYPE = 14;
     public static final int KEY_PAGE = 7;
-    public static final int KEY_SOURCE = 17;
     public static final int KEY_START_TIME = 5;
     public static final int KEY_UPDATE_CONTENT = 13;
     public static final int KEY_WHAT = 3;

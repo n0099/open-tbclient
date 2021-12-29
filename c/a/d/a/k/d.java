@@ -15,7 +15,7 @@ import java.io.File;
 public abstract class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0074a callback;
+    public a.InterfaceC0095a callback;
     public SQLiteDatabase database;
     public final String dbFileFullPath;
     public int mVersion;
@@ -42,12 +42,12 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0074a interfaceC0074a;
+        a.InterfaceC0095a interfaceC0095a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0074a = this.callback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0095a = this.callback) == null) {
             return;
         }
-        interfaceC0074a.a(sQLiteDatabase);
+        interfaceC0095a.a(sQLiteDatabase);
     }
 
     private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
@@ -148,10 +148,10 @@ public abstract class d implements a {
     }
 
     @Override // c.a.d.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0074a interfaceC0074a) {
+    public void setOnCreateCallback(a.InterfaceC0095a interfaceC0095a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0074a) == null) {
-            this.callback = interfaceC0074a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0095a) == null) {
+            this.callback = interfaceC0095a;
         }
     }
 }

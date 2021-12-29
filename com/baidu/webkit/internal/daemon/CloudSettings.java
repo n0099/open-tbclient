@@ -57,13 +57,13 @@ public class CloudSettings implements INoProGuard, INetListener {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54853b;
+        public int f54856b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f54854c;
+        public boolean f54857c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ CloudSettings f54855d;
+        public final /* synthetic */ CloudSettings f54858d;
 
         public a(CloudSettings cloudSettings) {
             Interceptable interceptable = $ic;
@@ -80,15 +80,15 @@ public class CloudSettings implements INoProGuard, INetListener {
                     return;
                 }
             }
-            this.f54855d = cloudSettings;
-            this.f54853b = -1;
+            this.f54858d = cloudSettings;
+            this.f54856b = -1;
         }
 
         public final void a(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
                 Log.w(CloudSettings.LOG_TAG, "setNetRes ".concat(String.valueOf(i2)));
-                this.f54853b = i2;
+                this.f54856b = i2;
             }
         }
 
@@ -104,7 +104,7 @@ public class CloudSettings implements INoProGuard, INetListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 Log.w(CloudSettings.LOG_TAG, "mCronet ".concat(String.valueOf(z)));
-                this.f54854c = z;
+                this.f54857c = z;
             }
         }
     }

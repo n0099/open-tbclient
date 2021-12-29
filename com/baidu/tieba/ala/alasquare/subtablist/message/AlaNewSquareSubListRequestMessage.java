@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public void setHttpParams() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k2 = m.k(TbadkCoreApplication.getInst());
-            int i2 = m.i(TbadkCoreApplication.getInst());
-            float h2 = m.h(TbadkCoreApplication.getInst());
+            int k2 = n.k(TbadkCoreApplication.getInst());
+            int i2 = n.i(TbadkCoreApplication.getInst());
+            float h2 = n.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
             addParam("pn", this.pn);
             addParam("ps", this.ps);
@@ -79,14 +79,14 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             addParam(SuggestAddrField.KEY_LAT, this.lat);
             addParam(SuggestAddrField.KEY_LNG, this.lng);
             String str = "N";
-            if (k.z()) {
-                if (k.H()) {
+            if (l.z()) {
+                if (l.H()) {
                     str = "1_0";
-                } else if (k.v()) {
+                } else if (l.v()) {
                     str = "0_13";
-                } else if (k.u()) {
+                } else if (l.u()) {
                     str = "0_3";
-                } else if (k.t()) {
+                } else if (l.t()) {
                     str = "0_2";
                 }
             }

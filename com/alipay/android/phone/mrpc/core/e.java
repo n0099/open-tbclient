@@ -15,7 +15,7 @@ public final class e extends DefaultRedirectHandler {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f31501b;
+    public final /* synthetic */ d f31644b;
 
     public e(d dVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e extends DefaultRedirectHandler {
                 return;
             }
         }
-        this.f31501b = dVar;
+        this.f31644b = dVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultRedirectHandler, org.apache.http.client.RedirectHandler

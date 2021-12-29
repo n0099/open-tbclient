@@ -5,12 +5,6 @@ import android.content.ContextWrapper;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.socialbase.appdownloader.g;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -18,241 +12,176 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, g.a> a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1108190824, "Lcom/ss/android/socialbase/appdownloader/f/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1108190824, "Lcom/ss/android/socialbase/appdownloader/f/a;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
+    public static final HashMap<String, g.a> a = new HashMap<>();
 
     public static boolean a(JSONArray jSONArray, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONArray, str)) == null) {
-            if (jSONArray != null && !TextUtils.isEmpty(str)) {
-                int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                    if (optJSONObject != null && str.equals(optJSONObject.optString("type")) && a(optJSONObject)) {
-                        return true;
-                    }
+        if (jSONArray != null && !TextUtils.isEmpty(str)) {
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                if (optJSONObject != null && str.equals(optJSONObject.optString("type")) && a(optJSONObject)) {
+                    return true;
                 }
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return false;
     }
 
     public static boolean b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return true;
+        if (jSONObject == null) {
+            return true;
+        }
+        int i2 = Build.VERSION.SDK_INT;
+        String optString = jSONObject.optString("allow_os_api_range");
+        int optInt = jSONObject.optInt("min_os_api", -1);
+        if (TextUtils.isEmpty(optString)) {
+            return optInt <= 0 || i2 >= optInt;
+        }
+        try {
+            String[] split = optString.split("[-,]");
+            for (int i3 = 0; i3 < split.length; i3 += 2) {
+                int parseInt = Integer.parseInt(split[i3]);
+                int parseInt2 = Integer.parseInt(split[i3 + 1]);
+                if (i2 >= parseInt && i2 <= parseInt2) {
+                    return true;
+                }
             }
-            int i2 = Build.VERSION.SDK_INT;
-            String optString = jSONObject.optString("allow_os_api_range");
-            int optInt = jSONObject.optInt("min_os_api", -1);
-            if (TextUtils.isEmpty(optString)) {
-                return optInt <= 0 || i2 >= optInt;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean c(JSONObject jSONObject) {
+        return jSONObject == null || e.a() || jSONObject.optInt("scy_mode") != 1;
+    }
+
+    public static boolean a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return false;
+        }
+        return b(jSONObject) && a(jSONObject.optJSONArray("device_requirements")) && c(jSONObject);
+    }
+
+    public static boolean a(JSONArray jSONArray) {
+        int length;
+        String[] split;
+        if (jSONArray == null || (length = jSONArray.length()) == 0) {
+            return true;
+        }
+        boolean z = false;
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("package_names");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("version_allow");
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("version_block");
+                String optString2 = optJSONObject.optString("allow_version_range");
+                if (TextUtils.isEmpty(optString)) {
+                    return false;
+                }
+                for (String str : optString.split(",")) {
+                    if ("market".equals(str)) {
+                        str = d.i();
+                    }
+                    g.a b2 = b(str);
+                    if (b2 != null && !(z = a(optJSONArray, optJSONArray2, optString2, b2))) {
+                        return false;
+                    }
+                }
+                continue;
             }
+        }
+        return z;
+    }
+
+    public static boolean b(JSONArray jSONArray, String str) {
+        if (jSONArray != null && str != null) {
+            int length = jSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                if (str.equalsIgnoreCase(jSONArray.optString(i2).trim())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static g.a b(String str) {
+        if (a.containsKey(str)) {
+            g.a aVar = a.get(str);
+            if (aVar != null) {
+                return aVar;
+            }
+            return null;
+        }
+        g.a b2 = g.b(str);
+        a.put(str, b2);
+        if (b2 != null) {
+            return b2;
+        }
+        return null;
+    }
+
+    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull g.a aVar) {
+        String g2 = aVar.g();
+        int f2 = aVar.f();
+        String str2 = f2 + "_" + g2;
+        if (!TextUtils.isEmpty(str)) {
             try {
-                String[] split = optString.split("[-,]");
-                for (int i3 = 0; i3 < split.length; i3 += 2) {
-                    int parseInt = Integer.parseInt(split[i3]);
-                    int parseInt2 = Integer.parseInt(split[i3 + 1]);
-                    if (i2 >= parseInt && i2 <= parseInt2) {
+                String[] split = str.split("[-,]");
+                for (int i2 = 0; i2 < split.length; i2 += 2) {
+                    int parseInt = Integer.parseInt(split[i2]);
+                    int parseInt2 = Integer.parseInt(split[i2 + 1]);
+                    if (f2 >= parseInt && f2 <= parseInt2) {
                         return true;
                     }
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) ? jSONObject == null || e.a() || jSONObject.optInt("scy_mode") != 1 : invokeL.booleanValue;
-    }
-
-    public static boolean a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            return b(jSONObject) && a(jSONObject.optJSONArray("device_requirements")) && c(jSONObject);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean a(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int length;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            if (jSONArray == null || (length = jSONArray.length()) == 0) {
+        } else if (jSONArray != null && jSONArray.length() > 0) {
+            if (b(jSONArray, str2)) {
                 return true;
             }
-            boolean z = false;
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                if (optJSONObject != null) {
-                    String optString = optJSONObject.optString("package_names");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("version_allow");
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("version_block");
-                    String optString2 = optJSONObject.optString("allow_version_range");
-                    if (TextUtils.isEmpty(optString)) {
-                        return false;
-                    }
-                    for (String str : optString.split(",")) {
-                        if ("market".equals(str)) {
-                            str = d.i();
-                        }
-                        g.a b2 = b(str);
-                        if (b2 != null && !(z = a(optJSONArray, optJSONArray2, optString2, b2))) {
-                            return false;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return z;
+        } else if (jSONArray2 != null && jSONArray2.length() > 0 && !b(jSONArray2, str2)) {
+            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(JSONArray jSONArray, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONArray, str)) == null) {
-            if (jSONArray != null && str != null) {
-                int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (str.equalsIgnoreCase(jSONArray.optString(i2).trim())) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static g.a b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (a.containsKey(str)) {
-                g.a aVar = a.get(str);
-                if (aVar != null) {
-                    return aVar;
-                }
-                return null;
-            }
-            g.a b2 = g.b(str);
-            a.put(str, b2);
-            if (b2 != null) {
-                return b2;
-            }
-            return null;
-        }
-        return (g.a) invokeL.objValue;
-    }
-
-    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull g.a aVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, jSONArray2, str, aVar)) == null) {
-            String g2 = aVar.g();
-            int f2 = aVar.f();
-            String str2 = f2 + "_" + g2;
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    String[] split = str.split("[-,]");
-                    for (int i2 = 0; i2 < split.length; i2 += 2) {
-                        int parseInt = Integer.parseInt(split[i2]);
-                        int parseInt2 = Integer.parseInt(split[i2 + 1]);
-                        if (f2 >= parseInt && f2 <= parseInt2) {
-                            return true;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-            } else if (jSONArray != null && jSONArray.length() > 0) {
-                if (b(jSONArray, str2)) {
-                    return true;
-                }
-            } else if (jSONArray2 != null && jSONArray2.length() > 0 && !b(jSONArray2, str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+        return false;
     }
 
     public static g.a a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    g.a b2 = b(str);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                }
-            } catch (Throwable unused) {
-            }
+        if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return (g.a) invokeL.objValue;
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                g.a b2 = b(str);
+                if (b2 != null) {
+                    return b2;
+                }
+            }
+        } catch (Throwable unused) {
+        }
+        return null;
     }
 
     public static boolean a(JSONObject jSONObject, Context context, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, context, str)) == null) {
-            if (!TextUtils.isEmpty(str) && context != null && jSONObject != null) {
-                String optString = jSONObject.optString("s");
-                try {
-                    String a2 = c.a(jSONObject.optString("az"), optString);
-                    String a3 = c.a(jSONObject.optString("ba"), optString);
-                    Field declaredField = ContextWrapper.class.getDeclaredField(a2);
-                    declaredField.setAccessible(true);
-                    Object obj = declaredField.get(context);
-                    Field declaredField2 = obj.getClass().getDeclaredField(a3);
-                    declaredField2.setAccessible(true);
-                    declaredField2.set(obj, str);
-                    return true;
-                } catch (Exception unused) {
-                }
+        if (!TextUtils.isEmpty(str) && context != null && jSONObject != null) {
+            String optString = jSONObject.optString("s");
+            try {
+                String a2 = c.a(jSONObject.optString("az"), optString);
+                String a3 = c.a(jSONObject.optString("ba"), optString);
+                Field declaredField = ContextWrapper.class.getDeclaredField(a2);
+                declaredField.setAccessible(true);
+                Object obj = declaredField.get(context);
+                Field declaredField2 = obj.getClass().getDeclaredField(a3);
+                declaredField2.setAccessible(true);
+                declaredField2.set(obj, str);
+                return true;
+            } catch (Exception unused) {
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
+        return false;
     }
 }

@@ -13,28 +13,28 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54927b;
+    public int f54930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54928c;
+    public boolean f54931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f54929d;
+    public long f54932d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f54930e;
+    public com.baidu.webkit.logsdk.b.a f54933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54931f;
+    public String f54934f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54932g;
+    public String f54935g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54933h;
+    public String f54936h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f54934i;
+    public String f54937i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -73,15 +73,15 @@ public final class a {
             }
         }
         this.a = str;
-        this.f54927b = 0;
-        this.f54928c = false;
-        this.f54930e = aVar;
+        this.f54930b = 0;
+        this.f54931c = false;
+        this.f54933e = aVar;
         int a = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a <= 1 && a >= 0) {
-            this.f54931f = str2;
+            this.f54934f = str2;
             return;
         }
-        this.f54931f = aVar.f54907c;
-        this.f54932g = aVar.f54908d;
+        this.f54934f = aVar.f54910c;
+        this.f54935g = aVar.f54911d;
     }
 }

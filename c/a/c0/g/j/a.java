@@ -24,17 +24,17 @@ public class a {
 
     /* renamed from: c.a.c0.g.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class View$OnClickListenerC0040a implements View.OnClickListener {
+    public static class View$OnClickListenerC0061a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlertDialog f1567e;
+        public final /* synthetic */ AlertDialog f1994e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f1568f;
+        public final /* synthetic */ Activity f1995f;
 
-        public View$OnClickListenerC0040a(AlertDialog alertDialog, Activity activity) {
+        public View$OnClickListenerC0061a(AlertDialog alertDialog, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,15 +49,15 @@ public class a {
                     return;
                 }
             }
-            this.f1567e = alertDialog;
-            this.f1568f = activity;
+            this.f1994e = alertDialog;
+            this.f1995f = activity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                a.a(this.f1567e, this.f1568f);
+                a.a(this.f1994e, this.f1995f);
             }
         }
     }
@@ -107,7 +107,7 @@ public class a {
             AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
             adDownloadDlgView.bindData(gVar);
             adDownloadDlgView.setDownloadView(view);
-            adDownloadDlgView.setOnCloseClickListener(new View$OnClickListenerC0040a(create, activity));
+            adDownloadDlgView.setOnCloseClickListener(new View$OnClickListenerC0061a(create, activity));
             d(create, activity);
             Window window = create.getWindow();
             if (window != null) {

@@ -24,28 +24,28 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AppBarLayout f45712b;
+    public AppBarLayout f45899b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f45713c;
+    public boolean f45900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NestedScrollHeader f45714d;
+    public NestedScrollHeader f45901d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeTabBarView f45715e;
+    public HomeTabBarView f45902e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f45716f;
+    public View f45903f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f45717g;
+    public float f45904g;
 
     /* renamed from: h  reason: collision with root package name */
-    public StickyAppBarLayout.b f45718h;
+    public StickyAppBarLayout.b f45905h;
 
     /* renamed from: i  reason: collision with root package name */
-    public AppBarLayout.OnOffsetChangedListener f45719i;
+    public AppBarLayout.OnOffsetChangedListener f45906i;
 
     /* loaded from: classes12.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
@@ -82,20 +82,20 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 if (i3 >= 0) {
                     if (!this.a.a) {
                         this.a.a = true;
-                        if (this.a.f45718h != null) {
-                            this.a.f45718h.a(this.a.a);
+                        if (this.a.f45905h != null) {
+                            this.a.f45905h.a(this.a.a);
                         }
                     }
                 } else if (this.a.a) {
                     this.a.a = false;
-                    if (this.a.f45718h != null) {
-                        this.a.f45718h.a(this.a.a);
+                    if (this.a.f45905h != null) {
+                        this.a.f45905h.a(this.a.a);
                     }
                 }
-                if (this.a.f45717g == abs) {
+                if (this.a.f45904g == abs) {
                     return;
                 }
-                this.a.f45717g = abs;
+                this.a.f45904g = abs;
                 if (totalScrollRange <= 0.0f) {
                     return;
                 }
@@ -150,9 +150,9 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             }
         }
         this.a = false;
-        this.f45713c = false;
-        this.f45717g = -1.0f;
-        this.f45719i = new a(this);
+        this.f45900c = false;
+        this.f45904g = -1.0f;
+        this.f45906i = new a(this);
         g();
     }
 
@@ -160,7 +160,7 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         StickyAppBarLayout.b onHeaderStickyListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AppBarLayout appBarLayout = this.f45712b;
+            AppBarLayout appBarLayout = this.f45899b;
             if (!(appBarLayout instanceof StickyAppBarLayout) || (onHeaderStickyListener = ((StickyAppBarLayout) appBarLayout).getOnHeaderStickyListener()) == null) {
                 return;
             }
@@ -178,22 +178,22 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public NestedScrollHeader getHeaderView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45714d : (NestedScrollHeader) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45901d : (NestedScrollHeader) invokeV.objValue;
     }
 
     public final void h(float f2) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            HomeTabBarView homeTabBarView = this.f45715e;
+            HomeTabBarView homeTabBarView = this.f45902e;
             if (homeTabBarView != null) {
                 homeTabBarView.updateContentAlpha(f2);
             }
-            NestedScrollHeader nestedScrollHeader = this.f45714d;
+            NestedScrollHeader nestedScrollHeader = this.f45901d;
             if (nestedScrollHeader != null) {
                 nestedScrollHeader.updateContentAlpha(1.0f - f2);
             }
-            View view = this.f45716f;
+            View view = this.f45903f;
             if (view == null || f2 > 1.0f || f2 < 0.0f) {
                 return;
             }
@@ -202,14 +202,14 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
                 return;
             }
             view.setVisibility(0);
-            this.f45716f.setAlpha(f2);
+            this.f45903f.setAlpha(f2);
         }
     }
 
     public void hideHeader() {
         AppBarLayout appBarLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (appBarLayout = this.f45712b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (appBarLayout = this.f45899b) == null) {
             return;
         }
         appBarLayout.setExpanded(false, true);
@@ -226,12 +226,12 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, layoutParams) == null) {
             super.onAttachedToLayoutParams(layoutParams);
-            AppBarLayout appBarLayout = this.f45712b;
-            if (appBarLayout == null || this.f45713c) {
+            AppBarLayout appBarLayout = this.f45899b;
+            if (appBarLayout == null || this.f45900c) {
                 return;
             }
-            appBarLayout.addOnOffsetChangedListener(this.f45719i);
-            this.f45713c = true;
+            appBarLayout.addOnOffsetChangedListener(this.f45906i);
+            this.f45900c = true;
         }
     }
 
@@ -240,26 +240,26 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromLayoutParams();
-            AppBarLayout appBarLayout = this.f45712b;
-            if (appBarLayout == null || !this.f45713c) {
+            AppBarLayout appBarLayout = this.f45899b;
+            if (appBarLayout == null || !this.f45900c) {
                 return;
             }
-            appBarLayout.removeOnOffsetChangedListener(this.f45719i);
-            this.f45713c = false;
+            appBarLayout.removeOnOffsetChangedListener(this.f45906i);
+            this.f45900c = false;
         }
     }
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f45718h = bVar;
+            this.f45905h = bVar;
         }
     }
 
     public void showHeader() {
         AppBarLayout appBarLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (appBarLayout = this.f45712b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (appBarLayout = this.f45899b) == null) {
             return;
         }
         appBarLayout.setExpanded(true, true);
@@ -271,23 +271,23 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, appBarLayout, i2)) == null) {
-            if (this.f45712b == null) {
-                this.f45712b = appBarLayout;
+            if (this.f45899b == null) {
+                this.f45899b = appBarLayout;
                 View findViewById = appBarLayout.findViewById(R.id.home_nested_header);
                 if (findViewById instanceof NestedScrollHeader) {
-                    this.f45714d = (NestedScrollHeader) findViewById;
+                    this.f45901d = (NestedScrollHeader) findViewById;
                 }
-                View findViewById2 = this.f45712b.findViewById(R.id.home_tab_bar_view);
+                View findViewById2 = this.f45899b.findViewById(R.id.home_tab_bar_view);
                 if (findViewById2 instanceof HomeTabBarView) {
-                    this.f45715e = (HomeTabBarView) findViewById2;
+                    this.f45902e = (HomeTabBarView) findViewById2;
                 }
-                this.f45716f = this.f45712b.findViewById(R.id.divider_line);
+                this.f45903f = this.f45899b.findViewById(R.id.divider_line);
                 bindListener();
             }
-            AppBarLayout appBarLayout2 = this.f45712b;
-            if (appBarLayout2 != null && !this.f45713c) {
-                appBarLayout2.addOnOffsetChangedListener(this.f45719i);
-                this.f45713c = true;
+            AppBarLayout appBarLayout2 = this.f45899b;
+            if (appBarLayout2 != null && !this.f45900c) {
+                appBarLayout2.addOnOffsetChangedListener(this.f45906i);
+                this.f45900c = true;
             }
             return super.onLayoutChild(coordinatorLayout, appBarLayout, i2);
         }
@@ -314,9 +314,9 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
             }
         }
         this.a = false;
-        this.f45713c = false;
-        this.f45717g = -1.0f;
-        this.f45719i = new a(this);
+        this.f45900c = false;
+        this.f45904g = -1.0f;
+        this.f45906i = new a(this);
         g();
     }
 }

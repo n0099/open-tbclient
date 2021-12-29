@@ -11,7 +11,7 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31876b;
+    public String f32019b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -27,6 +27,6 @@ public class a {
             }
         }
         this.a = false;
-        this.f31876b = "";
+        this.f32019b = "";
     }
 }

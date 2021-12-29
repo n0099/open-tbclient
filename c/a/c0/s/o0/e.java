@@ -25,11 +25,11 @@ public class e extends c.a.c0.s.o0.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final HistoryCache f2090i;
+    public static final HistoryCache f2517i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.c0.s.m0.f f2091h;
+    public c.a.c0.s.m0.f f2518h;
 
     /* loaded from: classes.dex */
     public static final class a implements d.a {
@@ -38,7 +38,7 @@ public class e extends c.a.c0.s.o0.a {
         public final /* synthetic */ BdVideoSeries a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BdVideoSeries f2092b;
+        public final /* synthetic */ BdVideoSeries f2519b;
 
         public a(BdVideoSeries bdVideoSeries, e eVar, BdVideoSeries bdVideoSeries2) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class e extends c.a.c0.s.o0.a {
                 }
             }
             this.a = bdVideoSeries;
-            this.f2092b = bdVideoSeries2;
+            this.f2519b = bdVideoSeries2;
         }
     }
 
@@ -73,7 +73,7 @@ public class e extends c.a.c0.s.o0.a {
                 return;
             }
         }
-        f2090i = new HistoryCache();
+        f2517i = new HistoryCache();
     }
 
     public e() {
@@ -156,21 +156,21 @@ public class e extends c.a.c0.s.o0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.m();
-            this.f2091h = null;
+            this.f2518h = null;
         }
     }
 
     public final void p(i iVar, BdVideoSeries bdVideoSeries) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, iVar, bdVideoSeries) == null) {
-            iVar.f2060d = Math.max(0, bdVideoSeries.getPosition());
-            iVar.f2062f = Math.max(0, bdVideoSeries.getPositionMs());
+            iVar.f2487d = Math.max(0, bdVideoSeries.getPosition());
+            iVar.f2489f = Math.max(0, bdVideoSeries.getPositionMs());
             int max = Math.max(0, bdVideoSeries.getDuration());
-            iVar.f2061e = max;
-            if (iVar.f2060d > max) {
-                iVar.f2061e = 0;
-                iVar.f2060d = 0;
-                iVar.f2062f = 0;
+            iVar.f2488e = max;
+            if (iVar.f2487d > max) {
+                iVar.f2488e = 0;
+                iVar.f2487d = 0;
+                iVar.f2489f = 0;
             }
         }
     }
@@ -192,11 +192,11 @@ public class e extends c.a.c0.s.o0.a {
         c.a.c0.s.m0.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideoSeries, str)) == null) {
-            c.a.c0.s.m0.f findCache = f2090i.findCache(str, bdVideoSeries.getVid());
+            c.a.c0.s.m0.f findCache = f2517i.findCache(str, bdVideoSeries.getVid());
             int positionMs = bdVideoSeries.getPositionMs();
             if (findCache == null || positionMs != findCache.g()) {
-                c.a.c0.s.m0.f fVar2 = this.f2091h;
-                return Intrinsics.areEqual(fVar2 != null ? fVar2.e() : null, bdVideoSeries.getVid()) && (fVar = this.f2091h) != null && fVar.g() == bdVideoSeries.getPositionMs();
+                c.a.c0.s.m0.f fVar2 = this.f2518h;
+                return Intrinsics.areEqual(fVar2 != null ? fVar2.e() : null, bdVideoSeries.getVid()) && (fVar = this.f2518h) != null && fVar.g() == bdVideoSeries.getPositionMs();
             }
             return true;
         }
@@ -249,7 +249,7 @@ public class e extends c.a.c0.s.o0.a {
             return;
         }
         String u = u(bdVideoSeries);
-        c.a.c0.s.m0.f findCache = f2090i.findCache(u, bdVideoSeries.getVid());
+        c.a.c0.s.m0.f findCache = f2517i.findCache(u, bdVideoSeries.getVid());
         if (findCache != null) {
             x(findCache, bdVideoSeries);
             A(bdVideoSeries);
@@ -305,17 +305,17 @@ public class e extends c.a.c0.s.o0.a {
                 if (Intrinsics.areEqual(selectedVideo.getCurrentLength(), "0")) {
                     h.a("savePlayProgress(series@" + System.identityHashCode(bdVideoSeries) + "), del when currentLength is 0,  history" + bdVideoSeries + ".[" + this + ']');
                     c.a.c0.e0.a.c.b().b(u, bdVideoSeries.getVid());
-                    f2090i.removeCache(u, bdVideoSeries.getVid());
+                    f2517i.removeCache(u, bdVideoSeries.getVid());
                 } else if (s(bdVideoSeries, u)) {
                 } else {
                     c.a.c0.s.m0.f info = c.a.c0.s.d0.c.a(bdVideoSeries, selectedVideo, selectedVideo.getSourceUrl(), u);
                     Intrinsics.checkNotNullExpressionValue(info, "info");
                     if (info.i()) {
-                        this.f2091h = info;
+                        this.f2518h = info;
                         String vid = bdVideoSeries.getVid();
                         Intrinsics.checkNotNullExpressionValue(vid, "videoSeries.vid");
                         if ((!StringsKt__StringsJVMKt.isBlank(vid)) || (!StringsKt__StringsJVMKt.isBlank(u))) {
-                            f2090i.add(info);
+                            f2517i.add(info);
                         }
                         h.a("savePlayProgress(series@" + System.identityHashCode(bdVideoSeries) + "), info is {" + info + "}.[" + this + ']');
                         c.a.c0.e0.a.c.b().a(c.a.c0.e.a.b(), info, false);
@@ -330,9 +330,9 @@ public class e extends c.a.c0.s.o0.a {
         if (!(interceptable == null || interceptable.invokeL(1048591, this, fVar) == null) || fVar == null) {
             return;
         }
-        h.a("seekToTarget(player@" + System.identityHashCode(fVar) + "),  position is " + fVar.K().f2062f + " ms .[" + this + ']');
-        if (fVar.K().f2062f > 0) {
-            fVar.p0(fVar.K().f2062f);
+        h.a("seekToTarget(player@" + System.identityHashCode(fVar) + "),  position is " + fVar.K().f2489f + " ms .[" + this + ']');
+        if (fVar.K().f2489f > 0) {
+            fVar.p0(fVar.K().f2489f);
         }
     }
 }

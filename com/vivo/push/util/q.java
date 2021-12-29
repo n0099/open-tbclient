@@ -64,6 +64,10 @@ public final class q {
             jSONArray.put(insideNotificationItem.isShowBigPicOnMobileNet());
             jSONArray.put(insideNotificationItem.getSuitReactVersion());
             jSONArray.put(insideNotificationItem.getMessageType());
+            jSONArray.put(insideNotificationItem.getIsMacroReplace());
+            jSONArray.put(insideNotificationItem.getAdClickCheckUrl());
+            jSONArray.put(insideNotificationItem.getCompatibleType());
+            jSONArray.put(insideNotificationItem.getInnerPriority());
             return jSONArray.toString();
         }
         return (String) invokeL.objValue;
@@ -105,6 +109,16 @@ public final class q {
             }
             if (jSONArray.length() > 16) {
                 insideNotificationItem.setMessageType(jSONArray.getInt(16));
+            }
+            if (jSONArray.length() > 18) {
+                insideNotificationItem.setIsMacroReplace(jSONArray.getInt(17));
+                insideNotificationItem.setAdClickCheckUrl(jSONArray.getString(18));
+            }
+            if (jSONArray.length() > 19) {
+                insideNotificationItem.setCompatibleType(jSONArray.getInt(19));
+            }
+            if (jSONArray.length() > 20) {
+                insideNotificationItem.setInnerPriority(jSONArray.getInt(20));
             }
             return insideNotificationItem;
         }

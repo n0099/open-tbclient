@@ -20,25 +20,25 @@ public class s extends FrameLayout {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f56326b;
+    public float f56325b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f56327c;
+    public int f56326c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f56328d;
+    public int f56327d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56329e;
+    public int f56328e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f56330f;
+    public float f56329f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f56331g;
+    public float f56330g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f56332h;
+    public final int f56331h;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -46,7 +46,7 @@ public class s extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ s f56333e;
+        public final /* synthetic */ s f56332e;
 
         public a(s sVar) {
             Interceptable interceptable = $ic;
@@ -63,23 +63,23 @@ public class s extends FrameLayout {
                     return;
                 }
             }
-            this.f56333e = sVar;
+            this.f56332e = sVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = (View) this.f56333e.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = (View) this.f56332e.getParent()) == null) {
                 return;
             }
             int width = view.getWidth();
             int height = view.getHeight();
-            s sVar = this.f56333e;
+            s sVar = this.f56332e;
             int height2 = height - sVar.getHeight();
-            s sVar2 = this.f56333e;
-            sVar.f56329e = height2 - sVar2.f56327c;
-            sVar2.f56328d = (width - sVar2.getWidth()) - this.f56333e.f56327c;
+            s sVar2 = this.f56332e;
+            sVar.f56328e = height2 - sVar2.f56326c;
+            sVar2.f56327d = (width - sVar2.getWidth()) - this.f56332e.f56326c;
         }
     }
 
@@ -107,8 +107,8 @@ public class s extends FrameLayout {
         if (Build.VERSION.SDK_INT >= 21) {
             setClipToOutline(true);
         }
-        this.f56327c = i2;
-        this.f56332h = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.f56326c = i2;
+        this.f56331h = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -134,37 +134,37 @@ public class s extends FrameLayout {
             int action = motionEvent.getAction();
             if (action == 0) {
                 this.a = getX() - motionEvent.getRawX();
-                this.f56326b = getY() - motionEvent.getRawY();
-                this.f56330f = 0.0f;
-                this.f56331g = 0.0f;
+                this.f56325b = getY() - motionEvent.getRawY();
+                this.f56329f = 0.0f;
+                this.f56330g = 0.0f;
             } else if (action == 1) {
-                float f2 = this.f56328d;
+                float f2 = this.f56327d;
                 if ((motionEvent.getRawX() + this.a) * 2.0f <= f2) {
-                    f2 = this.f56327c;
+                    f2 = this.f56326c;
                 }
                 animate().x(f2).setDuration(0L).start();
-                float f3 = this.f56330f;
-                float f4 = this.f56332h;
-                if (f3 > f4 || this.f56331g > f4) {
+                float f3 = this.f56329f;
+                float f4 = this.f56331h;
+                if (f3 > f4 || this.f56330g > f4) {
                     return true;
                 }
             } else if (action == 2) {
                 float rawX = motionEvent.getRawX() + this.a;
-                float rawY = motionEvent.getRawY() + this.f56326b;
-                this.f56330f += Math.abs(rawX - getX());
-                this.f56331g += Math.abs(rawY - getY());
-                int i2 = this.f56327c;
+                float rawY = motionEvent.getRawY() + this.f56325b;
+                this.f56329f += Math.abs(rawX - getX());
+                this.f56330g += Math.abs(rawY - getY());
+                int i2 = this.f56326c;
                 float f5 = i2;
                 if (rawX < f5) {
                     rawX = f5;
                 } else {
-                    float f6 = this.f56328d;
+                    float f6 = this.f56327d;
                     if (rawX > f6) {
                         rawX = f6;
                     }
                 }
                 if (rawY >= f5) {
-                    i2 = this.f56329e;
+                    i2 = this.f56328e;
                 }
                 rawY = i2;
                 animate().x(rawX).y(rawY).setDuration(0L).start();

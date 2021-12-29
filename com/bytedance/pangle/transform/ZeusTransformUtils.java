@@ -42,13 +42,16 @@ import com.bytedance.pangle.wrapper.PluginActivityWrapper;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 import com.bytedance.pangle.wrapper.PluginFragmentActivityWrapper;
 import com.sina.weibo.sdk.constant.WBConstants;
+import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 @Keep
 /* loaded from: classes2.dex */
 public class ZeusTransformUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginContextUtils";
+    public static HashMap<String, WeakReference<Context>> contextCache;
     public static Class fragmentClazz;
     public static boolean hasEnsure;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,16 +59,18 @@ public class ZeusTransformUtils {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(595738492, "Lcom/bytedance/pangle/transform/ZeusTransformUtils;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(595738492, "Lcom/bytedance/pangle/transform/ZeusTransformUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(595738492, "Lcom/bytedance/pangle/transform/ZeusTransformUtils;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(595738492, "Lcom/bytedance/pangle/transform/ZeusTransformUtils;");
-        }
+        contextCache = new HashMap<>();
+        hasEnsure = false;
     }
 
     public ZeusTransformUtils() {
@@ -214,18 +219,36 @@ public class ZeusTransformUtils {
         return (Resources) invokeLL.objValue;
     }
 
+    public static Context getWrapperFromCache(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, obj, str)) == null) {
+            HashMap<String, WeakReference<Context>> hashMap = contextCache;
+            WeakReference<Context> weakReference = hashMap.get(str + System.identityHashCode(obj));
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (Context) invokeLL.objValue;
+    }
+
     public static boolean hasWrapper(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             while (context != null) {
-                if (context.getResources() instanceof PluginResources) {
+                if ((context instanceof PluginContext) || (context instanceof PluginActivityWrapper) || (context instanceof PluginFragmentActivityWrapper) || (context instanceof PluginApplicationWrapper) || (context.getResources() instanceof PluginResources)) {
                     return true;
                 }
                 if (!(context instanceof ContextWrapper)) {
                     return false;
                 }
-                context = ((ContextWrapper) context).getBaseContext();
+                try {
+                    context = (Context) FieldUtils.readField(context, "mBase");
+                } catch (Throwable unused) {
+                    context = ((ContextWrapper) context).getBaseContext();
+                }
             }
             return false;
         }
@@ -235,7 +258,7 @@ public class ZeusTransformUtils {
     public static View inflate(LayoutInflater layoutInflater, int i2, ViewGroup viewGroup, boolean z, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{layoutInflater, Integer.valueOf(i2), viewGroup, Boolean.valueOf(z), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{layoutInflater, Integer.valueOf(i2), viewGroup, Boolean.valueOf(z), str})) == null) {
             Context context = layoutInflater.getContext();
             if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
                 layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
@@ -249,7 +272,7 @@ public class ZeusTransformUtils {
         InterceptResult invokeLL;
         Object readField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, obj, cls)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, obj, cls)) == null) {
             if (obj instanceof PluginContext) {
                 return cls.isInstance(((PluginContext) obj).mOriginContext);
             }
@@ -279,7 +302,7 @@ public class ZeusTransformUtils {
     public static boolean instanceOfFragmentActivity(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, obj)) == null) {
             ensureFragmentActivity();
             Class cls = fragmentClazz;
             if (cls == null) {
@@ -293,7 +316,7 @@ public class ZeusTransformUtils {
     public static Object preCheckCast(Object obj, Class cls, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, obj, cls, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65556, null, obj, cls, str)) == null) {
             if (obj == null) {
                 return null;
             }
@@ -335,7 +358,7 @@ public class ZeusTransformUtils {
     public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65557, null, obj, pluginBroadcastReceiver, intentFilter, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65558, null, obj, pluginBroadcastReceiver, intentFilter, str)) == null) {
             if (obj instanceof Context) {
                 ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute");
                 return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str);
@@ -351,14 +374,14 @@ public class ZeusTransformUtils {
 
     public static void registerZeusActivityStub(String str, String[] strArr, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65560, null, str, strArr, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65561, null, str, strArr, str2) == null) {
             ComponentManager.registerActivity(str2, str, strArr);
         }
     }
 
     public static void requestPermissions(Object obj, String[] strArr, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65561, null, obj, strArr, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65562, null, obj, strArr, i2, str) == null) {
             if (obj instanceof IPluginActivity) {
                 ((IPluginActivity) obj)._requestPermissions(strArr, i2);
                 return;
@@ -373,7 +396,7 @@ public class ZeusTransformUtils {
 
     public static void setResult(Object obj, int i2, Intent intent, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65562, null, obj, i2, intent, str) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65563, null, obj, i2, intent, str) == null) {
             if (obj instanceof Activity) {
                 try {
                     Object readField = FieldUtils.readField(obj, "mProxyActivity");
@@ -395,7 +418,7 @@ public class ZeusTransformUtils {
 
     public static void startActivity(Object obj, Intent intent, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65565, null, obj, intent, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65566, null, obj, intent, str) == null) {
             if (obj instanceof Context) {
                 ComponentManager.startActivity((Context) obj, intent, str);
                 return;
@@ -410,7 +433,7 @@ public class ZeusTransformUtils {
 
     public static void startActivityForResult(Object obj, Intent intent, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65567, null, obj, intent, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65568, null, obj, intent, i2, str) == null) {
             if (obj instanceof Activity) {
                 ComponentManager.startActivityForResult((Activity) obj, intent, i2, str);
                 return;
@@ -426,7 +449,7 @@ public class ZeusTransformUtils {
     public static ComponentName startService(Object obj, Intent intent, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65568, null, obj, intent, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65569, null, obj, intent, str)) == null) {
             if (obj instanceof Context) {
                 return ServiceManagerNative.getInstance().startServiceNative((Context) obj, intent, str);
             }
@@ -442,7 +465,7 @@ public class ZeusTransformUtils {
     public static boolean stopService(Object obj, Intent intent, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65569, null, obj, intent, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65570, null, obj, intent, str)) == null) {
             if (obj instanceof Context) {
                 return ServiceManagerNative.getInstance().stopServiceNative((Context) obj, intent, str);
             }
@@ -457,7 +480,7 @@ public class ZeusTransformUtils {
 
     public static void unbindService(Object obj, ServiceConnection serviceConnection, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65570, null, obj, serviceConnection, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65571, null, obj, serviceConnection, str) == null) {
             if (obj instanceof Context) {
                 ServiceManagerNative.getInstance().unbindServiceNative(serviceConnection);
                 return;
@@ -472,7 +495,7 @@ public class ZeusTransformUtils {
 
     public static void unregisterReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65571, null, obj, pluginBroadcastReceiver, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65572, null, obj, pluginBroadcastReceiver, str) == null) {
             if (obj instanceof Context) {
                 ComponentManager.unregisterReceiver((Context) obj, pluginBroadcastReceiver);
                 return;
@@ -487,20 +510,22 @@ public class ZeusTransformUtils {
 
     public static Context wrapperContext(Object obj, String str) {
         InterceptResult invokeLL;
+        Context pluginContext;
         Application application;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, obj, str)) == null) {
             if (Zeus.getAppApplication() == null && (application = (Application) ((Context) obj).getApplicationContext()) != null) {
                 Zeus.setAppContext(application);
-            }
-            Context context = (Context) obj;
-            if (hasWrapper(context)) {
-                return context;
             }
             if (obj == null) {
                 return null;
             }
-            if ((obj instanceof PluginContext) || (obj instanceof PluginActivityWrapper) || (obj instanceof PluginFragmentActivityWrapper) || (obj instanceof PluginApplicationWrapper)) {
+            Context wrapperFromCache = getWrapperFromCache(obj, str);
+            if (wrapperFromCache != null) {
+                return wrapperFromCache;
+            }
+            Context context = (Context) obj;
+            if (hasWrapper(context)) {
                 return context;
             }
             if (instanceOfFragmentActivity(obj)) {
@@ -509,23 +534,28 @@ public class ZeusTransformUtils {
                 }
                 try {
                     try {
-                        return new PluginFragmentActivityWrapper((Activity) obj, new PluginContext((Context) obj, PluginManager.getInstance().getPlugin(str), false));
+                        pluginContext = new PluginFragmentActivityWrapper((Activity) obj, new PluginContext((Context) obj, PluginManager.getInstance().getPlugin(str), false));
                     } catch (Throwable unused) {
-                        return (Context) MethodUtils.invokeConstructor(PluginFragmentActivityWrapper.class, new Object[]{obj, new PluginContext((Context) obj, PluginManager.getInstance().getPlugin(str), false)}, new Class[]{fragmentClazz, PluginContext.class});
+                        return context;
                     }
                 } catch (Throwable unused2) {
-                    return context;
+                    pluginContext = (Context) MethodUtils.invokeConstructor(PluginFragmentActivityWrapper.class, new Object[]{obj, new PluginContext((Context) obj, PluginManager.getInstance().getPlugin(str), false)}, new Class[]{fragmentClazz, PluginContext.class});
                 }
             } else if (obj instanceof Activity) {
                 if (Looper.myLooper() == null) {
                     Looper.prepare();
                 }
-                return new PluginActivityWrapper((Activity) obj, new PluginContext(context, PluginManager.getInstance().getPlugin(str), false));
+                pluginContext = new PluginActivityWrapper((Activity) obj, new PluginContext(context, PluginManager.getInstance().getPlugin(str), false));
             } else if (obj instanceof Application) {
-                return new PluginApplicationWrapper((Application) obj, new PluginContext(context, PluginManager.getInstance().getPlugin(str), true));
+                pluginContext = new PluginApplicationWrapper((Application) obj, new PluginContext(context, PluginManager.getInstance().getPlugin(str), true));
             } else {
-                return new PluginContext(context, PluginManager.getInstance().getPlugin(str), false);
+                pluginContext = new PluginContext(context, PluginManager.getInstance().getPlugin(str), false);
             }
+            if (pluginContext != null) {
+                HashMap<String, WeakReference<Context>> hashMap = contextCache;
+                hashMap.put(str + System.identityHashCode(obj), new WeakReference<>(pluginContext));
+            }
+            return pluginContext;
         }
         return (Context) invokeLL.objValue;
     }
@@ -533,7 +563,7 @@ public class ZeusTransformUtils {
     public static Activity wrapperContext2Activity(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, obj, str)) == null) {
             while (obj != null) {
                 Context wrapperContext = wrapperContext(obj, str);
                 if (wrapperContext instanceof Activity) {
@@ -553,7 +583,7 @@ public class ZeusTransformUtils {
     public static Application wrapperContext2Application(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65574, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, obj, str)) == null) {
             while (obj != null) {
                 Context wrapperContext = wrapperContext(obj, str);
                 if (wrapperContext instanceof Application) {
@@ -573,7 +603,7 @@ public class ZeusTransformUtils {
     public static Object wrapperContext2FragmentActivity(Object obj, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65575, null, obj, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65576, null, obj, str)) == null) {
             while (obj != null) {
                 Context wrapperContext = wrapperContext(obj, str);
                 if (instanceOfFragmentActivity(wrapperContext)) {
@@ -593,7 +623,7 @@ public class ZeusTransformUtils {
     public static Object wrapperContextForParams(Object obj, Class cls, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65576, null, obj, cls, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65577, null, obj, cls, str)) == null) {
             if (!(obj instanceof GeneratePluginActivity) && !(obj instanceof GeneratePluginAppCompatActivity) && (obj instanceof Context)) {
                 Context wrapperContext = wrapperContext(obj, str);
                 if (cls.isInstance(wrapperContext(obj, str))) {
@@ -607,7 +637,7 @@ public class ZeusTransformUtils {
 
     public static void startActivity(Object obj, Intent intent, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65564, null, obj, intent, bundle, str) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65565, null, obj, intent, bundle, str) == null) {
             if (obj instanceof Context) {
                 ComponentManager.startActivity((Context) obj, intent, bundle, str);
                 return;
@@ -622,7 +652,7 @@ public class ZeusTransformUtils {
 
     public static void startActivityForResult(Object obj, Intent intent, int i2, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{obj, intent, Integer.valueOf(i2), bundle, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65567, null, new Object[]{obj, intent, Integer.valueOf(i2), bundle, str}) == null) {
             if (obj instanceof Activity) {
                 ComponentManager.startActivityForResult((Activity) obj, intent, i2, bundle, str);
                 return;
@@ -638,7 +668,7 @@ public class ZeusTransformUtils {
     public static View inflate(LayoutInflater layoutInflater, int i2, ViewGroup viewGroup, String str) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65549, null, layoutInflater, i2, viewGroup, str)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65550, null, layoutInflater, i2, viewGroup, str)) == null) {
             return inflate(layoutInflater, i2, viewGroup, viewGroup != null, str);
         }
         return (View) invokeLILL.objValue;
@@ -647,7 +677,7 @@ public class ZeusTransformUtils {
     public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, str2})) == null) {
             if (obj instanceof Context) {
                 ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[4 params]");
                 return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str, handler, str2);
@@ -664,7 +694,7 @@ public class ZeusTransformUtils {
     public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, String str) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65551, null, layoutInflater, xmlPullParser, viewGroup, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, layoutInflater, xmlPullParser, viewGroup, str)) == null) {
             return inflate(layoutInflater, xmlPullParser, viewGroup, viewGroup != null, str);
         }
         return (View) invokeLLLL.objValue;
@@ -672,7 +702,7 @@ public class ZeusTransformUtils {
 
     public static void setResult(Object obj, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65563, null, obj, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65564, null, obj, i2, str) == null) {
             if (obj instanceof Activity) {
                 try {
                     Object readField = FieldUtils.readField(obj, "mProxyActivity");
@@ -695,7 +725,7 @@ public class ZeusTransformUtils {
     public static View inflate(LayoutInflater layoutInflater, XmlPullParser xmlPullParser, ViewGroup viewGroup, boolean z, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{layoutInflater, xmlPullParser, viewGroup, Boolean.valueOf(z), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{layoutInflater, xmlPullParser, viewGroup, Boolean.valueOf(z), str})) == null) {
             Context context = layoutInflater.getContext();
             if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
                 layoutInflater = (LayoutInflater) wrapperContext(context, str).getSystemService("layout_inflater");
@@ -708,7 +738,7 @@ public class ZeusTransformUtils {
     public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, int i2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, Integer.valueOf(i2), str})) == null) {
             if (obj instanceof Context) {
                 ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[3 params]");
                 return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, i2, str);
@@ -725,7 +755,7 @@ public class ZeusTransformUtils {
     public static View inflate(Context context, int i2, ViewGroup viewGroup, String str) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65548, null, context, i2, viewGroup, str)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65549, null, context, i2, viewGroup, str)) == null) {
             if (!(context instanceof PluginContext) && !(context instanceof PluginActivityWrapper) && !(context instanceof PluginFragmentActivityWrapper) && !(context instanceof PluginApplicationWrapper)) {
                 context = wrapperContext(context, str);
             }
@@ -737,7 +767,7 @@ public class ZeusTransformUtils {
     public static Intent registerReceiver(Object obj, PluginBroadcastReceiver pluginBroadcastReceiver, IntentFilter intentFilter, String str, Handler handler, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{obj, pluginBroadcastReceiver, intentFilter, str, handler, Integer.valueOf(i2), str2})) == null) {
             if (obj instanceof Context) {
                 ZeusLogger.d(ZeusLogger.TAG_RECEIVER, "ZeusTransformUtils-registerReceiver-execute[5 params]");
                 return ComponentManager.registerReceiver((Context) obj, pluginBroadcastReceiver, intentFilter, str, handler, i2, str2);

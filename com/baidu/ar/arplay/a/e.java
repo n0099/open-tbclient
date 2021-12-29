@@ -671,7 +671,7 @@ public class e {
                         }
                     }
                     if (this.dH.dF.size() <= 0 || (a2 = (eVar3 = this.dH).a(eVar3.dF, this.dJ.getId())) <= 1) {
-                        this.dH.c(1030, this.cZ);
+                        this.dH.c(ARPMessageType.MSG_TYPE_VIDEO_PLAY_FINISH, this.cZ);
                         return;
                     }
                     int i2 = a2 - 1;

@@ -4,12 +4,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.s0.q1.e;
+import c.a.t0.q1.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tieba.hottopic.view.TopicVideoControllerView;
 import com.baidu.tieba.hottopic.view.TopicVideoProgressView;
-import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
+import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,12 +24,12 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     public View mCoverView;
     public View mLoadingLayout;
     public View mReplayLayout;
+    public TbVideoViewContainer mTbVideoViewContainer;
     public ForeDrawableImageView mThumbnailImage;
     public RelativeLayout mTopicLayoutVideoView;
     public View mVedioLine;
     public TextView mVedioTitle;
     public TopicVideoProgressView mVideoProgressView;
-    public TbCyberVideoView mVideoView;
     public int skinType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,9 +56,9 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
         }
         this.mTopicLayoutVideoView = (RelativeLayout) view.findViewById(e.topic_layout_video_view);
         this.mThumbnailImage = (ForeDrawableImageView) view.findViewById(e.topic_list_video_item_thumbnail);
-        TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(view.getContext());
-        this.mVideoView = tbCyberVideoView;
-        tbCyberVideoView.setStageType(null);
+        TbVideoViewContainer tbVideoViewContainer = new TbVideoViewContainer(view.getContext());
+        this.mTbVideoViewContainer = tbVideoViewContainer;
+        tbVideoViewContainer.getControl().setStageType(null);
         b();
         this.mControllerView = (TopicVideoControllerView) view.findViewById(e.topic_video_controller);
         this.mVideoProgressView = (TopicVideoProgressView) view.findViewById(e.topic_video_progress_view);
@@ -72,13 +72,13 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
     }
 
     public final void b() {
-        TbCyberVideoView tbCyberVideoView;
+        TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbCyberVideoView = this.mVideoView) != null && tbCyberVideoView.getParent() == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbVideoViewContainer = this.mTbVideoViewContainer) != null && tbVideoViewContainer.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(13);
-            this.mTopicLayoutVideoView.addView(this.mVideoView.getView(), 0);
-            this.mVideoView.getView().setLayoutParams(layoutParams);
+            this.mTopicLayoutVideoView.addView(this.mTbVideoViewContainer, 0);
+            this.mTbVideoViewContainer.setLayoutParams(layoutParams);
         }
     }
 }

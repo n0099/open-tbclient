@@ -8,10 +8,10 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import c.a.q0.a.a0.a.j.f;
-import c.a.q0.a.a0.a.j.f0;
-import c.a.q0.a.a0.a.j.k;
-import c.a.q0.a.z2.q0;
+import c.a.r0.a.a0.a.j.f;
+import c.a.r0.a.a0.a.j.f0;
+import c.a.r0.a.a0.a.j.k;
+import c.a.r0.a.z2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,30 +22,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class CanvasView extends AbsCanvasView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<b> f39870h;
+    public List<b> f40026h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final DrawFilter f39871i;
+    public final DrawFilter f40027i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f39872j;
+    public int f40028j;
 
     /* renamed from: k  reason: collision with root package name */
-    public HashMap<String, Bitmap> f39873k;
+    public HashMap<String, Bitmap> f40029k;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CanvasView f39874e;
+        public final /* synthetic */ CanvasView f40030e;
 
         public a(CanvasView canvasView) {
             Interceptable interceptable = $ic;
@@ -62,26 +62,26 @@ public class CanvasView extends AbsCanvasView {
                     return;
                 }
             }
-            this.f39874e = canvasView;
+            this.f40030e = canvasView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f39874e.b();
+                this.f40030e.b();
             }
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<c.a.q0.a.a0.a.j.a> a;
+        public List<c.a.r0.a.a0.a.j.a> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.q0.a.a0.a.j.b f39875b;
+        public c.a.r0.a.a0.a.j.b f40031b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -102,7 +102,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface c {
         void a();
     }
@@ -128,41 +128,41 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void addDrawActionList(List<c.a.q0.a.a0.a.j.a> list, boolean z) {
+    public void addDrawActionList(List<c.a.r0.a.a0.a.j.a> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.f39870h.contains(list)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.f40026h.contains(list)) {
             return;
         }
         if (!z) {
-            this.f39870h.clear();
+            this.f40026h.clear();
         }
-        int size = this.f39870h.size();
+        int size = this.f40026h.size();
         boolean z2 = z && size > 0;
         b bVar = new b(null);
         if (z2) {
-            b bVar2 = this.f39870h.get(size - 1);
-            bVar.f39875b = bVar2.f39875b;
-            List<c.a.q0.a.a0.a.j.a> list2 = bVar2.a;
+            b bVar2 = this.f40026h.get(size - 1);
+            bVar.f40031b = bVar2.f40031b;
+            List<c.a.r0.a.a0.a.j.a> list2 = bVar2.a;
             bVar.a = list2;
             list2.addAll(list);
         } else {
-            bVar.f39875b = new c.a.q0.a.a0.a.j.b(this);
+            bVar.f40031b = new c.a.r0.a.a0.a.j.b(this);
             bVar.a = list;
         }
-        this.f39870h.add(bVar);
+        this.f40026h.add(bVar);
         q0.e0(new a(this));
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f39872j;
-            if (this.f39870h.size() > 0) {
-                for (b bVar : this.f39870h) {
-                    Iterator<c.a.q0.a.a0.a.j.a> it = bVar.a.iterator();
+            int i2 = this.f40028j;
+            if (this.f40026h.size() > 0) {
+                for (b bVar : this.f40026h) {
+                    Iterator<c.a.r0.a.a0.a.j.a> it = bVar.a.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            c.a.q0.a.a0.a.j.a next = it.next();
+                            c.a.r0.a.a0.a.j.a next = it.next();
                             if (next instanceof f) {
                                 i2 = 2;
                             } else if (next instanceof f0) {
@@ -186,22 +186,22 @@ public class CanvasView extends AbsCanvasView {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f39873k.get(str);
+            return this.f40029k.get(str);
         }
         return (Bitmap) invokeL.objValue;
     }
 
-    public c.a.q0.a.a0.a.j.b getCanvasContext() {
+    public c.a.r0.a.a0.a.j.b getCanvasContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f39870h.size() > 0) {
-                List<b> list = this.f39870h;
-                return list.get(list.size() - 1).f39875b;
+            if (this.f40026h.size() > 0) {
+                List<b> list = this.f40026h;
+                return list.get(list.size() - 1).f40031b;
             }
             return null;
         }
-        return (c.a.q0.a.a0.a.j.b) invokeV.objValue;
+        return (c.a.r0.a.a0.a.j.b) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -209,17 +209,17 @@ public class CanvasView extends AbsCanvasView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f39870h.size() > 0) {
+            if (this.f40026h.size() > 0) {
                 int save = canvas.save();
-                canvas.setDrawFilter(this.f39871i);
-                for (b bVar : this.f39870h) {
-                    List<c.a.q0.a.a0.a.j.a> list = bVar.a;
-                    c.a.q0.a.a0.a.j.b bVar2 = bVar.f39875b;
+                canvas.setDrawFilter(this.f40027i);
+                for (b bVar : this.f40026h) {
+                    List<c.a.r0.a.a0.a.j.a> list = bVar.a;
+                    c.a.r0.a.a0.a.j.b bVar2 = bVar.f40031b;
                     bVar2.e();
-                    for (c.a.q0.a.a0.a.j.a aVar : list) {
+                    for (c.a.r0.a.a0.a.j.a aVar : list) {
                         aVar.a(bVar2, canvas);
                         if (aVar instanceof k) {
-                            ((k) aVar).e(this.f39873k);
+                            ((k) aVar).e(this.f40029k);
                         }
                     }
                 }
@@ -234,7 +234,7 @@ public class CanvasView extends AbsCanvasView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                this.f39873k.clear();
+                this.f40029k.clear();
             }
         }
     }
@@ -286,10 +286,10 @@ public class CanvasView extends AbsCanvasView {
                 return;
             }
         }
-        this.f39870h = new ArrayList();
-        this.f39871i = new PaintFlagsDrawFilter(0, 3);
-        this.f39872j = 0;
-        this.f39873k = new HashMap<>();
-        this.f39872j = getLayerType();
+        this.f40026h = new ArrayList();
+        this.f40027i = new PaintFlagsDrawFilter(0, 3);
+        this.f40028j = 0;
+        this.f40029k = new HashMap<>();
+        this.f40028j = getLayerType();
     }
 }

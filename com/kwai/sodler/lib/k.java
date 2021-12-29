@@ -39,12 +39,12 @@ public class k implements com.kwai.sodler.lib.kwai.e {
 
         /* renamed from: com.kwai.sodler.lib.k$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2141a extends a {
+        public static class C2148a extends a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C2141a(com.kwai.sodler.lib.kwai.e eVar) {
+            public C2148a(com.kwai.sodler.lib.kwai.e eVar) {
                 super(eVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -161,7 +161,7 @@ public class k implements com.kwai.sodler.lib.kwai.e {
         public static a a(com.kwai.sodler.lib.kwai.e eVar, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i2)) == null) ? i2 != 1 ? i2 != 256 ? new b(eVar) : new C2141a(eVar) : new c(eVar) : (a) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, eVar, i2)) == null) ? i2 != 1 ? i2 != 256 ? new b(eVar) : new C2148a(eVar) : new c(eVar) : (a) invokeLI.objValue;
         }
 
         public abstract void a(com.kwai.sodler.lib.kwai.f fVar);

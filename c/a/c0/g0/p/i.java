@@ -14,7 +14,7 @@ public interface i {
     public static final ServiceReference a = new ServiceReference("nad.core", "navBarTool");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f1582b = new a();
+    public static final i f2009b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements i {
@@ -23,14 +23,14 @@ public interface i {
 
         /* renamed from: c.a.c0.g0.p.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class View$OnClickListenerC0046a implements View.OnClickListener {
+        public class View$OnClickListenerC0067a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AbsContainer f1583e;
+            public final /* synthetic */ AbsContainer f2010e;
 
-            public View$OnClickListenerC0046a(a aVar, AbsContainer absContainer) {
+            public View$OnClickListenerC0067a(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,14 +45,14 @@ public interface i {
                         return;
                     }
                 }
-                this.f1583e = absContainer;
+                this.f2010e = absContainer;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AbsContainer absContainer;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f1583e) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (absContainer = this.f2010e) == null) {
                     return;
                 }
                 absContainer.webViewGoBack();
@@ -84,7 +84,7 @@ public interface i {
         public void b(View view, AbsContainer absContainer) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, absContainer) == null) && ((Integer) view.getTag()).intValue() == c.a.c0.g0.f.nad_web_back) {
-                view.setOnClickListener(new View$OnClickListenerC0046a(this, absContainer));
+                view.setOnClickListener(new View$OnClickListenerC0067a(this, absContainer));
             }
         }
 

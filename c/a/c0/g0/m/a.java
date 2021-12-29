@@ -19,26 +19,26 @@ public class a {
 
     /* renamed from: c.a.c0.g0.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0044a implements k.b {
+    public static class C0065a implements k.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k.b a;
 
         /* renamed from: c.a.c0.g0.m.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0045a implements Runnable {
+        public class RunnableC0066a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ C0044a f1576e;
+            public final /* synthetic */ C0065a f2003e;
 
-            public RunnableC0045a(C0044a c0044a) {
+            public RunnableC0066a(C0065a c0065a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0044a};
+                    Object[] objArr = {c0065a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -48,21 +48,21 @@ public class a {
                         return;
                     }
                 }
-                this.f1576e = c0044a;
+                this.f2003e = c0065a;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 k.b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f1576e.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f2003e.a) == null) {
                     return;
                 }
                 bVar.a();
             }
         }
 
-        public C0044a(k.b bVar) {
+        public C0065a(k.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,7 +85,7 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int unused = a.a = 3;
-                g.b(new RunnableC0045a(this));
+                g.b(new RunnableC0066a(this));
             }
         }
     }
@@ -110,7 +110,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
             if (3 != a && 4 != a) {
-                int a2 = b.k().a(context, new C0044a(bVar));
+                int a2 = b.k().a(context, new C0065a(bVar));
                 if (3 != a2 && 1 != a2 && 2 != a2) {
                     if (a2 == 0 || 4 == a2) {
                         try {

@@ -17,10 +17,10 @@ public class b implements h, Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ConcurrentLinkedQueue<j.b<?>> f1655e;
+    public final ConcurrentLinkedQueue<j.b<?>> f2082e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f1656f;
+    public final AtomicBoolean f2083f;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -58,8 +58,8 @@ public class b implements h, Runnable {
                 return;
             }
         }
-        this.f1655e = new ConcurrentLinkedQueue<>();
-        this.f1656f = new AtomicBoolean(false);
+        this.f2082e = new ConcurrentLinkedQueue<>();
+        this.f2083f = new AtomicBoolean(false);
     }
 
     public static h b() {
@@ -73,8 +73,8 @@ public class b implements h, Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, kVar, iVar, t) == null) {
             if (c.a.c0.e.g.a()) {
-                this.f1655e.offer(new j.b<>(kVar, iVar, t));
-                if (this.f1656f.compareAndSet(false, true)) {
+                this.f2082e.offer(new j.b<>(kVar, iVar, t));
+                if (this.f2083f.compareAndSet(false, true)) {
                     c.a.c0.a0.b.c(this, "BackgroundDeliver", 3);
                     return;
                 }
@@ -91,11 +91,11 @@ public class b implements h, Runnable {
             return;
         }
         while (true) {
-            j.b<?> poll = this.f1655e.poll();
+            j.b<?> poll = this.f2082e.poll();
             if (poll != null) {
-                poll.a.onEvent(poll.f1660b);
+                poll.a.onEvent(poll.f2087b);
             } else {
-                this.f1656f.set(false);
+                this.f2083f.set(false);
                 return;
             }
         }

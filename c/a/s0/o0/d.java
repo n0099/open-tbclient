@@ -1,102 +1,70 @@
 package c.a.s0.o0;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-760038791, "Lc/a/s0/o0/d;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-760038791, "Lc/a/s0/o0/d;");
-        }
-    }
-
-    public d() {
+    public static String a(ArrayList<String> arrayList, String str, int i2) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i2)) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            if (!ListUtils.isEmpty(arrayList)) {
+                arrayList2.addAll(arrayList);
             }
+            if (!TextUtils.isEmpty(str)) {
+                arrayList2.add(str);
+            }
+            List<String> c2 = c(arrayList2, i2);
+            if (ListUtils.isEmpty(c2)) {
+                return null;
+            }
+            return b(c2);
         }
+        return (String) invokeLLI.objValue;
     }
 
-    public static final d c() {
-        InterceptResult invokeV;
+    public static String b(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (d.class) {
-                    if (a == null) {
-                        a = new d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (ListUtils.getCount(list) <= 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            boolean z = false;
+            for (String str : list) {
+                if (!StringUtils.isNull(str)) {
+                    if (!z && !StringUtils.isNull(sb.toString())) {
+                        z = true;
                     }
+                    if (z) {
+                        sb.append("_");
+                    }
+                    sb.append(str);
                 }
             }
-            return a;
+            return sb.toString();
         }
-        return (d) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void a(String str, String str2) {
+    public static List<String> c(List<String> list, int i2) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-                return;
-            }
-            c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.b("workflow", "dnsproxy_error");
-            if (!TextUtils.isEmpty(str)) {
-                statsItem.b("reason", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statsItem.b("comment", str2);
-            }
-            BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i2)) == null) {
+            int count = ListUtils.getCount(list);
+            return (count <= 0 || i2 < 0 || count <= i2) ? list : ListUtils.subList(list, count - i2, count);
         }
-    }
-
-    public void b(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2) && TextUtils.isEmpty(str3)) {
-                return;
-            }
-            c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
-            statsItem.b("workflow", "dnsproxy_event");
-            if (!TextUtils.isEmpty(str)) {
-                statsItem.b("key", str);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                statsItem.b("reason", str2);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statsItem.b("comment", str3);
-            }
-            BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-        }
+        return (List) invokeLI.objValue;
     }
 }

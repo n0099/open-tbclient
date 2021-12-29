@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SegDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegDetector";
@@ -248,13 +248,13 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     int i2 = this.vP.oU;
                     if (i2 == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f33761tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                        return aVar.f33917tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
                     } else if (i2 == 4) {
-                        return aVar.f33761tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                        return aVar.f33917tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
                     } else if (i2 != 5) {
                         return -1;
                     } else {
-                        return aVar.f33761tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f33917tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;

@@ -16,22 +16,22 @@ public final class c {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33375b = "last_cfg_request_time";
+    public static final String f33531b = "last_cfg_request_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33376c = "heartbeat_cfg_fingerprint";
+    public static final String f33532c = "heartbeat_cfg_fingerprint";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f33377d = 300;
+    public static final int f33533d = 300;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33378e = "HeartBeatSP";
+    public static final String f33534e = "HeartBeatSP";
 
     /* renamed from: f  reason: collision with root package name */
-    public static SharedPreferences f33379f;
+    public static SharedPreferences f33535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static SharedPreferences.Editor f33380g;
+    public static SharedPreferences.Editor f33536g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,10 +66,10 @@ public final class c {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f33379f == null) {
-            SharedPreferences sharedPreferences = context.getSharedPreferences(f33378e, 0);
-            f33379f = sharedPreferences;
-            f33380g = sharedPreferences.edit();
+        if ((interceptable == null || interceptable.invokeL(65538, null, context) == null) && f33535f == null) {
+            SharedPreferences sharedPreferences = context.getSharedPreferences(f33534e, 0);
+            f33535f = sharedPreferences;
+            f33536g = sharedPreferences.edit();
         }
     }
 
@@ -78,7 +78,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             a(context);
-            return f33379f.getLong(str, j2);
+            return f33535f.getLong(str, j2);
         }
         return invokeCommon.longValue;
     }
@@ -88,7 +88,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, str2)) == null) {
             a(context);
-            return f33379f.getString(str, str2);
+            return f33535f.getString(str, str2);
         }
         return (String) invokeLLL.objValue;
     }
@@ -97,8 +97,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
             a(context);
-            f33380g.putLong(str, j2);
-            f33380g.commit();
+            f33536g.putLong(str, j2);
+            f33536g.commit();
         }
     }
 
@@ -106,8 +106,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, str, str2) == null) {
             a(context);
-            f33380g.putString(str, str2);
-            f33380g.commit();
+            f33536g.putString(str, str2);
+            f33536g.commit();
         }
     }
 
@@ -115,8 +115,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             a(context);
-            f33380g.remove(str);
-            f33380g.commit();
+            f33536g.remove(str);
+            f33536g.commit();
         }
     }
 }

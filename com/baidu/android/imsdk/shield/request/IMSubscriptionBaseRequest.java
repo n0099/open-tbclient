@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +134,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                 jSONObject.put("appid", appid);
                 jSONObject.put("timestamp", currentTimeMillis);
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put("device_type", 2);
+                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("uk", uk);

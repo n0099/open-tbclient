@@ -32,13 +32,13 @@ public final class DXMSdkSAUtils implements a.b {
     public static final String a = "DXMSdkSAUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52551b = "/sa?project=production";
+    public static final String f52554b = "/sa?project=production";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final DxmSdkSensorsDataAPI.DebugMode f52552c;
+    public static final DxmSdkSensorsDataAPI.DebugMode f52555c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f52553d = "DXMSDK";
+    public static final String f52556d = "DXMSDK";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,7 +54,7 @@ public final class DXMSdkSAUtils implements a.b {
                 return;
             }
         }
-        f52552c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
+        f52555c = DxmSdkSensorsDataAPI.DebugMode.DEBUG_OFF;
     }
 
     public DXMSdkSAUtils() {
@@ -100,7 +100,7 @@ public final class DXMSdkSAUtils implements a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             LogUtil.d(a, "initSensorStat" + DomainConfig.getInstance().getSensorhost(new Boolean[]{Boolean.FALSE}));
-            DxmSdkSensorsDataAPI.J(context, DomainConfig.getInstance().getSensorhost(new Boolean[]{Boolean.FALSE}) + f52551b, f52552c);
+            DxmSdkSensorsDataAPI.J(context, DomainConfig.getInstance().getSensorhost(new Boolean[]{Boolean.FALSE}) + f52554b, f52555c);
             onChangeProperties(a(context));
         }
     }
@@ -139,7 +139,7 @@ public final class DXMSdkSAUtils implements a.b {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            DxmSdkSensorsDataAPI.H().O(f52553d, jSONObject);
+            DxmSdkSensorsDataAPI.H().O(f52556d, jSONObject);
         }
     }
 
@@ -183,7 +183,7 @@ public final class DXMSdkSAUtils implements a.b {
                 e2.printStackTrace();
             }
             refreshUnionIDProperty();
-            DxmSdkSensorsDataAPI.H().O(f52553d, jSONObject);
+            DxmSdkSensorsDataAPI.H().O(f52556d, jSONObject);
         }
     }
 
@@ -238,7 +238,7 @@ public final class DXMSdkSAUtils implements a.b {
                     jSONObject.put("value8", jSONArray.get(8));
                 }
                 refreshUnionIDProperty();
-                DxmSdkSensorsDataAPI.H().M(f52553d, jSONObject);
+                DxmSdkSensorsDataAPI.H().M(f52556d, jSONObject);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -281,7 +281,7 @@ public final class DXMSdkSAUtils implements a.b {
                 jSONObject.put("value6", String.valueOf(bVar.j()));
                 LogUtil.d("okhttp", "network_stat: " + jSONObject.toString());
                 refreshUnionIDProperty();
-                DxmSdkSensorsDataAPI.H().M(f52553d, jSONObject);
+                DxmSdkSensorsDataAPI.H().M(f52556d, jSONObject);
             } catch (JSONException unused) {
             }
         }
@@ -293,10 +293,10 @@ public final class DXMSdkSAUtils implements a.b {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("event_key", "network_metrics").put("host", jSONObject.optString("host")).put("$url_path", jSONObject.optString("path")).put("value0", jSONObject.optString("proxy")).put("value1", jSONObject.optString(b.c.l)).put("value2", jSONObject.optString("protocol")).put("value3", jSONObject.optString("location")).put("value4", jSONObject.optString(b.c.f33501k)).put("value5", jSONObject.optString(b.c.m)).put(b.c.a, jSONObject.optLong(b.c.a)).put(b.c.f33492b, jSONObject.optLong(b.c.f33492b)).put(b.c.f33493c, jSONObject.optLong(b.c.f33493c)).put(b.c.f33494d, jSONObject.optLong(b.c.f33494d)).put(b.c.f33495e, jSONObject.optLong(b.c.f33495e));
+                jSONObject2.put("event_key", "network_metrics").put("host", jSONObject.optString("host")).put("$url_path", jSONObject.optString("path")).put("value0", jSONObject.optString("proxy")).put("value1", jSONObject.optString(b.c.l)).put("value2", jSONObject.optString("protocol")).put("value3", jSONObject.optString("location")).put("value4", jSONObject.optString(b.c.f33657k)).put("value5", jSONObject.optString(b.c.m)).put(b.c.a, jSONObject.optLong(b.c.a)).put(b.c.f33648b, jSONObject.optLong(b.c.f33648b)).put(b.c.f33649c, jSONObject.optLong(b.c.f33649c)).put(b.c.f33650d, jSONObject.optLong(b.c.f33650d)).put(b.c.f33651e, jSONObject.optLong(b.c.f33651e));
                 LogUtil.d("okhttp", "network_metrics: " + jSONObject2.toString());
                 refreshUnionIDProperty();
-                DxmSdkSensorsDataAPI.H().M(f52553d, jSONObject2);
+                DxmSdkSensorsDataAPI.H().M(f52556d, jSONObject2);
             } catch (JSONException unused) {
             }
         }

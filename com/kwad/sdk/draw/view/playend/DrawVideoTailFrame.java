@@ -10,13 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.api.KsDrawAd;
@@ -34,8 +27,6 @@ import com.kwad.sdk.reward.widget.AppScoreView;
 import com.kwad.sdk.widget.KsLogoView;
 /* loaded from: classes3.dex */
 public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public AdBaseFrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -77,239 +68,136 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public KsDrawAd.AdInteractionListener q;
     public KsLogoView r;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawVideoTailFrame(@NonNull Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawVideoTailFrame(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawVideoTailFrame(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
     private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.ksad_draw_video_tailframe, this);
-            this.f58990f = (ImageView) findViewById(R.id.ksad_video_cover);
-            this.f58991g = (ViewGroup) findViewById(R.id.ksad_app_container);
-            this.f58992h = (ImageView) findViewById(R.id.ksad_app_icon);
-            this.f58993i = (TextView) findViewById(R.id.ksad_app_name);
-            this.f58994j = (AppScoreView) findViewById(R.id.ksad_app_score);
-            this.f58995k = (TextView) findViewById(R.id.ksad_app_download_count);
-            this.l = (TextView) findViewById(R.id.ksad_app_ad_desc);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
-            this.m = drawDownloadProgressBar;
-            drawDownloadProgressBar.setTextSize(15);
-            this.n = (ViewGroup) findViewById(R.id.ksad_h5_container);
-            this.o = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-            this.p = (TextView) findViewById(R.id.ksad_h5_open_btn);
-            this.r = (KsLogoView) findViewById(R.id.ksad_draw_tailframe_logo);
-        }
+        FrameLayout.inflate(context, R.layout.ksad_draw_video_tailframe, this);
+        this.f58990f = (ImageView) findViewById(R.id.ksad_video_cover);
+        this.f58991g = (ViewGroup) findViewById(R.id.ksad_app_container);
+        this.f58992h = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f58993i = (TextView) findViewById(R.id.ksad_app_name);
+        this.f58994j = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f58995k = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.l = (TextView) findViewById(R.id.ksad_app_ad_desc);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_app_download_btn);
+        this.m = drawDownloadProgressBar;
+        drawDownloadProgressBar.setTextSize(15);
+        this.n = (ViewGroup) findViewById(R.id.ksad_h5_container);
+        this.o = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+        this.p = (TextView) findViewById(R.id.ksad_h5_open_btn);
+        this.r = (KsLogoView) findViewById(R.id.ksad_draw_tailframe_logo);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? new c(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ DrawVideoTailFrame f58996b;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f58996b = this;
-            }
-
+        return new c() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.1
             @Override // com.kwad.sdk.core.download.a.c
             public void a(int i2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                    super.a(i2);
-                    this.f58996b.m.a(a.a(), i2);
-                }
+                super.a(i2);
+                DrawVideoTailFrame.this.m.a(a.a(), i2);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.f58996b.m.a(a.A(this.f58996b.f58987c), this.f58996b.m.getMax());
-                }
+                DrawVideoTailFrame.this.m.a(a.A(DrawVideoTailFrame.this.f58987c), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f58996b.m.a(a.a(this.f58996b.f58986b), this.f58996b.m.getMax());
-                }
+                DrawVideoTailFrame.this.m.a(a.a(DrawVideoTailFrame.this.f58986b), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f58996b.m.a(a.A(this.f58996b.f58987c), this.f58996b.m.getMax());
-                }
+                DrawVideoTailFrame.this.m.a(a.A(DrawVideoTailFrame.this.f58987c), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    this.f58996b.m.a(a.m(this.f58996b.f58987c), this.f58996b.m.getMax());
-                }
+                DrawVideoTailFrame.this.m.a(a.m(DrawVideoTailFrame.this.f58987c), DrawVideoTailFrame.this.m.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i2) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                    DrawDownloadProgressBar drawDownloadProgressBar = this.f58996b.m;
-                    drawDownloadProgressBar.a(i2 + "%", i2);
-                }
+                DrawDownloadProgressBar drawDownloadProgressBar = DrawVideoTailFrame.this.m;
+                drawDownloadProgressBar.a(i2 + "%", i2);
             }
-        } : (KsAppDownloadListener) invokeV.objValue;
+        };
     }
 
     public void a() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f58988d) == null) {
-            return;
+        b bVar = this.f58988d;
+        if (bVar != null) {
+            KsAppDownloadListener ksAppDownloadListener = this.f58989e;
+            if (ksAppDownloadListener != null) {
+                bVar.c(ksAppDownloadListener);
+                return;
+            }
+            KsAppDownloadListener appDownloadListener = getAppDownloadListener();
+            this.f58989e = appDownloadListener;
+            this.f58988d.a(appDownloadListener);
         }
-        KsAppDownloadListener ksAppDownloadListener = this.f58989e;
-        if (ksAppDownloadListener != null) {
-            bVar.c(ksAppDownloadListener);
-            return;
-        }
-        KsAppDownloadListener appDownloadListener = getAppDownloadListener();
-        this.f58989e = appDownloadListener;
-        this.f58988d.a(appDownloadListener);
     }
 
     public void a(AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            this.f58986b = adTemplate;
-            AdInfo j2 = d.j(adTemplate);
-            this.f58987c = j2;
-            AdInfo.AdMaterialInfo.MaterialFeature J = a.J(j2);
-            String str = J.coverUrl;
-            this.r.a(adTemplate);
-            if (!TextUtils.isEmpty(str)) {
-                int i2 = J.width;
-                int i3 = J.height;
-                if (i2 > 0 && i2 > i3) {
-                    int c2 = com.kwad.sdk.a.kwai.a.c(getContext());
-                    if (getWidth() != 0) {
-                        c2 = getWidth();
-                    }
-                    ViewGroup.LayoutParams layoutParams = this.f58990f.getLayoutParams();
-                    layoutParams.width = c2;
-                    layoutParams.height = (int) (c2 * (i3 / i2));
+        this.f58986b = adTemplate;
+        AdInfo j2 = d.j(adTemplate);
+        this.f58987c = j2;
+        AdInfo.AdMaterialInfo.MaterialFeature J = a.J(j2);
+        String str = J.coverUrl;
+        this.r.a(adTemplate);
+        if (!TextUtils.isEmpty(str)) {
+            int i2 = J.width;
+            int i3 = J.height;
+            if (i2 > 0 && i2 > i3) {
+                int c2 = com.kwad.sdk.a.kwai.a.c(getContext());
+                if (getWidth() != 0) {
+                    c2 = getWidth();
                 }
-                KSImageLoader.loadImage(this.f58990f, str, this.f58986b);
+                ViewGroup.LayoutParams layoutParams = this.f58990f.getLayoutParams();
+                layoutParams.width = c2;
+                layoutParams.height = (int) (c2 * (i3 / i2));
             }
-            if (a.B(this.f58987c)) {
-                KSImageLoader.loadAppIcon(this.f58992h, a.au(this.f58987c), this.f58986b, 11);
-                this.f58993i.setText(a.t(this.f58987c));
-                float x = a.x(this.f58987c);
-                if (x >= 3.0f) {
-                    this.f58994j.setScore(x);
-                    this.f58994j.setVisibility(0);
-                }
-                this.f58995k.setText(a.w(this.f58987c));
-                this.l.setText(a.s(this.f58987c));
-                this.f58991g.setVisibility(0);
-                this.n.setVisibility(8);
-            } else {
-                this.o.setText(a.s(this.f58987c));
-                this.p.setText(a.A(this.f58987c));
-                this.f58991g.setVisibility(8);
-                this.n.setVisibility(0);
-            }
-            this.m.setOnClickListener(this);
-            setOnClickListener(this);
+            KSImageLoader.loadImage(this.f58990f, str, this.f58986b);
         }
+        if (a.B(this.f58987c)) {
+            KSImageLoader.loadAppIcon(this.f58992h, a.au(this.f58987c), this.f58986b, 11);
+            this.f58993i.setText(a.t(this.f58987c));
+            float x = a.x(this.f58987c);
+            if (x >= 3.0f) {
+                this.f58994j.setScore(x);
+                this.f58994j.setVisibility(0);
+            }
+            this.f58995k.setText(a.w(this.f58987c));
+            this.l.setText(a.s(this.f58987c));
+            this.f58991g.setVisibility(0);
+            this.n.setVisibility(8);
+        } else {
+            this.o.setText(a.s(this.f58987c));
+            this.p.setText(a.A(this.f58987c));
+            this.f58991g.setVisibility(8);
+            this.n.setVisibility(0);
+        }
+        this.m.setOnClickListener(this);
+        setOnClickListener(this);
     }
 
     public void b() {
-        b bVar;
         KsAppDownloadListener ksAppDownloadListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f58988d) == null || (ksAppDownloadListener = this.f58989e) == null) {
+        b bVar = this.f58988d;
+        if (bVar == null || (ksAppDownloadListener = this.f58989e) == null) {
             return;
         }
         bVar.b(ksAppDownloadListener);
@@ -317,63 +205,26 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            com.kwad.sdk.core.download.a.a.a(new a.C2076a(getContext()).a(this.f58986b).a(this.f58988d).a(view == this.m ? 1 : 2).a(view == this.m).a(new a.b(this) { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DrawVideoTailFrame a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
+        com.kwad.sdk.core.download.a.a.a(new a.C2083a(getContext()).a(this.f58986b).a(this.f58988d).a(view == this.m ? 1 : 2).a(view == this.m).a(new a.b() { // from class: com.kwad.sdk.draw.view.playend.DrawVideoTailFrame.2
+            @Override // com.kwad.sdk.core.download.a.a.b
+            public void a() {
+                if (DrawVideoTailFrame.this.q != null) {
+                    DrawVideoTailFrame.this.q.onAdClicked();
                 }
-
-                @Override // com.kwad.sdk.core.download.a.a.b
-                public void a() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.a.q != null) {
-                            this.a.q.onAdClicked();
-                        }
-                        com.kwad.sdk.core.report.a.a(this.a.f58986b, 2, this.a.a.getTouchCoords());
-                    }
-                }
-            }));
-        }
+                com.kwad.sdk.core.report.a.a(DrawVideoTailFrame.this.f58986b, 2, DrawVideoTailFrame.this.a.getTouchCoords());
+            }
+        }));
     }
 
     public void setAdBaseFrameLayout(AdBaseFrameLayout adBaseFrameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, adBaseFrameLayout) == null) {
-            this.a = adBaseFrameLayout;
-        }
+        this.a = adBaseFrameLayout;
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, adInteractionListener) == null) {
-            this.q = adInteractionListener;
-        }
+        this.q = adInteractionListener;
     }
 
     public void setApkDownloadHelper(@Nullable b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f58988d = bVar;
-        }
+        this.f58988d = bVar;
     }
 }

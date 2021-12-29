@@ -16,11 +16,11 @@ public class a {
 
     /* renamed from: c.a.x.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1561a implements b {
+    public class C1582a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1561a() {
+        public C1582a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,6 +46,6 @@ public class a {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new C1561a() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new C1582a() : (b) invokeV.objValue;
     }
 }

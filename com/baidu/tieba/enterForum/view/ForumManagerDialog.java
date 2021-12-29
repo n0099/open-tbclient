@@ -2,11 +2,12 @@ package com.baidu.tieba.enterForum.view;
 
 import android.content.Context;
 import android.view.View;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.r0.l0.c.b;
-import c.a.r0.s.t.i;
-import c.a.s0.u0.d.f;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.s0.l0.c.b;
+import c.a.s0.s.s.g;
+import c.a.s0.s.s.j;
+import c.a.t0.u0.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.PopupDialog;
@@ -26,18 +27,18 @@ public class ForumManagerDialog extends PopupDialog {
     public TbPageContext n;
     public Context o;
     public ViewEventCenter p;
-    public final i q;
+    public final j q;
     public f r;
-    public final List<c.a.r0.s.t.f> s;
-    public final i.e t;
+    public final List<g> s;
+    public final j.e t;
 
     /* loaded from: classes12.dex */
-    public class a implements i.e {
+    public class a implements j.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumManagerDialog f44144e;
+        public final /* synthetic */ ForumManagerDialog f44331e;
 
         public a(ForumManagerDialog forumManagerDialog) {
             Interceptable interceptable = $ic;
@@ -54,20 +55,20 @@ public class ForumManagerDialog extends PopupDialog {
                     return;
                 }
             }
-            this.f44144e = forumManagerDialog;
+            this.f44331e = forumManagerDialog;
         }
 
-        @Override // c.a.r0.s.t.i.e
-        public void onItemClick(i iVar, int i2, View view) {
+        @Override // c.a.s0.s.s.j.e
+        public void onItemClick(j jVar, int i2, View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, iVar, i2, view) == null) {
-                this.f44144e.dismiss();
-                if (!k.z()) {
-                    m.L(this.f44144e.o, R.string.network_not_available);
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
+                this.f44331e.dismiss();
+                if (!l.z()) {
+                    n.L(this.f44331e.o, R.string.network_not_available);
                 } else if (i2 == 2) {
-                    this.f44144e.p.dispatchMvcEvent(new b(4, this.f44144e.r, null, null));
+                    this.f44331e.p.dispatchMvcEvent(new b(4, this.f44331e.r, null, null));
                 } else if (i2 == 1) {
-                    this.f44144e.p.dispatchMvcEvent(new b(13, this.f44144e.r, null, null));
+                    this.f44331e.p.dispatchMvcEvent(new b(13, this.f44331e.r, null, null));
                 }
             }
         }
@@ -96,21 +97,21 @@ public class ForumManagerDialog extends PopupDialog {
         this.o = tbPageContext.getPageActivity();
         this.p = viewEventCenter;
         this.s = new ArrayList();
-        i iVar = new i(this.o);
-        this.q = iVar;
-        iVar.m(this.t);
+        j jVar = new j(this.o);
+        this.q = jVar;
+        jVar.m(this.t);
         setContentView(this.q);
     }
 
     public final void i() {
-        List<c.a.r0.s.t.f> list;
+        List<g> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.r == null || (list = this.s) == null || this.q == null) {
             return;
         }
         list.clear();
-        this.s.add(new c.a.r0.s.t.f(1, j(this.r.q() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.q));
-        this.s.add(new c.a.r0.s.t.f(2, j(R.string.delete, new Object[0]), this.q));
+        this.s.add(new g(1, j(this.r.q() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.q));
+        this.s.add(new g(2, j(R.string.delete, new Object[0]), this.q));
         this.q.j(this.s);
     }
 
@@ -128,12 +129,12 @@ public class ForumManagerDialog extends PopupDialog {
     }
 
     public void onChangeSkinType() {
-        i iVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (iVar = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jVar = this.q) == null) {
             return;
         }
-        iVar.i();
+        jVar.i();
     }
 
     public void setData(f fVar) {

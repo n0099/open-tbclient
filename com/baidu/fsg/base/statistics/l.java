@@ -13,7 +13,7 @@ public class l implements IBeanResponseCallback {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f34787b;
+    public final /* synthetic */ n f34943b;
 
     public l(n nVar, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class l implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f34787b = nVar;
+        this.f34943b = nVar;
         this.a = str;
     }
 

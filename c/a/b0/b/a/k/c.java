@@ -30,31 +30,31 @@ public class c {
     public static String a = "MediaTrackUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1306b = "FILTER_MATRIX";
+    public static String f1699b = "FILTER_MATRIX";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f1307c = "FILTER_LUT";
+    public static String f1700c = "FILTER_LUT";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f1308d = "FILTER_SUB_LUT";
+    public static String f1701d = "FILTER_SUB_LUT";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f1309e = "FILTER_SUBTITLE";
+    public static String f1702e = "FILTER_SUBTITLE";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f1310f = "FILTER_STICKER";
+    public static String f1703f = "FILTER_STICKER";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f1311g = "FILTER_GAUSSIAN_BLUR_H";
+    public static String f1704g = "FILTER_GAUSSIAN_BLUR_H";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f1312h = "FILTER_GAUSSIAN_BLUR_V";
+    public static String f1705h = "FILTER_GAUSSIAN_BLUR_V";
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f1313i = false;
+    public static boolean f1706i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static int f1314j = 1;
+    public static int f1707j = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -172,7 +172,7 @@ public class c {
     public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f1313i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f1706i : invokeV.booleanValue;
     }
 
     public static boolean m(MediaTrack mediaTrack, String str) {
@@ -194,7 +194,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, mediaTrack) == null) {
             MediaTrack mediaTrack2 = mediaTrack;
-            if (f1313i) {
+            if (f1706i) {
                 List<MediaSegment> list = mediaTrack2.mediaSegments;
                 String str5 = PreferencesUtil.LEFT_MOUNT;
                 String str6 = ": ";

@@ -17,7 +17,7 @@ public class i extends l implements IDIDBinderStatusListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final SupplementaryDIDManager f54990j;
+    public final SupplementaryDIDManager f54993j;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class i extends l implements IDIDBinderStatusListener {
                 return;
             }
         }
-        this.f54990j = new SupplementaryDIDManager(context);
+        this.f54993j = new SupplementaryDIDManager(context);
     }
 
     @Override // android.os.IInterface
@@ -55,12 +55,12 @@ public class i extends l implements IDIDBinderStatusListener {
             a();
             try {
                 c();
-                this.f54990j.init(this);
+                this.f54993j.init(this);
                 b();
             } catch (Exception e2) {
                 e0.b("AsusProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
             }
         }
     }
@@ -81,7 +81,7 @@ public class i extends l implements IDIDBinderStatusListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             e0.d("AsusProvider", "onError");
             a();
-            a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+            a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
             shutDown();
         }
     }
@@ -96,29 +96,29 @@ public class i extends l implements IDIDBinderStatusListener {
             }
             try {
                 try {
-                    this.f54998f = iDidAidlInterface.isSupport();
+                    this.f55001f = iDidAidlInterface.isSupport();
                     String oaid = iDidAidlInterface.getOAID();
                     String vaid = iDidAidlInterface.getVAID();
                     String aaid = iDidAidlInterface.getAAID();
-                    this.f54999g = false;
+                    this.f55002g = false;
                     if (oaid == null) {
                         oaid = "";
                     }
-                    this.f54995c = oaid;
+                    this.f54998c = oaid;
                     if (vaid == null) {
                         vaid = "";
                     }
-                    this.f54996d = vaid;
+                    this.f54999d = vaid;
                     if (aaid == null) {
                         aaid = "";
                     }
-                    this.f54997e = aaid;
+                    this.f55000e = aaid;
                 } catch (Exception e2) {
                     e0.b("AsusProvider", "onSuccess: Exception: " + e2.getMessage());
                     a();
                 }
             } finally {
-                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
                 shutDown();
             }
         }
@@ -128,7 +128,7 @@ public class i extends l implements IDIDBinderStatusListener {
     public void shutDown() {
         SupplementaryDIDManager supplementaryDIDManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (supplementaryDIDManager = this.f54990j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (supplementaryDIDManager = this.f54993j) == null) {
             return;
         }
         supplementaryDIDManager.deInit();

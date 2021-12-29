@@ -133,6 +133,7 @@ public final class SpeedStatsStampTable {
     public static final int INIT_MSG_TWO_STAMP_KEY = 2034;
     public static final int INIT_MSG_TWO_START_STAMP_KEY = 2043;
     public static final int INIT_PERSON_STAMP_KEY = 2004;
+    public static final int INIT_PLAYER_STAMP_KEY = 2053;
     public static final int INIT_PLUGIN_STAMP_KEY = 2023;
     public static final int INIT_RUKA_STAMP_KEY = 2030;
     public static final int INIT_SAPI_STAMP_KEY = 2022;

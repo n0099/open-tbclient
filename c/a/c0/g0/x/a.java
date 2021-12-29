@@ -31,22 +31,22 @@ public class a extends WebViewClient {
     public final WebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebViewClient f1649b;
+    public final WebViewClient f2076b;
 
     /* renamed from: c.a.c0.g0.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0051a implements c {
+    public class C0072a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SslErrorHandler f1650b;
+        public final /* synthetic */ SslErrorHandler f2077b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SslError f1651c;
+        public final /* synthetic */ SslError f2078c;
 
-        public C0051a(a aVar, WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+        public C0072a(a aVar, WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,15 +62,15 @@ public class a extends WebViewClient {
                 }
             }
             this.a = webView;
-            this.f1650b = sslErrorHandler;
-            this.f1651c = sslError;
+            this.f2077b = sslErrorHandler;
+            this.f2078c = sslError;
         }
 
         @Override // c.a.c0.g0.u.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getWebViewClient().onReceivedSslError(this.a, this.f1650b, this.f1651c);
+                this.a.getWebViewClient().onReceivedSslError(this.a, this.f2077b, this.f2078c);
             }
         }
     }
@@ -82,7 +82,7 @@ public class a extends WebViewClient {
         public final /* synthetic */ WebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HttpAuthHandler f1652b;
+        public final /* synthetic */ HttpAuthHandler f2079b;
 
         public b(a aVar, WebView webView, HttpAuthHandler httpAuthHandler) {
             Interceptable interceptable = $ic;
@@ -100,14 +100,14 @@ public class a extends WebViewClient {
                 }
             }
             this.a = webView;
-            this.f1652b = httpAuthHandler;
+            this.f2079b = httpAuthHandler;
         }
 
         @Override // c.a.c0.g0.u.b
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                this.f1652b.proceed(str, str2);
+                this.f2079b.proceed(str, str2);
             }
         }
 
@@ -115,7 +115,7 @@ public class a extends WebViewClient {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f1652b.cancel();
+                this.f2079b.cancel();
             }
         }
 
@@ -144,14 +144,14 @@ public class a extends WebViewClient {
             }
         }
         this.a = webView;
-        this.f1649b = webViewClient;
+        this.f2076b = webViewClient;
     }
 
     @Override // android.webkit.WebViewClient
     public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
         WebViewClient webViewClient;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) || (webViewClient = this.f1649b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) || (webViewClient = this.f2076b) == null) {
             return;
         }
         webViewClient.doUpdateVisitedHistory(webView, str, z);
@@ -161,7 +161,7 @@ public class a extends WebViewClient {
     public void onFormResubmission(WebView webView, Message message, Message message2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, message, message2) == null) {
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onFormResubmission(webView, message, message2);
             } else {
@@ -175,7 +175,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
             super.onLoadResource(webView, str);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onLoadResource(webView, str);
             }
@@ -187,7 +187,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
             super.onPageCommitVisible(webView, str);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
                 return;
             }
@@ -203,7 +203,7 @@ public class a extends WebViewClient {
             if (webView != null) {
                 webView.loadUrl("javascript:(function go_back_js_interface_name(){window.history.back=function(){javascript:(function(){if(typeof(window.go_back_js_interface_name)=='undefined'){window.prompt('BdboxApp:'+JSON.stringify({obj:'go_back_js_interface_name',func:'onGoBack',args:[]}));}else{window.go_back_js_interface_name.onGoBack();}})()};})()");
             }
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onPageFinished(webView, str);
             }
@@ -216,7 +216,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onPageStarted(webView, str, bitmap);
             }
@@ -227,7 +227,7 @@ public class a extends WebViewClient {
     public void onReceivedClientCertRequest(WebView webView, ClientCertRequest clientCertRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, webView, clientCertRequest) == null) {
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     webViewClient.onReceivedClientCertRequest(webView, clientCertRequest);
@@ -244,7 +244,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, webView, webResourceRequest, webResourceError) == null) {
             super.onReceivedError(webView, webResourceRequest, webResourceError);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
                 return;
             }
@@ -280,7 +280,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048585, this, webView, webResourceRequest, webResourceResponse) == null) {
             super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient == null || Build.VERSION.SDK_INT < 23) {
                 return;
             }
@@ -293,7 +293,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048586, this, webView, str, str2, str3) == null) {
             super.onReceivedLoginRequest(webView, str, str2, str3);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onReceivedLoginRequest(webView, str, str2, str3);
             }
@@ -305,7 +305,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, webView, sslErrorHandler, sslError) == null) {
             if (webView.isShown()) {
-                new c.a.c0.g0.r.a(webView.getContext()).n(new C0051a(this, webView, sslErrorHandler, sslError), sslErrorHandler, sslError);
+                new c.a.c0.g0.r.a(webView.getContext()).n(new C0072a(this, webView, sslErrorHandler, sslError), sslErrorHandler, sslError);
                 return;
             }
             sslErrorHandler.cancel();
@@ -327,7 +327,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             super.onScaleChanged(webView, f2, f3);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onScaleChanged(webView, f2, f3);
             }
@@ -339,7 +339,7 @@ public class a extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, webView, keyEvent) == null) {
             super.onUnhandledKeyEvent(webView, keyEvent);
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null) {
                 webViewClient.onUnhandledKeyEvent(webView, keyEvent);
             }
@@ -352,7 +352,7 @@ public class a extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, webResourceRequest)) == null) {
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient != null && Build.VERSION.SDK_INT >= 21) {
                 return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
             }
@@ -366,7 +366,7 @@ public class a extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, webView, keyEvent)) == null) {
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient == null || !webViewClient.shouldOverrideKeyEvent(webView, keyEvent)) {
                 return super.shouldOverrideKeyEvent(webView, keyEvent);
             }
@@ -380,7 +380,7 @@ public class a extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, webView, str)) == null) {
-            WebViewClient webViewClient = this.f1649b;
+            WebViewClient webViewClient = this.f2076b;
             if (webViewClient == null || !webViewClient.shouldOverrideUrlLoading(webView, str)) {
                 return super.shouldOverrideUrlLoading(webView, str);
             }

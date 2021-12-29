@@ -22,22 +22,22 @@ public class c implements Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1763e;
+    public boolean f2190e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1764f;
+    public int f2191f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1765g;
+    public boolean f2192g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1766h;
+    public int f2193h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ADConfigError f1767i;
+    public ADConfigError f2194i;
 
     /* renamed from: j  reason: collision with root package name */
-    public j f1768j;
+    public j f2195j;
 
     /* loaded from: classes.dex */
     public class a extends c.a.c0.r.p.c<String> {
@@ -78,9 +78,9 @@ public class c implements Runnable {
         public final void e(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                this.a.f1767i = ADConfigError.error("1", exc.toString());
-                if (this.a.f1768j != null) {
-                    this.a.f1768j.a(this.a.f1767i);
+                this.a.f2194i = ADConfigError.error("1", exc.toString());
+                if (this.a.f2195j != null) {
+                    this.a.f2195j.a(this.a.f2194i);
                 }
             }
         }
@@ -90,17 +90,17 @@ public class c implements Runnable {
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
-                        this.a.f1763e = true;
+                        this.a.f2190e = true;
                         b.d().c();
                         b.d().e(str);
                         return;
                     } catch (ADConfigError e2) {
-                        this.a.f1767i = e2;
+                        this.a.f2194i = e2;
                         this.a.k();
                         return;
                     }
                 }
-                this.a.f1767i = ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE);
+                this.a.f2194i = ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE);
                 this.a.k();
             }
         }
@@ -131,7 +131,7 @@ public class c implements Runnable {
                     if (str != null) {
                         str2 = c.a.c0.u.b.b(str).optString("error_message");
                     }
-                    this.a.f1767i = ADConfigError.error("8", str2);
+                    this.a.f2194i = ADConfigError.error("8", str2);
                     this.a.k();
                     this.a.j();
                     return null;
@@ -157,9 +157,9 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f1764f = i2;
-        this.f1765g = z;
-        this.f1766h = i3;
+        this.f2191f = i2;
+        this.f2192g = z;
+        this.f2193h = i3;
     }
 
     @NonNull
@@ -196,9 +196,9 @@ public class c implements Runnable {
             dVar.a("Content-Encoding", "gzip");
             dVar.a("Content-Type", "application/json");
             dVar.k("https://afdconf.baidu.com/afd/platform?" + c.a.c0.e.a.a().e());
-            dVar.g(this.f1764f * 1000);
-            dVar.i(this.f1764f * 1000);
-            dVar.j(this.f1764f * 1000);
+            dVar.g(this.f2191f * 1000);
+            dVar.i(this.f2191f * 1000);
+            dVar.j(this.f2191f * 1000);
             dVar.f(d2);
             return dVar;
         }
@@ -208,7 +208,7 @@ public class c implements Runnable {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1763e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2190e : invokeV.booleanValue;
     }
 
     public final void j() {
@@ -221,16 +221,16 @@ public class c implements Runnable {
     public final void k() {
         ADConfigError aDConfigError;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aDConfigError = this.f1767i) == null || TextUtils.equals(aDConfigError.reason, ADConfigError.REASON_REQUEST_SUCCESS)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aDConfigError = this.f2194i) == null || TextUtils.equals(aDConfigError.reason, ADConfigError.REASON_REQUEST_SUCCESS)) {
             return;
         }
-        d.c(this.f1767i, this.f1766h, this.f1765g);
+        d.c(this.f2194i, this.f2193h, this.f2192g);
     }
 
     public void l(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f1768j = jVar;
+            this.f2195j = jVar;
         }
     }
 
@@ -240,7 +240,7 @@ public class c implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             c.a.c0.r.s.d h2 = h();
             if (h2 == null) {
-                this.f1767i = ADConfigError.error("10", ADConfigError.REASON_BUILD_REQUEST_FAILED);
+                this.f2194i = ADConfigError.error("10", ADConfigError.REASON_BUILD_REQUEST_FAILED);
                 k();
                 j();
                 return;

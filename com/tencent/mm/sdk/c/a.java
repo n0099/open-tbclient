@@ -14,7 +14,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C2229a {
+    public static final class C2236a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

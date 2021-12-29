@@ -1,6 +1,6 @@
 package com.baidu.swan.pms.model;
 
-import c.a.q0.q.i.b;
+import c.a.r0.q.i.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

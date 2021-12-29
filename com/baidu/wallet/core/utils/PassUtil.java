@@ -45,13 +45,13 @@ public final class PassUtil {
     public static IPassNormalize a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f53014b;
+    public static long f53017b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static IPassNormalize f53015c;
+    public static IPassNormalize f53018c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f53016d;
+    public static final Object f53019d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes13.dex */
@@ -118,7 +118,7 @@ public final class PassUtil {
                 return;
             }
         }
-        f53016d = new Object();
+        f53019d = new Object();
     }
 
     public PassUtil() {
@@ -139,7 +139,7 @@ public final class PassUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - f53014b;
+            long currentTimeMillis = System.currentTimeMillis() - f53017b;
             LogUtil.logd("wait =" + currentTimeMillis);
             if (currentTimeMillis < 500 && currentTimeMillis > 0) {
                 LogUtil.logd("需要wait =" + currentTimeMillis);
@@ -161,10 +161,10 @@ public final class PassUtil {
                     public final /* synthetic */ Context a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f53017b;
+                    public final /* synthetic */ int f53020b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Map f53018c;
+                    public final /* synthetic */ Map f53021c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -182,8 +182,8 @@ public final class PassUtil {
                             }
                         }
                         this.a = context;
-                        this.f53017b = i2;
-                        this.f53018c = map;
+                        this.f53020b = i2;
+                        this.f53021c = map;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -192,10 +192,10 @@ public final class PassUtil {
                     public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, web2NativeLoginResult) == null) {
-                            if (PassUtil.f53015c != null) {
-                                PassUtil.f53015c.onNormalize(this.a, this.f53017b, this.f53018c);
+                            if (PassUtil.f53018c != null) {
+                                PassUtil.f53018c.onNormalize(this.a, this.f53020b, this.f53021c);
                             }
-                            IPassNormalize unused = PassUtil.f53015c = null;
+                            IPassNormalize unused = PassUtil.f53018c = null;
                         }
                     }
 
@@ -232,12 +232,12 @@ public final class PassUtil {
                                 public void onFail(int i3, String str) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i3, str) == null) {
-                                        if (PassUtil.f53015c != null) {
-                                            IPassNormalize iPassNormalize = PassUtil.f53015c;
+                                        if (PassUtil.f53018c != null) {
+                                            IPassNormalize iPassNormalize = PassUtil.f53018c;
                                             AnonymousClass1 anonymousClass1 = this.a;
-                                            iPassNormalize.onNormalize(anonymousClass1.a, anonymousClass1.f53017b, anonymousClass1.f53018c);
+                                            iPassNormalize.onNormalize(anonymousClass1.a, anonymousClass1.f53020b, anonymousClass1.f53021c);
                                         }
-                                        IPassNormalize unused = PassUtil.f53015c = null;
+                                        IPassNormalize unused = PassUtil.f53018c = null;
                                     }
                                 }
 
@@ -245,13 +245,13 @@ public final class PassUtil {
                                 public void onSuccess(int i3, String str) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str) == null) {
-                                        this.a.f53018c.put("pass_open_bduss", str);
-                                        if (PassUtil.f53015c != null) {
-                                            IPassNormalize iPassNormalize = PassUtil.f53015c;
+                                        this.a.f53021c.put("pass_open_bduss", str);
+                                        if (PassUtil.f53018c != null) {
+                                            IPassNormalize iPassNormalize = PassUtil.f53018c;
                                             AnonymousClass1 anonymousClass1 = this.a;
-                                            iPassNormalize.onNormalize(anonymousClass1.a, anonymousClass1.f53017b, anonymousClass1.f53018c);
+                                            iPassNormalize.onNormalize(anonymousClass1.a, anonymousClass1.f53020b, anonymousClass1.f53021c);
                                         }
-                                        IPassNormalize unused = PassUtil.f53015c = null;
+                                        IPassNormalize unused = PassUtil.f53018c = null;
                                     }
                                 }
                             }, 0);
@@ -264,10 +264,10 @@ public final class PassUtil {
                     public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, web2NativeLoginResult) == null) {
-                            if (PassUtil.f53015c != null) {
-                                PassUtil.f53015c.onNormalize(this.a, this.f53017b, this.f53018c);
+                            if (PassUtil.f53018c != null) {
+                                PassUtil.f53018c.onNormalize(this.a, this.f53020b, this.f53021c);
                             }
-                            IPassNormalize unused = PassUtil.f53015c = null;
+                            IPassNormalize unused = PassUtil.f53018c = null;
                         }
                     }
 
@@ -275,10 +275,10 @@ public final class PassUtil {
                     public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, web2NativeLoginResult) == null) {
-                            if (PassUtil.f53015c != null) {
-                                PassUtil.f53015c.onNormalize(this.a, this.f53017b, this.f53018c);
+                            if (PassUtil.f53018c != null) {
+                                PassUtil.f53018c.onNormalize(this.a, this.f53020b, this.f53021c);
                             }
-                            IPassNormalize unused = PassUtil.f53015c = null;
+                            IPassNormalize unused = PassUtil.f53018c = null;
                         }
                     }
 
@@ -298,18 +298,18 @@ public final class PassUtil {
                 }, true);
                 return;
             }
-            IPassNormalize iPassNormalize = f53015c;
+            IPassNormalize iPassNormalize = f53018c;
             if (iPassNormalize != null) {
                 iPassNormalize.onNormalize(context, i2, map);
             }
-            f53015c = null;
+            f53018c = null;
         }
     }
 
     public static void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            f53014b = System.currentTimeMillis();
+            f53017b = System.currentTimeMillis();
         }
     }
 
@@ -321,16 +321,16 @@ public final class PassUtil {
         long b2 = b();
         if (b2 > 0) {
             try {
-                synchronized (f53016d) {
+                synchronized (f53019d) {
                     LogUtil.logd("before wait");
-                    f53016d.wait(b2);
+                    f53019d.wait(b2);
                     LogUtil.logd("after wait");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        f53015c = iPassNormalize;
+        f53018c = iPassNormalize;
         Intent intent = new Intent(context, PassNormalizeActivity.class);
         intent.putExtra("normalize_url", str);
         intent.putExtra("pass_util_type", i2);

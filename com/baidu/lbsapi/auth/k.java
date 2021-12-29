@@ -13,7 +13,7 @@ public class k implements c.a<String> {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f35622b;
+    public final /* synthetic */ LBSAuthManager f35778b;
 
     public k(LBSAuthManager lBSAuthManager, String str) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class k implements c.a<String> {
                 return;
             }
         }
-        this.f35622b = lBSAuthManager;
+        this.f35778b = lBSAuthManager;
         this.a = str;
     }
 
@@ -39,7 +39,7 @@ public class k implements c.a<String> {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f35622b.a(str, this.a);
+            this.f35778b.a(str, this.a);
         }
     }
 }

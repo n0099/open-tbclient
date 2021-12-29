@@ -17,7 +17,7 @@ public class a implements IDataSenderAdapter {
     public IDataSenderAdapter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public IDataSenderAdapter f64621b;
+    public IDataSenderAdapter f64616b;
 
     public a(IDataSenderAdapter iDataSenderAdapter) {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class a implements IDataSenderAdapter {
                 iDataSenderAdapter.cancelAllRequest(i2, i3);
                 return;
             }
-            IDataSenderAdapter iDataSenderAdapter2 = this.f64621b;
+            IDataSenderAdapter iDataSenderAdapter2 = this.f64616b;
             if (iDataSenderAdapter2 != null) {
                 iDataSenderAdapter2.cancelAllRequest(i2, i3);
             }
@@ -63,7 +63,7 @@ public class a implements IDataSenderAdapter {
             IDataSenderAdapter iDataSenderAdapter = this.a;
             if (iDataSenderAdapter == null) {
                 HttpDataSenderAdapter httpDataSenderAdapter = new HttpDataSenderAdapter();
-                this.f64621b = httpDataSenderAdapter;
+                this.f64616b = httpDataSenderAdapter;
                 httpDataSenderAdapter.init(dataSenderConfig);
                 return;
             }
@@ -80,7 +80,7 @@ public class a implements IDataSenderAdapter {
                 iDataSenderAdapter.sendData(i2, i3, str, arrayList, bArr);
                 return;
             }
-            IDataSenderAdapter iDataSenderAdapter2 = this.f64621b;
+            IDataSenderAdapter iDataSenderAdapter2 = this.f64616b;
             if (iDataSenderAdapter2 != null) {
                 iDataSenderAdapter2.sendData(i2, i3, str, arrayList, bArr);
             } else {

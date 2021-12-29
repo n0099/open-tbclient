@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -76,7 +76,7 @@ public class StatisticItem {
     public void delete(String str) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || l.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || m.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
             return;
         }
         this.params.remove(indexOf);
@@ -130,7 +130,7 @@ public class StatisticItem {
         InterceptResult invokeL;
         int indexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !l.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !m.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
     }
 
     public StatisticItem key(String str) {

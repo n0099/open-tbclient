@@ -131,25 +131,25 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     public String O;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f38668e;
+    public ViewGroup f38824e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CircleProgressView f38669f;
+    public CircleProgressView f38825f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38670g;
+    public TextView f38826g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f38671h;
+    public FrameLayout f38827h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f38672i;
+    public ImageView f38828i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f38673j;
+    public TextView f38829j;
 
     /* renamed from: k  reason: collision with root package name */
-    public CameraSurfaceView f38674k;
+    public CameraSurfaceView f38830k;
     public CircleImageView l;
     public CircleImageView m;
     public LinearLayout n;
@@ -173,7 +173,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ com.baidu.pass.biometrics.face.liveness.d.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38675b;
+        public final /* synthetic */ PassLivenessRecogActivity f38831b;
 
         public a(PassLivenessRecogActivity passLivenessRecogActivity, com.baidu.pass.biometrics.face.liveness.d.a aVar) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38675b = passLivenessRecogActivity;
+            this.f38831b = passLivenessRecogActivity;
             this.a = aVar;
         }
 
@@ -199,10 +199,10 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 this.a.dismiss();
-                this.f38675b.t();
-                this.f38675b.F.A = 1;
-                this.f38675b.setActivityResult(0);
-                this.f38675b.a(-204);
+                this.f38831b.t();
+                this.f38831b.F.A = 1;
+                this.f38831b.setActivityResult(0);
+                this.f38831b.a(-204);
             }
         }
     }
@@ -214,7 +214,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ com.baidu.pass.biometrics.face.liveness.d.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38676b;
+        public final /* synthetic */ PassLivenessRecogActivity f38832b;
 
         public b(PassLivenessRecogActivity passLivenessRecogActivity, com.baidu.pass.biometrics.face.liveness.d.a aVar) {
             Interceptable interceptable = $ic;
@@ -231,7 +231,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38676b = passLivenessRecogActivity;
+            this.f38832b = passLivenessRecogActivity;
             this.a = aVar;
         }
 
@@ -240,14 +240,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 this.a.dismiss();
-                this.f38676b.F.D = 1;
-                this.f38676b.setActivityResult(-1);
-                if (this.f38676b.I != null) {
+                this.f38832b.F.D = 1;
+                this.f38832b.setActivityResult(-1);
+                if (this.f38832b.I != null) {
                     PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                     passFaceRecogResult.setResultCode(-301);
-                    this.f38676b.I.onFailure(passFaceRecogResult);
+                    this.f38832b.I.onFailure(passFaceRecogResult);
                 }
-                this.f38676b.a(-301);
+                this.f38832b.a(-301);
             }
         }
     }
@@ -259,10 +259,10 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ PixelCopyCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f38677b;
+        public final /* synthetic */ Bitmap f38833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38678c;
+        public final /* synthetic */ PassLivenessRecogActivity f38834c;
 
         public c(PassLivenessRecogActivity passLivenessRecogActivity, PixelCopyCallback pixelCopyCallback, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -279,16 +279,16 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38678c = passLivenessRecogActivity;
+            this.f38834c = passLivenessRecogActivity;
             this.a = pixelCopyCallback;
-            this.f38677b = bitmap;
+            this.f38833b = bitmap;
         }
 
         @Override // android.view.PixelCopy.OnPixelCopyFinishedListener
         public void onPixelCopyFinished(int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && i2 == 0) {
-                this.a.onFinsh(this.f38677b);
+                this.a.onFinsh(this.f38833b);
             }
         }
     }
@@ -389,7 +389,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38679b;
+        public static final /* synthetic */ int[] f38835b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -406,13 +406,13 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 }
             }
             int[] iArr = new int[ProgressStatus.values().length];
-            f38679b = iArr;
+            f38835b = iArr;
             try {
                 iArr[ProgressStatus.GO.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38679b[ProgressStatus.BACK.ordinal()] = 2;
+                f38835b[ProgressStatus.BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             int[] iArr2 = new int[FaceStatusNewEnum.values().length];
@@ -497,7 +497,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     /* loaded from: classes10.dex */
-    public class g implements b.InterfaceC1813b {
+    public class g implements b.InterfaceC1820b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PassLivenessRecogActivity a;
@@ -520,7 +520,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             this.a = passLivenessRecogActivity;
         }
 
-        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC1813b
+        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC1820b
         public void a(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
@@ -558,9 +558,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
                 if (f2 == 100.0f) {
-                    this.a.f38669f.setShowTick(false);
+                    this.a.f38825f.setShowTick(false);
                 } else {
-                    this.a.f38669f.setShowTick(true);
+                    this.a.f38825f.setShowTick(true);
                 }
             }
         }
@@ -573,7 +573,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ com.baidu.pass.biometrics.face.liveness.d.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38680b;
+        public final /* synthetic */ PassLivenessRecogActivity f38836b;
 
         public i(PassLivenessRecogActivity passLivenessRecogActivity, com.baidu.pass.biometrics.face.liveness.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -590,7 +590,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38680b = passLivenessRecogActivity;
+            this.f38836b = passLivenessRecogActivity;
             this.a = bVar;
         }
 
@@ -598,9 +598,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewUtility.dismissDialog(this.f38680b, this.a);
-                this.f38680b.z = true;
-                this.f38680b.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
+                ViewUtility.dismissDialog(this.f38836b, this.a);
+                this.f38836b.z = true;
+                this.f38836b.requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 2002);
             }
         }
     }
@@ -612,7 +612,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ com.baidu.pass.biometrics.face.liveness.d.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38681b;
+        public final /* synthetic */ PassLivenessRecogActivity f38837b;
 
         public j(PassLivenessRecogActivity passLivenessRecogActivity, com.baidu.pass.biometrics.face.liveness.d.b bVar) {
             Interceptable interceptable = $ic;
@@ -629,7 +629,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38681b = passLivenessRecogActivity;
+            this.f38837b = passLivenessRecogActivity;
             this.a = bVar;
         }
 
@@ -637,13 +637,13 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ViewUtility.dismissDialog(this.f38681b, this.a);
-                if (this.f38681b.I != null) {
+                ViewUtility.dismissDialog(this.f38837b, this.a);
+                if (this.f38837b.I != null) {
                     PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                     passFaceRecogResult.setResultCode(-307);
-                    this.f38681b.I.onFailure(passFaceRecogResult);
+                    this.f38837b.I.onFailure(passFaceRecogResult);
                 }
-                this.f38681b.a(-307);
+                this.f38837b.a(-307);
             }
         }
     }
@@ -774,7 +774,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ Animation a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38682b;
+        public final /* synthetic */ PassLivenessRecogActivity f38838b;
 
         public n(PassLivenessRecogActivity passLivenessRecogActivity, Animation animation) {
             Interceptable interceptable = $ic;
@@ -791,7 +791,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38682b = passLivenessRecogActivity;
+            this.f38838b = passLivenessRecogActivity;
             this.a = animation;
         }
 
@@ -799,7 +799,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.f38682b.f38672i.startAnimation(this.a);
+                this.f38838b.f38828i.startAnimation(this.a);
             }
         }
 
@@ -825,7 +825,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public final /* synthetic */ com.baidu.pass.biometrics.face.liveness.d.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PassLivenessRecogActivity f38683b;
+        public final /* synthetic */ PassLivenessRecogActivity f38839b;
 
         public o(PassLivenessRecogActivity passLivenessRecogActivity, com.baidu.pass.biometrics.face.liveness.d.a aVar) {
             Interceptable interceptable = $ic;
@@ -842,7 +842,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     return;
                 }
             }
-            this.f38683b = passLivenessRecogActivity;
+            this.f38839b = passLivenessRecogActivity;
             this.a = aVar;
         }
 
@@ -850,9 +850,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38683b.F.a();
-                this.f38683b.F.B = 1;
-                this.f38683b.onResume();
+                this.f38839b.F.a();
+                this.f38839b.F.B = 1;
+                this.f38839b.onResume();
                 this.a.dismiss();
             }
         }
@@ -881,7 +881,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void i() {
         CameraSurfaceView cameraSurfaceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (cameraSurfaceView = this.f38674k) == null || cameraSurfaceView.getHolder() == null || this.y || !this.N.booleanValue()) {
+        if (!(interceptable == null || interceptable.invokeV(65574, this) == null) || (cameraSurfaceView = this.f38830k) == null || cameraSurfaceView.getHolder() == null || this.y || !this.N.booleanValue()) {
             return;
         }
         SdkConfigOptions.LivenessConfigOption livenessConfigOption = this.p;
@@ -890,7 +890,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             e("当前刷脸功能正在升级中...");
             return;
         }
-        FH.startFaceVerify(this, this.f38674k.getHolder(), this, 0, new FaceVerifyInfo(StringUtil.NULL_STRING, StringUtil.NULL_STRING, 0, null, null, null, null, StringUtil.NULL_STRING), true);
+        FH.startFaceVerify(this, this.f38830k.getHolder(), this, 0, new FaceVerifyInfo(StringUtil.NULL_STRING, StringUtil.NULL_STRING, 0, null, null, null, null, StringUtil.NULL_STRING), true);
         this.y = true;
     }
 
@@ -926,9 +926,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65576, this) == null) {
-            this.f38671h.setVisibility(4);
-            this.f38670g.setVisibility(0);
-            this.f38670g.setText(R.string.pass_liveness_frist_text);
+            this.f38827h.setVisibility(4);
+            this.f38826g.setVisibility(0);
+            this.f38826g.setText(R.string.pass_liveness_frist_text);
             this.G = null;
         }
     }
@@ -937,14 +937,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65577, this) == null) {
             PassBioDisplayUtil.enableNavigationBarTint(this, getResources().getColor(17170445));
-            this.f38669f = (CircleProgressView) findViewById(R.id.pass_bio_liveness_recog_cpv);
-            this.f38670g = (TextView) findViewById(R.id.pass_bio_liveness_recog_tip_text);
-            this.f38669f.setNormalColor(Color.parseColor("#FFE0E0E0"));
-            this.f38669f.setOnChangeListener(new h(this));
-            this.f38671h = (FrameLayout) findViewById(R.id.layout_pose_warning);
-            this.f38672i = (ImageView) findViewById(R.id.iv_pose_warning_tip);
-            this.f38673j = (TextView) findViewById(R.id.tv_pose_warning_tip);
-            this.f38674k = (CameraSurfaceView) findViewById(R.id.pass_bio_camera_pre_view);
+            this.f38825f = (CircleProgressView) findViewById(R.id.pass_bio_liveness_recog_cpv);
+            this.f38826g = (TextView) findViewById(R.id.pass_bio_liveness_recog_tip_text);
+            this.f38825f.setNormalColor(Color.parseColor("#FFE0E0E0"));
+            this.f38825f.setOnChangeListener(new h(this));
+            this.f38827h = (FrameLayout) findViewById(R.id.layout_pose_warning);
+            this.f38828i = (ImageView) findViewById(R.id.iv_pose_warning_tip);
+            this.f38829j = (TextView) findViewById(R.id.tv_pose_warning_tip);
+            this.f38830k = (CameraSurfaceView) findViewById(R.id.pass_bio_camera_pre_view);
             this.l = (CircleImageView) findViewById(R.id.pass_bio_circle_image_view);
             this.m = (CircleImageView) findViewById(R.id.pass_bio_circle_hide_view);
             this.n = (LinearLayout) findViewById(R.id.pass_bio_loading_view);
@@ -964,7 +964,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             this.L.setVisibility(0);
             findViewById(R.id.pass_bio_liveness_recog_tv_href).setOnClickListener(this);
             findViewById(R.id.pass_bio_liveness_recog_argee_btn).setOnClickListener(this);
-            this.f38670g.setText(R.string.home_face_yy_tips);
+            this.f38826g.setText(R.string.home_face_yy_tips);
         }
     }
 
@@ -988,7 +988,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65579, this) == null) {
-            CircleProgressView circleProgressView = this.f38669f;
+            CircleProgressView circleProgressView = this.f38825f;
             if (circleProgressView != null) {
                 circleProgressView.setVisibility(8);
             }
@@ -1060,8 +1060,8 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     private void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65584, this) == null) {
-            this.f38671h.setVisibility(8);
-            this.f38671h.clearAnimation();
+            this.f38827h.setVisibility(8);
+            this.f38827h.clearAnimation();
             this.t = false;
         }
     }
@@ -1121,7 +1121,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.l.setVisibility(0);
             this.l.setBackgroundColor(-1);
-            this.f38670g.setText(R.string.pass_liveness_frist_text);
+            this.f38826g.setText(R.string.pass_liveness_frist_text);
         }
     }
 
@@ -1141,7 +1141,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 aVar.J = System.currentTimeMillis();
             }
             this.H = System.currentTimeMillis();
-            this.f38674k.setVisibility(0);
+            this.f38830k.setVisibility(0);
             this.B = true;
         }
     }
@@ -1181,7 +1181,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     case 1:
                         s();
                         if (Build.VERSION.SDK_INT >= 24) {
-                            getBitmapFromSurfaceView(this.f38674k, new m(this));
+                            getBitmapFromSurfaceView(this.f38830k, new m(this));
                             break;
                         }
                         break;
@@ -1199,7 +1199,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                         break;
                     case 5:
                         com.baidu.pass.biometrics.face.liveness.b.a aVar = this.F;
-                        aVar.f38690g = 0;
+                        aVar.f38846g = 0;
                         aVar.J = System.currentTimeMillis();
                         this.F.x++;
                         c(str);
@@ -1246,16 +1246,16 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                         if (livenessTypeEnum == LivenessTypeEnum.Eye) {
                             com.baidu.pass.biometrics.face.liveness.b.a aVar2 = this.F;
                             aVar2.p = com.baidu.pass.biometrics.face.liveness.b.a.a0;
-                            aVar2.f38692i++;
+                            aVar2.f38848i++;
                             aVar2.M = System.currentTimeMillis();
-                            this.F.f38694k = com.baidu.pass.biometrics.face.liveness.b.a.a0;
+                            this.F.f38850k = com.baidu.pass.biometrics.face.liveness.b.a.a0;
                             break;
                         } else if (livenessTypeEnum == LivenessTypeEnum.Mouth) {
                             com.baidu.pass.biometrics.face.liveness.b.a aVar3 = this.F;
                             aVar3.p = com.baidu.pass.biometrics.face.liveness.b.a.b0;
-                            aVar3.f38693j++;
+                            aVar3.f38849j++;
                             aVar3.O = System.currentTimeMillis();
-                            this.F.f38694k = com.baidu.pass.biometrics.face.liveness.b.a.b0;
+                            this.F.f38850k = com.baidu.pass.biometrics.face.liveness.b.a.b0;
                             break;
                         }
                         break;
@@ -1271,24 +1271,24 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     @Override // com.baidu.sofire.ac.FaceProcessCallback
     public void onConfigCamera(Camera camera, Rect rect, Rect rect2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera, rect, rect2) == null) || this.f38674k == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera, rect, rect2) == null) || this.f38830k == null) {
             return;
         }
         Camera.Parameters parameters = camera.getParameters();
-        CameraSurfaceView.a a2 = this.f38674k.a(parameters);
+        CameraSurfaceView.a a2 = this.f38830k.a(parameters);
         String str = "cameraSize = " + a2;
-        parameters.setPreviewSize(a2.a, a2.f38739b);
+        parameters.setPreviewSize(a2.a, a2.f38895b);
         camera.setParameters(parameters);
         parameters.setJpegQuality(50);
         camera.setParameters(parameters);
         if (!this.A) {
-            ViewGroup.LayoutParams layoutParams = this.f38674k.getLayoutParams();
-            layoutParams.height = (int) (a2.a * (layoutParams.width / a2.f38739b));
-            this.f38674k.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.f38830k.getLayoutParams();
+            layoutParams.height = (int) (a2.a * (layoutParams.width / a2.f38895b));
+            this.f38830k.setLayoutParams(layoutParams);
             this.A = true;
         }
-        rect.set(0, 0, a2.f38739b, a2.a);
-        int i2 = a2.f38739b;
+        rect.set(0, 0, a2.f38895b, a2.a);
+        int i2 = a2.f38895b;
         rect2.set(0, 0, i2, i2);
     }
 
@@ -1328,11 +1328,11 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 this.D = null;
                 this.C = null;
             }
-            ViewGroup viewGroup = this.f38668e;
+            ViewGroup viewGroup = this.f38824e;
             if (viewGroup != null) {
                 a(viewGroup);
-                this.f38668e.removeCallbacks(null);
-                this.f38668e = null;
+                this.f38824e.removeCallbacks(null);
+                this.f38824e = null;
             }
             try {
                 System.gc();
@@ -1355,7 +1355,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         if (interceptable == null || interceptable.invokeIL(1048588, this, i2, requestInfo) == null) {
             String str = "onEnd() i = " + i2 + ",requestInfo = ";
             this.F.H += System.currentTimeMillis() - this.H;
-            this.f38670g.setVisibility(4);
+            this.f38826g.setVisibility(4);
             if (this.I == null) {
                 return;
             }
@@ -1435,8 +1435,8 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 if (iArr.length > 0 && iArr[0] == 0) {
                     this.F.F = System.currentTimeMillis();
                     com.baidu.pass.biometrics.face.liveness.b.a aVar = this.F;
-                    aVar.f38687d = 1;
-                    aVar.f38688e = 1;
+                    aVar.f38843d = 1;
+                    aVar.f38844e = 1;
                     i();
                     return;
                 }
@@ -1480,7 +1480,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
 
     public void showLoadingView() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f38674k == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f38830k == null) {
             return;
         }
         this.l.setVisibility(0);
@@ -1619,9 +1619,9 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             }
             this.F.E = System.currentTimeMillis();
             com.baidu.pass.biometrics.face.liveness.b.a aVar = this.F;
-            aVar.f38689f = 1;
+            aVar.f38845f = 1;
             PassFaceRecogDTO passFaceRecogDTO = this.mPassFaceRecogDTO;
-            aVar.f38685b = passFaceRecogDTO != null ? passFaceRecogDTO.getSpno() : "unknown";
+            aVar.f38841b = passFaceRecogDTO != null ? passFaceRecogDTO.getSpno() : "unknown";
             com.baidu.pass.biometrics.face.liveness.b.a aVar2 = this.F;
             aVar2.n = this.q;
             aVar2.o = 1;
@@ -1739,8 +1739,8 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, str) == null) {
             a(ProgressStatus.BACK);
-            this.f38670g.setVisibility(0);
-            this.f38670g.setText(str);
+            this.f38826g.setVisibility(0);
+            this.f38826g.setText(str);
             e(str);
         }
     }
@@ -1750,14 +1750,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         if (!(interceptable == null || interceptable.invokeL(65567, this, str) == null) || this.x) {
             return;
         }
-        this.f38671h.setVisibility(0);
-        this.f38673j.setText(str);
+        this.f38827h.setVisibility(0);
+        this.f38829j.setText(str);
         Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.pass_liveness_tip_warning);
         loadAnimation.setAnimationListener(new n(this, loadAnimation));
         if (this.t) {
             return;
         }
-        this.f38672i.startAnimation(loadAnimation);
+        this.f38828i.startAnimation(loadAnimation);
         this.t = true;
     }
 
@@ -1784,14 +1784,14 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                 return;
             }
             this.E = progressStatus;
-            int i2 = f.f38679b[progressStatus.ordinal()];
+            int i2 = f.f38835b[progressStatus.ordinal()];
             if (i2 == 1) {
                 TimerTask timerTask = this.D;
                 if (timerTask != null) {
                     timerTask.cancel();
                     this.C.purge();
                 }
-                com.baidu.pass.biometrics.face.liveness.enums.b bVar = new com.baidu.pass.biometrics.face.liveness.enums.b(this.f38669f);
+                com.baidu.pass.biometrics.face.liveness.enums.b bVar = new com.baidu.pass.biometrics.face.liveness.enums.b(this.f38825f);
                 this.D = bVar;
                 this.C.schedule(bVar, 0L, 10L);
             } else if (i2 != 2) {
@@ -1801,7 +1801,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
                     timerTask2.cancel();
                     this.C.purge();
                 }
-                com.baidu.pass.biometrics.face.liveness.enums.a aVar = new com.baidu.pass.biometrics.face.liveness.enums.a(this.f38669f);
+                com.baidu.pass.biometrics.face.liveness.enums.a aVar = new com.baidu.pass.biometrics.face.liveness.enums.a(this.f38825f);
                 this.D = aVar;
                 this.C.schedule(aVar, 0L, 10L);
             }
@@ -1813,12 +1813,12 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
         if (interceptable == null || interceptable.invokeL(65564, this, str) == null) {
             this.x = false;
             a(ProgressStatus.GO);
-            this.f38670g.setText(str);
-            this.f38670g.setVisibility(0);
+            this.f38826g.setText(str);
+            this.f38826g.setVisibility(0);
             s();
             com.baidu.pass.biometrics.face.liveness.b.a aVar = this.F;
             if (aVar.K == 0) {
-                aVar.f38690g = 1;
+                aVar.f38846g = 1;
                 aVar.K = System.currentTimeMillis();
             }
         }

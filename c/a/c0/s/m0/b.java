@@ -14,7 +14,7 @@ public final class b {
     public static g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f2043b;
+    public static final b f2470b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class b {
                 return;
             }
         }
-        f2043b = new b();
+        f2470b = new b();
     }
 
     public b() {

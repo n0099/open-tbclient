@@ -16,16 +16,16 @@ public class e extends g {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f55520b;
+    public byte[] f55519b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55521c;
+    public String f55520c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f55522d;
+    public String f55521d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f55523e;
+    public boolean f55522e;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class e extends g {
                 return;
             }
         }
-        this.f55523e = false;
+        this.f55522e = false;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
@@ -56,28 +56,28 @@ public class e extends g {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f55523e = z;
+            this.f55522e = z;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f55522d = str;
+            this.f55521d = str;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f55521c = str;
+            this.f55520c = str;
         }
     }
 
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
-            this.f55520b = bArr;
+            this.f55519b = bArr;
         }
     }
 
@@ -87,11 +87,11 @@ public class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (this.f55523e) {
+            if (this.f55522e) {
                 try {
-                    jSONObject.put("encrypted", this.f55521c);
-                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f55520b, this.a.toString()));
-                    jSONObject.put("securityreinforce", this.f55522d);
+                    jSONObject.put("encrypted", this.f55520c);
+                    jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f55519b, this.a.toString()));
+                    jSONObject.put("securityreinforce", this.f55521d);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }

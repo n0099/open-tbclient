@@ -268,7 +268,7 @@ public abstract class d extends MessageSnapshot {
 
     /* renamed from: com.kwai.filedownloader.message.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2138d extends d {
+    public static class C2145d extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -279,7 +279,7 @@ public abstract class d extends MessageSnapshot {
         public final Throwable f60606c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2138d(int i2, long j2, Throwable th) {
+        public C2145d(int i2, long j2, Throwable th) {
             super(i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -301,7 +301,7 @@ public abstract class d extends MessageSnapshot {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2138d(Parcel parcel) {
+        public C2145d(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -612,7 +612,7 @@ public abstract class d extends MessageSnapshot {
     }
 
     /* loaded from: classes3.dex */
-    public static class h extends C2138d {
+    public static class h extends C2145d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -662,7 +662,7 @@ public abstract class d extends MessageSnapshot {
             this.f60610b = parcel.readInt();
         }
 
-        @Override // com.kwai.filedownloader.message.d.C2138d, com.kwai.filedownloader.message.c
+        @Override // com.kwai.filedownloader.message.d.C2145d, com.kwai.filedownloader.message.c
         public byte b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -672,7 +672,7 @@ public abstract class d extends MessageSnapshot {
             return invokeV.byteValue;
         }
 
-        @Override // com.kwai.filedownloader.message.d.C2138d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
+        @Override // com.kwai.filedownloader.message.d.C2145d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public int describeContents() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -689,7 +689,7 @@ public abstract class d extends MessageSnapshot {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60610b : invokeV.intValue;
         }
 
-        @Override // com.kwai.filedownloader.message.d.C2138d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
+        @Override // com.kwai.filedownloader.message.d.C2145d, com.kwai.filedownloader.message.MessageSnapshot, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {

@@ -33,7 +33,7 @@ public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4007b;
+    public c f4343b;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -75,7 +75,7 @@ public class f {
             }
         }
         this.a = context;
-        this.f4007b = cVar;
+        this.f4343b = cVar;
     }
 
     public static void d(String str, String str2) {
@@ -144,17 +144,17 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            List<b> h2 = this.f4007b.h(context);
+            List<b> h2 = this.f4343b.h(context);
             e eVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f34980g;
+                String str = com.baidu.fsg.face.base.b.c.f35136g;
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f34980g.equals(filesDir.getName())) {
+                if (!com.baidu.fsg.face.base.b.c.f35136g.equals(filesDir.getName())) {
                     String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
                     str = filesDir.getName();
                 }
                 for (b bVar : h2) {
-                    if (!bVar.f4002d) {
+                    if (!bVar.f4338d) {
                         File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.a(c.a.m.m.c.a(file))) != null) {
                             break;
@@ -235,7 +235,7 @@ public class f {
                 if (e2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k2 = k(i(""))) == null || !k2.c()) {
                     return;
                 }
-                d(k2.f4004b, k2.a);
+                d(k2.f4340b, k2.a);
                 return;
             }
             n(j3);

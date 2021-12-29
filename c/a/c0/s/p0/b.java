@@ -15,7 +15,7 @@ public abstract class b<T extends c> {
     public final Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2097b;
+    public int f2524b;
 
     public b(int i2) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public abstract class b<T extends c> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f2097b;
+            int i2 = this.f2524b;
             if (i2 <= 0) {
                 T b2 = b();
                 b2.onInit();
@@ -50,7 +50,7 @@ public abstract class b<T extends c> {
             Object[] objArr = this.a;
             T t = (T) objArr[i3];
             objArr[i3] = null;
-            this.f2097b = i2 - 1;
+            this.f2524b = i2 - 1;
             t.onInit();
             return t;
         }
@@ -63,7 +63,7 @@ public abstract class b<T extends c> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            for (int i2 = 0; i2 < this.f2097b; i2++) {
+            for (int i2 = 0; i2 < this.f2524b; i2++) {
                 if (this.a[i2] == t) {
                     return true;
                 }
@@ -78,11 +78,11 @@ public abstract class b<T extends c> {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
             return;
         }
-        int i2 = this.f2097b;
+        int i2 = this.f2524b;
         Object[] objArr = this.a;
         if (i2 < objArr.length) {
             objArr[i2] = t;
-            this.f2097b = i2 + 1;
+            this.f2524b = i2 + 1;
         }
         t.onRelease();
     }

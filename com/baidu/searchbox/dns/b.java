@@ -4,8 +4,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.dns.c.a;
 import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,37 +15,19 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static List<String> f39444i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static boolean f39445j;
+    public static List<String> f39601i;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(727494201, "Lcom/baidu/searchbox/dns/b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(727494201, "Lcom/baidu/searchbox/dns/b;");
-        }
-    }
 
     public static DnsParseResult a(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, str, z)) == null) {
             List<String> list = null;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k2 = new a.C1833a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k2 = new a.C1840a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k2.i();
             com.baidu.searchbox.dns.d.a.a h2 = k2.h();
             int j2 = k2.j();
@@ -89,7 +69,7 @@ public class b {
     public static DnsParseResult b(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -138,10 +118,10 @@ public class b {
 
     public static synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (b.class) {
-                if (f39444i != null && f39444i.size() > 0) {
-                    for (String str : f39444i) {
+                if (f39601i != null && f39601i.size() > 0) {
+                    for (String str : f39601i) {
                         b(str);
                     }
                 }
@@ -151,7 +131,7 @@ public class b {
 
     public static void forceUpdateDomain(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             a(str);
             b(str);
         }
@@ -160,41 +140,39 @@ public class b {
     public static DnsParseResult getParseResult(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? b(str, false) : (DnsParseResult) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? b(str, false) : (DnsParseResult) invokeL.objValue;
     }
 
     public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             synchronized (b.class) {
-                if (f39444i == null) {
-                    f39444i = new ArrayList(4);
+                if (f39601i == null) {
+                    f39601i = new ArrayList(4);
                 }
-                if (!f39444i.contains(str)) {
-                    f39444i.add(str);
+                if (!f39601i.contains(str)) {
+                    f39601i.add(str);
                 }
             }
         }
     }
 
     public static void b(String str) {
+        com.baidu.searchbox.dns.d.a a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            DnsUtil.initNetworkStackType();
-            com.baidu.searchbox.dns.d.a a = com.baidu.searchbox.dns.d.b.o().a(str, true, 1);
-            if (a != null) {
-                if (DnsUtil.DEBUG) {
-                    String str2 = " start update domain task: " + str;
-                }
-                a.start();
-            }
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || (a = com.baidu.searchbox.dns.d.b.o().a(str, true, 1)) == null) {
+            return;
         }
+        if (DnsUtil.DEBUG) {
+            String str2 = " start update domain task: " + str;
+        }
+        a.start();
     }
 
     public static String a(List<String> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
             if (!DnsUtil.DEBUG || list == null || list.isEmpty()) {
                 return "";
             }
@@ -211,17 +189,21 @@ public class b {
     public static List<String> a(com.baidu.searchbox.dns.d.a.a aVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, aVar, i2)) == null) {
+            boolean z = false;
             if (i2 == 3) {
-                return a(aVar, f39445j);
-            }
-            if (i2 == 1) {
+                if (DnsUtil.iPv6TestEnable && DnsUtil.iPv6Perfer && com.baidu.searchbox.dns.a.a.e().isIPv6TestArea()) {
+                    z = true;
+                }
+                return a(aVar, z);
+            } else if (i2 == 1) {
+                return a(aVar, false);
+            } else {
+                if (i2 == 2) {
+                    return a(aVar, true);
+                }
                 return a(aVar, false);
             }
-            if (i2 == 2) {
-                return a(aVar, true);
-            }
-            return a(aVar, false);
         }
         return (List) invokeLI.objValue;
     }
@@ -229,6 +211,21 @@ public class b {
     public static List<String> a(com.baidu.searchbox.dns.d.a.a aVar, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, z)) == null) ? aVar.getIpList() : (List) invokeLZ.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, aVar, z)) == null) {
+            if (z) {
+                ArrayList arrayList = new ArrayList();
+                List<String> ipList = aVar.getIpList();
+                List<String> z2 = aVar.z();
+                if (z2 != null) {
+                    arrayList.addAll(z2);
+                }
+                if (ipList != null) {
+                    arrayList.addAll(ipList);
+                }
+                return arrayList;
+            }
+            return aVar.getIpList();
+        }
+        return (List) invokeLZ.objValue;
     }
 }

@@ -13,7 +13,7 @@ public class s extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f55020i;
+    public Context f55023i;
 
     public s(Context context) {
         Interceptable interceptable = $ic;
@@ -30,9 +30,9 @@ public class s extends m {
                 return;
             }
         }
-        this.f55020i = context;
+        this.f55023i = context;
         Context a = a(context);
-        this.f55020i = a;
+        this.f55023i = a;
         OpenIDSDK.init(a);
     }
 
@@ -42,14 +42,14 @@ public class s extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            Context a = a(this.f55020i);
-            this.f55020i = a;
+            Context a = a(this.f55023i);
+            this.f55023i = a;
             OpenIDSDK.init(a);
             gVar.e(new h(OpenIDSDK.class, null, "isSupported", null, null));
-            gVar.d(new h((Class<?>) OpenIDSDK.class, (Object) null, "getOAIDStatus", (Class<?>[]) new Class[]{Context.class}, new Object[]{this.f55020i}, true));
-            gVar.b(new h(OpenIDSDK.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f55020i}));
-            gVar.c(new h(OpenIDSDK.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f55020i}));
-            gVar.a(new h(OpenIDSDK.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f55020i}));
+            gVar.d(new h((Class<?>) OpenIDSDK.class, (Object) null, "getOAIDStatus", (Class<?>[]) new Class[]{Context.class}, new Object[]{this.f55023i}, true));
+            gVar.b(new h(OpenIDSDK.class, null, "getOAID", new Class[]{Context.class}, new Object[]{this.f55023i}));
+            gVar.c(new h(OpenIDSDK.class, null, "getVAID", new Class[]{Context.class}, new Object[]{this.f55023i}));
+            gVar.a(new h(OpenIDSDK.class, null, "getAAID", new Class[]{Context.class}, new Object[]{this.f55023i}));
             return gVar;
         }
         return (g) invokeV.objValue;

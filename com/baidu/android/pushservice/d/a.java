@@ -1,49 +1,93 @@
 package com.baidu.android.pushservice.d;
 
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.c;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Headers;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 /* loaded from: classes9.dex */
-public abstract class a extends com.baidu.android.pushservice.h.c {
+public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f32769b;
+    public final OkHttpClient f32925b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public String f32770c;
+    /* renamed from: com.baidu.android.pushservice.d.a$1  reason: invalid class name */
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f32771d;
+    /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
+    /* loaded from: classes9.dex */
+    public class C1708a implements Interceptor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
 
-    public a(i iVar, Context context) {
+        public C1708a(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        public /* synthetic */ C1708a(a aVar, AnonymousClass1 anonymousClass1) {
+            this(aVar);
+        }
+
+        @Override // okhttp3.Interceptor
+        public Response intercept(Interceptor.Chain chain) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+                try {
+                    Request request = chain.request();
+                    System.currentTimeMillis();
+                    Response proceed = chain.proceed(request);
+                    System.currentTimeMillis();
+                    return proceed;
+                } catch (Exception unused) {
+                    return chain.proceed(chain.request());
+                }
+            }
+            return (Response) invokeL.objValue;
+        }
+    }
+
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iVar, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -53,274 +97,125 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                 return;
             }
         }
-        this.f32771d = 0L;
-        this.f32769b = iVar;
-        this.a = context.getApplicationContext();
-        this.f32770c = com.baidu.android.pushservice.h.e();
-        a((short) 100);
-        c("http-" + iVar.a);
+        this.f32925b = new OkHttpClient.Builder().addInterceptor(new C1708a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
-    private int b(int i2) {
-        InterceptResult invokeI;
-        boolean z;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65537, this, i2)) != null) {
-            return invokeI.intValue;
-        }
-        InputStream inputStream = null;
-        try {
-            try {
-                HashMap<String, String> hashMap = new HashMap<>();
-                b(hashMap);
-                HashMap<String, String> hashMap2 = new HashMap<>();
-                a(hashMap2);
-                com.baidu.android.pushservice.e.b a = com.baidu.android.pushservice.e.c.a(this.a, this.f32770c, "POST", com.baidu.android.pushservice.e.c.a(hashMap), hashMap2, "application/x-www-form-urlencoded");
-                this.f32771d = System.currentTimeMillis();
-                int b2 = a.b();
-                inputStream = a.a();
-                if (b2 == 200) {
-                    a(0, b(com.baidu.android.pushservice.j.m.a(this.a, inputStream)).getBytes());
-                    z = false;
-                    i3 = 0;
-                } else {
-                    z = b2 == 503;
-                    try {
-                        a(com.baidu.android.pushservice.j.m.a(this.a, inputStream));
-                        i3 = b2;
-                    } catch (Exception e2) {
-                        e = e2;
-                        com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
-                        new b.c(this.a).a(Log.getStackTraceString(e)).a();
-                        if (z) {
-                            a(10003);
-                        } else {
-                            com.baidu.android.pushservice.j.m.a("tryConnect failed setResult UnKnown " + e.getMessage(), this.a);
-                            a(ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT);
-                        }
-                        com.baidu.android.pushservice.e.c.a(this.a, inputStream);
-                        return -1;
-                    }
-                }
-                if (inputStream == null || b2 == 0) {
-                    if (i2 >= 2) {
-                        a(10002);
-                    }
-                    i3 = 10002;
-                }
-                com.baidu.android.pushservice.e.c.a(this.a, inputStream);
-                return i3;
-            } catch (Exception e3) {
-                e = e3;
-                z = false;
-            }
-        } catch (Throwable th) {
-            com.baidu.android.pushservice.e.c.a(this.a, null);
-            throw th;
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.baidu.android.pushservice.c.a(this.a).a(0, new c.a(this) { // from class: com.baidu.android.pushservice.d.a.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // com.baidu.android.pushservice.c.a
-                public void a(int i2, List<String> list) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
-                        String str = this.a.f32770c.startsWith("https://") ? "https://" : "http://";
-                        a aVar = this.a;
-                        aVar.f32770c = aVar.f32770c.replace(str, "");
-                        int indexOf = this.a.f32770c.indexOf("/");
-                        if (indexOf > 0) {
-                            a aVar2 = this.a;
-                            aVar2.f32770c = aVar2.f32770c.substring(indexOf);
-                        }
-                        String d2 = com.baidu.android.pushservice.h.d(this.a.a);
-                        if (list != null && list.size() > 0) {
-                            d2 = list.get(0);
-                        }
-                        a aVar3 = this.a;
-                        aVar3.f32770c = "https://" + d2 + this.a.f32770c;
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.h.c
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b();
-        }
-    }
-
-    public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            a(i2, PushConstants.a(i2).getBytes());
-        }
-    }
-
-    public void a(int i2, byte[] bArr) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr) == null) && this.f32769b.f32789j) {
-            Intent intent = new Intent();
-            intent.setAction("com.baidu.android.pushservice.action.RECEIVE");
-            intent.putExtra("method", this.f32769b.a);
-            intent.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, i2);
-            intent.putExtra("content", bArr);
-            intent.setFlags(32);
-            a(intent);
-            if (this.f32769b.a.equals("method_bind")) {
-                intent.putExtra("access_token", this.f32769b.f32782c);
-                intent.putExtra("secret_key", this.f32769b.f32786g);
-                intent.putExtra("real_bind", "real_bind");
-                try {
-                    JSONObject jSONObject = new JSONObject(new String(bArr));
-                    String string = jSONObject.getString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-                    if (i2 != 0) {
-                        str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                    } else {
-                        com.baidu.android.pushservice.j.l.a(this.a, new Intent());
-                        str = "";
-                    }
-                    new b.d(this.a).a("bindForBD").c(i2).d(501003L).b(string).b(System.currentTimeMillis()).a(this.f32771d).c(i2 != 0 ? str : "").a();
-                } catch (JSONException unused) {
-                }
-            } else if (bArr != null) {
-                this.f32769b.a.equals("method_unbind");
-            }
-            if (TextUtils.isEmpty(this.f32769b.f32783d)) {
-                return;
-            }
-            com.baidu.android.pushservice.j.m.a("> sendResult to " + this.f32769b.f32786g + ", method:" + this.f32769b.a + ", errorCode : " + i2 + ", content : " + new String(bArr), this.a);
-            intent.setPackage(this.f32769b.f32783d);
-            com.baidu.android.pushservice.j.m.b(this.a, intent, intent.getAction(), this.f32769b.f32783d);
-        }
-    }
-
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
-            return;
-        }
-        if (!str.startsWith("{\"")) {
-            str = str.substring(str.indexOf("{\""));
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int i2 = jSONObject.getInt("error_code");
-            String string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            String string2 = jSONObject.getString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, string);
-            jSONObject2.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, string2);
-            a(i2, jSONObject2.toString().getBytes());
-        } catch (JSONException e2) {
-            com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e2.getMessage(), this.a);
-        }
-    }
-
-    public void a(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            hashMap.put("Host", com.baidu.android.pushservice.h.c());
-        }
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? str : (String) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            i iVar = this.f32769b;
-            if (iVar == null || TextUtils.isEmpty(iVar.a)) {
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#mEvent = null or mEvent.method = null", this.a);
-            } else if (!this.f32769b.a.equals("com.baidu.android.pushservice.action.UNBIND") && TextUtils.isEmpty(this.f32769b.f32783d)) {
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Unknown method", this.a);
-            } else if (!com.baidu.android.pushservice.j.g.a(this.a)) {
-                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "Network is not useful!", this.a);
-                com.baidu.android.pushservice.j.m.a("AbstractProcessor#execute#Network is unuseful!", this.a);
-                a(10001);
-                com.baidu.android.pushservice.j.l.a(this.a, new Intent());
-            } else {
-                boolean c2 = c();
-                com.baidu.android.pushservice.g.a.c("AbstractProcessor", "netWorkConnect connectResult: " + c2, this.a);
-            }
-        }
-    }
-
-    public void b(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) {
-            b.a(this.a, hashMap);
-            if (TextUtils.isEmpty(this.f32769b.f32786g)) {
-                return;
-            }
-            hashMap.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, this.f32769b.f32786g);
-        }
-    }
-
-    public boolean c() {
+    public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (TextUtils.isEmpty(this.f32770c)) {
-                com.baidu.android.pushservice.g.a.b("AbstractProcessor", "mUrl is null", this.a);
-                return false;
-            }
-            for (int i2 = 0; i2 <= 2; i2++) {
-                int b2 = b(i2);
-                if (b2 == 0) {
-                    return true;
-                }
-                if (b2 != 10002) {
-                    return false;
-                }
-                e();
-                try {
-                    Thread.sleep(5000L);
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (a.class) {
+                    if (a == null) {
+                        a = new a();
+                    }
                 }
             }
-            return false;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (a) invokeV.objValue;
+    }
+
+    public static Headers a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                Headers.Builder builder = new Headers.Builder();
+                if (!TextUtils.isEmpty(str)) {
+                    builder.add("User-Agent", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    builder.add("Host", str2);
+                }
+                return builder.build();
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Headers) invokeLL.objValue;
+    }
+
+    public static Headers a(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, hashMap)) == null) {
+            if (hashMap == null || hashMap.isEmpty()) {
+                return new Headers.Builder().build();
+            }
+            try {
+                Headers.Builder builder = new Headers.Builder();
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    builder.add(entry.getKey(), entry.getValue());
+                }
+                return builder.build();
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Headers) invokeL.objValue;
+    }
+
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            try {
+                return BitmapFactory.decodeStream(this.f32925b.newCall(new Request.Builder().url(str).build()).execute().body().byteStream());
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public b a(String str, String str2, String str3, HashMap<String, String> hashMap, String str4) {
+        InterceptResult invokeLLLLL;
+        Request.Builder headers;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, hashMap, str4)) == null) {
+            b bVar = new b();
+            try {
+                if ("POST".equalsIgnoreCase(str2)) {
+                    headers = new Request.Builder().url(str).headers(a(hashMap)).post(RequestBody.create(MediaType.parse(str4), str3));
+                } else {
+                    if (!TextUtils.isEmpty(str3) && str4.equals("application/x-www-form-urlencoded")) {
+                        str = str + "?" + str3;
+                    }
+                    headers = new Request.Builder().url(str).headers(a(hashMap));
+                }
+                Response execute = this.f32925b.newCall(headers.build()).execute();
+                bVar.a(execute.code());
+                bVar.a(execute.body().byteStream());
+            } catch (IOException | Exception unused) {
+            }
+            return bVar;
+        }
+        return (b) invokeLLLLL.objValue;
+    }
+
+    public b a(String str, String str2, HashMap<String, String> hashMap, String str3, String str4) {
+        InterceptResult invokeLLLLL;
+        Request.Builder headers;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, hashMap, str3, str4)) == null) {
+            b bVar = new b();
+            try {
+                if ("POST".equalsIgnoreCase(str2)) {
+                    headers = new Request.Builder().url(str).headers(a(str3, str4)).post(RequestBody.create(MediaType.parse("application/x-www-form-urlencoded"), c.a(hashMap)));
+                } else {
+                    if (hashMap != null && hashMap.size() > 0) {
+                        str = str + "?" + c.a(hashMap);
+                    }
+                    headers = new Request.Builder().url(str).headers(a(str3, str4));
+                }
+                Response execute = this.f32925b.newCall(headers.build()).execute();
+                bVar.a(execute.code());
+                bVar.a(execute.body().byteStream());
+            } catch (IOException | Exception unused) {
+            }
+            return bVar;
+        }
+        return (b) invokeLLLLL.objValue;
     }
 }

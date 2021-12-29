@@ -53,11 +53,11 @@ public class b {
     public void b(c.a.c0.g.d.a aVar) {
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (file = aVar.f1518h) == null || !file.exists()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || (file = aVar.f1945h) == null || !file.exists()) {
             return;
         }
-        String str = aVar.n.f1540h;
-        String absolutePath = aVar.f1518h.getAbsolutePath();
+        String str = aVar.n.f1967h;
+        String absolutePath = aVar.f1945h.getAbsolutePath();
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(absolutePath)) {
             return;
         }

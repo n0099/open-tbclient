@@ -37,43 +37,43 @@ public class a {
     public BaseNativeBrowserContainer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f1621b;
+    public WebView f2048b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.c0.g0.s.b f1622c;
+    public c.a.c0.g0.s.b f2049c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.c0.g0.q.c f1623d;
+    public c.a.c0.g0.q.c f2050d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.c0.g0.q.a f1624e;
+    public final c.a.c0.g0.q.a f2051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.c0.g0.k.a f1625f;
+    public c.a.c0.g0.k.a f2052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1626g;
+    public boolean f2053g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewTreeObserver.OnGlobalLayoutListener f1627h;
+    public ViewTreeObserver.OnGlobalLayoutListener f2054h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnLayoutChangeListener f1628i;
+    public View.OnLayoutChangeListener f2055i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1629j;
+    public boolean f2056j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final c.a.c0.g0.u.a f1630k;
+    public final c.a.c0.g0.u.a f2057k;
 
     /* renamed from: c.a.c0.g0.t.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0049a implements c.a.c0.g0.u.a {
+    public class C0070a implements c.a.c0.g0.u.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0049a(a aVar) {
+        public C0070a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,10 +94,10 @@ public class a {
         @Override // c.a.c0.g0.u.a
         public void loadUrl(String str, Map<String, String> map) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) || this.a.f1621b == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) || this.a.f2048b == null) {
                 return;
             }
-            this.a.f1621b.loadUrl(str, map);
+            this.a.f2048b.loadUrl(str, map);
         }
     }
 
@@ -108,7 +108,7 @@ public class a {
         public final /* synthetic */ WebView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f1631b;
+        public final /* synthetic */ a f2058b;
 
         public b(a aVar, WebView webView) {
             Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class a {
                     return;
                 }
             }
-            this.f1631b = aVar;
+            this.f2058b = aVar;
             this.a = webView;
         }
 
@@ -136,7 +136,7 @@ public class a {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 Rect rect = new Rect();
                 this.a.getWindowVisibleDisplayFrame(rect);
-                int i2 = this.f1631b.a.getResources().getDisplayMetrics().heightPixels - rect.bottom;
+                int i2 = this.f2058b.a.getResources().getDisplayMetrics().heightPixels - rect.bottom;
                 if (i2 < 0) {
                     i2 = 0;
                 }
@@ -161,10 +161,10 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f1632e;
+        public int f2059e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f1633f;
+        public final /* synthetic */ a f2060f;
 
         public c(a aVar) {
             Interceptable interceptable = $ic;
@@ -181,7 +181,7 @@ public class a {
                     return;
                 }
             }
-            this.f1633f = aVar;
+            this.f2060f = aVar;
         }
 
         @Override // android.view.View.OnLayoutChangeListener
@@ -191,29 +191,29 @@ public class a {
                 Rect rect = new Rect();
                 view.getWindowVisibleDisplayFrame(rect);
                 int i10 = rect.bottom;
-                int i11 = this.f1632e;
+                int i11 = this.f2059e;
                 if (i10 != i11 && i11 != 0) {
-                    LinearLayout webRootView = this.f1633f.a.getWebRootView();
-                    int i12 = this.f1632e - rect.bottom;
+                    LinearLayout webRootView = this.f2060f.a.getWebRootView();
+                    int i12 = this.f2059e - rect.bottom;
                     if (i12 > 200) {
-                        this.f1633f.f1629j = true;
+                        this.f2060f.f2056j = true;
                         if (i4 == i8) {
                             webRootView.setPadding(webRootView.getPaddingLeft(), webRootView.getPaddingTop(), webRootView.getPaddingRight(), i12);
-                            c.a.c0.g0.o.a.b(this.f1633f.f1630k, webRootView.getHeight() - i12, i12, webRootView.getHeight(), 0);
-                            this.f1633f.f1621b.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+                            c.a.c0.g0.o.a.b(this.f2060f.f2057k, webRootView.getHeight() - i12, i12, webRootView.getHeight(), 0);
+                            this.f2060f.f2048b.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
                         }
                     } else {
-                        if (i4 == i8 && this.f1633f.f1629j) {
+                        if (i4 == i8 && this.f2060f.f2056j) {
                             webRootView.setPadding(webRootView.getPaddingLeft(), webRootView.getPaddingTop(), webRootView.getPaddingRight(), 0);
-                            c.a.c0.g0.o.a.b(this.f1633f.f1630k, webRootView.getHeight(), 0, webRootView.getHeight(), 0);
-                            this.f1633f.f1621b.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+                            c.a.c0.g0.o.a.b(this.f2060f.f2057k, webRootView.getHeight(), 0, webRootView.getHeight(), 0);
+                            this.f2060f.f2048b.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
                         }
-                        this.f1633f.f1629j = false;
+                        this.f2060f.f2056j = false;
                     }
-                    this.f1632e = rect.bottom;
+                    this.f2059e = rect.bottom;
                     return;
                 }
-                this.f1632e = rect.bottom;
+                this.f2059e = rect.bottom;
             }
         }
     }
@@ -233,17 +233,17 @@ public class a {
                 return;
             }
         }
-        this.f1624e = new c.a.c0.g0.q.a();
-        this.f1626g = true;
-        this.f1627h = null;
-        this.f1630k = new C0049a(this);
+        this.f2051e = new c.a.c0.g0.q.a();
+        this.f2053g = true;
+        this.f2054h = null;
+        this.f2057k = new C0070a(this);
         this.a = baseNativeBrowserContainer;
     }
 
     public void A() {
         c.a.c0.g0.q.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f1623d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f2050d) == null) {
             return;
         }
         cVar.d();
@@ -252,7 +252,7 @@ public class a {
     public void B() {
         c.a.c0.g0.q.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f1623d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.f2050d) == null) {
             return;
         }
         cVar.e();
@@ -268,7 +268,7 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            c.a.c0.g0.s.b bVar = this.f1622c;
+            c.a.c0.g0.s.b bVar = this.f2049c;
             if (bVar == null || !bVar.a()) {
                 return true;
             }
@@ -280,28 +280,28 @@ public class a {
     public final void f() {
         ViewTreeObserver viewTreeObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.getWebRootView() == null || this.f1627h == null || (viewTreeObserver = this.a.getWebRootView().getViewTreeObserver()) == null || !viewTreeObserver.isAlive()) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a.getWebRootView() == null || this.f2054h == null || (viewTreeObserver = this.a.getWebRootView().getViewTreeObserver()) == null || !viewTreeObserver.isAlive()) {
             return;
         }
-        viewTreeObserver.removeOnGlobalLayoutListener(this.f1627h);
+        viewTreeObserver.removeOnGlobalLayoutListener(this.f2054h);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.getWebRootView() == null || this.f1628i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.a.getWebRootView() == null || this.f2055i == null) {
             return;
         }
-        this.a.getWebRootView().removeOnLayoutChangeListener(this.f1628i);
+        this.a.getWebRootView().removeOnLayoutChangeListener(this.f2055i);
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f1623d = null;
-            c.a.c0.g0.k.a aVar = this.f1625f;
+            this.f2050d = null;
+            c.a.c0.g0.k.a aVar = this.f2052f;
             if (aVar != null) {
                 aVar.d();
-                this.f1625f = null;
+                this.f2052f = null;
             }
         }
     }
@@ -317,11 +317,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            c.a.c0.g0.s.b bVar = this.f1622c;
+            c.a.c0.g0.s.b bVar = this.f2049c;
             if (bVar == null) {
                 return null;
             }
-            return bVar.f1611g;
+            return bVar.f2038g;
         }
         return (String) invokeV.objValue;
     }
@@ -330,7 +330,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            c.a.c0.g0.s.b bVar = this.f1622c;
+            c.a.c0.g0.s.b bVar = this.f2049c;
             if (bVar == null) {
                 return null;
             }
@@ -361,19 +361,19 @@ public class a {
     public void m(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
-            this.f1622c = c.a.c0.g0.s.b.b(intent);
+            this.f2049c = c.a.c0.g0.s.b.b(intent);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.f1625f == null) {
-                this.f1625f = new c.a.c0.g0.k.a();
+            if (this.f2052f == null) {
+                this.f2052f = new c.a.c0.g0.k.a();
             }
-            c.a.c0.g0.s.b bVar = this.f1622c;
+            c.a.c0.g0.s.b bVar = this.f2049c;
             if (bVar != null) {
-                this.f1625f.b(bVar.f1613i);
+                this.f2052f.b(bVar.f2040i);
             }
         }
     }
@@ -391,19 +391,19 @@ public class a {
         this.a.getRootView().addView(relativeLayout, layoutParams);
         this.a.setDownLoadView(relativeLayout);
         String str = null;
-        if (this.f1622c != null) {
+        if (this.f2049c != null) {
             JSONObject jSONObject = new JSONObject();
-            c.a.c0.u.b.d(jSONObject, LegoListActivityConfig.AD_ID, this.f1622c.f1607c);
-            c.a.c0.u.b.d(jSONObject, "lp_url", this.f1622c.a);
-            c.a.c0.u.b.d(jSONObject, "log_ext", this.f1622c.f1610f);
+            c.a.c0.u.b.d(jSONObject, LegoListActivityConfig.AD_ID, this.f2049c.f2034c);
+            c.a.c0.u.b.d(jSONObject, "lp_url", this.f2049c.a);
+            c.a.c0.u.b.d(jSONObject, "log_ext", this.f2049c.f2037f);
             c.a.c0.u.b.d(jSONObject, Constant.KEY_BUSINESS, "native_ads");
-            b.C0048b c0048b = this.f1622c.f1614j;
-            if (c0048b != null) {
-                c.a.c0.u.b.d(jSONObject, "key", c0048b.f1620e);
-                c.a.c0.u.b.d(jSONObject, "url", this.f1622c.f1614j.a);
-                c.a.c0.u.b.d(jSONObject, "close_v_dl", this.f1622c.f1614j.f1617b);
-                c.a.c0.u.b.d(jSONObject, "app_icon", this.f1622c.f1614j.f1619d);
-                c.a.c0.u.b.d(jSONObject, "app_name", this.f1622c.f1614j.f1618c);
+            b.C0069b c0069b = this.f2049c.f2041j;
+            if (c0069b != null) {
+                c.a.c0.u.b.d(jSONObject, "key", c0069b.f2047e);
+                c.a.c0.u.b.d(jSONObject, "url", this.f2049c.f2041j.a);
+                c.a.c0.u.b.d(jSONObject, "close_v_dl", this.f2049c.f2041j.f2044b);
+                c.a.c0.u.b.d(jSONObject, "app_icon", this.f2049c.f2041j.f2046d);
+                c.a.c0.u.b.d(jSONObject, "app_name", this.f2049c.f2041j.f2045c);
             }
             str = jSONObject.toString();
         }
@@ -417,7 +417,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, webView) == null) {
             c.a.c0.g0.q.b bVar = new c.a.c0.g0.q.b(0);
-            bVar.a(this.f1624e);
+            bVar.a(this.f2051e);
             bVar.b(new b(this, webView));
             this.a.addJavascriptInterface(bVar, "NadJsControl");
         }
@@ -428,22 +428,22 @@ public class a {
         if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || this.a.getWebRootView() == null) {
             return;
         }
-        if (this.f1627h == null) {
-            this.f1627h = new c.a.c0.g0.v.b(this.a.getWebRootView());
+        if (this.f2054h == null) {
+            this.f2054h = new c.a.c0.g0.v.b(this.a.getWebRootView());
         }
         ViewTreeObserver viewTreeObserver = this.a.getWebRootView().getViewTreeObserver();
         if (viewTreeObserver == null || !viewTreeObserver.isAlive()) {
             return;
         }
-        viewTreeObserver.addOnGlobalLayoutListener(this.f1627h);
+        viewTreeObserver.addOnGlobalLayoutListener(this.f2054h);
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f1628i = new c(this);
+            this.f2055i = new c(this);
             if (this.a.getWebRootView() != null) {
-                this.a.getWebRootView().addOnLayoutChangeListener(this.f1628i);
+                this.a.getWebRootView().addOnLayoutChangeListener(this.f2055i);
             }
         }
     }
@@ -456,18 +456,18 @@ public class a {
         }
         m(i2);
         n();
-        this.f1623d = new c.a.c0.g0.q.c();
+        this.f2050d = new c.a.c0.g0.q.c();
     }
 
     public void t(Context context, ViewGroup viewGroup, WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048594, this, context, viewGroup, webView) == null) {
-            this.f1621b = webView;
+            this.f2048b = webView;
             o();
             if (c.a.c0.g0.p.b.h()) {
                 f();
                 g();
-            } else if (this.f1626g) {
+            } else if (this.f2053g) {
                 f();
                 r();
             } else {
@@ -488,13 +488,13 @@ public class a {
         c.a.c0.g0.q.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            c.a.c0.g0.s.b bVar = this.f1622c;
-            if (bVar != null && TextUtils.equals(bVar.f1612h, "1") && (cVar = this.f1623d) != null) {
-                String a = this.f1624e.a();
-                c.a.c0.g0.s.b bVar2 = this.f1622c;
-                cVar.a(a, bVar2.f1610f, bVar2.a, this.a.getFrom(), 0L);
+            c.a.c0.g0.s.b bVar = this.f2049c;
+            if (bVar != null && TextUtils.equals(bVar.f2039h, "1") && (cVar = this.f2050d) != null) {
+                String a = this.f2051e.a();
+                c.a.c0.g0.s.b bVar2 = this.f2049c;
+                cVar.a(a, bVar2.f2037f, bVar2.a, this.a.getFrom(), 0L);
             }
-            c.a.c0.g0.q.c cVar2 = this.f1623d;
+            c.a.c0.g0.q.c cVar2 = this.f2050d;
             if (cVar2 != null) {
                 cVar2.b();
             }
@@ -502,8 +502,8 @@ public class a {
             h();
             f();
             g();
-            if (this.f1628i != null) {
-                this.a.getWebRootView().removeOnLayoutChangeListener(this.f1628i);
+            if (this.f2055i != null) {
+                this.a.getWebRootView().removeOnLayoutChangeListener(this.f2055i);
             }
         }
     }
@@ -525,7 +525,7 @@ public class a {
     public void y() {
         c.a.c0.g0.q.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (cVar = this.f1623d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || (cVar = this.f2050d) == null) {
             return;
         }
         cVar.c();
@@ -535,9 +535,9 @@ public class a {
         c.a.c0.g0.s.b bVar;
         b.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (bVar = this.f1622c) == null || (cVar = bVar.f1606b) == null || TextUtils.isEmpty(cVar.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, str) == null) || (bVar = this.f2049c) == null || (cVar = bVar.f2033b) == null || TextUtils.isEmpty(cVar.a)) {
             return;
         }
-        this.a.loadJavaScript(this.f1622c.f1606b.a);
+        this.a.loadJavaScript(this.f2049c.f2033b.a);
     }
 }

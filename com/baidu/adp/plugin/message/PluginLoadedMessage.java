@@ -17,7 +17,7 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32093b;
+        public int f32235b;
 
         public a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
                 }
             }
             this.a = str;
-            this.f32093b = i2;
+            this.f32235b = i2;
         }
     }
 

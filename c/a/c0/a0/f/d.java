@@ -16,7 +16,7 @@ public class d {
     public c.a.c0.a0.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseExecutorCell f1342b;
+    public BaseExecutorCell f1769b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public class d {
             }
         }
         this.a = new c.a.c0.a0.e.a();
-        this.f1342b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+        this.f1769b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((e) this.f1342b).j() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((e) this.f1769b).j() : invokeV.booleanValue;
     }
 
     public void b(Runnable runnable, String str, int i2) {
@@ -53,7 +53,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ElasticTask b2 = this.a.b();
-            if (b2 != null && this.f1342b.c(b2)) {
+            if (b2 != null && this.f1769b.c(b2)) {
                 this.a.e(b2);
                 return true;
             }

@@ -3,9 +3,9 @@ package com.baidu.tieba.ad.asyncpv;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
-import c.a.d.f.p.k;
-import c.a.r0.d1.i;
-import c.a.s0.x1.o.k.a;
+import c.a.d.f.p.l;
+import c.a.s0.e1.i;
+import c.a.t0.x1.o.k.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.common.param.CommonUrlParamManager;
 import com.baidu.tbadk.TbConfig;
@@ -25,7 +25,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class AdAsyncRequestData extends HttpMessage {
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(k.I()));
+            addParam("net_type", String.valueOf(l.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam("android_id", TbadkCoreApplication.getInst().getAndroidId());
             addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);

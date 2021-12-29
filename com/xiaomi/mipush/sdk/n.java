@@ -36,9 +36,9 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f63269f : af.a;
+                return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.f63264f : af.a;
             } catch (Exception unused) {
-                return af.f63269f;
+                return af.f63264f;
             }
         }
         return (af) invokeL.objValue;

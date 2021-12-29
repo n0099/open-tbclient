@@ -19,7 +19,7 @@ public class e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f37128b;
+    public f f37284b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,14 +52,14 @@ public class e {
             }
         }
         f a2 = f.a();
-        this.f37128b = a2;
+        this.f37284b = a2;
         a2.a(baiduMap);
     }
 
     public void a() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.e();
@@ -68,7 +68,7 @@ public class e {
     public void a(int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.a(i2);
@@ -77,7 +77,7 @@ public class e {
     public void a(int i2, int i3, int i4, int i5) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.a(i2, i3, i4, i5);
@@ -86,7 +86,7 @@ public class e {
     public void a(d dVar) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.a(dVar);
@@ -95,7 +95,7 @@ public class e {
     public void b() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.f();
@@ -104,7 +104,7 @@ public class e {
     public void b(int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.d(i2);
@@ -114,7 +114,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            f fVar = this.f37128b;
+            f fVar = this.f37284b;
             if (fVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The mSyncRenderStrategic created failed");
                 return null;
@@ -127,7 +127,7 @@ public class e {
     public void c(int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.b(i2);
@@ -137,7 +137,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            f fVar = this.f37128b;
+            f fVar = this.f37284b;
             if (fVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The mSyncRenderStrategic created failed");
                 return null;
@@ -150,7 +150,7 @@ public class e {
     public void d(int i2) {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.c(i2);
@@ -160,7 +160,7 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            f fVar = this.f37128b;
+            f fVar = this.f37284b;
             if (fVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The mSyncRenderStrategic created failed");
                 return null;
@@ -173,17 +173,17 @@ public class e {
     public void f() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.g();
-        this.f37128b = null;
+        this.f37284b = null;
     }
 
     public void g() {
         f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fVar = this.f37128b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fVar = this.f37284b) == null) {
             return;
         }
         fVar.h();

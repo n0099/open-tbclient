@@ -19,7 +19,7 @@ public class StatService {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f34733b;
+    public ConcurrentHashMap<String, Long> f34889b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -135,7 +135,7 @@ public class StatService {
                 return;
             }
         }
-        this.f34733b = new ConcurrentHashMap<>();
+        this.f34889b = new ConcurrentHashMap<>();
     }
 
     public /* synthetic */ StatService(q qVar) {
@@ -153,12 +153,12 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f34733b.get(str);
+            Long l = a().f34889b.get(str);
             if (l == null) {
                 return null;
             }
             Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f34733b.remove(str);
+            a().f34889b.remove(str);
             arrayList.add(Long.toString(valueOf.longValue()));
             arrayList.add(str2);
             return arrayList;
@@ -169,7 +169,7 @@ public class StatService {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f34733b.put(str, Long.valueOf(System.currentTimeMillis()));
+            a().f34889b.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 

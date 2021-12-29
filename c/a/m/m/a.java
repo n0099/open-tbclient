@@ -13,10 +13,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4120b;
+    public boolean f4456b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4121c;
+    public boolean f4457c;
 
     public a(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a {
             }
         }
         this.a = str;
-        this.f4120b = z;
-        this.f4121c = z2;
+        this.f4456b = z;
+        this.f4457c = z2;
     }
 
     public static int a(int i2) {
@@ -94,13 +94,13 @@ public class a {
                         break;
                     }
                     char charAt = this.a.charAt(iArr[i7]);
-                    if (this.f4121c) {
+                    if (this.f4457c) {
                         charAt = Character.toLowerCase(charAt);
                     }
                     byteArrayOutputStream.write(charAt);
                     i7++;
                 }
-                if (this.f4120b) {
+                if (this.f4456b) {
                     while (i2 < 8) {
                         byteArrayOutputStream.write(61);
                         i2++;

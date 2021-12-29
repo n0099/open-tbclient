@@ -14,22 +14,22 @@ public final class o {
     public final w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f30708b;
+    public final Object f30786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final l.b f30709c;
+    public final l.b f30787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30710d;
+    public final long f30788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30711e;
+    public final long f30789e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile long f30712f;
+    public volatile long f30790f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f30713g;
+    public volatile long f30791g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public o(w wVar, Object obj, int i2, long j2) {
@@ -55,8 +55,8 @@ public final class o {
     public static void a(o oVar, o oVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, oVar, oVar2) == null) {
-            oVar2.f30712f = oVar.f30712f;
-            oVar2.f30713g = oVar.f30713g;
+            oVar2.f30790f = oVar.f30790f;
+            oVar2.f30791g = oVar.f30791g;
         }
     }
 
@@ -64,7 +64,7 @@ public final class o {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            o oVar = new o(this.a, this.f30708b, this.f30709c.a(i2), this.f30710d, this.f30711e);
+            o oVar = new o(this.a, this.f30786b, this.f30787c.a(i2), this.f30788d, this.f30789e);
             a(this, oVar);
             return oVar;
         }
@@ -75,7 +75,7 @@ public final class o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wVar, obj)) == null) {
-            o oVar = new o(wVar, obj, this.f30709c, this.f30710d, this.f30711e);
+            o oVar = new o(wVar, obj, this.f30787c, this.f30788d, this.f30789e);
             a(this, oVar);
             return oVar;
         }
@@ -91,7 +91,7 @@ public final class o {
     public o e(l.b bVar, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new o(this.a, this.f30708b, bVar, j2, j3) : (o) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new o(this.a, this.f30786b, bVar, j2, j3) : (o) invokeCommon.objValue;
     }
 
     public o(w wVar, Object obj, l.b bVar, long j2, long j3) {
@@ -110,11 +110,11 @@ public final class o {
             }
         }
         this.a = wVar;
-        this.f30708b = obj;
-        this.f30709c = bVar;
-        this.f30710d = j2;
-        this.f30711e = j3;
-        this.f30712f = j2;
-        this.f30713g = j2;
+        this.f30786b = obj;
+        this.f30787c = bVar;
+        this.f30788d = j2;
+        this.f30789e = j3;
+        this.f30790f = j2;
+        this.f30791g = j2;
     }
 }

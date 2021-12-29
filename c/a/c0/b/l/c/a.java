@@ -17,23 +17,23 @@ public final class a extends c.a.c0.n.b {
 
     /* renamed from: c.a.c0.b.l.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class RunnableC0020a implements Runnable {
+    public static final class RunnableC0041a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f1384e;
+        public final /* synthetic */ long f1811e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f1385f;
+        public final /* synthetic */ long f1812f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f1386g;
+        public final /* synthetic */ long f1813g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f1387h;
+        public final /* synthetic */ String f1814h;
 
-        public RunnableC0020a(long j2, long j3, long j4, String str) {
+        public RunnableC0041a(long j2, long j3, long j4, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -48,24 +48,24 @@ public final class a extends c.a.c0.n.b {
                     return;
                 }
             }
-            this.f1384e = j2;
-            this.f1385f = j3;
-            this.f1386g = j4;
-            this.f1387h = str;
+            this.f1811e = j2;
+            this.f1812f = j3;
+            this.f1813g = j4;
+            this.f1814h = str;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1384e < c.c()) {
+                if (this.f1811e < c.c()) {
                     c.z();
                 } else if (c.f()) {
                     return;
                 } else {
-                    c.h(this.f1385f, this.f1386g, this.f1387h);
+                    c.h(this.f1812f, this.f1813g, this.f1814h);
                 }
-                c.g(this.f1385f, "boot_from_cold", this.f1386g, this.f1387h);
+                c.g(this.f1812f, "boot_from_cold", this.f1813g, this.f1814h);
             }
         }
     }
@@ -76,13 +76,13 @@ public final class a extends c.a.c0.n.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f1388e;
+        public final /* synthetic */ long f1815e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f1389f;
+        public final /* synthetic */ long f1816f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f1390g;
+        public final /* synthetic */ String f1817g;
 
         public b(long j2, long j3, String str) {
             Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public final class a extends c.a.c0.n.b {
                     return;
                 }
             }
-            this.f1388e = j2;
-            this.f1389f = j3;
-            this.f1390g = str;
+            this.f1815e = j2;
+            this.f1816f = j3;
+            this.f1817g = str;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.g(this.f1388e, "boot_from_background", this.f1389f, this.f1390g);
+                c.g(this.f1815e, "boot_from_background", this.f1816f, this.f1817g);
             }
         }
     }
@@ -140,10 +140,10 @@ public final class a extends c.a.c0.n.b {
                 }
                 String i2 = c.i();
                 long j3 = c.j();
-                RunnableC0020a runnableC0020a = new RunnableC0020a(System.currentTimeMillis() - j3, j3, System.currentTimeMillis(), i2);
+                RunnableC0041a runnableC0041a = new RunnableC0041a(System.currentTimeMillis() - j3, j3, System.currentTimeMillis(), i2);
                 Handler handler = new Handler();
                 j2 = c.a.c0.b.l.c.b.a;
-                handler.postDelayed(runnableC0020a, j2);
+                handler.postDelayed(runnableC0041a, j2);
             }
         }
     }

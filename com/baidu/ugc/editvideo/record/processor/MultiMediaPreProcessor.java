@@ -9,11 +9,11 @@ import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.a1.t.c;
+import c.a.a1.t.h;
+import c.a.a1.t.u;
 import c.a.b0.b.a.e;
 import c.a.b0.b.a.g;
-import c.a.y0.t.c;
-import c.a.y0.t.h;
-import c.a.y0.t.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
@@ -591,7 +591,7 @@ public class MultiMediaPreProcessor {
                 fullFrameRect.setVertexPoint(fArr);
             }
             Matrix.setIdentityM(fArr, 0);
-            float[] fArr7 = g.f1302b;
+            float[] fArr7 = g.f1695b;
             GLES20.glBindFramebuffer(36160, 0);
             int[] iArr = this.mFboTexture2DIds;
             int i6 = this.mCurrentFboIndex;

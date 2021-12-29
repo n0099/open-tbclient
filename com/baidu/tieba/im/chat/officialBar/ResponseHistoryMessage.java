@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import c.a.d.f.p.l;
+import c.a.d.f.d.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -29,13 +30,13 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f46420b;
+        public int f46640b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f46421c;
+        public String f46641c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f46422d;
+        public int f46642d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -100,10 +101,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.a = l.getDateStringMouth(date);
-                        aVar.f46420b = msgInfo.type.intValue();
-                        aVar.f46421c = msgInfo.content;
-                        aVar.f46422d = msgInfo.id.intValue();
+                        aVar.a = m.getDateStringMouth(date);
+                        aVar.f46640b = msgInfo.type.intValue();
+                        aVar.f46641c = msgInfo.content;
+                        aVar.f46642d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -111,8 +112,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            c.a.r0.s.s.a.f();
-            c.a.d.f.d.l<byte[]> d2 = c.a.r0.s.s.a.d("tb.im_official_history");
+            c.a.s0.s.r.a.f();
+            l<byte[]> d2 = c.a.s0.s.r.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

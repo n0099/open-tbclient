@@ -24,28 +24,28 @@ public class b implements Cloneable {
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64646e;
+    public int f64641e;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64647f;
+    public int f64642f;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: g  reason: collision with root package name */
-    public float f64648g;
+    public float f64643g;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: h  reason: collision with root package name */
-    public float f64649h;
+    public float f64644h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f64650i;
+    public boolean f64645i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f64651j;
+    public boolean f64646j;
 
     /* renamed from: k  reason: collision with root package name */
-    public BarHide f64652k;
+    public BarHide f64647k;
     public boolean l;
     public boolean m;
     @ColorInt
@@ -79,13 +79,13 @@ public class b implements Cloneable {
                 return;
             }
         }
-        this.f64646e = 0;
-        this.f64647f = -16777216;
-        this.f64648g = 0.0f;
-        this.f64649h = 0.0f;
-        this.f64650i = false;
-        this.f64651j = false;
-        this.f64652k = BarHide.FLAG_SHOW_BAR;
+        this.f64641e = 0;
+        this.f64642f = -16777216;
+        this.f64643g = 0.0f;
+        this.f64644h = 0.0f;
+        this.f64645i = false;
+        this.f64646j = false;
+        this.f64647k = BarHide.FLAG_SHOW_BAR;
         this.l = false;
         this.m = true;
         this.n = -16777216;

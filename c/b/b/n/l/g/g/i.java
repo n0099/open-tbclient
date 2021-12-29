@@ -12,13 +12,13 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector2 f28036b;
+    public Vector2 f28110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Vector2 f28037c;
+    public Vector2 f28111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28038d;
+    public int f28112d;
 
     public i() {
         Interceptable interceptable = $ic;

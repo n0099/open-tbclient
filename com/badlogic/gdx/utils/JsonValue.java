@@ -21,25 +21,25 @@ public class JsonValue implements Iterable<JsonValue> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ValueType f31999e;
+    public ValueType f32142e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32000f;
+    public String f32143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f32001g;
+    public double f32144g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f32002h;
+    public long f32145h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32003i;
+    public String f32146i;
 
     /* renamed from: j  reason: collision with root package name */
-    public JsonValue f32004j;
+    public JsonValue f32147j;
 
     /* renamed from: k  reason: collision with root package name */
-    public JsonValue f32005k;
+    public JsonValue f32148k;
     public JsonValue l;
     public JsonValue m;
     public int n;
@@ -164,13 +164,13 @@ public class JsonValue implements Iterable<JsonValue> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public JsonValue f32006e;
+        public JsonValue f32149e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JsonValue f32007f;
+        public JsonValue f32150f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ JsonValue f32008g;
+        public final /* synthetic */ JsonValue f32151g;
 
         public b(JsonValue jsonValue) {
             Interceptable interceptable = $ic;
@@ -187,8 +187,8 @@ public class JsonValue implements Iterable<JsonValue> {
                     return;
                 }
             }
-            this.f32008g = jsonValue;
-            this.f32006e = this.f32008g.f32004j;
+            this.f32151g = jsonValue;
+            this.f32149e = this.f32151g.f32147j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -198,10 +198,10 @@ public class JsonValue implements Iterable<JsonValue> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JsonValue jsonValue = this.f32006e;
-                this.f32007f = jsonValue;
+                JsonValue jsonValue = this.f32149e;
+                this.f32150f = jsonValue;
                 if (jsonValue != null) {
-                    this.f32006e = jsonValue.l;
+                    this.f32149e = jsonValue.l;
                     return jsonValue;
                 }
                 throw new NoSuchElementException();
@@ -213,7 +213,7 @@ public class JsonValue implements Iterable<JsonValue> {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32006e != null : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32149e != null : invokeV.booleanValue;
         }
 
         @Override // java.lang.Iterable
@@ -227,12 +227,12 @@ public class JsonValue implements Iterable<JsonValue> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                JsonValue jsonValue = this.f32007f;
+                JsonValue jsonValue = this.f32150f;
                 JsonValue jsonValue2 = jsonValue.m;
                 if (jsonValue2 == null) {
-                    JsonValue jsonValue3 = this.f32008g;
+                    JsonValue jsonValue3 = this.f32151g;
                     JsonValue jsonValue4 = jsonValue.l;
-                    jsonValue3.f32004j = jsonValue4;
+                    jsonValue3.f32147j = jsonValue4;
                     if (jsonValue4 != null) {
                         jsonValue4.m = null;
                     }
@@ -243,7 +243,7 @@ public class JsonValue implements Iterable<JsonValue> {
                         jsonValue5.m = jsonValue2;
                     }
                 }
-                JsonValue jsonValue6 = this.f32008g;
+                JsonValue jsonValue6 = this.f32151g;
                 jsonValue6.n--;
             }
         }
@@ -256,10 +256,10 @@ public class JsonValue implements Iterable<JsonValue> {
         public JsonWriter$OutputType a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f32009b;
+        public int f32152b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f32010c;
+        public boolean f32153c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -291,14 +291,14 @@ public class JsonValue implements Iterable<JsonValue> {
                 return;
             }
         }
-        this.f31999e = valueType;
+        this.f32142e = valueType;
     }
 
     public static boolean C(JsonValue jsonValue) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jsonValue)) == null) {
-            for (JsonValue jsonValue2 = jsonValue.f32004j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+            for (JsonValue jsonValue2 = jsonValue.f32147j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                 if (!jsonValue2.B()) {
                     return false;
                 }
@@ -321,7 +321,7 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jsonValue)) == null) {
-            for (JsonValue jsonValue2 = jsonValue.f32004j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+            for (JsonValue jsonValue2 = jsonValue.f32147j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                 if (jsonValue2.D() || jsonValue2.v()) {
                     return false;
                 }
@@ -334,14 +334,14 @@ public class JsonValue implements Iterable<JsonValue> {
     public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31999e == ValueType.nullValue : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32142e == ValueType.nullValue : invokeV.booleanValue;
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ValueType valueType = this.f31999e;
+            ValueType valueType = this.f32142e;
             return valueType == ValueType.doubleValue || valueType == ValueType.longValue;
         }
         return invokeV.booleanValue;
@@ -350,20 +350,20 @@ public class JsonValue implements Iterable<JsonValue> {
     public boolean D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31999e == ValueType.object : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32142e == ValueType.object : invokeV.booleanValue;
     }
 
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31999e == ValueType.stringValue : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32142e == ValueType.stringValue : invokeV.booleanValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             return i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5;
         }
         return invokeV.booleanValue;
@@ -381,7 +381,7 @@ public class JsonValue implements Iterable<JsonValue> {
     public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32003i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32146i : (String) invokeV.objValue;
     }
 
     public String I(c cVar) {
@@ -401,7 +401,7 @@ public class JsonValue implements Iterable<JsonValue> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonWriter$OutputType, i2)) == null) {
             c cVar = new c();
             cVar.a = jsonWriter$OutputType;
-            cVar.f32009b = i2;
+            cVar.f32152b = i2;
             return I(cVar);
         }
         return (String) invokeLI.objValue;
@@ -412,7 +412,7 @@ public class JsonValue implements Iterable<JsonValue> {
         if (interceptable == null || interceptable.invokeLLIL(1048585, this, jsonValue, j0Var, i2, cVar) == null) {
             JsonWriter$OutputType jsonWriter$OutputType = cVar.a;
             if (jsonValue.D()) {
-                if (jsonValue.f32004j == null) {
+                if (jsonValue.f32147j == null) {
                     j0Var.n(StringUtil.EMPTY_ARRAY);
                     return;
                 }
@@ -420,18 +420,18 @@ public class JsonValue implements Iterable<JsonValue> {
                 int length = j0Var.length();
                 loop0: while (true) {
                     j0Var.n(z ? "{\n" : "{ ");
-                    for (JsonValue jsonValue2 = jsonValue.f32004j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+                    for (JsonValue jsonValue2 = jsonValue.f32147j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
                         if (z) {
                             u(i2, j0Var);
                         }
-                        j0Var.n(jsonWriter$OutputType.quoteName(jsonValue2.f32003i));
+                        j0Var.n(jsonWriter$OutputType.quoteName(jsonValue2.f32146i));
                         j0Var.n(": ");
                         K(jsonValue2, j0Var, i2 + 1, cVar);
                         if ((!z || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue2.l != null) {
                             j0Var.a(',');
                         }
                         j0Var.a(z ? '\n' : ' ');
-                        if (z || j0Var.length() - length <= cVar.f32009b) {
+                        if (z || j0Var.length() - length <= cVar.f32152b) {
                         }
                     }
                     j0Var.I(length);
@@ -442,16 +442,16 @@ public class JsonValue implements Iterable<JsonValue> {
                 }
                 j0Var.a(ExtendedMessageFormat.END_FE);
             } else if (jsonValue.v()) {
-                if (jsonValue.f32004j == null) {
+                if (jsonValue.f32147j == null) {
                     j0Var.n("[]");
                     return;
                 }
                 boolean z2 = !y(jsonValue);
-                boolean z3 = cVar.f32010c || !C(jsonValue);
+                boolean z3 = cVar.f32153c || !C(jsonValue);
                 int length2 = j0Var.length();
                 loop2: while (true) {
                     j0Var.n(z2 ? "[\n" : "[ ");
-                    for (JsonValue jsonValue3 = jsonValue.f32004j; jsonValue3 != null; jsonValue3 = jsonValue3.l) {
+                    for (JsonValue jsonValue3 = jsonValue.f32147j; jsonValue3 != null; jsonValue3 = jsonValue3.l) {
                         if (z2) {
                             u(i2, j0Var);
                         }
@@ -460,7 +460,7 @@ public class JsonValue implements Iterable<JsonValue> {
                             j0Var.a(',');
                         }
                         j0Var.a(z2 ? '\n' : ' ');
-                        if (!z3 || z2 || j0Var.length() - length2 <= cVar.f32009b) {
+                        if (!z3 || z2 || j0Var.length() - length2 <= cVar.f32152b) {
                         }
                     }
                     j0Var.I(length2);
@@ -495,9 +495,9 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            JsonValue jsonValue = this.f32004j;
+            JsonValue jsonValue = this.f32147j;
             while (jsonValue != null) {
-                String str2 = jsonValue.f32003i;
+                String str2 = jsonValue.f32146i;
                 if (str2 != null && str2.equalsIgnoreCase(str)) {
                     break;
                 }
@@ -514,43 +514,43 @@ public class JsonValue implements Iterable<JsonValue> {
     public void M(double d2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d2), str}) == null) {
-            this.f32001g = d2;
-            this.f32002h = (long) d2;
-            this.f32000f = str;
-            this.f31999e = ValueType.doubleValue;
+            this.f32144g = d2;
+            this.f32145h = (long) d2;
+            this.f32143f = str;
+            this.f32142e = ValueType.doubleValue;
         }
     }
 
     public void N(long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048588, this, j2, str) == null) {
-            this.f32002h = j2;
-            this.f32001g = j2;
-            this.f32000f = str;
-            this.f31999e = ValueType.longValue;
+            this.f32145h = j2;
+            this.f32144g = j2;
+            this.f32143f = str;
+            this.f32142e = ValueType.longValue;
         }
     }
 
     public void O(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f32000f = str;
-            this.f31999e = str == null ? ValueType.nullValue : ValueType.stringValue;
+            this.f32143f = str;
+            this.f32142e = str == null ? ValueType.nullValue : ValueType.stringValue;
         }
     }
 
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f32002h = z ? 1L : 0L;
-            this.f31999e = ValueType.booleanValue;
+            this.f32145h = z ? 1L : 0L;
+            this.f32142e = ValueType.booleanValue;
         }
     }
 
     public void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f32003i = str;
+            this.f32146i = str;
         }
     }
 
@@ -558,15 +558,15 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            JsonValue jsonValue = this.f32005k;
+            JsonValue jsonValue = this.f32148k;
             String str = "[]";
             if (jsonValue == null) {
-                ValueType valueType = this.f31999e;
+                ValueType valueType = this.f32142e;
                 return valueType == ValueType.array ? "[]" : valueType == ValueType.object ? StringUtil.EMPTY_ARRAY : "";
             }
-            if (jsonValue.f31999e == ValueType.array) {
+            if (jsonValue.f32142e == ValueType.array) {
                 int i2 = 0;
-                JsonValue jsonValue2 = jsonValue.f32004j;
+                JsonValue jsonValue2 = jsonValue.f32147j;
                 while (true) {
                     if (jsonValue2 == null) {
                         break;
@@ -578,12 +578,12 @@ public class JsonValue implements Iterable<JsonValue> {
                         i2++;
                     }
                 }
-            } else if (this.f32003i.indexOf(46) != -1) {
-                str = ".\"" + this.f32003i.replace("\"", "\\\"") + "\"";
+            } else if (this.f32146i.indexOf(46) != -1) {
+                str = ".\"" + this.f32146i.replace("\"", "\\\"") + "\"";
             } else {
-                str = '.' + this.f32003i;
+                str = '.' + this.f32146i;
             }
-            return this.f32005k.R() + str;
+            return this.f32148k.R() + str;
         }
         return (String) invokeV.objValue;
     }
@@ -592,19 +592,19 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
-                    return this.f32001g != 0.0d;
+                    return this.f32144g != 0.0d;
                 } else if (i2 == 3) {
-                    return this.f32002h != 0;
+                    return this.f32145h != 0;
                 } else if (i2 == 4) {
-                    return this.f32002h != 0;
+                    return this.f32145h != 0;
                 } else {
-                    throw new IllegalStateException("Value cannot be converted to boolean: " + this.f31999e);
+                    throw new IllegalStateException("Value cannot be converted to boolean: " + this.f32142e);
                 }
             }
-            return this.f32000f.equalsIgnoreCase("true");
+            return this.f32143f.equalsIgnoreCase("true");
         }
         return invokeV.booleanValue;
     }
@@ -613,20 +613,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? (byte) 1 : (byte) 0;
+                            return this.f32145h != 0 ? (byte) 1 : (byte) 0;
                         }
-                        throw new IllegalStateException("Value cannot be converted to byte: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to byte: " + this.f32142e);
                     }
-                    return (byte) this.f32002h;
+                    return (byte) this.f32145h;
                 }
-                return (byte) this.f32001g;
+                return (byte) this.f32144g;
             }
-            return Byte.parseByte(this.f32000f);
+            return Byte.parseByte(this.f32143f);
         }
         return invokeV.byteValue;
     }
@@ -635,20 +635,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? 1.0d : 0.0d;
+                            return this.f32145h != 0 ? 1.0d : 0.0d;
                         }
-                        throw new IllegalStateException("Value cannot be converted to double: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to double: " + this.f32142e);
                     }
-                    return this.f32002h;
+                    return this.f32145h;
                 }
-                return this.f32001g;
+                return this.f32144g;
             }
-            return Double.parseDouble(this.f32000f);
+            return Double.parseDouble(this.f32143f);
         }
         return invokeV.doubleValue;
     }
@@ -657,20 +657,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? 1.0f : 0.0f;
+                            return this.f32145h != 0 ? 1.0f : 0.0f;
                         }
-                        throw new IllegalStateException("Value cannot be converted to float: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to float: " + this.f32142e);
                     }
-                    return (float) this.f32002h;
+                    return (float) this.f32145h;
                 }
-                return (float) this.f32001g;
+                return (float) this.f32144g;
             }
-            return Float.parseFloat(this.f32000f);
+            return Float.parseFloat(this.f32143f);
         }
         return invokeV.floatValue;
     }
@@ -680,22 +680,22 @@ public class JsonValue implements Iterable<JsonValue> {
         float parseFloat;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (this.f31999e == ValueType.array) {
+            if (this.f32142e == ValueType.array) {
                 float[] fArr = new float[this.n];
                 int i2 = 0;
-                JsonValue jsonValue = this.f32004j;
+                JsonValue jsonValue = this.f32147j;
                 while (jsonValue != null) {
-                    int i3 = a.a[jsonValue.f31999e.ordinal()];
+                    int i3 = a.a[jsonValue.f32142e.ordinal()];
                     if (i3 == 1) {
-                        parseFloat = Float.parseFloat(jsonValue.f32000f);
+                        parseFloat = Float.parseFloat(jsonValue.f32143f);
                     } else if (i3 == 2) {
-                        parseFloat = (float) jsonValue.f32001g;
+                        parseFloat = (float) jsonValue.f32144g;
                     } else if (i3 == 3) {
-                        parseFloat = (float) jsonValue.f32002h;
+                        parseFloat = (float) jsonValue.f32145h;
                     } else if (i3 == 4) {
-                        parseFloat = jsonValue.f32002h != 0 ? 1.0f : 0.0f;
+                        parseFloat = jsonValue.f32145h != 0 ? 1.0f : 0.0f;
                     } else {
-                        throw new IllegalStateException("Value cannot be converted to float: " + jsonValue.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to float: " + jsonValue.f32142e);
                     }
                     fArr[i2] = parseFloat;
                     jsonValue = jsonValue.l;
@@ -703,7 +703,7 @@ public class JsonValue implements Iterable<JsonValue> {
                 }
                 return fArr;
             }
-            throw new IllegalStateException("Value is not an array: " + this.f31999e);
+            throw new IllegalStateException("Value is not an array: " + this.f32142e);
         }
         return (float[]) invokeV.objValue;
     }
@@ -712,20 +712,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? 1 : 0;
+                            return this.f32145h != 0 ? 1 : 0;
                         }
-                        throw new IllegalStateException("Value cannot be converted to int: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to int: " + this.f32142e);
                     }
-                    return (int) this.f32002h;
+                    return (int) this.f32145h;
                 }
-                return (int) this.f32001g;
+                return (int) this.f32144g;
             }
-            return Integer.parseInt(this.f32000f);
+            return Integer.parseInt(this.f32143f);
         }
         return invokeV.intValue;
     }
@@ -734,20 +734,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? 1L : 0L;
+                            return this.f32145h != 0 ? 1L : 0L;
                         }
-                        throw new IllegalStateException("Value cannot be converted to long: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to long: " + this.f32142e);
                     }
-                    return this.f32002h;
+                    return this.f32145h;
                 }
-                return (long) this.f32001g;
+                return (long) this.f32144g;
             }
-            return Long.parseLong(this.f32000f);
+            return Long.parseLong(this.f32143f);
         }
         return invokeV.longValue;
     }
@@ -756,20 +756,20 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 == 4) {
-                            return this.f32002h != 0 ? (short) 1 : (short) 0;
+                            return this.f32145h != 0 ? (short) 1 : (short) 0;
                         }
-                        throw new IllegalStateException("Value cannot be converted to short: " + this.f31999e);
+                        throw new IllegalStateException("Value cannot be converted to short: " + this.f32142e);
                     }
-                    return (short) this.f32002h;
+                    return (short) this.f32145h;
                 }
-                return (short) this.f32001g;
+                return (short) this.f32144g;
             }
-            return Short.parseShort(this.f32000f);
+            return Short.parseShort(this.f32143f);
         }
         return invokeV.shortValue;
     }
@@ -780,25 +780,25 @@ public class JsonValue implements Iterable<JsonValue> {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if (this.f31999e == ValueType.array) {
+            if (this.f32142e == ValueType.array) {
                 short[] sArr = new short[this.n];
-                JsonValue jsonValue = this.f32004j;
+                JsonValue jsonValue = this.f32147j;
                 int i3 = 0;
                 while (jsonValue != null) {
-                    int i4 = a.a[jsonValue.f31999e.ordinal()];
+                    int i4 = a.a[jsonValue.f32142e.ordinal()];
                     if (i4 != 1) {
                         if (i4 == 2) {
-                            i2 = (int) jsonValue.f32001g;
+                            i2 = (int) jsonValue.f32144g;
                         } else if (i4 == 3) {
-                            i2 = (int) jsonValue.f32002h;
+                            i2 = (int) jsonValue.f32145h;
                         } else if (i4 == 4) {
-                            parseShort = jsonValue.f32002h != 0 ? (short) 1 : (short) 0;
+                            parseShort = jsonValue.f32145h != 0 ? (short) 1 : (short) 0;
                         } else {
-                            throw new IllegalStateException("Value cannot be converted to short: " + jsonValue.f31999e);
+                            throw new IllegalStateException("Value cannot be converted to short: " + jsonValue.f32142e);
                         }
                         parseShort = (short) i2;
                     } else {
-                        parseShort = Short.parseShort(jsonValue.f32000f);
+                        parseShort = Short.parseShort(jsonValue.f32143f);
                     }
                     sArr[i3] = parseShort;
                     jsonValue = jsonValue.l;
@@ -806,7 +806,7 @@ public class JsonValue implements Iterable<JsonValue> {
                 }
                 return sArr;
             }
-            throw new IllegalStateException("Value is not an array: " + this.f31999e);
+            throw new IllegalStateException("Value is not an array: " + this.f32142e);
         }
         return (short[]) invokeV.objValue;
     }
@@ -815,23 +815,23 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            int i2 = a.a[this.f31999e.ordinal()];
+            int i2 = a.a[this.f32142e.ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
-                    String str = this.f32000f;
-                    return str != null ? str : Double.toString(this.f32001g);
+                    String str = this.f32143f;
+                    return str != null ? str : Double.toString(this.f32144g);
                 } else if (i2 == 3) {
-                    String str2 = this.f32000f;
-                    return str2 != null ? str2 : Long.toString(this.f32002h);
+                    String str2 = this.f32143f;
+                    return str2 != null ? str2 : Long.toString(this.f32145h);
                 } else if (i2 == 4) {
-                    return this.f32002h != 0 ? "true" : "false";
+                    return this.f32145h != 0 ? "true" : "false";
                 } else if (i2 == 5) {
                     return null;
                 } else {
-                    throw new IllegalStateException("Value cannot be converted to string: " + this.f31999e);
+                    throw new IllegalStateException("Value cannot be converted to string: " + this.f32142e);
                 }
             }
-            return this.f32000f;
+            return this.f32143f;
         }
         return (String) invokeV.objValue;
     }
@@ -840,7 +840,7 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            JsonValue jsonValue = this.f32004j;
+            JsonValue jsonValue = this.f32147j;
             while (jsonValue != null && i2 > 0) {
                 i2--;
                 jsonValue = jsonValue.l;
@@ -854,9 +854,9 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            JsonValue jsonValue = this.f32004j;
+            JsonValue jsonValue = this.f32147j;
             while (jsonValue != null) {
-                String str2 = jsonValue.f32003i;
+                String str2 = jsonValue.f32146i;
                 if (str2 != null && str2.equalsIgnoreCase(str)) {
                     break;
                 }
@@ -875,7 +875,7 @@ public class JsonValue implements Iterable<JsonValue> {
             if (m == null) {
                 return null;
             }
-            return m.f32004j;
+            return m.f32147j;
         }
         return (JsonValue) invokeL.objValue;
     }
@@ -888,7 +888,7 @@ public class JsonValue implements Iterable<JsonValue> {
             if (l != null) {
                 return l.e();
             }
-            throw new IllegalArgumentException("Indexed value not found: " + this.f32003i);
+            throw new IllegalArgumentException("Indexed value not found: " + this.f32146i);
         }
         return invokeI.floatValue;
     }
@@ -911,7 +911,7 @@ public class JsonValue implements Iterable<JsonValue> {
             if (l != null) {
                 return l.i();
             }
-            throw new IllegalArgumentException("Indexed value not found: " + this.f32003i);
+            throw new IllegalArgumentException("Indexed value not found: " + this.f32146i);
         }
         return invokeI.shortValue;
     }
@@ -951,16 +951,16 @@ public class JsonValue implements Iterable<JsonValue> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             if (F()) {
-                if (this.f32003i == null) {
+                if (this.f32146i == null) {
                     return k();
                 }
-                return this.f32003i + ": " + k();
+                return this.f32146i + ": " + k();
             }
             StringBuilder sb = new StringBuilder();
-            if (this.f32003i == null) {
+            if (this.f32146i == null) {
                 str = "";
             } else {
-                str = this.f32003i + ": ";
+                str = this.f32146i + ": ";
             }
             sb.append(str);
             sb.append(J(JsonWriter$OutputType.minimal, 0));
@@ -972,25 +972,25 @@ public class JsonValue implements Iterable<JsonValue> {
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f31999e == ValueType.array : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f32142e == ValueType.array : invokeV.booleanValue;
     }
 
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f31999e == ValueType.booleanValue : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f32142e == ValueType.booleanValue : invokeV.booleanValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f31999e == ValueType.doubleValue : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f32142e == ValueType.doubleValue : invokeV.booleanValue;
     }
 
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f31999e == ValueType.longValue : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f32142e == ValueType.longValue : invokeV.booleanValue;
     }
 
     public JsonValue(String str) {

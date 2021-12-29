@@ -16,7 +16,7 @@ public final class jk extends jl {
     public byte[] f823a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63800b;
+    public int f63795b;
 
     public jk() {
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public final class jk extends jl {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63800b - this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63795b - this.a : invokeV.intValue;
     }
 
     @Override // com.xiaomi.push.jl
@@ -100,7 +100,7 @@ public final class jk extends jl {
         if (interceptable == null || interceptable.invokeLII(1048583, this, bArr, i2, i3) == null) {
             this.f823a = bArr;
             this.a = i2;
-            this.f63800b = i2 + i3;
+            this.f63795b = i2 + i3;
         }
     }
 }

@@ -17,7 +17,7 @@ public class b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLSurface f27103b;
+    public EGLSurface f27526b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,15 +49,15 @@ public class b {
                 return;
             }
         }
-        this.f27103b = EGL14.EGL_NO_SURFACE;
+        this.f27526b = EGL14.EGL_NO_SURFACE;
         this.a = aVar;
     }
 
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            if (this.f27103b == EGL14.EGL_NO_SURFACE) {
-                this.f27103b = this.a.b(obj);
+            if (this.f27526b == EGL14.EGL_NO_SURFACE) {
+                this.f27526b = this.a.b(obj);
                 return;
             }
             throw new IllegalStateException("surface already created");
@@ -66,30 +66,30 @@ public class b {
 
     public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar.d(this.f27103b)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar.d(this.f27526b)) {
             return;
         }
-        aVar.e(this.f27103b);
+        aVar.e(this.f27526b);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.g(this.f27103b);
-            this.f27103b = EGL14.EGL_NO_SURFACE;
+            this.a.g(this.f27526b);
+            this.f27526b = EGL14.EGL_NO_SURFACE;
         }
     }
 
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.a.h(this.f27103b, j2);
+            this.a.h(this.f27526b, j2);
         }
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i(this.f27103b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.i(this.f27526b) : invokeV.booleanValue;
     }
 }

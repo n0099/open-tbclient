@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface FunNativeAd2 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class NativeType {
         public static /* synthetic */ Interceptable $ic;
         public static final NativeType BOTH;
@@ -23,10 +23,10 @@ public interface FunNativeAd2 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f56209b;
+        public final boolean f56208b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final boolean f56210c;
+        public final boolean f56209c;
 
         static {
             InterceptResult invokeClinit;
@@ -68,8 +68,8 @@ public interface FunNativeAd2 {
                     return;
                 }
             }
-            this.f56209b = z;
-            this.f56210c = z2;
+            this.f56208b = z;
+            this.f56209c = z2;
         }
 
         public static NativeType valueOf(String str) {
@@ -87,13 +87,13 @@ public interface FunNativeAd2 {
         public boolean supportCustom() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56209b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56208b : invokeV.booleanValue;
         }
 
         public boolean supportExpress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56210c : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56209c : invokeV.booleanValue;
         }
     }
 

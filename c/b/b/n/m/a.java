@@ -18,19 +18,19 @@ public class a implements TextureData {
     public c.b.b.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ETC1.a f28061b;
+    public ETC1.a f28135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28062c;
+    public boolean f28136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28063d;
+    public int f28137d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f28064e;
+    public int f28138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28065f;
+    public boolean f28139f;
 
     public a(c.b.b.m.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -47,18 +47,18 @@ public class a implements TextureData {
                 return;
             }
         }
-        this.f28063d = 0;
-        this.f28064e = 0;
-        this.f28065f = false;
+        this.f28137d = 0;
+        this.f28138e = 0;
+        this.f28139f = false;
         this.a = aVar;
-        this.f28062c = z;
+        this.f28136c = z;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28065f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28139f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -75,30 +75,30 @@ public class a implements TextureData {
     public void c(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f28065f) {
-                if (!c.b.b.f.f27695b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
-                    Pixmap a = ETC1.a(this.f28061b, Pixmap.Format.RGB565);
-                    c.b.b.f.f27698e.q(i2, 0, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
-                    if (this.f28062c) {
+            if (this.f28139f) {
+                if (!c.b.b.f.f27769b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
+                    Pixmap a = ETC1.a(this.f28135b, Pixmap.Format.RGB565);
+                    c.b.b.f.f27772e.q(i2, 0, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
+                    if (this.f28136c) {
                         h.a(i2, a, a.n(), a.l());
                     }
                     a.dispose();
-                    this.f28062c = false;
+                    this.f28136c = false;
                 } else {
-                    c.b.b.n.c cVar = c.b.b.f.f27698e;
-                    int i3 = ETC1.f31985b;
-                    int i4 = this.f28063d;
-                    int i5 = this.f28064e;
-                    int capacity = this.f28061b.f31988g.capacity();
-                    ETC1.a aVar = this.f28061b;
-                    cVar.h(i2, 0, i3, i4, i5, 0, capacity - aVar.f31989h, aVar.f31988g);
+                    c.b.b.n.c cVar = c.b.b.f.f27772e;
+                    int i3 = ETC1.f32128b;
+                    int i4 = this.f28137d;
+                    int i5 = this.f28138e;
+                    int capacity = this.f28135b.f32131g.capacity();
+                    ETC1.a aVar = this.f28135b;
+                    cVar.h(i2, 0, i3, i4, i5, 0, capacity - aVar.f32132h, aVar.f32131g);
                     if (g()) {
-                        c.b.b.f.f27699f.F(3553);
+                        c.b.b.f.f27773f.F(3553);
                     }
                 }
-                this.f28061b.dispose();
-                this.f28061b = null;
-                this.f28065f = false;
+                this.f28135b.dispose();
+                this.f28135b = null;
+                this.f28139f = false;
                 return;
             }
             throw new GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
@@ -126,14 +126,14 @@ public class a implements TextureData {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28062c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28136c : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28064e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f28138e : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -147,7 +147,7 @@ public class a implements TextureData {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28063d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28137d : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -164,18 +164,18 @@ public class a implements TextureData {
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.f28065f) {
-                if (this.a == null && this.f28061b == null) {
+            if (!this.f28139f) {
+                if (this.a == null && this.f28135b == null) {
                     throw new GdxRuntimeException("Can only load once from ETC1Data");
                 }
                 c.b.b.m.a aVar = this.a;
                 if (aVar != null) {
-                    this.f28061b = new ETC1.a(aVar);
+                    this.f28135b = new ETC1.a(aVar);
                 }
-                ETC1.a aVar2 = this.f28061b;
-                this.f28063d = aVar2.f31986e;
-                this.f28064e = aVar2.f31987f;
-                this.f28065f = true;
+                ETC1.a aVar2 = this.f28135b;
+                this.f28137d = aVar2.f32129e;
+                this.f28138e = aVar2.f32130f;
+                this.f28139f = true;
                 return;
             }
             throw new GdxRuntimeException("Already prepared");

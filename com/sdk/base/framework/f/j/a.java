@@ -70,7 +70,7 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f31721h);
+                        stringBuffer.append(com.alipay.sdk.encrypt.a.f31864h);
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append(Typography.amp);
                     }

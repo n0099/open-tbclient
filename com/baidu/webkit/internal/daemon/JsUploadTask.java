@@ -360,9 +360,9 @@ public class JsUploadTask implements INoProGuard {
                             CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f54854c);
+                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f54857c);
                             jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.a);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f54853b);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f54856b);
                         }
                         if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                             jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);

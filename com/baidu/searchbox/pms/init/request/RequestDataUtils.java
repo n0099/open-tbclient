@@ -273,7 +273,7 @@ public class RequestDataUtils {
                 }
             } else {
                 for (PackageParams packageParams : list) {
-                    jSONObject2.put(packageParams.packageName, packageParams.updateVersion + "");
+                    jSONObject2.put(packageParams.packageName, packageParams.getUpdateParams());
                 }
             }
             if (jSONObject2.length() > 0) {

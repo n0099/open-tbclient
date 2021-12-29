@@ -15,25 +15,25 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f2339b;
+    public String[] f2766b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2340c;
+    public int f2767c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2341d;
+    public String f2768d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f2342e;
+    public a f2769e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2343f;
+    public int f2770f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String[] f2344g;
+    public String[] f2771g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2345h;
+    public boolean f2772h;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -56,17 +56,17 @@ public class b {
             }
         }
         this.a = 0;
-        this.f2339b = null;
-        this.f2340c = 0;
-        this.f2341d = null;
-        this.f2342e = null;
-        this.f2343f = 0;
-        this.f2344g = null;
-        this.f2345h = false;
+        this.f2766b = null;
+        this.f2767c = 0;
+        this.f2768d = null;
+        this.f2769e = null;
+        this.f2770f = 0;
+        this.f2771g = null;
+        this.f2772h = false;
         if (str != null) {
-            this.f2341d = str;
-            this.f2342e = aVar;
-            this.f2343f = i2;
+            this.f2768d = str;
+            this.f2769e = aVar;
+            this.f2770f = i2;
             return;
         }
         throw new InvalidParameterException("SwitchData name is null");
@@ -75,22 +75,22 @@ public class b {
     public void a(int i2, boolean z) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f2342e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (aVar = this.f2769e) == null) {
             return;
         }
-        aVar.a(this.f2341d, i2, z);
+        aVar.a(this.f2768d, i2, z);
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2343f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2770f : invokeV.intValue;
     }
 
     public String[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2339b : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2766b : (String[]) invokeV.objValue;
     }
 
     public int d() {
@@ -102,47 +102,47 @@ public class b {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2341d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2768d : (String) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2340c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2767c : invokeV.intValue;
     }
 
     public String[] g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2344g : (String[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2771g : (String[]) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2345h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2772h : invokeV.booleanValue;
     }
 
     public void i(int i2, String[] strArr, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), strArr, Integer.valueOf(i3)}) == null) {
             this.a = i2;
-            this.f2339b = strArr;
-            this.f2340c = i3;
+            this.f2766b = strArr;
+            this.f2767c = i3;
         }
     }
 
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f2345h = z;
+            this.f2772h = z;
         }
     }
 
     public void k(String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, strArr) == null) {
-            this.f2344g = strArr;
+            this.f2771g = strArr;
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
-import c.a.r0.s.i0.n.b;
+import c.a.d.f.p.n;
+import c.a.s0.s.i0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -47,7 +47,7 @@ public class PublishButton extends TBSpecificationBtn {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             b bVar = new b();
             bVar.i(R.drawable.icon_pure_issue16, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            bVar.g(m.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            bVar.g(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
             setConfig(bVar);
             setTextSize(R.dimen.T_X08);

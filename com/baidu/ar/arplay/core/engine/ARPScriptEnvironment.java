@@ -202,7 +202,7 @@ public class ARPScriptEnvironment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
             String str = "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key");
-            getSharedEnvironmentValue(com.baidu.fsg.base.a.f34607g);
+            getSharedEnvironmentValue(com.baidu.fsg.base.a.f34763g);
         }
     }
 }

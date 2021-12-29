@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.s0.s2.f;
-import c.a.s0.s2.h;
-import c.a.s0.s2.i;
-import c.a.s0.s2.j;
-import c.a.s0.s2.u.f.n;
-import c.a.s0.s2.y.b;
+import c.a.t0.s2.f;
+import c.a.t0.s2.h;
+import c.a.t0.s2.i;
+import c.a.t0.s2.j;
+import c.a.t0.s2.u.f.n;
+import c.a.t0.s2.y.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -100,13 +100,13 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: i0 */
-    public ReplyLoadMoreViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: b0 */
+    public ReplyLoadMoreViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.f2871e).inflate(j.pb_reply_load_more_item, viewGroup, false);
+            View inflate = LayoutInflater.from(this.f3299e).inflate(j.pb_reply_load_more_item, viewGroup, false);
             inflate.findViewById(i.tv_pb_reply_more).setOnClickListener(this.s);
             ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
             replyLoadMoreViewHolder.onChangeSkin();
@@ -116,9 +116,9 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.s0.s2.u.f.n, c.a.d.m.e.a
-    /* renamed from: j0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
+    @Override // c.a.t0.s2.u.f.n, c.a.d.n.e.a
+    /* renamed from: c0 */
+    public View S(int i2, View view, ViewGroup viewGroup, PostData postData, ReplyLoadMoreViewHolder replyLoadMoreViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, postData, replyLoadMoreViewHolder})) == null) {
@@ -128,7 +128,7 @@ public class PbReplyLoadMoreAdapter extends n<PostData, ReplyLoadMoreViewHolder>
         return (View) invokeCommon.objValue;
     }
 
-    public void k0(View.OnClickListener onClickListener) {
+    public void d0(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.s = onClickListener;

@@ -2,7 +2,6 @@ package rx.exceptions;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -348,7 +347,7 @@ public final class CompositeException extends RuntimeException {
                 sb.append("  ComposedException ");
                 sb.append(i2);
                 sb.append(" :\n");
-                appendStackTrace(sb, th, TrackUI.SEPERATOR);
+                appendStackTrace(sb, th, "\t");
                 i2++;
             }
             synchronized (aVar.a()) {

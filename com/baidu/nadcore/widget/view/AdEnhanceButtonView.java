@@ -42,25 +42,25 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public NadMiniVideoDownloadView f38462e;
+    public NadMiniVideoDownloadView f38618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f38463f;
+    public LinearLayout f38619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f38464g;
+    public TextView f38620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageView f38465h;
+    public AdImageView f38621h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.c0.g.f.d f38466i;
+    public c.a.c0.g.f.d f38622i;
 
     /* renamed from: j  reason: collision with root package name */
-    public List<c.a.c0.h0.e> f38467j;
+    public List<c.a.c0.h0.e> f38623j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f38468k;
+    public int f38624k;
     public int l;
     public View m;
     public i n;
@@ -71,7 +71,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38469g;
+        public final /* synthetic */ AdEnhanceButtonView f38625g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(AdEnhanceButtonView adEnhanceButtonView, long j2, long j3) {
@@ -92,7 +92,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38469g = adEnhanceButtonView;
+            this.f38625g = adEnhanceButtonView;
         }
 
         @Override // c.a.c0.h0.e
@@ -105,10 +105,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         @Override // c.a.c0.h0.e
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38469g.n == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38625g.n == null) {
                 return;
             }
-            this.f38469g.n.d();
+            this.f38625g.n.d();
         }
     }
 
@@ -118,10 +118,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.MarginLayoutParams f38470e;
+        public final /* synthetic */ ViewGroup.MarginLayoutParams f38626e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38471f;
+        public final /* synthetic */ AdEnhanceButtonView f38627f;
 
         public b(AdEnhanceButtonView adEnhanceButtonView, ViewGroup.MarginLayoutParams marginLayoutParams) {
             Interceptable interceptable = $ic;
@@ -138,8 +138,8 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38471f = adEnhanceButtonView;
-            this.f38470e = marginLayoutParams;
+            this.f38627f = adEnhanceButtonView;
+            this.f38626e = marginLayoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -147,9 +147,9 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.f38470e.height = Math.round(AdEnhanceButtonView.OPERATE_BTN_HEIGHT * animatedFraction);
-                this.f38470e.topMargin = Math.round(AdEnhanceButtonView.OPERATE_BTN_TOP_MARGIN * animatedFraction);
-                this.f38471f.m.requestLayout();
+                this.f38626e.height = Math.round(AdEnhanceButtonView.OPERATE_BTN_HEIGHT * animatedFraction);
+                this.f38626e.topMargin = Math.round(AdEnhanceButtonView.OPERATE_BTN_TOP_MARGIN * animatedFraction);
+                this.f38627f.m.requestLayout();
             }
         }
     }
@@ -160,16 +160,16 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f38472g;
+        public final /* synthetic */ ValueAnimator f38628g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ Animation f38473h;
+        public final /* synthetic */ Animation f38629h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ View f38474i;
+        public final /* synthetic */ View f38630i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38475j;
+        public final /* synthetic */ AdEnhanceButtonView f38631j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(AdEnhanceButtonView adEnhanceButtonView, long j2, long j3, ValueAnimator valueAnimator, Animation animation, View view) {
@@ -190,35 +190,35 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38475j = adEnhanceButtonView;
-            this.f38472g = valueAnimator;
-            this.f38473h = animation;
-            this.f38474i = view;
+            this.f38631j = adEnhanceButtonView;
+            this.f38628g = valueAnimator;
+            this.f38629h = animation;
+            this.f38630i = view;
         }
 
         @Override // c.a.c0.h0.e
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38472g.cancel();
-                this.f38473h.cancel();
-                this.f38475j.s();
+                this.f38628g.cancel();
+                this.f38629h.cancel();
+                this.f38631j.s();
             }
         }
 
         @Override // c.a.c0.h0.e
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38472g.isRunning()) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38628g.isRunning()) {
                 return;
             }
-            if (this.f38475j.n != null) {
-                this.f38475j.n.e();
+            if (this.f38631j.n != null) {
+                this.f38631j.n.e();
             }
-            this.f38473h.cancel();
-            this.f38472g.start();
-            this.f38474i.setVisibility(0);
-            this.f38474i.startAnimation(this.f38473h);
+            this.f38629h.cancel();
+            this.f38628g.start();
+            this.f38630i.setVisibility(0);
+            this.f38630i.startAnimation(this.f38629h);
         }
     }
 
@@ -228,10 +228,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38476e;
+        public final /* synthetic */ int f38632e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38477f;
+        public final /* synthetic */ AdEnhanceButtonView f38633f;
 
         public d(AdEnhanceButtonView adEnhanceButtonView, int i2) {
             Interceptable interceptable = $ic;
@@ -248,8 +248,8 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38477f = adEnhanceButtonView;
-            this.f38476e = i2;
+            this.f38633f = adEnhanceButtonView;
+            this.f38632e = i2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -257,10 +257,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float animatedFraction = valueAnimator.getAnimatedFraction();
-                View view = this.f38477f.p() ? this.f38477f.f38462e : this.f38477f.f38463f;
+                View view = this.f38633f.p() ? this.f38633f.f38618e : this.f38633f.f38619f;
                 if (view.getBackground() instanceof GradientDrawable) {
                     GradientDrawable gradientDrawable = (GradientDrawable) view.getBackground();
-                    gradientDrawable.setColor(k.a.b(animatedFraction, this.f38477f.getContext().getResources().getColor(c.a.c0.b.b.nad_enhancement_btn_first_bg_color), this.f38476e));
+                    gradientDrawable.setColor(k.a.b(animatedFraction, this.f38633f.getContext().getResources().getColor(c.a.c0.b.b.nad_enhancement_btn_first_bg_color), this.f38632e));
                     gradientDrawable.setCornerRadius(AdEnhanceButtonView.OPERATE_BTN_CORNOR_RADIUS);
                 }
             }
@@ -273,10 +273,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ValueAnimator f38478g;
+        public final /* synthetic */ ValueAnimator f38634g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38479h;
+        public final /* synthetic */ AdEnhanceButtonView f38635h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public e(AdEnhanceButtonView adEnhanceButtonView, long j2, long j3, ValueAnimator valueAnimator) {
@@ -297,28 +297,28 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38479h = adEnhanceButtonView;
-            this.f38478g = valueAnimator;
+            this.f38635h = adEnhanceButtonView;
+            this.f38634g = valueAnimator;
         }
 
         @Override // c.a.c0.h0.e
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38478g.cancel();
+                this.f38634g.cancel();
             }
         }
 
         @Override // c.a.c0.h0.e
         public void d() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38478g.isRunning()) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f38634g.isRunning()) {
                 return;
             }
-            if (this.f38479h.n != null) {
-                this.f38479h.n.b();
+            if (this.f38635h.n != null) {
+                this.f38635h.n.b();
             }
-            this.f38478g.start();
+            this.f38634g.start();
         }
     }
 
@@ -328,10 +328,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f38480e;
+        public final /* synthetic */ AdBaseModel f38636e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38481f;
+        public final /* synthetic */ AdEnhanceButtonView f38637f;
 
         public f(AdEnhanceButtonView adEnhanceButtonView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -348,17 +348,17 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38481f = adEnhanceButtonView;
-            this.f38480e = adBaseModel;
+            this.f38637f = adEnhanceButtonView;
+            this.f38636e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38481f.f38466i.o();
-                if (this.f38481f.n != null) {
-                    this.f38481f.n.a(this.f38480e.f38065f);
+                this.f38637f.f38622i.o();
+                if (this.f38637f.n != null) {
+                    this.f38637f.n.a(this.f38636e.f38221f);
                 }
             }
         }
@@ -370,10 +370,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f38482e;
+        public final /* synthetic */ AdBaseModel f38638e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdEnhanceButtonView f38483f;
+        public final /* synthetic */ AdEnhanceButtonView f38639f;
 
         public g(AdEnhanceButtonView adEnhanceButtonView, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -390,17 +390,17 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                     return;
                 }
             }
-            this.f38483f = adEnhanceButtonView;
-            this.f38482e = adBaseModel;
+            this.f38639f = adEnhanceButtonView;
+            this.f38638e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38483f.n == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38639f.n == null) {
                 return;
             }
-            this.f38483f.n.a(this.f38482e.f38065f);
+            this.f38639f.n.a(this.f38638e.f38221f);
         }
     }
 
@@ -463,10 +463,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(c.a.c0.b.g.nad_enhance_button_view, this);
-            this.f38462e = (NadMiniVideoDownloadView) findViewById(c.a.c0.b.e.ad_video_download_btn);
-            this.f38463f = (LinearLayout) findViewById(c.a.c0.b.e.common_btn);
-            this.f38464g = (TextView) findViewById(c.a.c0.b.e.common_btn_text);
-            this.f38465h = (AdImageView) findViewById(c.a.c0.b.e.common_btn_icon);
+            this.f38618e = (NadMiniVideoDownloadView) findViewById(c.a.c0.b.e.ad_video_download_btn);
+            this.f38619f = (LinearLayout) findViewById(c.a.c0.b.e.common_btn);
+            this.f38620g = (TextView) findViewById(c.a.c0.b.e.common_btn_text);
+            this.f38621h = (AdImageView) findViewById(c.a.c0.b.e.common_btn_icon);
         }
     }
 
@@ -474,10 +474,10 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         h hVar;
         List<c.a.c0.p.i> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || (hVar = adBaseModel.f38069j) == null || (list = hVar.a) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || (hVar = adBaseModel.f38225j) == null || (list = hVar.a) == null || list.size() <= 0) {
             return;
         }
-        this.f38467j = new ArrayList();
+        this.f38623j = new ArrayList();
         for (c.a.c0.p.i iVar : list) {
             if (iVar != null) {
                 o(iVar);
@@ -497,7 +497,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(btnFinalColor);
             gradientDrawable.setCornerRadius(OPERATE_BTN_CORNOR_RADIUS);
-            (p() ? this.f38462e : this.f38463f).setBackground(gradientDrawable);
+            (p() ? this.f38618e : this.f38619f).setBackground(gradientDrawable);
             getTag();
         }
     }
@@ -506,8 +506,8 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) {
             s();
-            if (iVar.f1799c > 0 && !q()) {
-                ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(iVar.f1799c);
+            if (iVar.f2226c > 0 && !q()) {
+                ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(iVar.f2226c);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 View view = this.m;
                 if (view != null && (layoutParams instanceof ViewGroup.MarginLayoutParams)) {
@@ -519,42 +519,42 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                 }
                 View realView = getRealView();
                 Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), c.a.c0.b.a.ad_video_pop_view_fade_in);
-                loadAnimation.setDuration(iVar.f1799c);
+                loadAnimation.setDuration(iVar.f2226c);
                 realView.setVisibility(8);
                 realView.setAnimation(loadAnimation);
-                c.a.c0.u.a.b(this.f38467j, new c(this, iVar.f1798b, iVar.f1799c, duration, loadAnimation, realView));
+                c.a.c0.u.a.b(this.f38623j, new c(this, iVar.f2225b, iVar.f2226c, duration, loadAnimation, realView));
             }
         }
     }
 
     public final void l(@NonNull c.a.c0.p.i iVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, iVar) == null) || iVar.f1799c <= 0 || q()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, iVar) == null) || iVar.f2226c <= 0 || q()) {
             return;
         }
         j(true);
-        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(iVar.f1799c);
+        ValueAnimator duration = ValueAnimator.ofFloat(1.0f).setDuration(iVar.f2226c);
         duration.addUpdateListener(new d(this, getBtnFinalColor()));
-        c.a.c0.u.a.b(this.f38467j, new e(this, iVar.f1798b, iVar.f1799c, duration));
+        c.a.c0.u.a.b(this.f38623j, new e(this, iVar.f2225b, iVar.f2226c, duration));
     }
 
     public final void m(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, adBaseModel) == null) {
             if (!r()) {
-                this.f38463f.setVisibility(8);
+                this.f38619f.setVisibility(8);
                 return;
             }
-            this.f38465h.setImageDrawable(getContext().getResources().getDrawable(c.a.c0.b.d.nad_mini_video_ad_pop_command));
-            if (!TextUtils.isEmpty(adBaseModel.f38065f.f38072c)) {
-                this.f38464g.setText(adBaseModel.f38065f.f38072c);
+            this.f38621h.setImageDrawable(getContext().getResources().getDrawable(c.a.c0.b.d.nad_mini_video_ad_pop_command));
+            if (!TextUtils.isEmpty(adBaseModel.f38221f.f38228c)) {
+                this.f38620g.setText(adBaseModel.f38221f.f38228c);
             } else {
-                this.f38464g.setText(getResources().getText(c.a.c0.b.h.nad_command_btn_text));
+                this.f38620g.setText(getResources().getText(c.a.c0.b.h.nad_command_btn_text));
             }
-            this.f38464g.setTextColor(k.a.c("", c.a.c0.b.b.nad_white));
-            this.f38463f.setOnClickListener(new g(this, adBaseModel));
-            this.f38462e.setVisibility(8);
-            this.f38463f.setVisibility(0);
+            this.f38620g.setTextColor(k.a.c("", c.a.c0.b.b.nad_white));
+            this.f38619f.setOnClickListener(new g(this, adBaseModel));
+            this.f38618e.setVisibility(8);
+            this.f38619f.setVisibility(0);
         }
     }
 
@@ -563,22 +563,22 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         c.a.c0.p.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adBaseModel)) == null) {
-            if (p() && (cVar = adBaseModel.f38068i) != null && cVar.f1788d) {
-                this.f38466i = new c.a.c0.g.f.d(c.a.c0.g.d.a.b(adBaseModel), this.f38462e);
-                this.f38462e.setCornerRadius(OPERATE_BTN_CORNOR_RADIUS);
-                this.f38462e.setTextSize(12.0f);
-                NadMiniVideoDownloadView nadMiniVideoDownloadView = this.f38462e;
+            if (p() && (cVar = adBaseModel.f38224i) != null && cVar.f2215d) {
+                this.f38622i = new c.a.c0.g.f.d(c.a.c0.g.d.a.b(adBaseModel), this.f38618e);
+                this.f38618e.setCornerRadius(OPERATE_BTN_CORNOR_RADIUS);
+                this.f38618e.setTextSize(12.0f);
+                NadMiniVideoDownloadView nadMiniVideoDownloadView = this.f38618e;
                 int i2 = OPERATE_BTN_ICON_SIZE;
                 nadMiniVideoDownloadView.setImageViewLayout(new FrameLayout.LayoutParams(i2, i2));
-                this.f38463f.setVisibility(8);
-                this.f38462e.setVisibility(0);
-                this.f38462e.setOnClickListener(new f(this, adBaseModel));
+                this.f38619f.setVisibility(8);
+                this.f38618e.setVisibility(0);
+                this.f38618e.setOnClickListener(new f(this, adBaseModel));
                 return true;
             }
-            if (this.f38466i != null) {
-                this.f38466i = null;
+            if (this.f38622i != null) {
+                this.f38622i = null;
             }
-            this.f38462e.setVisibility(8);
+            this.f38618e.setVisibility(8);
             return false;
         }
         return invokeL.booleanValue;
@@ -589,7 +589,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         if (interceptable == null || interceptable.invokeL(1048585, this, iVar) == null) {
             int i2 = iVar.a;
             if (i2 == 0) {
-                c.a.c0.u.a.b(this.f38467j, new a(this, iVar.f1798b, iVar.f1799c));
+                c.a.c0.u.a.b(this.f38623j, new a(this, iVar.f2225b, iVar.f2226c));
             } else if (i2 == 1) {
                 k(iVar);
             } else if (i2 != 2) {
@@ -604,7 +604,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         AdBaseModel adBaseModel;
         AdOperator adOperator;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f38066g == null || (adOperator = adBaseModel.f38065f) == null || adOperator.a != AdOperator.TYPE.DOWNLOAD) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f38222g == null || (adOperator = adBaseModel.f38221f) == null || adOperator.a != AdOperator.TYPE.DOWNLOAD) ? false : true : invokeV.booleanValue;
     }
 
     public final boolean q() {
@@ -613,7 +613,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (getTag() instanceof AdBaseModel) {
                 AdBaseModel adBaseModel = (AdBaseModel) getTag();
-                if (!p() || adBaseModel.f38068i == null) {
+                if (!p() || adBaseModel.f38224i == null) {
                 }
                 return false;
             }
@@ -626,20 +626,20 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         InterceptResult invokeV;
         AdBaseModel adBaseModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f38065f == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? (!(getTag() instanceof AdBaseModel) || (adBaseModel = (AdBaseModel) getTag()) == null || adBaseModel.f38221f == null) ? false : true : invokeV.booleanValue;
     }
 
     @Override // c.a.c0.h0.g0.b
     public void resetAnim() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            List<c.a.c0.h0.e> list = this.f38467j;
+            List<c.a.c0.h0.e> list = this.f38623j;
             if (list != null) {
                 for (c.a.c0.h0.e eVar : list) {
                     eVar.c();
                 }
             }
-            this.f38468k = 0;
+            this.f38624k = 0;
             this.l = 0;
         }
     }
@@ -713,13 +713,13 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
     public void update(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            List<c.a.c0.h0.e> list = this.f38467j;
-            if (list != null && this.f38468k < c.a.c0.u.a.k(list)) {
-                c.a.c0.h0.e eVar = (c.a.c0.h0.e) c.a.c0.u.a.d(this.f38467j, this.f38468k);
+            List<c.a.c0.h0.e> list = this.f38623j;
+            if (list != null && this.f38624k < c.a.c0.u.a.k(list)) {
+                c.a.c0.h0.e eVar = (c.a.c0.h0.e) c.a.c0.u.a.d(this.f38623j, this.f38624k);
                 if (eVar != null && i2 * 1000 >= this.l) {
                     eVar.d();
                     this.l = (int) (this.l + eVar.b() + eVar.a());
-                    this.f38468k++;
+                    this.f38624k++;
                     return;
                 }
                 return;
@@ -746,20 +746,20 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (!(getTag() instanceof AdBaseModel)) {
-                return this.f38463f;
+                return this.f38619f;
             }
             if (!r()) {
-                return this.f38463f;
+                return this.f38619f;
             }
-            String str = ((AdBaseModel) getTag()).f38065f.a.toString();
+            String str = ((AdBaseModel) getTag()).f38221f.a.toString();
             char c2 = 65535;
             if (str.hashCode() == 1427818632 && str.equals("download")) {
                 c2 = 0;
             }
             if (c2 != 0) {
-                return this.f38463f;
+                return this.f38619f;
             }
-            return this.f38462e;
+            return this.f38618e;
         }
         return (View) invokeV.objValue;
     }
@@ -804,7 +804,7 @@ public class AdEnhanceButtonView extends FrameLayout implements c.a.c0.h0.g0.b<V
                 return;
             }
         }
-        this.f38468k = 0;
+        this.f38624k = 0;
         this.l = 0;
         this.n = null;
         h(context);

@@ -15,25 +15,25 @@ public class a implements Cloneable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f27131e;
+    public float f27554e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f27132f;
+    public float f27555f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MirrorType f27133g;
+    public MirrorType f27556g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f27134h;
+    public int f27557h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ScaleType f27135i;
+    public ScaleType f27558i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f27136j;
+    public float f27559j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f27137k;
+    public int f27560k;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,13 +48,13 @@ public class a implements Cloneable {
                 return;
             }
         }
-        this.f27131e = 0.0f;
-        this.f27132f = 0.0f;
-        this.f27133g = MirrorType.NO_MIRROR;
-        this.f27134h = 0;
-        this.f27135i = ScaleType.FIT_XY;
-        this.f27136j = 1.0f;
-        this.f27137k = -90;
+        this.f27554e = 0.0f;
+        this.f27555f = 0.0f;
+        this.f27556g = MirrorType.NO_MIRROR;
+        this.f27557h = 0;
+        this.f27558i = ScaleType.FIT_XY;
+        this.f27559j = 1.0f;
+        this.f27560k = -90;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,56 +76,56 @@ public class a implements Cloneable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27134h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27557h : invokeV.intValue;
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27136j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27559j : invokeV.floatValue;
     }
 
     public MirrorType e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27133g : (MirrorType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f27556g : (MirrorType) invokeV.objValue;
     }
 
     public ScaleType f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27135i : (ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27558i : (ScaleType) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27137k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27560k : invokeV.intValue;
     }
 
     public float h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27131e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27554e : invokeV.floatValue;
     }
 
     public float i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27132f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27555f : invokeV.floatValue;
     }
 
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f27134h = i2;
+            this.f27557h = i2;
         }
     }
 
     public void k(MirrorType mirrorType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
-            this.f27133g = mirrorType;
+            this.f27556g = mirrorType;
         }
     }
 }

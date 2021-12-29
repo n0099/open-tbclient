@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.l0.c.b;
-import c.a.r0.s.i0.f;
-import c.a.s0.t1.b.d;
+import c.a.d.f.p.n;
+import c.a.s0.l0.c.b;
+import c.a.s0.s.i0.f;
+import c.a.t0.t1.b.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -20,19 +20,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, c.a.r0.l0.c.a {
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, c.a.s0.l0.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController atMeModelController;
@@ -167,7 +170,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,14 +195,14 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f23887b;
+        BdListView bdListView = dVar.f24400b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f23888c);
+        hideNetRefreshView(this.atMeViewController.f24401c);
     }
 
-    @Override // c.a.r0.l0.c.a
+    @Override // c.a.s0.l0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -245,7 +248,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // c.a.r0.l0.c.a
+    @Override // c.a.s0.l0.c.a
     public boolean onEventDispatch(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -254,19 +257,28 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                 return true;
             }
             if (bVar.b() == 9484) {
-                c.a.r0.l0.b.a a2 = bVar.a();
+                c.a.s0.l0.b.a a2 = bVar.a();
                 if (a2 instanceof FeedData) {
-                    return toPb((FeedData) a2);
+                    FeedData feedData = (FeedData) a2;
+                    if (feedData.getThread_Type() == 40) {
+                        if (feedData.getIsFloor()) {
+                            toPb(feedData);
+                            return false;
+                        }
+                        toVideoRecommend(feedData, Boolean.TRUE);
+                        return false;
+                    }
+                    return toPb(feedData);
                 }
                 return false;
             } else if (bVar.b() == 9483) {
-                c.a.r0.l0.b.a a3 = bVar.a();
+                c.a.s0.l0.b.a a3 = bVar.a();
                 if (a3 instanceof FeedData) {
                     return toPersonInfo((FeedData) a3);
                 }
                 return false;
             } else if (bVar.b() == 9489) {
-                c.a.r0.l0.b.a a4 = bVar.a();
+                c.a.s0.l0.b.a a4 = bVar.a();
                 if (a4 instanceof FeedData) {
                     this.atMeViewController.f((FeedData) a4);
                     return true;
@@ -279,7 +291,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.r0.s.i0.f.g
+    @Override // c.a.s0.s.i0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -293,7 +305,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (!m.C() || (atMeModelController = this.atMeModelController) == null) {
+            if (!n.C() || (atMeModelController = this.atMeModelController) == null) {
                 return;
             }
             atMeModelController.C();
@@ -308,22 +320,22 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f23887b;
+        BdListView bdListView = this.atMeViewController.f24400b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f23888c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
-        setNetRefreshViewEmotionMarginTop(m.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+        showNetRefreshView(this.atMeViewController.f24401c, getString(R.string.refresh_view_title_text), null, getString(R.string.refresh_view_button_text), true, getNetRefreshListener());
+        setNetRefreshViewEmotionMarginTop(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(c.a.r0.l0.b.a aVar) {
+    public void onViewDataChanged(c.a.s0.l0.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
             this.atMeViewController.k(aVar);
         }
     }
 
-    public void onViewStateChanged(c.a.r0.l0.d.b bVar) {
+    public void onViewStateChanged(c.a.s0.l0.d.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
             this.atMeViewController.l(bVar);
@@ -335,5 +347,24 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.atMeViewController.m();
         }
+    }
+
+    public boolean toVideoRecommend(FeedData feedData, Boolean bool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, feedData, bool)) == null) {
+            if (feedData == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            VideoItemData videoItemData = new VideoItemData();
+            videoItemData.thread_id = feedData.getThread_id();
+            arrayList.add(videoItemData);
+            VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_AT_PAGE, bool.booleanValue());
+            videoRecommentPlayActivityConfig.setParamIsVertail(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

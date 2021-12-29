@@ -27,32 +27,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static String n = "package";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f33953e;
+    public Context f34109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DialogInterface.OnCancelListener f33954f;
+    public DialogInterface.OnCancelListener f34110f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f33955g;
+    public View.OnClickListener f34111g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f33956h;
+    public TextView f34112h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f33957i;
+    public String f34113i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f33958j;
+    public TextView f34114j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f33959k;
+    public TextView f34115k;
     public String l;
     public boolean m;
 
@@ -90,28 +90,28 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 return;
             }
         }
-        this.f33953e = context;
+        this.f34109e = context;
         this.l = context.getPackageName();
     }
 
     public final void a(DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onCancelListener) == null) {
-            this.f33954f = onCancelListener;
+            this.f34110f = onCancelListener;
         }
     }
 
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f33957i = str;
+            this.f34113i = str;
         }
     }
 
     public final void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f33955g = onClickListener;
+            this.f34111g = onClickListener;
         }
     }
 
@@ -126,13 +126,13 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view == this.f33958j) {
-                this.f33954f.onCancel(this);
-            } else if (view != this.f33959k || this.f33953e == null) {
+            if (view == this.f34114j) {
+                this.f34110f.onCancel(this);
+            } else if (view != this.f34115k || this.f34109e == null) {
             } else {
                 if (this.m) {
                     dismiss();
-                    View.OnClickListener onClickListener = this.f33955g;
+                    View.OnClickListener onClickListener = this.f34111g;
                     if (onClickListener != null) {
                         onClickListener.onClick(view);
                         return;
@@ -144,7 +144,7 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 intent.setFlags(268435456);
                 intent.setFlags(8388608);
                 intent.setFlags(1073741824);
-                this.f33953e.startActivity(intent);
+                this.f34109e.startActivity(intent);
                 dismiss();
             }
         }
@@ -159,22 +159,22 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
                 requestWindowFeature(1);
                 a.b(getWindow().getDecorView());
             }
-            View inflate = LayoutInflater.from(this.f33953e).inflate(l.core_permission_go_setting, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f34109e).inflate(l.core_permission_go_setting, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(k.core_permission_go_setting_message);
-            this.f33956h = textView;
-            textView.setText(this.f33957i);
+            this.f34112h = textView;
+            textView.setText(this.f34113i);
             TextView textView2 = (TextView) inflate.findViewById(k.core_permission_go_setting_cancel_button);
-            this.f33958j = textView2;
+            this.f34114j = textView2;
             textView2.setOnClickListener(this);
             TextView textView3 = (TextView) inflate.findViewById(k.core_permission_go_setting_button);
-            this.f33959k = textView3;
+            this.f34115k = textView3;
             textView3.setOnClickListener(this);
             if (this.m) {
-                this.f33959k.setText(this.f33953e.getResources().getString(m.core_permission_show_permission_cycle));
+                this.f34115k.setText(this.f34109e.getResources().getString(m.core_permission_show_permission_cycle));
             } else {
-                this.f33959k.setText(this.f33953e.getResources().getString(m.core_permission_go_setting));
+                this.f34115k.setText(this.f34109e.getResources().getString(m.core_permission_go_setting));
             }
-            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f33953e.getResources().getDimension(j.core_permission_dialog_width), -2));
+            setContentView(inflate, new ViewGroup.LayoutParams((int) this.f34109e.getResources().getDimension(j.core_permission_dialog_width), -2));
             Window window = getWindow();
             if (window != null) {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -188,11 +188,11 @@ public class BdPermissionGoSettingDialog extends Dialog implements View.OnClickL
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f33958j = null;
-            this.f33954f = null;
-            this.f33955g = null;
-            this.f33953e = null;
-            this.f33956h = null;
+            this.f34114j = null;
+            this.f34110f = null;
+            this.f34111g = null;
+            this.f34109e = null;
+            this.f34112h = null;
         }
     }
 

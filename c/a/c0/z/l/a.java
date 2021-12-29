@@ -17,10 +17,10 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<String> f2153b;
+    public final ArrayList<String> f2580b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final StringBuilder f2154c;
+    public final StringBuilder f2581c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class a {
             }
         }
         this.a = false;
-        this.f2153b = new ArrayList<>();
-        this.f2154c = new StringBuilder();
+        this.f2580b = new ArrayList<>();
+        this.f2581c = new StringBuilder();
     }
 
     public static a g(Column column) {
@@ -86,7 +86,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, bVar, str2)) == null) {
             this.a = true;
-            this.f2154c.append(" AND ");
+            this.f2581c.append(" AND ");
             f(str, bVar, str2);
             return this;
         }
@@ -119,7 +119,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, objArr)) == null) {
             for (Object obj : objArr) {
-                this.f2153b.add(String.valueOf(obj));
+                this.f2580b.add(String.valueOf(obj));
             }
             return this;
         }
@@ -130,9 +130,9 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String[] strArr = new String[this.f2153b.size()];
-            for (int i2 = 0; i2 < this.f2153b.size(); i2++) {
-                strArr[i2] = this.f2153b.get(i2);
+            String[] strArr = new String[this.f2580b.size()];
+            for (int i2 = 0; i2 < this.f2580b.size(); i2++) {
+                strArr[i2] = this.f2580b.get(i2);
             }
             return strArr;
         }
@@ -144,17 +144,17 @@ public class a {
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, bVar, str2) == null) {
             if (bVar != null) {
                 if (str != null) {
-                    this.f2154c.append(str);
-                    this.f2154c.append(".");
+                    this.f2581c.append(str);
+                    this.f2581c.append(".");
                 }
-                this.f2154c.append(bVar.f2147b);
+                this.f2581c.append(bVar.f2574b);
                 if (str2.charAt(0) != ' ') {
-                    this.f2154c.append(" ");
+                    this.f2581c.append(" ");
                 }
             } else if (str != null) {
                 throw new IllegalArgumentException("prefix should be null when field is null");
             }
-            this.f2154c.append(str2);
+            this.f2581c.append(str2);
         }
     }
 
@@ -163,11 +163,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (this.a) {
-                this.f2154c.insert(0, "(");
-                this.f2154c.append(SmallTailInfo.EMOTION_SUFFIX);
+                this.f2581c.insert(0, "(");
+                this.f2581c.append(SmallTailInfo.EMOTION_SUFFIX);
             }
-            this.f2154c.insert(0, " WHERE ");
-            return this.f2154c.toString();
+            this.f2581c.insert(0, " WHERE ");
+            return this.f2581c.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -177,10 +177,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.a) {
-                this.f2154c.insert(0, "(");
-                this.f2154c.append(SmallTailInfo.EMOTION_SUFFIX);
+                this.f2581c.insert(0, "(");
+                this.f2581c.append(SmallTailInfo.EMOTION_SUFFIX);
             }
-            return this.f2154c.toString();
+            return this.f2581c.toString();
         }
         return (String) invokeV.objValue;
     }

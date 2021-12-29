@@ -95,24 +95,24 @@ public class f implements g {
         c.a.c0.g.d.a v = bVar.v();
         switch (a.a[adDownloadStatus.ordinal()]) {
             case 1:
-                bVar.y("0", String.valueOf(v.f1519i), "", v.d());
+                bVar.y("0", String.valueOf(v.f1946i), "", v.d());
                 return;
             case 2:
-                String valueOf = String.valueOf(v.f1519i);
-                Uri uri = v.f1521k;
+                String valueOf = String.valueOf(v.f1946i);
+                Uri uri = v.f1948k;
                 bVar.y("2", valueOf, uri != null ? uri.toString() : "", v.d());
                 return;
             case 3:
-                String valueOf2 = String.valueOf(v.f1519i);
-                Uri uri2 = v.f1521k;
+                String valueOf2 = String.valueOf(v.f1946i);
+                Uri uri2 = v.f1948k;
                 bVar.y("1", valueOf2, uri2 != null ? uri2.toString() : "", v.d());
                 return;
             case 4:
-                Uri uri3 = v.f1521k;
+                Uri uri3 = v.f1948k;
                 bVar.y("3", "1", uri3 != null ? uri3.toString() : "", v.d());
                 return;
             case 5:
-                Uri uri4 = v.f1521k;
+                Uri uri4 = v.f1948k;
                 bVar.y("6", "1", uri4 != null ? uri4.toString() : "", v.d());
                 return;
             case 6:

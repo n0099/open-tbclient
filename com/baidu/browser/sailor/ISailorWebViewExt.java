@@ -6,7 +6,7 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ISailorWebViewExt extends INoProGuard {
     void addNoStatePrefetch(String str, String str2);
 

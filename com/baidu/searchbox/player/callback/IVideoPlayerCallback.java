@@ -11,8 +11,6 @@ public interface IVideoPlayerCallback {
 
     void onError(int i2, int i3, String str);
 
-    void onGlobalOrientationLock(boolean z);
-
     void onInfo(int i2, int i3);
 
     void onNetworkSpeedUpdate(int i2);

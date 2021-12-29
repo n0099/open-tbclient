@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.d.f.p.m;
-import c.a.s0.g0.d0;
-import c.a.s0.u2.i.b;
-import c.a.s0.v2.e.h;
-import c.a.s0.y2.e;
-import c.a.s0.y2.g;
+import c.a.d.f.p.n;
+import c.a.t0.g0.d0;
+import c.a.t0.u2.i.b;
+import c.a.t0.v2.d.h;
+import c.a.t0.y2.e;
+import c.a.t0.y2.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -42,7 +42,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonCenterMoreActivity f48682b;
+        public final /* synthetic */ PersonCenterMoreActivity f48903b;
 
         public a(PersonCenterMoreActivity personCenterMoreActivity) {
             Interceptable interceptable = $ic;
@@ -59,21 +59,21 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                     return;
                 }
             }
-            this.f48682b = personCenterMoreActivity;
+            this.f48903b = personCenterMoreActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.s0.g0.d0
+        @Override // c.a.t0.g0.d0
         /* renamed from: d */
         public void a(View view, h hVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, hVar) == null) {
-                this.f48682b.mItemData = hVar;
-                if (this.f48682b.mItemData == null || this.f48682b.requestPermission()) {
+                this.f48903b.mItemData = hVar;
+                if (this.f48903b.mItemData == null || this.f48903b.requestPermission()) {
                     return;
                 }
-                PersonCenterMoreActivity personCenterMoreActivity = this.f48682b;
-                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.f24795k);
+                PersonCenterMoreActivity personCenterMoreActivity = this.f48903b;
+                personCenterMoreActivity.dealUrlMapClick(personCenterMoreActivity.mItemData.f25306k);
             }
         }
     }
@@ -120,14 +120,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
         if (str.startsWith("tieba&")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
-                m.L(getPageContext().getPageActivity(), g.cosume_record_plugin_not_install_tip);
+                n.L(getPageContext().getPageActivity(), g.cosume_record_plugin_not_install_tip);
                 return;
             }
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str.substring(6)});
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            c.a.r0.m.a.v(getPageContext().getPageActivity(), true, str);
+            c.a.s0.m.a.v(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -177,7 +177,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, strArr, iArr) == null) && 25040 == i2 && iArr[0] == 0) {
-            dealUrlMapClick(this.mItemData.f24795k);
+            dealUrlMapClick(this.mItemData.f25306k);
         }
     }
 }

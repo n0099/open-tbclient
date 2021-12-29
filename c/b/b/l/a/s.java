@@ -12,10 +12,10 @@ public final class s implements c.b.b.k.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SoundPool f27819e;
+    public final SoundPool f27893e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f27820f;
+    public final int f27894f;
 
     public s(SoundPool soundPool, AudioManager audioManager, int i2) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public final class s implements c.b.b.k.b {
             }
         }
         new c.b.b.q.l(8);
-        this.f27819e = soundPool;
-        this.f27820f = i2;
+        this.f27893e = soundPool;
+        this.f27894f = i2;
     }
 
     @Override // c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f27819e.unload(this.f27820f);
+            this.f27893e.unload(this.f27894f);
         }
     }
 }

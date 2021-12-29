@@ -2,12 +2,12 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.s.r.t1;
-import c.a.r0.s.r.u1;
-import c.a.s0.d1.c3.d;
-import c.a.s0.d1.k;
-import c.a.s0.d1.k1;
-import c.a.s0.d1.x;
+import c.a.s0.s.q.t1;
+import c.a.s0.s.q.u1;
+import c.a.t0.d1.c3.d;
+import c.a.t0.d1.k;
+import c.a.t0.d1.k1;
+import c.a.t0.d1.x;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -74,26 +74,26 @@ public class FrsSchoolRecommendAdapter extends k<t1, FrsSchoolRecommendViewHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: t0 */
-    public FrsSchoolRecommendViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: m0 */
+    public FrsSchoolRecommendViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.x = new d(this.o, this.f2875i);
+            this.x = new d(this.o, this.f3303i);
             return new FrsSchoolRecommendViewHolder(this, this.x);
         }
         return (FrsSchoolRecommendViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.s0.d1.k, c.a.d.m.e.a
-    /* renamed from: u0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
+    @Override // c.a.t0.d1.k, c.a.d.n.e.a
+    /* renamed from: n0 */
+    public View S(int i2, View view, ViewGroup viewGroup, t1 t1Var, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, t1Var, frsSchoolRecommendViewHolder})) == null) {
-            super.Z(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
+            super.S(i2, view, viewGroup, t1Var, frsSchoolRecommendViewHolder);
             this.x = frsSchoolRecommendViewHolder.mCardView;
             ArrayList<u1> T4 = t1Var.T4();
             if (T4.size() <= 0) {

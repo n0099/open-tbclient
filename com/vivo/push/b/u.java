@@ -7,70 +7,76 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class u extends com.vivo.push.y {
+public final class u extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63027b;
+    public int f63030b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(int i2) {
-        super(i2);
+    public u() {
+        super(20);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.f63027b = 0;
+        this.a = -1L;
     }
 
-    @Override // com.vivo.push.y
-    public void c(com.vivo.push.a aVar) {
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
+    public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            aVar.a("req_id", this.a);
-            aVar.a("status_msg_code", this.f63027b);
+            super.c(aVar);
+            aVar.a("undo_msg_v1", this.a);
+            aVar.a("undo_msg_type_v1", this.f63030b);
         }
     }
 
-    @Override // com.vivo.push.y
-    public void d(com.vivo.push.a aVar) {
+    public final long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar.a("req_id");
-            this.f63027b = aVar.b("status_msg_code", this.f63027b);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j2 = this.a;
+            if (j2 != -1) {
+                return String.valueOf(j2);
+            }
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final String g() {
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnUndoMsgCommand" : (String) invokeV.objValue;
     }
 
-    public final int h() {
-        InterceptResult invokeV;
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63027b : invokeV.intValue;
-    }
-
-    @Override // com.vivo.push.y
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnReceiveCommand" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            super.d(aVar);
+            this.a = aVar.b("undo_msg_v1", this.a);
+            this.f63030b = aVar.b("undo_msg_type_v1", 0);
+        }
     }
 }

@@ -3,10 +3,10 @@ package com.baidu.tieba.ala.alasquare.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import c.a.d.m.e.a;
-import c.a.s0.a0.f.a.b;
-import c.a.s0.a0.f.i.c;
-import c.a.s0.a0.f.i.d;
+import c.a.d.n.e.a;
+import c.a.t0.a0.f.a.b;
+import c.a.t0.a0.f.i.c;
+import c.a.t0.a0.f.i.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     public int n;
     public d o;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class SquareActiveViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: g0 */
-    public SquareActiveViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: Z */
+    public SquareActiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
@@ -67,9 +67,9 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public View S(int i2, View view, ViewGroup viewGroup, b bVar, SquareActiveViewHolder squareActiveViewHolder) {
         InterceptResult invokeCommon;
         c cVar;
         Interceptable interceptable = $ic;
@@ -78,9 +78,9 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
                 return null;
             }
             cVar.k(bVar);
-            c.a.s0.a0.f.e.a.c().a(bVar.g("c12249", false));
+            c.a.t0.a0.f.e.a.c().a(bVar.g("c12249", false));
             if (i2 == this.n) {
-                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f2871e, R.anim.list_anim));
+                cVar.j().setAnimation(AnimationUtils.loadAnimation(this.f3299e, R.anim.list_anim));
             }
             return squareActiveViewHolder.getView();
         }

@@ -21,13 +21,13 @@ public class WalletDialog extends Dialog {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Adapter f56038b;
+    public Adapter f56037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayoutInflater f56039c;
+    public LayoutInflater f56038c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewHolder f56040d;
+    public ViewHolder f56039d;
     public Context mContext;
 
     /* loaded from: classes2.dex */
@@ -124,12 +124,12 @@ public class WalletDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             LayoutInflater from = LayoutInflater.from(this.mContext);
-            this.f56039c = from;
+            this.f56038c = from;
             ViewGroup viewGroup = (ViewGroup) from.inflate(ResUtils.layout(this.mContext, "dxm_wallet_base_layout_dialog"), (ViewGroup) null);
             this.a = viewGroup;
             setContentView(viewGroup);
-            ViewHolder createViewHolder = this.f56038b.createViewHolder(this.a);
-            this.f56040d = createViewHolder;
+            ViewHolder createViewHolder = this.f56037b.createViewHolder(this.a);
+            this.f56039d = createViewHolder;
             this.a.addView(createViewHolder.a);
             setCanceledOnTouchOutside(false);
             setCancelable(false);
@@ -142,8 +142,8 @@ public class WalletDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onStart();
-            Adapter adapter = this.f56038b;
-            if (adapter == null || this.a == null || (viewHolder = this.f56040d) == null) {
+            Adapter adapter = this.f56037b;
+            if (adapter == null || this.a == null || (viewHolder = this.f56039d) == null) {
                 return;
             }
             adapter.bindViewHolder(viewHolder);
@@ -153,7 +153,7 @@ public class WalletDialog extends Dialog {
     public void setAdapter(Adapter adapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adapter) == null) {
-            this.f56038b = adapter;
+            this.f56037b = adapter;
         }
     }
 

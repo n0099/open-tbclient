@@ -10,8 +10,8 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.o.a.b;
-import c.a.q0.o.a.c;
+import c.a.r0.o.a.b;
+import c.a.r0.o.a.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +115,7 @@ public class SwanAudioPlayer {
                     this.a.postRunnable(Long.parseLong(message.obj.toString()));
                 } else if (i2 != 101) {
                 } else {
-                    c.a.q0.o.a.a aVar = (c.a.q0.o.a.a) message.obj;
+                    c.a.r0.o.a.a aVar = (c.a.r0.o.a.a) message.obj;
                     if (this.a.mAudioRecordListener != null) {
                         this.a.mAudioRecordListener.a(aVar);
                     }
@@ -232,10 +232,10 @@ public class SwanAudioPlayer {
         if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j2) == null) || bArr == null) {
             return;
         }
-        c.a.q0.o.a.a aVar = new c.a.q0.o.a.a();
+        c.a.r0.o.a.a aVar = new c.a.r0.o.a.a();
         aVar.a = bArr;
-        aVar.f10977b = j2;
-        aVar.f10978c = System.nanoTime();
+        aVar.f11712b = j2;
+        aVar.f11713c = System.nanoTime();
         this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, aVar));
     }
 

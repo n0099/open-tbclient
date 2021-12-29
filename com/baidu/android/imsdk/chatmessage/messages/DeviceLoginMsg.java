@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +110,7 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
             try {
                 JSONObject jSONObject = new JSONObject(getMsgContent());
                 this.time = jSONObject.optLong("time");
-                this.deviceType = jSONObject.optString("device_type");
+                this.deviceType = jSONObject.optString(HttpConstants.DEVICE_TYPE);
                 return true;
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "parseJsonString", e2);

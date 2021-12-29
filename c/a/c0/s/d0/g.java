@@ -17,7 +17,7 @@ public class g extends OrientationEventListener {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f1948b;
+    public a f2375b;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -93,7 +93,7 @@ public class g extends OrientationEventListener {
     public void g(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f1948b = aVar;
+            this.f2375b = aVar;
         }
     }
 
@@ -103,7 +103,7 @@ public class g extends OrientationEventListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             this.a = i2;
-            if (i2 == -1 || (aVar = this.f1948b) == null) {
+            if (i2 == -1 || (aVar = this.f2375b) == null) {
                 return;
             }
             aVar.onOrientationChanged(i2);

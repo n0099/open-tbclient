@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Debug;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +134,7 @@ public class a0 {
                     throw th;
                 }
             }
-            String replace = readLine.replace(TrackUI.SEPERATOR, " ");
+            String replace = readLine.replace("\t", " ");
             try {
                 bufferedReader2.close();
             } catch (Exception unused4) {

@@ -25,7 +25,7 @@ import kotlin.Metadata;
 /* loaded from: classes10.dex */
 public interface LivePlayer extends IBVideoPlayer {
 
-    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
     /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static /* synthetic */ Interceptable $ic;

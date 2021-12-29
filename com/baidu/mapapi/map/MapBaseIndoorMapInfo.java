@@ -14,15 +14,15 @@ public final class MapBaseIndoorMapInfo {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36336d = "MapBaseIndoorMapInfo";
+    public static final String f36492d = "MapBaseIndoorMapInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36337b;
+    public String f36493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f36338c;
+    public ArrayList<String> f36494c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */
@@ -135,8 +135,8 @@ public final class MapBaseIndoorMapInfo {
             }
         }
         this.a = mapBaseIndoorMapInfo.a;
-        this.f36337b = mapBaseIndoorMapInfo.f36337b;
-        this.f36338c = mapBaseIndoorMapInfo.f36338c;
+        this.f36493b = mapBaseIndoorMapInfo.f36493b;
+        this.f36494c = mapBaseIndoorMapInfo.f36494c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
@@ -155,20 +155,20 @@ public final class MapBaseIndoorMapInfo {
             }
         }
         this.a = str;
-        this.f36337b = str2;
-        this.f36338c = arrayList;
+        this.f36493b = str2;
+        this.f36494c = arrayList;
     }
 
     public String getCurFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36337b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36493b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getFloors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36338c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36494c : (ArrayList) invokeV.objValue;
     }
 
     public String getID() {

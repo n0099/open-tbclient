@@ -2,8 +2,8 @@ package com.baidu.tbadk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.d;
-import c.a.d.f.p.m;
+import c.a.d.f.p.e;
+import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -76,7 +76,7 @@ public class TiebaIMConfig {
     public static int getMaxChatImageWidthInPx(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? m.d(context, 300.0f) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? n.d(context, 300.0f) : invokeL.intValue;
     }
 
     public static BdAsyncTaskParallel getParallel() {
@@ -88,6 +88,6 @@ public class TiebaIMConfig {
     public static byte[] getRSAPublicKey() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? e.d(PUBLIC_KEY_BASE64) : (byte[]) invokeV.objValue;
     }
 }

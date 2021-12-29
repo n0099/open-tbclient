@@ -25,25 +25,25 @@ public class CallActionLoadingDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38280e;
+    public Context f38436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f38281f;
+    public View f38437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LoadingProgressBar f38282g;
+    public LoadingProgressBar f38438g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f38283h;
+    public TextView f38439h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f38284i;
+    public String f38440i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f38285j;
+    public boolean f38441j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f38286k;
+    public boolean f38442k;
     public boolean l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,11 +65,11 @@ public class CallActionLoadingDialog extends Dialog {
                 return;
             }
         }
-        this.f38284i = "";
-        this.f38286k = false;
+        this.f38440i = "";
+        this.f38442k = false;
         this.l = false;
-        this.f38280e = context;
-        this.f38285j = a(context);
+        this.f38436e = context;
+        this.f38441j = a(context);
     }
 
     public final boolean a(Context context) {
@@ -81,12 +81,12 @@ public class CallActionLoadingDialog extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f38281f = findViewById(r.root_container);
-            this.f38282g = (LoadingProgressBar) findViewById(r.loading_bar);
+            this.f38437f = findViewById(r.root_container);
+            this.f38438g = (LoadingProgressBar) findViewById(r.loading_bar);
             TextView textView = (TextView) findViewById(r.message);
-            this.f38283h = textView;
-            textView.setText(this.f38284i);
-            setCancelable(this.f38286k);
+            this.f38439h = textView;
+            textView.setText(this.f38440i);
+            setCancelable(this.f38442k);
             setCanceledOnTouchOutside(this.l);
             c();
         }
@@ -95,19 +95,19 @@ public class CallActionLoadingDialog extends Dialog {
     public final void c() {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f38280e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f38436e) == null) {
             return;
         }
         Resources resources = context.getResources();
-        View view = this.f38281f;
+        View view = this.f38437f;
         if (view != null) {
             view.setBackground(resources.getDrawable(q.nad_icon_loading_dialog_bg));
         }
-        LoadingProgressBar loadingProgressBar = this.f38282g;
+        LoadingProgressBar loadingProgressBar = this.f38438g;
         if (loadingProgressBar != null) {
             loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(q.nad_loading_animation));
         }
-        TextView textView = this.f38283h;
+        TextView textView = this.f38439h;
         if (textView != null) {
             textView.setTextColor(resources.getColor(o.nad_color_white));
         }
@@ -127,7 +127,7 @@ public class CallActionLoadingDialog extends Dialog {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f38286k = z;
+            this.f38442k = z;
             return this;
         }
         return (CallActionLoadingDialog) invokeZ.objValue;
@@ -147,7 +147,7 @@ public class CallActionLoadingDialog extends Dialog {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f38284i = str;
+            this.f38440i = str;
             return this;
         }
         return (CallActionLoadingDialog) invokeL.objValue;
@@ -156,7 +156,7 @@ public class CallActionLoadingDialog extends Dialog {
     @Override // android.app.Dialog
     public void show() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f38285j) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f38441j) {
             try {
                 super.show();
             } catch (Exception e2) {

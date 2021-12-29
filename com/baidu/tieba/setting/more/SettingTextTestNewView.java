@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d.f.p.l;
 import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -39,7 +39,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             }
         }
         hideArrow();
-        resetTipViewMargains(0, 0, m.f(context, R.dimen.ds30), 0);
+        resetTipViewMargains(0, 0, n.f(context, R.dimen.ds30), 0);
     }
 
     public void refresh() {
@@ -58,7 +58,7 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 return;
             }
             String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !l.isEmpty(TbConfig.getSubVersion())) {
+            if (TbConfig.getVersionType() == 1 && !m.isEmpty(TbConfig.getSubVersion())) {
                 version = version + "." + TbConfig.getSubVersion();
             }
             this.tipView.setText(version);

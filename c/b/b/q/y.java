@@ -24,7 +24,7 @@ public class y<K, V> extends w<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: k  reason: collision with root package name */
-        public c.b.b.q.a<K> f28332k;
+        public c.b.b.q.a<K> f28406k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(y<K, V> yVar) {
@@ -44,16 +44,16 @@ public class y<K, V> extends w<K, V> {
                     return;
                 }
             }
-            this.f28332k = yVar.s;
+            this.f28406k = yVar.s;
         }
 
         @Override // c.b.b.q.w.d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28318h = -1;
-                this.f28317g = 0;
-                this.f28315e = this.f28316f.f28306e > 0;
+                this.f28392h = -1;
+                this.f28391g = 0;
+                this.f28389e = this.f28390f.f28380e > 0;
             }
         }
 
@@ -64,17 +64,17 @@ public class y<K, V> extends w<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f28315e) {
-                    if (this.f28319i) {
-                        int i2 = this.f28317g;
-                        this.f28318h = i2;
-                        this.f28313j.a = this.f28332k.get(i2);
-                        w.b<K, V> bVar = this.f28313j;
-                        bVar.f28314b = this.f28316f.c(bVar.a);
-                        int i3 = this.f28317g + 1;
-                        this.f28317g = i3;
-                        this.f28315e = i3 < this.f28316f.f28306e;
-                        return this.f28313j;
+                if (this.f28389e) {
+                    if (this.f28393i) {
+                        int i2 = this.f28391g;
+                        this.f28392h = i2;
+                        this.f28387j.a = this.f28406k.get(i2);
+                        w.b<K, V> bVar = this.f28387j;
+                        bVar.f28388b = this.f28390f.c(bVar.a);
+                        int i3 = this.f28391g + 1;
+                        this.f28391g = i3;
+                        this.f28389e = i3 < this.f28390f.f28380e;
+                        return this.f28387j;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
@@ -87,10 +87,10 @@ public class y<K, V> extends w<K, V> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.f28318h >= 0) {
-                    this.f28316f.k(this.f28313j.a);
-                    this.f28317g--;
-                    this.f28318h = -1;
+                if (this.f28392h >= 0) {
+                    this.f28390f.k(this.f28387j.a);
+                    this.f28391g--;
+                    this.f28392h = -1;
                     return;
                 }
                 throw new IllegalStateException("next must be called before remove.");
@@ -104,7 +104,7 @@ public class y<K, V> extends w<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.b.b.q.a<K> f28333j;
+        public c.b.b.q.a<K> f28407j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(y<K, ?> yVar) {
@@ -124,16 +124,16 @@ public class y<K, V> extends w<K, V> {
                     return;
                 }
             }
-            this.f28333j = yVar.s;
+            this.f28407j = yVar.s;
         }
 
         @Override // c.b.b.q.w.d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28318h = -1;
-                this.f28317g = 0;
-                this.f28315e = this.f28316f.f28306e > 0;
+                this.f28392h = -1;
+                this.f28391g = 0;
+                this.f28389e = this.f28390f.f28380e > 0;
             }
         }
 
@@ -142,7 +142,7 @@ public class y<K, V> extends w<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c.b.b.q.a<K> aVar = new c.b.b.q.a<>(true, this.f28333j.f28143f - this.f28317g);
+                c.b.b.q.a<K> aVar = new c.b.b.q.a<>(true, this.f28407j.f28217f - this.f28391g);
                 f(aVar);
                 return aVar;
             }
@@ -154,11 +154,11 @@ public class y<K, V> extends w<K, V> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-                c.b.b.q.a<K> aVar2 = this.f28333j;
-                int i2 = this.f28317g;
-                aVar.c(aVar2, i2, aVar2.f28143f - i2);
-                this.f28317g = this.f28333j.f28143f;
-                this.f28315e = false;
+                c.b.b.q.a<K> aVar2 = this.f28407j;
+                int i2 = this.f28391g;
+                aVar.c(aVar2, i2, aVar2.f28217f - i2);
+                this.f28391g = this.f28407j.f28217f;
+                this.f28389e = false;
                 return aVar;
             }
             return (c.b.b.q.a) invokeL.objValue;
@@ -169,14 +169,14 @@ public class y<K, V> extends w<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.f28315e) {
-                    if (this.f28319i) {
-                        K k2 = this.f28333j.get(this.f28317g);
-                        int i2 = this.f28317g;
-                        this.f28318h = i2;
+                if (this.f28389e) {
+                    if (this.f28393i) {
+                        K k2 = this.f28407j.get(this.f28391g);
+                        int i2 = this.f28391g;
+                        this.f28392h = i2;
                         int i3 = i2 + 1;
-                        this.f28317g = i3;
-                        this.f28315e = i3 < this.f28316f.f28306e;
+                        this.f28391g = i3;
+                        this.f28389e = i3 < this.f28390f.f28380e;
                         return k2;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -190,11 +190,11 @@ public class y<K, V> extends w<K, V> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i2 = this.f28318h;
+                int i2 = this.f28392h;
                 if (i2 >= 0) {
-                    ((y) this.f28316f).o(i2);
-                    this.f28317g = this.f28318h;
-                    this.f28318h = -1;
+                    ((y) this.f28390f).o(i2);
+                    this.f28391g = this.f28392h;
+                    this.f28392h = -1;
                     return;
                 }
                 throw new IllegalStateException("next must be called before remove.");
@@ -208,7 +208,7 @@ public class y<K, V> extends w<K, V> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: j  reason: collision with root package name */
-        public c.b.b.q.a f28334j;
+        public c.b.b.q.a f28408j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(y<?, V> yVar) {
@@ -228,16 +228,16 @@ public class y<K, V> extends w<K, V> {
                     return;
                 }
             }
-            this.f28334j = yVar.s;
+            this.f28408j = yVar.s;
         }
 
         @Override // c.b.b.q.w.d
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f28318h = -1;
-                this.f28317g = 0;
-                this.f28315e = this.f28316f.f28306e > 0;
+                this.f28392h = -1;
+                this.f28391g = 0;
+                this.f28389e = this.f28390f.f28380e > 0;
             }
         }
 
@@ -246,14 +246,14 @@ public class y<K, V> extends w<K, V> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.f28315e) {
-                    if (this.f28319i) {
-                        V c2 = this.f28316f.c(this.f28334j.get(this.f28317g));
-                        int i2 = this.f28317g;
-                        this.f28318h = i2;
+                if (this.f28389e) {
+                    if (this.f28393i) {
+                        V c2 = this.f28390f.c(this.f28408j.get(this.f28391g));
+                        int i2 = this.f28391g;
+                        this.f28392h = i2;
                         int i3 = i2 + 1;
-                        this.f28317g = i3;
-                        this.f28315e = i3 < this.f28316f.f28306e;
+                        this.f28391g = i3;
+                        this.f28389e = i3 < this.f28390f.f28380e;
                         return c2;
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
@@ -267,11 +267,11 @@ public class y<K, V> extends w<K, V> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i2 = this.f28318h;
+                int i2 = this.f28392h;
                 if (i2 >= 0) {
-                    ((y) this.f28316f).o(i2);
-                    this.f28317g = this.f28318h;
-                    this.f28318h = -1;
+                    ((y) this.f28390f).o(i2);
+                    this.f28391g = this.f28392h;
+                    this.f28392h = -1;
                     return;
                 }
                 throw new IllegalStateException("next must be called before remove.");
@@ -308,17 +308,17 @@ public class y<K, V> extends w<K, V> {
                 this.m = new a(this);
             }
             w.a aVar = this.l;
-            if (!aVar.f28319i) {
+            if (!aVar.f28393i) {
                 aVar.c();
                 w.a<K, V> aVar2 = this.l;
-                aVar2.f28319i = true;
-                this.m.f28319i = false;
+                aVar2.f28393i = true;
+                this.m.f28393i = false;
                 return aVar2;
             }
             this.m.c();
             w.a<K, V> aVar3 = this.m;
-            aVar3.f28319i = true;
-            this.l.f28319i = false;
+            aVar3.f28393i = true;
+            this.l.f28393i = false;
             return aVar3;
         }
         return (w.a) invokeV.objValue;
@@ -355,17 +355,17 @@ public class y<K, V> extends w<K, V> {
                 this.q = new b(this);
             }
             w.c cVar = this.p;
-            if (!cVar.f28319i) {
+            if (!cVar.f28393i) {
                 cVar.c();
                 w.c<K> cVar2 = this.p;
-                cVar2.f28319i = true;
-                this.q.f28319i = false;
+                cVar2.f28393i = true;
+                this.q.f28393i = false;
                 return cVar2;
             }
             this.q.c();
             w.c<K> cVar3 = this.q;
-            cVar3.f28319i = true;
-            this.p.f28319i = false;
+            cVar3.f28393i = true;
+            this.p.f28393i = false;
             return cVar3;
         }
         return (w.c) invokeV.objValue;
@@ -378,19 +378,19 @@ public class y<K, V> extends w<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k2, v)) == null) {
             int g2 = g(k2);
             if (g2 >= 0) {
-                V[] vArr = this.f28308g;
+                V[] vArr = this.f28382g;
                 V v2 = vArr[g2];
                 vArr[g2] = v;
                 return v2;
             }
             int i2 = -(g2 + 1);
-            this.f28307f[i2] = k2;
-            this.f28308g[i2] = v;
+            this.f28381f[i2] = k2;
+            this.f28382g[i2] = v;
             this.s.a(k2);
-            int i3 = this.f28306e + 1;
-            this.f28306e = i3;
-            if (i3 >= this.f28310i) {
-                l(this.f28307f.length << 1);
+            int i3 = this.f28380e + 1;
+            this.f28380e = i3;
+            if (i3 >= this.f28384i) {
+                l(this.f28381f.length << 1);
                 return null;
             }
             return null;
@@ -414,7 +414,7 @@ public class y<K, V> extends w<K, V> {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            if (this.f28306e == 0) {
+            if (this.f28380e == 0) {
                 return z ? StringUtil.EMPTY_ARRAY : "";
             }
             StringBuilder sb = new StringBuilder(32);
@@ -422,7 +422,7 @@ public class y<K, V> extends w<K, V> {
                 sb.append(ExtendedMessageFormat.START_FE);
             }
             c.b.b.q.a<K> aVar = this.s;
-            int i2 = aVar.f28143f;
+            int i2 = aVar.f28217f;
             for (int i3 = 0; i3 < i2; i3++) {
                 K k2 = aVar.get(i3);
                 if (i3 > 0) {
@@ -430,7 +430,7 @@ public class y<K, V> extends w<K, V> {
                 }
                 Object obj = "(this)";
                 sb.append(k2 == this ? "(this)" : k2);
-                sb.append(com.alipay.sdk.encrypt.a.f31721h);
+                sb.append(com.alipay.sdk.encrypt.a.f31864h);
                 V c2 = c(k2);
                 if (c2 != this) {
                     obj = c2;
@@ -458,17 +458,17 @@ public class y<K, V> extends w<K, V> {
                 this.o = new c(this);
             }
             w.e eVar = this.n;
-            if (!eVar.f28319i) {
+            if (!eVar.f28393i) {
                 eVar.c();
                 w.e<V> eVar2 = this.n;
-                eVar2.f28319i = true;
-                this.o.f28319i = false;
+                eVar2.f28393i = true;
+                this.o.f28393i = false;
                 return eVar2;
             }
             this.o.c();
             w.e<V> eVar3 = this.o;
-            eVar3.f28319i = true;
-            this.n.f28319i = false;
+            eVar3.f28393i = true;
+            this.n.f28393i = false;
             return eVar3;
         }
         return (w.e) invokeV.objValue;

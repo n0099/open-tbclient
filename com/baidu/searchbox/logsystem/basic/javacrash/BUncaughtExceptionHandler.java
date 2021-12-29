@@ -6,9 +6,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
 import com.baidu.searchbox.logsystem.javacrash.ProcessExceptionListener;
@@ -40,9 +41,9 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseUncaughtException";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context mContext;
+    public final Context mContext;
     public long mProcessLaunchTime;
-    public String mProcessName;
+    public final String mProcessName;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BUncaughtExceptionHandler(@NonNull Context context, @Nullable List<ProcessExceptionListener> list) {
@@ -90,6 +91,11 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             logExtra.mCrashThreadPriority = String.valueOf(thread.getPriority());
             logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
             logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
+            logExtra.mHeapMem = CommonUtils.getHeapInfo();
+            logExtra.mVSSRSS = CommonUtils.getVSSRSS();
+            logExtra.mPSS = CommonUtils.getPSS();
+            logExtra.mSysMem = CommonUtils.getSysMem();
+            logExtra.mSysLowMem = !CommonUtils.isLowMemory() ? 1 : 0;
             return logExtra;
         }
         return (LogExtra) invokeL.objValue;

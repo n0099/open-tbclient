@@ -1,8 +1,8 @@
 package com.faceunity;
 
 import android.content.Context;
-import c.a.d.k.i;
-import c.a.s0.j4.l.e;
+import c.a.d.l.i;
+import c.a.t0.k4.l.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.wrapper.faceunity;
 import java.io.File;
 import java.io.FileInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceUnityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FILTER_VALUE = "normal";

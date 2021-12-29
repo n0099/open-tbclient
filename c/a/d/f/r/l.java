@@ -13,19 +13,19 @@ public class l extends r {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2702b;
+    public String f3130b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2703c;
+    public String f3131c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2704d;
+    public String f3132d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f2705e;
+    public String[] f3133e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BasicNameValuePair> f2706f;
+    public List<BasicNameValuePair> f3134f;
 
     public l(String str) {
         Interceptable interceptable = $ic;
@@ -43,9 +43,9 @@ public class l extends r {
             }
         }
         this.a = str;
-        this.f2702b = "/";
-        this.f2704d = null;
-        this.f2705e = null;
-        this.f2706f = null;
+        this.f3130b = "/";
+        this.f3132d = null;
+        this.f3133e = null;
+        this.f3134f = null;
     }
 }

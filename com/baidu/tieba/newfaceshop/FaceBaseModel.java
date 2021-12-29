@@ -2,7 +2,7 @@ package com.baidu.tieba.newfaceshop;
 
 import android.os.Handler;
 import android.os.Looper;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,10 +20,10 @@ public abstract class FaceBaseModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f47702e;
+        public final /* synthetic */ Message f47923e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceBaseModel f47703f;
+        public final /* synthetic */ FaceBaseModel f47924f;
 
         public a(FaceBaseModel faceBaseModel, Message message) {
             Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public abstract class FaceBaseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f47703f = faceBaseModel;
-            this.f47702e = message;
+            this.f47924f = faceBaseModel;
+            this.f47923e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47703f.sendMessage(this.f47702e);
+                this.f47924f.sendMessage(this.f47923e);
             }
         }
     }
@@ -71,7 +71,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (m.B()) {
+            if (n.B()) {
                 super.sendMessage(message);
             } else {
                 new Handler(Looper.getMainLooper()).post(new a(this, message));

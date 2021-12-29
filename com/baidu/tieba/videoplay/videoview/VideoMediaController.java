@@ -6,10 +6,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.s0.l4.d;
-import c.a.s0.l4.f;
-import c.a.s0.l4.g;
+import c.a.d.f.p.n;
+import c.a.t0.m4.d;
+import c.a.t0.m4.f;
+import c.a.t0.m4.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoMediaController extends OperableVideoMediaControllerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProgressBar p;
+    public ProgressBar o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoMediaController(Context context) {
@@ -49,22 +49,22 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-            int f2 = m.f(getContext(), d.tbds126);
+            int f2 = n.f(getContext(), d.tbds126);
             if (z2 && z) {
-                f2 = m.f(getContext(), d.tbds210);
+                f2 = n.f(getContext(), d.tbds210);
             }
             layoutParams.height = f2;
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mTextViewCurTime.getLayoutParams();
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mTextViewDuration.getLayoutParams();
-            layoutParams2.leftMargin = m.f(getContext(), (!z2 || z) ? d.tbds44 : d.tbds78);
-            layoutParams3.rightMargin = m.f(getContext(), (!z2 || z) ? d.tbds150 : d.tbds184);
+            layoutParams2.leftMargin = n.f(getContext(), (!z2 || z) ? d.tbds44 : d.tbds78);
+            layoutParams3.rightMargin = n.f(getContext(), (!z2 || z) ? d.tbds150 : d.tbds184);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.p = (ProgressBar) findViewById(f.pb_bottom_progress_bar);
+            this.o = (ProgressBar) findViewById(f.pb_bottom_progress_bar);
         }
     }
 
@@ -80,7 +80,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.initCurTimeAndDuration(i2, i3);
-            this.p.setProgress(this.mProgress.getProgress());
+            this.o.setProgress(this.mProgress.getProgress());
         }
     }
 
@@ -89,14 +89,14 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.resetProgress();
-            this.p.setProgress(0);
+            this.o.setProgress(0);
         }
     }
 
     public void setBottomBarShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.p.setVisibility(z ? 0 : 8);
+            this.o.setVisibility(z ? 0 : 8);
             this.mProgress.setVisibility(z ? 8 : 0);
             this.mTextViewCurTime.setVisibility(z ? 8 : 0);
             this.mTextViewDuration.setVisibility(z ? 8 : 0);
@@ -115,7 +115,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
                     textView.setText(StringHelper.stringForVideoTime(i2));
                 }
             }
-            this.p.setProgress(this.mProgress.getProgress());
+            this.o.setProgress(this.mProgress.getProgress());
         }
     }
 
@@ -125,7 +125,7 @@ public class VideoMediaController extends OperableVideoMediaControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             int progress = super.setProgress();
-            this.p.setProgress(this.mProgress.getProgress());
+            this.o.setProgress(this.mProgress.getProgress());
             return progress;
         }
         return invokeV.intValue;

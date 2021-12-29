@@ -42,7 +42,7 @@ public class i extends Handler {
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             a.a("handleMessage !!");
             String string = message.getData().getString("listenerKey");
-            hashtable = LBSAuthManager.f35603f;
+            hashtable = LBSAuthManager.f35759f;
             LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
             a.a("handleMessage listener = " + lBSAuthManagerListener);
             if (lBSAuthManagerListener != null) {

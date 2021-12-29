@@ -1,6 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.r0.d1.b0;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +19,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f50967common;
+    public CommonReq f51216common;
     public int mSource;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,7 +54,7 @@ public class AnniversaryReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f65366common = this.f50967common;
+                builder.f65361common = this.f51216common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z) {
                     b0.a(builder, true);
@@ -73,7 +73,7 @@ public class AnniversaryReqMsg extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f50967common = commonReq;
+            this.f51216common = commonReq;
         }
     }
 

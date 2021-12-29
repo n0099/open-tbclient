@@ -18,18 +18,18 @@ public class a extends Drawable implements Animatable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c f1473e;
+    public final c f1900e;
 
     /* renamed from: c.a.c0.e0.a.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0028a implements Drawable.Callback {
+    public class C0049a implements Drawable.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1474e;
+        public final /* synthetic */ a f1901e;
 
-        public C0028a(a aVar) {
+        public C0049a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,14 +44,14 @@ public class a extends Drawable implements Animatable {
                     return;
                 }
             }
-            this.f1474e = aVar;
+            this.f1901e = aVar;
         }
 
         @Override // android.graphics.drawable.Drawable.Callback
         public void invalidateDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f1474e.invalidateSelf();
+                this.f1901e.invalidateSelf();
             }
         }
 
@@ -59,7 +59,7 @@ public class a extends Drawable implements Animatable {
         public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-                this.f1474e.scheduleSelf(runnable, j2);
+                this.f1901e.scheduleSelf(runnable, j2);
             }
         }
 
@@ -67,7 +67,7 @@ public class a extends Drawable implements Animatable {
         public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) {
-                this.f1474e.unscheduleSelf(runnable);
+                this.f1901e.unscheduleSelf(runnable);
             }
         }
     }
@@ -87,8 +87,8 @@ public class a extends Drawable implements Animatable {
                 return;
             }
         }
-        this.f1473e = cVar;
-        this.f1473e.k(new C0028a(this));
+        this.f1900e = cVar;
+        this.f1900e.k(new C0049a(this));
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -97,21 +97,21 @@ public class a extends Drawable implements Animatable {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || getBounds().isEmpty()) {
             return;
         }
-        this.f1473e.d(canvas);
+        this.f1900e.d(canvas);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.f1473e.f1481g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (int) this.f1900e.f1908g : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f1473e.f1480f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (int) this.f1900e.f1907f : invokeV.intValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -128,7 +128,7 @@ public class a extends Drawable implements Animatable {
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1473e.g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1900e.g() : invokeV.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -136,7 +136,7 @@ public class a extends Drawable implements Animatable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, rect) == null) {
             super.onBoundsChange(rect);
-            this.f1473e.j(rect);
+            this.f1900e.j(rect);
         }
     }
 
@@ -144,7 +144,7 @@ public class a extends Drawable implements Animatable {
     public void setAlpha(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f1473e.i(i2);
+            this.f1900e.i(i2);
         }
     }
 
@@ -152,7 +152,7 @@ public class a extends Drawable implements Animatable {
     public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, colorFilter) == null) {
-            this.f1473e.l(colorFilter);
+            this.f1900e.l(colorFilter);
         }
     }
 
@@ -160,7 +160,7 @@ public class a extends Drawable implements Animatable {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f1473e.n();
+            this.f1900e.n();
         }
     }
 
@@ -168,7 +168,7 @@ public class a extends Drawable implements Animatable {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f1473e.o();
+            this.f1900e.o();
         }
     }
 }

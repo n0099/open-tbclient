@@ -52,7 +52,7 @@ public class JavaBeanInfo {
     public final JSONType jsonType;
 
     /* renamed from: kotlin  reason: collision with root package name */
-    public boolean f31483kotlin;
+    public boolean f31626kotlin;
     public Constructor<?> kotlinDefaultConstructor;
     public String[] orders;
     public final int parserFeatures;
@@ -141,7 +141,7 @@ public class JavaBeanInfo {
         if (constructor2 != null) {
             this.creatorConstructorParameterTypes = constructor2.getParameterTypes();
             boolean isKotlin = TypeUtils.isKotlin(cls);
-            this.f31483kotlin = isKotlin;
+            this.f31626kotlin = isKotlin;
             if (isKotlin) {
                 this.creatorConstructorParameters = TypeUtils.getKoltinConstructorParameters(cls);
                 try {

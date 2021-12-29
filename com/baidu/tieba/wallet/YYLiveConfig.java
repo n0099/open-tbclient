@@ -1,7 +1,7 @@
 package com.baidu.tieba.wallet;
 
-import c.a.d.f.p.l;
-import c.a.r0.s.g0.b;
+import c.a.d.f.p.m;
+import c.a.s0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class YYLiveConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class YYLiveConfig {
                 return;
             }
             String p = b.j().p("key_extra_yy_config", "");
-            if (!l.isEmpty(p)) {
+            if (!m.isEmpty(p)) {
                 try {
                     parse(new JSONObject(p));
                 } catch (Exception e2) {

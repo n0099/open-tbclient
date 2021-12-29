@@ -41,10 +41,10 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56074b;
+    public int f56073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56075c;
+    public String f56074c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseBean(Context context) {
@@ -65,7 +65,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
             }
         }
         this.a = 0L;
-        this.f56074b = -1;
+        this.f56073b = -1;
     }
 
     private <T> T a(String str, Class<T> cls) {
@@ -94,7 +94,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
     public String getHttpRealContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56075c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f56074c : (String) invokeV.objValue;
     }
 
     @Override // com.dxmpay.wallet.core.beans.NetworkBean, com.dxmpay.apollon.beans.ApollonBean
@@ -142,7 +142,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                             }
                         }
                         String realResponseErrContent = beanResponseBase.getRealResponseErrContent();
-                        this.f56075c = realResponseErrContent;
+                        this.f56074c = realResponseErrContent;
                         if (!TextUtils.isEmpty(realResponseErrContent) && cls2 != 0) {
                             EventBus eventBus = EventBus.getInstance();
                             eventBus.getClass();
@@ -157,7 +157,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                         AccountManager.getInstance(this.mContext).setBfbToken(token);
                     }
                     String str2 = "execBean. ret       . rsp class = " + cls;
-                    this.f56075c = beanResponseBase.getRealResponseContent();
+                    this.f56074c = beanResponseBase.getRealResponseContent();
                     try {
                         str = new JSONObject(restResponseEntity.a()).getString(beanResponseBase.getNameOfRealResponseContent());
                         if ((needVerifySignature() || beanResponseBase.needVerifySignature()) && !VerSig.verify(beanResponseBase.signature, str, beanResponseBase.mdAlgorithm)) {
@@ -173,14 +173,14 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                         str = "";
                     }
                     if (beanResponseBase.needDecryption() && !TextUtils.isEmpty(str)) {
-                        this.f56075c = SecurePay.getInstance().decryptProxy(str);
+                        this.f56074c = SecurePay.getInstance().decryptProxy(str);
                     }
                     if (cls != null) {
                         if (JsonUtils.DataType.isString(cls)) {
-                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, this.f56075c);
+                            this.mRspCallback.onBeanExecSuccess(getBeanId(), null, this.f56074c);
                             return;
                         }
-                        T a = a(this.f56075c, cls);
+                        T a = a(this.f56074c, cls);
                         String str3 = "execBean. ret ok. real response = " + a;
                         if (a != null) {
                             IBeanResponse iBeanResponse = (IBeanResponse) a;
@@ -238,7 +238,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
             Context context = this.mContext;
             this.mRestTemplate = new RestTemplate(context, BussinessUtils.getUA(context), "pay bean http request");
             ArrayList arrayList = new ArrayList();
-            if (this.f56074b == 1) {
+            if (this.f56073b == 1) {
                 ebpayHttpRequestInterceptor = new CometHttpRequestInterceptor();
             } else {
                 ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
@@ -299,7 +299,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
             }
         }
         this.a = 0L;
-        this.f56074b = -1;
-        this.f56074b = i2;
+        this.f56073b = -1;
+        this.f56073b = i2;
     }
 }

@@ -1,6 +1,8 @@
 package com.github.anrwatchdog;
 
 import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError$$;
 import java.util.Comparator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes3.dex */
@@ -17,6 +20,7 @@ public class ANRError extends Error {
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final long duration;
+    public ANRError$$._Thread st;
 
     /* loaded from: classes3.dex */
     public static class a implements Comparator<Thread> {
@@ -87,6 +91,7 @@ public class ANRError extends Error {
             }
         }
         this.duration = j2;
+        this.st = _thread;
     }
 
     public static ANRError New(long j2, String str, boolean z) {
@@ -105,7 +110,7 @@ public class ANRError extends Error {
             }
             ANRError$$._Thread _thread = null;
             for (Map.Entry entry2 : treeMap.entrySet()) {
-                ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle((Thread) entry2.getKey()), (StackTraceElement[]) entry2.getValue(), null);
+                ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle((Thread) entry2.getKey()), (StackTraceElement[]) entry2.getValue(), (a) null);
                 aNRError$$.getClass();
                 _thread = new ANRError$$._Thread(aNRError$$, _thread, null);
             }
@@ -114,12 +119,26 @@ public class ANRError extends Error {
         return (ANRError) invokeCommon.objValue;
     }
 
+    public static ANRError NewMainAllStackTrace(LinkedHashMap<Long, StackTraceElement[]> linkedHashMap, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, linkedHashMap, j2)) == null) {
+            if (linkedHashMap == null || linkedHashMap.size() <= 0) {
+                return null;
+            }
+            ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle(Looper.getMainLooper().getThread()), linkedHashMap, (a) null);
+            aNRError$$.getClass();
+            return new ANRError(new ANRError$$._Thread(aNRError$$, null, null), j2);
+        }
+        return (ANRError) invokeLJ.objValue;
+    }
+
     public static ANRError NewMainOnly(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
             Thread thread = Looper.getMainLooper().getThread();
-            ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle(thread), thread.getStackTrace(), null);
+            ANRError$$ aNRError$$ = new ANRError$$(getThreadTitle(thread), thread.getStackTrace(), (a) null);
             aNRError$$.getClass();
             return new ANRError(new ANRError$$._Thread(aNRError$$, null, null), j2);
         }
@@ -129,7 +148,7 @@ public class ANRError extends Error {
     public static String getThreadTitle(Thread thread) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, thread)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, thread)) == null) {
             return thread.getName() + " (state = " + thread.getState() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeL.objValue;
@@ -144,5 +163,31 @@ public class ANRError extends Error {
             return this;
         }
         return (Throwable) invokeV.objValue;
+    }
+
+    public LinkedHashMap<Long, StackTraceElement[]> getSTStackMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ANRError$$._Thread _thread = this.st;
+            if (_thread != null) {
+                return _thread.getStackMap();
+            }
+            return null;
+        }
+        return (LinkedHashMap) invokeV.objValue;
+    }
+
+    public StackTraceElement[] getSTStackTrace() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ANRError$$._Thread _thread = this.st;
+            if (_thread != null) {
+                return _thread.getStackTrace();
+            }
+            return null;
+        }
+        return (StackTraceElement[]) invokeV.objValue;
     }
 }

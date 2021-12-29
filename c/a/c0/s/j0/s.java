@@ -44,22 +44,160 @@ public class s extends i {
         this.l = "";
     }
 
+    public final void A0(int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+        }
+    }
+
     @Override // c.a.c0.s.j0.i, c.a.c0.s.j0.b
     public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.B();
-            this.f1992i.J(c.a.c0.e.a.d());
+            this.f2419i.J(c.a.c0.e.a.d());
+        }
+    }
+
+    public final void B0(BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdVideoSeries) == null) {
+        }
+    }
+
+    public final void C0(BdVideo bdVideo, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, bdVideo, i2) == null) {
+        }
+    }
+
+    public final void D0(BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdVideoSeries) == null) {
+        }
+    }
+
+    public final void E0(@NonNull BdVideoSeries bdVideoSeries) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdVideoSeries) == null) {
+            String format = bdVideoSeries.getFormat();
+            n0(format, x0(format));
+        }
+    }
+
+    public void F0(BdVideoSeries series, c.a.c0.s.m0.h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, series, hVar) == null) {
+            Intrinsics.checkNotNullParameter(series, "series");
+            int i2 = hVar != null ? hVar.f2484d : -1;
+            String str = (hVar == null || (str = hVar.a) == null) ? "" : "";
+            k0(series.getProxy());
+            g0(v0(series.getHttpHeader()));
+            C0(series.getSelectedVideo(), i2);
+            B0(series);
+            E0(series);
+            y0(series, i2);
+            A0(i2, str);
+            l0();
+            z0();
+            D0(series);
+        }
+    }
+
+    @Override // c.a.c0.s.j0.i
+    public c.a.c0.s.f0.g N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (c.a.c0.s.f0.g) invokeV.objValue;
+    }
+
+    @Override // c.a.c0.s.j0.i, c.a.c0.s.j0.b, c.a.c0.s.f0.j
+    public void d(c.a.c0.s.c0.p event) {
+        BdVideoSeries o1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String c2 = event.c();
+            int hashCode = c2.hashCode();
+            if (hashCode != -882902390) {
+                if (hashCode == 1370689931 && c2.equals(PlayerEvent.ACTION_ON_INFO) && event.g(1) != 904) {
+                    event.g(1);
+                }
+            } else if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                Object f2 = event.f(3);
+                if (!(f2 instanceof c.a.c0.s.m0.h)) {
+                    f2 = null;
+                }
+                c.a.c0.s.m0.h hVar = (c.a.c0.s.m0.h) f2;
+                c.a.c0.s.f u = u();
+                if (u != null && (o1 = u.o1()) != null) {
+                    String vid = o1.getVid();
+                    Intrinsics.checkNotNullExpressionValue(vid, "vid");
+                    this.l = vid;
+                    Intrinsics.checkNotNullExpressionValue(o1, "this");
+                    F0(o1, hVar);
+                }
+            }
+            super.d(event);
+        }
+    }
+
+    @Override // c.a.c0.s.j0.i, c.a.c0.s.j0.b, c.a.c0.s.f0.j
+    public void k(c.a.c0.s.c0.p event) {
+        BdVideoSeries o1;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(LayerEvent.ACTION_CHANGE_CLARITY, event.c())) {
+                Object f2 = event.f(31);
+                if (!(f2 instanceof c.a.c0.s.m0.h)) {
+                    f2 = null;
+                }
+                c.a.c0.s.m0.h hVar = (c.a.c0.s.m0.h) f2;
+                c.a.c0.s.f u = u();
+                if (u != null && (o1 = u.o1()) != null) {
+                    Intrinsics.checkNotNullExpressionValue(o1, "this");
+                    F0(o1, hVar);
+                }
+            }
+            super.k(event);
+        }
+    }
+
+    @Override // c.a.c0.s.j0.b, c.a.c0.s.j0.o
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onLayerRelease();
+        }
+    }
+
+    @Override // c.a.c0.s.j0.i
+    public void p0(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, str, z) == null) {
+            super.p0(str, z);
+        }
+    }
+
+    @Override // c.a.c0.s.j0.i
+    public void r0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.r0();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.c0.s.j0.b
-    /* renamed from: B0 */
+    /* renamed from: u0 */
     public c.a.c0.s.f u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             c.a.c0.s.e u = super.u();
             if (!(u instanceof c.a.c0.s.f)) {
                 u = null;
@@ -69,11 +207,11 @@ public class s extends i {
         return (c.a.c0.s.f) invokeV.objValue;
     }
 
-    public final HashMap<String, String> C0(String str) {
+    public final HashMap<String, String> v0(String str) {
         InterceptResult invokeL;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if (str != null) {
                 if (str.length() > 0) {
                     HashMap<String, String> hashMap = new HashMap<>();
@@ -109,165 +247,27 @@ public class s extends i {
         return (HashMap) invokeL.objValue;
     }
 
-    public final String D0() {
+    public final String w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.l : (String) invokeV.objValue;
     }
 
-    public final HashMap<String, String> E0(String str) {
+    public final HashMap<String, String> x0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? new HashMap<>() : (HashMap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? new HashMap<>() : (HashMap) invokeL.objValue;
     }
 
-    public final void F0(BdVideoSeries bdVideoSeries, int i2) {
+    public final void y0(BdVideoSeries bdVideoSeries, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, bdVideoSeries, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048594, this, bdVideoSeries, i2) == null) {
         }
     }
 
-    public void G0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public final void H0(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, str) == null) {
-        }
-    }
-
-    public final void I0(BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdVideoSeries) == null) {
-        }
-    }
-
-    public final void J0(BdVideo bdVideo, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, bdVideo, i2) == null) {
-        }
-    }
-
-    public final void K0(BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdVideoSeries) == null) {
-        }
-    }
-
-    public final void L0(@NonNull BdVideoSeries bdVideoSeries) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bdVideoSeries) == null) {
-            String format = bdVideoSeries.getFormat();
-            u0(format, E0(format));
-        }
-    }
-
-    public void M0(BdVideoSeries series, c.a.c0.s.m0.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, series, hVar) == null) {
-            Intrinsics.checkNotNullParameter(series, "series");
-            int i2 = hVar != null ? hVar.f2057d : -1;
-            String str = (hVar == null || (str = hVar.a) == null) ? "" : "";
-            r0(series.getProxy());
-            n0(C0(series.getHttpHeader()));
-            J0(series.getSelectedVideo(), i2);
-            I0(series);
-            L0(series);
-            F0(series, i2);
-            H0(i2, str);
-            s0();
-            G0();
-            K0(series);
-        }
-    }
-
-    @Override // c.a.c0.s.j0.i
-    public c.a.c0.s.f0.g T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return null;
-        }
-        return (c.a.c0.s.f0.g) invokeV.objValue;
-    }
-
-    @Override // c.a.c0.s.j0.i, c.a.c0.s.j0.b, c.a.c0.s.f0.j
-    public void d(c.a.c0.s.c0.p event) {
-        BdVideoSeries o1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            String c2 = event.c();
-            int hashCode = c2.hashCode();
-            if (hashCode != -882902390) {
-                if (hashCode == 1370689931 && c2.equals(PlayerEvent.ACTION_ON_INFO) && event.g(1) != 904) {
-                    event.g(1);
-                }
-            } else if (c2.equals(PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                Object f2 = event.f(3);
-                if (!(f2 instanceof c.a.c0.s.m0.h)) {
-                    f2 = null;
-                }
-                c.a.c0.s.m0.h hVar = (c.a.c0.s.m0.h) f2;
-                c.a.c0.s.f u = u();
-                if (u != null && (o1 = u.o1()) != null) {
-                    String vid = o1.getVid();
-                    Intrinsics.checkNotNullExpressionValue(vid, "vid");
-                    this.l = vid;
-                    Intrinsics.checkNotNullExpressionValue(o1, "this");
-                    M0(o1, hVar);
-                }
-            }
-            super.d(event);
-        }
-    }
-
-    @Override // c.a.c0.s.j0.i, c.a.c0.s.j0.b, c.a.c0.s.f0.j
-    public void k(c.a.c0.s.c0.p event) {
-        BdVideoSeries o1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (Intrinsics.areEqual(LayerEvent.ACTION_CHANGE_CLARITY, event.c())) {
-                Object f2 = event.f(31);
-                if (!(f2 instanceof c.a.c0.s.m0.h)) {
-                    f2 = null;
-                }
-                c.a.c0.s.m0.h hVar = (c.a.c0.s.m0.h) f2;
-                c.a.c0.s.f u = u();
-                if (u != null && (o1 = u.o1()) != null) {
-                    Intrinsics.checkNotNullExpressionValue(o1, "this");
-                    M0(o1, hVar);
-                }
-            }
-            super.k(event);
-        }
-    }
-
-    @Override // c.a.c0.s.j0.b, c.a.c0.s.j0.o
-    public void onLayerRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onLayerRelease();
-        }
-    }
-
-    @Override // c.a.c0.s.j0.i
-    public void w0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048594, this, str, z) == null) {
-            super.w0(str, z);
-        }
-    }
-
-    @Override // c.a.c0.s.j0.i
-    public void y0() {
+    public void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            super.y0();
         }
     }
 }

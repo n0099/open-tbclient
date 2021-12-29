@@ -64,7 +64,7 @@ public class a {
             hashMap.put("device_id", this.gC);
             hashMap.put(ARConfigKey.EXTRA_INFO, ARConfig.getARExtraInfo());
             hashMap.put("os_type", "android");
-            hashMap.put("device_type", Build.BRAND);
+            hashMap.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
             hashMap.put("channel", this.gD);
             ARPScriptEnvironment.getInstance().setSharedEnvironmentKV(TableDefine.DB_TABLE_USERINFO, hashMap);
         }

@@ -13,10 +13,10 @@ public class f {
     public PayType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64783b;
+    public String f64778b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f64784c;
+    public String f64779c;
 
     public f(PayType payType, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,15 +33,15 @@ public class f {
                 return;
             }
         }
-        this.f64783b = "";
+        this.f64778b = "";
         this.a = payType;
-        this.f64783b = str;
-        this.f64784c = str2;
+        this.f64778b = str;
+        this.f64779c = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64783b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64778b : (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.nearby.message;
 
-import c.a.s0.l2.b.b;
+import c.a.t0.l2.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;

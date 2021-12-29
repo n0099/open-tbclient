@@ -26,7 +26,7 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EmotionAPSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -45,12 +45,12 @@ public class EmotionAPSManager {
     public volatile boolean mLoaded;
     public Map<String, EmotionResourceInfo> mResourceMap;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface EmotionInstallResultCb {
         void onResult(int i2, String str);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final EmotionAPSManager sINSTANCE;

@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.config.item.InsertScreenConfigItem;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bz implements com.kwad.sdk.core.d<InsertScreenConfigItem.InsertScreenConfig> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public bz() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(InsertScreenConfigItem.InsertScreenConfig insertScreenConfig, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, insertScreenConfig, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         insertScreenConfig.firstPosition = jSONObject.optInt("firstPosition", new Integer("1").intValue());
@@ -43,18 +19,13 @@ public class bz implements com.kwad.sdk.core.d<InsertScreenConfigItem.InsertScre
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(InsertScreenConfigItem.InsertScreenConfig insertScreenConfig, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, insertScreenConfig, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "firstPosition", insertScreenConfig.firstPosition);
-            com.kwad.sdk.utils.t.a(jSONObject, "interval", insertScreenConfig.interval);
-            com.kwad.sdk.utils.t.a(jSONObject, "threshold", insertScreenConfig.threshold);
-            com.kwad.sdk.utils.t.a(jSONObject, "preRequestCount", insertScreenConfig.preRequestCount);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "firstPosition", insertScreenConfig.firstPosition);
+        com.kwad.sdk.utils.t.a(jSONObject, "interval", insertScreenConfig.interval);
+        com.kwad.sdk.utils.t.a(jSONObject, "threshold", insertScreenConfig.threshold);
+        com.kwad.sdk.utils.t.a(jSONObject, "preRequestCount", insertScreenConfig.preRequestCount);
+        return jSONObject;
     }
 }

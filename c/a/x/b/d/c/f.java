@@ -14,16 +14,16 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26976b;
+    public int f27417b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26977c;
+    public int f27418c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f26978d;
+    public long f27419d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f26979e;
+    public long f27420e;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public class f {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("id", this.a);
-                jSONObject.put("show", this.f26976b);
-                jSONObject.put("show_ts", this.f26978d);
-                jSONObject.put("clk", this.f26977c);
-                jSONObject.put("clk_ts", this.f26979e);
+                jSONObject.put("show", this.f27417b);
+                jSONObject.put("show_ts", this.f27419d);
+                jSONObject.put("clk", this.f27418c);
+                jSONObject.put("clk_ts", this.f27420e);
                 return jSONObject;
             } catch (JSONException e2) {
                 e2.printStackTrace();

@@ -1,25 +1,15 @@
 package com.kwad.sdk.utils;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class s {
-    public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
     public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -27,18 +17,6 @@ public class s {
     }
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1510835167, "Lcom/kwad/sdk/utils/s;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1510835167, "Lcom/kwad/sdk/utils/s;");
-                return;
-            }
-        }
         HashMap hashMap = new HashMap();
         a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
@@ -76,182 +54,131 @@ public class s {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, b(objArr)) : (T) invokeLLL.objValue;
+        return (T) a(cls, str, a(objArr)).invoke(null, b(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, str)) == null) {
-            try {
-                return (T) b(obj, str);
-            } catch (Throwable th) {
-                throw a(th);
-            }
+        try {
+            return (T) b(obj, str);
+        } catch (Throwable th) {
+            throw a(th);
         }
-        return (T) invokeLL.objValue;
     }
 
     public static <T> T a(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, str, objArr)) == null) {
-            try {
-                return (T) b(obj, str, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
+        try {
+            return (T) b(obj, str, objArr);
+        } catch (Throwable th) {
+            throw a(th);
         }
-        return (T) invokeLLL.objValue;
     }
 
     public static <T> T a(String str, String str2, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr)) == null) {
-            try {
-                return (T) a(Class.forName(str), str2, objArr);
-            } catch (Throwable th) {
-                throw a(th);
-            }
+        try {
+            return (T) a(Class.forName(str), str2, objArr);
+        } catch (Throwable th) {
+            throw a(th);
         }
-        return (T) invokeLLL.objValue;
     }
 
     public static RuntimeException a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, th)) == null) ? th instanceof RuntimeException ? (RuntimeException) th : new RuntimeException(th) : (RuntimeException) invokeL.objValue;
+        return th instanceof RuntimeException ? (RuntimeException) th : new RuntimeException(th);
     }
 
     public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, cls, str, clsArr)) == null) {
-            Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
-            if (a2 != null) {
-                a2.setAccessible(true);
-                return a2;
-            } else if (cls.getSuperclass() != null) {
-                return a((Class<?>) cls.getSuperclass(), str, clsArr);
-            } else {
-                throw new NoSuchMethodException();
-            }
+        Method a2 = a(cls.getDeclaredMethods(), str, clsArr);
+        if (a2 != null) {
+            a2.setAccessible(true);
+            return a2;
+        } else if (cls.getSuperclass() != null) {
+            return a((Class<?>) cls.getSuperclass(), str, clsArr);
+        } else {
+            throw new NoSuchMethodException();
         }
-        return (Method) invokeLLL.objValue;
     }
 
     public static Method a(Method[] methodArr, String str, Class<?>[] clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, methodArr, str, clsArr)) == null) {
-            if (str != null) {
-                for (Method method : methodArr) {
-                    if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
-                        return method;
-                    }
+        if (str != null) {
+            for (Method method : methodArr) {
+                if (method.getName().equals(str) && a(method.getParameterTypes(), clsArr)) {
+                    return method;
                 }
-                return null;
             }
-            throw new NullPointerException("Method name must not be null.");
+            return null;
         }
-        return (Method) invokeLLL.objValue;
+        throw new NullPointerException("Method name must not be null.");
     }
 
     public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, clsArr, clsArr2)) == null) {
-            if (clsArr == null) {
-                return clsArr2 == null || clsArr2.length == 0;
-            } else if (clsArr2 == null) {
-                return clsArr.length == 0;
-            } else if (clsArr.length != clsArr2.length) {
-                return false;
-            } else {
-                for (int i2 = 0; i2 < clsArr.length; i2++) {
-                    if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!a.containsKey(clsArr[i2]) || !a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
-                        return false;
-                    }
+        if (clsArr == null) {
+            return clsArr2 == null || clsArr2.length == 0;
+        } else if (clsArr2 == null) {
+            return clsArr.length == 0;
+        } else if (clsArr.length != clsArr2.length) {
+            return false;
+        } else {
+            for (int i2 = 0; i2 < clsArr.length; i2++) {
+                if (!clsArr[i2].isAssignableFrom(clsArr2[i2]) && (!a.containsKey(clsArr[i2]) || !a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
+                    return false;
                 }
-                return true;
             }
+            return true;
         }
-        return invokeLL.booleanValue;
     }
 
     public static Class<?>[] a(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    clsArr[i2] = obj == null ? null : obj.getClass();
-                } else {
-                    clsArr[i2] = ((a) obj).a;
-                }
-            }
-            return clsArr;
+        if (objArr == null || objArr.length <= 0) {
+            return null;
         }
-        return (Class[]) invokeL.objValue;
+        Class<?>[] clsArr = new Class[objArr.length];
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            Object obj = objArr[i2];
+            if (obj == null || !(obj instanceof a)) {
+                clsArr[i2] = obj == null ? null : obj.getClass();
+            } else {
+                clsArr[i2] = ((a) obj).a;
+            }
+        }
+        return clsArr;
     }
 
     public static <T> T b(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, obj, str)) == null) {
-            Class<?> cls = obj.getClass();
-            Field field = null;
-            while (field == null) {
-                try {
-                    field = cls.getDeclaredField(str);
-                    field.setAccessible(true);
-                    continue;
-                } catch (NoSuchFieldException unused) {
-                    cls = cls.getSuperclass();
-                    continue;
-                }
-                if (cls == null) {
-                    throw new NoSuchFieldException();
-                }
+        Class<?> cls = obj.getClass();
+        Field field = null;
+        while (field == null) {
+            try {
+                field = cls.getDeclaredField(str);
+                field.setAccessible(true);
+                continue;
+            } catch (NoSuchFieldException unused) {
+                cls = cls.getSuperclass();
+                continue;
             }
-            field.setAccessible(true);
-            return (T) field.get(obj);
+            if (cls == null) {
+                throw new NoSuchFieldException();
+            }
         }
-        return (T) invokeLL.objValue;
+        field.setAccessible(true);
+        return (T) field.get(obj);
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr)) : (T) invokeLLL.objValue;
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, b(objArr));
     }
 
     public static Object[] b(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, objArr)) == null) {
-            if (objArr == null || objArr.length <= 0) {
-                return null;
-            }
-            Object[] objArr2 = new Object[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
-                if (obj == null || !(obj instanceof a)) {
-                    objArr2[i2] = obj;
-                } else {
-                    objArr2[i2] = ((a) obj).f60244b;
-                }
-            }
-            return objArr2;
+        if (objArr == null || objArr.length <= 0) {
+            return null;
         }
-        return (Object[]) invokeL.objValue;
+        Object[] objArr2 = new Object[objArr.length];
+        for (int i2 = 0; i2 < objArr.length; i2++) {
+            Object obj = objArr[i2];
+            if (obj == null || !(obj instanceof a)) {
+                objArr2[i2] = obj;
+            } else {
+                objArr2[i2] = ((a) obj).f60244b;
+            }
+        }
+        return objArr2;
     }
 }

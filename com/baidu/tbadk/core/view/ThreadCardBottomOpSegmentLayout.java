@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -146,7 +146,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 }
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = m.f(this.mContext, R.dimen.tbds50);
+                layoutParams.leftMargin = n.f(this.mContext, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.mAgreeView.setLayoutParams(layoutParams);
                 return;
@@ -170,7 +170,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 y(0, -1, 0, 1.0f, true, this.mAgreeView.isAgreeAlone());
                 return;
             }
-            y(-2, -1, m.f(getContext(), R.dimen.tbds78), 0.0f, false, this.mAgreeView.isAgreeAlone());
+            y(-2, -1, n.f(getContext(), R.dimen.tbds78), 0.0f, false, this.mAgreeView.isAgreeAlone());
         }
     }
 

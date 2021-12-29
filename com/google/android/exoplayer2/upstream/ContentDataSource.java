@@ -100,11 +100,11 @@ public final class ContentDataSource implements e {
                 if (openAssetFileDescriptor != null) {
                     this.f56493e = new FileInputStream(this.f56492d.getFileDescriptor());
                     long startOffset = this.f56492d.getStartOffset();
-                    long skip = this.f56493e.skip(gVar.f30511d + startOffset) - startOffset;
-                    if (skip == gVar.f30511d) {
+                    long skip = this.f56493e.skip(gVar.f30589d + startOffset) - startOffset;
+                    if (skip == gVar.f30589d) {
                         long j2 = -1;
-                        if (gVar.f30512e != -1) {
-                            this.f56494f = gVar.f30512e;
+                        if (gVar.f30590e != -1) {
+                            this.f56494f = gVar.f30590e;
                         } else {
                             long length = this.f56492d.getLength();
                             if (length == -1) {

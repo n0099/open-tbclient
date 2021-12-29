@@ -71,7 +71,7 @@ public class e {
                 o.a(context, jSONObject);
                 jSONObject.put("device_platform", "");
                 jSONObject.put(HttpConstants.OS_VERSION, Build.VERSION.SDK_INT);
-                jSONObject.put("device_type", Build.BRAND);
+                jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
                 jSONObject.put("device_id", o.y(context));
                 jSONObject.put("app_version", com.baidu.ar.h.c.getVersionCode());
                 jSONObject.put("manufacture", Build.MANUFACTURER);

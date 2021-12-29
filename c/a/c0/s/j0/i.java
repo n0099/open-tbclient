@@ -25,13 +25,13 @@ public class i extends c.a.c0.s.j0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.c0.s.i0.a f1992i;
+    public c.a.c0.s.i0.a f2419i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1993j;
+    public boolean f2420j;
 
     /* renamed from: k  reason: collision with root package name */
-    public c.a.c0.s.f0.m f1994k;
+    public c.a.c0.s.f0.m f2421k;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -67,7 +67,7 @@ public class i extends c.a.c0.s.j0.b {
         public void a(c.a.c0.s.c0.p pVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-                this.a.a0().a(pVar);
+                this.a.T().a(pVar);
             }
         }
 
@@ -101,108 +101,160 @@ public class i extends c.a.c0.s.j0.b {
                 return;
             }
         }
-        this.f1993j = true;
-        this.f1994k = new b(this, null);
-        this.f1992i = c.a.c0.s.p0.e.a().b(str);
+        this.f2420j = true;
+        this.f2421k = new b(this, null);
+        this.f2419i = c.a.c0.s.p0.e.a().b(str);
         B();
-    }
-
-    public void A0(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f1992i.R(str);
-        }
     }
 
     @Override // c.a.c0.s.j0.b
     public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
         }
     }
 
-    public void M(@NonNull String str) {
+    public void J(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f1992i.b(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.f2419i.b(str);
         }
     }
 
-    public int O() {
+    public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1992i.d() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2419i.d() : invokeV.intValue;
     }
 
-    public int Q() {
+    public int L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1992i.e() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2419i.e() : invokeV.intValue;
     }
 
-    public int S() {
+    public int M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1992i.f() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2419i.f() : invokeV.intValue;
     }
 
     @Nullable
-    public c.a.c0.s.f0.g T() {
+    public c.a.c0.s.f0.g N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return null;
         }
         return (c.a.c0.s.f0.g) invokeV.objValue;
     }
 
+    public int O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2419i.g() : invokeV.intValue;
+    }
+
+    public int P() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2419i.h() : invokeV.intValue;
+    }
+
+    public PlayerStatus Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2419i.i() : (PlayerStatus) invokeV.objValue;
+    }
+
+    public int R() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2419i.j() : invokeV.intValue;
+    }
+
+    public c.a.c0.s.i0.a S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2419i : (c.a.c0.s.i0.a) invokeV.objValue;
+    }
+
+    public c.a.c0.s.q0.a T() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2419i.k() : (c.a.c0.s.q0.a) invokeV.objValue;
+    }
+
+    public String U() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2419i.l() : (String) invokeV.objValue;
+    }
+
     public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1992i.g() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2419i.m() : invokeV.intValue;
     }
 
-    public int W() {
-        InterceptResult invokeV;
+    public void W(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f1992i.h() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.f2419i.o(z);
+        }
     }
 
-    public PlayerStatus X() {
-        InterceptResult invokeV;
+    public void X() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f1992i.i() : (PlayerStatus) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f2419i.u();
+        }
     }
 
-    public int Y() {
-        InterceptResult invokeV;
+    public void Y() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1992i.j() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f2419i.v();
+        }
     }
 
-    public c.a.c0.s.i0.a Z() {
-        InterceptResult invokeV;
+    public void Z() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1992i : (c.a.c0.s.i0.a) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (this.f2419i instanceof c.a.c0.s.i0.b)) {
+            return;
+        }
+        h0(null);
+        c.a.c0.s.i0.a aVar = this.f2419i;
+        this.f2419i = new c.a.c0.s.i0.b();
+        c.a.c0.s.p0.e.a().c(aVar);
     }
 
-    public c.a.c0.s.q0.a a0() {
-        InterceptResult invokeV;
+    public final void a0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1992i.k() : (c.a.c0.s.q0.a) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || u().X()) {
+            return;
+        }
+        u().k0();
     }
 
-    public String b0() {
-        InterceptResult invokeV;
+    public void b0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f1992i.l() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.f2419i.y();
+        }
     }
 
-    public int c0() {
-        InterceptResult invokeV;
+    public void c0(int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f1992i.m() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
+            int e2 = this.f2419i.e();
+            if (e2 > 1 && i2 > (i3 = e2 - 1)) {
+                i2 = i3;
+            }
+            this.f2419i.z(i2 * 1000);
+        }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -210,7 +262,7 @@ public class i extends c.a.c0.s.j0.b {
     public void d(@NonNull c.a.c0.s.c0.p pVar) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, pVar) == null) {
             String c3 = pVar.c();
             switch (c3.hashCode()) {
                 case -882902390:
@@ -253,55 +305,56 @@ public class i extends c.a.c0.s.j0.b {
                     break;
             }
             if (c2 == 0) {
-                this.f1992i.q();
+                this.f2419i.q();
             } else if (c2 == 1) {
-                this.f1992i.t();
+                this.f2419i.t();
             } else if (c2 == 2) {
-                this.f1992i.r();
+                this.f2419i.r();
             } else if (c2 != 3) {
                 if (c2 == 4 && (pVar.f(3) instanceof c.a.c0.s.m0.h)) {
                     c.a.c0.s.m0.h hVar = (c.a.c0.s.m0.h) pVar.f(3);
                     c.a.c0.s.m0.i K = u().K();
                     String str = hVar.a;
-                    K.f2058b = str;
-                    w0(str, hVar.f2056c);
+                    K.f2485b = str;
+                    p0(str, hVar.f2483c);
                 }
             } else {
-                this.f1992i.s(pVar.g(1), pVar.g(2), pVar.f(3));
+                this.f2419i.s(pVar.g(1), pVar.g(2), pVar.f(3));
             }
         }
     }
 
-    public void d0(boolean z) {
+    public void d0(int i2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.f1992i.o(z);
+        if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
+            int f2 = this.f2419i.f();
+            if (f2 > 1 && i2 > (i4 = f2 - 1)) {
+                i2 = i4;
+            }
+            this.f2419i.A(i2, i3);
         }
     }
 
-    public void e0() {
+    public void e0(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f1992i.u();
+        if (interceptable == null || interceptable.invokeL(1048599, this, bool) == null) {
+            this.f2420j = bool.booleanValue();
         }
     }
 
-    public void f0() {
+    public void f0(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f1992i.v();
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.f2419i.B(str);
         }
     }
 
-    public void g0() {
+    public void g0(@Nullable HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (this.f1992i instanceof c.a.c0.s.i0.b)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048601, this, hashMap) == null) {
+            this.f2419i.D(hashMap);
         }
-        o0(null);
-        c.a.c0.s.i0.a aVar = this.f1992i;
-        this.f1992i = new c.a.c0.s.i0.b();
-        c.a.c0.s.p0.e.a().c(aVar);
     }
 
     @Override // c.a.c0.s.j0.o
@@ -309,7 +362,7 @@ public class i extends c.a.c0.s.j0.b {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f1992i.c() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f2419i.c() : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.j
@@ -317,41 +370,35 @@ public class i extends c.a.c0.s.j0.b {
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? new int[]{4, 3, 1, 2} : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? new int[]{4, 3, 1, 2} : (int[]) invokeV.objValue;
     }
 
-    public final void h0() {
+    public void h0(@Nullable c.a.c0.s.i0.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || u().X()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048604, this, eVar) == null) {
+            this.f2419i.E(eVar);
         }
-        u().k0();
     }
 
-    public void i0() {
+    public void i0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f1992i.y();
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            this.f2419i.F(z);
         }
     }
 
     @Override // c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void j(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, pVar) == null) && InteractiveEvent.ACTION_INTERACTIVE_ERROR.equals(pVar.c())) {
-            this.f1992i.r();
+        if ((interceptable == null || interceptable.invokeL(1048606, this, pVar) == null) && InteractiveEvent.ACTION_INTERACTIVE_ERROR.equals(pVar.c())) {
+            this.f2419i.r();
         }
     }
 
-    public void j0(int i2) {
-        int i3;
+    public void j0(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            int e2 = this.f1992i.e();
-            if (e2 > 1 && i2 > (i3 = e2 - 1)) {
-                i2 = i3;
-            }
-            this.f1992i.z(i2 * 1000);
+        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
+            this.f2419i.G(str);
         }
     }
 
@@ -359,7 +406,7 @@ public class i extends c.a.c0.s.j0.b {
     public void k(@NonNull c.a.c0.s.c0.p pVar) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048608, this, pVar) == null) {
             String c3 = pVar.c();
             int hashCode = c3.hashCode();
             if (hashCode == -150198673) {
@@ -381,9 +428,9 @@ public class i extends c.a.c0.s.j0.b {
             if (c2 == 0) {
                 u().l();
             } else if (c2 == 1) {
-                j0(pVar.g(1));
-                h0();
-                this.f1992i.y();
+                c0(pVar.g(1));
+                a0();
+                this.f2419i.y();
             } else if (c2 != 2) {
             } else {
                 int g2 = pVar.g(19);
@@ -393,65 +440,59 @@ public class i extends c.a.c0.s.j0.b {
                     if (TextUtils.isEmpty(str)) {
                         return;
                     }
-                    M(str);
-                    j0(g2);
+                    J(str);
+                    c0(g2);
                 }
             }
         }
     }
 
-    public void k0(int i2, int i3) {
-        int i4;
+    public void k0(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) {
-            int f2 = this.f1992i.f();
-            if (f2 > 1 && i2 > (i4 = f2 - 1)) {
-                i2 = i4;
-            }
-            this.f1992i.A(i2, i3);
+        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+            this.f2419i.H(str);
         }
     }
 
-    public void l0(Boolean bool) {
+    public void l0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bool) == null) {
-            this.f1993j = bool.booleanValue();
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
         }
     }
 
-    public void m0(@Nullable String str) {
+    public void m0(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f1992i.B(str);
+        if (interceptable == null || interceptable.invokeF(1048611, this, f2) == null) {
+            this.f2419i.I(f2);
         }
     }
 
     @Override // c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void n(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048606, this, pVar) == null) && this.f1993j && SystemEvent.ACTION_VOLUME_CHANGED.equals(pVar.c())) {
-            d0(pVar.g(5) <= 0);
+        if ((interceptable == null || interceptable.invokeL(1048612, this, pVar) == null) && this.f2420j && SystemEvent.ACTION_VOLUME_CHANGED.equals(pVar.c())) {
+            W(pVar.g(5) <= 0);
         }
     }
 
-    public void n0(@Nullable HashMap<String, String> hashMap) {
+    public void n0(String str, @NonNull HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, hashMap) == null) {
-            this.f1992i.D(hashMap);
+        if (interceptable == null || interceptable.invokeLL(1048613, this, str, hashMap) == null) {
+            this.f2419i.K(str, hashMap);
         }
     }
 
-    public void o0(@Nullable c.a.c0.s.i0.e eVar) {
+    public void o0(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, eVar) == null) {
-            this.f1992i.E(eVar);
+        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+            this.f2419i.L(i2);
         }
     }
 
-    public void p0(boolean z) {
+    public void p0(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            this.f1992i.F(z);
+        if (interceptable == null || interceptable.invokeLZ(1048615, this, str, z) == null) {
+            this.f2419i.M(str, z);
         }
     }
 
@@ -460,7 +501,7 @@ public class i extends c.a.c0.s.j0.b {
     public void q(@NonNull c.a.c0.s.c0.p pVar) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, pVar) == null) {
             String c3 = pVar.c();
             switch (c3.hashCode()) {
                 case -1929694922:
@@ -518,28 +559,28 @@ public class i extends c.a.c0.s.j0.b {
             }
             switch (c2) {
                 case 0:
-                    k0(pVar.g(5) * 1000, pVar.h(12, 3));
+                    d0(pVar.g(5) * 1000, pVar.h(12, 3));
                     return;
                 case 1:
-                    k0(pVar.g(5), pVar.h(12, 3));
+                    d0(pVar.g(5), pVar.h(12, 3));
                     return;
                 case 2:
-                    f0();
+                    Y();
                     return;
                 case 3:
                     if (getContentView() != null) {
                         getContentView().setVisibility(0);
                     }
-                    x0();
+                    q0();
                     return;
                 case 4:
-                    e0();
+                    X();
                     return;
                 case 5:
-                    i0();
+                    b0();
                     return;
                 case 6:
-                    y0();
+                    r0();
                     return;
                 default:
                     return;
@@ -547,94 +588,53 @@ public class i extends c.a.c0.s.j0.b {
         }
     }
 
-    public void q0(@Nullable String str) {
+    public void q0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.f1992i.G(str);
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            this.f2419i.N();
         }
     }
 
     @Override // c.a.c0.s.j0.b
     public void r(@NonNull c.a.c0.s.k0.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, cVar) == null) {
             super.r(cVar);
-            cVar.b(this.f1994k);
-            this.f1992i.a(cVar);
+            cVar.b(this.f2421k);
+            this.f2419i.a(cVar);
         }
     }
 
-    public void r0(@Nullable String str) {
+    public void r0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
-            this.f1992i.H(str);
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            this.f2419i.O();
         }
     }
 
     @Override // c.a.c0.s.j0.b
     public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
             if (y() != null) {
-                y().f(this.f1994k);
+                y().f(this.f2421k);
             }
             super.s();
-            this.f1992i.Q();
+            this.f2419i.Q();
         }
     }
 
     public void s0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-        }
-    }
-
-    public void t0(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
-            this.f1992i.I(f2);
-        }
-    }
-
-    public void u0(String str, @NonNull HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, str, hashMap) == null) {
-            this.f1992i.K(str, hashMap);
-        }
-    }
-
-    public void v0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.f1992i.L(i2);
-        }
-    }
-
-    public void w0(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048619, this, str, z) == null) {
-            this.f1992i.M(str, z);
-        }
-    }
-
-    public void x0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.f1992i.N();
-        }
-    }
-
-    public void y0() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.f1992i.O();
+            this.f2419i.P();
         }
     }
 
-    public void z0() {
+    public void t0(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            this.f1992i.P();
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            this.f2419i.R(str);
         }
     }
 }

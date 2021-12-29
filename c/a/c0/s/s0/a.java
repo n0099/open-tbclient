@@ -17,19 +17,19 @@ public class a implements IVideoUpdateStrategy {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2104b;
+    public boolean f2531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2105c;
+    public boolean f2532c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2106d;
+    public boolean f2533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2107e;
+    public int f2534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f2108f;
+    public boolean f2535f;
 
     static {
         InterceptResult invokeClinit;
@@ -60,11 +60,11 @@ public class a implements IVideoUpdateStrategy {
             }
         }
         this.a = true;
-        this.f2104b = true;
-        this.f2105c = true;
-        this.f2106d = true;
-        this.f2107e = 1;
-        this.f2108f = false;
+        this.f2531b = true;
+        this.f2532c = true;
+        this.f2533d = true;
+        this.f2534e = 1;
+        this.f2535f = false;
     }
 
     @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
@@ -81,7 +81,7 @@ public class a implements IVideoUpdateStrategy {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2106d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2533d : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
@@ -95,34 +95,34 @@ public class a implements IVideoUpdateStrategy {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2105c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2532c : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2104b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2531b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2108f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2535f : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2107e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2534e : invokeV.intValue;
     }
 
     public void h(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f2107e = i2;
+            this.f2534e = i2;
         }
     }
 
@@ -136,7 +136,7 @@ public class a implements IVideoUpdateStrategy {
     public void j(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f2108f = z;
+            this.f2535f = z;
         }
     }
 }

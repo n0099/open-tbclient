@@ -19,11 +19,16 @@ public final class LogExtra implements Parcelable {
     public String mCrashThreadPriority;
     public String mCrashTime;
     public String mForeground;
+    public String mHeapMem;
     public String mJSONAttach;
     public String mLaunchTime;
+    public String mPSS;
     public String mPage;
     public String mProcessLifeTime;
+    public int mSysLowMem;
+    public String mSysMem;
     public String mTraceID;
+    public String mVSSRSS;
 
     static {
         InterceptResult invokeClinit;
@@ -104,6 +109,11 @@ public final class LogExtra implements Parcelable {
         this.mForeground = null;
         this.mTraceID = null;
         this.mJSONAttach = null;
+        this.mHeapMem = null;
+        this.mVSSRSS = null;
+        this.mPSS = null;
+        this.mSysMem = null;
+        this.mSysLowMem = 1;
     }
 
     public static void init() {
@@ -135,6 +145,11 @@ public final class LogExtra implements Parcelable {
             parcel.writeString(this.mForeground);
             parcel.writeString(this.mTraceID);
             parcel.writeString(this.mJSONAttach);
+            parcel.writeString(this.mHeapMem);
+            parcel.writeString(this.mVSSRSS);
+            parcel.writeString(this.mPSS);
+            parcel.writeString(this.mSysMem);
+            parcel.writeInt(this.mSysLowMem);
         }
     }
 
@@ -162,6 +177,11 @@ public final class LogExtra implements Parcelable {
         this.mForeground = null;
         this.mTraceID = null;
         this.mJSONAttach = null;
+        this.mHeapMem = null;
+        this.mVSSRSS = null;
+        this.mPSS = null;
+        this.mSysMem = null;
+        this.mSysLowMem = 1;
         this.mPage = parcel.readString();
         this.mCrashTime = parcel.readString();
         this.mLaunchTime = parcel.readString();
@@ -171,5 +191,10 @@ public final class LogExtra implements Parcelable {
         this.mForeground = parcel.readString();
         this.mTraceID = parcel.readString();
         this.mJSONAttach = parcel.readString();
+        this.mHeapMem = parcel.readString();
+        this.mVSSRSS = parcel.readString();
+        this.mPSS = parcel.readString();
+        this.mSysMem = parcel.readString();
+        this.mSysLowMem = parcel.readInt();
     }
 }

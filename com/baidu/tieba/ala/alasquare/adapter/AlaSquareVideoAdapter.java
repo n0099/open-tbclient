@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import c.a.d.m.e.a;
-import c.a.s0.a0.f.a.g;
-import c.a.s0.a0.f.i.g;
+import c.a.d.n.e.a;
+import c.a.t0.a0.f.a.g;
+import c.a.t0.a0.f.i.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,14 +30,14 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     public int r;
     public g.b s;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class SquareVideoViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.s0.a0.f.i.g mView;
+        public c.a.t0.a0.f.i.g mView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SquareVideoViewHolder(AlaSquareVideoAdapter alaSquareVideoAdapter, c.a.s0.a0.f.i.g gVar) {
+        public SquareVideoViewHolder(AlaSquareVideoAdapter alaSquareVideoAdapter, c.a.t0.a0.f.i.g gVar) {
             super(gVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -58,7 +58,7 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
         }
     }
 
-    public final String g0() {
+    public final String Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -75,13 +75,13 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public SquareVideoViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public SquareVideoViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c.a.s0.a0.f.i.g gVar = new c.a.s0.a0.f.i.g(this.m);
+            c.a.t0.a0.f.i.g gVar = new c.a.t0.a0.f.i.g(this.m);
             gVar.v(this.n);
             gVar.u(this.o);
             gVar.s(this.p);
@@ -92,47 +92,47 @@ public class AlaSquareVideoAdapter extends a<g, SquareVideoViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: i0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, c.a.s0.a0.f.a.g gVar, SquareVideoViewHolder squareVideoViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: b0 */
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.a0.f.a.g gVar, SquareVideoViewHolder squareVideoViewHolder) {
         InterceptResult invokeCommon;
-        c.a.s0.a0.f.i.g gVar2;
+        c.a.t0.a0.f.i.g gVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, gVar, squareVideoViewHolder})) == null) {
             if (squareVideoViewHolder == null || (gVar2 = squareVideoViewHolder.mView) == null || gVar2.j() == null) {
                 return null;
             }
             if (gVar != null) {
-                gVar.f14202f = i2 + 1;
+                gVar.f14702f = i2 + 1;
             }
             gVar2.k(gVar);
-            c.a.s0.a0.f.e.a.c().a(gVar.i(g0(), false));
-            j0(gVar);
+            c.a.t0.a0.f.e.a.c().a(gVar.i(Z(), false));
+            c0(gVar);
             if (i2 == this.r) {
-                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f2871e, R.anim.list_anim));
+                gVar2.j().setAnimation(AnimationUtils.loadAnimation(this.f3299e, R.anim.list_anim));
             }
             return gVar2.j();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void j0(c.a.s0.a0.f.a.g gVar) {
+    public final void c0(c.a.t0.a0.f.a.g gVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14201e == null || !TextUtils.equals("c12479", g0())) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) || gVar == null || gVar.f14701e == null || !TextUtils.equals("c12479", Z())) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c12461");
-        if (StringUtils.isNull(gVar.f14201e.Z0)) {
+        if (StringUtils.isNull(gVar.f14701e.Z0)) {
             statisticItem.param("obj_source", "0");
         } else {
             statisticItem.param("obj_source", "1");
         }
-        if (StringUtils.isNull(gVar.f14201e.b1)) {
+        if (StringUtils.isNull(gVar.f14701e.b1)) {
             statisticItem.param("obj_locate", "0");
         } else {
             statisticItem.param("obj_locate", "1");
         }
         statisticItem.param("obj_type", "1");
-        c.a.s0.a0.f.e.a.c().a(statisticItem);
+        c.a.t0.a0.f.e.a.c().a(statisticItem);
     }
 }

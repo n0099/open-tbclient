@@ -24,24 +24,24 @@ public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Executor f28756g;
+    public static final Executor f28830g;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f28757b;
+    public final long f28831b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Runnable f28758c;
+    public final Runnable f28832c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Deque<c.d.b.e0.h.c> f28759d;
+    public final Deque<c.d.b.e0.h.c> f28833d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.d.b.e0.h.d f28760e;
+    public final c.d.b.e0.h.d f28834e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28761f;
+    public boolean f28835f;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -49,7 +49,7 @@ public final class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f28762e;
+        public final /* synthetic */ j f28836e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public final class j {
                     return;
                 }
             }
-            this.f28762e = jVar;
+            this.f28836e = jVar;
         }
 
         @Override // java.lang.Runnable
@@ -76,16 +76,16 @@ public final class j {
                 return;
             }
             while (true) {
-                long a = this.f28762e.a(System.nanoTime());
+                long a = this.f28836e.a(System.nanoTime());
                 if (a == -1) {
                     return;
                 }
                 if (a > 0) {
                     long j2 = a / 1000000;
                     long j3 = a - (1000000 * j2);
-                    synchronized (this.f28762e) {
+                    synchronized (this.f28836e) {
                         try {
-                            this.f28762e.wait(j2, (int) j3);
+                            this.f28836e.wait(j2, (int) j3);
                         } catch (InterruptedException unused) {
                         }
                     }
@@ -107,7 +107,7 @@ public final class j {
                 return;
             }
         }
-        f28756g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp ConnectionPool", true));
+        f28830g = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c.d.b.e0.e.F("OkHttp ConnectionPool", true));
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public final class j {
                 long j3 = Long.MIN_VALUE;
                 int i2 = 0;
                 int i3 = 0;
-                for (c.d.b.e0.h.c cVar2 : this.f28759d) {
+                for (c.d.b.e0.h.c cVar2 : this.f28833d) {
                     if (e(cVar2, j2) > 0) {
                         i3++;
                     } else {
@@ -150,17 +150,17 @@ public final class j {
                         }
                     }
                 }
-                if (j3 < this.f28757b && i2 <= this.a) {
+                if (j3 < this.f28831b && i2 <= this.a) {
                     if (i2 > 0) {
-                        return this.f28757b - j3;
+                        return this.f28831b - j3;
                     }
                     if (i3 > 0) {
-                        return this.f28757b;
+                        return this.f28831b;
                     }
-                    this.f28761f = false;
+                    this.f28835f = false;
                     return -1L;
                 }
-                this.f28759d.remove(cVar);
+                this.f28833d.remove(cVar);
                 c.d.b.e0.e.g(cVar.o());
                 return 0L;
             }
@@ -172,11 +172,11 @@ public final class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar)) == null) {
-            if (!cVar.f28511k && this.a != 0) {
+            if (!cVar.f28585k && this.a != 0) {
                 notifyAll();
                 return false;
             }
-            this.f28759d.remove(cVar);
+            this.f28833d.remove(cVar);
             return true;
         }
         return invokeL.booleanValue;
@@ -187,7 +187,7 @@ public final class j {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar)) == null) {
-            for (c.d.b.e0.h.c cVar : this.f28759d) {
+            for (c.d.b.e0.h.c cVar : this.f28833d) {
                 if (cVar.k(aVar, null) && cVar.m() && cVar != fVar.d()) {
                     return fVar.r(cVar);
                 }
@@ -202,7 +202,7 @@ public final class j {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, aVar, fVar, d0Var)) == null) {
-            for (c.d.b.e0.h.c cVar : this.f28759d) {
+            for (c.d.b.e0.h.c cVar : this.f28833d) {
                 if (cVar.k(aVar, d0Var)) {
                     fVar.a(cVar, true);
                     return cVar;
@@ -226,9 +226,9 @@ public final class j {
                 } else {
                     c.d.b.e0.n.g.m().v("A connection to " + cVar.route().a().l() + " was leaked. Did you forget to close a response body?", ((f.b) reference).a);
                     list.remove(i2);
-                    cVar.f28511k = true;
+                    cVar.f28585k = true;
                     if (list.isEmpty()) {
-                        cVar.o = j2 - this.f28757b;
+                        cVar.o = j2 - this.f28831b;
                         return 0;
                     }
                 }
@@ -241,11 +241,11 @@ public final class j {
     public void f(c.d.b.e0.h.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            if (!this.f28761f) {
-                this.f28761f = true;
-                f28756g.execute(this.f28758c);
+            if (!this.f28835f) {
+                this.f28835f = true;
+                f28830g.execute(this.f28832c);
             }
-            this.f28759d.add(cVar);
+            this.f28833d.add(cVar);
         }
     }
 
@@ -264,11 +264,11 @@ public final class j {
                 return;
             }
         }
-        this.f28758c = new a(this);
-        this.f28759d = new ArrayDeque();
-        this.f28760e = new c.d.b.e0.h.d();
+        this.f28832c = new a(this);
+        this.f28833d = new ArrayDeque();
+        this.f28834e = new c.d.b.e0.h.d();
         this.a = i2;
-        this.f28757b = timeUnit.toNanos(j2);
+        this.f28831b = timeUnit.toNanos(j2);
         if (j2 > 0) {
             return;
         }

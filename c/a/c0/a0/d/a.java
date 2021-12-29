@@ -16,7 +16,7 @@ public class a implements d {
     public ScheduledExecutorService a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledExecutorService f1326b;
+    public ScheduledExecutorService f1753b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class a implements d {
             }
         }
         this.a = new ScheduledThreadPoolExecutor(15);
-        this.f1326b = new ScheduledThreadPoolExecutor(1);
+        this.f1753b = new ScheduledThreadPoolExecutor(1);
     }
 
     @Override // c.a.c0.a0.d.d
@@ -47,7 +47,7 @@ public class a implements d {
     public void b(@NonNull Runnable runnable, @NonNull String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
-            this.f1326b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
+            this.f1753b.schedule(runnable, j2, TimeUnit.MILLISECONDS);
         }
     }
 }

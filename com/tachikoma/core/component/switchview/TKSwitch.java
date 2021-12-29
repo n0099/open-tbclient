@@ -20,7 +20,7 @@ import com.tachikoma.core.event.base.IBaseEvent;
 import com.tachikoma.core.event.view.TKSwitchEvent;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKSwitch extends TKBase<Switch> implements CompoundButton.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

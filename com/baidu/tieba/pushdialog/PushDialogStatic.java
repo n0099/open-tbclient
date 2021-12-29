@@ -1,7 +1,7 @@
 package com.baidu.tieba.pushdialog;
 
 import android.content.Intent;
-import c.a.r0.s.t.a;
+import c.a.s0.s.s.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -74,7 +74,7 @@ public class PushDialogStatic {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f49067e;
+            public final /* synthetic */ TbPageContextSupport f49296e;
 
             public a(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
@@ -91,20 +91,20 @@ public class PushDialogStatic {
                         return;
                     }
                 }
-                this.f49067e = tbPageContextSupport;
+                this.f49296e = tbPageContextSupport;
             }
 
-            @Override // c.a.r0.s.t.a.e
-            public void onClick(c.a.r0.s.t.a aVar) {
+            @Override // c.a.s0.s.s.a.e
+            public void onClick(c.a.s0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
                     Intent intent = new Intent();
                     intent.setAction("miui.intent.action.APP_PERM_EDITOR_PRIVATE");
-                    intent.putExtra("extra_pkgname", this.f49067e.getPageContext().getPageActivity().getPackageName());
+                    intent.putExtra("extra_pkgname", this.f49296e.getPageContext().getPageActivity().getPackageName());
                     intent.setFlags(268435456);
                     try {
-                        this.f49067e.getPageContext().getPageActivity().startActivity(intent);
+                        this.f49296e.getPageContext().getPageActivity().startActivity(intent);
                     } catch (Exception unused) {
                     }
                 }
@@ -113,14 +113,14 @@ public class PushDialogStatic {
 
         /* renamed from: com.baidu.tieba.pushdialog.PushDialogStatic$b$b  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class C1930b implements a.e {
+        public class C1937b implements a.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ TbPageContextSupport f49068e;
+            public final /* synthetic */ TbPageContextSupport f49297e;
 
-            public C1930b(b bVar, TbPageContextSupport tbPageContextSupport) {
+            public C1937b(b bVar, TbPageContextSupport tbPageContextSupport) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,11 +135,11 @@ public class PushDialogStatic {
                         return;
                     }
                 }
-                this.f49068e = tbPageContextSupport;
+                this.f49297e = tbPageContextSupport;
             }
 
-            @Override // c.a.r0.s.t.a.e
-            public void onClick(c.a.r0.s.t.a aVar) {
+            @Override // c.a.s0.s.s.a.e
+            public void onClick(c.a.s0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
@@ -147,7 +147,7 @@ public class PushDialogStatic {
                     intent.setAction("com.iqoo.secure.PERMISSION_MANAGER");
                     intent.setFlags(268435456);
                     try {
-                        this.f49068e.getPageContext().getPageActivity().startActivity(intent);
+                        this.f49297e.getPageContext().getPageActivity().startActivity(intent);
                     } catch (Exception unused) {
                     }
                 }
@@ -175,8 +175,8 @@ public class PushDialogStatic {
                 }
             }
 
-            @Override // c.a.r0.s.t.a.e
-            public void onClick(c.a.r0.s.t.a aVar) {
+            @Override // c.a.s0.s.s.a.e
+            public void onClick(c.a.s0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                     aVar.dismiss();
@@ -206,22 +206,22 @@ public class PushDialogStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof TbPageContextSupport)) {
-                    int k2 = c.a.r0.s.g0.b.j().k("lock_permission_guide_set", 0);
+                    int k2 = c.a.s0.s.g0.b.j().k("lock_permission_guide_set", 0);
                     if (!(k2 >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (c.a.s0.f3.b.a()) {
+                            if (c.a.t0.f3.b.a()) {
                                 eVar = new a(this, tbPageContextSupport);
                                 i2 = R.string.push_dialog_guide_content_miui;
-                            } else if (c.a.s0.f3.b.b()) {
-                                eVar = new C1930b(this, tbPageContextSupport);
+                            } else if (c.a.t0.f3.b.b()) {
+                                eVar = new C1937b(this, tbPageContextSupport);
                                 i2 = R.string.push_dialog_guide_content_vivo;
                             } else {
                                 eVar = null;
                                 i2 = 0;
                             }
                             if (eVar != null) {
-                                c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(tbPageContextSupport.getPageContext().getPageActivity());
+                                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(tbPageContextSupport.getPageContext().getPageActivity());
                                 aVar.setTitle(R.string.push_dialog_guide_title);
                                 aVar.setMessageId(i2);
                                 aVar.setPositiveButton(R.string.go_setting, eVar);
@@ -230,7 +230,7 @@ public class PushDialogStatic {
                                 aVar.show();
                                 TbSingleton.getInstance().setHasShowPermDlg(true);
                             }
-                            c.a.r0.s.g0.b.j().v("lock_permission_guide_set", k2 + 1);
+                            c.a.s0.s.g0.b.j().v("lock_permission_guide_set", k2 + 1);
                         }
                     }
                 }
@@ -275,12 +275,12 @@ public class PushDialogStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            c.a.s0.v3.f0.a.h(309614, PushDialogSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, c.a.s0.v3.f0.a.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+            c.a.t0.w3.f0.a.h(309614, PushDialogSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, c.a.t0.w3.f0.a.a(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
             tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            c.a.s0.v3.f0.a.h(309618, PullTidSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, c.a.s0.v3.f0.a.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+            c.a.t0.w3.f0.a.h(309618, PullTidSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, c.a.t0.w3.f0.a.a(TbConfig.GET_PUSH_DIALOG_TID, 309618));
             tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);
             CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new a());

@@ -13,7 +13,7 @@ public final class a<T> {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final T f64524b;
+    public final T f64519b;
 
     public a(long j2, T t) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class a<T> {
                 return;
             }
         }
-        this.f64524b = t;
+        this.f64519b = t;
         this.a = j2;
     }
 
@@ -43,7 +43,7 @@ public final class a<T> {
     public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64524b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64519b : (T) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -56,8 +56,8 @@ public final class a<T> {
             if (obj != null && (obj instanceof a)) {
                 a aVar = (a) obj;
                 if (this.a == aVar.a) {
-                    T t = this.f64524b;
-                    T t2 = aVar.f64524b;
+                    T t = this.f64519b;
+                    T t2 = aVar.f64519b;
                     if (t == t2) {
                         return true;
                     }
@@ -78,7 +78,7 @@ public final class a<T> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             long j2 = this.a;
             int i2 = (((int) (j2 ^ (j2 >>> 32))) + 31) * 31;
-            T t = this.f64524b;
+            T t = this.f64519b;
             return i2 + (t == null ? 0 : t.hashCode());
         }
         return invokeV.intValue;
@@ -87,6 +87,6 @@ public final class a<T> {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.f64524b.toString()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.f64519b.toString()) : (String) invokeV.objValue;
     }
 }

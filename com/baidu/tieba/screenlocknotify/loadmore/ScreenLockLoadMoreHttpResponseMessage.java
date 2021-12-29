@@ -1,6 +1,6 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import c.a.s0.l3.e.a;
+import c.a.t0.l3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

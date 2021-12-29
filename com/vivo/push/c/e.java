@@ -14,17 +14,17 @@ public final class e implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.k f63042b;
+    public final /* synthetic */ com.vivo.push.b.i f63042b;
 
     /* renamed from: c  reason: collision with root package name */
     public final /* synthetic */ d f63043c;
 
-    public e(d dVar, String str, com.vivo.push.b.k kVar) {
+    public e(d dVar, String str, com.vivo.push.b.i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, str, kVar};
+            Object[] objArr = {dVar, str, iVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,7 +36,7 @@ public final class e implements Runnable {
         }
         this.f63043c = dVar;
         this.a = str;
-        this.f63042b = kVar;
+        this.f63042b = iVar;
     }
 
     @Override // java.lang.Runnable
@@ -47,12 +47,12 @@ public final class e implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.a)) {
                 d dVar = this.f63043c;
-                PushMessageCallback pushMessageCallback = ((ab) dVar).f63032b;
+                PushMessageCallback pushMessageCallback = ((z) dVar).f63061b;
                 context2 = dVar.a;
                 pushMessageCallback.onReceiveRegId(context2, this.a);
             }
             d dVar2 = this.f63043c;
-            PushMessageCallback pushMessageCallback2 = ((ab) dVar2).f63032b;
+            PushMessageCallback pushMessageCallback2 = ((z) dVar2).f63061b;
             context = dVar2.a;
             pushMessageCallback2.onBind(context, this.f63042b.h(), this.f63042b.d());
         }

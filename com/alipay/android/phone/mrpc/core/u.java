@@ -13,7 +13,7 @@ public class u {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31539b;
+    public String f31682b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class u {
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f31539b = str;
+            this.f31682b = str;
         }
     }
 

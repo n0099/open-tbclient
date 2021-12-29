@@ -14,10 +14,10 @@ public final class e {
     public static final Set<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<Integer> f1452b;
+    public static final Set<Integer> f1879b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Set<Integer> f1453c;
+    public static final Set<Integer> f1880c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,17 +34,17 @@ public final class e {
             }
         }
         a = new HashSet();
-        f1452b = new HashSet();
-        f1453c = new HashSet();
+        f1879b = new HashSet();
+        f1880c = new HashSet();
         a.add(2);
         a.add(3);
         a.add(4);
         a.add(5);
         a.add(6);
-        f1452b.add(7);
-        f1452b.add(1);
-        f1453c.addAll(a);
-        f1453c.addAll(f1452b);
+        f1879b.add(7);
+        f1879b.add(1);
+        f1880c.addAll(a);
+        f1880c.addAll(f1879b);
     }
 
     public static String a(int i2, boolean z) {

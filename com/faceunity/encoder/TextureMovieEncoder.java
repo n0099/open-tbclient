@@ -11,9 +11,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.h2.a;
-import c.a.s0.h2.g;
-import c.a.s0.h2.k;
+import c.a.t0.h2.a;
+import c.a.t0.h2.g;
+import c.a.t0.h2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
 @TargetApi(18)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AUDIO_SOURCES;
@@ -84,13 +84,13 @@ public class TextureMovieEncoder {
     public boolean videoEncoderReadyFlag;
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AudioThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,14 +215,14 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnEncoderStatusUpdateListener {
         void onStartSuccess();
 
         void onStopSuccess();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class VideoThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

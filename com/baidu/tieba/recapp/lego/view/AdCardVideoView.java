@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import c.a.r0.s.r.e;
-import c.a.s0.j3.i0.b.f;
-import c.a.s0.j3.n;
-import c.a.s0.j3.r;
-import c.a.s0.x1.o.c;
+import c.a.s0.s.q.e;
+import c.a.t0.j3.i0.b.f;
+import c.a.t0.j3.n;
+import c.a.t0.j3.r;
+import c.a.t0.x1.o.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCardVideoView f49179e;
+        public final /* synthetic */ AdCardVideoView f49405e;
 
         public a(AdCardVideoView adCardVideoView) {
             Interceptable interceptable = $ic;
@@ -54,16 +54,16 @@ public class AdCardVideoView extends AdCardBaseView implements r {
                     return;
                 }
             }
-            this.f49179e = adCardVideoView;
+            this.f49405e = adCardVideoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int jump2DownloadDetailPage = this.f49179e.mVideoView.jump2DownloadDetailPage();
-                if (this.f49179e.afterClickSchemeListener != null) {
-                    this.f49179e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                int jump2DownloadDetailPage = this.f49405e.mVideoView.jump2DownloadDetailPage();
+                if (this.f49405e.afterClickSchemeListener != null) {
+                    this.f49405e.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -100,17 +100,17 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         return (String) invokeV.objValue;
     }
 
-    public final void T(AdCard adCard) {
+    public final void N(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
             if (adCard.goodsStyle == 14) {
                 int i2 = this.mMaxWidth / 2;
                 this.y = i2;
-                this.z = c.a.s0.j3.i0.c.a.b(i2);
+                this.z = c.a.t0.j3.i0.c.a.b(i2);
             } else {
                 int i3 = this.mMaxWidth;
                 this.y = i3;
-                this.z = c.a.s0.j3.i0.c.a.a(i3);
+                this.z = c.a.t0.j3.i0.c.a.a(i3);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mVideoView.getLayoutParams();
             layoutParams.height = this.z;
@@ -118,11 +118,11 @@ public class AdCardVideoView extends AdCardBaseView implements r {
             if (adCard.goodsStyle == 14 && !isVerticalTransform(adCard)) {
                 int i4 = this.mMaxWidth / 2;
                 this.A = i4;
-                this.B = c.a.s0.j3.i0.c.a.b(i4);
+                this.B = c.a.t0.j3.i0.c.a.b(i4);
             } else {
                 int i5 = this.mMaxWidth;
                 this.A = i5;
-                this.B = c.a.s0.j3.i0.c.a.a(i5);
+                this.B = c.a.t0.j3.i0.c.a.a(i5);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mCustomRoot.getLayoutParams();
             layoutParams2.width = this.A;
@@ -137,7 +137,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) || adCard == null || adCard.videoInfo == null) {
             return;
         }
-        T(adCard);
+        N(adCard);
         this.mVideoView.setPageContext(this.x);
         this.mVideoView.setVideoTailFrameData(adCard.tailFrame);
         this.mVideoView.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.y, this.z, this.A, this.B);
@@ -148,10 +148,10 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         this.mVideoView.updateTailFrameView(advertAppInfo);
         if (advertAppInfo != null) {
             int i2 = -1;
-            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.n4) ? getPageTypeByBusiness() : advertAppInfo.n4;
-            e eVar = advertAppInfo.m4;
+            String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.p4) ? getPageTypeByBusiness() : advertAppInfo.p4;
+            e eVar = advertAppInfo.o4;
             if (eVar != null) {
-                i2 = eVar.f13289b;
+                i2 = eVar.f13665b;
                 pageTypeByBusiness = eVar.a;
             }
             this.mVideoView.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
@@ -173,7 +173,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.card_ad : invokeV.intValue;
     }
 
-    @Override // c.a.s0.j3.r
+    @Override // c.a.t0.j3.r
     public n getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -202,7 +202,7 @@ public class AdCardVideoView extends AdCardBaseView implements r {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, adCard)) == null) ? adCard != null && adCard.goodsStyle == 14 && (fVar = adCard.verticalVideoStyle) != null && fVar.a() : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.s0.x1.o.l.e
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.t0.x1.o.l.e
     public void setDownloadAppCallback(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {

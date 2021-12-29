@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
-import c.a.d.f.p.l;
-import c.a.r0.s.r.g;
+import c.a.d.f.p.m;
+import c.a.s0.s.q.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -160,7 +160,7 @@ public class AlaInfoData implements Serializable, Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || l.isEmpty(yyExtData.mSid) || l.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || m.isEmpty(yyExtData.mSid) || m.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }

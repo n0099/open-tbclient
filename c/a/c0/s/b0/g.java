@@ -31,7 +31,7 @@ public abstract class g extends c.a.c0.s.j0.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c.a.c0.s.j0.l lVar = this.f1891e;
+            c.a.c0.s.j0.l lVar = this.f2318e;
             if (lVar != null) {
                 return (c.a.c0.s.j0.c) lVar;
             }

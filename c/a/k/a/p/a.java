@@ -16,7 +16,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f3755b;
+    public static a f4170b;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
 
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        f3755b = new a();
+        f4170b = new a();
     }
 
     public a() {
@@ -55,7 +55,7 @@ public class a {
     public static a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3755b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f4170b : (a) invokeV.objValue;
     }
 
     public void a(int i2, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {

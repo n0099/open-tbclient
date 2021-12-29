@@ -15,7 +15,7 @@ public class e extends a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public i f28140h;
+    public i f28214h;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e extends a implements b {
     public void o(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            this.f28140h = iVar;
+            this.f28214h = iVar;
             if (iVar != null) {
                 j(iVar.c());
                 h(iVar.b());
@@ -47,7 +47,7 @@ public class e extends a implements b {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            i iVar = this.f28140h;
+            i iVar = this.f28214h;
             if (iVar instanceof h.a) {
                 gVar = new h.b((h.a) iVar);
             } else {
@@ -101,6 +101,6 @@ public class e extends a implements b {
                 return;
             }
         }
-        o(eVar.f28140h);
+        o(eVar.f28214h);
     }
 }

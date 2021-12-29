@@ -5,11 +5,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import com.baidu.nps.utils.Constant;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ksad.download.f;
 import com.kwad.sdk.core.i.b;
 import com.kwad.sdk.utils.aq;
@@ -24,18 +19,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
     public static volatile a f57847g;
-    public transient /* synthetic */ FieldHolder $fh;
     public Future a;
 
     /* renamed from: b  reason: collision with root package name */
     public File f57848b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final ExecutorService f57849c;
 
     /* renamed from: d  reason: collision with root package name */
     public PackageManager f57850d;
@@ -46,73 +36,33 @@ public class a {
     /* renamed from: f  reason: collision with root package name */
     public volatile boolean f57852f;
 
-    /* renamed from: h  reason: collision with root package name */
-    public final Callable<PackageInfo> f57853h;
+    /* renamed from: c  reason: collision with root package name */
+    public final ExecutorService f57849c = b.k();
 
-    public a(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* renamed from: h  reason: collision with root package name */
+    public final Callable<PackageInfo> f57853h = new Callable<PackageInfo>() { // from class: com.kwad.sdk.core.diskcache.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public PackageInfo call() {
+            PackageInfo a;
+            synchronized (a.class) {
+                if (a.this.f57848b != null && a.this.f57848b.exists()) {
+                    for (File file : a.this.b(a.this.f57848b)) {
+                        if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a = a.this.a(file)) != null) {
+                            a.this.f57851e.a(file);
+                            return a;
+                        }
+                    }
+                    return null;
+                }
+                return null;
             }
         }
-        this.f57849c = b.k();
+    };
+
+    public a(@NonNull Context context) {
         this.f57852f = false;
-        this.f57853h = new Callable<PackageInfo>(this) { // from class: com.kwad.sdk.core.diskcache.a.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.concurrent.Callable
-            /* renamed from: a */
-            public PackageInfo call() {
-                InterceptResult invokeV;
-                PackageInfo a;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    synchronized (a.class) {
-                        if (this.a.f57848b != null && this.a.f57848b.exists()) {
-                            for (File file : this.a.b(this.a.f57848b)) {
-                                if (file.getName().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX) && com.kwad.sdk.core.a.a().a(file.getAbsolutePath()) != null && (a = this.a.a(file)) != null) {
-                                    this.a.f57851e.a(file);
-                                    return a;
-                                }
-                            }
-                            return null;
-                        }
-                        return null;
-                    }
-                }
-                return (PackageInfo) invokeV.objValue;
-            }
-        };
         this.f57851e = new com.kwad.sdk.core.download.b.a(context);
         try {
             this.f57848b = aq.c(context);
@@ -125,108 +75,62 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public PackageInfo a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            if (file != null && file.exists()) {
-                try {
-                    if (file.exists() & (!file.isDirectory())) {
-                        PackageInfo packageArchiveInfo = this.f57850d.getPackageArchiveInfo(file.getPath(), 65);
-                        if (this.f57850d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
-                            return null;
-                        }
-                        return packageArchiveInfo;
+        if (file != null && file.exists()) {
+            try {
+                if (file.exists() & (!file.isDirectory())) {
+                    PackageInfo packageArchiveInfo = this.f57850d.getPackageArchiveInfo(file.getPath(), 65);
+                    if (this.f57850d.getPackageInfo(packageArchiveInfo.packageName, 1) != null) {
+                        return null;
                     }
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                    return packageArchiveInfo;
                 }
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
-            return null;
         }
-        return (PackageInfo) invokeL.objValue;
+        return null;
     }
 
     public static a a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f57847g == null) {
-                synchronized (a.class) {
-                    if (f57847g == null) {
-                        f57847g = new a(context);
-                    }
+        if (f57847g == null) {
+            synchronized (a.class) {
+                if (f57847g == null) {
+                    f57847g = new a(context);
                 }
             }
-            return f57847g;
         }
-        return (a) invokeL.objValue;
+        return f57847g;
     }
 
     private void a(List<File> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, list) == null) {
-            Collections.sort(list, new Comparator<File>(this) { // from class: com.kwad.sdk.core.diskcache.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
+        Collections.sort(list, new Comparator<File>() { // from class: com.kwad.sdk.core.diskcache.a.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // java.util.Comparator
+            /* renamed from: a */
+            public int compare(File file, File file2) {
+                if (file.lastModified() >= file2.lastModified()) {
+                    return file.lastModified() == file2.lastModified() ? 0 : 1;
                 }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                /* renamed from: a */
-                public int compare(File file, File file2) {
-                    InterceptResult invokeLL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file, file2)) == null) {
-                        if (file.lastModified() >= file2.lastModified()) {
-                            return file.lastModified() == file2.lastModified() ? 0 : 1;
-                        }
-                        return -1;
-                    }
-                    return invokeLL.intValue;
-                }
-            });
-        }
+                return -1;
+            }
+        });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<File> b(@NonNull File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, file)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] listFiles = file.listFiles();
-            if (listFiles == null) {
-                return arrayList;
-            }
-            arrayList.addAll(Arrays.asList(listFiles));
-            a(arrayList);
+        ArrayList arrayList = new ArrayList();
+        File[] listFiles = file.listFiles();
+        if (listFiles == null) {
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        arrayList.addAll(Arrays.asList(listFiles));
+        a(arrayList);
+        return arrayList;
     }
 
     public void a() {
         File file;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f57852f && (file = this.f57848b) != null && file.exists()) {
+        if (this.f57852f && (file = this.f57848b) != null && file.exists()) {
             Future future = this.a;
             if (future == null || future.isDone()) {
                 this.a = this.f57849c.submit(this.f57853h);

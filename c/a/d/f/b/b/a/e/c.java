@@ -15,10 +15,10 @@ public class c {
     public Type[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Type f2283b;
+    public Type f2710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Class<?> f2284c;
+    public Class<?> f2711c;
 
     public c(Type type) {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class c {
             }
         }
         this.a = null;
-        this.f2283b = null;
-        this.f2284c = null;
+        this.f2710b = null;
+        this.f2711c = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
             this.a = parameterizedType.getActualTypeArguments();
             Type rawType = parameterizedType.getRawType();
-            this.f2283b = rawType;
+            this.f2710b = rawType;
             Type[] typeArr = this.a;
             if (typeArr == null || typeArr.length <= 0) {
                 return;
             }
             try {
-                this.f2284c = (Class) rawType;
+                this.f2711c = (Class) rawType;
                 return;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -56,7 +56,7 @@ public class c {
             }
         }
         try {
-            this.f2284c = (Class) type;
+            this.f2711c = (Class) type;
         } catch (Exception e3) {
             e3.printStackTrace();
         }
@@ -65,7 +65,7 @@ public class c {
     public Class<?> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2284c : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2711c : (Class) invokeV.objValue;
     }
 
     public Type[] b() {

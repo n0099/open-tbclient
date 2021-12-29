@@ -26,7 +26,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f42065e;
+    public HttpMessageListener f42231e;
 
     /* loaded from: classes11.dex */
     public static class ShareSuccessReplySeverResponseMessage extends JsonHttpResponsedMessage {
@@ -65,7 +65,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = c.a.s0.s2.b.a(optJSONObject);
+                this.mActDialogData = c.a.t0.s2.b.a(optJSONObject);
             }
         }
 
@@ -138,12 +138,12 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42065e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
+        this.f42231e = new a(this, CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f42065e.setTag(getUniqueId());
-        this.f42065e.setSelfListener(true);
-        registerListener(this.f42065e);
+        this.f42231e.setTag(getUniqueId());
+        this.f42231e.setSelfListener(true);
+        registerListener(this.f42231e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -151,7 +151,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f42065e);
+            MessageManager.getInstance().unRegisterListener(this.f42231e);
             return false;
         }
         return invokeV.booleanValue;

@@ -42,7 +42,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletDoRnAuthAction f54040b;
+                public final /* synthetic */ EnterWalletDoRnAuthAction f54043b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class EnterWalletDoRnAuthAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f54040b = this;
+                    this.f54043b = this;
                     this.a = routerCallback;
                 }
 

@@ -27,31 +27,31 @@ public class ix extends jb {
     public byte[] f810a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f63786b;
+    public boolean f63781b;
 
     /* renamed from: b  reason: collision with other field name */
     public byte[] f811b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f63787c;
+    public boolean f63782c;
 
     /* renamed from: c  reason: collision with other field name */
     public byte[] f812c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f63788d;
+    public byte[] f63783d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f63789e;
+    public byte[] f63784e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f63790f;
+    public byte[] f63785f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[] f63791g;
+    public byte[] f63786g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f63792h;
+    public byte[] f63787h;
 
     /* loaded from: classes4.dex */
     public static class a implements jd {
@@ -63,7 +63,7 @@ public class ix extends jb {
         public boolean f813a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f63793b;
+        public boolean f63788b;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -121,9 +121,9 @@ public class ix extends jb {
                 }
             }
             this.f813a = false;
-            this.f63793b = true;
+            this.f63788b = true;
             this.f813a = z;
-            this.f63793b = z2;
+            this.f63788b = z2;
             this.a = i2;
         }
 
@@ -132,7 +132,7 @@ public class ix extends jb {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jlVar)) == null) {
-                ix ixVar = new ix(jlVar, this.f813a, this.f63793b);
+                ix ixVar = new ix(jlVar, this.f813a, this.f63788b);
                 int i2 = this.a;
                 if (i2 != 0) {
                     ixVar.b(i2);
@@ -178,18 +178,18 @@ public class ix extends jb {
             }
         }
         this.f809a = false;
-        this.f63786b = true;
-        this.f63787c = false;
+        this.f63781b = true;
+        this.f63782c = false;
         this.f810a = new byte[1];
         this.f811b = new byte[2];
         this.f812c = new byte[4];
-        this.f63788d = new byte[8];
-        this.f63789e = new byte[1];
-        this.f63790f = new byte[2];
-        this.f63791g = new byte[4];
-        this.f63792h = new byte[8];
+        this.f63783d = new byte[8];
+        this.f63784e = new byte[1];
+        this.f63785f = new byte[2];
+        this.f63786g = new byte[4];
+        this.f63787h = new byte[8];
         this.f809a = z;
-        this.f63786b = z2;
+        this.f63781b = z2;
     }
 
     private int a(byte[] bArr, int i2, int i3) {
@@ -208,8 +208,8 @@ public class ix extends jb {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (((jb) this).a.b() < 1) {
-                a(this.f63789e, 0, 1);
-                return this.f63789e[0];
+                a(this.f63784e, 0, 1);
+                return this.f63784e[0];
             }
             byte b2 = ((jb) this).a.m583a()[((jb) this).a.a()];
             ((jb) this).a.a(1);
@@ -230,14 +230,14 @@ public class ix extends jb {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            byte[] bArr = this.f63791g;
+            byte[] bArr = this.f63786g;
             int i2 = 0;
             if (((jb) this).a.b() >= 4) {
                 bArr = ((jb) this).a.m583a();
                 i2 = ((jb) this).a.a();
                 ((jb) this).a.a(4);
             } else {
-                a(this.f63791g, 0, 4);
+                a(this.f63786g, 0, 4);
             }
             return (bArr[i2 + 3] & 255) | ((bArr[i2] & 255) << 24) | ((bArr[i2 + 1] & 255) << 16) | ((bArr[i2 + 2] & 255) << 8);
         }
@@ -249,14 +249,14 @@ public class ix extends jb {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            byte[] bArr = this.f63792h;
+            byte[] bArr = this.f63787h;
             int i2 = 0;
             if (((jb) this).a.b() >= 8) {
                 bArr = ((jb) this).a.m583a();
                 i2 = ((jb) this).a.a();
                 ((jb) this).a.a(8);
             } else {
-                a(this.f63792h, 0, 8);
+                a(this.f63787h, 0, 8);
             }
             return (bArr[i2 + 7] & 255) | ((bArr[i2] & 255) << 56) | ((bArr[i2 + 1] & 255) << 48) | ((bArr[i2 + 2] & 255) << 40) | ((bArr[i2 + 3] & 255) << 32) | ((bArr[i2 + 4] & 255) << 24) | ((bArr[i2 + 5] & 255) << 16) | ((bArr[i2 + 6] & 255) << 8);
         }
@@ -363,14 +363,14 @@ public class ix extends jb {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            byte[] bArr = this.f63790f;
+            byte[] bArr = this.f63785f;
             int i2 = 0;
             if (((jb) this).a.b() >= 2) {
                 bArr = ((jb) this).a.m583a();
                 i2 = ((jb) this).a.a();
                 ((jb) this).a.a(2);
             } else {
-                a(this.f63790f, 0, 2);
+                a(this.f63785f, 0, 2);
             }
             return (short) ((bArr[i2 + 1] & 255) | ((bArr[i2] & 255) << 8));
         }
@@ -411,7 +411,7 @@ public class ix extends jb {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            byte[] bArr = this.f63788d;
+            byte[] bArr = this.f63783d;
             bArr[0] = (byte) ((j2 >> 56) & 255);
             bArr[1] = (byte) ((j2 >> 48) & 255);
             bArr[2] = (byte) ((j2 >> 40) & 255);
@@ -447,7 +447,7 @@ public class ix extends jb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, jaVar) == null) {
             a(jaVar.a);
-            a(jaVar.f63794b);
+            a(jaVar.f63789b);
             a(jaVar.f819a);
         }
     }
@@ -520,7 +520,7 @@ public class ix extends jb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
             this.f808a = i2;
-            this.f63787c = true;
+            this.f63782c = true;
         }
     }
 
@@ -537,7 +537,7 @@ public class ix extends jb {
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
             if (i2 < 0) {
                 throw new iv("Negative length: " + i2);
-            } else if (this.f63787c) {
+            } else if (this.f63782c) {
                 int i3 = this.f808a - i2;
                 this.f808a = i3;
                 if (i3 >= 0) {

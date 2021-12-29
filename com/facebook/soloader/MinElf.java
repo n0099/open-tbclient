@@ -14,7 +14,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MinElf {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DT_NEEDED = 1;
@@ -26,7 +26,7 @@ public final class MinElf {
     public static final int PT_LOAD = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ElfError extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

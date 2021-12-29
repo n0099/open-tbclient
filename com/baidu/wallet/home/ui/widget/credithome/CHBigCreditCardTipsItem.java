@@ -25,19 +25,19 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53220b;
+    public MaskTextView f53223b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f53221c;
+    public View f53224c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f53222d;
+    public HomeCfgResponse.DataIcon f53225d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f53223e;
+    public b f53226e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f53224f;
+    public int f53227f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CHBigCreditCardTipsItem(Context context) {
@@ -57,7 +57,7 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
                 return;
             }
         }
-        this.f53224f = 24;
+        this.f53227f = 24;
     }
 
     private void a() {
@@ -65,23 +65,23 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_tips_item"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_img"));
-            this.f53220b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
-            this.f53221c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
-            this.f53220b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f53224f)});
+            this.f53223b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
+            this.f53224c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
+            this.f53223b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f53227f)});
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (!TextUtils.isEmpty(this.f53222d.icon_link)) {
+            if (!TextUtils.isEmpty(this.f53225d.icon_link)) {
                 this.a.setVisibility(0);
                 NetImageView netImageView = this.a;
-                netImageView.setImageUrl(this.f53223e.getAndroidPrefix() + this.f53222d.icon_link);
+                netImageView.setImageUrl(this.f53226e.getAndroidPrefix() + this.f53225d.icon_link);
             } else {
                 this.a.setVisibility(8);
             }
-            this.f53220b.setText(this.f53222d.name);
+            this.f53223b.setText(this.f53225d.name);
         }
     }
 
@@ -98,8 +98,8 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     public void setData(HomeCfgResponse.DataIcon dataIcon, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataIcon, bVar) == null) {
-            this.f53222d = dataIcon;
-            this.f53223e = bVar;
+            this.f53225d = dataIcon;
+            this.f53226e = bVar;
             a();
             b();
         }
@@ -108,14 +108,14 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     public void setMaxLength(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f53224f = i2;
+            this.f53227f = i2;
         }
     }
 
     public void setShowDivider(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f53221c.setVisibility(z ? 0 : 4);
+            this.f53224c.setVisibility(z ? 0 : 4);
         }
     }
 
@@ -138,6 +138,6 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
                 return;
             }
         }
-        this.f53224f = 24;
+        this.f53227f = 24;
     }
 }

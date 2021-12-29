@@ -16,8 +16,8 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.j;
 import c.a.d.f.m.f;
-import c.a.r0.k0.h;
-import c.a.r0.n0.c;
+import c.a.s0.k0.h;
+import c.a.s0.o0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -162,7 +162,7 @@ public class IntentConfig extends OrmObject {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f41519e;
+        public final /* synthetic */ IntentConfig f41678e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f41519e = intentConfig;
+            this.f41678e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -188,17 +188,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f41519e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f41519e.mReplyMessenger != null) {
+            this.f41678e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f41678e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f41519e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f41519e.mComponentClass.getName());
+                if (this.f41678e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f41678e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f41519e.mClientMessenger;
+                obtain.replyTo = this.f41678e.mClientMessenger;
                 try {
-                    this.f41519e.mReplyMessenger.send(obtain);
+                    this.f41678e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -312,7 +312,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        c.a.r0.o0.b tbPageInfo = b2 instanceof c.a.r0.o0.a ? ((c.a.r0.o0.a) b2).getTbPageInfo() : null;
+        c.a.s0.p0.b tbPageInfo = b2 instanceof c.a.s0.p0.a ? ((c.a.s0.p0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -347,15 +347,15 @@ public class IntentConfig extends OrmObject {
             return;
         }
         c k2 = TbPageExtraHelper.k(context);
-        ArrayList<String> b2 = k2 == null ? null : k2.b();
-        if (ListUtils.isEmpty(b2)) {
+        ArrayList<String> c2 = k2 == null ? null : k2.c();
+        if (ListUtils.isEmpty(c2)) {
             return;
         }
         if (k2 != null) {
             TbPageExtraHelper.v(k2.a());
             h.i(new PrePageKeyEvent(TbPageExtraHelper.m()));
         }
-        this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", b2);
+        this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", c2);
     }
 
     public void addSourceTraceForPageStayDurationStat() {
@@ -364,7 +364,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof c.a.r0.p0.a ? (ArrayList) ((c.a.r0.p0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.s0.q0.a ? (ArrayList) ((c.a.s0.q0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -734,7 +734,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         c k2 = TbPageExtraHelper.k(context);
-        ArrayList<String> c2 = TbPageExtraHelper.c(k2 == null ? null : k2.c(), str);
+        ArrayList<String> c2 = TbPageExtraHelper.c(k2 == null ? null : k2.d(), str);
         if (ListUtils.isEmpty(c2)) {
             return;
         }

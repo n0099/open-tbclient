@@ -1,266 +1,545 @@
 package com.bytedance.pangle;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.view.ContextThemeWrapper;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.g;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 /* loaded from: classes2.dex */
-public interface e extends IInterface {
-    ComponentName a(Intent intent, String str);
+public class e extends ContextThemeWrapper {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public File mCacheDir;
+    public File mCodeCacheDir;
+    public File mDataDir;
+    public File mExternalCacheDir;
+    public File mFilesDir;
+    public File mNoBackupFilesDir;
+    public File mObbDir;
+    public final Object mSync;
 
-    void a(g gVar);
-
-    boolean a(Intent intent, g gVar, int i2, String str);
-
-    boolean b(Intent intent, String str);
-
-    /* loaded from: classes2.dex */
-    public static abstract class a extends Binder implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            attachInterface(this, "com.bytedance.pangle.IServiceManager");
         }
+        this.mSync = new Object();
+    }
 
-        public static e a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.pangle.IServiceManager");
-                if (queryLocalInterface != null && (queryLocalInterface instanceof e)) {
-                    return (e) queryLocalInterface;
-                }
-                return new C2014a(iBinder);
+    public static File ensurePrivateDirExists(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            return (e) invokeL.objValue;
+            return file;
         }
+        return (File) invokeL.objValue;
+    }
 
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+    public static File makeFilename(File file, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
+            if (str.indexOf(File.separatorChar) < 0) {
+                return new File(file, str);
+            }
+            throw new IllegalArgumentException("File " + str + " contains a path separator");
         }
+        return (File) invokeLL.objValue;
+    }
 
-        @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
-                    parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                    ComponentName a = a(parcel.readInt() != 0 ? (Intent) Intent.CREATOR.createFromParcel(parcel) : null, parcel.readString());
-                    parcel2.writeNoException();
-                    if (a != null) {
-                        parcel2.writeInt(1);
-                        a.writeToParcel(parcel2, 1);
-                    } else {
-                        parcel2.writeInt(0);
-                    }
-                    return true;
-                } else if (i2 == 2) {
-                    parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                    boolean b2 = b(parcel.readInt() != 0 ? (Intent) Intent.CREATOR.createFromParcel(parcel) : null, parcel.readString());
-                    parcel2.writeNoException();
-                    parcel2.writeInt(b2 ? 1 : 0);
-                    return true;
-                } else if (i2 == 3) {
-                    parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                    boolean a2 = a(parcel.readInt() != 0 ? (Intent) Intent.CREATOR.createFromParcel(parcel) : null, g.a.a(parcel.readStrongBinder()), parcel.readInt(), parcel.readString());
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a2 ? 1 : 0);
-                    return true;
-                } else if (i2 != 4) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
-                    }
-                    parcel2.writeString("com.bytedance.pangle.IServiceManager");
-                    return true;
+    private String makeSubName(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
+            return getPluginDirName() + "_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public String[] databaseList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.databaseList();
+            }
+            String[] databaseList = super.databaseList();
+            int length = databaseList.length;
+            boolean[] zArr = new boolean[length];
+            int i2 = 0;
+            for (int i3 = 0; i3 < databaseList.length; i3++) {
+                if (databaseList[i3].startsWith(getPluginDirName())) {
+                    zArr[i3] = true;
+                    i2++;
                 } else {
-                    parcel.enforceInterface("com.bytedance.pangle.IServiceManager");
-                    a(g.a.a(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    return true;
+                    zArr[i3] = false;
                 }
             }
-            return invokeCommon.booleanValue;
+            String[] strArr = new String[i2];
+            int i4 = 0;
+            for (int i5 = 0; i5 < length; i5++) {
+                if (zArr[i5]) {
+                    strArr[i4] = databaseList[i5];
+                    i4++;
+                }
+            }
+            return strArr;
         }
+        return (String[]) invokeV.objValue;
+    }
 
-        public static e a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2014a.a : (e) invokeV.objValue;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteDatabase(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.deleteDatabase(str);
+            }
+            return super.deleteDatabase(makeSubName(str));
         }
+        return invokeL.booleanValue;
+    }
 
-        /* renamed from: com.bytedance.pangle.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C2014a implements e {
-            public static /* synthetic */ Interceptable $ic;
-            public static e a;
-            public transient /* synthetic */ FieldHolder $fh;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteFile(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? makeFilename(getFilesDir(), str).delete() : invokeL.booleanValue;
+    }
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f55148b;
-
-            public C2014a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f55148b = iBinder;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean deleteSharedPreferences(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.deleteSharedPreferences(str);
             }
+            return super.deleteSharedPreferences(makeSubName(str));
+        }
+        return invokeL.booleanValue;
+    }
 
-            @Override // com.bytedance.pangle.e
-            public final ComponentName a(Intent intent, String str) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, intent, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeString(str);
-                        if (!this.f55148b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(intent, str);
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt() != 0 ? (ComponentName) ComponentName.CREATOR.createFromParcel(obtain2) : null;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (ComponentName) invokeLL.objValue;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getCacheDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getCacheDir();
             }
-
-            @Override // android.os.IInterface
-            public final IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55148b : (IBinder) invokeV.objValue;
-            }
-
-            @Override // com.bytedance.pangle.e
-            public final boolean b(Intent intent, String str) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, intent, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeString(str);
-                        if (!this.f55148b.transact(2, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().b(intent, str);
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt() != 0;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
+            synchronized (this.mSync) {
+                if (this.mCacheDir == null) {
+                    this.mCacheDir = new File(super.getCacheDir(), getPluginDirName());
                 }
-                return invokeLL.booleanValue;
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mCacheDir);
             }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
 
-            @Override // com.bytedance.pangle.e
-            public final boolean a(Intent intent, g gVar, int i2, String str) {
-                InterceptResult invokeLLIL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, intent, gVar, i2, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        if (intent != null) {
-                            obtain.writeInt(1);
-                            intent.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeStrongBinder(gVar != null ? gVar.asBinder() : null);
-                        obtain.writeInt(i2);
-                        obtain.writeString(str);
-                        if (!this.f55148b.transact(3, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(intent, gVar, i2, str);
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt() != 0;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeLLIL.booleanValue;
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getCodeCacheDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getCodeCacheDir();
             }
-
-            @Override // com.bytedance.pangle.e
-            public final void a(g gVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.IServiceManager");
-                        obtain.writeStrongBinder(gVar != null ? gVar.asBinder() : null);
-                        if (!this.f55148b.transact(4, obtain, obtain2, 0) && a.a() != null) {
-                            a.a().a(gVar);
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
+            synchronized (this.mSync) {
+                if (this.mCodeCacheDir == null) {
+                    this.mCodeCacheDir = new File(super.getCodeCacheDir(), getPluginDirName());
                 }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mCodeCacheDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getDataDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getDataDir();
+            }
+            synchronized (this.mSync) {
+                if (this.mDataDir == null) {
+                    this.mDataDir = new File(getHostDataDir(), getPluginDirName());
+                }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mDataDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getDatabasePath(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getDatabasePath(str);
+            }
+            return super.getDatabasePath(makeSubName(str));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getDir(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
+            if (i2 == 0 && getPluginDirName() != null) {
+                return ensurePrivateDirExists(new File(super.getDir(str, i2), getPluginDirName()));
+            }
+            return super.getDir(str, i2);
+        }
+        return (File) invokeLI.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getExternalCacheDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalCacheDir();
+            }
+            synchronized (this.mSync) {
+                if (this.mExternalCacheDir == null) {
+                    this.mExternalCacheDir = new File(super.getExternalCacheDir(), getPluginDirName());
+                }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mExternalCacheDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File[] getExternalCacheDirs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalCacheDirs();
+            }
+            File[] externalCacheDirs = super.getExternalCacheDirs();
+            File[] fileArr = new File[externalCacheDirs.length];
+            for (int i2 = 0; i2 < externalCacheDirs.length; i2++) {
+                fileArr[i2] = ensurePrivateDirExists(new File(externalCacheDirs[i2], getPluginDirName()));
+            }
+            return fileArr;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getExternalFilesDir(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalFilesDir(str);
+            }
+            return ensurePrivateDirExists(new File(super.getExternalFilesDir(str), getPluginDirName()));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File[] getExternalFilesDirs(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalFilesDirs(str);
+            }
+            File[] externalFilesDirs = super.getExternalFilesDirs(str);
+            File[] fileArr = new File[externalFilesDirs.length];
+            for (int i2 = 0; i2 < externalFilesDirs.length; i2++) {
+                fileArr[i2] = ensurePrivateDirExists(new File(externalFilesDirs[i2], getPluginDirName()));
+            }
+            return fileArr;
+        }
+        return (File[]) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File[] getExternalMediaDirs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getExternalMediaDirs();
+            }
+            File[] externalMediaDirs = super.getExternalMediaDirs();
+            File[] fileArr = new File[externalMediaDirs.length];
+            for (int i2 = 0; i2 < externalMediaDirs.length; i2++) {
+                fileArr[i2] = ensurePrivateDirExists(new File(externalMediaDirs[i2], getPluginDirName()));
+            }
+            return fileArr;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getFilesDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getFilesDir();
+            }
+            synchronized (this.mSync) {
+                if (this.mFilesDir == null) {
+                    this.mFilesDir = new File(super.getFilesDir(), getPluginDirName());
+                }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mFilesDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public File getHostDataDir() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? super.getFilesDir().getParentFile() : (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getNoBackupFilesDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getNoBackupFilesDir();
+            }
+            synchronized (this.mSync) {
+                if (this.mNoBackupFilesDir == null) {
+                    this.mNoBackupFilesDir = new File(super.getNoBackupFilesDir(), getPluginDirName());
+                }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mNoBackupFilesDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File getObbDir() {
+        InterceptResult invokeV;
+        File ensurePrivateDirExists;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getObbDir();
+            }
+            synchronized (this.mSync) {
+                if (this.mObbDir == null) {
+                    this.mObbDir = new File(super.getObbDir(), getPluginDirName());
+                }
+                ensurePrivateDirExists = ensurePrivateDirExists(this.mObbDir);
+            }
+            return ensurePrivateDirExists;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public File[] getObbDirs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (getPluginDirName() == null) {
+                return super.getObbDirs();
+            }
+            File[] obbDirs = super.getObbDirs();
+            File[] fileArr = new File[obbDirs.length];
+            for (int i2 = 0; i2 < obbDirs.length; i2++) {
+                fileArr[i2] = ensurePrivateDirExists(new File(obbDirs[i2], getPluginDirName()));
+            }
+            return fileArr;
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public String getPluginDirName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return ZeusConstants.BASE_LIB_NAME + "_" + getPluginPkg();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getPluginPkg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, str, i2)) == null) {
+            if (i2 == 0 && getPluginDirName() != null) {
+                return super.getSharedPreferences(makeSubName(str), i2);
+            }
+            return super.getSharedPreferences(str, i2);
+        }
+        return (SharedPreferences) invokeLI.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public boolean moveDatabaseFrom(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, context, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.moveDatabaseFrom(context, str);
+            }
+            throw new UnsupportedOperationException("Calling moveDatabaseFrom in plugins is not supported.");
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileInputStream openFileInput(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            if (getPluginDirName() == null) {
+                return super.openFileInput(str);
+            }
+            return new FileInputStream(makeFilename(getFilesDir(), str));
+        }
+        return (FileInputStream) invokeL.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public FileOutputStream openFileOutput(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i2)) == null) {
+            if (i2 == 0 && getPluginDirName() != null) {
+                return new FileOutputStream(makeFilename(getFilesDir(), str), false);
+            }
+            return super.openFileOutput(str, i2);
+        }
+        return (FileOutputStream) invokeLI.objValue;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048601, this, str, i2, cursorFactory)) == null) {
+            if (i2 == 0 && getPluginDirName() != null) {
+                return super.openOrCreateDatabase(makeSubName(str), i2, cursorFactory);
+            }
+            return super.openOrCreateDatabase(str, i2, cursorFactory);
+        }
+        return (SQLiteDatabase) invokeLIL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(Context context, int i2) {
+        super(context, i2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.mSync = new Object();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SQLiteDatabase openOrCreateDatabase(String str, int i2, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048602, this, str, i2, cursorFactory, databaseErrorHandler)) == null) {
+            if (i2 == 0 && getPluginDirName() != null) {
+                return super.openOrCreateDatabase(makeSubName(str), i2, cursorFactory, databaseErrorHandler);
+            }
+            return super.openOrCreateDatabase(str, i2, cursorFactory, databaseErrorHandler);
+        }
+        return (SQLiteDatabase) invokeLILL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @RequiresApi(api = 23)
+    public e(Context context, Resources.Theme theme) {
+        super(context, theme);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, theme};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Resources.Theme) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.mSync = new Object();
     }
 }

@@ -27,7 +27,7 @@ public abstract class h<E> extends d<E> implements h1<E> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ h f30937h;
+        public final /* synthetic */ h f31015h;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -44,28 +44,28 @@ public abstract class h<E> extends d<E> implements h1<E> {
                     return;
                 }
             }
-            this.f30937h = hVar;
+            this.f31015h = hVar;
         }
 
         @Override // c.i.d.c.p
         public Iterator<s0.a<E>> e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30937h.descendingEntryIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31015h.descendingEntryIterator() : (Iterator) invokeV.objValue;
         }
 
         @Override // c.i.d.c.p
         public h1<E> f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30937h : (h1) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31015h : (h1) invokeV.objValue;
         }
 
         @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<E> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30937h.descendingIterator() : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31015h.descendingIterator() : (Iterator) invokeV.objValue;
         }
     }
 

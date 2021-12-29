@@ -1,7 +1,7 @@
 package com.baidu.tieba.ueg;
 
 import android.text.TextUtils;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -20,10 +20,10 @@ public class UEGCancelModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f50153e;
+    public b f50403e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.d.c.g.a f50154f;
+    public final c.a.d.c.g.a f50404f;
 
     /* loaded from: classes12.dex */
     public class a extends c.a.d.c.g.a {
@@ -61,14 +61,14 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
-            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.a.f50153e != null) {
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.a.f50403e != null) {
                 if (z) {
                     UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                     if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                        this.a.f50153e.a(uEGCancelSocketResponseMessage.getData());
+                        this.a.f50403e.a(uEGCancelSocketResponseMessage.getData());
                     }
                 } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                    this.a.f50153e.a(uEGCancelResponsedMessage.getData());
+                    this.a.f50403e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
@@ -92,10 +92,10 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50154f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        c.a.s0.v3.f0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        c.a.s0.v3.f0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f50154f);
+        this.f50404f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+        c.a.t0.w3.f0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        c.a.t0.w3.f0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.f50404f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -121,13 +121,13 @@ public class UEGCancelModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f50154f);
+            MessageManager.getInstance().unRegisterListener(this.f50404f);
         }
     }
 
     public void x() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && k.z() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && l.z() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             UEGCancelRequestMessage uEGCancelRequestMessage = new UEGCancelRequestMessage();
             uEGCancelRequestMessage.setUser_id(TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().sendMessage(uEGCancelRequestMessage);
@@ -137,7 +137,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f50153e = bVar;
+            this.f50403e = bVar;
         }
     }
 }

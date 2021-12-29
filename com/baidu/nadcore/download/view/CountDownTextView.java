@@ -25,13 +25,13 @@ public class CountDownTextView extends LinearLayout implements d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f38056e;
+    public TextView f38212e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f38057f;
+    public TextView f38213f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38058g;
+    public String f38214g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CountDownTextView(Context context) {
@@ -58,8 +58,8 @@ public class CountDownTextView extends LinearLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(f.nad_count_down_text_view, this);
-            this.f38056e = (TextView) inflate.findViewById(e.ad_count_down_label_text);
-            this.f38057f = (TextView) inflate.findViewById(e.ad_count_down_timer_text);
+            this.f38212e = (TextView) inflate.findViewById(e.ad_count_down_label_text);
+            this.f38213f = (TextView) inflate.findViewById(e.ad_count_down_timer_text);
         }
     }
 
@@ -67,7 +67,7 @@ public class CountDownTextView extends LinearLayout implements d {
     public void onCancel(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f38057f.setText(String.format(this.f38058g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
+            this.f38213f.setText(String.format(this.f38214g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
         }
     }
 
@@ -75,7 +75,7 @@ public class CountDownTextView extends LinearLayout implements d {
     public void onFinish(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f38057f.setText(String.format(this.f38058g, 0));
+            this.f38213f.setText(String.format(this.f38214g, 0));
         }
     }
 
@@ -83,7 +83,7 @@ public class CountDownTextView extends LinearLayout implements d {
     public void onProgress(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f38057f.setText(String.format(this.f38058g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
+            this.f38213f.setText(String.format(this.f38214g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
         }
     }
 
@@ -91,22 +91,22 @@ public class CountDownTextView extends LinearLayout implements d {
     public void onStart(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f38057f.setText(String.format(this.f38058g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
+            this.f38213f.setText(String.format(this.f38214g, Integer.valueOf((int) Math.ceil(((float) (j3 - j2)) / 1000.0f))));
         }
     }
 
     public void setLabelText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, charSequence) == null) {
-            this.f38056e.setText(charSequence);
+            this.f38212e.setText(charSequence);
         }
     }
 
     public void setTextColor(@ColorInt int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38056e.setTextColor(i2);
-            this.f38057f.setTextColor(i2);
+            this.f38212e.setTextColor(i2);
+            this.f38213f.setTextColor(i2);
         }
     }
 
@@ -114,8 +114,8 @@ public class CountDownTextView extends LinearLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             float f2 = i2;
-            this.f38056e.setTextSize(1, f2);
-            this.f38057f.setTextSize(1, f2);
+            this.f38212e.setTextSize(1, f2);
+            this.f38213f.setTextSize(1, f2);
         }
     }
 
@@ -125,15 +125,15 @@ public class CountDownTextView extends LinearLayout implements d {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            this.f38058g = str;
-            this.f38058g += FormattableUtils.SIMPLEST_FORMAT;
+            this.f38214g = str;
+            this.f38214g += FormattableUtils.SIMPLEST_FORMAT;
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f38058g);
+            sb.append(this.f38214g);
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
             sb.append(str2);
-            this.f38058g = sb.toString();
+            this.f38214g = sb.toString();
         }
     }
 
@@ -177,7 +177,7 @@ public class CountDownTextView extends LinearLayout implements d {
                 return;
             }
         }
-        this.f38058g = "%ss";
+        this.f38214g = "%ss";
         a();
     }
 }

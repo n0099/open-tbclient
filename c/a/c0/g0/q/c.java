@@ -16,10 +16,10 @@ public class c {
     public final c.a.c0.g0.s.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1588b;
+    public boolean f2015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1589c;
+    public int f2016c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class c {
                 return;
             }
         }
-        this.f1588b = true;
-        this.f1589c = -1;
+        this.f2015b = true;
+        this.f2016c = -1;
         c.a.c0.g0.s.a aVar = new c.a.c0.g0.s.a();
         this.a = aVar;
         aVar.a = System.currentTimeMillis();
@@ -64,16 +64,16 @@ public class c {
         c.a.c0.g0.s.a aVar = this.a;
         f2.a("f3", str4);
         f2.a("f4", String.valueOf(j2));
-        f2.a("f6", String.valueOf(this.f1589c));
+        f2.a("f6", String.valueOf(this.f2016c));
         f2.a("f7", "ad");
         f2.a("f14", "");
         f2.a("f15", String.valueOf(this.a.a));
-        f2.a("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - aVar.f1603d) + aVar.f1604e)) * 1.0f) / 1000.0f)));
+        f2.a("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - aVar.f2030d) + aVar.f2031e)) * 1.0f) / 1000.0f)));
         f2.a("f17", str3);
-        f2.a("f18", String.valueOf(this.a.f1601b));
-        f2.a("f19", String.valueOf(this.a.f1602c));
-        f2.a("f20", String.valueOf(this.a.f1603d));
-        f2.a("f21", String.valueOf(this.a.f1605f));
+        f2.a("f18", String.valueOf(this.a.f2028b));
+        f2.a("f19", String.valueOf(this.a.f2029c));
+        f2.a("f20", String.valueOf(this.a.f2030d));
+        f2.a("f21", String.valueOf(this.a.f2032f));
         c.a.c0.x.a.b(f2);
     }
 
@@ -82,39 +82,39 @@ public class c {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             c.a.c0.g0.s.a aVar = this.a;
             aVar.a = 0L;
-            aVar.f1604e = 0L;
-            aVar.f1605f = 0L;
-            aVar.f1603d = 0L;
-            aVar.f1602c = 0L;
-            aVar.f1601b = 0L;
+            aVar.f2031e = 0L;
+            aVar.f2032f = 0L;
+            aVar.f2030d = 0L;
+            aVar.f2029c = 0L;
+            aVar.f2028b = 0L;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.f1603d = System.currentTimeMillis();
+            this.a.f2030d = System.currentTimeMillis();
             c.a.c0.g0.s.a aVar = this.a;
-            long j2 = aVar.f1603d - aVar.f1602c;
+            long j2 = aVar.f2030d - aVar.f2029c;
             if (j2 < 0) {
                 j2 = 0;
             }
-            this.a.f1604e += j2;
+            this.a.f2031e += j2;
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.f1602c = System.currentTimeMillis();
-            if (this.f1588b) {
+            this.a.f2029c = System.currentTimeMillis();
+            if (this.f2015b) {
                 c.a.c0.g0.s.a aVar = this.a;
-                long j2 = aVar.f1602c - aVar.a;
+                long j2 = aVar.f2029c - aVar.a;
                 if (j2 < 0) {
                     j2 = 0;
                 }
-                this.a.f1604e = j2;
-                this.f1588b = false;
+                this.a.f2031e = j2;
+                this.f2015b = false;
             }
         }
     }
@@ -122,7 +122,7 @@ public class c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.f1601b = System.currentTimeMillis();
+            this.a.f2028b = System.currentTimeMillis();
         }
     }
 }

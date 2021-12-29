@@ -14,16 +14,16 @@ public final class PanoStateError {
     public static final PanoStateError a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final PanoStateError f38844b;
+    public static final PanoStateError f39000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PanoStateError f38845c;
+    public static final PanoStateError f39001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PanoStateError f38846d;
+    public static final PanoStateError f39002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ PanoStateError[] f38847e;
+    public static final /* synthetic */ PanoStateError[] f39003e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,11 +40,11 @@ public final class PanoStateError {
             }
         }
         a = new PanoStateError("PANO_NO_ERROR", 0);
-        f38844b = new PanoStateError("PANO_UID_ERROR", 1);
-        f38845c = new PanoStateError("PANO_NOT_FOUND", 2);
+        f39000b = new PanoStateError("PANO_UID_ERROR", 1);
+        f39001c = new PanoStateError("PANO_NOT_FOUND", 2);
         PanoStateError panoStateError = new PanoStateError("PANO_NO_TOKEN", 3);
-        f38846d = panoStateError;
-        f38847e = new PanoStateError[]{a, f38844b, f38845c, panoStateError};
+        f39002d = panoStateError;
+        f39003e = new PanoStateError[]{a, f39000b, f39001c, panoStateError};
     }
 
     public PanoStateError(String str, int i2) {
@@ -75,6 +75,6 @@ public final class PanoStateError {
     public static PanoStateError[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f38847e.clone() : (PanoStateError[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PanoStateError[]) f39003e.clone() : (PanoStateError[]) invokeV.objValue;
     }
 }

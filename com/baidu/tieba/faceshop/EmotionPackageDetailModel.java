@@ -23,19 +23,19 @@ public class EmotionPackageDetailModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f44206e;
+    public d f44393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f44207f;
+    public e f44394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final HttpMessageListener f44208g;
+    public final HttpMessageListener f44395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HttpMessageListener f44209h;
+    public final HttpMessageListener f44396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HttpMessageListener f44210i;
+    public final HttpMessageListener f44397i;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -108,13 +108,13 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || this.a.f44206e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003347 || this.a.f44393e == null) {
                 return;
             }
             if (httpResponsedMessage.getError() == 0) {
-                this.a.f44206e.onResult(true);
+                this.a.f44393e.onResult(true);
             } else {
-                this.a.f44206e.onResult(false);
+                this.a.f44393e.onResult(false);
             }
         }
     }
@@ -150,10 +150,10 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.a.f44207f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.a.f44394f == null) {
                 return;
             }
-            this.a.f44207f.a(httpResponsedMessage);
+            this.a.f44394f.a(httpResponsedMessage);
         }
     }
 
@@ -180,9 +180,9 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f44208g = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-        this.f44209h = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
-        this.f44210i = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
+        this.f44395g = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
+        this.f44396h = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
+        this.f44397i = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.GET_NEW_PACKAGE_DETAIL);
         tbHttpMessageTask.setResponsedClass(PackageDetailResponseMessage.class);
@@ -194,11 +194,11 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        this.f44208g.setTag(getUniqueId());
-        this.f44208g.setSelfListener(true);
-        registerListener(this.f44208g);
-        registerListener(this.f44209h);
-        registerListener(this.f44210i);
+        this.f44395g.setTag(getUniqueId());
+        this.f44395g.setSelfListener(true);
+        registerListener(this.f44395g);
+        registerListener(this.f44396h);
+        registerListener(this.f44397i);
     }
 
     public void B(int i2, d dVar) {
@@ -209,7 +209,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
         httpMessage.addParam("package_id", i2);
         sendMessage(httpMessage);
-        this.f44206e = dVar;
+        this.f44393e = dVar;
     }
 
     public void C(int i2) {
@@ -230,7 +230,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VOTE_EMOTION);
         httpMessage.addParam(IntentConfig.PKG_ID, i2);
         sendMessage(httpMessage);
-        this.f44207f = eVar;
+        this.f44394f = eVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -238,12 +238,12 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f44208g);
+            MessageManager.getInstance().unRegisterListener(this.f44395g);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f44209h);
+            MessageManager.getInstance().unRegisterListener(this.f44396h);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VOTE_EMOTION);
-            MessageManager.getInstance().unRegisterListener(this.f44210i);
+            MessageManager.getInstance().unRegisterListener(this.f44397i);
             return true;
         }
         return invokeV.booleanValue;

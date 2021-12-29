@@ -36,7 +36,7 @@ public class aw implements av.b.a {
         XMPushService.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f63832b) {
+            if (cVar2 == av.c.f63827b) {
                 XMPushService xMPushService = this.a.f912a;
                 bVar2 = this.a.f911a;
                 xMPushService.a(bVar2, 60000L);

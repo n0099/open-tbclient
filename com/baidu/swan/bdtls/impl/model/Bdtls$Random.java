@@ -73,13 +73,13 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f40781e;
+        public int f40937e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f40782f;
+        public int f40938f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f40783g;
+        public ByteString f40939g;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
                     return;
                 }
             }
-            this.f40783g = ByteString.EMPTY;
+            this.f40939g = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -152,14 +152,14 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (c.a.q0.c.a.i.a) null);
-                int i2 = this.f40781e;
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (c.a.r0.c.a.i.a) null);
+                int i2 = this.f40937e;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                bdtls$Random.gMTUnixTime_ = this.f40782f;
+                bdtls$Random.gMTUnixTime_ = this.f40938f;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                bdtls$Random.randomBytes_ = this.f40783g;
+                bdtls$Random.randomBytes_ = this.f40939g;
                 bdtls$Random.bitField0_ = i3;
                 return bdtls$Random;
             }
@@ -171,11 +171,11 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f40782f = 0;
-                int i2 = this.f40781e & (-2);
-                this.f40781e = i2;
-                this.f40783g = ByteString.EMPTY;
-                this.f40781e = i2 & (-3);
+                this.f40938f = 0;
+                int i2 = this.f40937e & (-2);
+                this.f40937e = i2;
+                this.f40939g = ByteString.EMPTY;
+                this.f40937e = i2 & (-3);
                 return this;
             }
             return (b) invokeV.objValue;
@@ -207,13 +207,13 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         public boolean s() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f40781e & 1) == 1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? (this.f40937e & 1) == 1 : invokeV.booleanValue;
         }
 
         public boolean t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f40781e & 2) == 2 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (this.f40937e & 2) == 2 : invokeV.booleanValue;
         }
 
         public b u(Bdtls$Random bdtls$Random) {
@@ -277,8 +277,8 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-                this.f40781e |= 1;
-                this.f40782f = i2;
+                this.f40937e |= 1;
+                this.f40938f = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -289,8 +289,8 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, byteString)) == null) {
                 if (byteString != null) {
-                    this.f40781e |= 2;
-                    this.f40783g = byteString;
+                    this.f40937e |= 2;
+                    this.f40939g = byteString;
                     return this;
                 }
                 throw null;
@@ -338,7 +338,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         bdtls$Random.initFields();
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.q0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.r0.c.a.i.a aVar) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -467,7 +467,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, c.a.q0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, c.a.r0.c.a.i.a aVar) {
         this(builder);
     }
 

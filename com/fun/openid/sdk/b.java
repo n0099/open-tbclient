@@ -14,7 +14,7 @@ public class b {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56336b;
+    public static boolean f56335b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -57,18 +57,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f56347b) {
-                String str = q.f56353h;
+            if (q.f56346b) {
+                String str = q.f56352h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f56348c == null) {
+                if (q.f56347c == null) {
                     Context context2 = q.a;
-                    q.f56348c = new s(q.f56354i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f56348c);
+                    q.f56347c = new s(q.f56353i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f56347c);
                 }
-                return q.f56353h;
+                return q.f56352h;
             }
             return null;
         }

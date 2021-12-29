@@ -18,17 +18,17 @@ public class n0 {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e0 f29269b;
+    public final f0 f29337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Object> f29270c;
+    public Map<String, Object> f29338c;
 
-    public n0(String str, e0 e0Var) {
+    public n0(String str, f0 f0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, e0Var};
+            Object[] objArr = {str, f0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -39,7 +39,7 @@ public class n0 {
             }
         }
         this.a = str;
-        this.f29269b = e0Var;
+        this.f29337b = f0Var;
     }
 
     public n0(Map<String, Object> map) {
@@ -57,9 +57,9 @@ public class n0 {
                 return;
             }
         }
-        this.f29269b = e0.f29217c;
+        this.f29337b = f0.f29293c;
         HashMap hashMap = new HashMap();
-        this.f29270c = hashMap;
+        this.f29338c = hashMap;
         hashMap.putAll(map);
     }
 
@@ -84,14 +84,14 @@ public class n0 {
             if (str != null) {
                 return str;
             }
-            if (this.f29270c != null) {
+            if (this.f29338c != null) {
                 StringBuilder sb = new StringBuilder();
-                for (String str2 : this.f29270c.keySet()) {
+                for (String str2 : this.f29338c.keySet()) {
                     if (sb.length() > 0) {
                         sb.append("&");
                     }
                     sb.append(str2);
-                    Object obj = this.f29270c.get(str2);
+                    Object obj = this.f29338c.get(str2);
                     if (obj != null) {
                         sb.append("=");
                         try {
@@ -110,6 +110,6 @@ public class n0 {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29269b.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29337b.a : (String) invokeV.objValue;
     }
 }

@@ -10,19 +10,19 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f39234b = "com.baidu.sapi2.biometrics.liveness";
+    public static final String f39390b = "com.baidu.sapi2.biometrics.liveness";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f39235c = "release";
+    public static final String f39391c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f39236d = "";
+    public static final String f39392d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f39237e = 1;
+    public static final int f39393e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f39238f = "1.0";
+    public static final String f39394f = "1.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

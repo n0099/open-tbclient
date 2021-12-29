@@ -18,10 +18,10 @@ public class f {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<c> f34564b;
+    public List<c> f34720b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f34565c;
+    public c f34721c;
 
     public f(int i2) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class f {
             }
         }
         this.a = i2;
-        this.f34565c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f34564b = new ArrayList();
+        this.f34721c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+        this.f34720b = new ArrayList();
     }
 
     public int a() {
@@ -53,11 +53,11 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f34565c.a(jSONObject);
+            this.f34721c.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < this.f34564b.size(); i2++) {
+            for (int i2 = 0; i2 < this.f34720b.size(); i2++) {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f34564b.get(i2).a(jSONObject2) != null) {
+                if (this.f34720b.get(i2).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }
@@ -72,7 +72,7 @@ public class f {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f34565c.a(eVar);
+            this.f34721c.a(eVar);
         }
     }
 }

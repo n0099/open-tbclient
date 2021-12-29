@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.j3.z;
-import c.a.s0.z2.c;
+import c.a.t0.j3.z;
+import c.a.t0.z2.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import tbclient.VideoInfo;
 /* loaded from: classes12.dex */
-public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCard> implements c.a.s0.x1.o.l.h, CountDownTextView.c, View.OnClickListener, c.a.s0.x1.o.l.j {
+public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCard> implements c.a.t0.x1.o.l.h, CountDownTextView.c, View.OnClickListener, c.a.t0.x1.o.l.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -53,25 +53,25 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     public Animation.AnimationListener F;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f49198f;
+    public View f49424f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f49199g;
+    public View f49425g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f49200h;
+    public View f49426h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f49201i;
+    public View f49427i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f49202j;
+    public View f49428j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f49203k;
+    public View f49429k;
     public Animation l;
     public Animation m;
-    public c.a.s0.z2.c mFloatVideoContainer;
+    public c.a.t0.z2.c mFloatVideoContainer;
     public TextView mTagName;
     public HeadImageView mUserIcon;
     public TextView mUsername;
@@ -82,15 +82,15 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     public int o;
     public TextView p;
     public TextView q;
-    public c.a.s0.d1.s1.a r;
+    public c.a.t0.d1.s1.a r;
     public boolean s;
     public ViewGroup t;
-    public c.a.s0.j3.m0.f u;
-    public c.a.s0.j3.m0.g v;
+    public c.a.t0.j3.m0.f u;
+    public c.a.t0.j3.m0.g v;
     public VideoNetworkStateTipView w;
     public int x;
-    public c.a.s0.d1.a3.c y;
-    public c.a.s0.x1.o.l.f z;
+    public c.a.t0.d1.a3.c y;
+    public c.a.t0.x1.o.l.f z;
 
     /* loaded from: classes12.dex */
     public class a implements CyberPlayerManager.OnErrorListener {
@@ -98,12 +98,12 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.s0.d1.s1.a f49204e;
+        public final /* synthetic */ c.a.t0.d1.s1.a f49430e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49205f;
+        public final /* synthetic */ VideoMiddlePageAdView f49431f;
 
-        public a(VideoMiddlePageAdView videoMiddlePageAdView, c.a.s0.d1.s1.a aVar) {
+        public a(VideoMiddlePageAdView videoMiddlePageAdView, c.a.t0.d1.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,8 +118,8 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49205f = videoMiddlePageAdView;
-            this.f49204e = aVar;
+            this.f49431f = videoMiddlePageAdView;
+            this.f49430e = aVar;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -127,11 +127,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                c.a.s0.d1.s1.a aVar = this.f49204e;
+                c.a.t0.d1.s1.a aVar = this.f49430e;
                 if (aVar != null) {
                     aVar.cancel();
                 }
-                VideoMiddlePageAdView videoMiddlePageAdView = this.f49205f;
+                VideoMiddlePageAdView videoMiddlePageAdView = this.f49431f;
                 videoMiddlePageAdView.G(!videoMiddlePageAdView.s ? 1 : 0);
                 return true;
             }
@@ -140,7 +140,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     }
 
     /* loaded from: classes12.dex */
-    public class b implements c.d0 {
+    public class b implements c.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -163,7 +163,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.d0
+        @Override // c.a.t0.z2.c.z
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -174,7 +174,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     }
 
     /* loaded from: classes12.dex */
-    public class c implements c.b0 {
+    public class c implements c.x {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -197,7 +197,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.b0
+        @Override // c.a.t0.z2.c.x
         public void onPause() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -214,7 +214,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49206e;
+        public final /* synthetic */ VideoMiddlePageAdView f49432e;
 
         public d(VideoMiddlePageAdView videoMiddlePageAdView) {
             Interceptable interceptable = $ic;
@@ -231,7 +231,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49206e = videoMiddlePageAdView;
+            this.f49432e = videoMiddlePageAdView;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -239,12 +239,12 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                c.a.r0.t.c.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-                if (adAdSense == null || !adAdSense.e() || this.f49206e.n == null) {
+                c.a.s0.t.c.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+                if (adAdSense == null || !adAdSense.e() || this.f49432e.n == null) {
                     return false;
                 }
-                c.a.d.f.p.b.a(this.f49206e.n.adCollect());
-                ((Vibrator) this.f49206e.mContext.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
+                c.a.d.f.p.c.a(this.f49432e.n.adCollect());
+                ((Vibrator) this.f49432e.mContext.getPageActivity().getSystemService("vibrator")).vibrate(TimeUnit.MILLISECONDS.toMillis(300L));
                 return true;
             }
             return invokeL.booleanValue;
@@ -257,10 +257,10 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdCard f49207e;
+        public final /* synthetic */ VideoMiddlePageAdCard f49433e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49208f;
+        public final /* synthetic */ VideoMiddlePageAdView f49434f;
 
         public e(VideoMiddlePageAdView videoMiddlePageAdView, VideoMiddlePageAdCard videoMiddlePageAdCard) {
             Interceptable interceptable = $ic;
@@ -277,8 +277,8 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49208f = videoMiddlePageAdView;
-            this.f49207e = videoMiddlePageAdCard;
+            this.f49434f = videoMiddlePageAdView;
+            this.f49433e = videoMiddlePageAdCard;
         }
 
         @Override // android.view.View.OnClickListener
@@ -288,22 +288,22 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f49208f.n == null || this.f49208f.n.getAdFacadeData() == null || this.f49208f.n.getAdFacadeData().w() == null) {
+                if (this.f49434f.n == null || this.f49434f.n.getAdFacadeData() == null || this.f49434f.n.getAdFacadeData().w() == null) {
                     str = null;
                     str2 = null;
                     str3 = null;
                 } else {
-                    AdvertAppInfo w = this.f49208f.n.getAdFacadeData().w();
+                    AdvertAppInfo w = this.f49434f.n.getAdFacadeData().w();
                     str2 = w.getDownloadId();
-                    str3 = w.k4;
-                    str = w.w4;
+                    str3 = w.m4;
+                    str = w.y4;
                 }
-                int e2 = z.e(this.f49208f.mContext, this.f49207e.getButtonScheme(), str2, str3, str);
-                if (this.f49208f.v != null) {
-                    this.f49208f.v.a(false);
+                int e2 = z.e(this.f49434f.mContext, this.f49433e.getButtonScheme(), str2, str3, str);
+                if (this.f49434f.v != null) {
+                    this.f49434f.v.a(false);
                 }
-                if (this.f49208f.afterClickSchemeListener != null) {
-                    this.f49208f.afterClickSchemeListener.a(e2, null);
+                if (this.f49434f.afterClickSchemeListener != null) {
+                    this.f49434f.afterClickSchemeListener.a(e2, null);
                 }
             }
         }
@@ -315,7 +315,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49209e;
+        public final /* synthetic */ VideoMiddlePageAdView f49435e;
 
         public f(VideoMiddlePageAdView videoMiddlePageAdView) {
             Interceptable interceptable = $ic;
@@ -332,23 +332,23 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49209e = videoMiddlePageAdView;
+            this.f49435e = videoMiddlePageAdView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
-            c.a.s0.z2.c cVar;
+            c.a.t0.z2.c cVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f49209e.mFloatVideoContainer) == null || cVar.I0() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f49435e.mFloatVideoContainer) == null || cVar.I0() == null) {
                 return;
             }
-            VideoMiddlePageAdView videoMiddlePageAdView = this.f49209e;
+            VideoMiddlePageAdView videoMiddlePageAdView = this.f49435e;
             videoMiddlePageAdView.A = (int) TimeUnit.MILLISECONDS.toSeconds(videoMiddlePageAdView.mFloatVideoContainer.I0().getDuration());
         }
     }
 
     /* loaded from: classes12.dex */
-    public class g implements c.v {
+    public class g implements c.r {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -371,7 +371,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.v
+        @Override // c.a.t0.z2.c.r
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.D == null) {
@@ -391,7 +391,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49210e;
+        public final /* synthetic */ VideoMiddlePageAdView f49436e;
 
         public h(VideoMiddlePageAdView videoMiddlePageAdView) {
             Interceptable interceptable = $ic;
@@ -408,21 +408,21 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49210e = videoMiddlePageAdView;
+            this.f49436e = videoMiddlePageAdView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f49210e.w.setHasAgreeToPlay(true);
-                this.f49210e.mFloatVideoContainer.n1(false);
-                this.f49210e.w.showPlayTips();
-                if (this.f49210e.n == null || this.f49210e.n.video == null) {
+                this.f49436e.w.setHasAgreeToPlay(true);
+                this.f49436e.mFloatVideoContainer.m1(false);
+                this.f49436e.w.showPlayTips();
+                if (this.f49436e.n == null || this.f49436e.n.video == null) {
                     return;
                 }
-                VideoMiddlePageAdView videoMiddlePageAdView = this.f49210e;
-                videoMiddlePageAdView.mFloatVideoContainer.d2(videoMiddlePageAdView.n.video.video_url, "");
+                VideoMiddlePageAdView videoMiddlePageAdView = this.f49436e;
+                videoMiddlePageAdView.mFloatVideoContainer.c2(videoMiddlePageAdView.n.video.video_url, "");
             }
         }
     }
@@ -455,11 +455,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                if (this.a.f49200h != null) {
-                    this.a.f49200h.setVisibility(8);
+                if (this.a.f49426h != null) {
+                    this.a.f49426h.setVisibility(8);
                 }
-                if (this.a.f49201i != null) {
-                    this.a.f49201i.setVisibility(8);
+                if (this.a.f49427i != null) {
+                    this.a.f49427i.setVisibility(8);
                 }
             }
         }
@@ -475,11 +475,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                if (this.a.f49200h != null) {
-                    this.a.f49200h.setVisibility(0);
+                if (this.a.f49426h != null) {
+                    this.a.f49426h.setVisibility(0);
                 }
-                if (this.a.f49201i != null) {
-                    this.a.f49201i.setVisibility(0);
+                if (this.a.f49427i != null) {
+                    this.a.f49427i.setVisibility(0);
                 }
             }
         }
@@ -513,11 +513,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                if (this.a.f49200h != null) {
-                    this.a.f49200h.setVisibility(0);
+                if (this.a.f49426h != null) {
+                    this.a.f49426h.setVisibility(0);
                 }
-                if (this.a.f49201i != null) {
-                    this.a.f49201i.setVisibility(0);
+                if (this.a.f49427i != null) {
+                    this.a.f49427i.setVisibility(0);
                 }
             }
         }
@@ -533,18 +533,18 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                if (this.a.f49200h != null) {
-                    this.a.f49200h.setVisibility(8);
+                if (this.a.f49426h != null) {
+                    this.a.f49426h.setVisibility(8);
                 }
-                if (this.a.f49201i != null) {
-                    this.a.f49201i.setVisibility(8);
+                if (this.a.f49427i != null) {
+                    this.a.f49427i.setVisibility(8);
                 }
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class k implements c.x {
+    public class k implements c.t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -567,14 +567,14 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.x
+        @Override // c.a.t0.z2.c.t
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.s0.z2.c.x
+        @Override // c.a.t0.z2.c.t
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -583,7 +583,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     }
 
     /* loaded from: classes12.dex */
-    public class l implements c.g0 {
+    public class l implements c.c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -606,34 +606,34 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.g0
+        @Override // c.a.t0.z2.c.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.s0.z2.c.g0
+        @Override // c.a.t0.z2.c.c0
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 if (this.a.n != null && this.a.n.video != null && this.a.n.video.video_height.intValue() > this.a.n.video.video_width.intValue()) {
-                    this.a.mFloatVideoContainer.M1(false, true);
+                    this.a.mFloatVideoContainer.L1(false, true);
                 } else {
-                    this.a.mFloatVideoContainer.M1(false, true);
+                    this.a.mFloatVideoContainer.L1(false, true);
                 }
                 if (this.a.z != null) {
                     this.a.z.h(this.a);
                 }
                 VideoMiddlePageAdView videoMiddlePageAdView = this.a;
-                videoMiddlePageAdView.K(1 ^ (videoMiddlePageAdView.s ? 1 : 0));
+                videoMiddlePageAdView.H(1 ^ (videoMiddlePageAdView.s ? 1 : 0));
                 this.a.B = false;
             }
         }
     }
 
     /* loaded from: classes12.dex */
-    public class m implements c.a0 {
+    public class m implements c.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoMiddlePageAdView a;
@@ -656,16 +656,16 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.a = videoMiddlePageAdView;
         }
 
-        @Override // c.a.s0.z2.c.a0
+        @Override // c.a.t0.z2.c.w
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 VideoMiddlePageAdView videoMiddlePageAdView = this.a;
-                videoMiddlePageAdView.mFloatVideoContainer.d2(videoMiddlePageAdView.n.video.video_url, "");
+                videoMiddlePageAdView.mFloatVideoContainer.c2(videoMiddlePageAdView.n.video.video_url, "");
                 if (this.a.z != null) {
                     this.a.z.h(this.a);
                 }
-                this.a.K(1);
+                this.a.H(1);
                 this.a.B = false;
             }
         }
@@ -677,7 +677,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49211e;
+        public final /* synthetic */ VideoMiddlePageAdView f49437e;
 
         public n(VideoMiddlePageAdView videoMiddlePageAdView) {
             Interceptable interceptable = $ic;
@@ -694,20 +694,20 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49211e = videoMiddlePageAdView;
+            this.f49437e = videoMiddlePageAdView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49211e.mFloatVideoContainer.a1();
-                if (this.f49211e.v != null) {
-                    this.f49211e.v.e();
+                this.f49437e.mFloatVideoContainer.Z0();
+                if (this.f49437e.v != null) {
+                    this.f49437e.v.e();
                 }
-                VideoMiddlePageAdView videoMiddlePageAdView = this.f49211e;
+                VideoMiddlePageAdView videoMiddlePageAdView = this.f49437e;
                 videoMiddlePageAdView.D(!videoMiddlePageAdView.s ? 1 : 0);
-                this.f49211e.C = true;
+                this.f49437e.C = true;
             }
         }
     }
@@ -719,13 +719,13 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Handler f49212b;
+        public Handler f49438b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Runnable f49213c;
+        public Runnable f49439c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ VideoMiddlePageAdView f49214d;
+        public final /* synthetic */ VideoMiddlePageAdView f49440d;
 
         /* loaded from: classes12.dex */
         public class a implements Runnable {
@@ -733,7 +733,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ o f49215e;
+            public final /* synthetic */ o f49441e;
 
             public a(o oVar) {
                 Interceptable interceptable = $ic;
@@ -750,15 +750,15 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                         return;
                     }
                 }
-                this.f49215e = oVar;
+                this.f49441e = oVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f49215e.f49212b.removeCallbacks(this.f49215e.f49213c);
-                    this.f49215e.g(2);
+                    this.f49441e.f49438b.removeCallbacks(this.f49441e.f49439c);
+                    this.f49441e.g(2);
                 }
             }
         }
@@ -778,17 +778,17 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
             }
-            this.f49214d = videoMiddlePageAdView;
+            this.f49440d = videoMiddlePageAdView;
             this.a = -1;
-            this.f49213c = new a(this);
-            this.f49212b = new Handler();
+            this.f49439c = new a(this);
+            this.f49438b = new Handler();
         }
 
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f49212b.removeCallbacks(this.f49213c);
-                this.f49212b.postDelayed(this.f49213c, 3000L);
+                this.f49438b.removeCallbacks(this.f49439c);
+                this.f49438b.postDelayed(this.f49439c, 3000L);
             }
         }
 
@@ -800,9 +800,9 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                 if (i2 == i3) {
                     return i3;
                 }
-                this.f49214d.f49203k.setVisibility(8);
-                this.f49214d.f49202j.setVisibility(8);
-                this.f49214d.M(true);
+                this.f49440d.f49429k.setVisibility(8);
+                this.f49440d.f49428j.setVisibility(8);
+                this.f49440d.J(true);
                 return i2;
             }
             return invokeI.intValue;
@@ -816,9 +816,9 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                 if (i2 == i3) {
                     return i3;
                 }
-                this.f49214d.f49203k.setVisibility(0);
-                this.f49214d.f49202j.setVisibility(0);
-                this.f49214d.M(true);
+                this.f49440d.f49429k.setVisibility(0);
+                this.f49440d.f49428j.setVisibility(0);
+                this.f49440d.J(true);
                 return i2;
             }
             return invokeI.intValue;
@@ -832,14 +832,14 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                 if (i2 == i3) {
                     return i3;
                 }
-                this.f49214d.f49203k.setVisibility(0);
-                this.f49214d.f49202j.setVisibility(0);
-                c.a.s0.z2.c cVar = this.f49214d.mFloatVideoContainer;
+                this.f49440d.f49429k.setVisibility(0);
+                this.f49440d.f49428j.setVisibility(0);
+                c.a.t0.z2.c cVar = this.f49440d.mFloatVideoContainer;
                 if (cVar != null) {
                     cVar.O0();
                 }
-                if (i3 != 3 || this.f49214d.n.autoPlay) {
-                    this.f49214d.M(false);
+                if (i3 != 3 || this.f49440d.n.autoPlay) {
+                    this.f49440d.J(false);
                     return i2;
                 }
                 return i2;
@@ -855,7 +855,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     c();
                 } else if (i2 == 1) {
                     this.a = d(i2);
-                    this.f49212b.removeCallbacks(this.f49213c);
+                    this.f49438b.removeCallbacks(this.f49439c);
                 } else if (i2 == 2) {
                     this.a = f(i2);
                 } else if (i2 != 3) {
@@ -893,49 +893,49 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         this.B = false;
         this.C = true;
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.middle_page_video_ad_layout, (ViewGroup) null);
-        this.f49198f = inflate;
+        this.f49424f = inflate;
         this.mVideoAggContainer = (FrameLayout) inflate.findViewById(R.id.video_agg_container);
-        this.f49199g = this.f49198f.findViewById(R.id.card_container);
-        FrameLayout frameLayout = (FrameLayout) this.f49198f.findViewById(R.id.video_container);
+        this.f49425g = this.f49424f.findViewById(R.id.card_container);
+        FrameLayout frameLayout = (FrameLayout) this.f49424f.findViewById(R.id.video_container);
         this.mVideoContainer = frameLayout;
-        c.a.s0.z2.c cVar = new c.a.s0.z2.c(this.mContext, frameLayout, false);
+        c.a.t0.z2.c cVar = new c.a.t0.z2.c(this.mContext, frameLayout, false);
         this.mFloatVideoContainer = cVar;
-        cVar.O1("23");
-        this.mFloatVideoContainer.K1(new f(this));
-        this.mFloatVideoContainer.p1(new g(this));
-        this.mFloatVideoContainer.f26339e.setOnTouchListener(null);
-        this.mVideoTitle = (TextView) this.f49198f.findViewById(R.id.title);
-        HeadImageView headImageView = (HeadImageView) this.f49198f.findViewById(R.id.user_icon);
+        cVar.N1("23");
+        this.mFloatVideoContainer.J1(new f(this));
+        this.mFloatVideoContainer.o1(new g(this));
+        this.mFloatVideoContainer.f26802e.setOnTouchListener(null);
+        this.mVideoTitle = (TextView) this.f49424f.findViewById(R.id.title);
+        HeadImageView headImageView = (HeadImageView) this.f49424f.findViewById(R.id.user_icon);
         this.mUserIcon = headImageView;
         headImageView.setIsRound(true);
         this.mUserIcon.setDefaultBgResource(R.color.CAM_X0205);
         this.mUserIcon.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.mTagName = (TextView) this.f49198f.findViewById(R.id.ad_tag);
-        this.mUsername = (TextView) this.f49198f.findViewById(R.id.user_name);
-        this.p = (TextView) this.f49198f.findViewById(R.id.ad_operate_title);
-        this.q = (TextView) this.f49198f.findViewById(R.id.ad_operate_button);
-        this.t = (FrameLayout) this.f49198f.findViewById(R.id.tail_frame_container);
-        c.a.s0.j3.m0.f fVar = new c.a.s0.j3.m0.f(this.mContext.getPageActivity(), this.t);
+        this.mTagName = (TextView) this.f49424f.findViewById(R.id.ad_tag);
+        this.mUsername = (TextView) this.f49424f.findViewById(R.id.user_name);
+        this.p = (TextView) this.f49424f.findViewById(R.id.ad_operate_title);
+        this.q = (TextView) this.f49424f.findViewById(R.id.ad_operate_button);
+        this.t = (FrameLayout) this.f49424f.findViewById(R.id.tail_frame_container);
+        c.a.t0.j3.m0.f fVar = new c.a.t0.j3.m0.f(this.mContext.getPageActivity(), this.t);
         this.u = fVar;
         fVar.a = 1;
-        VideoNetworkStateTipView videoNetworkStateTipView = (VideoNetworkStateTipView) this.f49198f.findViewById(R.id.network_state_tip);
+        VideoNetworkStateTipView videoNetworkStateTipView = (VideoNetworkStateTipView) this.f49424f.findViewById(R.id.network_state_tip);
         this.w = videoNetworkStateTipView;
         videoNetworkStateTipView.setPlayViewOnClickListener(new h(this));
-        this.f49200h = this.f49198f.findViewById(R.id.video_agg_container_foreground);
-        this.f49202j = this.f49198f.findViewById(R.id.user_container_foreground);
-        this.f49203k = this.f49198f.findViewById(R.id.title_foreground);
-        this.f49201i = this.f49198f.findViewById(R.id.operate_area_foreground);
-        this.f49200h.setOnClickListener(this);
-        this.f49202j.setOnClickListener(this);
-        this.f49203k.setOnClickListener(this);
-        this.f49201i.setOnClickListener(this);
+        this.f49426h = this.f49424f.findViewById(R.id.video_agg_container_foreground);
+        this.f49428j = this.f49424f.findViewById(R.id.user_container_foreground);
+        this.f49429k = this.f49424f.findViewById(R.id.title_foreground);
+        this.f49427i = this.f49424f.findViewById(R.id.operate_area_foreground);
+        this.f49426h.setOnClickListener(this);
+        this.f49428j.setOnClickListener(this);
+        this.f49429k.setOnClickListener(this);
+        this.f49427i.setOnClickListener(this);
         this.mVideoContainer.setOnClickListener(this);
         this.mVideoAggContainer.setOnClickListener(this);
-        this.mFloatVideoContainer.H1(this);
+        this.mFloatVideoContainer.G1(this);
         this.mVideoTitle.setOnClickListener(this);
         this.mUserIcon.setOnClickListener(this);
         this.mUsername.setOnClickListener(this);
-        this.o = c.a.d.f.p.m.k(this.mContext.getPageActivity());
+        this.o = c.a.d.f.p.n.k(this.mContext.getPageActivity());
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mVideoAggContainer.getLayoutParams();
         layoutParams.height = (int) (this.o * 0.5625f);
         this.mVideoAggContainer.setLayoutParams(layoutParams);
@@ -947,11 +947,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         this.m = alphaAnimation2;
         alphaAnimation2.setDuration(500L);
         this.m.setAnimationListener(this.E);
-        this.f49198f.setOnClickListener(this);
+        this.f49424f.setOnClickListener(this);
         this.D = new o(this);
     }
 
-    public final void A(VideoMiddlePageAdCard videoMiddlePageAdCard, int i2, c.a.s0.d1.s1.a aVar) {
+    public final void A(VideoMiddlePageAdCard videoMiddlePageAdCard, int i2, c.a.t0.d1.s1.a aVar) {
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(1048576, this, videoMiddlePageAdCard, i2, aVar) == null) || videoMiddlePageAdCard == null || (videoInfo = videoMiddlePageAdCard.video) == null) {
@@ -968,47 +968,46 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             F(!videoMiddlePageAdCard.autoPlay ? 1 : 0, this.mFloatVideoContainer.B0());
             this.C = true;
         }
-        this.mFloatVideoContainer.k2();
+        this.mFloatVideoContainer.j2();
+        this.mFloatVideoContainer.r1(true);
+        this.mFloatVideoContainer.u1(false);
         this.mFloatVideoContainer.s1(true);
-        this.mFloatVideoContainer.v1(false);
-        this.mFloatVideoContainer.t1(true);
-        this.mFloatVideoContainer.M1(false, true);
-        this.mFloatVideoContainer.L1(i2);
-        this.mFloatVideoContainer.y1(new k(this));
-        this.mFloatVideoContainer.G1(new l(this));
-        this.mFloatVideoContainer.A1(new m(this));
-        this.mFloatVideoContainer.o1(false);
+        this.mFloatVideoContainer.L1(false, true);
+        this.mFloatVideoContainer.K1(i2);
+        this.mFloatVideoContainer.x1(new k(this));
+        this.mFloatVideoContainer.F1(new l(this));
+        this.mFloatVideoContainer.z1(new m(this));
+        this.mFloatVideoContainer.n1(false);
         this.mFloatVideoContainer.q0();
-        this.mFloatVideoContainer.I1(new n(this));
-        this.mFloatVideoContainer.J1(new a(this, aVar));
-        this.mFloatVideoContainer.S1(videoMiddlePageAdCard.video.thumbnail_url);
-        this.mFloatVideoContainer.Y1(videoMiddlePageAdCard.video.video_url, "");
-        this.mFloatVideoContainer.D1(new b(this));
-        this.mFloatVideoContainer.B1(new c(this));
-        this.mFloatVideoContainer.a1();
-        this.mFloatVideoContainer.a2();
+        this.mFloatVideoContainer.H1(new n(this));
+        this.mFloatVideoContainer.I1(new a(this, aVar));
+        this.mFloatVideoContainer.R1(videoMiddlePageAdCard.video.thumbnail_url);
+        this.mFloatVideoContainer.X1(videoMiddlePageAdCard.video.video_url, "");
+        this.mFloatVideoContainer.C1(new b(this));
+        this.mFloatVideoContainer.A1(new c(this));
+        this.mFloatVideoContainer.Z0();
+        this.mFloatVideoContainer.Z1();
         if (videoMiddlePageAdCard.autoPlay) {
             if (this.w.isShowNetworkTips()) {
-                this.mFloatVideoContainer.c2(false);
+                this.mFloatVideoContainer.b2(false);
                 this.w.showNetWorkTips();
-                this.mFloatVideoContainer.n1(true);
-                this.mFloatVideoContainer.U0(videoMiddlePageAdCard.video.video_url, "");
+                this.mFloatVideoContainer.m1(true);
             } else {
-                this.mFloatVideoContainer.n1(false);
-                this.mFloatVideoContainer.c2(false);
+                this.mFloatVideoContainer.m1(false);
+                this.mFloatVideoContainer.b2(false);
                 this.w.hide();
-                this.mFloatVideoContainer.i2(videoMiddlePageAdCard.video.video_url, "", null, new Object[0]);
+                this.mFloatVideoContainer.h2(videoMiddlePageAdCard.video.video_url, "", null, new Object[0]);
             }
-            c.a.s0.j3.m0.g gVar = this.v;
+            c.a.t0.j3.m0.g gVar = this.v;
             if (gVar != null) {
                 gVar.a(true);
             }
             if (i2 == 0) {
-                this.f49200h.setVisibility(8);
-                this.f49201i.setVisibility(8);
+                this.f49426h.setVisibility(8);
+                this.f49427i.setVisibility(8);
             } else {
-                this.f49200h.startAnimation(this.m);
-                this.f49201i.startAnimation(this.m);
+                this.f49426h.startAnimation(this.m);
+                this.f49427i.startAnimation(this.m);
             }
             if (i2 == 0) {
                 this.D.g(3);
@@ -1019,15 +1018,15 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             }
         }
         this.w.hide();
-        this.mFloatVideoContainer.c2(true);
+        this.mFloatVideoContainer.b2(true);
         this.D.g(3);
-        if (c.a.d.f.p.k.x() && videoMiddlePageAdCard.waitConfirm) {
-            this.f49200h.startAnimation(this.m);
-            this.f49201i.startAnimation(this.m);
+        if (c.a.d.f.p.l.x() && videoMiddlePageAdCard.waitConfirm) {
+            this.f49426h.startAnimation(this.m);
+            this.f49427i.startAnimation(this.m);
             return;
         }
-        this.f49200h.setVisibility(0);
-        this.f49201i.setVisibility(0);
+        this.f49426h.setVisibility(0);
+        this.f49427i.setVisibility(0);
     }
 
     public final boolean B() {
@@ -1054,11 +1053,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         String scheme = this.n.getScheme();
         AdvertAppInfo w = this.n.getAdFacadeData().w();
         int f2 = z.p(this.n.getScheme()) ? z.f(this.mContext.getPageActivity(), scheme) : 0;
-        c.a.s0.x1.o.a aVar = this.afterClickSchemeListener;
+        c.a.t0.x1.o.a aVar = this.afterClickSchemeListener;
         if (aVar != null) {
             aVar.a(f2, null);
         }
-        c.a.s0.j3.m0.g gVar = this.v;
+        c.a.t0.j3.m0.g gVar = this.v;
         if (gVar != null) {
             gVar.a(false);
         }
@@ -1066,11 +1065,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             return;
         }
         String n2 = z.n(scheme);
-        if (this.mFloatVideoContainer.T0() && w != null && c.a.s0.a.h().z()) {
-            z.e(this.mContext, n2, w.getDownloadId(), w.k4, w.w4);
+        if (this.mFloatVideoContainer.T0() && w != null && c.a.t0.a.h().z()) {
+            z.e(this.mContext, n2, w.getDownloadId(), w.m4, w.y4);
             return;
         }
-        AdWebVideoActivity.setStaticInfo(w, this.n.getAdFacadeData().f3054g != null ? this.n.getAdFacadeData().f3054g.e() : 0, "DETAIL");
+        AdWebVideoActivity.setStaticInfo(w, this.n.getAdFacadeData().f3482g != null ? this.n.getAdFacadeData().f3482g.e() : 0, "DETAIL");
         Bundle bundle = new Bundle();
         bundle.putString("video_url", this.n.video.video_url);
         bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, this.n.video.thumbnail_url);
@@ -1090,7 +1089,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         int k2 = this.n.getAdFacadeData().k();
         c.a.e.d adFacadeData = this.n.getAdFacadeData();
         int i3 = this.A;
-        c.a.s0.j3.l0.e.b().d(c.a.s0.j3.l0.g.m(adFacadeData, 34, k2, i2, i3, i3, -1));
+        c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.m(adFacadeData, 34, k2, i2, i3, i3, -1));
         this.B = true;
     }
 
@@ -1100,7 +1099,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || (videoMiddlePageAdCard = this.n) == null || videoMiddlePageAdCard.video == null || videoMiddlePageAdCard.getAdFacadeData() == null) {
             return;
         }
-        c.a.s0.j3.l0.e.b().d(c.a.s0.j3.l0.g.m(this.n.getAdFacadeData(), 33, this.n.getAdFacadeData().k(), i2, this.A, c.a.s0.v.k.a.a(i3), -1));
+        c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.m(this.n.getAdFacadeData(), 33, this.n.getAdFacadeData().k(), i2, this.A, c.a.t0.v.k.a.a(i3), -1));
     }
 
     public final void F(int i2, int i3) {
@@ -1109,7 +1108,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || (videoMiddlePageAdCard = this.n) == null || videoMiddlePageAdCard.video == null || videoMiddlePageAdCard.getAdFacadeData() == null) {
             return;
         }
-        c.a.s0.j3.l0.e.b().d(c.a.s0.j3.l0.g.m(this.n.getAdFacadeData(), 32, this.n.getAdFacadeData().k(), i2, this.A, c.a.s0.v.k.a.a(i3), -1));
+        c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.m(this.n.getAdFacadeData(), 32, this.n.getAdFacadeData().k(), i2, this.A, c.a.t0.v.k.a.a(i3), -1));
     }
 
     public final void G(int i2) {
@@ -1118,20 +1117,20 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (videoMiddlePageAdCard = this.n) == null || videoMiddlePageAdCard.video == null || videoMiddlePageAdCard.getAdFacadeData() == null) {
             return;
         }
-        c.a.s0.j3.l0.e.b().d(c.a.s0.j3.l0.g.m(this.n.getAdFacadeData(), 36, this.n.getAdFacadeData().k(), i2, this.A, c.a.s0.v.k.a.a(this.mFloatVideoContainer.B0()), -1));
+        c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.m(this.n.getAdFacadeData(), 36, this.n.getAdFacadeData().k(), i2, this.A, c.a.t0.v.k.a.a(this.mFloatVideoContainer.B0()), -1));
     }
 
-    public final void K(int i2) {
+    public final void H(int i2) {
         VideoMiddlePageAdCard videoMiddlePageAdCard;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (videoMiddlePageAdCard = this.n) == null || videoMiddlePageAdCard.video == null || videoMiddlePageAdCard.getAdFacadeData() == null || !this.C) {
             return;
         }
-        c.a.s0.j3.l0.e.b().d(c.a.s0.j3.l0.g.m(this.n.getAdFacadeData(), 31, this.n.getAdFacadeData().k(), i2, this.A, 0, -1));
+        c.a.t0.j3.l0.e.b().d(c.a.t0.j3.l0.g.m(this.n.getAdFacadeData(), 31, this.n.getAdFacadeData().k(), i2, this.A, 0, -1));
         this.C = false;
     }
 
-    public final void L() {
+    public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!B()) {
@@ -1146,7 +1145,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    public final void M(boolean z) {
+    public final void J(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921317);
@@ -1161,10 +1160,10 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    public final void O(VideoMiddlePageAdCard videoMiddlePageAdCard) {
+    public final void K(VideoMiddlePageAdCard videoMiddlePageAdCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, videoMiddlePageAdCard) == null) {
-            c.a.s0.j3.m0.g b2 = this.u.b(videoMiddlePageAdCard.tailFrame, this.v);
+            c.a.t0.j3.m0.g b2 = this.u.b(videoMiddlePageAdCard.tailFrame, this.v);
             this.v = b2;
             if (b2 != null) {
                 z(this.n.getAdFacadeData());
@@ -1177,20 +1176,20 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    public c.a.s0.d1.s1.a getAutoPlayCallBack() {
+    public c.a.t0.d1.s1.a getAutoPlayCallBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.r : (c.a.s0.d1.s1.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.r : (c.a.t0.d1.s1.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public View initLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f49198f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f49424f : (View) invokeV.objValue;
     }
 
-    @Override // c.a.s0.x1.o.l.j
+    @Override // c.a.t0.x1.o.l.j
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1204,22 +1203,22 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view) == null) {
-            View view2 = this.f49200h;
+            View view2 = this.f49426h;
             if (view == view2 && view2.getVisibility() == 0) {
-                c.a.s0.d1.a3.c cVar = this.y;
+                c.a.t0.d1.a3.c cVar = this.y;
                 if (cVar != null) {
                     cVar.onVideoContainerForegroundClick(this.mPosition);
                     return;
                 }
                 return;
             }
-            View view3 = this.f49201i;
+            View view3 = this.f49427i;
             if (view == view3 && view3.getVisibility() == 0) {
-                c.a.s0.d1.a3.c cVar2 = this.y;
+                c.a.t0.d1.a3.c cVar2 = this.y;
                 if (cVar2 != null) {
                     cVar2.onVideoContainerForegroundClick(this.mPosition);
                 }
-            } else if (view != this.f49203k && view != this.f49202j) {
+            } else if (view != this.f49429k && view != this.f49428j) {
                 if (view.getId() != R.id.video_container && view.getId() != R.id.video_agg_container && view.getId() != R.id.float_video_container) {
                     if (this.n.getAdFacadeData() == null || this.n.getAdFacadeData().w() == null) {
                         str = null;
@@ -1227,15 +1226,15 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                         str3 = null;
                     } else {
                         str = this.n.getAdFacadeData().w().getDownloadId();
-                        str2 = this.n.getAdFacadeData().w().k4;
-                        str3 = this.n.getAdFacadeData().w().w4;
+                        str2 = this.n.getAdFacadeData().w().m4;
+                        str3 = this.n.getAdFacadeData().w().y4;
                     }
                     int e2 = z.e(this.mContext, this.n.getScheme(), str, str2, str3);
-                    c.a.s0.x1.o.a aVar = this.afterClickSchemeListener;
+                    c.a.t0.x1.o.a aVar = this.afterClickSchemeListener;
                     if (aVar != null) {
                         aVar.a(e2, null);
                     }
-                    c.a.s0.j3.m0.g gVar = this.v;
+                    c.a.t0.j3.m0.g gVar = this.v;
                     if (gVar != null) {
                         gVar.a(false);
                         return;
@@ -1243,8 +1242,8 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
                     return;
                 }
                 C();
-            } else if (this.f49200h.getVisibility() == 0) {
-                c.a.s0.d1.a3.c cVar3 = this.y;
+            } else if (this.f49426h.getVisibility() == 0) {
+                c.a.t0.d1.a3.c cVar3 = this.y;
                 if (cVar3 != null) {
                     cVar3.onVideoContainerForegroundClick(this.mPosition);
                 }
@@ -1254,16 +1253,16 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    @Override // c.a.s0.x1.o.l.j
+    @Override // c.a.t0.x1.o.l.j
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             recycleVideo();
-            View view = this.f49200h;
+            View view = this.f49426h;
             if (view != null) {
                 view.clearAnimation();
             }
-            View view2 = this.f49201i;
+            View view2 = this.f49427i;
             if (view2 != null) {
                 view2.clearAnimation();
             }
@@ -1278,11 +1277,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    @Override // c.a.s0.x1.o.l.j
+    @Override // c.a.t0.x1.o.l.j
     public void pausePlay() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && isPlaying()) {
-            this.mFloatVideoContainer.W0();
+            this.mFloatVideoContainer.V0();
             F(!this.s ? 1 : 0, this.mFloatVideoContainer.B0());
             this.C = true;
         }
@@ -1291,7 +1290,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     public void recycleVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            c.a.s0.z2.c cVar = this.mFloatVideoContainer;
+            c.a.t0.z2.c cVar = this.mFloatVideoContainer;
             if (cVar != null) {
                 cVar.v0();
             }
@@ -1300,24 +1299,24 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    @Override // c.a.s0.x1.o.l.h
-    public void setAutoPlayCallBack(c.a.s0.d1.s1.a aVar) {
+    @Override // c.a.t0.x1.o.l.h
+    public void setAutoPlayCallBack(c.a.t0.d1.s1.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, aVar) == null) {
             this.r = aVar;
         }
     }
 
-    @Override // c.a.s0.x1.o.l.h
-    public void setCurrentPlayCallBack(c.a.s0.x1.o.l.f fVar) {
+    @Override // c.a.t0.x1.o.l.h
+    public void setCurrentPlayCallBack(c.a.t0.x1.o.l.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, fVar) == null) {
             this.z = fVar;
         }
     }
 
-    @Override // c.a.s0.x1.o.l.h
-    public void setOnVideoContainerForegroundClickListener(c.a.s0.d1.a3.c cVar) {
+    @Override // c.a.t0.x1.o.l.h
+    public void setOnVideoContainerForegroundClickListener(c.a.t0.d1.a3.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, cVar) == null) {
             this.y = cVar;
@@ -1330,11 +1329,11 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         }
     }
 
-    @Override // c.a.s0.x1.o.l.j
+    @Override // c.a.t0.x1.o.l.j
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (c.a.s0.v.k.a.a(this.mFloatVideoContainer.B0()) < this.A && this.mFloatVideoContainer.T0()) {
+            if (c.a.t0.v.k.a.a(this.mFloatVideoContainer.B0()) < this.A && this.mFloatVideoContainer.T0()) {
                 F(!this.s ? 1 : 0, this.mFloatVideoContainer.B0());
             }
             stopVideo();
@@ -1345,7 +1344,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
     public void stopVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.mFloatVideoContainer.k2();
+            this.mFloatVideoContainer.j2();
             TextView textView = this.mVideoTitle;
             if (textView != null) {
                 textView.setVisibility(0);
@@ -1365,8 +1364,8 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             return;
         }
         int i2 = !this.s ? 1 : 0;
-        c.a.s0.j3.l0.c m2 = c.a.s0.j3.l0.g.m(this.n.getAdFacadeData(), 303, this.n.getAdFacadeData().k(), i2, this.n.video.video_duration.intValue(), 0, -1);
-        c.a.s0.j3.m0.g gVar = this.v;
+        c.a.t0.j3.l0.c m2 = c.a.t0.j3.l0.g.m(this.n.getAdFacadeData(), 303, this.n.getAdFacadeData().k(), i2, this.n.video.video_duration.intValue(), 0, -1);
+        c.a.t0.j3.m0.g gVar = this.v;
         if (gVar != null) {
             gVar.l(m2);
         }
@@ -1391,7 +1390,7 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, videoMiddlePageAdCard) == null) {
             this.n = videoMiddlePageAdCard;
-            L();
+            I();
             this.mVideoTitle.setText(videoMiddlePageAdCard.threadTitle);
             this.mUsername.setText(videoMiddlePageAdCard.userName);
             if (!StringUtils.isNull(videoMiddlePageAdCard.userPortrait) && videoMiddlePageAdCard.userPortrait.startsWith("http")) {
@@ -1402,10 +1401,10 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.mUserIcon.setOnLongClickListener(new d(this));
             this.mTagName.setText(videoMiddlePageAdCard.tagName);
             this.p.setText(videoMiddlePageAdCard.operateData.a);
-            this.q.setText(videoMiddlePageAdCard.operateData.f18386b);
+            this.q.setText(videoMiddlePageAdCard.operateData.f18860b);
             this.q.setOnClickListener(new e(this, videoMiddlePageAdCard));
             A(videoMiddlePageAdCard, this.mPosition, getAutoPlayCallBack());
-            O(videoMiddlePageAdCard);
+            K(videoMiddlePageAdCard);
             onChangeSkinType(this.n, TbadkCoreApplication.getInst().getSkinType());
         }
     }

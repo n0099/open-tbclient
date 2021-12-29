@@ -15,15 +15,15 @@ public interface a {
     public static final ServiceReference a = new ServiceReference("nad.core", "toast");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f1411b = new C0024a();
+    public static final a f1838b = new C0045a();
 
     /* renamed from: c.a.c0.b0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0024a implements a {
+    public static class C0045a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0024a() {
+        public C0045a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

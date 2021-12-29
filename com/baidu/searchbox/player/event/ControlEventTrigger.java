@@ -138,14 +138,13 @@ public class ControlEventTrigger extends SingleTargetTrigger {
     }
 
     @PublicMethod
-    public void syncPos(int i2, int i3, int i4, int i5) {
+    public void syncPos(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048589, this, i2, i3, i4) == null) {
             VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SYNC_PROGRESS);
             obtainEvent.putExtra(1, Integer.valueOf(i2));
-            obtainEvent.putExtra(13, Integer.valueOf(i3));
-            obtainEvent.putExtra(2, Integer.valueOf(i4));
-            obtainEvent.putExtra(3, Integer.valueOf(i5));
+            obtainEvent.putExtra(2, Integer.valueOf(i3));
+            obtainEvent.putExtra(3, Integer.valueOf(i4));
             obtainEvent.setLogLevel(1);
             triggerEvent(obtainEvent);
         }

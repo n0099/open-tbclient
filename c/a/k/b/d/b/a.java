@@ -18,12 +18,12 @@ public class a implements WebKitFactory.WebkitInstallListener {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f3780c = "a";
+    public static final String f4195c = "a";
     public transient /* synthetic */ FieldHolder $fh;
     public byte a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f3781b;
+    public long f4196b;
 
     static {
         InterceptResult invokeClinit;
@@ -80,8 +80,8 @@ public class a implements WebKitFactory.WebkitInstallListener {
         }
         BdZeusUtil.printKernellog("install plugin from download");
         WebKitFactory.installAsync(str, this);
-        this.f3781b = System.currentTimeMillis();
-        Log.i(f3780c, "full update started!");
+        this.f4196b = System.currentTimeMillis();
+        Log.i(f4195c, "full update started!");
     }
 
     @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
@@ -92,15 +92,15 @@ public class a implements WebKitFactory.WebkitInstallListener {
             Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i2)));
             BdZeusUtil.printKernellog("oninstalled: " + i2 + " targetpath: " + str);
             if (i2 == 0) {
-                Log.d(f3780c, "install success!");
+                Log.d(f4195c, "install success!");
                 BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
             } else {
-                Log.d(f3780c, "install failed!");
+                Log.d(f4195c, "install failed!");
                 BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
             }
             BdSailorPlatform.getWebkitManager().enableBdWebkit();
-            long currentTimeMillis = System.currentTimeMillis() - this.f3781b;
-            String str2 = f3780c;
+            long currentTimeMillis = System.currentTimeMillis() - this.f4196b;
+            String str2 = f4195c;
             Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }

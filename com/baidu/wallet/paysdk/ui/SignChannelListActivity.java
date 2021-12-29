@@ -49,34 +49,34 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
     public BankPageAdapter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewPager f54409b;
+    public ViewPager f54412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<View> f54410c;
+    public List<View> f54413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ListView f54411d;
+    public ListView f54414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ListView f54412e;
+    public ListView f54415e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<SignBank> f54413f;
+    public final List<SignBank> f54416f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<SignBank> f54414g;
+    public final List<SignBank> f54417g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54415h;
+    public String f54418h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f54416i;
+    public boolean f54419i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Activity f54417j;
+    public Activity f54420j;
 
     /* renamed from: k  reason: collision with root package name */
-    public BankListAdapter f54418k;
+    public BankListAdapter f54421k;
     public BankListAdapter l;
     public BindFastRequest m;
     public aa n;
@@ -104,10 +104,10 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         public final /* synthetic */ SignChannelListActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LayoutInflater f54419b;
+        public final LayoutInflater f54422b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<SignBank> f54420c;
+        public List<SignBank> f54423c;
 
         /* loaded from: classes13.dex */
         public class a {
@@ -116,19 +116,19 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             public final /* synthetic */ BankListAdapter a;
 
             /* renamed from: b  reason: collision with root package name */
-            public LinearLayout f54422b;
+            public LinearLayout f54425b;
 
             /* renamed from: c  reason: collision with root package name */
-            public TextView f54423c;
+            public TextView f54426c;
 
             /* renamed from: d  reason: collision with root package name */
-            public RelativeLayout f54424d;
+            public RelativeLayout f54427d;
 
             /* renamed from: e  reason: collision with root package name */
-            public NetImageView f54425e;
+            public NetImageView f54428e;
 
             /* renamed from: f  reason: collision with root package name */
-            public TextView f54426f;
+            public TextView f54429f;
 
             public a(BankListAdapter bankListAdapter) {
                 Interceptable interceptable = $ic;
@@ -169,8 +169,8 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                 }
             }
             this.a = signChannelListActivity;
-            this.f54420c = list;
-            this.f54419b = LayoutInflater.from(signChannelListActivity.f54417j);
+            this.f54423c = list;
+            this.f54422b = LayoutInflater.from(signChannelListActivity.f54420j);
         }
 
         @Override // android.widget.Adapter
@@ -178,7 +178,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<SignBank> list = this.f54420c;
+                List<SignBank> list = this.f54423c;
                 if (list != null) {
                     return list.size();
                 }
@@ -192,8 +192,8 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 < this.f54420c.size()) {
-                    return this.f54420c.get(i2);
+                if (i2 < this.f54423c.size()) {
+                    return this.f54423c.get(i2);
                 }
                 return null;
             }
@@ -244,24 +244,24 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) {
                 if (view == null || view.getTag() == null) {
-                    view = this.f54419b.inflate(ResUtils.layout(this.a.f54417j, "wallet_cashdesk_sign_bank_info"), (ViewGroup) null);
+                    view = this.f54422b.inflate(ResUtils.layout(this.a.f54420j, "wallet_cashdesk_sign_bank_info"), (ViewGroup) null);
                     aVar = new a(this, null);
-                    aVar.f54422b = (LinearLayout) view.findViewById(ResUtils.id(this.a.f54417j, "bank_item_title_layout"));
-                    aVar.f54423c = (TextView) view.findViewById(ResUtils.id(this.a.f54417j, "item_title"));
-                    aVar.f54425e = (NetImageView) view.findViewById(ResUtils.id(this.a.f54417j, "bank_logo"));
-                    aVar.f54426f = (TextView) view.findViewById(ResUtils.id(this.a.f54417j, "bank_name"));
-                    aVar.f54424d = (RelativeLayout) view.findViewById(ResUtils.id(this.a.f54417j, "bank_item_layout"));
+                    aVar.f54425b = (LinearLayout) view.findViewById(ResUtils.id(this.a.f54420j, "bank_item_title_layout"));
+                    aVar.f54426c = (TextView) view.findViewById(ResUtils.id(this.a.f54420j, "item_title"));
+                    aVar.f54428e = (NetImageView) view.findViewById(ResUtils.id(this.a.f54420j, "bank_logo"));
+                    aVar.f54429f = (TextView) view.findViewById(ResUtils.id(this.a.f54420j, "bank_name"));
+                    aVar.f54427d = (RelativeLayout) view.findViewById(ResUtils.id(this.a.f54420j, "bank_item_layout"));
                     view.setTag(aVar);
                 } else {
                     aVar = (a) view.getTag();
                 }
-                aVar.f54424d.setOnClickListener(new View.OnClickListener(this, i2) { // from class: com.baidu.wallet.paysdk.ui.SignChannelListActivity.BankListAdapter.1
+                aVar.f54427d.setOnClickListener(new View.OnClickListener(this, i2) { // from class: com.baidu.wallet.paysdk.ui.SignChannelListActivity.BankListAdapter.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ int a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BankListAdapter f54421b;
+                    public final /* synthetic */ BankListAdapter f54424b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -278,35 +278,35 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                                 return;
                             }
                         }
-                        this.f54421b = this;
+                        this.f54424b = this;
                         this.a = i2;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.a < this.f54421b.f54420c.size() && this.f54421b.a.f54416i) {
-                            StatisticManager.onEventWithValue("sdk_frontpage_idauth_type_choice_bank", this.f54421b.a.f54409b.getCurrentItem() == 0 ? "2" : "1");
-                            this.f54421b.a.m.setSubBankCode(((SignBank) this.f54421b.f54420c.get(this.a)).bank_code);
-                            Intent intent = this.f54421b.a.getIntent();
+                        if ((interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) && this.a < this.f54424b.f54423c.size() && this.f54424b.a.f54419i) {
+                            StatisticManager.onEventWithValue("sdk_frontpage_idauth_type_choice_bank", this.f54424b.a.f54412b.getCurrentItem() == 0 ? "2" : "1");
+                            this.f54424b.a.m.setSubBankCode(((SignBank) this.f54424b.f54423c.get(this.a)).bank_code);
+                            Intent intent = this.f54424b.a.getIntent();
                             if (intent == null) {
                                 intent = new Intent();
                             }
-                            intent.putExtra("subbankcode", ((SignBank) this.f54421b.f54420c.get(this.a)).bank_code);
-                            this.f54421b.a.setResult(-1, intent);
-                            this.f54421b.a.finish();
+                            intent.putExtra("subbankcode", ((SignBank) this.f54424b.f54423c.get(this.a)).bank_code);
+                            this.f54424b.a.setResult(-1, intent);
+                            this.f54424b.a.finish();
                         }
                     }
                 });
                 if (i2 == getPositionForSection(getSectionForPosition(i2))) {
-                    aVar.f54422b.setVisibility(0);
+                    aVar.f54425b.setVisibility(0);
                 } else {
-                    aVar.f54422b.setVisibility(8);
+                    aVar.f54425b.setVisibility(8);
                 }
-                aVar.f54425e.setVisibility(0);
-                aVar.f54425e.setImageResource(ResUtils.drawable(this.a.f54417j, "wallet_base_banklogo_defult"));
-                aVar.f54425e.setImageUrl(this.f54420c.get(i2).bank_url);
-                aVar.f54426f.setText(this.f54420c.get(i2).bank_name);
+                aVar.f54428e.setVisibility(0);
+                aVar.f54428e.setImageResource(ResUtils.drawable(this.a.f54420j, "wallet_base_banklogo_defult"));
+                aVar.f54428e.setImageUrl(this.f54423c.get(i2).bank_url);
+                aVar.f54429f.setText(this.f54423c.get(i2).bank_name);
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -341,7 +341,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         public void destroyItem(View view, int i2, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, obj) == null) {
-                ((ViewPager) view).removeView((View) this.a.f54410c.get(i2));
+                ((ViewPager) view).removeView((View) this.a.f54413c.get(i2));
             }
         }
 
@@ -356,7 +356,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f54410c.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.f54413c.size() : invokeV.intValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -364,7 +364,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, view, i2)) == null) {
-                View view2 = (View) this.a.f54410c.get(i2);
+                View view2 = (View) this.a.f54413c.get(i2);
                 if (view2.getParent() != null) {
                     ((ViewGroup) view2.getParent()).removeView(view2);
                 }
@@ -471,11 +471,11 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                 return;
             }
         }
-        this.f54410c = new ArrayList();
-        this.f54413f = new ArrayList();
-        this.f54414g = new ArrayList();
-        this.f54415h = "0";
-        this.f54416i = false;
+        this.f54413c = new ArrayList();
+        this.f54416f = new ArrayList();
+        this.f54417g = new ArrayList();
+        this.f54418h = "0";
+        this.f54419i = false;
     }
 
     @Override // com.dxmpay.wallet.core.BaseActivity
@@ -493,7 +493,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
             WalletGlobalUtils.safeDismissDialog(this, -1);
             if (i2 == this.n.getBeanId()) {
-                GlobalUtils.toast(this.f54417j, str);
+                GlobalUtils.toast(this.f54420j, str);
                 finish();
                 return;
             }
@@ -509,23 +509,23 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
             WalletGlobalUtils.safeDismissDialog(this, -1);
             if (i2 == this.n.getBeanId()) {
-                this.f54410c.clear();
+                this.f54413c.clear();
                 this.a.notifyDataSetChanged();
                 SignChannelResponse signChannelResponse = (SignChannelResponse) obj;
                 if (signChannelResponse != null && (signBankArr2 = signChannelResponse.arr_debit) != null && signBankArr2.length > 0) {
-                    this.f54410c.add(this.f54412e);
-                    this.f54414g.clear();
-                    this.f54414g.addAll(Arrays.asList(signChannelResponse.arr_debit));
+                    this.f54413c.add(this.f54415e);
+                    this.f54417g.clear();
+                    this.f54417g.addAll(Arrays.asList(signChannelResponse.arr_debit));
                     BankListAdapter bankListAdapter = this.l;
                     if (bankListAdapter != null) {
                         bankListAdapter.notifyDataSetChanged();
                     }
                 }
                 if (signChannelResponse != null && (signBankArr = signChannelResponse.arr_credit) != null && signBankArr.length > 0) {
-                    this.f54410c.add(this.f54411d);
-                    this.f54413f.clear();
-                    this.f54413f.addAll(Arrays.asList(signChannelResponse.arr_credit));
-                    BankListAdapter bankListAdapter2 = this.f54418k;
+                    this.f54413c.add(this.f54414d);
+                    this.f54416f.clear();
+                    this.f54416f.addAll(Arrays.asList(signChannelResponse.arr_credit));
+                    BankListAdapter bankListAdapter2 = this.f54421k;
                     if (bankListAdapter2 != null) {
                         bankListAdapter2.notifyDataSetChanged();
                     }
@@ -535,7 +535,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                     return;
                 }
                 tableLayout.setVisibility(0);
-                this.f54409b.setVisibility(0);
+                this.f54412b.setVisibility(0);
                 this.a.notifyDataSetChanged();
                 a(signChannelResponse);
             }
@@ -547,9 +547,9 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
             if (view == this.q) {
-                this.f54409b.setCurrentItem(1);
+                this.f54412b.setCurrentItem(1);
             } else if (view == this.r) {
-                this.f54409b.setCurrentItem(0);
+                this.f54412b.setCurrentItem(0);
             }
         }
     }
@@ -560,10 +560,10 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             if (getIntent() != null && getIntent().getExtras() != null) {
-                this.f54416i = getIntent().getExtras().getBoolean("isSelectBank");
+                this.f54419i = getIntent().getExtras().getBoolean("isSelectBank");
             }
             setFlagPaySdk();
-            this.f54417j = getActivity();
+            this.f54420j = getActivity();
             c();
             a();
             b();
@@ -613,7 +613,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
             }
             WalletGlobalUtils.safeShowDialog(this, -1, "");
             if (this.n == null) {
-                this.n = (aa) PayBeanFactory.getInstance().getBean((Context) this.f54417j, 517, "SignChannelListActivity");
+                this.n = (aa) PayBeanFactory.getInstance().getBean((Context) this.f54420j, 517, "SignChannelListActivity");
             }
             this.n.setResponseCallback(this);
             this.n.execBean();
@@ -624,40 +624,40 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             LayoutInflater layoutInflater = getLayoutInflater();
-            View inflate = layoutInflater.inflate(ResUtils.layout(this.f54417j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
+            View inflate = layoutInflater.inflate(ResUtils.layout(this.f54420j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
             this.o = inflate;
-            this.f54411d = (ListView) inflate.findViewById(ResUtils.id(this.f54417j, "bd_wallet_bank_listview"));
-            View inflate2 = layoutInflater.inflate(ResUtils.layout(this.f54417j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
+            this.f54414d = (ListView) inflate.findViewById(ResUtils.id(this.f54420j, "bd_wallet_bank_listview"));
+            View inflate2 = layoutInflater.inflate(ResUtils.layout(this.f54420j, "wallet_cashdesk_sign_channel_page"), (ViewGroup) null);
             this.p = inflate2;
-            this.f54412e = (ListView) inflate2.findViewById(ResUtils.id(this.f54417j, "bd_wallet_bank_listview"));
-            BankListAdapter bankListAdapter = new BankListAdapter(this, this.f54413f);
-            this.f54418k = bankListAdapter;
-            this.f54411d.setAdapter((ListAdapter) bankListAdapter);
-            BankListAdapter bankListAdapter2 = new BankListAdapter(this, this.f54414g);
+            this.f54415e = (ListView) inflate2.findViewById(ResUtils.id(this.f54420j, "bd_wallet_bank_listview"));
+            BankListAdapter bankListAdapter = new BankListAdapter(this, this.f54416f);
+            this.f54421k = bankListAdapter;
+            this.f54414d.setAdapter((ListAdapter) bankListAdapter);
+            BankListAdapter bankListAdapter2 = new BankListAdapter(this, this.f54417g);
             this.l = bankListAdapter2;
-            this.f54412e.setAdapter((ListAdapter) bankListAdapter2);
+            this.f54415e.setAdapter((ListAdapter) bankListAdapter2);
         }
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            setContentView(ResUtils.layout(this.f54417j, "wallet_cashdesk_sign_channel_list_activity"));
-            initActionBar(this.f54416i ? "bd_wallet_own_parent_banks" : "bd_wallet_own_support_banks");
-            this.q = (TextView) findViewById(ResUtils.id(this.f54417j, "bd_wallet_credit"));
-            this.r = (TextView) findViewById(ResUtils.id(this.f54417j, "bd_wallet_debit"));
-            this.s = (ViewGroup) findViewById(ResUtils.id(this.f54417j, "bd_wallet_first_tab"));
-            this.t = (ViewGroup) findViewById(ResUtils.id(this.f54417j, "bd_wallet_second_tab"));
-            this.f54409b = (ViewPager) findViewById(ResUtils.id(this.f54417j, "bd_wallet_viewPager"));
-            this.u = findViewById(ResUtils.id(this.f54417j, "bd_wallet_credit_tab"));
-            this.v = findViewById(ResUtils.id(this.f54417j, "bd_wallet_debit_tab"));
-            this.w = (TableLayout) findViewById(ResUtils.id(this.f54417j, "table_layout"));
+            setContentView(ResUtils.layout(this.f54420j, "wallet_cashdesk_sign_channel_list_activity"));
+            initActionBar(this.f54419i ? "bd_wallet_own_parent_banks" : "bd_wallet_own_support_banks");
+            this.q = (TextView) findViewById(ResUtils.id(this.f54420j, "bd_wallet_credit"));
+            this.r = (TextView) findViewById(ResUtils.id(this.f54420j, "bd_wallet_debit"));
+            this.s = (ViewGroup) findViewById(ResUtils.id(this.f54420j, "bd_wallet_first_tab"));
+            this.t = (ViewGroup) findViewById(ResUtils.id(this.f54420j, "bd_wallet_second_tab"));
+            this.f54412b = (ViewPager) findViewById(ResUtils.id(this.f54420j, "bd_wallet_viewPager"));
+            this.u = findViewById(ResUtils.id(this.f54420j, "bd_wallet_credit_tab"));
+            this.v = findViewById(ResUtils.id(this.f54420j, "bd_wallet_debit_tab"));
+            this.w = (TableLayout) findViewById(ResUtils.id(this.f54420j, "table_layout"));
             this.q.setOnClickListener(this);
             this.r.setOnClickListener(this);
             BankPageAdapter bankPageAdapter = new BankPageAdapter(this);
             this.a = bankPageAdapter;
-            this.f54409b.setAdapter(bankPageAdapter);
-            this.f54409b.setOnPageChangeListener(new GuidePageChangeListener(this));
+            this.f54412b.setAdapter(bankPageAdapter);
+            this.f54412b.setOnPageChangeListener(new GuidePageChangeListener(this));
         }
     }
 
@@ -683,13 +683,13 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
             if (z) {
-                this.q.setTextColor(getResources().getColor(ResUtils.color(this.f54417j, "dxm_wallet_base_font_text3Color")));
-                this.r.setTextColor(getResources().getColor(ResUtils.color(this.f54417j, "dxm_wallet_base_mainColor")));
+                this.q.setTextColor(getResources().getColor(ResUtils.color(this.f54420j, "dxm_wallet_base_font_text3Color")));
+                this.r.setTextColor(getResources().getColor(ResUtils.color(this.f54420j, "dxm_wallet_base_mainColor")));
                 b(false);
                 return;
             }
-            this.q.setTextColor(getResources().getColor(ResUtils.color(this.f54417j, "dxm_wallet_base_mainColor")));
-            this.r.setTextColor(getResources().getColor(ResUtils.color(this.f54417j, "dxm_wallet_base_font_text3Color")));
+            this.q.setTextColor(getResources().getColor(ResUtils.color(this.f54420j, "dxm_wallet_base_mainColor")));
+            this.r.setTextColor(getResources().getColor(ResUtils.color(this.f54420j, "dxm_wallet_base_font_text3Color")));
             b(true);
         }
     }
@@ -702,7 +702,7 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                 this.s.setVisibility(0);
                 this.u.setVisibility(0);
                 b(true);
-                this.f54409b.setCurrentItem(0);
+                this.f54412b.setCurrentItem(0);
                 a(true);
                 return;
             }
@@ -727,11 +727,11 @@ public class SignChannelListActivity extends PayBaseBeanActivity implements View
                 this.t.setVisibility(8);
             }
             if (this.v.getVisibility() == 0) {
-                this.f54409b.setCurrentItem(0);
+                this.f54412b.setCurrentItem(0);
                 a(true);
                 return;
             }
-            this.f54409b.setCurrentItem(1);
+            this.f54412b.setCurrentItem(1);
             a(false);
         }
     }

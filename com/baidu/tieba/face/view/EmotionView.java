@@ -10,7 +10,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -42,7 +42,7 @@ public class EmotionView extends TbImageView {
     public c h0;
 
     /* loaded from: classes12.dex */
-    public class a extends c.a.d.f.l.c<c.a.d.m.d.a> {
+    public class a extends c.a.d.f.l.c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionView a;
@@ -67,7 +67,7 @@ public class EmotionView extends TbImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.m.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.n.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
                 return;
@@ -89,7 +89,7 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f44155e;
+        public final /* synthetic */ EmotionView f44342e;
 
         public b(EmotionView emotionView) {
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f44155e = emotionView;
+            this.f44342e = emotionView;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -116,28 +116,28 @@ public class EmotionView extends TbImageView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f44155e.V = true;
-                    this.f44155e.a0 = motionEvent.getRawX();
-                    this.f44155e.b0 = motionEvent.getRawY();
-                    EmotionView emotionView = this.f44155e;
+                    this.f44342e.V = true;
+                    this.f44342e.a0 = motionEvent.getRawX();
+                    this.f44342e.b0 = motionEvent.getRawY();
+                    EmotionView emotionView = this.f44342e;
                     emotionView.c0 = emotionView.a0;
-                    EmotionView emotionView2 = this.f44155e;
+                    EmotionView emotionView2 = this.f44342e;
                     emotionView2.d0 = emotionView2.b0;
-                    this.f44155e.U = System.currentTimeMillis();
-                    if (this.f44155e.Q()) {
-                        EmotionView emotionView3 = this.f44155e;
+                    this.f44342e.U = System.currentTimeMillis();
+                    if (this.f44342e.L()) {
+                        EmotionView emotionView3 = this.f44342e;
                         emotionView3.postDelayed(new d(emotionView3, emotionView3.U), 500L);
                     }
                 } else if (action == 1) {
-                    this.f44155e.V = false;
-                    if (this.f44155e.W) {
-                        this.f44155e.W();
-                    } else if (this.f44155e.e0 != null && this.f44155e.O()) {
-                        this.f44155e.e0.onClick(this.f44155e);
+                    this.f44342e.V = false;
+                    if (this.f44342e.W) {
+                        this.f44342e.P();
+                    } else if (this.f44342e.e0 != null && this.f44342e.K()) {
+                        this.f44342e.e0.onClick(this.f44342e);
                     }
                 } else if (action == 3) {
-                    this.f44155e.V = false;
-                    this.f44155e.W();
+                    this.f44342e.V = false;
+                    this.f44342e.P();
                 }
                 return true;
             }
@@ -162,10 +162,10 @@ public class EmotionView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f44156e;
+        public long f44343e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EmotionView f44157f;
+        public final /* synthetic */ EmotionView f44344f;
 
         public d(EmotionView emotionView, long j2) {
             Interceptable interceptable = $ic;
@@ -182,15 +182,15 @@ public class EmotionView extends TbImageView {
                     return;
                 }
             }
-            this.f44157f = emotionView;
-            this.f44156e = j2;
+            this.f44344f = emotionView;
+            this.f44343e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f44157f.V && this.f44156e == this.f44157f.U && this.f44157f.S()) {
-                this.f44157f.V();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f44344f.V && this.f44343e == this.f44344f.U && this.f44344f.M()) {
+                this.f44344f.O();
             }
         }
     }
@@ -217,7 +217,7 @@ public class EmotionView extends TbImageView {
         init();
     }
 
-    public final boolean O() {
+    public final boolean K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -227,7 +227,7 @@ public class EmotionView extends TbImageView {
         return invokeV.booleanValue;
     }
 
-    public final boolean Q() {
+    public final boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -237,7 +237,7 @@ public class EmotionView extends TbImageView {
         return invokeV.booleanValue;
     }
 
-    public final boolean S() {
+    public final boolean M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -249,11 +249,11 @@ public class EmotionView extends TbImageView {
         return invokeV.booleanValue;
     }
 
-    public final void T(EmotionImageData emotionImageData) {
+    public final void N(EmotionImageData emotionImageData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionImageData) == null) {
             Object k2 = c.a.d.f.l.d.h().k(emotionImageData.getThumbUrl(), 20, new a(this), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-            c.a.d.m.d.a aVar = (k2 == null || !(k2 instanceof c.a.d.m.d.a)) ? null : (c.a.d.m.d.a) k2;
+            c.a.d.n.d.a aVar = (k2 == null || !(k2 instanceof c.a.d.n.d.a)) ? null : (c.a.d.n.d.a) k2;
             if (aVar != null) {
                 aVar.h(this);
                 setTag(null);
@@ -261,10 +261,10 @@ public class EmotionView extends TbImageView {
         }
     }
 
-    public final void V() {
+    public final void O() {
         EmotionImageData emotionImageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.W || !Q() || (emotionImageData = this.P) == null || TextUtils.isEmpty(emotionImageData.getPicUrl())) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.W || !L() || (emotionImageData = this.P) == null || TextUtils.isEmpty(emotionImageData.getPicUrl())) {
             return;
         }
         c cVar = this.h0;
@@ -284,8 +284,8 @@ public class EmotionView extends TbImageView {
         if (i2 < 0) {
             layoutParams.leftMargin = 0;
         }
-        if (layoutParams.leftMargin + this.R > m.k(getContext())) {
-            layoutParams.leftMargin = m.k(getContext()) - this.R;
+        if (layoutParams.leftMargin + this.R > n.k(getContext())) {
+            layoutParams.leftMargin = n.k(getContext()) - this.R;
         }
         if (this.T == null) {
             this.T = (FrameLayout) ((Activity) getContext()).getWindow().getDecorView();
@@ -301,7 +301,7 @@ public class EmotionView extends TbImageView {
         this.W = true;
     }
 
-    public final void W() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.Q != null && this.W) {
             c cVar = this.h0;
@@ -347,8 +347,8 @@ public class EmotionView extends TbImageView {
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.R = m.f(getContext(), R.dimen.ds240);
-            this.S = m.f(getContext(), R.dimen.ds260);
+            this.R = n.f(getContext(), R.dimen.ds240);
+            this.S = n.f(getContext(), R.dimen.ds260);
             this.f0 = ViewConfiguration.get(getContext()).getScaledTouchSlop() * 2;
         }
     }
@@ -361,7 +361,7 @@ public class EmotionView extends TbImageView {
         this.P = emotionImageData;
         setTag(emotionImageData.getThumbUrl());
         if (this.g0 == 20) {
-            T(this.P);
+            N(this.P);
         } else {
             startLoad(this.P.getThumbUrl(), this.g0, false);
         }

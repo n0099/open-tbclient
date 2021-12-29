@@ -23,10 +23,10 @@ public final class a {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f2100b;
+    public PlayerStatus f2527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public StringBuilder f2101c;
+    public StringBuilder f2528c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class a {
                 return;
             }
         }
-        this.f2100b = PlayerStatus.IDLE;
+        this.f2527b = PlayerStatus.IDLE;
         d();
     }
 
@@ -105,7 +105,7 @@ public final class a {
     public PlayerStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2100b : (PlayerStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2527b : (PlayerStatus) invokeV.objValue;
     }
 
     public final void d() {
@@ -132,17 +132,17 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             h();
-            this.f2100b = PlayerStatus.IDLE;
+            this.f2527b = PlayerStatus.IDLE;
         }
     }
 
     public void g(PlayerStatus playerStatus) {
         PlayerStatus playerStatus2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, playerStatus) == null) || playerStatus == (playerStatus2 = this.f2100b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, playerStatus) == null) || playerStatus == (playerStatus2 = this.f2527b)) {
             return;
         }
-        this.f2100b = playerStatus;
+        this.f2527b = playerStatus;
         c cVar = this.a;
         if (cVar != null) {
             cVar.d(k.w(playerStatus2, playerStatus));
@@ -161,22 +161,22 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (d.f()) {
-                StringBuilder sb = this.f2101c;
+                StringBuilder sb = this.f2528c;
                 if (sb == null) {
-                    this.f2101c = new StringBuilder();
+                    this.f2528c = new StringBuilder();
                 } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.f2101c;
+                    StringBuilder sb2 = this.f2528c;
                     sb2.delete(0, sb2.length());
                 }
-                StringBuilder sb3 = this.f2101c;
+                StringBuilder sb3 = this.f2528c;
                 sb3.append("，Courier :");
                 sb3.append(this.a);
                 sb3.append("，status :");
-                sb3.append(this.f2100b);
+                sb3.append(this.f2527b);
                 sb3.append("，hash :");
                 sb3.append(hashCode());
                 sb3.append("】");
-                return this.f2101c.toString();
+                return this.f2528c.toString();
             }
             return super.toString();
         }

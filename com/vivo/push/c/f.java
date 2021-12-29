@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class f extends com.vivo.push.v {
+public final class f extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(com.vivo.push.y yVar) {
-        super(yVar);
+    public f(com.vivo.push.o oVar) {
+        super(oVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yVar};
+            Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((com.vivo.push.y) newInitContext.callArgs[0]);
+                super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -111,16 +111,16 @@ public final class f extends com.vivo.push.v {
         return (List) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.v
-    public final void a(com.vivo.push.y yVar) {
+    @Override // com.vivo.push.l
+    public final void a(com.vivo.push.o oVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yVar) == null) {
-            if (this.a.getPackageName().equals(com.vivo.push.util.s.b(this.a))) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
+            if (this.a.getPackageName().equals(com.vivo.push.util.t.b(this.a))) {
                 return;
             }
-            com.vivo.push.b.l lVar = (com.vivo.push.b.l) yVar;
-            int d2 = lVar.d();
-            int e2 = lVar.e();
+            com.vivo.push.b.j jVar = (com.vivo.push.b.j) oVar;
+            int d2 = jVar.d();
+            int e2 = jVar.e();
             com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d2 + " ; receiverStatus is " + e2);
             if (d2 == 2) {
                 b(this.a);

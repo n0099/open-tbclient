@@ -11,6 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
 import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
 import com.baidu.searchbox.logsystem.basic.LokiService;
@@ -48,13 +49,196 @@ public class b {
     public Supplier<List<ProcessEventSceneHandler>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4179b;
+    public String f4597b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f4180c;
+    public Context f4598c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f4181d;
+    public long f4599d;
+
+    public b(@NonNull Context context, @NonNull Supplier<List<ProcessEventSceneHandler>> supplier) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, supplier};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (context instanceof Application) {
+            this.f4598c = context;
+        } else {
+            this.f4598c = context.getApplicationContext();
+        }
+        this.f4597b = c.a.k0.b.a.a.b();
+        this.f4599d = System.currentTimeMillis();
+        this.a = supplier;
+    }
+
+    public final LogExtra a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LogExtra logExtra = new LogExtra();
+            TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+            if (lastTrackUI != null) {
+                if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                    logExtra.mPage = lastTrackUI.getFragmentPage();
+                } else {
+                    logExtra.mPage = lastTrackUI.getActivityPage();
+                }
+            }
+            logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
+            logExtra.mLaunchTime = String.valueOf(this.f4599d);
+            if (DeviceUtil.OSInfo.hasNougat()) {
+                logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
+            }
+            logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
+            logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
+            logExtra.mHeapMem = CommonUtils.getHeapInfo();
+            logExtra.mVSSRSS = CommonUtils.getVSSRSS();
+            logExtra.mPSS = CommonUtils.getPSS();
+            logExtra.mSysMem = CommonUtils.getSysMem();
+            logExtra.mSysLowMem = !CommonUtils.isLowMemory() ? 1 : 0;
+            return logExtra;
+        }
+        return (LogExtra) invokeV.objValue;
+    }
+
+    @NonNull
+    public final ForwardingProcessEventSceneHandler b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
+            if (Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
+            }
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.a;
+            if (supplier != null && Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
+            }
+            return forwardingProcessEventSceneHandler;
+        }
+        return (ForwardingProcessEventSceneHandler) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            DefaultProcessEventSceneHandler.init();
+            LogType.init();
+            SnapshotUtil.init();
+            LogFile.init();
+            ProcessSnapshotType.init();
+            Utility.init();
+            LogPipelineSingleton.init();
+            LokiService.init();
+            LogExtra.init();
+            LogDiskStoreConfig.init();
+            CrashUtil.init();
+            LogSystemServiceUtil.init();
+        }
+    }
+
+    public void d(@NonNull Context context, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, jSONObject) == null) {
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void f(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+        }
+    }
+
+    public void g(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+        }
+    }
+
+    public void h(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, context, str, file, logExtra) == null) {
+            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
+        }
+    }
+
+    public final void i(@NonNull String str, @NonNull LogExtra logExtra) {
+        HashSet hashSet;
+        Set<LogFile> obtainProcessSnapShots;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, logExtra) == null) {
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f4597b);
+            if (!obtainFileDirWithProcessName.exists()) {
+                obtainFileDirWithProcessName.mkdirs();
+            }
+            JSONObject jSONObject = new JSONObject();
+            d(this.f4598c, jSONObject);
+            logExtra.mJSONAttach = jSONObject.toString();
+            ForwardingProcessEventSceneHandler b2 = b();
+            File file = null;
+            if (b2 != null) {
+                hashSet = new HashSet(5);
+                EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
+                Set<ProcessSnapshotType> requireGeneralSnapshots = b2.requireGeneralSnapshots(this.f4598c, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f4598c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f4597b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                    hashSet.addAll(obtainProcessSnapShots);
+                }
+                Set<LogFile> customizedSnapshots = b2.getCustomizedSnapshots(this.f4598c, obtainFileDirWithProcessName, eventObject);
+                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                    hashSet.addAll(customizedSnapshots);
+                }
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f4598c, b2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+                if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
+                    hashSet.add(obtainFragmentSnapShot);
+                }
+                if (LLog.sDebug && hashSet.size() > 0) {
+                    String str2 = "uploadLogFiles.size() = " + hashSet.size();
+                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
+                    }
+                }
+            } else {
+                hashSet = null;
+            }
+            f(this.f4598c);
+            if (hashSet != null) {
+                file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
+                if (LLog.sDebug && file != null) {
+                    String str3 = "pathNameKeeper = " + file.getAbsolutePath();
+                }
+            }
+            h(this.f4598c, str, file, logExtra);
+        }
+    }
+
+    public void j(@NonNull String str, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, str, i2, i3) == null) {
+            try {
+                i(str, a());
+            } catch (Throwable th) {
+                if (LLog.sDebug) {
+                    th.printStackTrace();
+                }
+            }
+        }
+    }
 
     public b(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -72,158 +256,14 @@ public class b {
             }
         }
         if (context instanceof Application) {
-            this.f4180c = context;
+            this.f4598c = context;
         } else {
-            this.f4180c = context.getApplicationContext();
+            this.f4598c = context.getApplicationContext();
         }
-        this.f4179b = c.a.j0.b.a.a.b();
-        this.f4181d = System.currentTimeMillis();
+        this.f4597b = c.a.k0.b.a.a.b();
+        this.f4599d = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
-            b();
-        }
-    }
-
-    @NonNull
-    public final ForwardingProcessEventSceneHandler a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
-            if (Build.VERSION.SDK_INT > 19) {
-                forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
-            }
-            Supplier<List<ProcessEventSceneHandler>> supplier = this.a;
-            if (supplier != null && Build.VERSION.SDK_INT > 19) {
-                forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
-            }
-            return forwardingProcessEventSceneHandler;
-        }
-        return (ForwardingProcessEventSceneHandler) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            DefaultProcessEventSceneHandler.init();
-            LogType.init();
-            SnapshotUtil.init();
-            LogFile.init();
-            ProcessSnapshotType.init();
-            Utility.init();
-            LogPipelineSingleton.init();
-            LokiService.init();
-            LogExtra.init();
-            LogDiskStoreConfig.init();
-            CrashUtil.init();
-            LogSystemServiceUtil.init();
-        }
-    }
-
-    public void c(@NonNull Context context, @NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-        }
-    }
-
-    public void f(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-        }
-    }
-
-    public void g(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, context, str, file, logExtra) == null) {
-            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
-        }
-    }
-
-    public final void h(@NonNull String str, @NonNull LogExtra logExtra) {
-        HashSet hashSet;
-        Set<LogFile> obtainProcessSnapShots;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f4179b);
-            if (!obtainFileDirWithProcessName.exists()) {
-                obtainFileDirWithProcessName.mkdirs();
-            }
-            JSONObject jSONObject = new JSONObject();
-            c(this.f4180c, jSONObject);
-            logExtra.mJSONAttach = jSONObject.toString();
-            ForwardingProcessEventSceneHandler a = a();
-            File file = null;
-            if (a != null) {
-                hashSet = new HashSet(5);
-                EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-                Set<ProcessSnapshotType> requireGeneralSnapshots = a.requireGeneralSnapshots(this.f4180c, eventObject);
-                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f4180c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f4179b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
-                    hashSet.addAll(obtainProcessSnapShots);
-                }
-                Set<LogFile> customizedSnapshots = a.getCustomizedSnapshots(this.f4180c, obtainFileDirWithProcessName, eventObject);
-                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
-                    hashSet.addAll(customizedSnapshots);
-                }
-                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f4180c, a, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
-                if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
-                    hashSet.add(obtainFragmentSnapShot);
-                }
-                if (LLog.sDebug && hashSet.size() > 0) {
-                    String str2 = "uploadLogFiles.size() = " + hashSet.size();
-                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
-                    }
-                }
-            } else {
-                hashSet = null;
-            }
-            e(this.f4180c);
-            if (hashSet != null) {
-                file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
-                if (LLog.sDebug && file != null) {
-                    String str3 = "pathNameKeeper = " + file.getAbsolutePath();
-                }
-            }
-            g(this.f4180c, str, file, logExtra);
-        }
-    }
-
-    public void i(@NonNull String str, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2, i3) == null) {
-            LogExtra logExtra = new LogExtra();
-            TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
-            if (lastTrackUI != null) {
-                if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
-                    logExtra.mPage = lastTrackUI.getFragmentPage();
-                } else {
-                    logExtra.mPage = lastTrackUI.getActivityPage();
-                }
-            }
-            logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
-            logExtra.mLaunchTime = String.valueOf(this.f4181d);
-            if (DeviceUtil.OSInfo.hasNougat()) {
-                logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
-            }
-            logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
-            logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
-            try {
-                h(str, logExtra);
-            } catch (Throwable th) {
-                if (LLog.sDebug) {
-                    th.printStackTrace();
-                }
-            }
+            c();
         }
     }
 }

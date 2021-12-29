@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,34 +24,34 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42046b;
+        public String f42212b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f42047c;
+        public String f42213c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f42048d;
+        public boolean f42214d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42049e;
+        public boolean f42215e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f42050f;
+        public boolean f42216f;
 
         /* renamed from: g  reason: collision with root package name */
-        public HttpResponse f42051g;
+        public HttpResponse f42217g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f42052h;
+        public JSONObject f42218h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f42053i;
+        public boolean f42219i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f42054j;
+        public boolean f42220j;
 
         /* renamed from: k  reason: collision with root package name */
-        public String f42055k;
+        public String f42221k;
         public BlockPopInfoData l;
         public int m;
 
@@ -68,8 +68,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f42049e = false;
-            this.f42050f = false;
+            this.f42215e = false;
+            this.f42216f = false;
             this.m = 0;
         }
 
@@ -78,17 +78,17 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f42055k = jSONObject.optString("block_dealurl");
+            this.f42221k = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (l.isEmpty(optString) || l.isEmpty(this.f42055k) || l.isEmpty(optString2) || l.isEmpty(optString3)) {
+            if (m.isEmpty(optString) || m.isEmpty(this.f42221k) || m.isEmpty(optString2) || m.isEmpty(optString3)) {
                 return;
             }
             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
             this.l = blockPopInfoData;
             blockPopInfoData.block_info = optString;
-            blockPopInfoData.ahead_url = this.f42055k;
+            blockPopInfoData.ahead_url = this.f42221k;
             blockPopInfoData.ahead_info = optString2;
             blockPopInfoData.ok_info = optString3;
         }
@@ -100,7 +100,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.f42052h = jSONObject;
+                this.f42218h = jSONObject;
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject == null) {
                     return;
@@ -144,7 +144,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f42048d;
+            return getData().f42214d;
         }
         return invokeV.booleanValue;
     }
@@ -156,7 +156,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (getData() == null || !(getData() instanceof a)) {
                 return false;
             }
-            return getData().f42050f;
+            return getData().f42216f;
         }
         return invokeV.booleanValue;
     }

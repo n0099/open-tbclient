@@ -2311,7 +2311,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         if (!(interceptable == null || interceptable.invokeL(1048612, this, num) == null) || this.executor.isShutdown()) {
             return;
         }
-        this.executor.execute(new Runnable() { // from class: c.a.k0.a
+        this.executor.execute(new Runnable() { // from class: c.a.l0.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

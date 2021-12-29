@@ -14,19 +14,19 @@ public final class a extends c {
     public ArrayList<String> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(boolean z, String str, String str2, ArrayList<String> arrayList) {
-        super(z ? 2002 : 2003, str, str2);
+    public a(boolean z, String str, ArrayList<String> arrayList) {
+        super(z ? 2002 : 2003, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), str, str2, arrayList};
+            Object[] objArr = {Boolean.valueOf(z), str, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public final class a extends c {
         this.a = arrayList;
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.y
+    @Override // com.vivo.push.b.c, com.vivo.push.o
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
@@ -44,16 +44,16 @@ public final class a extends c {
         }
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.y
+    @Override // com.vivo.push.b.c, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.a = aVar.b("tags");
+            this.a = aVar.c("tags");
         }
     }
 
-    @Override // com.vivo.push.b.c, com.vivo.push.y
+    @Override // com.vivo.push.b.c, com.vivo.push.o
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

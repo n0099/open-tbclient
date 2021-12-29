@@ -15,11 +15,11 @@ public class a {
     public final SparseArray<ArrayList<b>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f33244b;
+    public int f33400b;
 
     /* renamed from: com.baidu.apollon.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC1725a {
+    public interface InterfaceC1732a {
         void a();
     }
 
@@ -30,23 +30,23 @@ public class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33245b;
+        public int f33401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33246c;
+        public int f33402c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InterfaceC1725a f33247d;
+        public InterfaceC1732a f33403d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f33248e;
+        public final /* synthetic */ a f33404e;
 
-        public b(a aVar, int i2, int i3, int i4, InterfaceC1725a interfaceC1725a) {
+        public b(a aVar, int i2, int i3, int i4, InterfaceC1732a interfaceC1732a) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1725a};
+                Object[] objArr = {aVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), interfaceC1732a};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -56,11 +56,11 @@ public class a {
                     return;
                 }
             }
-            this.f33248e = aVar;
+            this.f33404e = aVar;
             this.a = i2;
-            this.f33245b = i3;
-            this.f33246c = i4;
-            this.f33247d = interfaceC1725a;
+            this.f33401b = i3;
+            this.f33402c = i4;
+            this.f33403d = interfaceC1732a;
         }
     }
 
@@ -80,8 +80,8 @@ public class a {
             }
         }
         this.a = new SparseArray<>();
-        this.f33244b = 0;
-        this.f33244b = i2;
+        this.f33400b = 0;
+        this.f33400b = i2;
     }
 
     public void a(b bVar) {
@@ -101,15 +101,15 @@ public class a {
     public void b(int i2) {
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.a.get(this.f33244b)) == null || arrayList.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (arrayList = this.a.get(this.f33400b)) == null || arrayList.size() == 0) {
             return;
         }
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next.f33246c == i2) {
-                this.f33244b = next.f33245b;
-                next.f33247d.a();
+            if (next.f33402c == i2) {
+                this.f33400b = next.f33401b;
+                next.f33403d.a();
                 return;
             }
         }
@@ -118,7 +118,7 @@ public class a {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f33244b = i2;
+            this.f33400b = i2;
         }
     }
 }

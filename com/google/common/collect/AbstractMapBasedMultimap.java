@@ -1680,7 +1680,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends c.i.d.c.c<K, V> imp
     public Collection<V> createValues() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new c.C1658c(this) : (Collection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new c.C1662c(this) : (Collection) invokeV.objValue;
     }
 
     @Override // c.i.d.c.c, c.i.d.c.q0

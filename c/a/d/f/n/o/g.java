@@ -27,30 +27,30 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile g f2564i;
+    public static volatile g f2992i;
     public transient /* synthetic */ FieldHolder $fh;
     public final ConcurrentHashMap<String, c.a.d.f.n.j.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2565b;
+    public String f2993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.d.f.n.b f2566c;
+    public c.a.d.f.n.b f2994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f2567d;
+    public i f2995d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f2568e;
+    public f f2996e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.f.n.d f2569f;
+    public c.a.d.f.n.d f2997f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f2570g;
+    public Handler f2998g;
 
     /* renamed from: h  reason: collision with root package name */
-    public j f2571h;
+    public j f2999h;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -103,10 +103,10 @@ public class g {
         public final /* synthetic */ c.a.d.f.n.j.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f2572b;
+        public final /* synthetic */ boolean f3000b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f2573c;
+        public final /* synthetic */ boolean f3001c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar, boolean z, boolean z2) {
@@ -128,8 +128,8 @@ public class g {
                 }
             }
             this.a = aVar;
-            this.f2572b = z;
-            this.f2573c = z2;
+            this.f3000b = z;
+            this.f3001c = z2;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -139,7 +139,7 @@ public class g {
                 super.callback(z);
                 if (z) {
                     this.a.H(0L);
-                    c.a.d.f.n.n.b.m().r(this.a, this.f2572b, true, this.f2573c);
+                    c.a.d.f.n.n.b.m().t(this.a, this.f3000b, true, this.f3001c);
                 }
             }
         }
@@ -191,7 +191,7 @@ public class g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.f.n.j.a f2574c;
+        public final /* synthetic */ c.a.d.f.n.j.a f3002c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(g gVar, String str, String str2, DiskFileOperate.Action action, c.a.d.f.n.j.a aVar) {
@@ -212,7 +212,7 @@ public class g {
                     return;
                 }
             }
-            this.f2574c = aVar;
+            this.f3002c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -221,7 +221,7 @@ public class g {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
                 if (z) {
-                    this.f2574c.H(getFileInfo().length());
+                    this.f3002c.H(getFileInfo().length());
                 }
             }
         }
@@ -321,22 +321,22 @@ public class g {
             }
         }
         this.a = new ConcurrentHashMap<>();
-        this.f2570g = new a(this, Looper.getMainLooper());
-        this.f2571h = new e(this);
+        this.f2998g = new a(this, Looper.getMainLooper());
+        this.f2999h = new e(this);
     }
 
     public static g i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f2564i == null) {
+            if (f2992i == null) {
                 synchronized (g.class) {
-                    if (f2564i == null) {
-                        f2564i = new g();
+                    if (f2992i == null) {
+                        f2992i = new g();
                     }
                 }
             }
-            return f2564i;
+            return f2992i;
         }
         return (g) invokeV.objValue;
     }
@@ -367,7 +367,7 @@ public class g {
     public void C(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f2565b = str;
+            this.f2993b = str;
         }
     }
 
@@ -390,8 +390,8 @@ public class g {
             if (objArr != null && objArr.length > 0) {
                 aVar.c(objArr);
             }
-            if (this.f2565b != null && !str.equals("stat")) {
-                aVar.b("uid", this.f2565b);
+            if (this.f2993b != null && !str.equals("stat")) {
+                aVar.b("uid", this.f2993b);
             }
             if (str3 != null && !str.equals("stat")) {
                 aVar.b("c_logid", str3);
@@ -411,7 +411,7 @@ public class g {
                 }
             }
             if (c.a.d.f.n.g.e() && c.a.d.f.n.g.d(j2)) {
-                aVar.d(this.f2569f);
+                aVar.d(this.f2997f);
                 j2.c(aVar);
             }
             if (c.a.d.f.n.m.a.o().u(str, str2)) {
@@ -428,12 +428,12 @@ public class g {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             for (Map.Entry<String, c.a.d.f.n.j.a> entry : this.a.entrySet()) {
                 c.a.d.f.n.j.a value = entry.getValue();
-                c.a.d.f.n.b bVar = this.f2566c;
+                c.a.d.f.n.b bVar = this.f2994c;
                 if (bVar != null) {
                     long logUploadTime = bVar.getLogUploadTime(value.o());
                     if (logUploadTime <= 0) {
                         logUploadTime = System.currentTimeMillis();
-                        this.f2566c.setLogUploadTime(value.o(), logUploadTime);
+                        this.f2994c.setLogUploadTime(value.o(), logUploadTime);
                     }
                     value.L(logUploadTime);
                 }
@@ -462,30 +462,30 @@ public class g {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.f2567d == null) {
-                this.f2567d = new i();
+            if (this.f2995d == null) {
+                this.f2995d = new i();
             }
-            this.f2567d.a();
+            this.f2995d.a();
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            Message obtainMessage = this.f2570g.obtainMessage();
+            Message obtainMessage = this.f2998g.obtainMessage();
             obtainMessage.what = 6;
-            this.f2570g.removeMessages(6);
-            this.f2570g.sendMessageDelayed(obtainMessage, 3000L);
+            this.f2998g.removeMessages(6);
+            this.f2998g.sendMessageDelayed(obtainMessage, 3000L);
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Message obtainMessage = this.f2570g.obtainMessage();
+            Message obtainMessage = this.f2998g.obtainMessage();
             obtainMessage.what = 6;
-            this.f2570g.removeMessages(6);
-            this.f2570g.sendMessage(obtainMessage);
+            this.f2998g.removeMessages(6);
+            this.f2998g.sendMessage(obtainMessage);
         }
     }
 
@@ -503,15 +503,15 @@ public class g {
                     if ("alert".equals(g2)) {
                         aVar = new c.a.d.f.n.o.a(null);
                     } else if ("error".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.c(this.f2571h);
+                        aVar = new c.a.d.f.n.o.c(this.f2999h);
                     } else if ("dbg".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.b(this.f2571h);
+                        aVar = new c.a.d.f.n.o.b(this.f2999h);
                     } else if ("stat".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.f(this.f2571h);
+                        aVar = new c.a.d.f.n.o.f(this.f2999h);
                     } else if ("pfmonitor".equals(g2)) {
-                        aVar = new c.a.d.f.n.o.e(this.f2571h);
+                        aVar = new c.a.d.f.n.o.e(this.f2999h);
                     } else {
-                        aVar = new c.a.d.f.n.o.c(this.f2571h);
+                        aVar = new c.a.d.f.n.o.c(this.f2999h);
                     }
                     aVar.I(g2);
                     this.a.put(g2, aVar);
@@ -525,20 +525,20 @@ public class g {
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2565b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2993b : (String) invokeV.objValue;
     }
 
     public void l(c.a.d.f.n.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            if (this.f2568e == null) {
-                this.f2568e = new f(this, null);
+            if (this.f2996e == null) {
+                this.f2996e = new f(this, null);
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-                BdBaseApplication.getInst().registerReceiver(this.f2568e, intentFilter);
+                BdBaseApplication.getInst().registerReceiver(this.f2996e, intentFilter);
             }
-            this.f2566c = BdStatisticsManager.getInstance().getBdLogSetting();
-            this.f2569f = dVar;
+            this.f2994c = BdStatisticsManager.getInstance().getBdLogSetting();
+            this.f2997f = dVar;
         }
     }
 

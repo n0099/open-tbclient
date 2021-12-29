@@ -13,13 +13,13 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<g<Vector3>> f28030b;
+    public c.b.b.q.a<g<Vector3>> f28104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.a<g<Quaternion>> f28031c;
+    public c.b.b.q.a<g<Quaternion>> f28105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.b.b.q.a<g<Vector3>> f28032d;
+    public c.b.b.q.a<g<Vector3>> f28106d;
 
     public f() {
         Interceptable interceptable = $ic;

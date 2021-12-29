@@ -11,13 +11,13 @@ public class c {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f2214b;
+    public byte[] f2641b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2215c;
+    public int f2642c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2216d;
+    public int f2643d;
 
     public c() {
         Interceptable interceptable = $ic;

@@ -24,7 +24,7 @@ public class a implements X509TrustManager {
     public static final X509Certificate[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static TrustManager[] f33545b;
+    public static TrustManager[] f33701b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -91,8 +91,8 @@ public class a implements X509TrustManager {
                     return invokeLL.booleanValue;
                 }
             });
-            if (f33545b == null) {
-                f33545b = new TrustManager[]{new a()};
+            if (f33701b == null) {
+                f33701b = new TrustManager[]{new a()};
             }
             try {
                 sSLContext = SSLContext.getInstance("TLS");
@@ -104,7 +104,7 @@ public class a implements X509TrustManager {
                 e2 = e5;
             }
             try {
-                sSLContext.init(null, f33545b, null);
+                sSLContext.init(null, f33701b, null);
             } catch (KeyManagementException e6) {
                 e3 = e6;
                 e3.printStackTrace();

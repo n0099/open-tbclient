@@ -54,30 +54,30 @@ public class d implements View.OnFocusChangeListener {
             if (z) {
                 z2 = safeKeyBoardEditText.o;
                 if (z2) {
-                    context = this.a.f34914e;
+                    context = this.a.f35070e;
                     RimGlobalUtils.hideInputMethod(context, this.a);
-                    safeScrollView = this.a.f34916g;
+                    safeScrollView = this.a.f35072g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.a.f34916g;
+                        safeScrollView2 = this.a.f35072g;
                         if (safeScrollView2.hasWindowFocus()) {
-                            safeScrollView3 = this.a.f34916g;
+                            safeScrollView3 = this.a.f35072g;
                             if (!safeScrollView3.isPopupWindowShowing()) {
-                                safeScrollView4 = this.a.f34916g;
-                                viewGroup = this.a.f34915f;
+                                safeScrollView4 = this.a.f35072g;
+                                viewGroup = this.a.f35071f;
                                 SafeKeyBoardEditText safeKeyBoardEditText2 = this.a;
-                                view2 = safeKeyBoardEditText2.f34917h;
+                                view2 = safeKeyBoardEditText2.f35073h;
                                 safeScrollView4.showKeyBoard(viewGroup, safeKeyBoardEditText2, view2);
                             }
                         }
                     }
                 }
             } else if (!safeKeyBoardEditText.isAlwaysShow) {
-                safeScrollView5 = safeKeyBoardEditText.f34916g;
+                safeScrollView5 = safeKeyBoardEditText.f35072g;
                 if (safeScrollView5 != null) {
-                    safeScrollView6 = this.a.f34916g;
+                    safeScrollView6 = this.a.f35072g;
                     safeScrollView6.dismissKeyBoard(this.a);
                 } else {
-                    context2 = this.a.f34914e;
+                    context2 = this.a.f35070e;
                     RimGlobalUtils.hideInputMethod(context2, this.a);
                 }
             }

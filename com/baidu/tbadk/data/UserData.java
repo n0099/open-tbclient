@@ -1,8 +1,9 @@
 package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.m.e.n;
-import c.a.r0.s.r.j2;
+import c.a.d.n.e.n;
+import c.a.s0.s.q.j2;
+import c.a.s0.u.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -547,20 +548,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        c.a.r0.u.n nVar = new c.a.r0.u.n();
-        nVar.g(getPortraitH());
-        nVar.i(getPortrait());
-        nVar.h(true);
-        this.mPhotoAlbum.add(nVar);
+        q qVar = new q();
+        qVar.g(getPortraitH());
+        qVar.i(getPortrait());
+        qVar.h(true);
+        this.mPhotoAlbum.add(qVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    c.a.r0.u.n nVar2 = new c.a.r0.u.n();
-                    nVar2.g(userPics.big);
-                    nVar2.i(userPics.small);
-                    nVar2.h(false);
-                    this.mPhotoAlbum.add(nVar2);
+                    q qVar2 = new q();
+                    qVar2.g(userPics.big);
+                    qVar2.i(userPics.small);
+                    qVar2.h(false);
+                    this.mPhotoAlbum.add(qVar2);
                 }
             }
         }
@@ -821,7 +822,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.r0.s.i0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.s0.s.i0.t.a
     public void setLikeStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
@@ -1000,22 +1001,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                c.a.r0.u.n nVar = new c.a.r0.u.n();
-                nVar.g(getPortraitH());
-                nVar.i(getPortrait());
-                nVar.h(true);
-                this.mPhotoAlbum.add(nVar);
+                q qVar = new q();
+                qVar.g(getPortraitH());
+                qVar.i(getPortrait());
+                qVar.h(true);
+                this.mPhotoAlbum.add(qVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i2 = 0; i2 < length; i2++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                         if (jSONObject2 != null) {
-                            c.a.r0.u.n nVar2 = new c.a.r0.u.n();
-                            nVar2.g(jSONObject2.optString("big"));
-                            nVar2.i(jSONObject2.optString("small"));
-                            nVar2.h(false);
-                            this.mPhotoAlbum.add(nVar2);
+                            q qVar2 = new q();
+                            qVar2.g(jSONObject2.optString("big"));
+                            qVar2.i(jSONObject2.optString("small"));
+                            qVar2.h(false);
+                            this.mPhotoAlbum.add(qVar2);
                         }
                     }
                 }

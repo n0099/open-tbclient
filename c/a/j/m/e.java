@@ -27,10 +27,10 @@ public final class e {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f3721b;
+    public static byte[] f4149b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f3722c;
+    public static final e f4150c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public final class e {
                 return;
             }
         }
-        f3722c = new e();
+        f4150c = new e();
         a = new int[]{219, 74, 195, 53, 166, 242, 116, 193, 174, 134, 57, Opcodes.ARETURN, 41, 16, 150, 94, WriteActivity.CONTENT_MAX_COUNT, 21, 62, 77, 117, 76, 201, w0.c1, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
@@ -77,11 +77,11 @@ public final class e {
                     if (arrayList.size() <= 16) {
                         return "";
                     }
-                    if (f3721b == null) {
-                        f3721b = new byte[a.length];
+                    if (f4149b == null) {
+                        f4149b = new byte[a.length];
                         int length = a.length;
                         for (int i3 = 0; i3 < length; i3++) {
-                            byte[] bArr = f3721b;
+                            byte[] bArr = f4149b;
                             if (bArr == null) {
                                 Intrinsics.throwNpe();
                             }
@@ -89,7 +89,7 @@ public final class e {
                         }
                     }
                     byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
-                    byte[] bArr2 = f3721b;
+                    byte[] bArr2 = f4149b;
                     if (bArr2 == null) {
                         Intrinsics.throwNpe();
                     }

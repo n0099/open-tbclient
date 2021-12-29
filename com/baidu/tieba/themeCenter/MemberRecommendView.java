@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.s0.b4.h.e;
+import c.a.t0.c4.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,25 +40,25 @@ public class MemberRecommendView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f50026e;
+    public Context f50276e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f50027f;
+    public View f50277f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f50028g;
+    public TbImageView f50278g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f50029h;
+    public TextView f50279h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f50030i;
+    public TextView f50280i;
 
     /* renamed from: j  reason: collision with root package name */
-    public e f50031j;
+    public e f50281j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f50032k;
+    public int f50282k;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -66,7 +66,7 @@ public class MemberRecommendView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberRecommendView f50033e;
+        public final /* synthetic */ MemberRecommendView f50283e;
 
         public a(MemberRecommendView memberRecommendView) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class MemberRecommendView extends FrameLayout {
                     return;
                 }
             }
-            this.f50033e = memberRecommendView;
+            this.f50283e = memberRecommendView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -93,7 +93,7 @@ public class MemberRecommendView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int i2 = 9;
-                switch (this.f50033e.f50032k) {
+                switch (this.f50283e.f50282k) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i2 = 8;
@@ -103,7 +103,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (this.f50033e.f50032k == 9) {
+                        if (this.f50283e.f50282k == 9) {
                             str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
                             break;
                         }
@@ -113,7 +113,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i2 = 12;
-                        if (this.f50033e.f50032k != 4) {
+                        if (this.f50283e.f50282k != 4) {
                             str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                             break;
                         } else {
@@ -124,7 +124,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 7:
                         TiebaStatic.log("c10762");
                         i2 = 19;
-                        if (this.f50033e.f50032k != 7) {
+                        if (this.f50283e.f50282k != 7) {
                             str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                             break;
                         } else {
@@ -141,7 +141,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.f50033e.f50031j == null || (tbPageContext = (TbPageContext) j.a(this.f50033e.f50026e)) == null) {
+                if (this.f50283e.f50281j == null || (tbPageContext = (TbPageContext) j.a(this.f50283e.f50276e)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2);
@@ -169,31 +169,31 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50026e = context;
+        this.f50276e = context;
         d();
     }
 
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.f50027f, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f50029h, R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.f50277f, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.f50279h, R.color.CAM_X0108);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f50026e).inflate(R.layout.member_extend_view, this);
-            this.f50027f = inflate;
+            View inflate = LayoutInflater.from(this.f50276e).inflate(R.layout.member_extend_view, this);
+            this.f50277f = inflate;
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.vip_icon);
-            this.f50028g = tbImageView;
+            this.f50278g = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.f50028g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f50028g.setAutoChangeStyle(true);
-            this.f50029h = (TextView) this.f50027f.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.f50027f.findViewById(R.id.jump_button);
-            this.f50030i = textView;
+            this.f50278g.setDefaultBgResource(R.drawable.transparent_bg);
+            this.f50278g.setAutoChangeStyle(true);
+            this.f50279h = (TextView) this.f50277f.findViewById(R.id.title_view);
+            TextView textView = (TextView) this.f50277f.findViewById(R.id.jump_button);
+            this.f50280i = textView;
             textView.setOnClickListener(new a(this));
         }
     }
@@ -203,33 +203,33 @@ public class MemberRecommendView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) || eVar == null) {
             return;
         }
-        this.f50031j = eVar;
-        this.f50028g.startLoad(eVar.b(), 10, false);
-        this.f50029h.setText(this.f50031j.c());
-        if (StringUtils.isNull(this.f50031j.a())) {
-            this.f50030i.setVisibility(8);
+        this.f50281j = eVar;
+        this.f50278g.startLoad(eVar.b(), 10, false);
+        this.f50279h.setText(this.f50281j.c());
+        if (StringUtils.isNull(this.f50281j.a())) {
+            this.f50280i.setVisibility(8);
             return;
         }
-        this.f50030i.setVisibility(0);
-        this.f50030i.setText(this.f50031j.a());
+        this.f50280i.setVisibility(0);
+        this.f50280i.setText(this.f50281j.a());
     }
 
     public View getButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50030i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f50280i : (View) invokeV.objValue;
     }
 
     public int getFromType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50032k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f50282k : invokeV.intValue;
     }
 
     public void setFromType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f50032k = i2;
+            this.f50282k = i2;
         }
     }
 
@@ -252,7 +252,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50026e = context;
+        this.f50276e = context;
         d();
     }
 
@@ -275,7 +275,7 @@ public class MemberRecommendView extends FrameLayout {
                 return;
             }
         }
-        this.f50026e = context;
+        this.f50276e = context;
         d();
     }
 }

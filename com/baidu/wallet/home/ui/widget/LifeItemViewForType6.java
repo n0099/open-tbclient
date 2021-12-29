@@ -19,10 +19,10 @@ public class LifeItemViewForType6 extends BaseItemView {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f53190b;
+    public MaskTextView f53193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f53191c;
+    public NetImageView f53194c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LifeItemViewForType6(Context context) {
@@ -50,8 +50,8 @@ public class LifeItemViewForType6 extends BaseItemView {
             removeAllViews();
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_item_view_for_type_6"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "life_icon"));
-            this.f53190b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
-            this.f53191c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
+            this.f53193b = (MaskTextView) findViewById(ResUtils.id(getContext(), "title"));
+            this.f53194c = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
         }
     }
 
@@ -61,11 +61,11 @@ public class LifeItemViewForType6 extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (isShoudShowPoint()) {
-                this.f53191c.setVisibility(0);
-                this.f53191c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
+                this.f53194c.setVisibility(0);
+                this.f53194c.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
                 return true;
             }
-            this.f53191c.setVisibility(8);
+            this.f53194c.setVisibility(8);
             return false;
         }
         return invokeV.booleanValue;
@@ -76,7 +76,7 @@ public class LifeItemViewForType6 extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getData() == null) {
             return;
         }
-        this.f53190b.setMaskText(getData().name);
+        this.f53193b.setMaskText(getData().name);
         NetImageView netImageView = this.a;
         netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().logo);
         handlePoint();

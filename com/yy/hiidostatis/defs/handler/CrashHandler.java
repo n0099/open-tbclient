@@ -4,6 +4,7 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +63,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65539, null, i2, str) == null) {
             Object[] objArr = new Object[1];
-            objArr[0] = i2 == 1 ? "java" : "native";
+            objArr[0] = i2 == 1 ? ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA : "native";
             L.debug("CrashHandler", "%s crash occur.", objArr);
             String replace = str.replace(".dmp", ".log");
             L.brief("crashCallBack,dmpFilePath=%s,logFilePath=%s", str, replace);

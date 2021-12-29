@@ -14,7 +14,7 @@ public final class c implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<c.i.b.a.e0.b> f30362e;
+    public final List<c.i.b.a.e0.b> f30440e;
 
     public c(List<c.i.b.a.e0.b> list) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class c implements e {
                 return;
             }
         }
-        this.f30362e = list;
+        this.f30440e = list;
     }
 
     @Override // c.i.b.a.e0.e
@@ -68,6 +68,6 @@ public final class c implements e {
     public List<c.i.b.a.e0.b> d(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f30362e : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.f30440e : (List) invokeJ.objValue;
     }
 }

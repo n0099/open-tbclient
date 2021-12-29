@@ -106,6 +106,8 @@ public class CommonStatisticKey {
     public static final String KEY_LIVE_SECOND_TAB_SHOW = "c14134";
     public static final String KEY_LIVE_TAB_CLICK = "c14133";
     public static final String KEY_LIVE_TAB_SHOW = "c14131";
+    public static final String KEY_LOCAL_INOUT_SEND_BTN_CLICK = "c14527";
+    public static final String KEY_LOCAL_INOUT_SHOW = "c14526";
     public static final String KEY_LOCATION_PERMISSION_CLICK = "c14100";
     public static final String KEY_LOCATION_PERMISSION_SHOW = "c14099";
     public static final String KEY_LOGIN_DIALOG_INVOKE = "c14059";
@@ -119,6 +121,12 @@ public class CommonStatisticKey {
     public static final String KEY_PB_FOLD_ICON_SHOW = "c14434";
     public static final String KEY_PB_HAS_FOLD_ICON_SHOW = "c14436";
     public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
+    public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK = "c14517";
+    public static final String KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW = "c14516";
+    public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_CLICK = "c14529";
+    public static final String KEY_PB_NOVEL_INFO_PAY_DIALOG_SHOW = "c14528";
+    public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK = "c14519";
+    public static final String KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW = "c14518";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
@@ -133,6 +141,7 @@ public class CommonStatisticKey {
     public static final String KEY_SHOW_PB_HEAD_NOTICE_BAR = "c14340";
     public static final String KEY_SITE_SERVICE = "c14050";
     public static final String KEY_SITE_SERVICE_ENTRANCE = "c14049";
+    public static final String KEY_STAMP_SHARE_DIALOG = "c14503";
     public static final String KEY_STATISTICS_ADVERTSDK_CLICK = "c13320";
     public static final String KEY_STATISTICS_ADVERTSDK_SHOW = "c13319";
     public static final String KEY_STATISTICS_MOBADS_CLICK = "c13043";
@@ -152,6 +161,8 @@ public class CommonStatisticKey {
     public static final String KEY_VIDEO_FLOW_PLAY_CLICK = "c13257";
     public static final String KEY_VIDEO_PLAY_BTN_CLICK = "c13255";
     public static final String KEY_VIDEO_SEEK_CLICK = "c13256";
+    public static final String KEY_VOICE_ROOM_SHARE = "c14466";
+    public static final String KEY_VOICE_ROOM_SHARE_PANEL = "c14465";
     public static final String KEY_WORK_PUBLISH_ENTER_TYPE_CLICK = "c13793";
     public static final String KEY_WORK_VIDEO_HAS_TOPIC = "c14420";
     public static final String KEY_WORK_VIDEO_TOPIC_LAYOUT_SHOW = "c14414";

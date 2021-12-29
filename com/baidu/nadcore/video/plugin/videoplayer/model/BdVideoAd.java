@@ -80,34 +80,34 @@ public class BdVideoAd implements Serializable {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f38177b;
+        public String f38333b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f38178c;
+        public String f38334c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f38179d;
+        public JSONObject f38335d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f38180e;
+        public String f38336e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f38181f;
+        public String f38337f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f38182g;
+        public String f38338g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f38183h;
+        public String f38339h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f38184i;
+        public String f38340i;
 
         /* renamed from: j  reason: collision with root package name */
-        public int f38185j;
+        public int f38341j;
 
         /* renamed from: k  reason: collision with root package name */
-        public Object f38186k;
+        public Object f38342k;
         public Object l;
 
         public b() {
@@ -124,29 +124,29 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = false;
-            this.f38177b = "";
-            this.f38178c = "";
-            this.f38179d = null;
-            this.f38180e = "";
-            this.f38181f = "";
-            this.f38182g = "";
-            this.f38183h = "";
-            this.f38184i = "detail";
-            this.f38185j = -1;
-            this.f38186k = null;
+            this.f38333b = "";
+            this.f38334c = "";
+            this.f38335d = null;
+            this.f38336e = "";
+            this.f38337f = "";
+            this.f38338g = "";
+            this.f38339h = "";
+            this.f38340i = "detail";
+            this.f38341j = -1;
+            this.f38342k = null;
         }
 
         public BdVideoAd a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f38177b, this.f38178c, this.f38179d, this.f38180e, this.f38181f, this.f38182g, this.f38183h, this.f38184i, this.f38185j, this.f38186k, this.l, null) : (BdVideoAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f38333b, this.f38334c, this.f38335d, this.f38336e, this.f38337f, this.f38338g, this.f38339h, this.f38340i, this.f38341j, this.f38342k, this.l, null) : (BdVideoAd) invokeV.objValue;
         }
 
         public b b(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.f38186k = obj;
+                this.f38342k = obj;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -178,16 +178,16 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = bdVideoAd.suffixAdEnable;
-            this.f38177b = bdVideoAd.tpl;
-            this.f38178c = bdVideoAd.pd;
-            this.f38179d = bdVideoAd.extRequest;
-            this.f38180e = bdVideoAd.page;
-            this.f38181f = bdVideoAd.type;
-            this.f38182g = bdVideoAd.channelId;
-            this.f38183h = bdVideoAd.channelTitle;
-            this.f38184i = bdVideoAd.source;
-            this.f38185j = bdVideoAd.pos;
-            this.f38186k = bdVideoAd.mAdVideoTailFrameData;
+            this.f38333b = bdVideoAd.tpl;
+            this.f38334c = bdVideoAd.pd;
+            this.f38335d = bdVideoAd.extRequest;
+            this.f38336e = bdVideoAd.page;
+            this.f38337f = bdVideoAd.type;
+            this.f38338g = bdVideoAd.channelId;
+            this.f38339h = bdVideoAd.channelTitle;
+            this.f38340i = bdVideoAd.source;
+            this.f38341j = bdVideoAd.pos;
+            this.f38342k = bdVideoAd.mAdVideoTailFrameData;
             this.l = bdVideoAd.userInfoData;
         }
     }

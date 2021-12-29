@@ -41,13 +41,13 @@ public class XMJobService extends Service {
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class HandlerC2235a extends Handler {
+        public static class HandlerC2243a extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public JobService a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public HandlerC2235a(JobService jobService) {
+            public HandlerC2243a(JobService jobService) {
                 super(jobService.getMainLooper());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -112,7 +112,7 @@ public class XMJobService extends Service {
                 intent.setPackage(getPackageName());
                 startService(intent);
                 if (this.f843a == null) {
-                    this.f843a = new HandlerC2235a(this);
+                    this.f843a = new HandlerC2243a(this);
                 }
                 Handler handler = this.f843a;
                 handler.sendMessage(Message.obtain(handler, 1, jobParameters));

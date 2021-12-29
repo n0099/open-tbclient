@@ -219,7 +219,7 @@ public final class SubtitleView extends View implements j {
     public void setUserDefaultStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            setStyle((v.a < 19 || isInEditMode()) ? a.f30262g : getUserCaptionStyleV19());
+            setStyle((v.a < 19 || isInEditMode()) ? a.f30340g : getUserCaptionStyleV19());
         }
     }
 
@@ -254,7 +254,7 @@ public final class SubtitleView extends View implements j {
         this.f56481h = 0.0533f;
         this.f56482i = true;
         this.f56483j = true;
-        this.f56484k = a.f30262g;
+        this.f56484k = a.f30340g;
         this.l = 0.08f;
     }
 

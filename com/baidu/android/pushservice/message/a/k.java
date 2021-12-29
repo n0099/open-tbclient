@@ -1,7 +1,5 @@
 package com.baidu.android.pushservice.message.a;
 
-import android.content.Context;
-import com.baidu.android.pushservice.j.m;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,117 +7,109 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public class k {
+public final class k {
     public static /* synthetic */ Interceptable $ic;
+    public static final k a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final k f33341b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final k f33342c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final k f33343d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final k f33344e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final k f33345f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final k f33346g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final k f33347h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public static final k f33348i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final k f33349j;
+
+    /* renamed from: k  reason: collision with root package name */
+    public static final k f33350k;
+    public static final /* synthetic */ k[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public int l;
 
-    /* renamed from: com.baidu.android.pushservice.message.a.k$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1053386149, "Lcom/baidu/android/pushservice/message/a/k$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1053386149, "Lcom/baidu/android/pushservice/message/a/k$1;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(562031752, "Lcom/baidu/android/pushservice/message/a/k;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[l.a().length];
-            a = iArr;
-            try {
-                iArr[l.f33191b.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[l.f33192c.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[l.f33196g.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[l.f33193d.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[l.f33194e.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[l.f33195f.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[l.f33197h.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[l.f33198i.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[l.f33199j.ordinal()] = 9;
-            } catch (NoSuchFieldError unused9) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(562031752, "Lcom/baidu/android/pushservice/message/a/k;");
+                return;
             }
         }
+        a = new k("MSG_TYPE_INVALID", 0, -1);
+        f33341b = new k("MSG_TYPE_SINGLE_PRIVATE", 1, 0);
+        f33342c = new k("MSG_TYPE_MULTI_PRIVATE", 2, 1);
+        f33343d = new k("MSG_TYPE_SINGLE_PUBLIC", 3, 2);
+        f33344e = new k("MSG_TYPE_MULTI_PUBLIC", 4, 3);
+        f33345f = new k("MSG_TYPE_MULTI_PRIVATE_NOTIFICATION", 5, 5);
+        f33346g = new k("MSG_TYPE_PRIVATE_MESSAGE", 6, 6);
+        f33347h = new k("MSG_TYPE_CLEAR_MESSAGE", 7, 8);
+        f33348i = new k("MSG_TYPE_APP_PRIORITY", 8, 30);
+        f33349j = new k("MSG_TYPE_INNERBIND", 9, 101);
+        k kVar = new k("MSG_TYPE_APPSTAT_COMMAND", 10, 104);
+        f33350k = kVar;
+        m = new k[]{a, f33341b, f33342c, f33343d, f33344e, f33345f, f33346g, f33347h, f33348i, f33349j, kVar};
     }
 
-    public k(Context context) {
+    public k(String str, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.l = i3;
     }
 
-    public d a(l lVar) {
-        InterceptResult invokeL;
+    public static k a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            switch (AnonymousClass1.a[lVar.ordinal()]) {
-                case 1:
-                case 2:
-                    return new g(this.a);
-                case 3:
-                    return new h(this.a);
-                case 4:
-                case 5:
-                    return new i(this.a);
-                case 6:
-                    return new e(this.a);
-                case 7:
-                    return new b(this.a);
-                case 8:
-                    return new c(this.a);
-                case 9:
-                    return new a(this.a);
-                default:
-                    m.a(">>> Unknown msg_type : " + lVar, this.a);
-                    return null;
-            }
-        }
-        return (d) invokeL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 5 ? i2 != 6 ? i2 != 8 ? i2 != 30 ? i2 != 101 ? i2 != 104 ? a : f33350k : f33349j : f33348i : f33347h : f33346g : f33345f : f33344e : f33343d : f33342c : f33341b : (k) invokeI.objValue;
+    }
+
+    public static k[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (k[]) m.clone() : (k[]) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : invokeV.intValue;
     }
 }

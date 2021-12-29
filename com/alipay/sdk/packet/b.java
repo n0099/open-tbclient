@@ -15,7 +15,7 @@ public final class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31730b;
+    public final String f31873b;
 
     public b(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,13 +33,13 @@ public final class b {
             }
         }
         this.a = str;
-        this.f31730b = str2;
+        this.f31873b = str2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31730b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31873b : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -52,11 +52,11 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f31730b)) {
+            if (TextUtils.isEmpty(this.f31873b)) {
                 return null;
             }
             try {
-                return new JSONObject(this.f31730b);
+                return new JSONObject(this.f31873b);
             } catch (Exception e2) {
                 com.alipay.sdk.util.c.a(e2);
                 return null;
@@ -68,6 +68,6 @@ public final class b {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format("<Letter envelop=%s body=%s>", this.a, this.f31730b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? String.format("<Letter envelop=%s body=%s>", this.a, this.f31873b) : (String) invokeV.objValue;
     }
 }

@@ -8,15 +8,8 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ClipImageView extends ImageView {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -31,134 +24,70 @@ public class ClipImageView extends ImageView {
     /* renamed from: e  reason: collision with root package name */
     public float[] f62034e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = true;
         a(context);
     }
 
     public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f62031b = new Path();
-            this.f62032c = new RectF();
-        }
+        this.f62031b = new Path();
+        this.f62032c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            if (this.a) {
-                this.f62031b.reset();
-                this.f62032c.set(0.0f, 0.0f, getWidth(), getHeight());
-                float[] fArr = this.f62034e;
-                if (fArr != null) {
-                    this.f62031b.addRoundRect(this.f62032c, fArr, Path.Direction.CW);
-                }
-                canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
-                canvas.clipPath(this.f62031b);
-                Paint paint = this.f62033d;
-                if (paint != null) {
-                    canvas.drawPath(this.f62031b, paint);
-                }
+        if (this.a) {
+            this.f62031b.reset();
+            this.f62032c.set(0.0f, 0.0f, getWidth(), getHeight());
+            float[] fArr = this.f62034e;
+            if (fArr != null) {
+                this.f62031b.addRoundRect(this.f62032c, fArr, Path.Direction.CW);
             }
-            super.onDraw(canvas);
+            canvas.setDrawFilter(new PaintFlagsDrawFilter(0, 3));
+            canvas.clipPath(this.f62031b);
+            Paint paint = this.f62033d;
+            if (paint != null) {
+                canvas.drawPath(this.f62031b, paint);
+            }
         }
+        super.onDraw(canvas);
     }
 
     @Override // android.view.View
     public void setBackgroundColor(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Paint paint = new Paint(1);
-            this.f62033d = paint;
-            paint.setStyle(Paint.Style.FILL);
-            this.f62033d.setColor(i2);
-        }
+        Paint paint = new Paint(1);
+        this.f62033d = paint;
+        paint.setStyle(Paint.Style.FILL);
+        this.f62033d.setColor(i2);
     }
 
     public void setClip(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
+        this.a = z;
     }
 
     public void setRadius(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.f62034e = fArr;
+        if (fArr == null || fArr.length != 8) {
+            return;
         }
+        this.f62034e = fArr;
     }
 
     public void setRoundRadius(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i2) == null) || i2 <= 0) {
-            return;
+        if (i2 > 0) {
+            float f2 = i2;
+            setRadius(new float[]{f2, f2, f2, f2, f2, f2, f2, f2});
         }
-        float f2 = i2;
-        setRadius(new float[]{f2, f2, f2, f2, f2, f2, f2, f2});
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.a = true;
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ClipImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = true;
         a(context);
     }

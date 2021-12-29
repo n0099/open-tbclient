@@ -11,7 +11,7 @@ public final class b<X, Y> {
     public final X a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Y f1404b;
+    public final Y f1831b;
 
     public b(X x, Y y) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public final class b<X, Y> {
             }
         }
         this.a = x;
-        this.f1404b = y;
+        this.f1831b = y;
     }
 }

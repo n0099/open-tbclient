@@ -2,7 +2,6 @@ package com.baidu.android.pushservice.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ public class d {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f32532b;
+    public c f32676b;
 
     public d(c cVar) {
         Interceptable interceptable = $ic;
@@ -32,7 +31,7 @@ public class d {
                 return;
             }
         }
-        this.f32532b = cVar;
+        this.f32676b = cVar;
     }
 
     public static d a(Context context, String str) {
@@ -41,13 +40,12 @@ public class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             b.a(context).b(context);
             e b2 = b.a(context).b(str);
-            if (b2 != null && !TextUtils.isEmpty(b2.f32525b)) {
-                d dVar = new d(c.a);
-                dVar.a = b2;
-                return dVar;
+            if (b2 == null || TextUtils.isEmpty(b2.f32669b)) {
+                return new d(c.f32674b);
             }
-            m.a("ClientTypeInfo*BBind* isRegisteredClientByAppid not PushClient! appid=" + str, context);
-            return new d(c.f32530b);
+            d dVar = new d(c.a);
+            dVar.a = b2;
+            return dVar;
         }
         return (d) invokeLL.objValue;
     }
@@ -55,6 +53,6 @@ public class d {
     public c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32532b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32676b : (c) invokeV.objValue;
     }
 }

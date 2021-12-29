@@ -1,116 +1,110 @@
 package c.a.s0.g1;
 
-import c.a.d.m.e.n;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
-/* loaded from: classes7.dex */
-public class b implements n {
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public class b extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final BdUniqueId f17857i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17858e;
+    public WeakReference<Drawable> f12817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<a> f17859f;
+    public int f12818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17860g;
+    public int f12819g;
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f17861h;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-767397230, "Lc/a/s0/g1/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-767397230, "Lc/a/s0/g1/b;");
-                return;
-            }
-        }
-        f17857i = BdUniqueId.gen();
-    }
-
-    public b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(Drawable drawable, int i2) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f12818f = 0;
+        this.f12819g = 1;
+        this.f12819g = i2;
     }
 
-    public int a() {
+    public final Drawable a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f17858e : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.f12817e;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.f12817e = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
     }
 
-    public List<a> d() {
-        InterceptResult invokeV;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i2, int i3, float f2, int i4, int i5, int i6, Paint paint) {
+        Drawable a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17859f : (List) invokeV.objValue;
-    }
-
-    public void e(Esport esport) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) || esport == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), paint}) == null) || (a = a()) == null) {
             return;
         }
-        this.f17858e = esport.floor_no.intValue();
-        EsportStatic esportStatic = esport._static;
-        if (esportStatic != null) {
-            this.f17860g = esportStatic.img;
-            this.f17861h = esportStatic.url;
-        }
-        this.f17859f = new ArrayList();
-        if (!StringUtils.isNull(this.f17860g)) {
-            a aVar = new a();
-            aVar.i(this.f17860g);
-            aVar.j(this.f17861h);
-            this.f17859f.add(aVar);
-        }
-        if (ListUtils.isEmpty(esport.billboard)) {
-            return;
-        }
-        for (EsportRank esportRank : esport.billboard) {
-            a aVar2 = new a();
-            aVar2.h(esportRank);
-            this.f17859f.add(aVar2);
-        }
+        int i7 = this.f12819g;
+        float f3 = i7 != 0 ? i7 != 1 ? i7 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
+        float height = f3 != 0.0f ? ((i5 - i6) + (a.getBounds().height() * f3)) - this.f12818f : 0.0f;
+        canvas.save();
+        canvas.translate(a.getBounds().width() * 0.15f, height);
+        super.draw(canvas, charSequence, i2, i3, f2, i4, i5, i6, paint);
+        canvas.restore();
     }
 
-    @Override // c.a.d.m.e.n
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i2, int i3, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? f17857i : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i2), Integer.valueOf(i3), fontMetricsInt})) == null) {
+            Drawable a = a();
+            if (a == null) {
+                return super.getSize(paint, charSequence, i2, i3, fontMetricsInt);
+            }
+            Rect bounds = a.getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i4 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i5 = (bounds.bottom - bounds.top) / 2;
+                int i6 = i4 / 4;
+                int i7 = i5 - i6;
+                int i8 = -(i5 + i6);
+                fontMetricsInt.ascent = i8;
+                fontMetricsInt.top = i8;
+                fontMetricsInt.bottom = i7;
+                fontMetricsInt.descent = i7;
+            }
+            return bounds.right;
+        }
+        return invokeCommon.intValue;
     }
 }

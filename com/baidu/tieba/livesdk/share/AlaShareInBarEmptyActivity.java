@@ -4,9 +4,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.d.f.p.k;
-import c.a.s0.a2.d;
-import c.a.s0.a2.g;
+import c.a.d.f.p.l;
+import c.a.t0.a2.d;
+import c.a.t0.a2.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -36,7 +36,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f47243e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity f47464e;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                     return;
                 }
             }
-            this.f47243e = alaShareInBarEmptyActivity;
+            this.f47464e = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f47243e.mPostModel.cancelLoadData();
+                this.f47464e.mPostModel.cancelLoadData();
             }
         }
     }
@@ -90,7 +90,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, c.a.s0.a2.l.b.a aVar) {
+        public void a(int i2, String str, c.a.t0.a2.l.b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
                 this.a.closeLoadingDialog();
@@ -148,7 +148,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     private void sendRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (!k.z()) {
+            if (!l.z()) {
                 showToast(g.neterror);
                 finish();
             } else if ((StringUtils.isNull(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) || ListUtils.isEmpty(this.mTransmitForumDataList)) {

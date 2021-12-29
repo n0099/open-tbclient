@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.FlutterInjector;
 import io.flutter.Log;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.engine.FlutterJNI;
 import io.flutter.embedding.engine.loader.FlutterLoader;
 import io.flutter.plugin.common.BinaryMessenger;
@@ -356,7 +355,7 @@ public class DartExecutor implements BinaryMessenger {
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
                 FlutterLoader flutterLoader = FlutterInjector.instance().flutterLoader();
                 if (flutterLoader.initialized()) {
-                    return new DartEntrypoint(flutterLoader.findAppBundlePath(), FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT);
+                    return new DartEntrypoint(flutterLoader.findAppBundlePath(), "main");
                 }
                 throw new AssertionError("DartEntrypoints can only be created once a FlutterEngine is created.");
             }

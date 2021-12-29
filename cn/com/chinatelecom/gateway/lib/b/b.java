@@ -27,34 +27,34 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31432b;
+    public String f31575b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31433c;
+    public String f31576c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31434d;
+    public String f31577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31435e;
+    public String f31578e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31436f;
+    public String f31579f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31437g;
+    public String f31580g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f31438h;
+    public String f31581h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f31439i;
+    public String f31582i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f31440j;
+    public String f31583j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f31441k;
+    public String f31584k;
     public String l;
     public String m;
     public String n;
@@ -83,22 +83,22 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f31433c = "";
-        this.f31435e = "";
+        this.f31576c = "";
+        this.f31578e = "";
         this.n = "";
         this.m = "";
         this.p = "";
         this.a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f31432b = a(currentTimeMillis);
-        this.f31434d = "";
-        this.f31436f = "";
-        this.f31437g = Build.BRAND;
-        this.f31438h = Build.MODEL;
-        this.f31439i = "Android";
-        this.f31440j = Build.VERSION.RELEASE;
-        this.f31441k = "SDK-JJ-v3.6.2";
+        this.f31575b = a(currentTimeMillis);
+        this.f31577d = "";
+        this.f31579f = "";
+        this.f31580g = Build.BRAND;
+        this.f31581h = Build.MODEL;
+        this.f31582i = "Android";
+        this.f31583j = Build.VERSION.RELEASE;
+        this.f31584k = "SDK-JJ-v3.6.2";
         this.l = str;
         this.s = "0";
     }
@@ -131,7 +131,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f31434d = str;
+            this.f31577d = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -151,7 +151,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f31435e = str;
+            this.f31578e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -161,7 +161,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f31436f = str;
+            this.f31579f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -231,16 +231,16 @@ public class b {
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("v", this.a);
-                jSONObject.put("t", this.f31432b);
-                jSONObject.put("tag", this.f31433c);
-                jSONObject.put("ai", this.f31434d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f31435e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f31436f);
-                jSONObject.put("br", this.f31437g);
-                jSONObject.put("ml", this.f31438h);
-                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.f31439i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f31440j);
-                jSONObject.put("sv", this.f31441k);
+                jSONObject.put("t", this.f31575b);
+                jSONObject.put("tag", this.f31576c);
+                jSONObject.put("ai", this.f31577d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f31578e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f31579f);
+                jSONObject.put("br", this.f31580g);
+                jSONObject.put("ml", this.f31581h);
+                jSONObject.put(UrlOcrConfig.IdCardKey.OS, this.f31582i);
+                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f31583j);
+                jSONObject.put("sv", this.f31584k);
                 jSONObject.put("ri", this.l);
                 jSONObject.put(RetrieveTaskManager.KEY, this.m);
                 jSONObject.put("p", this.n);

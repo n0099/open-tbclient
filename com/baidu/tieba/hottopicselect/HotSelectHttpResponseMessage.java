@@ -1,8 +1,8 @@
 package com.baidu.tieba.hottopicselect;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.s.a;
-import c.a.s0.r1.c;
+import c.a.s0.s.r.a;
+import c.a.t0.r1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;

@@ -16,18 +16,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f27846e;
+    public static final a f27920e;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27847b;
+    public float f27921b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27848c;
+    public float f27922c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27849d;
+    public float f27923d;
 
     static {
         InterceptResult invokeClinit;
@@ -42,12 +42,12 @@ public class a {
                 return;
             }
         }
-        f27846e = new a(1.0f, 1.0f, 1.0f, 1.0f);
+        f27920e = new a(1.0f, 1.0f, 1.0f, 1.0f);
         new a(-1077952513);
         new a(2139062271);
         new a(1061109759);
         new a(0.0f, 0.0f, 0.0f, 1.0f);
-        f27846e.f();
+        f27920e.f();
         new a(0.0f, 0.0f, 0.0f, 0.0f);
         new a(0.0f, 0.0f, 1.0f, 1.0f);
         new a(0.0f, 0.0f, 0.5f, 1.0f);
@@ -103,9 +103,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65542, null, aVar, i2) == null) {
             aVar.a = (((-16777216) & i2) >>> 24) / 255.0f;
-            aVar.f27847b = ((16711680 & i2) >>> 16) / 255.0f;
-            aVar.f27848c = ((65280 & i2) >>> 8) / 255.0f;
-            aVar.f27849d = (i2 & 255) / 255.0f;
+            aVar.f27921b = ((16711680 & i2) >>> 16) / 255.0f;
+            aVar.f27922c = ((65280 & i2) >>> 8) / 255.0f;
+            aVar.f27923d = (i2 & 255) / 255.0f;
         }
     }
 
@@ -128,9 +128,9 @@ public class a {
                 str = str.substring(1);
             }
             aVar.a = Integer.parseInt(str.substring(0, 2), 16) / 255.0f;
-            aVar.f27847b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
-            aVar.f27848c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
-            aVar.f27849d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
+            aVar.f27921b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
+            aVar.f27922c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
+            aVar.f27923d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -146,23 +146,23 @@ public class a {
             } else if (f2 > 1.0f) {
                 this.a = 1.0f;
             }
-            float f3 = this.f27847b;
+            float f3 = this.f27921b;
             if (f3 < 0.0f) {
-                this.f27847b = 0.0f;
+                this.f27921b = 0.0f;
             } else if (f3 > 1.0f) {
-                this.f27847b = 1.0f;
+                this.f27921b = 1.0f;
             }
-            float f4 = this.f27848c;
+            float f4 = this.f27922c;
             if (f4 < 0.0f) {
-                this.f27848c = 0.0f;
+                this.f27922c = 0.0f;
             } else if (f4 > 1.0f) {
-                this.f27848c = 1.0f;
+                this.f27922c = 1.0f;
             }
-            float f5 = this.f27849d;
+            float f5 = this.f27923d;
             if (f5 < 0.0f) {
-                this.f27849d = 0.0f;
+                this.f27923d = 0.0f;
             } else if (f5 > 1.0f) {
-                this.f27849d = 1.0f;
+                this.f27923d = 1.0f;
             }
             return this;
         }
@@ -174,9 +174,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             this.a = f2;
-            this.f27847b = f3;
-            this.f27848c = f4;
-            this.f27849d = f5;
+            this.f27921b = f3;
+            this.f27922c = f4;
+            this.f27923d = f5;
             a();
             return this;
         }
@@ -188,9 +188,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             this.a = aVar.a;
-            this.f27847b = aVar.f27847b;
-            this.f27848c = aVar.f27848c;
-            this.f27849d = aVar.f27849d;
+            this.f27921b = aVar.f27921b;
+            this.f27922c = aVar.f27922c;
+            this.f27923d = aVar.f27923d;
             return this;
         }
         return (a) invokeL.objValue;
@@ -211,13 +211,13 @@ public class a {
     public float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t.c((((int) (this.f27849d * 255.0f)) << 24) | (((int) (this.f27848c * 255.0f)) << 16) | (((int) (this.f27847b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t.c((((int) (this.f27923d * 255.0f)) << 24) | (((int) (this.f27922c * 255.0f)) << 16) | (((int) (this.f27921b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.f27849d * 255.0f)) << 24) | (((int) (this.f27848c * 255.0f)) << 16) | (((int) (this.f27847b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.f27923d * 255.0f)) << 24) | (((int) (this.f27922c * 255.0f)) << 16) | (((int) (this.f27921b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
     }
 
     public int hashCode() {
@@ -226,11 +226,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             float f2 = this.a;
             int a = (f2 != 0.0f ? t.a(f2) : 0) * 31;
-            float f3 = this.f27847b;
+            float f3 = this.f27921b;
             int a2 = (a + (f3 != 0.0f ? t.a(f3) : 0)) * 31;
-            float f4 = this.f27848c;
+            float f4 = this.f27922c;
             int a3 = (a2 + (f4 != 0.0f ? t.a(f4) : 0)) * 31;
-            float f5 = this.f27849d;
+            float f5 = this.f27923d;
             return a3 + (f5 != 0.0f ? t.a(f5) : 0);
         }
         return invokeV.intValue;
@@ -240,7 +240,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String hexString = Integer.toHexString((((int) (this.a * 255.0f)) << 24) | (((int) (this.f27847b * 255.0f)) << 16) | (((int) (this.f27848c * 255.0f)) << 8) | ((int) (this.f27849d * 255.0f)));
+            String hexString = Integer.toHexString((((int) (this.a * 255.0f)) << 24) | (((int) (this.f27921b * 255.0f)) << 16) | (((int) (this.f27922c * 255.0f)) << 8) | ((int) (this.f27923d * 255.0f)));
             while (hexString.length() < 8) {
                 hexString = "0" + hexString;
             }
@@ -283,9 +283,9 @@ public class a {
             }
         }
         this.a = f2;
-        this.f27847b = f3;
-        this.f27848c = f4;
-        this.f27849d = f5;
+        this.f27921b = f3;
+        this.f27922c = f4;
+        this.f27923d = f5;
         a();
     }
 

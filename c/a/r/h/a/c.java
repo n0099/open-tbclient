@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11749b = 5;
+    public static int f5036b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f11750c = 40;
+    public static int f5037c = 40;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.helios.common.cc.a a;
 
@@ -48,9 +48,9 @@ public class c {
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f11750c);
+        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(f5037c);
         this.a = aVar;
-        aVar.a(0, f11750c, true);
+        aVar.a(0, f5037c, true);
     }
 
     public void a(com.baidu.helios.common.cc.a aVar, int i2, int i3, int i4) {

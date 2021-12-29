@@ -49,52 +49,45 @@ public class b implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
         }
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onGlobalOrientationLock(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
     public Object onInfo(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, obj)) == null) ? Boolean.FALSE : invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i2, i3, obj)) == null) ? Boolean.FALSE : invokeIIL.objValue;
     }
 
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onNetworkSpeedUpdate(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onPrepared() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onSeekEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
     public void onUpdateProgress(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
         }
     }
 }

@@ -8,20 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f11699b;
+        public int f4986b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -39,22 +39,22 @@ public class b {
     }
 
     /* renamed from: c.a.r.f.f.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0773b extends a {
+    /* loaded from: classes.dex */
+    public static class C0238b extends a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int[] f11700f;
+        public static final int[] f4987f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f11701c;
+        public int f4988c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11702d;
+        public int f4989d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int[] f11703e;
+        public final int[] f4990e;
 
         static {
             InterceptResult invokeClinit;
@@ -70,21 +70,21 @@ public class b {
                     return;
                 }
             }
-            f11700f = new int[256];
+            f4987f = new int[256];
             int i3 = 0;
             while (true) {
                 if (i3 >= 64) {
                     break;
                 }
-                f11700f[i3] = i3;
+                f4987f[i3] = i3;
                 i3++;
             }
             for (i2 = 64; i2 < 256; i2++) {
-                f11700f[i2] = -1;
+                f4987f[i2] = -1;
             }
         }
 
-        public C0773b(int i2, byte[] bArr) {
+        public C0238b(int i2, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,9 +100,9 @@ public class b {
                 }
             }
             this.a = bArr;
-            this.f11703e = f11700f;
-            this.f11701c = 0;
-            this.f11702d = 0;
+            this.f4990e = f4987f;
+            this.f4988c = 0;
+            this.f4989d = 0;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:67:0x00ff, code lost:
@@ -115,14 +115,14 @@ public class b {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                int i4 = this.f11701c;
+                int i4 = this.f4988c;
                 if (i4 == 6) {
                     return false;
                 }
                 int i5 = i3 + i2;
-                int i6 = this.f11702d;
+                int i6 = this.f4989d;
                 byte[] bArr2 = this.a;
-                int[] iArr = this.f11703e;
+                int[] iArr = this.f4990e;
                 int i7 = i6;
                 int i8 = 0;
                 int i9 = i4;
@@ -150,7 +150,7 @@ public class b {
                         if (i9 == 1) {
                             if (i13 < 0) {
                                 if (i13 != -1) {
-                                    this.f11701c = 6;
+                                    this.f4988c = 6;
                                     return false;
                                 }
                             }
@@ -169,13 +169,13 @@ public class b {
                         } else if (i9 != 3) {
                             if (i9 != 4) {
                                 if (i9 == 5 && i13 != -1) {
-                                    this.f11701c = 6;
+                                    this.f4988c = 6;
                                     return false;
                                 }
                             } else if (i13 == -2) {
                                 i9++;
                             } else if (i13 != -1) {
-                                this.f11701c = 6;
+                                this.f4988c = 6;
                                 return false;
                             }
                         } else if (i13 >= 0) {
@@ -199,7 +199,7 @@ public class b {
                     } else {
                         if (i13 < 0) {
                             if (i13 != -1) {
-                                this.f11701c = 6;
+                                this.f4988c = 6;
                                 return false;
                             }
                         }
@@ -219,51 +219,51 @@ public class b {
                             i8 = i15 + 1;
                             bArr2[i15] = (byte) (i7 >> 2);
                         }
-                        this.f11701c = i9;
+                        this.f4988c = i9;
                     }
-                    this.f11701c = 6;
+                    this.f4988c = 6;
                     return false;
                 }
-                this.f11701c = i9;
-                this.f11702d = i7;
-                this.f11699b = i8;
+                this.f4988c = i9;
+                this.f4989d = i7;
+                this.f4986b = i8;
                 return true;
             }
             return invokeCommon.booleanValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final byte[] f11704j;
+        public static final byte[] f4991j;
 
         /* renamed from: k  reason: collision with root package name */
-        public static final /* synthetic */ boolean f11705k;
+        public static final /* synthetic */ boolean f4992k;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final byte[] f11706c;
+        public final byte[] f4993c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11707d;
+        public int f4994d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f11708e;
+        public int f4995e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f11709f;
+        public final boolean f4996f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final boolean f11710g;
+        public final boolean f4997g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final boolean f11711h;
+        public final boolean f4998h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final byte[] f11712i;
+        public final byte[] f4999i;
 
         static {
             InterceptResult invokeClinit;
@@ -278,10 +278,10 @@ public class b {
                     return;
                 }
             }
-            f11705k = !b.class.desiredAssertionStatus();
-            f11704j = new byte[64];
+            f4992k = !b.class.desiredAssertionStatus();
+            f4991j = new byte[64];
             for (int i2 = 0; i2 < 64; i2++) {
-                f11704j[i2] = (byte) i2;
+                f4991j[i2] = (byte) i2;
             }
         }
 
@@ -301,17 +301,17 @@ public class b {
                 }
             }
             this.a = bArr;
-            this.f11709f = (i2 & 1) == 0;
-            this.f11710g = (i2 & 2) == 0;
-            this.f11711h = (i2 & 4) != 0;
-            this.f11712i = f11704j;
-            this.f11706c = new byte[2];
-            this.f11707d = 0;
-            this.f11708e = this.f11710g ? 19 : -1;
+            this.f4996f = (i2 & 1) == 0;
+            this.f4997g = (i2 & 2) == 0;
+            this.f4998h = (i2 & 4) != 0;
+            this.f4999i = f4991j;
+            this.f4993c = new byte[2];
+            this.f4994d = 0;
+            this.f4995e = this.f4997g ? 19 : -1;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:32:0x00da, code lost:
-            if (r17.f11711h == false) goto L28;
+            if (r17.f4998h == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
             r2[r6] = 13;
@@ -344,17 +344,17 @@ public class b {
             if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) != null) {
                 return invokeCommon.booleanValue;
             }
-            byte[] bArr2 = this.f11712i;
+            byte[] bArr2 = this.f4999i;
             byte[] bArr3 = this.a;
-            int i11 = this.f11708e;
+            int i11 = this.f4995e;
             int i12 = i3 + i2;
-            int i13 = this.f11707d;
+            int i13 = this.f4994d;
             int i14 = 0;
             if (i13 != 1) {
                 if (i13 == 2 && (i10 = i2 + 1) <= i12) {
-                    byte[] bArr4 = this.f11706c;
+                    byte[] bArr4 = this.f4993c;
                     i5 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i2] & 255);
-                    this.f11707d = 0;
+                    this.f4994d = 0;
                     i4 = i10;
                 }
                 i4 = i2;
@@ -363,8 +363,8 @@ public class b {
                 if (i2 + 2 <= i12) {
                     int i15 = i2 + 1;
                     i4 = i15 + 1;
-                    i5 = (bArr[i15] & 255) | ((this.f11706c[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
-                    this.f11707d = 0;
+                    i5 = (bArr[i15] & 255) | ((this.f4993c[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
+                    this.f4994d = 0;
                 }
                 i4 = i2;
                 i5 = -1;
@@ -376,7 +376,7 @@ public class b {
                 bArr3[3] = bArr2[i5 & 63];
                 i11--;
                 if (i11 == 0) {
-                    if (this.f11711h) {
+                    if (this.f4998h) {
                         i9 = 5;
                         bArr3[4] = 13;
                     } else {
@@ -395,11 +395,11 @@ public class b {
                 int i16 = i4 + 3;
                 if (i16 > i12) {
                     if (z) {
-                        int i17 = this.f11707d;
+                        int i17 = this.f4994d;
                         int i18 = i4 - i17;
                         if (i18 == i12 - 1) {
                             if (i17 > 0) {
-                                b4 = this.f11706c[0];
+                                b4 = this.f4993c[0];
                                 i14 = 1;
                             } else {
                                 byte b5 = bArr[i4];
@@ -407,19 +407,19 @@ public class b {
                                 b4 = b5;
                             }
                             int i19 = (b4 & 255) << 4;
-                            this.f11707d -= i14;
+                            this.f4994d -= i14;
                             int i20 = i6 + 1;
                             bArr3[i6] = bArr2[(i19 >> 6) & 63];
                             i6 = i20 + 1;
                             bArr3[i20] = bArr2[i19 & 63];
-                            if (this.f11709f) {
+                            if (this.f4996f) {
                                 int i21 = i6 + 1;
                                 bArr3[i6] = 61;
                                 i6 = i21 + 1;
                                 bArr3[i21] = 61;
                             }
-                            if (this.f11710g) {
-                                if (this.f11711h) {
+                            if (this.f4997g) {
+                                if (this.f4998h) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -427,15 +427,15 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f11705k && this.f11707d != 0) {
+                            if (f4992k && this.f4994d != 0) {
                                 throw new AssertionError();
                             }
-                            if (!f11705k && i4 != i12) {
+                            if (!f4992k && i4 != i12) {
                                 throw new AssertionError();
                             }
                         } else if (i18 == i12 - 2) {
                             if (i17 > 1) {
-                                b2 = this.f11706c[0];
+                                b2 = this.f4993c[0];
                                 i14 = 1;
                             } else {
                                 byte b6 = bArr[i4];
@@ -443,49 +443,49 @@ public class b {
                                 b2 = b6;
                             }
                             int i22 = (b2 & 255) << 10;
-                            if (this.f11707d > 0) {
+                            if (this.f4994d > 0) {
                                 i8 = i14 + 1;
-                                b3 = this.f11706c[i14];
+                                b3 = this.f4993c[i14];
                             } else {
                                 i8 = i14;
                                 b3 = bArr[i4];
                                 i4++;
                             }
                             int i23 = i22 | ((b3 & 255) << 2);
-                            this.f11707d -= i8;
+                            this.f4994d -= i8;
                             int i24 = i6 + 1;
                             bArr3[i6] = bArr2[(i23 >> 12) & 63];
                             int i25 = i24 + 1;
                             bArr3[i24] = bArr2[(i23 >> 6) & 63];
                             int i26 = i25 + 1;
                             bArr3[i25] = bArr2[i23 & 63];
-                            if (this.f11709f) {
+                            if (this.f4996f) {
                                 bArr3[i26] = 61;
                                 i26++;
                             }
-                            if (this.f11710g) {
-                                if (this.f11711h) {
+                            if (this.f4997g) {
+                                if (this.f4998h) {
                                     bArr3[i26] = 13;
                                     i26++;
                                 }
                                 i7 = i26 + 1;
                                 bArr3[i26] = 10;
                                 i6 = i7;
-                                if (f11705k) {
+                                if (f4992k) {
                                 }
-                                if (!f11705k) {
+                                if (!f4992k) {
                                     throw new AssertionError();
                                 }
                             } else {
                                 i6 = i26;
-                                if (f11705k) {
+                                if (f4992k) {
                                 }
-                                if (!f11705k) {
+                                if (!f4992k) {
                                 }
                             }
                         } else {
-                            if (this.f11710g && i6 > 0 && i11 != 19) {
-                                if (this.f11711h) {
+                            if (this.f4997g && i6 > 0 && i11 != 19) {
+                                if (this.f4998h) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -493,27 +493,27 @@ public class b {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f11705k) {
+                            if (f4992k) {
                             }
-                            if (!f11705k) {
+                            if (!f4992k) {
                             }
                         }
                     } else if (i4 == i12 - 1) {
-                        byte[] bArr5 = this.f11706c;
-                        int i27 = this.f11707d;
-                        this.f11707d = i27 + 1;
+                        byte[] bArr5 = this.f4993c;
+                        int i27 = this.f4994d;
+                        this.f4994d = i27 + 1;
                         bArr5[i27] = bArr[i4];
                     } else if (i4 == i12 - 2) {
-                        byte[] bArr6 = this.f11706c;
-                        int i28 = this.f11707d;
+                        byte[] bArr6 = this.f4993c;
+                        int i28 = this.f4994d;
                         int i29 = i28 + 1;
-                        this.f11707d = i29;
+                        this.f4994d = i29;
                         bArr6[i28] = bArr[i4];
-                        this.f11707d = i29 + 1;
+                        this.f4994d = i29 + 1;
                         bArr6[i29] = bArr[i4 + 1];
                     }
-                    this.f11699b = i6;
-                    this.f11708e = i11;
+                    this.f4986b = i6;
+                    this.f4995e = i11;
                     return true;
                 }
                 int i30 = ((bArr[i4 + 1] & 255) << 8) | ((bArr[i4] & 255) << 16) | (bArr[i4 + 2] & 255);
@@ -567,7 +567,7 @@ public class b {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             c cVar = new c(19, null);
             int i3 = (i2 / 3) * 4;
-            if (!cVar.f11709f) {
+            if (!cVar.f4996f) {
                 int i4 = i2 % 3;
                 if (i4 == 1) {
                     i3 += 2;
@@ -577,10 +577,10 @@ public class b {
             } else if (i2 % 3 > 0) {
                 i3 += 4;
             }
-            if (!cVar.f11710g || i2 <= 0) {
+            if (!cVar.f4997g || i2 <= 0) {
                 return i3;
             }
-            return i3 + ((((i2 - 1) / 57) + 1) * (cVar.f11711h ? 2 : 1));
+            return i3 + ((((i2 - 1) / 57) + 1) * (cVar.f4998h ? 2 : 1));
         }
         return invokeI.intValue;
     }
@@ -595,10 +595,10 @@ public class b {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            C0773b c0773b = new C0773b(19, new byte[(i3 * 3) / 4]);
-            if (c0773b.a(bArr, i2, i3, true)) {
-                int i4 = c0773b.f11699b;
-                byte[] bArr2 = c0773b.a;
+            C0238b c0238b = new C0238b(19, new byte[(i3 * 3) / 4]);
+            if (c0238b.a(bArr, i2, i3, true)) {
+                int i4 = c0238b.f4986b;
+                byte[] bArr2 = c0238b.a;
                 if (i4 == bArr2.length) {
                     return bArr2;
                 }
@@ -623,7 +623,7 @@ public class b {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
             c cVar = new c(19, null);
             int i4 = (i3 / 3) * 4;
-            if (!cVar.f11709f) {
+            if (!cVar.f4996f) {
                 int i5 = i3 % 3;
                 if (i5 == 1) {
                     i4 += 2;
@@ -633,12 +633,12 @@ public class b {
             } else if (i3 % 3 > 0) {
                 i4 += 4;
             }
-            if (cVar.f11710g && i3 > 0) {
-                i4 += (((i3 - 1) / 57) + 1) * (cVar.f11711h ? 2 : 1);
+            if (cVar.f4997g && i3 > 0) {
+                i4 += (((i3 - 1) / 57) + 1) * (cVar.f4998h ? 2 : 1);
             }
             cVar.a = new byte[i4];
             cVar.a(bArr, i2, i3, true);
-            if (a || cVar.f11699b == i4) {
+            if (a || cVar.f4986b == i4) {
                 return cVar.a;
             }
             throw new AssertionError();

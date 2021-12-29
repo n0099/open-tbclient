@@ -25,16 +25,16 @@ public class q {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f1462e;
+        public final /* synthetic */ Context f1889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ float f1463f;
+        public final /* synthetic */ float f1890f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ View f1464g;
+        public final /* synthetic */ View f1891g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ View f1465h;
+        public final /* synthetic */ View f1892h;
 
         public a(Context context, float f2, View view, View view2) {
             Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class q {
                     return;
                 }
             }
-            this.f1462e = context;
-            this.f1463f = f2;
-            this.f1464g = view;
-            this.f1465h = view2;
+            this.f1889e = context;
+            this.f1890f = f2;
+            this.f1891g = view;
+            this.f1892h = view2;
         }
 
         @Override // java.lang.Runnable
@@ -62,13 +62,13 @@ public class q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                int a = f.c.a(this.f1462e, this.f1463f);
-                this.f1464g.getHitRect(rect);
+                int a = f.c.a(this.f1889e, this.f1890f);
+                this.f1891g.getHitRect(rect);
                 rect.left -= a;
                 rect.right += a;
                 rect.top -= a;
                 rect.bottom += a;
-                this.f1465h.setTouchDelegate(new TouchDelegate(rect, this.f1464g));
+                this.f1892h.setTouchDelegate(new TouchDelegate(rect, this.f1891g));
             }
         }
     }

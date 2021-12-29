@@ -35,7 +35,7 @@ public class ad extends Handler {
         if (r13 != null) goto L118;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x0101, code lost:
-        r13 = r12.a.f36902h;
+        r13 = r12.a.f37058h;
         r13.a();
      */
     /* JADX WARN: Code restructure failed: missing block: B:53:0x0113, code lost:
@@ -87,118 +87,118 @@ public class ad extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            eVar = this.a.f36903i;
+            eVar = this.a.f37059i;
             if (eVar != null) {
-                eVar2 = this.a.f36903i;
-                if (eVar2.f36928i == null) {
+                eVar2 = this.a.f37059i;
+                if (eVar2.f37084i == null) {
                     return;
                 }
                 long longValue = ((Long) message.obj).longValue();
-                eVar3 = this.a.f36903i;
-                if (longValue != eVar3.f36929j) {
+                eVar3 = this.a.f37059i;
+                if (longValue != eVar3.f37085j) {
                     return;
                 }
                 int i2 = message.what;
                 if (i2 == 4000) {
-                    eVar33 = this.a.f36903i;
-                    if (eVar33.f36927h == null) {
+                    eVar33 = this.a.f37059i;
+                    if (eVar33.f37083h == null) {
                         return;
                     }
-                    eVar34 = this.a.f36903i;
-                    for (l lVar : eVar34.f36927h) {
+                    eVar34 = this.a.f37059i;
+                    for (l lVar : eVar34.f37083h) {
                         Bitmap bitmap = null;
                         if (message.arg2 == 1) {
-                            int[] iArr = new int[ac.a * ac.f36896b];
-                            int[] iArr2 = new int[ac.a * ac.f36896b];
-                            eVar35 = this.a.f36903i;
-                            if (eVar35.f36928i == null) {
+                            int[] iArr = new int[ac.a * ac.f37052b];
+                            int[] iArr2 = new int[ac.a * ac.f37052b];
+                            eVar35 = this.a.f37059i;
+                            if (eVar35.f37084i == null) {
                                 return;
                             }
-                            eVar36 = this.a.f36903i;
-                            int[] a = eVar36.f36928i.a(iArr, ac.a, ac.f36896b);
-                            for (int i3 = 0; i3 < ac.f36896b; i3++) {
+                            eVar36 = this.a.f37059i;
+                            int[] a = eVar36.f37084i.a(iArr, ac.a, ac.f37052b);
+                            for (int i3 = 0; i3 < ac.f37052b; i3++) {
                                 int i4 = 0;
                                 while (true) {
                                     int i5 = ac.a;
                                     if (i4 < i5) {
                                         int i6 = a[(i5 * i3) + i4];
-                                        iArr2[(((ac.f36896b - i3) - 1) * ac.a) + i4] = (i6 & (-16711936)) | ((i6 << 16) & 16711680) | ((i6 >> 16) & 255);
+                                        iArr2[(((ac.f37052b - i3) - 1) * ac.a) + i4] = (i6 & (-16711936)) | ((i6 << 16) & 16711680) | ((i6 >> 16) & 255);
                                         i4++;
                                     }
                                 }
                             }
-                            bitmap = Bitmap.createBitmap(iArr2, ac.a, ac.f36896b, Bitmap.Config.ARGB_8888);
+                            bitmap = Bitmap.createBitmap(iArr2, ac.a, ac.f37052b, Bitmap.Config.ARGB_8888);
                         }
                         if (lVar != null) {
                             lVar.a(bitmap);
                         }
                     }
                 } else if (i2 == 39) {
-                    eVar17 = this.a.f36903i;
+                    eVar17 = this.a.f37059i;
                     if (eVar17 == null) {
                         return;
                     }
                     int i7 = message.arg1;
                     if (i7 == 100) {
-                        eVar32 = this.a.f36903i;
+                        eVar32 = this.a.f37059i;
                         eVar32.B();
                     } else if (i7 == 200) {
-                        eVar20 = this.a.f36903i;
+                        eVar20 = this.a.f37059i;
                         eVar20.L();
                     } else if (i7 == 1) {
-                        mVar2 = this.a.f36902h;
+                        mVar2 = this.a.f37058h;
                     } else if (i7 == 0) {
-                        mVar = this.a.f36902h;
+                        mVar = this.a.f37058h;
                     } else if (i7 == 2) {
-                        eVar18 = this.a.f36903i;
-                        if (eVar18.f36927h == null) {
+                        eVar18 = this.a.f37059i;
+                        if (eVar18.f37083h == null) {
                             return;
                         }
-                        eVar19 = this.a.f36903i;
-                        for (l lVar2 : eVar19.f36927h) {
+                        eVar19 = this.a.f37059i;
+                        for (l lVar2 : eVar19.f37083h) {
                             if (lVar2 != null) {
                                 lVar2.c();
                             }
                         }
                     }
-                    eVar21 = this.a.f36903i;
-                    if (!eVar21.f36930k && ac.f36896b > 0 && ac.a > 0) {
-                        eVar28 = this.a.f36903i;
+                    eVar21 = this.a.f37059i;
+                    if (!eVar21.f37086k && ac.f37052b > 0 && ac.a > 0) {
+                        eVar28 = this.a.f37059i;
                         if (eVar28.b(0, 0) != null) {
-                            eVar29 = this.a.f36903i;
-                            eVar29.f36930k = true;
-                            eVar30 = this.a.f36903i;
-                            if (eVar30.f36927h == null) {
+                            eVar29 = this.a.f37059i;
+                            eVar29.f37086k = true;
+                            eVar30 = this.a.f37059i;
+                            if (eVar30.f37083h == null) {
                                 return;
                             }
-                            eVar31 = this.a.f36903i;
-                            for (l lVar3 : eVar31.f36927h) {
+                            eVar31 = this.a.f37059i;
+                            for (l lVar3 : eVar31.f37083h) {
                                 if (lVar3 != null) {
                                     lVar3.b();
                                 }
                             }
                         }
                     }
-                    eVar22 = this.a.f36903i;
-                    if (eVar22.f36927h == null) {
+                    eVar22 = this.a.f37059i;
+                    if (eVar22.f37083h == null) {
                         return;
                     }
-                    eVar23 = this.a.f36903i;
-                    for (l lVar4 : eVar23.f36927h) {
+                    eVar23 = this.a.f37059i;
+                    for (l lVar4 : eVar23.f37083h) {
                         if (lVar4 != null) {
                             lVar4.a();
                         }
                     }
-                    eVar24 = this.a.f36903i;
+                    eVar24 = this.a.f37059i;
                     if (eVar24.q()) {
-                        eVar25 = this.a.f36903i;
-                        if (eVar25.f36927h == null) {
+                        eVar25 = this.a.f37059i;
+                        if (eVar25.f37083h == null) {
                             return;
                         }
-                        eVar26 = this.a.f36903i;
-                        for (l lVar5 : eVar26.f36927h) {
+                        eVar26 = this.a.f37059i;
+                        for (l lVar5 : eVar26.f37083h) {
                             if (lVar5 != null) {
-                                eVar27 = this.a.f36903i;
+                                eVar27 = this.a.f37059i;
                                 if (eVar27.E().a >= 18.0f) {
                                     lVar5.a(true);
                                 } else {
@@ -208,29 +208,29 @@ public class ad extends Handler {
                         }
                     }
                 } else if (i2 == 41) {
-                    eVar9 = this.a.f36903i;
+                    eVar9 = this.a.f37059i;
                     if (eVar9 == null) {
                         return;
                     }
-                    eVar10 = this.a.f36903i;
+                    eVar10 = this.a.f37059i;
                     if (!eVar10.n) {
-                        eVar16 = this.a.f36903i;
+                        eVar16 = this.a.f37059i;
                         if (!eVar16.o) {
                             return;
                         }
                     }
-                    eVar11 = this.a.f36903i;
-                    if (eVar11.f36927h == null) {
+                    eVar11 = this.a.f37059i;
+                    if (eVar11.f37083h == null) {
                         return;
                     }
-                    eVar12 = this.a.f36903i;
-                    for (l lVar6 : eVar12.f36927h) {
+                    eVar12 = this.a.f37059i;
+                    for (l lVar6 : eVar12.f37083h) {
                         if (lVar6 != null) {
-                            eVar13 = this.a.f36903i;
+                            eVar13 = this.a.f37059i;
                             lVar6.b(eVar13.E());
-                            eVar14 = this.a.f36903i;
+                            eVar14 = this.a.f37059i;
                             if (eVar14.q()) {
-                                eVar15 = this.a.f36903i;
+                                eVar15 = this.a.f37059i;
                                 if (eVar15.E().a >= 18.0f) {
                                     lVar6.a(true);
                                 } else {
@@ -240,28 +240,28 @@ public class ad extends Handler {
                         }
                     }
                 } else if (i2 == 999) {
-                    eVar7 = this.a.f36903i;
-                    if (eVar7.f36927h == null) {
+                    eVar7 = this.a.f37059i;
+                    if (eVar7.f37083h == null) {
                         return;
                     }
-                    eVar8 = this.a.f36903i;
-                    for (l lVar7 : eVar8.f36927h) {
+                    eVar8 = this.a.f37059i;
+                    for (l lVar7 : eVar8.f37083h) {
                         if (lVar7 != null) {
                             lVar7.e();
                         }
                     }
                 } else if (i2 == 50) {
-                    eVar4 = this.a.f36903i;
-                    if (eVar4.f36927h == null) {
+                    eVar4 = this.a.f37059i;
+                    if (eVar4.f37083h == null) {
                         return;
                     }
-                    eVar5 = this.a.f36903i;
-                    for (l lVar8 : eVar5.f36927h) {
+                    eVar5 = this.a.f37059i;
+                    for (l lVar8 : eVar5.f37083h) {
                         if (lVar8 != null) {
                             int i8 = message.arg1;
                             if (i8 != 0) {
                                 if (i8 == 1) {
-                                    eVar6 = this.a.f36903i;
+                                    eVar6 = this.a.f37059i;
                                     if (eVar6.E().a >= 18.0f) {
                                         lVar8.a(true);
                                     }

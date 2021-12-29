@@ -16,7 +16,7 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f41624e;
+    public a f41783e;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -61,7 +61,7 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            a aVar = this.f41624e;
+            a aVar = this.f41783e;
             if (aVar != null) {
                 aVar.onSizeChange(getMeasuredWidth(), getMeasuredHeight());
             }
@@ -71,7 +71,7 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     public void setOnSizeChangeListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f41624e = aVar;
+            this.f41783e = aVar;
         }
     }
 

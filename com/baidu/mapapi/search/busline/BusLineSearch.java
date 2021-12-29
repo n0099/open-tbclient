@@ -17,7 +17,7 @@ public class BusLineSearch extends l {
     public IBusLineSearch a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36552b;
+    public boolean f36708b;
 
     public BusLineSearch() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class BusLineSearch extends l {
                 return;
             }
         }
-        this.f36552b = false;
+        this.f36708b = false;
         this.a = new c();
     }
 
@@ -48,10 +48,10 @@ public class BusLineSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36552b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36708b) {
             return;
         }
-        this.f36552b = true;
+        this.f36708b = true;
         this.a.a();
         BMapManager.destroy();
     }

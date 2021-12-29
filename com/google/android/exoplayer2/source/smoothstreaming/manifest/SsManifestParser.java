@@ -367,7 +367,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 UUID uuid = this.f56433f;
-                return new a.C1641a(uuid, h.a(uuid, this.f56434g));
+                return new a.C1645a(uuid, h.a(uuid, this.f56434g));
             }
             return invokeV.objValue;
         }
@@ -554,7 +554,7 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
         /* renamed from: k  reason: collision with root package name */
         public int f56442k;
         public boolean l;
-        public a.C1641a m;
+        public a.C1645a m;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(a aVar, String str) {
@@ -586,9 +586,9 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (obj instanceof a.b) {
                     this.f56436e.add((a.b) obj);
-                } else if (obj instanceof a.C1641a) {
+                } else if (obj instanceof a.C1645a) {
                     c.i.b.a.i0.a.f(this.m == null);
-                    this.m = (a.C1641a) obj;
+                    this.m = (a.C1645a) obj;
                 }
             }
         }
@@ -602,13 +602,13 @@ public class SsManifestParser implements o.a<c.i.b.a.d0.x.e.a> {
                 a.b[] bVarArr = new a.b[size];
                 this.f56436e.toArray(bVarArr);
                 if (this.m != null) {
-                    a.C1641a c1641a = this.m;
-                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(c1641a.a, "video/mp4", c1641a.f30246b));
+                    a.C1645a c1645a = this.m;
+                    DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(c1645a.a, "video/mp4", c1645a.f30324b));
                     for (int i2 = 0; i2 < size; i2++) {
                         a.b bVar = bVarArr[i2];
                         int i3 = 0;
                         while (true) {
-                            Format[] formatArr = bVar.f30248c;
+                            Format[] formatArr = bVar.f30326c;
                             if (i3 < formatArr.length) {
                                 formatArr[i3] = formatArr[i3].copyWithDrmInitData(drmInitData);
                                 i3++;

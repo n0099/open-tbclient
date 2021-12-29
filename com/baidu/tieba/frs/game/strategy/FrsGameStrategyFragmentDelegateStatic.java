@@ -4,9 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import c.a.r0.i0.b;
-import c.a.r0.i0.c;
-import c.a.s0.d1.j0;
+import c.a.s0.i0.b;
+import c.a.s0.i0.c;
+import c.a.t0.d1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -104,21 +104,21 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         }
     }
 
-    @Override // c.a.r0.i0.b
+    @Override // c.a.s0.i0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
             cVar.a = new FrsGameStrategyMainFragment();
-            cVar.f12653e = 3;
-            cVar.f12657i = c.f12649k;
+            cVar.f13111e = 3;
+            cVar.f13115i = c.f13107k;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // c.a.r0.i0.b
+    @Override // c.a.s0.i0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class FrsGameStrategyFragmentDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // c.a.r0.i0.b
+    @Override // c.a.s0.i0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

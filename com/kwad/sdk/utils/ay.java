@@ -1,100 +1,55 @@
 package com.kwad.sdk.utils;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ay {
-    public static /* synthetic */ Interceptable $ic;
     public static volatile ay l;
-    public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+    public volatile boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f60200b;
+    public volatile boolean f60200b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f60201c;
+    public volatile boolean f60201c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f60202d;
+    public volatile boolean f60202d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f60203e;
+    public volatile boolean f60203e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f60204f;
+    public volatile boolean f60204f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f60205g;
+    public volatile long f60205g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f60206h;
+    public volatile long f60206h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f60207i;
+    public volatile long f60207i = 0;
 
     /* renamed from: j  reason: collision with root package name */
-    public volatile long f60208j;
+    public volatile long f60208j = -1;
 
     /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f60209k;
-
-    public ay() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.f60200b = false;
-        this.f60201c = false;
-        this.f60202d = false;
-        this.f60203e = false;
-        this.f60204f = false;
-        this.f60205g = 0L;
-        this.f60206h = 0L;
-        this.f60207i = 0L;
-        this.f60208j = -1L;
-        this.f60209k = false;
-    }
+    public volatile boolean f60209k = false;
 
     public static ay a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (l == null) {
-                synchronized (ay.class) {
-                    if (l == null) {
-                        l = new ay();
-                    }
+        if (l == null) {
+            synchronized (ay.class) {
+                if (l == null) {
+                    l = new ay();
                 }
             }
-            return l;
         }
-        return (ay) invokeV.objValue;
+        return l;
     }
 
     public void a(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f60208j = j2;
-        }
+        this.f60208j = j2;
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60204f : invokeV.booleanValue;
+        return this.f60204f;
     }
 }

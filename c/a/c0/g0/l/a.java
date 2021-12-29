@@ -25,15 +25,15 @@ public class a extends c.a.c0.d.d.a {
 
     /* renamed from: c.a.c0.g0.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0043a implements k.b {
+    public class C0064a implements k.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HashMap f1575b;
+        public final /* synthetic */ HashMap f2002b;
 
-        public C0043a(a aVar, Context context, HashMap hashMap) {
+        public C0064a(a aVar, Context context, HashMap hashMap) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,14 +49,14 @@ public class a extends c.a.c0.d.d.a {
                 }
             }
             this.a = context;
-            this.f1575b = hashMap;
+            this.f2002b = hashMap;
         }
 
         @Override // c.a.c0.g0.p.k.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.e(this.a, this.f1575b);
+                a.e(this.a, this.f2002b);
             }
         }
     }
@@ -98,7 +98,7 @@ public class a extends c.a.c0.d.d.a {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aVar, map, dVar)) == null) {
             super.b(context, aVar, map, dVar);
             HashMap<String, String> d2 = aVar.d();
-            int b2 = c.a.c0.g0.m.a.b(context.getApplicationContext(), new C0043a(this, context, d2));
+            int b2 = c.a.c0.g0.m.a.b(context.getApplicationContext(), new C0064a(this, context, d2));
             if (4 == b2 || b2 == 0) {
                 c(false, null, dVar);
                 return false;

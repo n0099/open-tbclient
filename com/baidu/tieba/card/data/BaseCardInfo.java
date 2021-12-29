@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.m.e.n;
+import c.a.d.n.e.n;
 import c.a.e.j;
 import c.a.e.k;
 import com.baidu.adp.BdUniqueId;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class BaseCardInfo implements n, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public abstract class BaseCardInfo implements n, k {
     public j trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,7 +117,7 @@ public abstract class BaseCardInfo implements n, k {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (j) invokeV.objValue;
     }
 
-    @Override // c.a.d.m.e.n
+    @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -5,7 +5,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import c.a.e.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -107,7 +107,7 @@ public class VideoPasterRequestData extends HttpMessage {
             addParam("model", Build.MODEL);
             addParam(HttpRequest.CLIENT_TYPE, "2");
             addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
-            addParam("net_type", String.valueOf(k.I()));
+            addParam("net_type", String.valueOf(l.I()));
             addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
             addParam("android_id", androidId());
         }

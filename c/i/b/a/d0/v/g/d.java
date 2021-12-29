@@ -18,11 +18,11 @@ public final class d {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30106b;
+    public final String f30184b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f30107c;
+    public final String f30185c;
 
     public d(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public final class d {
             }
         }
         this.a = str;
-        this.f30106b = str2;
-        this.f30107c = str3;
+        this.f30184b = str2;
+        this.f30185c = str3;
     }
 
     public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public final class d {
                 return false;
             }
             d dVar = (d) obj;
-            return v.a(this.a, dVar.a) && v.a(this.f30106b, dVar.f30106b) && v.a(this.f30107c, dVar.f30107c);
+            return v.a(this.a, dVar.a) && v.a(this.f30184b, dVar.f30184b) && v.a(this.f30185c, dVar.f30185c);
         }
         return invokeL.booleanValue;
     }
@@ -66,9 +66,9 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.f30106b;
+            String str2 = this.f30184b;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f30107c;
+            String str3 = this.f30185c;
             return hashCode2 + (str3 != null ? str3.hashCode() : 0);
         }
         return invokeV.intValue;

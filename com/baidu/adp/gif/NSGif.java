@@ -4,8 +4,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.h;
-import c.a.d.f.p.i;
 import c.a.d.f.p.j;
+import c.a.d.f.p.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,21 +20,21 @@ public class NSGif implements c.a.d.d.b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f32027e;
+    public static final String f32169e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f32028f;
+    public static boolean f32170f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32029b;
+    public final int f32171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f32030c;
+    public final int f32172c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f32031d;
+    public final int f32173d;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -42,41 +42,41 @@ public class NSGif implements c.a.d.d.b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f32032e;
+        public final /* synthetic */ long f32174e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NSGif f32033f;
+        public final /* synthetic */ NSGif f32175f;
 
-        public a(NSGif nSGif, int i2) {
+        public a(NSGif nSGif, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nSGif, Integer.valueOf(i2)};
+                Object[] objArr = {nSGif, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f32033f = nSGif;
-            this.f32032e = i2;
+            this.f32175f = nSGif;
+            this.f32174e = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NSGif.nativeDestroy(this.f32032e);
+                NSGif.nativeDestroy(this.f32174e);
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class b extends j {
+    public static class b extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,11 +94,11 @@ public class NSGif implements c.a.d.d.b {
             }
         }
 
-        @Override // c.a.d.f.p.j
+        @Override // c.a.d.f.p.k
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                NSGif.f32028f = z;
+                NSGif.f32170f = z;
             }
         }
     }
@@ -116,36 +116,36 @@ public class NSGif implements c.a.d.d.b {
                 return;
             }
         }
-        f32027e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f32028f = i.d().i("nsgif_jni", 2, new b());
+        f32169e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+        f32170f = j.d().i("nsgif_jni", 2, new b());
     }
 
-    public NSGif(int i2) {
+    public NSGif(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f32029b = nativeGetWidth(i2);
-        this.f32030c = nativeGetHeight(i2);
-        this.f32031d = nativeGetFrameCount(i2);
+        this.a = j2;
+        this.f32171b = nativeGetWidth(j2);
+        this.f32172c = nativeGetHeight(j2);
+        this.f32173d = nativeGetFrameCount(j2);
     }
 
     public static NSGif e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int nativeCreate = nativeCreate(f32027e, str);
+            long nativeCreate = nativeCreate(f32169e, str);
             if (nativeCreate != 0) {
                 return new NSGif(nativeCreate);
             }
@@ -158,7 +158,7 @@ public class NSGif implements c.a.d.d.b {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            int nativeCreate = nativeCreate(f32027e, bArr, i2, i3);
+            long nativeCreate = nativeCreate(f32169e, bArr, i2, i3);
             if (nativeCreate != 0) {
                 return new NSGif(nativeCreate);
             }
@@ -167,25 +167,25 @@ public class NSGif implements c.a.d.d.b {
         return (NSGif) invokeLII.objValue;
     }
 
-    public static native int nativeCreate(String str, String str2);
+    public static native long nativeCreate(String str, String str2);
 
-    public static native int nativeCreate(String str, byte[] bArr, int i2, int i3);
+    public static native long nativeCreate(String str, byte[] bArr, int i2, int i3);
 
-    public static native boolean nativeDecodeFrame(int i2, int i3);
+    public static native boolean nativeDecodeFrame(long j2, int i2);
 
-    public static native int nativeDestroy(int i2);
+    public static native int nativeDestroy(long j2);
 
-    public static native int nativeGetCurrentFrame(int i2);
+    public static native int nativeGetCurrentFrame(long j2);
 
-    public static native int nativeGetFrameCount(int i2);
+    public static native int nativeGetFrameCount(long j2);
 
-    public static native int nativeGetFrameDelay(int i2, int i3);
+    public static native int nativeGetFrameDelay(long j2, int i2);
 
-    public static native int nativeGetHeight(int i2);
+    public static native int nativeGetHeight(long j2);
 
-    public static native int nativeGetWidth(int i2);
+    public static native int nativeGetWidth(long j2);
 
-    public static native boolean nativeWriteTo(int i2, Bitmap bitmap);
+    public static native boolean nativeWriteTo(long j2, Bitmap bitmap);
 
     @Override // c.a.d.d.b
     public boolean a(Bitmap bitmap, Canvas canvas) {
@@ -223,13 +223,15 @@ public class NSGif implements c.a.d.d.b {
 
     @Override // c.a.d.d.b
     public void close() {
-        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.a) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.a;
+            if (j2 == 0) {
+                return;
+            }
+            this.a = 0L;
+            h.a().c(new a(this, j2));
         }
-        this.a = 0;
-        h.a().c(new a(this, i2));
     }
 
     public void finalize() throws Throwable {
@@ -247,20 +249,20 @@ public class NSGif implements c.a.d.d.b {
     public int getFrameCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32031d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32173d : invokeV.intValue;
     }
 
     @Override // c.a.d.d.b
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32030c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32172c : invokeV.intValue;
     }
 
     @Override // c.a.d.d.b
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32029b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32171b : invokeV.intValue;
     }
 }

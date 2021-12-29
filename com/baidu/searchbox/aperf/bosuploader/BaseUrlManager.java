@@ -13,7 +13,7 @@ public class BaseUrlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String ONLINE_URL = "https://mbd.baidu.com";
-    public static final String TEST_URL = "http://10.26.139.34:8092";
+    public static final String TEST_URL = "http://10.104.73.35:8098";
     public static final String UPLOAD_URL_PATH = "/fetchlog/getbostoken";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,6 +50,6 @@ public class BaseUrlManager {
     public static String getBaseUploadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DEBUG ? "http://10.26.139.34:8092/fetchlog/getbostoken" : "https://mbd.baidu.com/fetchlog/getbostoken" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? DEBUG ? "http://10.104.73.35:8098/fetchlog/getbostoken" : "https://mbd.baidu.com/fetchlog/getbostoken" : (String) invokeV.objValue;
     }
 }

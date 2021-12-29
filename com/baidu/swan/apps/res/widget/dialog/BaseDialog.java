@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import c.a.q0.a.c2.b.a;
+import c.a.r0.a.c2.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class BaseDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f40457e;
+    public boolean f40613e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BaseDialog(@NonNull Context context) {
@@ -38,13 +38,13 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f40457e = a.f4798b;
+        this.f40613e = a.f5533b;
     }
 
     public void setEnableImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f40457e = a.f4798b && z;
+            this.f40613e = a.f5533b && z;
         }
     }
 
@@ -52,7 +52,7 @@ public class BaseDialog extends Dialog {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f40457e) {
+            if (this.f40613e) {
                 a.k(this);
             }
             boolean f2 = a.f(this);
@@ -85,7 +85,7 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f40457e = a.f4798b;
+        this.f40613e = a.f5533b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -107,6 +107,6 @@ public class BaseDialog extends Dialog {
                 return;
             }
         }
-        this.f40457e = a.f4798b;
+        this.f40613e = a.f5533b;
     }
 }

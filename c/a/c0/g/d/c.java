@@ -15,10 +15,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1532b;
+    public String f1959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1533c;
+    public String f1960c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class c {
             }
         }
         this.a = "";
-        this.f1532b = "";
-        this.f1533c = "";
+        this.f1959b = "";
+        this.f1960c = "";
     }
 
     public static String a(@NonNull c cVar) {
@@ -45,8 +45,8 @@ public class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("ext1", cVar.a);
-                jSONObject.put("ext2", cVar.f1532b);
-                jSONObject.put("ext3", cVar.f1533c);
+                jSONObject.put("ext2", cVar.f1959b);
+                jSONObject.put("ext3", cVar.f1960c);
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

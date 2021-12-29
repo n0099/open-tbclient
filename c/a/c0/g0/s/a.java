@@ -11,19 +11,19 @@ public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1601b;
+    public long f2028b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1602c;
+    public long f2029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1603d;
+    public long f2030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1604e;
+    public long f2031e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1605f;
+    public long f2032f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class a {
             }
         }
         this.a = 0L;
-        this.f1601b = 0L;
-        this.f1602c = 0L;
-        this.f1603d = 0L;
-        this.f1604e = 0L;
-        this.f1605f = 0L;
+        this.f2028b = 0L;
+        this.f2029c = 0L;
+        this.f2030d = 0L;
+        this.f2031e = 0L;
+        this.f2032f = 0L;
     }
 }

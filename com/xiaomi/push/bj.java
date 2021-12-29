@@ -201,8 +201,8 @@ public class bj {
                 cArr[i9] = cArr2[i12];
                 int i17 = i16 + 1;
                 cArr[i16] = cArr2[i13];
-                char c2 = com.alipay.sdk.encrypt.a.f31721h;
-                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31721h;
+                char c2 = com.alipay.sdk.encrypt.a.f31864h;
+                cArr[i17] = i17 < i7 ? cArr2[i14] : com.alipay.sdk.encrypt.a.f31864h;
                 int i18 = i17 + 1;
                 if (i18 < i7) {
                     c2 = f162a[i15];

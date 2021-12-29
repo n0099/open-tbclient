@@ -18,10 +18,10 @@ public class DomainConfig implements c.f.b.b.b.a {
     public c.f.b.b.b.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.f.b.b.b.a f56089b;
+    public c.f.b.b.b.a f56088b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.f.b.b.b.a f56090c;
+    public c.f.b.b.b.a f56089c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -215,10 +215,10 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, domainStrategyType) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f56090c;
+                this.a = this.f56089c;
             } else if (i2 != 2) {
             } else {
-                this.a = this.f56089b;
+                this.a = this.f56088b;
             }
         }
     }
@@ -236,9 +236,9 @@ public class DomainConfig implements c.f.b.b.b.a {
                 return;
             }
         }
-        this.f56089b = new c.f.b.b.b.b();
-        this.f56090c = c.a();
-        this.a = this.f56089b;
+        this.f56088b = new c.f.b.b.b.b();
+        this.f56089c = c.a();
+        this.a = this.f56088b;
     }
 
     public void setStrategy(DomainStrategyType domainStrategyType, String str) {
@@ -246,9 +246,9 @@ public class DomainConfig implements c.f.b.b.b.a {
         if (interceptable == null || interceptable.invokeLL(1048585, this, domainStrategyType, str) == null) {
             int i2 = a.a[domainStrategyType.ordinal()];
             if (i2 == 1) {
-                this.a = this.f56090c;
+                this.a = this.f56089c;
             } else if (i2 == 2) {
-                this.a = this.f56089b;
+                this.a = this.f56088b;
             }
             this.a.setDomainConfig(str);
         }

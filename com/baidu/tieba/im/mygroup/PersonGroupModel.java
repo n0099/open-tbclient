@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.mygroup;
 
 import c.a.d.a.f;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -20,10 +20,10 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RequestUserPermissionMessage f46592e;
+    public RequestUserPermissionMessage f46812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f46593f;
+    public boolean f46813f;
     public long friendUid;
     public int mImageHeight;
     public int mImageWidth;
@@ -46,9 +46,9 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f46593f = false;
-        this.mImageWidth = m.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = m.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.f46813f = false;
+        this.mImageWidth = n.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = n.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
     }
 
@@ -67,7 +67,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.cancelMessage();
-            this.f46592e = null;
+            this.f46812e = null;
         }
     }
 
@@ -85,11 +85,11 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.friendUid == 0) {
-                if (this.f46593f) {
+                if (this.f46813f) {
                     super.sendMessage(new GroupsByUidMessage(this.mImageWidth, this.mImageHeight));
                     return;
                 }
-                this.f46593f = true;
+                this.f46813f = true;
                 super.sendMessage(new GroupsByUidLocalMessage());
                 return;
             }
@@ -112,7 +112,7 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
             RequestUserPermissionMessage w = w(j2);
-            this.f46592e = w;
+            this.f46812e = w;
             super.sendMessage(w);
         }
     }
@@ -135,9 +135,9 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f46593f = false;
-        this.mImageWidth = m.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = m.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.f46813f = false;
+        this.mImageWidth = n.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = n.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j2;
     }
 }

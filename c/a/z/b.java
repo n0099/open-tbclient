@@ -18,12 +18,12 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f27604c;
+    public static String f27694c;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f27605b;
+    public Set<String> f27695b;
 
     /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
@@ -33,7 +33,7 @@ public class b {
 
     /* renamed from: c.a.z.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1588b {
+    public static class C1593b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class b {
                 return;
             }
         }
-        f27604c = c.a.r0.s.g0.b.n("advert_hide_list");
+        f27694c = c.a.s0.s.g0.b.n("advert_hide_list");
     }
 
     public /* synthetic */ b(a aVar) {
@@ -78,7 +78,7 @@ public class b {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1588b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1593b.a : (b) invokeV.objValue;
     }
 
     public boolean a(String str) {
@@ -88,10 +88,10 @@ public class b {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            if (this.f27605b == null) {
-                this.f27605b = this.a.getStringSet(f27604c, null);
+            if (this.f27695b == null) {
+                this.f27695b = this.a.getStringSet(f27694c, null);
             }
-            Set<String> set = this.f27605b;
+            Set<String> set = this.f27695b;
             if (set == null) {
                 return false;
             }
@@ -105,13 +105,13 @@ public class b {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
             return;
         }
-        Set<String> stringSet = this.a.getStringSet(f27604c, null);
-        this.f27605b = stringSet;
+        Set<String> stringSet = this.a.getStringSet(f27694c, null);
+        this.f27695b = stringSet;
         if (stringSet == null) {
-            this.f27605b = new HashSet();
+            this.f27695b = new HashSet();
         }
-        this.f27605b.add(str);
-        this.a.edit().putStringSet(f27604c, this.f27605b).commit();
+        this.f27695b.add(str);
+        this.a.edit().putStringSet(f27694c, this.f27695b).commit();
     }
 
     public b() {

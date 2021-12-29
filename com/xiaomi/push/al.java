@@ -28,7 +28,7 @@ public class al {
     public volatile boolean f120a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f63295b;
+    public final boolean f63290b;
 
     /* loaded from: classes4.dex */
     public class a extends Thread {
@@ -200,7 +200,7 @@ public class al {
         this.f120a = false;
         this.a = 0;
         this.f117a = new am(this, Looper.getMainLooper());
-        this.f63295b = z;
+        this.f63290b = z;
         this.a = i2;
     }
 
@@ -222,7 +222,7 @@ public class al {
                 if (this.f118a == null) {
                     a aVar = new a(this);
                     this.f118a = aVar;
-                    aVar.setDaemon(this.f63295b);
+                    aVar.setDaemon(this.f63290b);
                     this.f120a = false;
                     this.f118a.start();
                 }

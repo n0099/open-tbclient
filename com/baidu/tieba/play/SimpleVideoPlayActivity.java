@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.s0.z2.r.e;
+import c.a.t0.z2.v.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -33,7 +33,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SimpleVideoPlayActivity f48937e;
+        public final /* synthetic */ SimpleVideoPlayActivity f49158e;
 
         public a(SimpleVideoPlayActivity simpleVideoPlayActivity) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48937e = simpleVideoPlayActivity;
+            this.f49158e = simpleVideoPlayActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48937e.finish();
+                this.f49158e.finish();
             }
         }
     }
@@ -86,7 +86,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                 this.videoUrl = getIntent().getStringExtra("video_url");
                 this.thumbUrl = getIntent().getStringExtra("thumb_url");
             }
-            this.videoContainer.A0(this.thumbUrl, this.videoUrl);
+            this.videoContainer.u0(this.thumbUrl, this.videoUrl);
         }
     }
 

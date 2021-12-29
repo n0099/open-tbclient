@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 
 import android.view.View;
-import c.a.s0.a0.f.g.e.a.b;
+import c.a.t0.a0.f.g.e.a.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SpecialLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

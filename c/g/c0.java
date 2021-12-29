@@ -1,41 +1,52 @@
 package c.g;
 
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ObjectOutput;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes9.dex */
-public abstract class c0 {
+public class c0 {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final int mVer;
+    public static final SharedPreferences a;
 
-    public c0(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: b  reason: collision with root package name */
+    public static final SharedPreferences.Editor f29264b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1579659890, "Lc/g/c0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1579659890, "Lc/g/c0;");
                 return;
             }
         }
-        this.mVer = i2;
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
+        a = sharedPreferences;
+        f29264b = sharedPreferences.edit();
     }
 
-    public final void srzable(ObjectOutput objectOutput) {
+    public static double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
-            objectOutput.writeInt(this.mVer);
-            srzableInternal(objectOutput);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
     }
 
-    public abstract void srzableInternal(ObjectOutput objectOutput);
+    public static double b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
+        }
+        return invokeL.doubleValue;
+    }
 }

@@ -1,83 +1,69 @@
 package com.kwad.sdk.core.diskcache.a;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.diskcache.kwai.a;
 import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static Object a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str) {
-        InterceptResult invokeLL;
         InputStream inputStream;
         a.c a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aVar, str)) == null) {
-            InputStream inputStream2 = null;
+        com.kwad.sdk.core.diskcache.kwai.a aVar2 = null;
+        try {
             try {
                 a = aVar.a(str);
-            } catch (Exception e2) {
-                e = e2;
-                inputStream = null;
             } catch (Throwable th) {
                 th = th;
-                d.a((Closeable) inputStream2);
+                aVar2 = aVar;
+                d.a(aVar2);
                 throw th;
             }
-            if (a == null) {
-                d.a((Closeable) null);
-                return null;
-            }
-            inputStream = a.a(0);
-            try {
-                try {
-                    Object a2 = d.a(inputStream);
-                    d.a((Closeable) inputStream);
-                    return a2;
-                } catch (Exception e3) {
-                    e = e3;
-                    com.kwad.sdk.core.d.a.a(e);
-                    d.a((Closeable) inputStream);
-                    return null;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                d.a((Closeable) inputStream2);
-                throw th;
-            }
+        } catch (Exception e2) {
+            e = e2;
+            inputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            d.a(aVar2);
+            throw th;
         }
-        return invokeLL.objValue;
+        if (a == null) {
+            d.a((Closeable) null);
+            return null;
+        }
+        inputStream = a.a(0);
+        try {
+            Object a2 = d.a(inputStream);
+            d.a((Closeable) inputStream);
+            return a2;
+        } catch (Exception e3) {
+            e = e3;
+            com.kwad.sdk.core.d.a.a(e);
+            d.a((Closeable) inputStream);
+            return null;
+        }
     }
 
     public static void a(@NonNull com.kwad.sdk.core.diskcache.kwai.a aVar, @NonNull String str, @NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, aVar, str, obj) == null) {
-            OutputStream outputStream = null;
+        OutputStream outputStream = null;
+        try {
             try {
-                try {
-                    a.C2074a b2 = aVar.b(str);
-                    if (b2 != null) {
-                        outputStream = b2.a(0);
-                        if (d.a(outputStream, obj)) {
-                            b2.a();
-                        } else {
-                            b2.b();
-                        }
-                        aVar.b();
+                a.C2081a b2 = aVar.b(str);
+                if (b2 != null) {
+                    outputStream = b2.a(0);
+                    if (d.a(outputStream, obj)) {
+                        b2.a();
+                    } else {
+                        b2.b();
                     }
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                    aVar.b();
                 }
-            } finally {
-                d.a(outputStream);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
+        } finally {
+            d.a(outputStream);
         }
     }
 }

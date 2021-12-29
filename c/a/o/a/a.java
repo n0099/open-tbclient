@@ -8,6 +8,8 @@ import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +21,17 @@ public final class a {
             ZwCrashpad.setEnabled(true);
             File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
             Context appContext = AppRuntime.getAppContext();
-            ZwCrashpad.doInit(appContext, new String[]{"0", "0", "0", "0", "0", "0", "0", "true", appContext.getFilesDir().getAbsolutePath(), "0.0.0.0", appContext.getApplicationInfo().nativeLibraryDir, appContext.getApplicationInfo().nativeLibraryDir, processCrashpadDir.getAbsolutePath()});
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("clientDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("handlerDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("dumpCopyDir", processCrashpadDir.getAbsolutePath());
+            } catch (JSONException unused) {
+            }
+            if (jSONObject.length() == 0) {
+                return;
+            }
+            ZwCrashpad.doInitGeneric(appContext, jSONObject.toString());
             ZeusLogUploader.setEnabled(false);
         }
     }

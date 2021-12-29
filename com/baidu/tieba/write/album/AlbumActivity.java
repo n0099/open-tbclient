@@ -6,10 +6,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.n4.d;
-import c.a.s0.n4.g;
-import c.a.s0.n4.h;
-import c.a.s0.n4.u.e;
+import c.a.t0.o4.d;
+import c.a.t0.o4.g;
+import c.a.t0.o4.h;
+import c.a.t0.o4.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AlbumActivity extends BaseFragmentActivity implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
-                this.albumView.G(intent);
+                this.albumView.H(intent);
             }
         }
     }
@@ -161,7 +161,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                this.albumView.z();
+                this.albumView.A();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -175,7 +175,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.A();
+                eVar.B();
             }
             super.onPause();
         }
@@ -200,7 +200,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onSaveInstanceState(bundle);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.C(bundle);
+                eVar.D(bundle);
             }
         }
     }
@@ -212,7 +212,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.D();
+                eVar.E();
             }
         }
     }
@@ -224,7 +224,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.E();
+                eVar.F();
             }
         }
     }

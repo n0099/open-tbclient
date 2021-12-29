@@ -26,16 +26,16 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public ContentProviderClient f35515g;
+    public ContentProviderClient f35671g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f35516h;
+    public e f35672h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.r.e.d.b f35517i;
+    public c.a.r.e.d.b f35673i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f35518j;
+    public String f35674j;
 
     /* loaded from: classes10.dex */
     public class a extends f.b {
@@ -43,10 +43,10 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a.c f35519d;
+        public final /* synthetic */ a.c f35675d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g f35520e;
+        public final /* synthetic */ g f35676e;
 
         public a(g gVar, a.c cVar) {
             Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
                     return;
                 }
             }
-            this.f35520e = gVar;
-            this.f35519d = cVar;
+            this.f35676e = gVar;
+            this.f35675d = cVar;
         }
 
         @Override // com.baidu.helios.bridge.multiprocess.f
         public void a(int i2, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) {
-                this.f35519d.a(i2, null, bundle);
+                this.f35675d.a(i2, null, bundle);
             }
         }
 
@@ -79,7 +79,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         public void b(String str, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                this.f35519d.onResult(str, bundle);
+                this.f35675d.onResult(str, bundle);
             }
         }
     }
@@ -99,8 +99,8 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
                 return;
             }
         }
-        this.f35517i = bVar;
-        this.f35518j = str;
+        this.f35673i = bVar;
+        this.f35674j = str;
     }
 
     public static Bundle k(a.d dVar) {
@@ -108,7 +108,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("errcode", dVar.f11596b);
+            bundle.putInt("errcode", dVar.f4883b);
             bundle.putString("id", dVar.a);
             return bundle;
         }
@@ -154,7 +154,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
-                this.f35516h.a(str, bundle, new a(this, cVar));
+                this.f35672h.a(str, bundle, new a(this, cVar));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }
@@ -165,7 +165,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
     public void binderDied() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35517i.k();
+            this.f35673i.k();
         }
     }
 
@@ -174,8 +174,8 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f35516h != null) {
-                    this.f35516h.a();
+                if (this.f35672h != null) {
+                    this.f35672h.a();
                 }
             } catch (RemoteException unused) {
             }
@@ -188,7 +188,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return this.f35516h.a(str);
+                return this.f35672h.a(str);
             } catch (RemoteException unused) {
                 return false;
             }
@@ -200,7 +200,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
     public void f(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f35516h = m(this.f11590e.f11593c);
+            this.f35672h = m(this.f4877e.f4880c);
         }
     }
 
@@ -210,7 +210,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
             try {
-                Bundle a2 = this.f35516h.a(str, bundle);
+                Bundle a2 = this.f35672h.a(str, bundle);
                 if (a2 != null) {
                     return l(a2);
                 }
@@ -230,7 +230,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         }
         Cursor cursor2 = null;
         try {
-            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f35501d), null, null, null, null);
+            cursor = contentProviderClient.query(Uri.withAppendedPath(uri, BaseIPCProvider.f35657d), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
                 c.a(cursor);
@@ -282,7 +282,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
                     bundle = h(acquireContentProviderClient, uri);
                 }
                 if (bundle != null) {
-                    this.f35515g = acquireContentProviderClient;
+                    this.f35671g = acquireContentProviderClient;
                     break;
                 }
                 try {
@@ -301,7 +301,7 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
         IBinder p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            Bundle j2 = j(context, false, Uri.parse("content://" + q(context)), BaseIPCProvider.f35503f);
+            Bundle j2 = j(context, false, Uri.parse("content://" + q(context)), BaseIPCProvider.f35659f);
             String str = "remote bridge bundle result is " + j2;
             if (j2 == null || (p = p(j2)) == null) {
                 return null;
@@ -314,14 +314,14 @@ public class g extends c.a.r.e.a implements IBinder.DeathRecipient {
     public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35516h != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f35672h != null : invokeV.booleanValue;
     }
 
     public final String q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            return context.getPackageName() + this.f35518j;
+            return context.getPackageName() + this.f35674j;
         }
         return (String) invokeL.objValue;
     }

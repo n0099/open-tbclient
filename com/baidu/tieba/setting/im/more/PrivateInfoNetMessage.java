@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import c.a.d.f.m.b;
-import c.a.r0.d1.b0;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

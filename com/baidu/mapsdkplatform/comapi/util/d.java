@@ -18,7 +18,7 @@ public class d {
     public ArrayList<Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f37161b;
+    public Context f37317b;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -67,7 +67,7 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            Context context = this.f37161b;
+            Context context = this.f37317b;
             if (context == null) {
                 return -101;
             }
@@ -85,7 +85,7 @@ public class d {
     private void a(String str, int i2) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2) == null) || (context = this.f37161b) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2) == null) || (context = this.f37317b) == null) {
             return;
         }
         context.getSharedPreferences("ad_auth", 0).edit().putInt(str, i2).apply();
@@ -107,7 +107,7 @@ public class d {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f37161b = context;
+            this.f37317b = context;
         }
     }
 

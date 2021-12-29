@@ -18,16 +18,16 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f65465b;
+    public int f65460b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f65466c;
+    public int f65461c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f65467d;
+    public int f65462d;
 
     /* renamed from: e  reason: collision with root package name */
-    public GridLayoutManager f65468e;
+    public GridLayoutManager f65463e;
 
     public PayAmountGridItemDecoration(int i2, int i3, int i4, int i5, GridLayoutManager gridLayoutManager) {
         Interceptable interceptable = $ic;
@@ -45,21 +45,21 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i2;
-        this.f65465b = i3;
-        this.f65466c = i4;
-        this.f65467d = i5;
-        this.f65468e = gridLayoutManager;
+        this.f65460b = i3;
+        this.f65461c = i4;
+        this.f65462d = i5;
+        this.f65463e = gridLayoutManager;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            View findViewByPosition = this.f65468e.findViewByPosition(this.f65467d);
+            View findViewByPosition = this.f65463e.findViewByPosition(this.f65462d);
             boolean z = findViewByPosition != null && findViewByPosition.getVisibility() == 0;
             int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
             int i2 = -1;
-            int i3 = this.f65467d;
+            int i3 = this.f65462d;
             if (childAdapterPosition == i3) {
                 rect.left = 0;
                 rect.right = 0;
@@ -67,7 +67,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             } else if (childAdapterPosition < i3) {
                 int i4 = this.a;
                 int i5 = childAdapterPosition % i4;
-                int i6 = this.f65466c;
+                int i6 = this.f65461c;
                 rect.left = (i5 * i6) / i4;
                 rect.right = i6 - (((i5 + 1) * i6) / i4);
                 rect.top = 0;
@@ -75,10 +75,10 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             } else if (childAdapterPosition > i3) {
                 int i7 = this.a;
                 i2 = (childAdapterPosition - 1) % i7;
-                int i8 = this.f65466c;
+                int i8 = this.f65461c;
                 rect.left = (i2 * i8) / i7;
                 rect.right = i8 - (((i2 + 1) * i8) / i7);
-                rect.top = z ? c.a(2.0f) : this.f65465b;
+                rect.top = z ? c.a(2.0f) : this.f65460b;
             }
             RLog.debug("PayAmountGridItemDecoration", "position:" + childAdapterPosition + "    columnIndex: " + i2 + "    left,right ->" + rect.left + "," + rect.right + " isCampaignItemVisible:" + z);
         }

@@ -21,7 +21,7 @@ public class d extends c.a.c0.g.f.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public WeakReference<i<?>> f1558j;
+    public WeakReference<i<?>> f1985j;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -89,7 +89,7 @@ public class d extends c.a.c0.g.f.a {
                 return;
             }
         }
-        this.f1558j = null;
+        this.f1985j = null;
     }
 
     @Override // c.a.c0.g.f.a, c.a.c0.g.f.h
@@ -103,17 +103,17 @@ public class d extends c.a.c0.g.f.a {
 
     public void v() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f1558j == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f1985j == null) {
             return;
         }
         Resources resources = c.a.c0.e.a.b().getResources();
         String string = resources.getString(c.a.c0.c0.g.nad_download_start);
-        switch (a.a[this.f1548e.f1513c.ordinal()]) {
+        switch (a.a[this.f1975e.f1940c.ordinal()]) {
             case 1:
-                string = TextUtils.isEmpty(this.f1548e.n.f1536d) ? resources.getString(c.a.c0.c0.g.nad_download_start) : this.f1548e.n.f1536d;
+                string = TextUtils.isEmpty(this.f1975e.n.f1963d) ? resources.getString(c.a.c0.c0.g.nad_download_start) : this.f1975e.n.f1963d;
                 break;
             case 2:
-                string = new DecimalFormat("#.#%").format(this.f1548e.f1519i);
+                string = new DecimalFormat("#.#%").format(this.f1975e.f1946i);
                 break;
             case 3:
                 string = resources.getString(c.a.c0.c0.g.nad_download_continue);
@@ -128,11 +128,11 @@ public class d extends c.a.c0.g.f.a {
                 string = resources.getString(c.a.c0.c0.g.nad_download_failed_retry);
                 break;
         }
-        i<?> iVar = this.f1558j.get();
+        i<?> iVar = this.f1985j.get();
         if (iVar == null) {
             return;
         }
-        iVar.update(string, this.f1548e);
+        iVar.update(string, this.f1975e);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,8 +153,8 @@ public class d extends c.a.c0.g.f.a {
                 return;
             }
         }
-        this.f1558j = null;
-        this.f1558j = new WeakReference<>(iVar);
+        this.f1985j = null;
+        this.f1985j = new WeakReference<>(iVar);
         v();
     }
 }

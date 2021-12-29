@@ -3,13 +3,13 @@ package com.baidu.tieba.write.write;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
-import c.a.d.f.p.m;
-import c.a.s0.n4.e;
+import c.a.d.f.p.n;
+import c.a.t0.o4.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WriteImageGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class WriteImageGridView extends GridView {
             super.onMeasure(i2, i3);
             if (getCount() > 0) {
                 int ceil = (int) Math.ceil(getCount() / 3.0f);
-                setMeasuredDimension(getMeasuredWidth(), ((((m.k(getContext()) - (m.f(getContext(), e.tbds44) * 2)) - (m.f(getContext(), e.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * m.f(getContext(), e.M_H_X003)) + getPaddingTop() + getPaddingBottom() + m.f(getContext(), e.tbds24));
+                setMeasuredDimension(getMeasuredWidth(), ((((n.k(getContext()) - (n.f(getContext(), e.tbds44) * 2)) - (n.f(getContext(), e.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * n.f(getContext(), e.M_H_X003)) + getPaddingTop() + getPaddingBottom() + n.f(getContext(), e.tbds24));
             }
         }
     }

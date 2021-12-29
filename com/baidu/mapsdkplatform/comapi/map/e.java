@@ -53,7 +53,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public static List<JNIBaseMap> ar;
 
     /* renamed from: d  reason: collision with root package name */
-    public static float f36921d;
+    public static float f37077d;
     public static long m;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,31 +105,31 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean av;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36922b;
+    public float f37078b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f36923c;
+    public float f37079c;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f36924e;
+    public boolean f37080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36925f;
+    public boolean f37081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36926g;
+    public boolean f37082g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<l> f36927h;
+    public List<l> f37083h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comjni.map.basemap.a f36928i;
+    public com.baidu.mapsdkplatform.comjni.map.basemap.a f37084i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f36929j;
+    public long f37085j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f36930k;
+    public boolean f37086k;
     public int l;
     public boolean n;
     public boolean o;
@@ -151,16 +151,16 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36931b;
+        public int f37087b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f36932c;
+        public int f37088c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f36933d;
+        public int f37089d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Bundle f36934e;
+        public Bundle f37090e;
 
         public a(long j2, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
@@ -178,9 +178,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 }
             }
             this.a = j2;
-            this.f36931b = i2;
-            this.f36932c = i3;
-            this.f36933d = i4;
+            this.f37087b = i2;
+            this.f37088c = i3;
+            this.f37089d = i4;
         }
 
         public a(Bundle bundle) {
@@ -198,7 +198,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     return;
                 }
             }
-            this.f36934e = bundle;
+            this.f37090e = bundle;
         }
     }
 
@@ -216,7 +216,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             }
         }
         r = j.class.getSimpleName();
-        f36921d = 1096.0f;
+        f37077d = 1096.0f;
         m = 0L;
     }
 
@@ -236,16 +236,16 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             }
         }
         this.a = 21.0f;
-        this.f36922b = 4.0f;
-        this.f36923c = 21.0f;
+        this.f37078b = 4.0f;
+        this.f37079c = 21.0f;
         this.u = true;
         this.v = false;
         this.w = false;
         this.x = false;
         this.y = true;
-        this.f36924e = true;
-        this.f36925f = true;
-        this.f36926g = false;
+        this.f37080e = true;
+        this.f37081f = true;
+        this.f37082g = false;
         this.z = true;
         this.A = false;
         this.S = new j.a();
@@ -259,7 +259,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         this.au = false;
         this.av = false;
         this.D = context;
-        this.f36927h = new ArrayList();
+        this.f37083h = new ArrayList();
         this.an = str;
         this.ao = i2;
     }
@@ -268,7 +268,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (!this.w && !this.t && !this.s && !this.x) {
-                this.a = this.f36923c;
+                this.a = this.f37079c;
                 return;
             }
             if (this.a > 20.0f) {
@@ -289,7 +289,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         }
         this.n = true;
         this.o = false;
-        List<l> list = this.f36927h;
+        List<l> list = this.f37083h;
         if (list != null) {
             for (l lVar : list) {
                 if (lVar != null) {
@@ -303,11 +303,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            if (this.f36928i == null || !this.f36930k) {
+            if (this.f37084i == null || !this.f37086k) {
                 return true;
             }
             this.af = false;
-            if (this.f36924e) {
+            if (this.f37080e) {
                 float f2 = (float) (this.al - this.ak);
                 float abs = (Math.abs(this.ai - this.ag) * 1000.0f) / f2;
                 float abs2 = (Math.abs(this.aj - this.ah) * 1000.0f) / f2;
@@ -346,10 +346,10 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     private void a(d dVar) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, dVar) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, dVar) == null) || (aVar = this.f37084i) == null) {
             return;
         }
-        dVar.a = aVar.a(dVar.f36919c, dVar.f36920d, dVar.f36918b);
+        dVar.a = aVar.a(dVar.f37075c, dVar.f37076d, dVar.f37074b);
         this.E.add(dVar);
     }
 
@@ -366,7 +366,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     private void b(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, this, motionEvent) == null) || this.S.f36955e) {
+        if (!(interceptable == null || interceptable.invokeL(65544, this, motionEvent) == null) || this.S.f37111e) {
             return;
         }
         long downTime = motionEvent.getDownTime();
@@ -383,21 +383,21 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     private void b(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, this, str, bundle) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, this, str, bundle) == null) || this.f37084i == null) {
             return;
         }
         this.G.a(str);
         this.G.a(bundle);
-        this.f36928i.b(this.G.a);
+        this.f37084i.b(this.G.a);
     }
 
     private boolean c(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, motionEvent)) == null) {
-            if (!this.S.f36955e && System.currentTimeMillis() - m >= 300) {
+            if (!this.S.f37111e && System.currentTimeMillis() - m >= 300) {
                 if (this.p) {
-                    List<l> list = this.f36927h;
+                    List<l> list = this.f37083h;
                     if (list != null) {
                         for (l lVar : list) {
                             GeoPoint b2 = b((int) motionEvent.getX(), (int) motionEvent.getY());
@@ -426,7 +426,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     if (y < 0) {
                         y = 0;
                     }
-                    if (this.f36924e) {
+                    if (this.f37080e) {
                         BaiduMap.mapStatusReason = 1 | BaiduMap.mapStatusReason;
                         S();
                         a(3, 0, (y << 16) | x);
@@ -445,7 +445,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, motionEvent)) == null) {
             if (this.p) {
-                List<l> list = this.f36927h;
+                List<l> list = this.f37083h;
                 if (list != null) {
                     for (l lVar : list) {
                         GeoPoint b2 = b((int) motionEvent.getX(), (int) motionEvent.getY());
@@ -457,7 +457,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 this.p = false;
                 return true;
             }
-            boolean z = !this.S.f36955e && motionEvent.getEventTime() - this.ad < 400 && Math.abs(motionEvent.getX() - this.Z) < 10.0f && Math.abs(motionEvent.getY() - this.aa) < 10.0f;
+            boolean z = !this.S.f37111e && motionEvent.getEventTime() - this.ad < 400 && Math.abs(motionEvent.getX() - this.Z) < 10.0f && Math.abs(motionEvent.getY() - this.aa) < 10.0f;
             M();
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
@@ -480,13 +480,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (this.f36928i == null || !this.f36930k) {
+            if (this.f37084i == null || !this.f37086k) {
                 return true;
             }
             this.ae = false;
             GeoPoint b2 = b((int) f2, (int) f3);
             if (b2 != null) {
-                List<l> list = this.f36927h;
+                List<l> list = this.f37083h;
                 if (list != null) {
                     for (l lVar : list) {
                         if (lVar != null) {
@@ -494,11 +494,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         }
                     }
                 }
-                if (this.f36925f) {
+                if (this.f37081f) {
                     ab E = E();
                     E.a += 1.0f;
-                    E.f36880d = b2.getLongitudeE6();
-                    E.f36881e = b2.getLatitudeE6();
+                    E.f37036d = b2.getLongitudeE6();
+                    E.f37037e = b2.getLatitudeE6();
                     a(E, 300);
                     m = System.currentTimeMillis();
                     return true;
@@ -513,7 +513,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, bundle)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return false;
             }
@@ -527,13 +527,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, bundle)) == null) {
-            if (bundle == null || (aVar = this.f36928i) == null) {
+            if (bundle == null || (aVar = this.f37084i) == null) {
                 return false;
             }
             boolean d2 = aVar.d(bundle);
             if (d2) {
                 f(d2);
-                this.f36928i.b(this.B.a);
+                this.f37084i.b(this.B.a);
             }
             return d2;
         }
@@ -545,8 +545,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65551, this, bundle) == null) {
-            if (bundle.get("param") == null ? (i2 = bundle.getInt("type")) != h.f36937d.ordinal() && i2 < h.f36939f.ordinal() : (i3 = (bundle = (Bundle) bundle.get("param")).getInt("type")) != h.f36937d.ordinal() && i3 < h.f36939f.ordinal()) {
-                h.f36935b.ordinal();
+            if (bundle.get("param") == null ? (i2 = bundle.getInt("type")) != h.f37093d.ordinal() && i2 < h.f37095f.ordinal() : (i3 = (bundle = (Bundle) bundle.get("param")).getInt("type")) != h.f37093d.ordinal() && i3 < h.f37095f.ordinal()) {
+                h.f37091b.ordinal();
             }
             bundle.putLong("layer_addr", this.I.a);
         }
@@ -576,7 +576,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         this.o = true;
-        List<l> list = this.f36927h;
+        List<l> list = this.f37083h;
         if (list == null) {
             return;
         }
@@ -592,7 +592,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.o = false;
             this.n = false;
-            List<l> list = this.f36927h;
+            List<l> list = this.f37083h;
             if (list == null) {
                 return;
             }
@@ -608,7 +608,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar != null) {
                 return aVar.a(this.H.a);
             }
@@ -621,7 +621,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar != null) {
                 return aVar.a(this.aq.a);
             }
@@ -634,7 +634,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -650,7 +650,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -684,7 +684,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -707,7 +707,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.n = false;
-            if (this.o || (list = this.f36927h) == null) {
+            if (this.o || (list = this.f37083h) == null) {
                 return;
             }
             for (l lVar : list) {
@@ -723,8 +723,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.R = 0;
             j.a aVar = this.S;
-            aVar.f36955e = false;
-            aVar.f36958h = 0.0d;
+            aVar.f37111e = false;
+            aVar.f37114h = 0.0d;
         }
     }
 
@@ -732,7 +732,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -745,7 +745,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -766,11 +766,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         a poll = this.at.poll();
-        if (poll.f36934e == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(poll.a, poll.f36931b, poll.f36932c, poll.f36933d);
-        } else if (this.f36928i != null) {
+        if (poll.f37090e == null) {
+            com.baidu.mapsdkplatform.comjni.map.basemap.a.a(poll.a, poll.f37087b, poll.f37088c, poll.f37089d);
+        } else if (this.f37084i != null) {
             A();
-            this.f36928i.a(poll.f36934e);
+            this.f37084i.a(poll.f37090e);
         }
     }
 
@@ -778,8 +778,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
-            if (this.f36930k) {
-                if (this.f36928i == null) {
+            if (this.f37086k) {
+                if (this.f37084i == null) {
                     return 0.0f;
                 }
                 Bundle bundle = new Bundle();
@@ -790,7 +790,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 bundle.putInt("hasHW", 1);
                 bundle.putInt("width", i6);
                 bundle.putInt("height", i7);
-                return this.f36928i.c(bundle);
+                return this.f37084i.c(bundle);
             }
             return 12.0f;
         }
@@ -802,10 +802,10 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIII = interceptable.invokeIII(1048594, this, i2, i3, i4)) == null) {
             if (this.as) {
-                this.at.add(new a(this.f36929j, i2, i3, i4));
+                this.at.add(new a(this.f37085j, i2, i3, i4));
                 return 0;
             }
-            return com.baidu.mapsdkplatform.comjni.map.basemap.a.a(this.f36929j, i2, i3, i4);
+            return com.baidu.mapsdkplatform.comjni.map.basemap.a.a(this.f37085j, i2, i3, i4);
         }
         return invokeIII.intValue;
     }
@@ -837,7 +837,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     agVar = this.B;
                 }
             }
-            return agVar.f36907g;
+            return agVar.f37063g;
         }
         return invokeCommon.intValue;
     }
@@ -871,7 +871,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             c cVar = new c();
             this.aq = cVar;
             a(cVar);
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar2 = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar2 = this.f37084i;
             if (aVar2 != null) {
                 aVar2.e(false);
             }
@@ -891,8 +891,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             this.a = f2;
-            this.f36923c = f2;
-            this.f36922b = f3;
+            this.f37079c = f2;
+            this.f37078b = f3;
         }
     }
 
@@ -900,10 +900,10 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
             com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = new com.baidu.mapsdkplatform.comjni.map.basemap.a();
-            this.f36928i = aVar;
+            this.f37084i = aVar;
             aVar.a(i2);
-            long a2 = this.f36928i.a();
-            this.f36929j = a2;
+            long a2 = this.f37084i.a();
+            this.f37085j = a2;
             a("com.baidu.platform.comapi.wnplatform.walkmap.WNaviBaiduMap", "setId", a2);
             this.l = SysOSUtil.getDensityDpi() < 180 ? 18 : SysOSUtil.getDensityDpi() < 240 ? 25 : SysOSUtil.getDensityDpi() < 320 ? 37 : 50;
             String moduleFileName = SysOSUtil.getModuleFileName();
@@ -928,7 +928,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 throw new RuntimeException("BDMapSDKException: Please give the right context.");
             }
             Display defaultDisplay = a3.getWindowManager().getDefaultDisplay();
-            this.f36928i.a(str4, str7, str9, str10, str8, str5, this.an, this.ao, str6, defaultDisplay.getWidth(), defaultDisplay.getHeight(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
+            this.f37084i.a(str4, str7, str9, str10, str8, str5, this.an, this.ao, str6, defaultDisplay.getWidth(), defaultDisplay.getHeight(), SysOSUtil.getDensityDpi(), mapTmpStgMax, domTmpStgMax, itsTmpStgMax, 0);
         }
     }
 
@@ -943,14 +943,14 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void a(long j2, long j3, long j4, long j5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)}) == null) {
-            this.f36928i.a(j2, j3, j4, j5, z);
+            this.f37084i.a(j2, j3, j4, j5, z);
         }
     }
 
     public void a(Bitmap bitmap) {
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, bitmap) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048602, this, bitmap) == null) || this.f37084i == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -992,7 +992,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             bundle = bundle2;
         }
         b(jSONObject.toString(), bundle);
-        this.f36928i.b(this.G.a);
+        this.f37084i.b(this.G.a);
     }
 
     public void a(Handler handler) {
@@ -1005,7 +1005,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             MessageCenter.registMessage(65289, handler);
             MessageCenter.registMessage(50, handler);
             MessageCenter.registMessage(999, handler);
-            BaseMapCallback.addLayerDataInterface(this.f36929j, this);
+            BaseMapCallback.addLayerDataInterface(this.f37085j, this);
         }
     }
 
@@ -1018,7 +1018,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void a(LatLngBounds latLngBounds) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048605, this, latLngBounds) == null) || latLngBounds == null || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048605, this, latLngBounds) == null) || latLngBounds == null || this.f37084i == null) {
             return;
         }
         LatLng latLng = latLngBounds.northeast;
@@ -1032,23 +1032,23 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         bundle.putInt("minCoory", (int) ll2mc2.getLatitudeE6());
         bundle.putInt("minCoorx", longitudeE6);
         bundle.putInt("maxCoory", latitudeE6);
-        this.f36928i.b(bundle);
+        this.f37084i.b(bundle);
     }
 
     public void a(ab abVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048606, this, abVar) == null) || this.f36928i == null || abVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, abVar) == null) || this.f37084i == null || abVar == null) {
             return;
         }
         Bundle a2 = abVar.a(this);
         a2.putInt("animation", 0);
         a2.putInt("animatime", 0);
-        this.f36928i.a(a2);
+        this.f37084i.a(a2);
     }
 
     public void a(ab abVar, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048607, this, abVar, i2) == null) || this.f36928i == null || abVar == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048607, this, abVar, i2) == null) || this.f37084i == null || abVar == null) {
             return;
         }
         Bundle a2 = abVar.a(this);
@@ -1059,7 +1059,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             return;
         }
         A();
-        this.f36928i.a(a2);
+        this.f37084i.a(a2);
     }
 
     public void a(ai aiVar) {
@@ -1072,7 +1072,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void a(l lVar) {
         List<l> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048609, this, lVar) == null) || lVar == null || (list = this.f36927h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048609, this, lVar) == null) || lVar == null || (list = this.f37083h) == null) {
             return;
         }
         list.add(lVar);
@@ -1093,13 +1093,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 zVar = new z();
             }
             ab abVar = zVar.a;
-            this.y = zVar.f36996f;
-            this.z = zVar.f36994d;
-            this.f36924e = zVar.f36995e;
-            this.f36925f = zVar.f36997g;
-            this.f36928i.a(abVar.a(this));
-            this.f36928i.c(y.a.ordinal());
-            boolean z = zVar.f36992b;
+            this.y = zVar.f37152f;
+            this.z = zVar.f37150d;
+            this.f37080e = zVar.f37151e;
+            this.f37081f = zVar.f37153g;
+            this.f37084i.a(abVar.a(this));
+            this.f37084i.c(y.a.ordinal());
+            boolean z = zVar.f37148b;
             this.u = z;
             if (z) {
                 N = (int) (SysOSUtil.getDensity() * 40.0f);
@@ -1117,36 +1117,36 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     e2.printStackTrace();
                 }
                 this.G.a(jSONObject.toString());
-                this.f36928i.a(this.G.a, true);
+                this.f37084i.a(this.G.a, true);
             } else {
-                this.f36928i.a(this.G.a, false);
+                this.f37084i.a(this.G.a, false);
             }
-            int i2 = zVar.f36993c;
+            int i2 = zVar.f37149c;
             if (i2 == 2) {
                 a(true);
             }
             if (i2 == 3) {
-                this.f36928i.a(this.am.a, false);
-                this.f36928i.a(this.aq.a, false);
-                this.f36928i.a(this.H.a, false);
-                this.f36928i.e(false);
+                this.f37084i.a(this.am.a, false);
+                this.f37084i.a(this.aq.a, false);
+                this.f37084i.a(this.H.a, false);
+                this.f37084i.e(false);
             }
         }
     }
 
     public void a(String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048612, this, str, bundle) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048612, this, str, bundle) == null) || this.f37084i == null) {
             return;
         }
         this.F.a(str);
         this.F.a(bundle);
-        this.f36928i.b(this.F.a);
+        this.f37084i.b(this.F.a);
     }
 
     public void a(List<Bundle> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048613, this, list) == null) || this.f36928i == null || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048613, this, list) == null) || this.f37084i == null || list == null) {
             return;
         }
         int size = list.size();
@@ -1155,21 +1155,21 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             g(list.get(i2));
             bundleArr[i2] = list.get(i2);
         }
-        this.f36928i.a(bundleArr);
+        this.f37084i.a(bundleArr);
     }
 
     public void a(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048614, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048614, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         if (!aVar.a(this.am.a)) {
-            this.f36928i.a(this.am.a, true);
+            this.f37084i.a(this.am.a, true);
         }
         this.t = z;
         R();
-        this.f36928i.a(this.t);
+        this.f37084i.a(this.t);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x00b2 A[RETURN] */
@@ -1198,11 +1198,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         float f11 = i4 - f3;
         float f12 = i4 - f5;
         j.a aVar2 = this.S;
-        if (aVar2.f36955e) {
+        if (aVar2.f37111e) {
             if (this.R == 0) {
-                if (aVar2.f36953c - f11 <= 0.0f || aVar2.f36954d - f12 <= 0.0f) {
+                if (aVar2.f37109c - f11 <= 0.0f || aVar2.f37110d - f12 <= 0.0f) {
                     j.a aVar3 = this.S;
-                    if (aVar3.f36953c - f11 >= 0.0f || aVar3.f36954d - f12 >= 0.0f) {
+                    if (aVar3.f37109c - f11 >= 0.0f || aVar3.f37110d - f12 >= 0.0f) {
                         z = true;
                         this.R = 2;
                         if (this.R == 0) {
@@ -1212,8 +1212,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 }
                 double atan2 = Math.atan2(f12 - f11, f4 - f2);
                 j.a aVar4 = this.S;
-                double atan22 = atan2 - Math.atan2(aVar4.f36954d - aVar4.f36953c, aVar4.f36952b - aVar4.a);
-                double sqrt = Math.sqrt((f10 * f10) + (f9 * f9)) / this.S.f36958h;
+                double atan22 = atan2 - Math.atan2(aVar4.f37110d - aVar4.f37109c, aVar4.f37108b - aVar4.a);
+                double sqrt = Math.sqrt((f10 * f10) + (f9 * f9)) / this.S.f37114h;
                 int log = (int) ((Math.log(sqrt) / Math.log(2.0d)) * 10000.0d);
                 int i5 = (int) ((atan22 * 180.0d) / 3.1416d);
                 if ((sqrt <= 0.0d || (log <= 3000 && log >= -3000)) && Math.abs(i5) < 10) {
@@ -1230,9 +1230,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             }
             if (this.R == z && this.y) {
                 j.a aVar5 = this.S;
-                if (aVar5.f36953c - f11 <= 0.0f || aVar5.f36954d - f12 <= 0.0f) {
+                if (aVar5.f37109c - f11 <= 0.0f || aVar5.f37110d - f12 <= 0.0f) {
                     j.a aVar6 = this.S;
-                    if (aVar6.f36953c - f11 < 0.0f && aVar6.f36954d - f12 < 0.0f) {
+                    if (aVar6.f37109c - f11 < 0.0f && aVar6.f37110d - f12 < 0.0f) {
                         S();
                         i3 = 87;
                     }
@@ -1246,17 +1246,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (i6 == 2 || i6 == 4 || i6 == 3) {
                     double atan23 = Math.atan2(f12 - f11, f4 - f2);
                     j.a aVar7 = this.S;
-                    double atan24 = atan23 - Math.atan2(aVar7.f36954d - aVar7.f36953c, aVar7.f36952b - aVar7.a);
-                    double sqrt2 = Math.sqrt((f8 * f8) + (f7 * f7)) / this.S.f36958h;
+                    double atan24 = atan23 - Math.atan2(aVar7.f37110d - aVar7.f37109c, aVar7.f37108b - aVar7.a);
+                    double sqrt2 = Math.sqrt((f8 * f8) + (f7 * f7)) / this.S.f37114h;
                     int log2 = (int) ((Math.log(sqrt2) / Math.log(2.0d)) * 10000.0d);
                     j.a aVar8 = this.S;
-                    double atan25 = Math.atan2(aVar8.f36957g - aVar8.f36953c, aVar8.f36956f - aVar8.a);
+                    double atan25 = Math.atan2(aVar8.f37113g - aVar8.f37109c, aVar8.f37112f - aVar8.a);
                     j.a aVar9 = this.S;
-                    float f13 = aVar9.f36956f;
+                    float f13 = aVar9.f37112f;
                     float f14 = aVar9.a;
                     float f15 = (f13 - f14) * (f13 - f14);
-                    float f16 = aVar9.f36957g;
-                    float f17 = aVar9.f36953c;
+                    float f16 = aVar9.f37113g;
+                    float f17 = aVar9.f37109c;
                     double sqrt3 = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
                     double d2 = atan25 + atan24;
                     f6 = f12;
@@ -1266,10 +1266,10 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     if (sqrt2 > 0.0d && (3 == this.R || (Math.abs(log2) > 2000 && 2 == this.R))) {
                         this.R = 3;
                         float f18 = E().a;
-                        if (this.f36925f) {
+                        if (this.f37081f) {
                             if (sqrt2 <= 1.0d) {
                                 i2 = 3;
-                                if (f18 <= this.f36922b) {
+                                if (f18 <= this.f37078b) {
                                     return false;
                                 }
                                 S();
@@ -1290,27 +1290,27 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         }
                     }
                     j.a aVar10 = this.S;
-                    aVar10.f36956f = cos;
-                    aVar10.f36957g = sin;
+                    aVar10.f37112f = cos;
+                    aVar10.f37113g = sin;
                     if (2 != this.R) {
                         j.a aVar11 = this.S;
-                        aVar11.f36953c = f11;
-                        aVar11.f36954d = f6;
+                        aVar11.f37109c = f11;
+                        aVar11.f37110d = f6;
                         aVar11.a = f2;
-                        aVar11.f36952b = f4;
+                        aVar11.f37108b = f4;
                     }
                     aVar = this.S;
-                    if (aVar.f36955e) {
-                        aVar.f36956f = this.P / 2;
-                        aVar.f36957g = this.Q / 2;
-                        aVar.f36955e = true;
-                        if (0.0d == aVar.f36958h) {
-                            float f19 = aVar.f36952b;
+                    if (aVar.f37111e) {
+                        aVar.f37112f = this.P / 2;
+                        aVar.f37113g = this.Q / 2;
+                        aVar.f37111e = true;
+                        if (0.0d == aVar.f37114h) {
+                            float f19 = aVar.f37108b;
                             float f20 = aVar.a;
                             float f21 = (f19 - f20) * (f19 - f20);
-                            float f22 = aVar.f36954d;
-                            float f23 = aVar.f36953c;
-                            this.S.f36958h = Math.sqrt(f21 + ((f22 - f23) * (f22 - f23)));
+                            float f22 = aVar.f37110d;
+                            float f23 = aVar.f37109c;
+                            this.S.f37114h = Math.sqrt(f21 + ((f22 - f23) * (f22 - f23)));
                             return true;
                         }
                         return true;
@@ -1323,7 +1323,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (2 != this.R) {
         }
         aVar = this.S;
-        if (aVar.f36955e) {
+        if (aVar.f37111e) {
         }
     }
 
@@ -1349,7 +1349,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, point)) == null) {
-            if (point != null && this.f36928i != null && (i2 = point.x) >= 0 && (i3 = point.y) >= 0) {
+            if (point != null && this.f37084i != null && (i2 = point.x) >= 0 && (i3 = point.y) >= 0) {
                 N = i2;
                 O = i3;
                 JSONObject jSONObject = new JSONObject();
@@ -1365,7 +1365,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     e2.printStackTrace();
                 }
                 this.G.a(jSONObject.toString());
-                this.f36928i.b(this.G.a);
+                this.f37084i.b(this.G.a);
                 return true;
             }
             return false;
@@ -1377,12 +1377,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, bundle)) == null) {
-            if (this.f36928i == null) {
+            if (this.f37084i == null) {
                 return false;
             }
             aj ajVar = new aj();
             this.B = ajVar;
-            long a2 = this.f36928i.a(ajVar.f36919c, ajVar.f36920d, ajVar.f36918b);
+            long a2 = this.f37084i.a(ajVar.f37075c, ajVar.f37076d, ajVar.f37074b);
             if (a2 != 0) {
                 aj ajVar2 = this.B;
                 ajVar2.a = a2;
@@ -1473,11 +1473,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 f2 = minimumFlingVelocity;
                 if (Math.abs(xVelocity) <= f2 || Math.abs(yVelocity) > f2 || Math.abs(xVelocity2) > f2 || Math.abs(yVelocity2) > f2) {
                     aVar = this.S;
-                    if (aVar.f36955e) {
+                    if (aVar.f37111e) {
                         if (this.R == 0) {
-                            if (aVar.f36953c - y <= 0.0f || aVar.f36954d - y2 <= 0.0f) {
+                            if (aVar.f37109c - y <= 0.0f || aVar.f37110d - y2 <= 0.0f) {
                                 j.a aVar3 = this.S;
-                                if (aVar3.f36953c - y >= 0.0f || aVar3.f36954d - y2 >= 0.0f) {
+                                if (aVar3.f37109c - y >= 0.0f || aVar3.f37110d - y2 >= 0.0f) {
                                     f3 = y2;
                                     z = true;
                                     this.R = 2;
@@ -1489,8 +1489,8 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                             f3 = y2;
                             double atan2 = Math.atan2(y2 - y, x2 - x);
                             j.a aVar4 = this.S;
-                            double atan22 = atan2 - Math.atan2(aVar4.f36954d - aVar4.f36953c, aVar4.f36952b - aVar4.a);
-                            double sqrt = Math.sqrt((f7 * f7) + (f6 * f6)) / this.S.f36958h;
+                            double atan22 = atan2 - Math.atan2(aVar4.f37110d - aVar4.f37109c, aVar4.f37108b - aVar4.a);
+                            double sqrt = Math.sqrt((f7 * f7) + (f6 * f6)) / this.S.f37114h;
                             int log = (int) ((Math.log(sqrt) / Math.log(2.0d)) * 10000.0d);
                             int i7 = (int) ((atan22 * 180.0d) / 3.1416d);
                             if ((sqrt <= 0.0d || (log <= 3000 && log >= -3000)) && Math.abs(i7) < 10) {
@@ -1508,9 +1508,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         }
                         if (this.R == z && this.y) {
                             j.a aVar5 = this.S;
-                            if (aVar5.f36953c - y <= 0.0f || aVar5.f36954d - f3 <= 0.0f) {
+                            if (aVar5.f37109c - y <= 0.0f || aVar5.f37110d - f3 <= 0.0f) {
                                 j.a aVar6 = this.S;
-                                if (aVar6.f36953c - y < 0.0f && aVar6.f36954d - f3 < 0.0f) {
+                                if (aVar6.f37109c - y < 0.0f && aVar6.f37110d - f3 < 0.0f) {
                                     i5 = 1;
                                     BaiduMap.mapStatusReason |= 1;
                                     S();
@@ -1528,16 +1528,16 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                             if (i8 == 2 || i8 == 4 || i8 == 3) {
                                 double atan23 = Math.atan2(f3 - y, x2 - x);
                                 j.a aVar7 = this.S;
-                                double atan24 = atan23 - Math.atan2(aVar7.f36954d - aVar7.f36953c, aVar7.f36952b - aVar7.a);
-                                double sqrt2 = Math.sqrt((f5 * f5) + (f4 * f4)) / this.S.f36958h;
+                                double atan24 = atan23 - Math.atan2(aVar7.f37110d - aVar7.f37109c, aVar7.f37108b - aVar7.a);
+                                double sqrt2 = Math.sqrt((f5 * f5) + (f4 * f4)) / this.S.f37114h;
                                 int log2 = (int) ((Math.log(sqrt2) / Math.log(2.0d)) * 10000.0d);
                                 j.a aVar8 = this.S;
-                                double atan25 = Math.atan2(aVar8.f36957g - aVar8.f36953c, aVar8.f36956f - aVar8.a);
+                                double atan25 = Math.atan2(aVar8.f37113g - aVar8.f37109c, aVar8.f37112f - aVar8.a);
                                 j.a aVar9 = this.S;
-                                float f8 = aVar9.f36956f;
+                                float f8 = aVar9.f37112f;
                                 float f9 = aVar9.a;
-                                float f10 = aVar9.f36957g;
-                                float f11 = aVar9.f36953c;
+                                float f10 = aVar9.f37113g;
+                                float f11 = aVar9.f37109c;
                                 double sqrt3 = Math.sqrt(((f8 - f9) * (f8 - f9)) + ((f10 - f11) * (f10 - f11)));
                                 double d2 = atan25 + atan24;
                                 float cos = (float) ((Math.cos(d2) * sqrt3 * sqrt2) + x);
@@ -1547,11 +1547,11 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                                 if (sqrt2 > 0.0d && (3 == eVar.R || (Math.abs(log2) > 2000 && 2 == eVar.R))) {
                                     eVar.R = 3;
                                     float f12 = E().a;
-                                    if (eVar.f36925f) {
+                                    if (eVar.f37081f) {
                                         if (sqrt2 <= 1.0d) {
                                             i3 = log2;
                                             i4 = 3;
-                                            if (f12 <= eVar.f36922b) {
+                                            if (f12 <= eVar.f37078b) {
                                                 return false;
                                             }
                                             BaiduMap.mapStatusReason |= 1;
@@ -1574,29 +1574,29 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                                     }
                                 }
                                 j.a aVar10 = eVar.S;
-                                aVar10.f36956f = cos;
-                                aVar10.f36957g = sin;
+                                aVar10.f37112f = cos;
+                                aVar10.f37113g = sin;
                                 if (2 != eVar.R) {
                                     j.a aVar11 = eVar.S;
-                                    aVar11.f36953c = y;
-                                    aVar11.f36954d = f3;
+                                    aVar11.f37109c = y;
+                                    aVar11.f37110d = f3;
                                     aVar11.a = x;
-                                    aVar11.f36952b = x2;
+                                    aVar11.f37108b = x2;
                                 }
                                 aVar2 = eVar.S;
-                                if (aVar2.f36955e) {
+                                if (aVar2.f37111e) {
                                     return true;
                                 }
-                                aVar2.f36956f = eVar.P / 2;
-                                aVar2.f36957g = eVar.Q / 2;
-                                aVar2.f36955e = true;
-                                if (0.0d == aVar2.f36958h) {
-                                    float f13 = aVar2.f36952b;
+                                aVar2.f37112f = eVar.P / 2;
+                                aVar2.f37113g = eVar.Q / 2;
+                                aVar2.f37111e = true;
+                                if (0.0d == aVar2.f37114h) {
+                                    float f13 = aVar2.f37108b;
                                     float f14 = aVar2.a;
                                     float f15 = (f13 - f14) * (f13 - f14);
-                                    float f16 = aVar2.f36954d;
-                                    float f17 = aVar2.f36953c;
-                                    eVar.S.f36958h = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
+                                    float f16 = aVar2.f37110d;
+                                    float f17 = aVar2.f37109c;
+                                    eVar.S.f37114h = Math.sqrt(f15 + ((f16 - f17) * (f16 - f17)));
                                     return true;
                                 }
                                 return true;
@@ -1606,7 +1606,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         if (2 != eVar.R) {
                         }
                         aVar2 = eVar.S;
-                        if (aVar2.f36955e) {
+                        if (aVar2.f37111e) {
                         }
                     }
                 } else if (this.R == 0 && this.Y == 0) {
@@ -1622,7 +1622,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                         j4 = j5;
                     }
                     this.U = j4;
-                    if (this.W - j4 < 200 && this.f36925f && (E = E()) != null) {
+                    if (this.W - j4 < 200 && this.f37081f && (E = E()) != null) {
                         E.a -= 1.0f;
                         BaiduMap.mapStatusReason |= 1;
                         a(E, 300);
@@ -1633,7 +1633,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (2 != eVar.R) {
                 }
                 aVar2 = eVar.S;
-                if (aVar2.f36955e) {
+                if (aVar2.f37111e) {
                 }
             } else {
                 this.U = motionEvent.getEventTime();
@@ -1653,14 +1653,14 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             if (Math.abs(xVelocity) <= f2) {
             }
             aVar = this.S;
-            if (aVar.f36955e) {
+            if (aVar.f37111e) {
             }
             eVar = this;
             f3 = y2;
             if (2 != eVar.R) {
             }
             aVar2 = eVar.S;
-            if (aVar2.f36955e) {
+            if (aVar2.f37111e) {
             }
         } else {
             this.V = motionEvent.getEventTime();
@@ -1680,21 +1680,21 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (Math.abs(xVelocity) <= f2) {
         }
         aVar = this.S;
-        if (aVar.f36955e) {
+        if (aVar.f37111e) {
         }
         eVar = this;
         f3 = y2;
         if (2 != eVar.R) {
         }
         aVar2 = eVar.S;
-        if (aVar2.f36955e) {
+        if (aVar2.f37111e) {
         }
     }
 
     public boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, str, str2)) == null) ? this.f36928i.a(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048620, this, str, str2)) == null) ? this.f37084i.a(str, str2) : invokeLL.booleanValue;
     }
 
     public GeoPoint b(int i2, int i3) {
@@ -1705,7 +1705,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void b(float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.S.f36955e) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.S.f37111e) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -1731,20 +1731,20 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void b(int i2) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048623, this, i2) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048623, this, i2) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.b(i2);
-        this.f36928i = null;
+        this.f37084i = null;
     }
 
     public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, bundle) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048624, this, bundle) == null) || this.f37084i == null) {
             return;
         }
         g(bundle);
-        this.f36928i.f(bundle);
+        this.f37084i.f(bundle);
     }
 
     public void b(Handler handler) {
@@ -1757,7 +1757,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
             MessageCenter.unregistMessage(65289, handler);
             MessageCenter.unregistMessage(50, handler);
             MessageCenter.unregistMessage(999, handler);
-            BaseMapCallback.removeLayerDataInterface(this.f36929j);
+            BaseMapCallback.removeLayerDataInterface(this.f37085j);
         }
     }
 
@@ -1776,28 +1776,28 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048628, this) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048628, this) == null) || this.f37084i == null) {
             return;
         }
         for (d dVar : this.E) {
-            this.f36928i.a(dVar.a, false);
+            this.f37084i.a(dVar.a, false);
         }
     }
 
     public void c(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048629, this, bundle) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048629, this, bundle) == null) || this.f37084i == null) {
             return;
         }
         g(bundle);
-        this.f36928i.g(bundle);
+        this.f37084i.g(bundle);
     }
 
     public void c(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048630, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         if (z) {
@@ -1819,9 +1819,9 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (!this.S.f36955e && System.currentTimeMillis() - m >= 300) {
+            if (!this.S.f37111e && System.currentTimeMillis() - m >= 300) {
                 if (this.p) {
-                    List<l> list = this.f36927h;
+                    List<l> list = this.f37083h;
                     if (list != null) {
                         for (l lVar : list) {
                             GeoPoint b2 = b((int) f2, (int) f3);
@@ -1850,7 +1850,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                     if (i4 < 0) {
                         i4 = 0;
                     }
-                    if (this.f36924e) {
+                    if (this.f37080e) {
                         this.ag = this.ai;
                         this.ah = this.aj;
                         this.ai = f2;
@@ -1878,26 +1878,26 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048633, this) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048633, this) == null) || this.f37084i == null) {
             return;
         }
         for (d dVar : this.E) {
             if ((dVar instanceof x) || (dVar instanceof com.baidu.mapsdkplatform.comapi.map.a) || (dVar instanceof n)) {
-                this.f36928i.a(dVar.a, false);
+                this.f37084i.a(dVar.a, false);
             } else {
-                this.f36928i.a(dVar.a, true);
+                this.f37084i.a(dVar.a, true);
             }
         }
-        this.f36928i.c(false);
+        this.f37084i.c(false);
     }
 
     public void d(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, bundle) == null) || this.f36928i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, bundle) == null) || this.f37084i == null) {
             return;
         }
         g(bundle);
-        this.f36928i.h(bundle);
+        this.f37084i.h(bundle);
     }
 
     public void d(boolean z) {
@@ -1908,12 +1908,12 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 if (this.av) {
                     return;
                 }
-                this.f36928i.a(this.I.a, this.F.a);
+                this.f37084i.a(this.I.a, this.F.a);
                 z2 = true;
             } else if (!this.av) {
                 return;
             } else {
-                this.f36928i.a(this.F.a, this.I.a);
+                this.f37084i.a(this.F.a, this.I.a);
                 z2 = false;
             }
             this.av = z2;
@@ -1925,7 +1925,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             if (this.p) {
-                List<l> list = this.f36927h;
+                List<l> list = this.f37083h;
                 if (list != null) {
                     for (l lVar : list) {
                         GeoPoint b2 = b((int) f2, (int) f3);
@@ -1937,7 +1937,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
                 this.p = false;
                 return true;
             }
-            if (!this.S.f36955e) {
+            if (!this.S.f37111e) {
                 if (this.ae) {
                     return e(f2, f3);
                 }
@@ -1967,7 +1967,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void e(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048637, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048637, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.a(this.G.a, z);
@@ -1979,7 +1979,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             aj ajVar = this.B;
-            if (ajVar == null || (aVar = this.f36928i) == null) {
+            if (ajVar == null || (aVar = this.f37084i) == null) {
                 return false;
             }
             return aVar.c(ajVar.a);
@@ -1990,7 +1990,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void f() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048639, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048639, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.M = new af(aVar);
@@ -1999,7 +1999,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void f(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048640, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048640, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.a(this.B.a, z);
@@ -2008,7 +2008,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void g(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048641, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048641, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.a(this.am.a, z);
@@ -2024,7 +2024,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return null;
             }
@@ -2036,7 +2036,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void h(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.x = z;
@@ -2046,7 +2046,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void i(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048645, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048645, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.s = z;
@@ -2062,7 +2062,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void j(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048647, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048647, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.d(z);
@@ -2072,7 +2072,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return false;
             }
@@ -2084,7 +2084,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void k(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048649, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048649, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.u = z;
@@ -2102,24 +2102,24 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
         if (interceptable == null || interceptable.invokeZ(1048651, this, z) == null) {
             float f2 = z ? 22.0f : 21.0f;
             this.a = f2;
-            this.f36923c = f2;
-            this.f36928i.e(z);
-            this.f36928i.d(this.ap.a);
-            this.f36928i.d(this.aq.a);
+            this.f37079c = f2;
+            this.f37084i.e(z);
+            this.f37084i.d(this.ap.a);
+            this.f37084i.d(this.aq.a);
         }
     }
 
     public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? this.f36928i.a(this.am.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) ? this.f37084i.a(this.am.a) : invokeV.booleanValue;
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
-            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f36928i;
+            com.baidu.mapsdkplatform.comjni.map.basemap.a aVar = this.f37084i;
             if (aVar == null) {
                 return false;
             }
@@ -2131,7 +2131,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void n() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048654, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048654, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.d(this.I.a);
@@ -2140,7 +2140,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void n(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048655, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048655, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.v = z;
@@ -2150,17 +2150,17 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void o() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048656, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048656, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.p();
-        this.f36928i.b(this.J.a);
+        this.f37084i.b(this.J.a);
     }
 
     public void o(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048657, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048657, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         this.w = z;
@@ -2170,33 +2170,33 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public MapBaseIndoorMapInfo p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) ? this.f36928i.q() : (MapBaseIndoorMapInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) ? this.f37084i.q() : (MapBaseIndoorMapInfo) invokeV.objValue;
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048659, this, z) == null) {
-            this.f36924e = z;
+            this.f37080e = z;
         }
     }
 
     public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
-            this.f36925f = z;
+            this.f37081f = z;
         }
     }
 
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.f36928i.r() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) ? this.f37084i.r() : invokeV.booleanValue;
     }
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048662, this, z) == null) {
-            this.f36926g = z;
+            this.f37082g = z;
         }
     }
 
@@ -2222,7 +2222,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void t() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048666, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048666, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.b(this.J.a);
@@ -2238,7 +2238,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void u() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048668, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048668, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.e();
@@ -2247,7 +2247,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void u(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048669, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048669, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.a(this.H.a, z);
@@ -2256,7 +2256,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void v() {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048670, this) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048670, this) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.f();
@@ -2265,7 +2265,7 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public void v(boolean z) {
         com.baidu.mapsdkplatform.comjni.map.basemap.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048671, this, z) == null) || (aVar = this.f36928i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048671, this, z) == null) || (aVar = this.f37084i) == null) {
             return;
         }
         aVar.a(this.aq.a, z);
@@ -2281,13 +2281,13 @@ public class e implements com.baidu.mapsdkplatform.comjni.map.basemap.b {
     public boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) ? this.f36924e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) ? this.f37080e : invokeV.booleanValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.f36925f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) ? this.f37081f : invokeV.booleanValue;
     }
 
     public boolean y() {

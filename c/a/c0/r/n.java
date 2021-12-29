@@ -16,7 +16,7 @@ public class n {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f1853b;
+    public final int f2280b;
 
     public n(Context context) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class n {
         }
         int type = networkInfo == null ? -1 : networkInfo.getType();
         this.a = type;
-        this.f1853b = (networkInfo == null || type != 0) ? 0 : networkInfo.getSubtype();
+        this.f2280b = (networkInfo == null || type != 0) ? 0 : networkInfo.getSubtype();
     }
 
     public boolean a() {
@@ -56,7 +56,7 @@ public class n {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            switch (this.f1853b) {
+            switch (this.f2280b) {
                 case 1:
                 case 2:
                 case 4:

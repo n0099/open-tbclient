@@ -3,17 +3,17 @@ package com.baidu.swan.apps.res.ui.pullrefresh;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.animation.TranslateAnimation;
-import c.a.q0.a.c;
-import c.a.q0.a.c1.a;
-import c.a.q0.a.e;
-import c.a.q0.a.z2.n0;
+import c.a.r0.a.c;
+import c.a.r0.a.c1.a;
+import c.a.r0.a.e;
+import c.a.r0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -3,10 +3,11 @@ package com.baidu.android.pushservice;
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,6 +54,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             this.mNotificationText = (String) objectInputStream.readObject();
             this.mChannelId = (String) objectInputStream.readObject();
             this.mChannelName = (String) objectInputStream.readObject();
+            this.mLargeIcon = (Bitmap) objectInputStream.readObject();
             this.mColor = objectInputStream.readInt();
         }
     }
@@ -88,6 +90,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             objectOutputStream.writeObject(this.mNotificationText);
             objectOutputStream.writeObject(this.mChannelId);
             objectOutputStream.writeObject(this.mChannelName);
+            objectOutputStream.writeObject(this.mLargeIcon);
             objectOutputStream.writeInt(this.mColor);
         }
     }
@@ -107,6 +110,10 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             String str = this.mNotificationsound;
             if (str != null) {
                 builder.setSound(Uri.parse(str));
+            }
+            Bitmap bitmap = this.mLargeIcon;
+            if (bitmap != null) {
+                builder.setLargeIcon(bitmap);
             }
             long[] jArr = this.mVibratePattern;
             if (jArr != null) {
@@ -138,7 +145,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
                 if (TextUtils.isEmpty(this.mChannelName)) {
                     this.mChannelName = "云推送";
                 }
-                com.baidu.android.pushservice.j.h.a(context, this.mChannelId, this.mChannelName);
+                com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
                 builder.setChannelId(this.mChannelId);
             }
             Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();

@@ -1,8 +1,8 @@
 package com.baidu.adp.lib.voice;
 
-import c.a.d.f.p.i;
 import c.a.d.f.p.j;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import c.a.d.f.p.k;
+import com.baidu.adp.lib.voice.AmrEncoder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,11 +17,9 @@ public class Amrnb {
     public static boolean bLoadLibrary;
     public static Amrnb instance;
     public transient /* synthetic */ FieldHolder $fh;
-    public int mDecoderContext;
-    public int mEncoderContext;
 
     /* loaded from: classes9.dex */
-    public static class a extends j {
+    public static class a extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,21 +37,11 @@ public class Amrnb {
             }
         }
 
-        @Override // c.a.d.f.p.j
+        @Override // c.a.d.f.p.k
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 Amrnb.bLoadLibrary = z;
-                if (z) {
-                    try {
-                        Amrnb.native_init();
-                        Amrnb.bLoadLibrary = true;
-                    } catch (Throwable th) {
-                        Amrnb.bLoadLibrary = false;
-                        BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                        bdStatisticsManager.error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
-                    }
-                }
             }
         }
     }
@@ -71,18 +59,7 @@ public class Amrnb {
                 return;
             }
         }
-        boolean i2 = i.d().i("amrnb", 2, new a());
-        bLoadLibrary = i2;
-        if (i2) {
-            try {
-                native_init();
-                bLoadLibrary = true;
-            } catch (Throwable th) {
-                bLoadLibrary = false;
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                bdStatisticsManager.error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
-            }
-        }
+        bLoadLibrary = j.d().i("amr-codec", 2, new a());
     }
 
     public Amrnb() {
@@ -95,30 +72,15 @@ public class Amrnb {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.mEncoderContext = 0;
-        this.mDecoderContext = 0;
     }
-
-    private native void _decoderDecode(byte[] bArr, short[] sArr);
-
-    private native void _decoderDeinit();
-
-    private native void _decoderInit();
-
-    private native void _encoderDeinit();
-
-    private native int _encoderEncode(int i2, short[] sArr, byte[] bArr);
-
-    private native void _encoderInit();
 
     public static Amrnb getInstance() {
         InterceptResult invokeV;
         Amrnb amrnb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             Amrnb amrnb2 = instance;
             if (amrnb2 == null) {
                 synchronized (Amrnb.class) {
@@ -134,35 +96,36 @@ public class Amrnb {
         return (Amrnb) invokeV.objValue;
     }
 
-    private final native void native_finalize();
-
-    public static final native void native_init();
-
-    public void decoderDecode(byte[] bArr, short[] sArr) {
+    public void decoderDecode(long j2, byte[] bArr, short[] sArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, sArr) == null) && bLoadLibrary) {
-            _decoderDecode(bArr, sArr);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), bArr, sArr}) == null) && bLoadLibrary) {
+            AmrDecoder.decode(j2, bArr, sArr);
         }
     }
 
-    public void decoderDeinit() {
+    public void decoderDeinit(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && bLoadLibrary) {
-            _decoderDeinit();
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && bLoadLibrary) {
+            AmrDecoder.exit(j2);
         }
     }
 
-    public void decoderInit() {
+    public long decoderInit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && bLoadLibrary) {
-            _decoderInit();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (bLoadLibrary) {
+                return AmrDecoder.init();
+            }
+            return 0L;
         }
+        return invokeV.longValue;
     }
 
     public void encoderDeinit() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && bLoadLibrary) {
-            _encoderDeinit();
+            AmrEncoder.exit();
         }
     }
 
@@ -171,7 +134,7 @@ public class Amrnb {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, sArr, bArr)) == null) {
             if (bLoadLibrary) {
-                return _encoderEncode(i2, sArr, bArr);
+                return AmrEncoder.encode(AmrEncoder.Mode.MR59.ordinal(), sArr, bArr);
             }
             return 0;
         }
@@ -181,14 +144,7 @@ public class Amrnb {
     public void encoderInit() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && bLoadLibrary) {
-            _encoderInit();
-        }
-    }
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && bLoadLibrary) {
-            native_finalize();
+            AmrEncoder.init(0);
         }
     }
 }

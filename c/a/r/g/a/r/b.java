@@ -17,7 +17,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class b extends c.a.r.g.a.k.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

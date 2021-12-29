@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface FilterParam {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class FaceFilter implements FilterParam {
         public static final /* synthetic */ FaceFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -177,7 +177,7 @@ public interface FilterParam {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LutFilter implements FilterParam {
         public static final /* synthetic */ LutFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -254,7 +254,7 @@ public interface FilterParam {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MakeupFilter implements FilterParam {
         public static final /* synthetic */ MakeupFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -349,7 +349,7 @@ public interface FilterParam {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SkinFilter implements FilterParam {
         public static final /* synthetic */ SkinFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -436,7 +436,7 @@ public interface FilterParam {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class TuneColorFilter implements FilterParam {
         public static final /* synthetic */ TuneColorFilter[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

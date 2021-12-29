@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import c.a.o.a.b;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
@@ -15,7 +15,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.basic.javacrash.BaseUncaughtExceptionHandler;
 import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
-import com.baidu.searchbox.logsystem.util.Common;
+import com.baidu.searchbox.logsystem.util.AppExtraUtil;
 import com.baidu.searchbox.track.Track;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,6 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public class Loki {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String CRASHPAD_DUMPER_PROCESS_NAME = ":dumper";
     public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
     public static volatile boolean sIsInitialized;
     public static volatile boolean sIsStartTrack;
@@ -97,7 +98,7 @@ public class Loki {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return str.endsWith(CRASH_PAD_PROCESS_NAME);
+            return str.endsWith(CRASH_PAD_PROCESS_NAME) || str.endsWith(CRASHPAD_DUMPER_PROCESS_NAME);
         }
         return invokeL.booleanValue;
     }
@@ -127,10 +128,10 @@ public class Loki {
         }
     }
 
-    public static void setAppExtraCall(Common.AppExtraCall appExtraCall) {
+    public static void setAppExtraCall(AppExtraUtil.AppExtraCall appExtraCall) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, appExtraCall) == null) {
-            Common.setAppExtraCall(appExtraCall);
+            AppExtraUtil.setAppExtraCall(appExtraCall);
         }
     }
 

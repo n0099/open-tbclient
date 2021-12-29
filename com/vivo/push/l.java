@@ -1,26 +1,31 @@
 package com.vivo.push;
 
+import android.content.Context;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppAliasManager;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class l implements Runnable {
+public abstract class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f63076b;
+    public int f63089b;
 
-    public l(LocalAliasTagsManager localAliasTagsManager, List list) {
+    /* renamed from: c  reason: collision with root package name */
+    public o f63090c;
+
+    public l(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager, list};
+            Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,19 +35,49 @@ public final class l implements Runnable {
                 return;
             }
         }
-        this.f63076b = localAliasTagsManager;
-        this.a = list;
+        this.f63089b = -1;
+        this.f63090c = oVar;
+        int b2 = oVar.b();
+        this.f63089b = b2;
+        if (b2 >= 0) {
+            this.a = e.a().h();
+            return;
+        }
+        throw new IllegalArgumentException("PushTask need a > 0 task id.");
     }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63089b : invokeV.intValue;
+    }
+
+    public abstract void a(o oVar);
 
     @Override // java.lang.Runnable
     public final void run() {
-        List list;
-        ISubscribeAppAliasManager iSubscribeAppAliasManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Context context = this.a;
+            if (context != null && !(this.f63090c instanceof com.vivo.push.b.n)) {
+                com.vivo.push.util.p.a(context, "[执行指令]" + this.f63090c);
+            }
+            a(this.f63090c);
         }
-        iSubscribeAppAliasManager = this.f63076b.mSubscribeAppAliasManager;
-        iSubscribeAppAliasManager.delAliasSuccess((String) this.a.get(0));
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getSimpleName());
+            sb.append(StringUtil.ARRAY_START);
+            o oVar = this.f63090c;
+            sb.append(oVar == null ? "[null]" : oVar.toString());
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

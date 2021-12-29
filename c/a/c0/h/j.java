@@ -19,10 +19,10 @@ public class j extends Handler implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ConcurrentLinkedQueue<b<?>> f1658e;
+    public final ConcurrentLinkedQueue<b<?>> f2085e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1659f;
+    public boolean f2086f;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -54,7 +54,7 @@ public class j extends Handler implements h {
         public final i<T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f1660b;
+        public final T f2087b;
 
         public b(k kVar, i<T> iVar, T t) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class j extends Handler implements h {
                 }
             }
             this.a = iVar;
-            this.f1660b = t;
+            this.f2087b = t;
         }
     }
 
@@ -92,8 +92,8 @@ public class j extends Handler implements h {
                 return;
             }
         }
-        this.f1658e = new ConcurrentLinkedQueue<>();
-        this.f1659f = false;
+        this.f2085e = new ConcurrentLinkedQueue<>();
+        this.f2086f = false;
     }
 
     public static h b() {
@@ -111,8 +111,8 @@ public class j extends Handler implements h {
                 return;
             }
             synchronized (this) {
-                this.f1658e.offer(new b<>(kVar, iVar, t));
-                if (!this.f1659f) {
+                this.f2085e.offer(new b<>(kVar, iVar, t));
+                if (!this.f2086f) {
                     sendMessage(Message.obtain());
                 }
             }
@@ -126,22 +126,22 @@ public class j extends Handler implements h {
             try {
                 long currentTimeMillis = System.currentTimeMillis();
                 do {
-                    b<?> poll = this.f1658e.poll();
+                    b<?> poll = this.f2085e.poll();
                     if (poll == null) {
                         synchronized (this) {
-                            poll = this.f1658e.poll();
+                            poll = this.f2085e.poll();
                             if (poll == null) {
-                                this.f1659f = false;
+                                this.f2086f = false;
                                 return;
                             }
                         }
                     }
-                    poll.a.onEvent(poll.f1660b);
+                    poll.a.onEvent(poll.f2087b);
                 } while (System.currentTimeMillis() - currentTimeMillis < 5);
                 sendMessage(Message.obtain());
-                this.f1659f = true;
+                this.f2086f = true;
             } finally {
-                this.f1659f = false;
+                this.f2086f = false;
             }
         }
     }

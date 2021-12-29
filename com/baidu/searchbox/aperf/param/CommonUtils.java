@@ -31,7 +31,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
@@ -426,7 +425,7 @@ public class CommonUtils {
                 try {
                     try {
                         try {
-                            jsonReader = new JsonReader(new InputStreamReader(AppRuntime.getAppContext().getAssets().open(str, 3), StandardCharsets.UTF_8));
+                            jsonReader = new JsonReader(new InputStreamReader(AppRuntime.getAppContext().getAssets().open(str, 3), "UTF-8"));
                             try {
                                 jsonReader.beginObject();
                                 while (true) {

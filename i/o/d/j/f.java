@@ -15,20 +15,20 @@ public abstract class f<E> extends g<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f64485g;
+    public static final int f64480g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final long f64486h;
+    public static final long f64481h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f64487i;
+    public static final int f64482i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f64488e;
+    public final long f64483e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final E[] f64489f;
+    public final E[] f64484f;
 
     static {
         InterceptResult invokeClinit;
@@ -43,16 +43,16 @@ public abstract class f<E> extends g<E> {
                 return;
             }
         }
-        f64485g = Integer.getInteger("sparse.shift", 0).intValue();
+        f64480g = Integer.getInteger("sparse.shift", 0).intValue();
         int b2 = f0.a.b(Object[].class);
         if (4 == b2) {
-            f64487i = f64485g + 2;
+            f64482i = f64480g + 2;
         } else if (8 == b2) {
-            f64487i = f64485g + 3;
+            f64482i = f64480g + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        f64486h = f0.a.a(Object[].class) + (32 << (f64487i - f64485g));
+        f64481h = f0.a.a(Object[].class) + (32 << (f64482i - f64480g));
     }
 
     public f(int i2) {
@@ -71,20 +71,20 @@ public abstract class f<E> extends g<E> {
             }
         }
         int b2 = i.b(i2);
-        this.f64488e = b2 - 1;
-        this.f64489f = (E[]) new Object[(b2 << f64485g) + 64];
+        this.f64483e = b2 - 1;
+        this.f64484f = (E[]) new Object[(b2 << f64480g) + 64];
     }
 
     public final long a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? b(j2, this.f64488e) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? b(j2, this.f64483e) : invokeJ.longValue;
     }
 
     public final long b(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f64486h + ((j2 & j3) << f64487i) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f64481h + ((j2 & j3) << f64482i) : invokeCommon.longValue;
     }
 
     public final E c(E[] eArr, long j2) {
@@ -109,7 +109,7 @@ public abstract class f<E> extends g<E> {
     public final E d(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? e(this.f64489f, j2) : (E) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? e(this.f64484f, j2) : (E) invokeJ.objValue;
     }
 
     public final E e(E[] eArr, long j2) {

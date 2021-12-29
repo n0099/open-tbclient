@@ -17,29 +17,29 @@ public class d {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f1444b;
+    public final long f1871b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1445c;
+    public long f1872c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1446d;
+    public long f1873d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1447e;
+    public boolean f1874e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1448f;
+    public boolean f1875f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1449g;
+    public boolean f1876g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f1450h;
+    public c f1877h;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f1451i;
+    public Handler f1878i;
 
     /* loaded from: classes.dex */
     public class a extends c {
@@ -175,22 +175,22 @@ public class d {
                 return;
             }
         }
-        this.f1447e = false;
-        this.f1448f = true;
-        this.f1449g = false;
-        this.f1450h = new a(this);
-        this.f1451i = new b(this);
+        this.f1874e = false;
+        this.f1875f = true;
+        this.f1876g = false;
+        this.f1877h = new a(this);
+        this.f1878i = new b(this);
         this.a = j2;
-        this.f1444b = j3;
+        this.f1871b = j3;
     }
 
     public final synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                this.f1447e = true;
-                this.f1451i.removeMessages(1);
-                this.f1450h.a();
+                this.f1874e = true;
+                this.f1878i.removeMessages(1);
+                this.f1877h.a();
             }
         }
     }
@@ -200,29 +200,29 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
             synchronized (this) {
-                if (!this.f1447e && !this.f1448f) {
-                    long elapsedRealtime = this.f1445c - SystemClock.elapsedRealtime();
+                if (!this.f1874e && !this.f1875f) {
+                    long elapsedRealtime = this.f1872c - SystemClock.elapsedRealtime();
                     long j3 = 0;
                     if (elapsedRealtime <= 0) {
-                        this.f1449g = true;
-                        this.f1450h.b();
+                        this.f1876g = true;
+                        this.f1877h.b();
                     } else {
                         long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                        this.f1450h.f(elapsedRealtime);
+                        this.f1877h.f(elapsedRealtime);
                         long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                        if (elapsedRealtime < this.f1444b) {
+                        if (elapsedRealtime < this.f1871b) {
                             j2 = elapsedRealtime - elapsedRealtime3;
                             if (j2 < 0) {
-                                this.f1451i.sendMessageDelayed(this.f1451i.obtainMessage(1), j3);
+                                this.f1878i.sendMessageDelayed(this.f1878i.obtainMessage(1), j3);
                             }
                         } else {
-                            j2 = this.f1444b - elapsedRealtime3;
+                            j2 = this.f1871b - elapsedRealtime3;
                             while (j2 < 0) {
-                                j2 += this.f1444b;
+                                j2 += this.f1871b;
                             }
                         }
                         j3 = j2;
-                        this.f1451i.sendMessageDelayed(this.f1451i.obtainMessage(1), j3);
+                        this.f1878i.sendMessageDelayed(this.f1878i.obtainMessage(1), j3);
                     }
                 }
             }
@@ -233,11 +233,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                if (!this.f1448f && !this.f1447e && !this.f1449g) {
-                    this.f1446d = SystemClock.elapsedRealtime();
-                    this.f1448f = true;
-                    this.f1450h.c();
-                    this.f1451i.removeMessages(1);
+                if (!this.f1875f && !this.f1874e && !this.f1876g) {
+                    this.f1873d = SystemClock.elapsedRealtime();
+                    this.f1875f = true;
+                    this.f1877h.c();
+                    this.f1878i.removeMessages(1);
                 }
             }
         }
@@ -247,11 +247,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.f1448f && !this.f1447e && !this.f1449g) {
-                    this.f1448f = false;
-                    this.f1445c = SystemClock.elapsedRealtime() + (this.f1445c - this.f1446d);
-                    this.f1450h.d();
-                    this.f1451i.sendMessage(this.f1451i.obtainMessage(1));
+                if (this.f1875f && !this.f1874e && !this.f1876g) {
+                    this.f1875f = false;
+                    this.f1872c = SystemClock.elapsedRealtime() + (this.f1872c - this.f1873d);
+                    this.f1877h.d();
+                    this.f1878i.sendMessage(this.f1878i.obtainMessage(1));
                 }
             }
         }
@@ -262,7 +262,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
             if (cVar != null) {
-                this.f1450h = cVar;
+                this.f1877h = cVar;
             }
             return this;
         }
@@ -274,17 +274,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                this.f1447e = false;
+                this.f1874e = false;
                 if (this.a <= 0) {
-                    this.f1449g = true;
-                    this.f1450h.b();
+                    this.f1876g = true;
+                    this.f1877h.b();
                     return this;
                 }
-                this.f1449g = false;
-                this.f1448f = false;
-                this.f1445c = SystemClock.elapsedRealtime() + this.a;
-                this.f1451i.sendMessage(this.f1451i.obtainMessage(1));
-                this.f1450h.e();
+                this.f1876g = false;
+                this.f1875f = false;
+                this.f1872c = SystemClock.elapsedRealtime() + this.a;
+                this.f1878i.sendMessage(this.f1878i.obtainMessage(1));
+                this.f1877h.e();
                 return this;
             }
         }

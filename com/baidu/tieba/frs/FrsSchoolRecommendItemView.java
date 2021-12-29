@@ -2,9 +2,9 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.d.f.p.l;
-import c.a.r0.s.i0.t.c;
-import c.a.s0.d1.k1;
+import c.a.d.f.p.m;
+import c.a.s0.s.i0.t.c;
+import c.a.t0.d1.k1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -34,19 +34,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f44573b;
+    public BdUniqueId f44760b;
 
     /* renamed from: c  reason: collision with root package name */
-    public k1 f44574c;
+    public k1 f44761c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f44575d;
+    public int f44762d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f44576e;
+    public TbPageContext f44763e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f44577f;
+    public View.OnClickListener f44764f;
     public TextView rec_user_describe;
     public EntelechyUserLikeButton rec_user_like;
     public TextView rec_user_name;
@@ -58,7 +58,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsSchoolRecommendItemView f44578e;
+        public final /* synthetic */ FrsSchoolRecommendItemView f44765e;
 
         public a(FrsSchoolRecommendItemView frsSchoolRecommendItemView) {
             Interceptable interceptable = $ic;
@@ -75,16 +75,16 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                     return;
                 }
             }
-            this.f44578e = frsSchoolRecommendItemView;
+            this.f44765e = frsSchoolRecommendItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44578e.f44574c == null || l.isEmpty(this.f44578e.f44574c.a.getUserName()) || l.isEmpty(this.f44578e.f44574c.a.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f44765e.f44761c == null || m.isEmpty(this.f44765e.f44761c.a.getUserName()) || m.isEmpty(this.f44765e.f44761c.a.getUserId())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44578e.getView().getContext(), this.f44578e.f44574c.a.getUserId(), this.f44578e.f44574c.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.f44765e.getView().getContext(), this.f44765e.f44761c.a.getUserId(), this.f44765e.f44761c.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 
@@ -106,13 +106,13 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
                 return;
             }
         }
-        this.f44575d = 3;
-        this.f44577f = new a(this);
-        this.f44573b = bdUniqueId;
-        this.f44576e = tbPageContext;
+        this.f44762d = 3;
+        this.f44764f = new a(this);
+        this.f44760b = bdUniqueId;
+        this.f44763e = tbPageContext;
         HeadImageView headImageView = (HeadImageView) view.findViewById(R.id.rec_usr_header);
         this.rec_usr_header = headImageView;
-        headImageView.setPageId(this.f44573b);
+        headImageView.setPageId(this.f44760b);
         this.rec_usr_header.setIsRound(true);
         this.rec_user_name = (TextView) view.findViewById(R.id.rec_user_name);
         this.rec_user_describe = (TextView) view.findViewById(R.id.rec_user_describe);
@@ -125,20 +125,20 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void bindDataToView(c.a.s0.p1.b.c cVar) {
+    public void bindDataToView(c.a.t0.p1.b.c cVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) && (cVar instanceof k1)) {
             k1 k1Var = (k1) cVar;
-            this.f44574c = k1Var;
+            this.f44761c = k1Var;
             if (StringUtils.isNull(k1Var.a.getUserId())) {
                 return;
             }
-            this.rec_usr_header.startLoad(this.f44574c.a.getPortrait(), 28, false);
-            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f44574c.a.getUserName(), 5);
-            this.rec_user_describe.setText(StringHelper.cutStringWithEllipsis(this.f44574c.a.getGodUserData().getIntro(), 6));
+            this.rec_usr_header.startLoad(this.f44761c.a.getPortrait(), 28, false);
+            String cutStringWithEllipsis = StringHelper.cutStringWithEllipsis(this.f44761c.a.getUserName(), 5);
+            this.rec_user_describe.setText(StringHelper.cutStringWithEllipsis(this.f44761c.a.getGodUserData().getIntro(), 6));
             this.rec_user_name.setText(cutStringWithEllipsis);
-            getView().setOnClickListener(this.f44577f);
-            this.a.n(this.f44574c.a);
+            getView().setOnClickListener(this.f44764f);
+            this.a.n(this.f44761c.a);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -147,19 +147,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public ItemViewHolder createItemViewHolder(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.f44576e, this.f44573b) : (ItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? new FrsSchoolRecommendItemView(view, this.f44763e, this.f44760b) : (ItemViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f44575d != i2) {
+            if (this.f44762d != i2) {
                 SkinManager.setViewTextColor(this.rec_user_name, R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.rec_user_describe, R.color.CAM_X0109);
                 this.rec_user_like.onChangeSkinType(i2);
             }
-            this.f44575d = i2;
+            this.f44762d = i2;
         }
     }
 }

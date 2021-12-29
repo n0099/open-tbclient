@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import c.a.d.f.p.k;
-import c.a.r0.f0.a;
+import c.a.d.f.p.l;
+import c.a.s0.f0.a;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
@@ -38,7 +38,7 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-                if (Build.VERSION.SDK_INT >= 24 || !k.z()) {
+                if (Build.VERSION.SDK_INT >= 24 || !l.z()) {
                     return;
                 }
                 a.b(0, 0, 0, 1, 6);
@@ -49,7 +49,7 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                     ImgHttpClient.proxyHost = null;
                 }
             } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {
-                if (!k.z() || BdSocketLinkService.isOpen()) {
+                if (!l.z() || BdSocketLinkService.isOpen()) {
                     TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 0);
                     return;
                 }

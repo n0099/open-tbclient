@@ -19,7 +19,7 @@ public class PromptImageDialog extends WalletDialog {
     public ImageDialogModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f52829b;
+    public View.OnClickListener f52832b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PromptImageDialog(Context context) {
@@ -41,7 +41,7 @@ public class PromptImageDialog extends WalletDialog {
             }
         }
         this.a = new ImageDialogModel();
-        this.f52829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f52832b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptImageDialog a;
@@ -79,7 +79,7 @@ public class PromptImageDialog extends WalletDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             ImageDialogModel imageDialogModel = this.a;
-            imageDialogModel.defaultClickListener = this.f52829b;
+            imageDialogModel.defaultClickListener = this.f52832b;
             setAdapter(new ImageDialogAdapter(imageDialogModel));
         }
     }
@@ -174,7 +174,7 @@ public class PromptImageDialog extends WalletDialog {
             }
         }
         this.a = new ImageDialogModel();
-        this.f52829b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
+        this.f52832b = new View.OnClickListener(this) { // from class: com.baidu.wallet.base.widget.dialog.PromptImageDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PromptImageDialog a;

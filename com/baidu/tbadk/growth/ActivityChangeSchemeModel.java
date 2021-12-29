@@ -2,7 +2,7 @@ package com.baidu.tbadk.growth;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import c.a.r0.b0.b;
+import c.a.s0.b0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -29,7 +29,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f42333e;
+    public final HttpMessageListener f42507e;
 
     /* loaded from: classes11.dex */
     public class a extends HttpMessageListener {
@@ -83,7 +83,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.y();
                 } else {
-                    int a = c.a.r0.s.d0.b.a();
+                    int a = c.a.s0.s.d0.b.a();
                     if (a != 2) {
                         this.a.z(a);
                         return;
@@ -108,12 +108,12 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f42333e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
+        this.f42507e = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
         A();
-        this.f42333e.setTag(getUniqueId());
-        this.f42333e.setSelfListener(true);
-        registerListener(this.f42333e);
+        this.f42507e.setTag(getUniqueId());
+        this.f42507e.setSelfListener(true);
+        registerListener(this.f42507e);
     }
 
     public static void A() {

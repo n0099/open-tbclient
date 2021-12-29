@@ -145,6 +145,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(UploadPicParallelSwitch.class);
             SwitchManager.getInstance().registerSwitch(AdSaleSpreadSwitch.class);
             SwitchManager.getInstance().registerSwitch(AndroidActivityLogSwitch.class);
+            SwitchManager.getInstance().registerSwitch(NovelPaySwitch.class);
         }
     }
 }

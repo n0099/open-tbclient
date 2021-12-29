@@ -65,15 +65,15 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     private void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
-            if (((BaseSSOLoginActivity) this).f39194g == 2001) {
+            if (((BaseSSOLoginActivity) this).f39350g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i2);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f39195h.setResultCode(i2);
-                ((BaseSSOLoginActivity) this).f39195h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f39195h);
+                ((BaseSSOLoginActivity) this).f39351h.setResultCode(i2);
+                ((BaseSSOLoginActivity) this).f39351h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f39351h);
                 CoreViewRouter.getInstance().release();
             }
             finish();

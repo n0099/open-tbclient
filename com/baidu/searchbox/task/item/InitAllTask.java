@@ -2,13 +2,13 @@ package com.baidu.searchbox.task.item;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.r0.d1.c0;
-import c.a.r0.s.l;
-import c.a.r0.s.r.z0;
-import c.a.r0.t.j.c;
-import c.a.r0.z0.a;
-import c.a.s0.a4.d;
-import c.a.s0.j4.h;
+import c.a.s0.a1.a;
+import c.a.s0.e1.c0;
+import c.a.s0.s.k;
+import c.a.s0.s.q.z0;
+import c.a.s0.t.j.c;
+import c.a.t0.b4.d;
+import c.a.t0.k4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -106,7 +106,7 @@ public class InitAllTask extends LaunchTask {
             try {
                 c0.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    c.a.r0.g.a.d().f();
+                    c.a.s0.g.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -119,7 +119,7 @@ public class InitAllTask extends LaunchTask {
             TbConfig.initBigImageWidth(appContext);
             TbConfig.initFriendPhotoConfig(appContext);
             d.a();
-            h.d();
+            h.c();
             dealYYNotification();
         }
     }
@@ -127,7 +127,7 @@ public class InitAllTask extends LaunchTask {
     private void initAppSettings() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            l.c().f();
+            k.c().f();
         }
     }
 
@@ -163,7 +163,7 @@ public class InitAllTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            c.a.r0.t.e.d dVar = new c.a.r0.t.e.d();
+            c.a.s0.t.e.d dVar = new c.a.s0.t.e.d();
             dVar.e(loadString);
             c a = c.a();
             a.g(dVar.b() == 1);

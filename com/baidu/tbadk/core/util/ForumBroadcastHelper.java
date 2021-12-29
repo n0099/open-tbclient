@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import c.a.d.f.p.b;
-import c.a.s0.v3.j0.n;
+import c.a.d.f.p.c;
+import c.a.t0.w3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -53,7 +53,7 @@ public class ForumBroadcastHelper {
     public void clipCopy(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            b.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
+            c.a("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
         }
     }
 

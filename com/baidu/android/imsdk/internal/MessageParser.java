@@ -360,7 +360,7 @@ public class MessageParser {
     /* JADX WARN: Removed duplicated region for block: B:108:0x026e A[Catch: Exception -> 0x0328, TryCatch #5 {Exception -> 0x0328, blocks: (B:115:0x028c, B:117:0x0292, B:119:0x02ac, B:121:0x02be, B:122:0x02c5, B:124:0x02cd, B:128:0x02da, B:129:0x02dd, B:131:0x02e3, B:133:0x02e9, B:135:0x02ef, B:136:0x02f2, B:138:0x02f8, B:140:0x02fd, B:142:0x0309, B:144:0x0318, B:143:0x030d, B:109:0x0276, B:104:0x025f, B:108:0x026e), top: B:167:0x025f }] */
     /* JADX WARN: Type inference failed for: r0v11, types: [T, java.lang.Long] */
     /* JADX WARN: Type inference failed for: r1v13 */
-    /* JADX WARN: Type inference failed for: r1v14, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r1v14, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r1v17 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -631,12 +631,12 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
                 newAckMessage.addTriples(list2);
-                if (a.f26457e) {
+                if (a.f14648e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
-                    bLCPRequest.f35626b = 95L;
-                    bLCPRequest.f35627c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f35628d = System.nanoTime();
+                    bLCPRequest.f35782b = 95L;
+                    bLCPRequest.f35783c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f35784d = System.nanoTime();
                     c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;

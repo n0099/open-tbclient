@@ -22,13 +22,13 @@ public class FeedBackLayout extends BaseItemLayout {
     public NetImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f53161b;
+    public TextView f53164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f53162c;
+    public View f53165c;
 
     /* renamed from: e  reason: collision with root package name */
-    public HomeCfgResponse.TitleItem f53163e;
+    public HomeCfgResponse.TitleItem f53166e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FeedBackLayout(Context context) {
@@ -66,9 +66,9 @@ public class FeedBackLayout extends BaseItemLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_feedback_layout"), this);
             this.a = (NetImageView) findViewById(ResUtils.id(getContext(), "wallet_logo"));
-            this.f53161b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_home_feedback"));
+            this.f53164b = (TextView) findViewById(ResUtils.id(getContext(), "wallet_home_feedback"));
             View findViewById = findViewById(ResUtils.id(getContext(), "feedback_layout"));
-            this.f53162c = findViewById;
+            this.f53165c = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.home.ui.widget.FeedBackLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class FeedBackLayout extends BaseItemLayout {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.getWalletInterface() == null) {
                         return;
                     }
-                    this.a.getWalletInterface().jump(this.a.f53163e.fd_desc, this.a.f53163e.fd_type, this.a.f53163e.fd_link_addr, false);
+                    this.a.getWalletInterface().jump(this.a.f53166e.fd_desc, this.a.f53166e.fd_type, this.a.f53166e.fd_link_addr, false);
                 }
             });
         }
@@ -108,33 +108,33 @@ public class FeedBackLayout extends BaseItemLayout {
     public boolean isDataValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53163e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53166e != null : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemLayout
     public void refreshData() {
         HomeCfgResponse.TitleItem titleItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (titleItem = this.f53163e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (titleItem = this.f53166e) == null) {
             return;
         }
         if (!TextUtils.isEmpty(titleItem.fd_logo)) {
             NetImageView netImageView = this.a;
-            netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.f53163e.fd_logo);
+            netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + this.f53166e.fd_logo);
         }
-        if (!this.f53163e.isFeedBackVisible()) {
-            this.f53162c.setVisibility(8);
+        if (!this.f53166e.isFeedBackVisible()) {
+            this.f53165c.setVisibility(8);
             return;
         }
-        this.f53162c.setVisibility(0);
-        this.f53161b.setVisibility(0);
-        this.f53161b.setText(this.f53163e.fd_desc);
+        this.f53165c.setVisibility(0);
+        this.f53164b.setVisibility(0);
+        this.f53164b.setText(this.f53166e.fd_desc);
     }
 
     public void setData(HomeCfgResponse.TitleItem titleItem, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, titleItem, bVar) == null) {
-            this.f53163e = titleItem;
+            this.f53166e = titleItem;
             this.mWalletHomeInterface = bVar;
             if (isDataValid()) {
                 initView();

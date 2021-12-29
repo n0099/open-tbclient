@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.piff;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,6 +73,6 @@ public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
     public byte[] getUserType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new byte[]{-119, 116, -37, -50, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, 37, 84} : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new byte[]{-119, 116, -37, -50, ContentUtil.GZIP_HEAD_2, -25, 76, 81, -124, -7, 113, 72, -7, -120, 37, 84} : (byte[]) invokeV.objValue;
     }
 }

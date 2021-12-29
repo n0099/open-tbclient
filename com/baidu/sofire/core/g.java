@@ -15,13 +15,13 @@ public final class g {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39582b;
+    public String f39738b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39583c;
+    public String f39739c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IntentFilter f39584d;
+    public IntentFilter f39740d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class g {
             }
         }
         this.a = str;
-        this.f39584d = intentFilter;
-        this.f39582b = str2;
-        this.f39583c = str3;
+        this.f39740d = intentFilter;
+        this.f39738b = str2;
+        this.f39739c = str3;
     }
 
     public final boolean a(g gVar) {
@@ -50,9 +50,9 @@ public final class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gVar)) == null) {
             if (gVar != null) {
                 try {
-                    if (!TextUtils.isEmpty(gVar.a) && !TextUtils.isEmpty(gVar.f39582b) && !TextUtils.isEmpty(gVar.f39583c) && gVar.a.equals(this.a) && gVar.f39582b.equals(this.f39582b) && gVar.f39583c.equals(this.f39583c)) {
-                        if (gVar.f39584d != null && this.f39584d != null) {
-                            return this.f39584d == gVar.f39584d;
+                    if (!TextUtils.isEmpty(gVar.a) && !TextUtils.isEmpty(gVar.f39738b) && !TextUtils.isEmpty(gVar.f39739c) && gVar.a.equals(this.a) && gVar.f39738b.equals(this.f39738b) && gVar.f39739c.equals(this.f39739c)) {
+                        if (gVar.f39740d != null && this.f39740d != null) {
+                            return this.f39740d == gVar.f39740d;
                         }
                         return true;
                     }
@@ -71,7 +71,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return "PluginloaderIntentFilter:" + this.a + "-" + this.f39582b + "-" + this.f39583c + "-" + this.f39584d;
+                return "PluginloaderIntentFilter:" + this.a + "-" + this.f39738b + "-" + this.f39739c + "-" + this.f39740d;
             } catch (Throwable unused) {
                 return "";
             }

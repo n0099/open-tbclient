@@ -16,10 +16,10 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<String>> f55545b;
+    public Map<String, List<String>> f55544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f55546c;
+    public String f55545c;
 
     public b(int i2, Map<String, List<String>> map, String str) {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public class b {
             }
         }
         this.a = i2;
-        this.f55545b = map;
-        this.f55546c = str;
+        this.f55544b = map;
+        this.f55545c = str;
     }
 
     public int a() {
@@ -51,7 +51,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Map<String, List<String>> map = this.f55545b;
+            Map<String, List<String>> map = this.f55544b;
             return map == null ? new HashMap() : map;
         }
         return (Map) invokeV.objValue;
@@ -61,7 +61,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.f55546c;
+            String str = this.f55545c;
             return str == null ? "" : str;
         }
         return (String) invokeV.objValue;

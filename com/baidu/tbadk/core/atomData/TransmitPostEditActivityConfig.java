@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AdditionData;
@@ -67,7 +67,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i3);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            m.M(context, antiData.getForbid_info());
+            n.M(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i2);

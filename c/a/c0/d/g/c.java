@@ -9,7 +9,7 @@ public interface c {
     public static final ServiceReference a = new ServiceReference("nad.core", "cmd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f1440b = new b();
+    public static final c f1867b = new b();
 
     void a(String str, String str2, c.a.c0.d.h.a aVar);
 

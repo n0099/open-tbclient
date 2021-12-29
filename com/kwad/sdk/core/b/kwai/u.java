@@ -1,11 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.AggregatePageEntranceInfo;
@@ -22,28 +16,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class u implements com.kwad.sdk.core.d<AdTemplate> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public u() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(AdTemplate adTemplate, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         adTemplate.mOriginJString = jSONObject.optString("mOriginJString");
@@ -127,49 +103,44 @@ public class u implements com.kwad.sdk.core.d<AdTemplate> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(AdTemplate adTemplate, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adTemplate, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "mOriginJString", adTemplate.mOriginJString);
-            com.kwad.sdk.utils.t.a(jSONObject, "posId", adTemplate.posId);
-            com.kwad.sdk.utils.t.a(jSONObject, "type", adTemplate.type);
-            com.kwad.sdk.utils.t.a(jSONObject, "contentType", adTemplate.contentType);
-            com.kwad.sdk.utils.t.a(jSONObject, "adInfo", adTemplate.adInfoList);
-            com.kwad.sdk.utils.t.a(jSONObject, "photoInfo", adTemplate.photoInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "photoAd", adTemplate.photoAd);
-            com.kwad.sdk.utils.t.a(jSONObject, "newsInfo", adTemplate.newsInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "aggregatePageEntranceInfo", adTemplate.aggregatePageEntranceInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "needHide", adTemplate.needHide);
-            com.kwad.sdk.utils.t.a(jSONObject, "impAdExtra", adTemplate.impAdExtra);
-            com.kwad.sdk.utils.t.a(jSONObject, "liveInfo", adTemplate.mLiveInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "llsid", adTemplate.llsid);
-            com.kwad.sdk.utils.t.a(jSONObject, "mIsFromContent", adTemplate.mIsFromContent);
-            com.kwad.sdk.utils.t.a(jSONObject, "isDrawAdHasLook", adTemplate.isDrawAdHasLook);
-            com.kwad.sdk.utils.t.a(jSONObject, "extra", adTemplate.extra);
-            com.kwad.sdk.utils.t.a(jSONObject, "mUniqueId", adTemplate.mUniqueId);
-            com.kwad.sdk.utils.t.a(jSONObject, "mBidEcpm", adTemplate.mBidEcpm);
-            com.kwad.sdk.utils.t.a(jSONObject, "mAdScene", adTemplate.mAdScene);
-            com.kwad.sdk.utils.t.a(jSONObject, "realShowType", adTemplate.realShowType);
-            com.kwad.sdk.utils.t.a(jSONObject, "mInitVoiceStatus", adTemplate.mInitVoiceStatus);
-            com.kwad.sdk.utils.t.a(jSONObject, "mPreloadData", adTemplate.mPreloadData);
-            com.kwad.sdk.utils.t.a(jSONObject, "mMediaPlayerType", adTemplate.mMediaPlayerType);
-            com.kwad.sdk.utils.t.a(jSONObject, "mIsTubeEpisodeList", adTemplate.mIsTubeEpisodeList);
-            com.kwad.sdk.utils.t.a(jSONObject, "mVideoPlayerStatus", adTemplate.mVideoPlayerStatus);
-            com.kwad.sdk.utils.t.a(jSONObject, "mOutClickTimeParam", adTemplate.mOutClickTimeParam);
-            com.kwad.sdk.utils.t.a(jSONObject, "mVisibleTimeParam", adTemplate.mVisibleTimeParam);
-            com.kwad.sdk.utils.t.a(jSONObject, "mIsLeftSlipStatus", adTemplate.mIsLeftSlipStatus);
-            com.kwad.sdk.utils.t.a(jSONObject, "mPhotoResponseType", adTemplate.mPhotoResponseType);
-            com.kwad.sdk.utils.t.a(jSONObject, "mPageInfo", adTemplate.mPageInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "mPcursor", adTemplate.mPcursor);
-            com.kwad.sdk.utils.t.a(jSONObject, "mHasEntryAdClick", adTemplate.mHasEntryAdClick);
-            com.kwad.sdk.utils.t.a(jSONObject, "mIsNotNeedAvatarGuider", adTemplate.mIsNotNeedAvatarGuider);
-            com.kwad.sdk.utils.t.a(jSONObject, "mRewardVerifyCalled", adTemplate.mRewardVerifyCalled);
-            com.kwad.sdk.utils.t.a(jSONObject, "isWebViewDownload", adTemplate.isWebViewDownload);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "mOriginJString", adTemplate.mOriginJString);
+        com.kwad.sdk.utils.t.a(jSONObject, "posId", adTemplate.posId);
+        com.kwad.sdk.utils.t.a(jSONObject, "type", adTemplate.type);
+        com.kwad.sdk.utils.t.a(jSONObject, "contentType", adTemplate.contentType);
+        com.kwad.sdk.utils.t.a(jSONObject, "adInfo", adTemplate.adInfoList);
+        com.kwad.sdk.utils.t.a(jSONObject, "photoInfo", adTemplate.photoInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "photoAd", adTemplate.photoAd);
+        com.kwad.sdk.utils.t.a(jSONObject, "newsInfo", adTemplate.newsInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "aggregatePageEntranceInfo", adTemplate.aggregatePageEntranceInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "needHide", adTemplate.needHide);
+        com.kwad.sdk.utils.t.a(jSONObject, "impAdExtra", adTemplate.impAdExtra);
+        com.kwad.sdk.utils.t.a(jSONObject, "liveInfo", adTemplate.mLiveInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "llsid", adTemplate.llsid);
+        com.kwad.sdk.utils.t.a(jSONObject, "mIsFromContent", adTemplate.mIsFromContent);
+        com.kwad.sdk.utils.t.a(jSONObject, "isDrawAdHasLook", adTemplate.isDrawAdHasLook);
+        com.kwad.sdk.utils.t.a(jSONObject, "extra", adTemplate.extra);
+        com.kwad.sdk.utils.t.a(jSONObject, "mUniqueId", adTemplate.mUniqueId);
+        com.kwad.sdk.utils.t.a(jSONObject, "mBidEcpm", adTemplate.mBidEcpm);
+        com.kwad.sdk.utils.t.a(jSONObject, "mAdScene", adTemplate.mAdScene);
+        com.kwad.sdk.utils.t.a(jSONObject, "realShowType", adTemplate.realShowType);
+        com.kwad.sdk.utils.t.a(jSONObject, "mInitVoiceStatus", adTemplate.mInitVoiceStatus);
+        com.kwad.sdk.utils.t.a(jSONObject, "mPreloadData", adTemplate.mPreloadData);
+        com.kwad.sdk.utils.t.a(jSONObject, "mMediaPlayerType", adTemplate.mMediaPlayerType);
+        com.kwad.sdk.utils.t.a(jSONObject, "mIsTubeEpisodeList", adTemplate.mIsTubeEpisodeList);
+        com.kwad.sdk.utils.t.a(jSONObject, "mVideoPlayerStatus", adTemplate.mVideoPlayerStatus);
+        com.kwad.sdk.utils.t.a(jSONObject, "mOutClickTimeParam", adTemplate.mOutClickTimeParam);
+        com.kwad.sdk.utils.t.a(jSONObject, "mVisibleTimeParam", adTemplate.mVisibleTimeParam);
+        com.kwad.sdk.utils.t.a(jSONObject, "mIsLeftSlipStatus", adTemplate.mIsLeftSlipStatus);
+        com.kwad.sdk.utils.t.a(jSONObject, "mPhotoResponseType", adTemplate.mPhotoResponseType);
+        com.kwad.sdk.utils.t.a(jSONObject, "mPageInfo", adTemplate.mPageInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "mPcursor", adTemplate.mPcursor);
+        com.kwad.sdk.utils.t.a(jSONObject, "mHasEntryAdClick", adTemplate.mHasEntryAdClick);
+        com.kwad.sdk.utils.t.a(jSONObject, "mIsNotNeedAvatarGuider", adTemplate.mIsNotNeedAvatarGuider);
+        com.kwad.sdk.utils.t.a(jSONObject, "mRewardVerifyCalled", adTemplate.mRewardVerifyCalled);
+        com.kwad.sdk.utils.t.a(jSONObject, "isWebViewDownload", adTemplate.isWebViewDownload);
+        return jSONObject;
     }
 }

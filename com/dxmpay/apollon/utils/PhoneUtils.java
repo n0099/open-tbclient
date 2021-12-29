@@ -27,7 +27,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -67,19 +66,19 @@ public final class PhoneUtils {
     public static CPUInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ArrayList<String> f55766b;
+    public static ArrayList<String> f55765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f55767c;
+    public static final Pattern f55766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f55768d;
+    public static final Pattern f55767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f55769e;
+    public static final Pattern f55768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f55770f;
+    public static final Pattern f55769f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -160,16 +159,16 @@ public final class PhoneUtils {
                 return;
             }
         }
-        f55766b = new ArrayList<>();
-        f55767c = Pattern.compile("((\\d|[A-F]){32}).*");
-        f55768d = Pattern.compile("((\\d|[a-f]){32}).*");
-        f55769e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f55770f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
-        f55766b.add("card_no");
-        f55766b.add("valid_date");
-        f55766b.add("cvv2");
-        f55766b.add("identity_code");
-        f55766b.add("phone_number");
+        f55765b = new ArrayList<>();
+        f55766c = Pattern.compile("((\\d|[A-F]){32}).*");
+        f55767d = Pattern.compile("((\\d|[a-f]){32}).*");
+        f55768e = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f55769f = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f55765b.add("card_no");
+        f55765b.add("valid_date");
+        f55765b.add("cvv2");
+        f55765b.add("identity_code");
+        f55765b.add("phone_number");
     }
 
     public PhoneUtils() {
@@ -204,10 +203,10 @@ public final class PhoneUtils {
             if (deviceID == null) {
                 return null;
             }
-            Matcher matcher = f55767c.matcher(deviceID);
+            Matcher matcher = f55766c.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f55768d.matcher(deviceID);
+                Matcher matcher2 = f55767d.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;
@@ -228,7 +227,7 @@ public final class PhoneUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f55766b.contains(str)) {
+            if (f55765b.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -337,11 +336,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f55769e.matcher(cuid).matches()) {
+            if (f55768e.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f55770f.matcher(cuid).matches()) {
+                if (f55769f.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -649,7 +648,7 @@ public final class PhoneUtils {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
                 String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
-                    String str2 = str + TrackUI.SEPERATOR;
+                    String str2 = str + "\t";
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();

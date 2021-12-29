@@ -19,10 +19,10 @@ public final class UbcSessionUploader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f34554b;
+    public Object f34710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f34555c;
+    public Method f34711c;
 
     public UbcSessionUploader() {
         Interceptable interceptable = $ic;
@@ -37,8 +37,8 @@ public final class UbcSessionUploader {
                 return;
             }
         }
-        this.f34554b = null;
-        this.f34555c = null;
+        this.f34710b = null;
+        this.f34711c = null;
         a();
     }
 
@@ -51,8 +51,8 @@ public final class UbcSessionUploader {
                 Field declaredField = cls.getDeclaredField("SERVICE_REFERENCE");
                 if (declaredField != null) {
                     declaredField.setAccessible(true);
-                    this.f34554b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
-                    this.f34555c = cls.getDeclaredMethod("onEvent", String.class, String.class);
+                    this.f34710b = cls2.getDeclaredMethod("getService", Class.forName("com.baidu.pyramid.runtime.service.ServiceReference")).invoke(null, declaredField.get(null));
+                    this.f34711c = cls.getDeclaredMethod("onEvent", String.class, String.class);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -80,11 +80,11 @@ public final class UbcSessionUploader {
     @Keep
     public void upload(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f34555c == null || this.f34554b == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i2) == null) || !com.baidu.cyberplayer.sdk.c.a().d() || this.f34711c == null || this.f34710b == null) {
             return;
         }
         try {
-            this.f34555c.invoke(this.f34554b, i2 == -1001 ? "2360" : "2368", str);
+            this.f34711c.invoke(this.f34710b, i2 == -1001 ? "2360" : "2368", str);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

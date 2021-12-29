@@ -26,21 +26,21 @@ public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f3547f;
+    public static final a f3975f;
     public transient /* synthetic */ FieldHolder $fh;
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f3548b;
+    public final byte[] f3976b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f3549c;
+    public final int f3977c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f3550d;
+    public final byte[] f3978d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<d> f3551e;
+    public final List<d> f3979e;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -73,7 +73,7 @@ public final class f {
                 debugTrace.a("get raw data:" + str);
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    e.b bVar = e.f3544c;
+                    e.b bVar = e.f3972c;
                     String optString = jSONObject.optString("Random");
                     Intrinsics.checkExpressionValueIsNotNull(optString, "dataObj.optString(\"Random\")");
                     e b2 = bVar.b(optString);
@@ -86,7 +86,7 @@ public final class f {
                         int length = optJSONArray.length();
                         for (int i2 = 0; i2 < length; i2++) {
                             String item = optJSONArray.optString(i2);
-                            d.b bVar2 = d.f3541c;
+                            d.b bVar2 = d.f3969c;
                             Intrinsics.checkExpressionValueIsNotNull(item, "item");
                             d b3 = bVar2.b(item);
                             if (b3 != null) {
@@ -130,7 +130,7 @@ public final class f {
                 return;
             }
         }
-        f3547f = new a(null);
+        f3975f = new a(null);
     }
 
     public f(e eVar, byte[] bArr, int i2, byte[] bArr2, List<d> list) {
@@ -149,41 +149,41 @@ public final class f {
             }
         }
         this.a = eVar;
-        this.f3548b = bArr;
-        this.f3549c = i2;
-        this.f3550d = bArr2;
-        this.f3551e = list;
+        this.f3976b = bArr;
+        this.f3977c = i2;
+        this.f3978d = bArr2;
+        this.f3979e = list;
     }
 
     @JvmStatic
     public static final f a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f3547f.b(bArr) : (f) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f3975f.b(bArr) : (f) invokeL.objValue;
     }
 
     public final List<d> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3551e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3979e : (List) invokeV.objValue;
     }
 
     public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3549c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3977c : invokeV.intValue;
     }
 
     public final byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.j.h.d.i.d(this.f3548b) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c.a.j.h.d.i.d(this.f3976b) : (byte[]) invokeV.objValue;
     }
 
     public final byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.a.j.h.d.i.d(this.f3550d) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.a.j.h.d.i.d(this.f3978d) : (byte[]) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -193,8 +193,8 @@ public final class f {
             if (this != obj) {
                 if (obj instanceof f) {
                     f fVar = (f) obj;
-                    if (Intrinsics.areEqual(this.a, fVar.a) && Intrinsics.areEqual(this.f3548b, fVar.f3548b)) {
-                        if (!(this.f3549c == fVar.f3549c) || !Intrinsics.areEqual(this.f3550d, fVar.f3550d) || !Intrinsics.areEqual(this.f3551e, fVar.f3551e)) {
+                    if (Intrinsics.areEqual(this.a, fVar.a) && Intrinsics.areEqual(this.f3976b, fVar.f3976b)) {
+                        if (!(this.f3977c == fVar.f3977c) || !Intrinsics.areEqual(this.f3978d, fVar.f3978d) || !Intrinsics.areEqual(this.f3979e, fVar.f3979e)) {
                         }
                     }
                 }
@@ -211,11 +211,11 @@ public final class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             e eVar = this.a;
             int hashCode = (eVar != null ? eVar.hashCode() : 0) * 31;
-            byte[] bArr = this.f3548b;
-            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.f3549c) * 31;
-            byte[] bArr2 = this.f3550d;
+            byte[] bArr = this.f3976b;
+            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.f3977c) * 31;
+            byte[] bArr2 = this.f3978d;
             int hashCode3 = (hashCode2 + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31;
-            List<d> list = this.f3551e;
+            List<d> list = this.f3979e;
             return hashCode3 + (list != null ? list.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -225,7 +225,7 @@ public final class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.f3548b) + ", lifeTime=" + this.f3549c + ", SKRBytes=" + Arrays.toString(this.f3550d) + ", extensions=" + this.f3551e + SmallTailInfo.EMOTION_SUFFIX;
+            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.f3976b) + ", lifeTime=" + this.f3977c + ", SKRBytes=" + Arrays.toString(this.f3978d) + ", extensions=" + this.f3979e + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

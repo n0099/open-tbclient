@@ -333,7 +333,7 @@ public final class DataExt {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Class f42428e;
+        public final /* synthetic */ Class f42609e;
 
         public a(Class cls) {
             Interceptable interceptable = $ic;
@@ -350,7 +350,7 @@ public final class DataExt {
                     return;
                 }
             }
-            this.f42428e = cls;
+            this.f42609e = cls;
         }
 
         @Override // java.lang.reflect.ParameterizedType
@@ -358,7 +358,7 @@ public final class DataExt {
         public Type[] getActualTypeArguments() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f42428e} : (Type[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{this.f42609e} : (Type[]) invokeV.objValue;
         }
 
         @Override // java.lang.reflect.ParameterizedType

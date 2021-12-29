@@ -22,10 +22,10 @@ public class h extends c.a.c0.s.o0.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final HashMap<String, String> f1970h;
+    public final HashMap<String, String> f2397h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<String, String> f1971i;
+    public final HashMap<String, String> f2398i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class h extends c.a.c0.s.o0.a {
                 return;
             }
         }
-        this.f1970h = new HashMap<>();
-        this.f1971i = new HashMap<>();
+        this.f2397h = new HashMap<>();
+        this.f2398i = new HashMap<>();
     }
 
     @Override // c.a.c0.s.o0.a, c.a.c0.s.f0.j
@@ -73,8 +73,8 @@ public class h extends c.a.c0.s.o0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.m();
-            this.f1970h.clear();
-            this.f1971i.clear();
+            this.f2397h.clear();
+            this.f2398i.clear();
         }
     }
 
@@ -92,14 +92,14 @@ public class h extends c.a.c0.s.o0.a {
             BdVideoSeries o1 = fVar == null ? null : fVar.o1();
             if (o1 != null) {
                 String extLog = o1.getExtLog();
-                String str = this.f1970h.get(extLog);
-                String str2 = this.f1971i.get(extLog);
+                String str = this.f2397h.get(extLog);
+                String str2 = this.f2398i.get(extLog);
                 if (str == null) {
                     JSONObject b2 = c.a.c0.u.b.b(extLog);
                     String optString = b2.optString("ad_extra_param");
                     String optString2 = b2.optString(BdVideoAd.AD_VIDEO_DAPAGE);
-                    this.f1970h.put(extLog, optString);
-                    this.f1971i.put(extLog, optString2);
+                    this.f2397h.put(extLog, optString);
+                    this.f2398i.put(extLog, optString2);
                     str2 = optString2;
                     str = optString;
                 }
@@ -130,8 +130,8 @@ public class h extends c.a.c0.s.o0.a {
             if (i() == null) {
                 return "0";
             }
-            if (i().K() != null && i().K().f2061e > 0) {
-                return String.valueOf(i().K().f2061e);
+            if (i().K() != null && i().K().f2488e > 0) {
+                return String.valueOf(i().K().f2488e);
             }
             return String.valueOf(i().r());
         }
@@ -157,7 +157,7 @@ public class h extends c.a.c0.s.o0.a {
             if (i() == null) {
                 return "0";
             }
-            return String.valueOf(i().K() != null ? i().K().f2060d : 0);
+            return String.valueOf(i().K() != null ? i().K().f2487d : 0);
         }
         return (String) invokeV.objValue;
     }

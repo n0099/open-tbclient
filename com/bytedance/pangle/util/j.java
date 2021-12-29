@@ -1,109 +1,126 @@
 package com.bytedance.pangle.util;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import com.bytedance.pangle.Zeus;
+import com.bytedance.pangle.ZeusConstants;
+import com.bytedance.pangle.log.ZeusLogger;
+import java.util.Locale;
 /* loaded from: classes2.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f55231b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Handler f55232c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile ExecutorService f55233d;
+    public static volatile j f55233b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1401945232, "Lcom/bytedance/pangle/util/j;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1401945232, "Lcom/bytedance/pangle/util/j;");
-                return;
-            }
-        }
-        a = !j.class.desiredAssertionStatus();
-        f55231b = new Object();
-        f55232c = null;
-    }
+    public SharedPreferences a;
 
     public j() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Application appApplication = Zeus.getAppApplication();
+        this.a = appApplication.getSharedPreferences(ZeusConstants.BASE_LIB_NAME + "_meta_data_sp", 0);
     }
 
-    public static ExecutorService a() {
+    public static j a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f55233d == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f55233b == null) {
                 synchronized (j.class) {
-                    if (f55233d == null) {
-                        int availableProcessors = Runtime.getRuntime().availableProcessors() + 1;
-                        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(availableProcessors, availableProcessors, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-                        threadPoolExecutor.allowCoreThreadTimeOut(true);
-                        f55233d = threadPoolExecutor;
+                    if (f55233b == null) {
+                        f55233b = new j();
                     }
                 }
             }
-            return f55233d;
+            return f55233b;
         }
-        return (ExecutorService) invokeV.objValue;
+        return (j) invokeV.objValue;
     }
 
-    public static Handler b() {
-        InterceptResult invokeV;
-        Handler handler;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (f55231b) {
-                if (f55232c == null) {
-                    f55232c = new Handler(Looper.getMainLooper());
-                }
-                handler = f55232c;
-            }
-            return handler;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f55178b.getHostVersionCode() + "_" + str, true);
+            edit.apply();
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f55178b.getHostVersionCode());
         }
-        return (Handler) invokeV.objValue;
     }
 
-    public static void a(Runnable runnable) {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (b().getLooper() == Looper.myLooper()) {
-                runnable.run();
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.remove("OFFLINE__" + com.bytedance.pangle.g.a().f55178b.getHostVersionCode() + "_" + str);
+            edit.apply();
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils clearOfflineFlag packageName=" + str + " hostUpdateVerCode= " + com.bytedance.pangle.g.a().f55178b.getHostVersionCode());
+        }
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.a.getBoolean("OFFLINE__" + com.bytedance.pangle.g.a().f55178b.getHostVersionCode() + "_" + str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("DELETED__".concat(String.valueOf(str)), true);
+            edit.apply();
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils markDeletedFlag packageName=".concat(String.valueOf(str)));
+        }
+    }
+
+    public final int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int i2 = this.a.getInt("PLUGIN_API_VERSION_".concat(String.valueOf(str)), 0);
+            ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusSpUtils getPluginApiVersion pluginPKg = " + str + ", pluginApiVersion = " + i2);
+            return i2;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void a(String str, int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            String str2 = "INSTALLED_" + str + "-" + i2;
+            if (z) {
+                edit.putBoolean(str2, true);
             } else {
-                b().post(runnable);
+                edit.remove(str2);
             }
+            edit.apply();
         }
+    }
+
+    public final boolean a(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2)) == null) ? this.a.getBoolean(String.format(Locale.getDefault(), "INSTALLED_%s-%d", str, Integer.valueOf(i2)), false) : invokeLI.booleanValue;
     }
 }

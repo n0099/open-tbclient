@@ -16,13 +16,13 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f26958b;
+    public long f27399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f26959c;
+    public boolean f27400c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f26960d;
+    public a f27401d;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -31,7 +31,7 @@ public class b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f26961b;
+        public int f27402b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public class b {
                 if (jSONObject != null) {
                     a aVar = new a();
                     aVar.a = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l) == 1;
-                    aVar.f26961b = jSONObject.optInt("max_auto_play_count");
+                    aVar.f27402b = jSONObject.optInt("max_auto_play_count");
                     return aVar;
                 }
                 return null;
@@ -82,9 +82,9 @@ public class b {
         if (interceptable == null || interceptable.invokeLZ(1048576, this, jSONObject, z) == null) {
             if (jSONObject != null) {
                 this.a = jSONObject.optString("start_live_scheme");
-                this.f26958b = jSONObject.optLong("timeout_refresh_time");
-                this.f26959c = jSONObject.optInt("feed_search_switch") == 1;
-                this.f26960d = a.a(jSONObject.optJSONObject("auto_play"));
+                this.f27399b = jSONObject.optLong("timeout_refresh_time");
+                this.f27400c = jSONObject.optInt("feed_search_switch") == 1;
+                this.f27401d = a.a(jSONObject.optJSONObject("auto_play"));
                 if (z) {
                     c.a.x.b.f.c.f("live_feed_page_config_cache_key", jSONObject.toString());
                 }
@@ -96,9 +96,9 @@ public class b {
                 try {
                     JSONObject jSONObject2 = new JSONObject(b2);
                     this.a = jSONObject2.optString("start_live_scheme");
-                    this.f26958b = jSONObject2.optLong("timeout_refresh_time");
-                    this.f26959c = jSONObject2.optInt("feed_search_switch") == 1;
-                    this.f26960d = a.a(jSONObject2.optJSONObject("auto_play"));
+                    this.f27399b = jSONObject2.optLong("timeout_refresh_time");
+                    this.f27400c = jSONObject2.optInt("feed_search_switch") == 1;
+                    this.f27401d = a.a(jSONObject2.optJSONObject("auto_play"));
                 } catch (JSONException unused) {
                     c.a.x.b.f.c.g("live_feed_page_config_cache_key");
                 }
@@ -110,7 +110,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f26960d;
+            a aVar = this.f27401d;
             if (aVar != null) {
                 return aVar.a;
             }

@@ -1,53 +1,83 @@
 package com.vivo.push;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppTagManager;
-import java.util.HashSet;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class m implements Runnable {
+public final class m {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ List a;
+    public static final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f63077b;
+    public static final HandlerThread f63091b;
 
-    public m(LocalAliasTagsManager localAliasTagsManager, List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager, list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* renamed from: c  reason: collision with root package name */
+    public static final Handler f63092c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1612095430, "Lcom/vivo/push/m;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1612095430, "Lcom/vivo/push/m;");
                 return;
             }
         }
-        this.f63077b = localAliasTagsManager;
-        this.a = list;
+        a = new Handler(Looper.getMainLooper());
+        HandlerThread handlerThread = new HandlerThread("push_client_thread");
+        f63091b = handlerThread;
+        handlerThread.start();
+        f63092c = new n(f63091b.getLooper());
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        List list;
-        ISubscribeAppTagManager iSubscribeAppTagManager;
+    public static void a(l lVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (list = this.a) == null || list.size() <= 0) {
+        if (interceptable == null || interceptable.invokeL(65537, null, lVar) == null) {
+            if (lVar == null) {
+                com.vivo.push.util.p.a("PushClientThread", "client thread error, task is null!");
+                return;
+            }
+            int a2 = lVar.a();
+            Message message = new Message();
+            message.what = a2;
+            message.obj = lVar;
+            f63092c.sendMessageDelayed(message, 0L);
+        }
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            a.post(runnable);
+        }
+    }
+
+    public static void c(Runnable runnable) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) || (handler = f63092c) == null) {
             return;
         }
-        HashSet hashSet = new HashSet();
-        for (String str : this.a) {
-            hashSet.add(str);
+        handler.post(runnable);
+    }
+
+    public static void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            f63092c.removeCallbacks(runnable);
+            f63092c.postDelayed(runnable, 15000L);
         }
-        iSubscribeAppTagManager = this.f63077b.mSubscribeAppTagManager;
-        iSubscribeAppTagManager.delTagsSuccess(hashSet);
     }
 }

@@ -15,19 +15,19 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d f27813e;
+    public final d f27887e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MediaPlayer f27814f;
+    public MediaPlayer f27888f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27815g;
+    public boolean f27889g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27816h;
+    public boolean f27890h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a.InterfaceC1591a f27817i;
+    public a.InterfaceC1595a f27891i;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -35,7 +35,7 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f27818e;
+        public final /* synthetic */ p f27892e;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
                     return;
                 }
             }
-            this.f27818e = pVar;
+            this.f27892e = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                p pVar = this.f27818e;
-                pVar.f27817i.a(pVar);
+                p pVar = this.f27892e;
+                pVar.f27891i.a(pVar);
             }
         }
     }
@@ -80,11 +80,11 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
                 return;
             }
         }
-        this.f27815g = true;
-        this.f27816h = false;
-        this.f27813e = dVar;
-        this.f27814f = mediaPlayer;
-        this.f27817i = null;
+        this.f27889g = true;
+        this.f27890h = false;
+        this.f27887e = dVar;
+        this.f27888f = mediaPlayer;
+        this.f27891i = null;
         mediaPlayer.setOnCompletionListener(this);
     }
 
@@ -92,7 +92,7 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MediaPlayer mediaPlayer = this.f27814f;
+            MediaPlayer mediaPlayer = this.f27888f;
             if (mediaPlayer == null) {
                 return false;
             }
@@ -111,16 +111,16 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
     public void dispose() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mediaPlayer = this.f27814f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mediaPlayer = this.f27888f) == null) {
             return;
         }
         try {
             try {
                 mediaPlayer.release();
             } finally {
-                this.f27814f = null;
-                this.f27817i = null;
-                this.f27813e.d(this);
+                this.f27888f = null;
+                this.f27891i = null;
+                this.f27887e.d(this);
             }
         } catch (Throwable unused) {
             c.b.b.f.a.log("AndroidMusic", "error while disposing AndroidMusic instance, non-fatal");
@@ -130,7 +130,7 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
     public void f() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f27814f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mediaPlayer = this.f27888f) == null) {
             return;
         }
         try {
@@ -138,11 +138,11 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
                 return;
             }
             try {
-                if (!this.f27815g) {
-                    this.f27814f.prepare();
-                    this.f27815g = true;
+                if (!this.f27889g) {
+                    this.f27888f.prepare();
+                    this.f27889g = true;
                 }
-                this.f27814f.start();
+                this.f27888f.start();
             } catch (IOException e2) {
                 e2.printStackTrace();
             } catch (IllegalStateException e3) {
@@ -156,7 +156,7 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
     @Override // android.media.MediaPlayer.OnCompletionListener
     public void onCompletion(MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) || this.f27817i == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) || this.f27891i == null) {
             return;
         }
         c.b.b.f.a.postRunnable(new a(this));
@@ -165,16 +165,16 @@ public class p implements c.b.b.k.a, MediaPlayer.OnCompletionListener {
     public void pause() {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mediaPlayer = this.f27814f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mediaPlayer = this.f27888f) == null) {
             return;
         }
         try {
             if (mediaPlayer.isPlaying()) {
-                this.f27814f.pause();
+                this.f27888f.pause();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f27816h = false;
+        this.f27890h = false;
     }
 }

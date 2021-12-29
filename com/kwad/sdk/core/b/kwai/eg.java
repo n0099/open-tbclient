@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class eg implements com.kwad.sdk.core.d<SdkConfigData.TemplateConfigMap> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public eg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, templateConfigMap, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         SdkConfigData.TemplateConfig templateConfig = new SdkConfigData.TemplateConfig();
@@ -63,22 +39,17 @@ public class eg implements com.kwad.sdk.core.d<SdkConfigData.TemplateConfigMap> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(SdkConfigData.TemplateConfigMap templateConfigMap, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, templateConfigMap, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadPopWindowConfig", templateConfigMap.downloadPopWindowConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "interactPageDialogTipsConfig", templateConfigMap.interactPageDialogTipsConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "insertScreenTemplateConfig", templateConfigMap.insertScreenTemplateConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "couponOpenConfig", templateConfigMap.couponOpenConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "couponInfoConfig", templateConfigMap.couponInfoConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadLandingPageConfig", templateConfigMap.downloadLandingPageConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "secDownloadPopWindowConfig", templateConfigMap.secDownloadPopWindowConfig);
-            com.kwad.sdk.utils.t.a(jSONObject, "rewardReflowConfig", templateConfigMap.rewardReflowConfig);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadPopWindowConfig", templateConfigMap.downloadPopWindowConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "interactPageDialogTipsConfig", templateConfigMap.interactPageDialogTipsConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "insertScreenTemplateConfig", templateConfigMap.insertScreenTemplateConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "couponOpenConfig", templateConfigMap.couponOpenConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "couponInfoConfig", templateConfigMap.couponInfoConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadLandingPageConfig", templateConfigMap.downloadLandingPageConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "secDownloadPopWindowConfig", templateConfigMap.secDownloadPopWindowConfig);
+        com.kwad.sdk.utils.t.a(jSONObject, "rewardReflowConfig", templateConfigMap.rewardReflowConfig);
+        return jSONObject;
     }
 }

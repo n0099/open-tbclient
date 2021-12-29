@@ -12,7 +12,7 @@ public abstract class x<E> extends u<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final long f64493k;
+    public static final long f64488k;
     public transient /* synthetic */ FieldHolder $fh;
     public long producerIndex;
 
@@ -29,7 +29,7 @@ public abstract class x<E> extends u<E> {
                 return;
             }
         }
-        f64493k = f0.a(x.class, "producerIndex");
+        f64488k = f0.a(x.class, "producerIndex");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

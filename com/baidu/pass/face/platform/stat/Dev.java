@@ -50,7 +50,7 @@ public class Dev {
         this.brand = "";
         this.sysVersion = "";
         this.packagename = "";
-        this.sdkVersion = a.f34611k;
+        this.sdkVersion = a.f34767k;
         this.firstRun = false;
     }
 

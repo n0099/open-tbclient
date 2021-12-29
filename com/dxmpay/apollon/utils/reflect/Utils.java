@@ -22,10 +22,10 @@ public class Utils {
     public static final Object[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f55774b;
+    public static final Class<?>[] f55773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f55775c;
+    public static final Pattern f55774c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,8 +42,8 @@ public class Utils {
             }
         }
         a = new Object[0];
-        f55774b = new Class[0];
-        f55775c = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        f55773b = new Class[0];
+        f55774c = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
     }
 
     public Utils() {
@@ -93,7 +93,7 @@ public class Utils {
     public static Class<?>[] c(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f55774b : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f55773b : clsArr : (Class[]) invokeL.objValue;
     }
 
     public static Class<?>[] d(Object... objArr) {
@@ -104,7 +104,7 @@ public class Utils {
                 return null;
             }
             if (objArr.length == 0) {
-                return f55774b;
+                return f55773b;
             }
             Class<?>[] clsArr = new Class[objArr.length];
             for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -186,6 +186,6 @@ public class Utils {
     public static boolean validateJavaIdentifier(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f55775c.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f55774c.matcher(str).matches() : invokeL.booleanValue;
     }
 }

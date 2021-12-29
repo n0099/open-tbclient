@@ -43,7 +43,7 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             this.context = r0;
-            this.lastStatus = a.f54849c;
+            this.lastStatus = a.f54852c;
             this.fresh = true;
             long[] jArr = {0, i2};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
@@ -56,7 +56,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 long j2 = this.context[1];
-                this.lastStatus = j2 == 1 ? a.f54848b : j2 == 2 ? a.f54849c : j2 == 3 ? a.f54850d : j2 == 4 ? a.f54851e : a.a;
+                this.lastStatus = j2 == 1 ? a.f54851b : j2 == 2 ? a.f54852c : j2 == 3 ? a.f54853d : j2 == 4 ? a.f54854e : a.a;
             }
         }
 
@@ -105,7 +105,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.context[0] != 0) {
-                    if (this.lastStatus == a.f54850d || hasOutput()) {
+                    if (this.lastStatus == a.f54853d || hasOutput()) {
                         this.fresh = false;
                         ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
                         parseStatus();
@@ -128,9 +128,9 @@ public class DecoderJNI implements INoProGuard {
                     throw new IOException("brotli decoder is already destroyed");
                 }
                 a aVar = this.lastStatus;
-                if (aVar != a.f54849c && aVar != a.f54851e) {
+                if (aVar != a.f54852c && aVar != a.f54854e) {
                     throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
-                } else if (this.lastStatus == a.f54851e && i2 != 0) {
+                } else if (this.lastStatus == a.f54854e && i2 != 0) {
                     throw new IOException("pushing input to decoder in OK state");
                 } else {
                     this.fresh = false;
@@ -148,19 +148,19 @@ public class DecoderJNI implements INoProGuard {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f54848b;
+        public static final a f54851b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f54849c;
+        public static final a f54852c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f54850d;
+        public static final a f54853d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f54851e;
+        public static final a f54854e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f54852f;
+        public static final /* synthetic */ a[] f54855f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -177,12 +177,12 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             a = new a("ERROR", 0);
-            f54848b = new a("DONE", 1);
-            f54849c = new a("NEEDS_MORE_INPUT", 2);
-            f54850d = new a("NEEDS_MORE_OUTPUT", 3);
+            f54851b = new a("DONE", 1);
+            f54852c = new a("NEEDS_MORE_INPUT", 2);
+            f54853d = new a("NEEDS_MORE_OUTPUT", 3);
             a aVar = new a(StatHelper.SENSOR_OK, 4);
-            f54851e = aVar;
-            f54852f = new a[]{a, f54848b, f54849c, f54850d, aVar};
+            f54854e = aVar;
+            f54855f = new a[]{a, f54851b, f54852c, f54853d, aVar};
         }
 
         public a(String str, int i2) {
@@ -213,7 +213,7 @@ public class DecoderJNI implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f54852f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f54855f.clone() : (a[]) invokeV.objValue;
         }
     }
 

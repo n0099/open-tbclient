@@ -1,9 +1,11 @@
 package com.baidu.searchbox.anr.collector;
 
 import android.os.Looper;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.anr.impl.ANRMonitor;
 import com.baidu.searchbox.anr.utils.Utils;
+import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -148,17 +150,15 @@ public class ANRCollector {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!new File("/data/anr/traces.txt").canRead()) {
-                return ThreadCollector.getThreadStack(Looper.getMainLooper().getThread());
-            }
-            return getMainTraceFromFile("/data/anr/traces.txt");
+            String mainTraceFromFile = new File("/data/anr/traces.txt").canRead() ? getMainTraceFromFile("/data/anr/traces.txt") : null;
+            return TextUtils.isEmpty(mainTraceFromFile) ? ThreadCollector.getThreadStack(Looper.getMainLooper().getThread()) : mainTraceFromFile;
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x00cc */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x00d5 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x00cf A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00d8 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r5v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
     /* JADX WARN: Type inference failed for: r5v2 */
     /* JADX WARN: Type inference failed for: r5v4, types: [java.io.BufferedReader] */
@@ -207,14 +207,14 @@ public class ANRCollector {
                             }
                             do {
                                 readLine2 = bufferedReader.readLine();
-                                if (readLine2 == null) {
-                                    String sb3 = sb.toString();
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                    return sb3;
+                                if (readLine2 != null && !readLine2.contains("----- end ")) {
                                 }
+                                String sb3 = sb.toString();
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException unused2) {
+                                }
+                                return sb3;
                             } while (!readLine2.contains("\"main\" prio="));
                             sb.append(readLine2);
                             sb.append(StringUtils.LF);

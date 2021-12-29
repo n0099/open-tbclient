@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -95,7 +94,7 @@ public class t {
                     }
                     String a2 = c1.a(readLine);
                     if (a2.contains(a) || a2.contains(f57433b)) {
-                        hashSet.add(a2.split(TrackUI.SEPERATOR)[0]);
+                        hashSet.add(a2.split("\t")[0]);
                     }
                 }
                 Iterator it = hashSet.iterator();

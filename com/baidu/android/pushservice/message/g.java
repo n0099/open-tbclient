@@ -13,7 +13,7 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f33207b;
+    public byte[] f33357b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -45,13 +45,13 @@ public class g {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.f33207b = bArr;
+            this.f33357b = bArr;
         }
     }
 
     public byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33207b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33357b : (byte[]) invokeV.objValue;
     }
 }

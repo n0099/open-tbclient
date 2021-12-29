@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
 public final class n implements o {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +55,8 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            return Log.e("VivoPush." + str, a + str2);
+            String concat = "VivoPush.".concat(String.valueOf(str));
+            return Log.e(concat, a + str2);
         }
         return invokeLL.intValue;
     }
@@ -64,7 +66,8 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            return Log.w("VivoPush." + str, a + str2);
+            String concat = "VivoPush.".concat(String.valueOf(str));
+            return Log.w(concat, a + str2);
         }
         return invokeLL.intValue;
     }
@@ -74,7 +77,8 @@ public final class n implements o {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return Log.d("VivoPush." + str, a + str2);
+            String concat = "VivoPush.".concat(String.valueOf(str));
+            return Log.d(concat, a + str2);
         }
         return invokeLL.intValue;
     }
@@ -85,7 +89,8 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
             if (p.a()) {
-                return Log.i("VivoPush." + str, a + str2);
+                String concat = "VivoPush.".concat(String.valueOf(str));
+                return Log.i(concat, a + str2);
             }
             return -1;
         }
@@ -98,7 +103,8 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
             if (p.a()) {
-                return Log.v("VivoPush." + str, a + str2);
+                String concat = "VivoPush.".concat(String.valueOf(str));
+                return Log.v(concat, a + str2);
             }
             return -1;
         }
@@ -109,10 +115,7 @@ public final class n implements o {
     public final int a(String str, Throwable th) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th)) == null) {
-            return Log.e("VivoPush." + str, Log.getStackTraceString(th));
-        }
-        return invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th)) == null) ? Log.e("VivoPush.".concat(String.valueOf(str)), Log.getStackTraceString(th)) : invokeLL.intValue;
     }
 
     @Override // com.vivo.push.util.o
@@ -121,7 +124,8 @@ public final class n implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, str2, th)) == null) {
             if (p.a()) {
-                return Log.i("VivoPush." + str, a + str2, th);
+                String concat = "VivoPush.".concat(String.valueOf(str));
+                return Log.i(concat, a + str2, th);
             }
             return -1;
         }
@@ -131,7 +135,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) && p.a()) {
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) && a()) {
             a(context, str, 2);
         }
     }
@@ -139,7 +143,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) && p.a()) {
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, context, str) == null) && a()) {
             a(context, str, 1);
         }
     }
@@ -149,7 +153,8 @@ public final class n implements o {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th)) == null) {
-            return Log.e("VivoPush." + str, a + str2, th);
+            String concat = "VivoPush.".concat(String.valueOf(str));
+            return Log.e(concat, a + str2, th);
         }
         return invokeLLL.intValue;
     }
@@ -164,38 +169,40 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && p.a()) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && a()) {
             a(context, str, 0);
         }
     }
 
     private void a(Context context, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, this, context, str, i2) == null) {
-            com.vivo.push.b.p pVar = new com.vivo.push.b.p();
-            pVar.b(str);
-            pVar.a(i2);
+        if (interceptable == null || interceptable.invokeLLI(65538, this, context, str, i2) == null) {
+            com.vivo.push.b.n nVar = new com.vivo.push.b.n();
+            nVar.b(str);
+            nVar.a(i2);
             if (i2 > 0) {
                 d("LogController", str);
             }
-            if (z.a(context)) {
-                pVar.a(true);
-                for (String str2 : s.c(context)) {
-                    a(context, pVar, str2);
+            if (context.getPackageName().equals("com.vivo.pushservice")) {
+                nVar.a(true);
+                Iterator<String> it = com.vivo.push.d.a.a().b().iterator();
+                while (it.hasNext()) {
+                    com.vivo.push.a.a.a(context, nVar, it.next());
                 }
                 return;
             }
-            pVar.a(false);
-            a(context, pVar, context.getPackageName());
+            nVar.a(false);
+            com.vivo.push.a.a.a(context, nVar, context.getPackageName());
         }
     }
 
-    public static void a(Context context, com.vivo.push.b.p pVar, String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, context, pVar, str) == null) {
-            if (str.contains(com.baidu.fsg.base.a.f34607g) || str.equals(s.b(context))) {
-                com.vivo.push.a.a.a(context, pVar, str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            p.a();
+            return com.vivo.push.d.a.a().c();
         }
+        return invokeV.booleanValue;
     }
 }

@@ -15,7 +15,7 @@ public class c {
     public static volatile String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f29354b;
+    public static final Object f29432b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class c {
                 return;
             }
         }
-        f29354b = new Object();
+        f29432b = new Object();
     }
 
     public static String a() {
@@ -41,7 +41,7 @@ public class c {
             if (a != null) {
                 return a;
             }
-            synchronized (f29354b) {
+            synchronized (f29432b) {
                 if (a != null) {
                     return a;
                 }

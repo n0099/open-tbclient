@@ -96,34 +96,34 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36202b = false;
+    public static boolean f36358b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f36203c = false;
+    public static boolean f36359c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f36204d = 0;
+    public static int f36360d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f36205e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f36361e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36206f = "https://loc.map.baidu.com/sdk.php";
+    public static String f36362f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f36207g = "no";
+    public static String f36363g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f36208h = false;
+    public static boolean f36364h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public static boolean f36209i = false;
+    public static boolean f36365i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f36210j = false;
+    public static boolean f36366j = false;
 
     /* renamed from: k  reason: collision with root package name */
-    public static boolean f36211k = false;
+    public static boolean f36367k = false;
     public static boolean l = false;
     public static boolean m = false;
     public static String n = "gcj02";
@@ -242,7 +242,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f36204d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f36360d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -261,7 +261,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f36204d;
+                    int i3 = f36360d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();

@@ -23,7 +23,7 @@ public class m extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f1910f;
+    public TextView f2337f;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class m extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextView textView = new TextView(getContext());
-            this.f1910f = textView;
+            this.f2337f = textView;
             textView.setEllipsize(TextUtils.TruncateAt.END);
-            this.f1910f.setMaxLines(2);
-            this.f1910f.setLineSpacing(c.a.c0.e0.a.d.b.b(1.33f), 1.0f);
-            this.f1910f.setTextColor(-1);
+            this.f2337f.setMaxLines(2);
+            this.f2337f.setLineSpacing(c.a.c0.e0.a.d.b.b(1.33f), 1.0f);
+            this.f2337f.setTextColor(-1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.topMargin = f.c.a(getContext(), 9.0f);
             layoutParams.rightMargin = f.c.a(getContext(), 15.0f);
             layoutParams.leftMargin = f.c.a(getContext(), 15.0f);
-            this.f1910f.setLayoutParams(layoutParams);
+            this.f2337f.setLayoutParams(layoutParams);
         }
     }
 
@@ -62,7 +62,7 @@ public class m extends g {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1910f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2337f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -155,14 +155,14 @@ public class m extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             t();
-            this.f1910f.setText((CharSequence) null);
+            this.f2337f.setText((CharSequence) null);
         }
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f1910f.setVisibility(8);
+            this.f2337f.setVisibility(8);
         }
     }
 
@@ -192,9 +192,9 @@ public class m extends g {
             if (o1 != null && o1.getSelectedVideo() != null) {
                 if (o1.getSelectedVideo().getShowTitle()) {
                     x();
-                    this.f1910f.setText(o1.getSelectedVideo().getTitle());
-                    this.f1910f.setTextSize(0, o1.getTitleSizePx());
-                    this.f1910f.setTypeface(Typeface.DEFAULT_BOLD);
+                    this.f2337f.setText(o1.getSelectedVideo().getTitle());
+                    this.f2337f.setTextSize(0, o1.getTitleSizePx());
+                    this.f2337f.setTypeface(Typeface.DEFAULT_BOLD);
                     return;
                 }
                 s();
@@ -207,7 +207,7 @@ public class m extends g {
     public final void x() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && u()) {
-            this.f1910f.setVisibility(0);
+            this.f2337f.setVisibility(0);
         }
     }
 }

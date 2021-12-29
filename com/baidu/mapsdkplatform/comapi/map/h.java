@@ -14,34 +14,34 @@ public final class h {
     public static final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f36935b;
+    public static final h f37091b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f36936c;
+    public static final h f37092c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f36937d;
+    public static final h f37093d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f36938e;
+    public static final h f37094e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f36939f;
+    public static final h f37095f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f36940g;
+    public static final h f37096g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f36941h;
+    public static final h f37097h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h f36942i;
+    public static final h f37098i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final h f36943j;
+    public static final h f37099j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final /* synthetic */ h[] f36944k;
+    public static final /* synthetic */ h[] f37100k;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -58,17 +58,17 @@ public final class h {
             }
         }
         a = new h("logo", 0);
-        f36935b = new h("popup", 1);
-        f36936c = new h("marker", 2);
-        f36937d = new h("ground", 3);
-        f36938e = new h("text", 4);
-        f36939f = new h("arc", 5);
-        f36940g = new h("dot", 6);
-        f36941h = new h("circle", 7);
-        f36942i = new h("polyline", 8);
+        f37091b = new h("popup", 1);
+        f37092c = new h("marker", 2);
+        f37093d = new h("ground", 3);
+        f37094e = new h("text", 4);
+        f37095f = new h("arc", 5);
+        f37096g = new h("dot", 6);
+        f37097h = new h("circle", 7);
+        f37098i = new h("polyline", 8);
         h hVar = new h("polygon", 9);
-        f36943j = hVar;
-        f36944k = new h[]{a, f36935b, f36936c, f36937d, f36938e, f36939f, f36940g, f36941h, f36942i, hVar};
+        f37099j = hVar;
+        f37100k = new h[]{a, f37091b, f37092c, f37093d, f37094e, f37095f, f37096g, f37097h, f37098i, hVar};
     }
 
     public h(String str, int i2) {
@@ -99,6 +99,6 @@ public final class h {
     public static h[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f36944k.clone() : (h[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (h[]) f37100k.clone() : (h[]) invokeV.objValue;
     }
 }

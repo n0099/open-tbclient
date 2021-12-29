@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.util.IOUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -530,7 +529,7 @@ public class JSONSerializer extends SerializeFilterable {
             }
         }
         this.indentCount = 0;
-        this.indent = TrackUI.SEPERATOR;
+        this.indent = "\t";
         this.references = null;
         this.timeZone = JSON.defaultTimeZone;
         this.locale = JSON.defaultLocale;

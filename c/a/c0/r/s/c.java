@@ -18,27 +18,27 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f1872g;
+    public static final byte[] f2299g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f1873h;
+    public static final c f2300h;
     public transient /* synthetic */ FieldHolder $fh;
     public BodyStyle a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1874b;
+    public String f2301b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1875c;
+    public String f2302c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f1876d;
+    public byte[] f2303d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f1877e;
+    public File f2304e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Map<String, String> f1878f;
+    public Map<String, String> f2305f;
 
     static {
         InterceptResult invokeClinit;
@@ -54,8 +54,8 @@ public class c {
             }
         }
         byte[] bArr = new byte[0];
-        f1872g = bArr;
-        f1873h = c(null, bArr);
+        f2299g = bArr;
+        f2300h = c(null, bArr);
         a(null, "");
         b(null, new HashMap());
     }
@@ -123,7 +123,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            this.f1876d = bArr;
+            this.f2303d = bArr;
             return this;
         }
         return (c) invokeL.objValue;
@@ -133,7 +133,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f1875c = str;
+            this.f2302c = str;
             return this;
         }
         return (c) invokeL.objValue;
@@ -143,7 +143,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f1874b = str;
+            this.f2301b = str;
             return this;
         }
         return (c) invokeL.objValue;
@@ -153,7 +153,7 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-            this.f1878f = map;
+            this.f2305f = map;
             return this;
         }
         return (c) invokeL.objValue;

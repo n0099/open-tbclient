@@ -33,7 +33,7 @@ public class DislikeBottomDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f38409e;
+    public d f38565e;
 
     /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
@@ -41,13 +41,13 @@ public class DislikeBottomDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f38410e;
+        public final /* synthetic */ List f38566e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f38411f;
+        public final /* synthetic */ AdBaseModel f38567f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ DislikeBottomDialog f38412g;
+        public final /* synthetic */ DislikeBottomDialog f38568g;
 
         public a(DislikeBottomDialog dislikeBottomDialog, List list, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -64,20 +64,20 @@ public class DislikeBottomDialog extends Dialog {
                     return;
                 }
             }
-            this.f38412g = dislikeBottomDialog;
-            this.f38410e = list;
-            this.f38411f = adBaseModel;
+            this.f38568g = dislikeBottomDialog;
+            this.f38566e = list;
+            this.f38567f = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f38412g.f38409e != null) {
-                    this.f38412g.f38409e.a(this.f38410e);
+                if (this.f38568g.f38565e != null) {
+                    this.f38568g.f38565e.a(this.f38566e);
                 }
-                this.f38412g.f(this.f38411f, this.f38410e);
-                this.f38412g.dismiss();
+                this.f38568g.f(this.f38567f, this.f38566e);
+                this.f38568g.dismiss();
             }
         }
     }
@@ -88,10 +88,10 @@ public class DislikeBottomDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f38413e;
+        public final /* synthetic */ AdBaseModel f38569e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DislikeBottomDialog f38414f;
+        public final /* synthetic */ DislikeBottomDialog f38570f;
 
         public b(DislikeBottomDialog dislikeBottomDialog, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -108,16 +108,16 @@ public class DislikeBottomDialog extends Dialog {
                     return;
                 }
             }
-            this.f38414f = dislikeBottomDialog;
-            this.f38413e = adBaseModel;
+            this.f38570f = dislikeBottomDialog;
+            this.f38569e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38414f.dismiss();
-                c.a.c0.d.c.c(this.f38413e.f38064e.f1783c, this.f38414f.getContext());
+                this.f38570f.dismiss();
+                c.a.c0.d.c.c(this.f38569e.f38220e.f2210c, this.f38570f.getContext());
             }
         }
     }
@@ -128,19 +128,19 @@ public class DislikeBottomDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f38415e;
+        public final /* synthetic */ b.a f38571e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ List f38416f;
+        public final /* synthetic */ List f38572f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ TextView f38417g;
+        public final /* synthetic */ TextView f38573g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ TextView f38418h;
+        public final /* synthetic */ TextView f38574h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ DislikeBottomDialog f38419i;
+        public final /* synthetic */ DislikeBottomDialog f38575i;
 
         public c(DislikeBottomDialog dislikeBottomDialog, b.a aVar, List list, TextView textView, TextView textView2) {
             Interceptable interceptable = $ic;
@@ -157,34 +157,34 @@ public class DislikeBottomDialog extends Dialog {
                     return;
                 }
             }
-            this.f38419i = dislikeBottomDialog;
-            this.f38415e = aVar;
-            this.f38416f = list;
-            this.f38417g = textView;
-            this.f38418h = textView2;
+            this.f38575i = dislikeBottomDialog;
+            this.f38571e = aVar;
+            this.f38572f = list;
+            this.f38573g = textView;
+            this.f38574h = textView2;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f38415e.c()) {
-                    this.f38415e.d(false);
-                    if (this.f38416f.contains(this.f38415e)) {
-                        c.a.c0.u.a.j(this.f38416f, this.f38415e);
+                if (this.f38571e.c()) {
+                    this.f38571e.d(false);
+                    if (this.f38572f.contains(this.f38571e)) {
+                        c.a.c0.u.a.j(this.f38572f, this.f38571e);
                     }
-                    if (this.f38416f.size() == 0) {
-                        this.f38417g.setText(view.getContext().getResources().getText(h.nad_dislike_dislike));
+                    if (this.f38572f.size() == 0) {
+                        this.f38573g.setText(view.getContext().getResources().getText(h.nad_dislike_dislike));
                     }
-                    this.f38418h.setTextColor(view.getContext().getResources().getColor(c.a.c0.b.b.NAD_FC1));
+                    this.f38574h.setTextColor(view.getContext().getResources().getColor(c.a.c0.b.b.NAD_FC1));
                     return;
                 }
-                this.f38415e.d(true);
-                if (!this.f38416f.contains(this.f38415e)) {
-                    c.a.c0.u.a.b(this.f38416f, this.f38415e);
+                this.f38571e.d(true);
+                if (!this.f38572f.contains(this.f38571e)) {
+                    c.a.c0.u.a.b(this.f38572f, this.f38571e);
                 }
-                this.f38418h.setTextColor(view.getContext().getResources().getColor(c.a.c0.b.b.NAD_FC13));
-                this.f38417g.setText(view.getContext().getResources().getText(h.nad_dislike_done));
+                this.f38574h.setTextColor(view.getContext().getResources().getColor(c.a.c0.b.b.NAD_FC13));
+                this.f38573g.setText(view.getContext().getResources().getText(h.nad_dislike_done));
             }
         }
     }
@@ -233,9 +233,9 @@ public class DislikeBottomDialog extends Dialog {
             LinearLayout linearLayout = (LinearLayout) inflate.findViewById(e.layout_enum);
             LayoutInflater from = LayoutInflater.from(inflate.getContext());
             TextView textView2 = (TextView) inflate.findViewById(e.tv_why_show_ad);
-            if (adBaseModel != null && (bVar = adBaseModel.f38064e) != null && !TextUtils.isEmpty(bVar.f1783c)) {
-                if (!TextUtils.isEmpty(adBaseModel.f38064e.a)) {
-                    textView2.setText(adBaseModel.f38064e.a);
+            if (adBaseModel != null && (bVar = adBaseModel.f38220e) != null && !TextUtils.isEmpty(bVar.f2210c)) {
+                if (!TextUtils.isEmpty(adBaseModel.f38220e.a)) {
+                    textView2.setText(adBaseModel.f38220e.a);
                 }
                 textView2.setVisibility(0);
                 textView2.setOnClickListener(new b(this, adBaseModel));
@@ -275,10 +275,10 @@ public class DislikeBottomDialog extends Dialog {
         c.a.c0.p.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (bVar = adBaseModel.f38064e) == null) {
+            if (adBaseModel == null || (bVar = adBaseModel.f38220e) == null) {
                 return null;
             }
-            return bVar.f1782b;
+            return bVar.f2209b;
         }
         return (List) invokeL.objValue;
     }
@@ -306,7 +306,7 @@ public class DislikeBottomDialog extends Dialog {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, adBaseModel, list) == null) || adBaseModel == null) {
             return;
         }
-        c.a.c0.x.a.b(new c.a.c0.x.c.b().d(getReasons(list)).f(adBaseModel.f38063d.f1800b).e(c.a.c0.e.a.a().b()));
+        c.a.c0.x.a.b(new c.a.c0.x.c.b().d(getReasons(list)).f(adBaseModel.f38219d.f2227b).e(c.a.c0.e.a.a().b()));
     }
 
     public String getReasons(List<b.a> list) {
@@ -331,7 +331,7 @@ public class DislikeBottomDialog extends Dialog {
     public void setDislikeListener(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f38409e = dVar;
+            this.f38565e = dVar;
         }
     }
 

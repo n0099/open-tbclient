@@ -1,39 +1,15 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.live.mode.LiveInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class cg implements com.kwad.sdk.core.d<LiveInfo> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public cg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(LiveInfo liveInfo, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveInfo, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         liveInfo.livingLink = jSONObject.optString("livingLink");
@@ -106,29 +82,24 @@ public class cg implements com.kwad.sdk.core.d<LiveInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(LiveInfo liveInfo, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, liveInfo, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "livingLink", liveInfo.livingLink);
-            com.kwad.sdk.utils.t.a(jSONObject, "shennongjiaLog", liveInfo.shennongjiaLog);
-            com.kwad.sdk.utils.t.a(jSONObject, "nebulaKwaiLink", liveInfo.nebulaKwaiLink);
-            com.kwad.sdk.utils.t.a(jSONObject, "linkCode", liveInfo.linkCode);
-            com.kwad.sdk.utils.t.a(jSONObject, "liveStreamId", liveInfo.liveStreamId);
-            com.kwad.sdk.utils.t.a(jSONObject, "title", liveInfo.title);
-            com.kwad.sdk.utils.t.a(jSONObject, "coverUrl", liveInfo.coverUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "user", liveInfo.user);
-            com.kwad.sdk.utils.t.a(jSONObject, "coverUrlCdn", liveInfo.coverUrlCdn);
-            com.kwad.sdk.utils.t.a(jSONObject, "playInfo", liveInfo.playInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "audienceCount", liveInfo.audienceCount);
-            com.kwad.sdk.utils.t.a(jSONObject, "caption", liveInfo.caption);
-            com.kwad.sdk.utils.t.a(jSONObject, "cover_thumbnail_urls", liveInfo.cover_thumbnail_urls);
-            com.kwad.sdk.utils.t.a(jSONObject, "exp_tag", liveInfo.exp_tag);
-            com.kwad.sdk.utils.t.a(jSONObject, "liveStreamPlayCdnList", liveInfo.liveStreamPlayCdnList);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "livingLink", liveInfo.livingLink);
+        com.kwad.sdk.utils.t.a(jSONObject, "shennongjiaLog", liveInfo.shennongjiaLog);
+        com.kwad.sdk.utils.t.a(jSONObject, "nebulaKwaiLink", liveInfo.nebulaKwaiLink);
+        com.kwad.sdk.utils.t.a(jSONObject, "linkCode", liveInfo.linkCode);
+        com.kwad.sdk.utils.t.a(jSONObject, "liveStreamId", liveInfo.liveStreamId);
+        com.kwad.sdk.utils.t.a(jSONObject, "title", liveInfo.title);
+        com.kwad.sdk.utils.t.a(jSONObject, "coverUrl", liveInfo.coverUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "user", liveInfo.user);
+        com.kwad.sdk.utils.t.a(jSONObject, "coverUrlCdn", liveInfo.coverUrlCdn);
+        com.kwad.sdk.utils.t.a(jSONObject, "playInfo", liveInfo.playInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "audienceCount", liveInfo.audienceCount);
+        com.kwad.sdk.utils.t.a(jSONObject, "caption", liveInfo.caption);
+        com.kwad.sdk.utils.t.a(jSONObject, "cover_thumbnail_urls", liveInfo.cover_thumbnail_urls);
+        com.kwad.sdk.utils.t.a(jSONObject, "exp_tag", liveInfo.exp_tag);
+        com.kwad.sdk.utils.t.a(jSONObject, "liveStreamPlayCdnList", liveInfo.liveStreamPlayCdnList);
+        return jSONObject;
     }
 }

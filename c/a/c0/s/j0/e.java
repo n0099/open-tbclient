@@ -28,7 +28,7 @@ public class e extends n {
     }
 
     @Override // c.a.c0.s.j0.n
-    public void f0() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c.a.c0.s.f bindPlayer = u();
@@ -41,7 +41,7 @@ public class e extends n {
                 mThumbSeekBar.setVisibility(4);
                 return;
             }
-            super.f0();
+            super.Y();
         }
     }
 

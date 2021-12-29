@@ -24,7 +24,7 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -217,7 +217,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f41671e;
+        public final /* synthetic */ NavigationBar f41830e;
 
         public a(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -234,7 +234,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f41671e = navigationBar;
+            this.f41830e = navigationBar;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -242,10 +242,10 @@ public class NavigationBar extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.f41671e.mContentLayout.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.f41830e.mContentLayout.getLayoutParams();
                 if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = intValue;
-                    this.f41671e.mContentLayout.setLayoutParams(layoutParams);
+                    this.f41830e.mContentLayout.setLayoutParams(layoutParams);
                 }
             }
         }
@@ -257,7 +257,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f41672e;
+        public final /* synthetic */ NavigationBar f41831e;
 
         public b(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f41672e = navigationBar;
+            this.f41831e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -291,7 +291,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f41673e;
+        public final /* synthetic */ NavigationBar f41832e;
 
         public c(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -308,18 +308,18 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f41673e = navigationBar;
+            this.f41832e = navigationBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f41673e.mClickIsVaild) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f41832e.mClickIsVaild) {
                 int id = view.getId();
                 if (id == R.id.navigationBarGoBack) {
-                    this.f41673e.mCurrentActivity.finish();
+                    this.f41832e.mCurrentActivity.finish();
                 } else if (id == R.id.navigationBarHome) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f41673e.mCurrentActivity));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.f41832e.mCurrentActivity));
                 }
             }
         }
@@ -331,7 +331,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f41674e;
+        public final /* synthetic */ NavigationBar f41833e;
 
         public d(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f41674e = navigationBar;
+            this.f41833e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -362,7 +362,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f41674e.mNavIsShow = false;
+                this.f41833e.mNavIsShow = false;
             }
         }
 
@@ -387,7 +387,7 @@ public class NavigationBar extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBar f41675e;
+        public final /* synthetic */ NavigationBar f41834e;
 
         public e(NavigationBar navigationBar) {
             Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public class NavigationBar extends RelativeLayout {
                     return;
                 }
             }
-            this.f41675e = navigationBar;
+            this.f41834e = navigationBar;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -418,7 +418,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f41675e.mNavIsShow = true;
+                this.f41834e.mNavIsShow = true;
             }
         }
 
@@ -433,7 +433,7 @@ public class NavigationBar extends RelativeLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f41675e.mNavIsShow = true;
+                this.f41834e.mNavIsShow = true;
             }
         }
     }
@@ -461,7 +461,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = m.f(getContext(), R.dimen.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
@@ -746,7 +746,7 @@ public class NavigationBar extends RelativeLayout {
     public void initPadding() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            setPadding(m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+            setPadding(n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
         }
     }
 
@@ -797,7 +797,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048611, this, fVar, i2) == null) {
             if (this.mIsCorner) {
-                c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(this);
+                c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(R.color.CAM_X0208);
@@ -951,7 +951,7 @@ public class NavigationBar extends RelativeLayout {
     public void setContentPaddingTop(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.mContentLayout.setPadding(m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i2, m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), m.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+            this.mContentLayout.setPadding(n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i2, n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), n.d(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
         }
     }
 
@@ -1335,7 +1335,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = m.f(getContext(), R.dimen.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;
@@ -1369,7 +1369,7 @@ public class NavigationBar extends RelativeLayout {
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
         this.mTopPadding = 0;
-        this.mNavHeight = m.f(getContext(), R.dimen.ds88);
+        this.mNavHeight = n.f(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.CAM_X0204;
         this.mNavIsShow = true;

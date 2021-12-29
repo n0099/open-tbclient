@@ -8,10 +8,11 @@ import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.l.e;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.d.m.d.a;
-import c.a.r0.d1.t;
+import c.a.d.f.p.f;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.d.n.d.a;
+import c.a.s0.e1.t;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -105,7 +106,7 @@ public class BigImageLoaderProc implements e<a> {
                 bVar.a = diskCancelWorker;
             }
             if (d.f().a(newDiskPicOperate)) {
-                int i2 = k.H() ? 500 : 2000;
+                int i2 = l.H() ? 500 : 2000;
                 synchronized (bArr) {
                     try {
                         bArr.wait(i2);
@@ -333,9 +334,9 @@ public class BigImageLoaderProc implements e<a> {
             Bitmap Bytes2Bitmap = bArr != null ? BitmapHelper.Bytes2Bitmap(bArr) : null;
             if (Bytes2Bitmap == null) {
                 if (booleanValue && str.startsWith("/")) {
-                    Bytes2Bitmap = c.a.d.f.p.e.d().c(str);
+                    Bytes2Bitmap = f.d().c(str);
                     if (Bytes2Bitmap != null && bArr == null) {
-                        bArr = c.a.d.f.p.e.d().a(Bytes2Bitmap, 100);
+                        bArr = f.d().a(Bytes2Bitmap, 100);
                     }
                 } else {
                     bArr = getFromLocalData(str, bVar);
@@ -345,7 +346,7 @@ public class BigImageLoaderProc implements e<a> {
                 }
             }
             if (Bytes2Bitmap != null) {
-                return new a(Bytes2Bitmap, m.A(bArr), str2, bArr);
+                return new a(Bytes2Bitmap, n.A(bArr), str2, bArr);
             }
             return null;
         }
@@ -397,7 +398,7 @@ public class BigImageLoaderProc implements e<a> {
                         needCache = webClient.needCache();
                         if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                             BdLog.e("BIGIMAGE imagesize too big");
-                            c.a.r0.s.c0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                            c.a.s0.s.b0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                         }
                         if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                             try {
@@ -424,7 +425,7 @@ public class BigImageLoaderProc implements e<a> {
                         if (needCache && !webClient.isCrackPic) {
                             updateLocal(str, downloadImageBytes, false, bVar);
                         }
-                        a aVar = new a(bitmap, m.A(downloadImageBytes), str, downloadImageBytes);
+                        a aVar = new a(bitmap, n.A(downloadImageBytes), str, downloadImageBytes);
                         aVar.y(needCache);
                         return aVar;
                     }
@@ -438,7 +439,7 @@ public class BigImageLoaderProc implements e<a> {
                 needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess()) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    c.a.r0.s.c0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    c.a.s0.s.b0.a.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302) {
                     InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete_big2, new TypedValue());
@@ -460,7 +461,7 @@ public class BigImageLoaderProc implements e<a> {
                 if (needCache) {
                     updateLocal(str, downloadImageBytes, false, bVar);
                 }
-                a aVar2 = new a(bitmap, m.A(downloadImageBytes), str, downloadImageBytes);
+                a aVar2 = new a(bitmap, n.A(downloadImageBytes), str, downloadImageBytes);
                 aVar2.y(needCache);
                 return aVar2;
             }

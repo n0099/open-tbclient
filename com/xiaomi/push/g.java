@@ -42,10 +42,10 @@ public class g {
         public static final /* synthetic */ a[] f426a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f63487b;
+        public static final a f63482b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f63488c;
+        public static final a f63483c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -65,10 +65,10 @@ public class g {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, 0);
-            f63487b = new a("ALLOWED", 1, 1);
+            f63482b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f63488c = aVar;
-            f426a = new a[]{a, f63487b, aVar};
+            f63483c = aVar;
+            f426a = new a[]{a, f63482b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -189,7 +189,7 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f63487b : a.f63488c;
+                    return bool.booleanValue() ? a.f63482b : a.f63483c;
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.m122a("are notifications enabled error " + e2);
@@ -233,7 +233,7 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f63487b : a.f63488c : num2.equals(i2) ? a.f63487b : a.f63488c;
+                return z ? !num2.equals(i3) ? a.f63482b : a.f63483c : num2.equals(i2) ? a.f63482b : a.f63483c;
             }
             return a.a;
         }

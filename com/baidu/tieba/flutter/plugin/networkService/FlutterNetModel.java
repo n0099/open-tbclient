@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.networkService;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.m.e;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
@@ -130,7 +130,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f2395h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f2822h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                         long g2 = b.g(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (g2 > 0) {
@@ -282,7 +282,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
             if (this.httpCallback == null && TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("NetModel must have callback");
             }
-            this.isNetOk = m.C();
+            this.isNetOk = n.C();
             if (this.timeout >= 10) {
                 e.a().postDelayed(getTimeoutRunnable(), this.timeout * 1000);
             }

@@ -11,7 +11,7 @@ public class a {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<d> f27995b;
+    public c.b.b.q.a<d> f28069b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,6 @@ public class a {
                 return;
             }
         }
-        this.f27995b = new c.b.b.q.a<>();
+        this.f28069b = new c.b.b.q.a<>();
     }
 }

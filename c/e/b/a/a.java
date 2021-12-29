@@ -36,49 +36,49 @@ public class a implements IBeanResponseCallback {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f28854h;
+    public static Handler f28928h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f28855e;
+    public Activity f28929e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile MarketDialogResponse f28856f;
+    public volatile MarketDialogResponse f28930f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.e.b.a.c.a f28857g;
+    public c.e.b.a.c.a f28931g;
 
     /* renamed from: c.e.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC1609a implements Runnable {
+    public class RunnableC1613a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28858e;
+        public final /* synthetic */ a f28932e;
 
         /* renamed from: c.e.b.a.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1610a implements MarketBaseDialog.b {
+        public class C1614a implements MarketBaseDialog.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f28859b;
+            public final /* synthetic */ int f28933b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ int f28860c;
+            public final /* synthetic */ int f28934c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ RunnableC1609a f28861d;
+            public final /* synthetic */ RunnableC1613a f28935d;
 
-            public C1610a(RunnableC1609a runnableC1609a, String str, int i2, int i3) {
+            public C1614a(RunnableC1613a runnableC1613a, String str, int i2, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC1609a, str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {runnableC1613a, str, Integer.valueOf(i2), Integer.valueOf(i3)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i4 = newInitContext.flag;
                     if ((i4 & 1) != 0) {
@@ -88,17 +88,17 @@ public class a implements IBeanResponseCallback {
                         return;
                     }
                 }
-                this.f28861d = runnableC1609a;
+                this.f28935d = runnableC1613a;
                 this.a = str;
-                this.f28859b = i2;
-                this.f28860c = i3;
+                this.f28933b = i2;
+                this.f28934c = i3;
             }
 
             @Override // com.dxm.credit.marketdialog.ui.MarketBaseDialog.b
             public boolean a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.e.b.a.b.a.e(this.f28861d.f28858e.f28855e, this.a, this.f28859b, this.f28860c) : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c.e.b.a.b.a.e(this.f28935d.f28932e.f28929e, this.a, this.f28933b, this.f28934c) : invokeV.booleanValue;
             }
         }
 
@@ -109,20 +109,20 @@ public class a implements IBeanResponseCallback {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ String f28862e;
+            public final /* synthetic */ String f28936e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f28863f;
+            public final /* synthetic */ int f28937f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ RunnableC1609a f28864g;
+            public final /* synthetic */ RunnableC1613a f28938g;
 
-            public b(RunnableC1609a runnableC1609a, String str, int i2) {
+            public b(RunnableC1613a runnableC1613a, String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC1609a, str, Integer.valueOf(i2)};
+                    Object[] objArr = {runnableC1613a, str, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -132,21 +132,21 @@ public class a implements IBeanResponseCallback {
                         return;
                     }
                 }
-                this.f28864g = runnableC1609a;
-                this.f28862e = str;
-                this.f28863f = i2;
+                this.f28938g = runnableC1613a;
+                this.f28936e = str;
+                this.f28937f = i2;
             }
 
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    c.e.b.a.b.a.c(this.f28864g.f28858e.f28855e, this.f28862e, this.f28863f);
+                    c.e.b.a.b.a.c(this.f28938g.f28932e.f28929e, this.f28936e, this.f28937f);
                 }
             }
         }
 
-        public RunnableC1609a(a aVar) {
+        public RunnableC1613a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class a implements IBeanResponseCallback {
                     return;
                 }
             }
-            this.f28858e = aVar;
+            this.f28932e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -170,24 +170,24 @@ public class a implements IBeanResponseCallback {
             MarketBaseDialog c2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f28858e.f28856f.isPollingChanged() && this.f28858e.f28856f.polling != null) {
+                if (this.f28932e.f28930f.isPollingChanged() && this.f28932e.f28930f.polling != null) {
                     int i2 = -1;
-                    for (MarketDialogResponse.Dialog dialog : this.f28858e.f28856f.polling) {
-                        if (c.e.b.a.b.a.e(this.f28858e.f28855e, dialog.group_md5, StringUtils.parseInt(dialog.group_limit), StringUtils.parseInt(dialog.group_day_limit)) && (c2 = this.f28858e.c(dialog)) != null) {
+                    for (MarketDialogResponse.Dialog dialog : this.f28932e.f28930f.polling) {
+                        if (c.e.b.a.b.a.e(this.f28932e.f28929e, dialog.group_md5, StringUtils.parseInt(dialog.group_limit), StringUtils.parseInt(dialog.group_day_limit)) && (c2 = this.f28932e.c(dialog)) != null) {
                             int i3 = i2 + 1;
                             c2.setIndex(i2);
                             String str = dialog.group_md5;
                             int parseInt = StringUtils.parseInt(dialog.group_limit);
                             int parseInt2 = StringUtils.parseInt(dialog.group_day_limit);
-                            c2.setRule(new C1610a(this, str, parseInt, parseInt2));
+                            c2.setRule(new C1614a(this, str, parseInt, parseInt2));
                             c2.setOnShowListener(new b(this, str, parseInt2));
-                            this.f28858e.f28857g.c(c2);
+                            this.f28932e.f28931g.c(c2);
                             i2 = i3;
                         }
                     }
                 }
-                this.f28858e.f28856f.setPollingChanged(false);
-                this.f28858e.f28857g.h();
+                this.f28932e.f28930f.setPollingChanged(false);
+                this.f28932e.f28931g.h();
             }
         }
     }
@@ -245,7 +245,7 @@ public class a implements IBeanResponseCallback {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public MarketDialogResponse f28865b;
+        public MarketDialogResponse f28939b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(Context context, String str, MarketDialogResponse marketDialogResponse) {
@@ -267,7 +267,7 @@ public class a implements IBeanResponseCallback {
             }
             this.a = "0";
             this.a = str;
-            this.f28865b = marketDialogResponse;
+            this.f28939b = marketDialogResponse;
         }
 
         @Override // com.baidu.apollon.beans.ApollonBean
@@ -285,9 +285,9 @@ public class a implements IBeanResponseCallback {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 ArrayList arrayList = new ArrayList();
-                if (this.f28865b != null) {
-                    LogUtil.d("market", "bean o = " + this.f28865b.polling_md5);
-                    restNameValuePair = new RestNameValuePair("polling_md5", TextUtils.isEmpty(this.f28865b.polling_md5) ? "" : this.f28865b.polling_md5);
+                if (this.f28939b != null) {
+                    LogUtil.d("market", "bean o = " + this.f28939b.polling_md5);
+                    restNameValuePair = new RestNameValuePair("polling_md5", TextUtils.isEmpty(this.f28939b.polling_md5) ? "" : this.f28939b.polling_md5);
                 } else {
                     restNameValuePair = new RestNameValuePair("polling_md5", "");
                 }
@@ -338,9 +338,9 @@ public class a implements IBeanResponseCallback {
         if (activity == null) {
             return;
         }
-        this.f28855e = activity;
-        this.f28857g = new c.e.b.a.c.a(activity);
-        f28854h = new Handler(activity.getMainLooper());
+        this.f28929e = activity;
+        this.f28931g = new c.e.b.a.c.a(activity);
+        f28928h = new Handler(activity.getMainLooper());
         j();
     }
 
@@ -349,18 +349,18 @@ public class a implements IBeanResponseCallback {
         MarketBaseDialog marketWebViewDialog;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialog)) == null) {
-            if (this.f28855e.isFinishing() || this.f28857g == null || dialog == null || TextUtils.isEmpty(dialog.group_md5)) {
+            if (this.f28929e.isFinishing() || this.f28931g == null || dialog == null || TextUtils.isEmpty(dialog.group_md5)) {
                 return null;
             }
             if (TextUtils.equals(dialog.group_layout, "t3")) {
                 if (!TextUtils.isEmpty(dialog.group_img)) {
-                    marketWebViewDialog = new Market3Dialog(this.f28855e);
+                    marketWebViewDialog = new Market3Dialog(this.f28929e);
                     h(dialog.group_img);
                 }
                 marketWebViewDialog = null;
             } else {
                 if (TextUtils.equals(dialog.group_layout, "t8") && !TextUtils.isEmpty(dialog.group_link_addr)) {
-                    marketWebViewDialog = new MarketWebViewDialog(this.f28855e);
+                    marketWebViewDialog = new MarketWebViewDialog(this.f28929e);
                 }
                 marketWebViewDialog = null;
             }
@@ -379,19 +379,19 @@ public class a implements IBeanResponseCallback {
     public c.e.b.a.c.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28857g : (c.e.b.a.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28931g : (c.e.b.a.c.a) invokeV.objValue;
     }
 
     public void e(String str) {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            LogUtil.d("market", "requestMarketDialog = " + this.f28856f);
-            WeakReference weakReference = new WeakReference(this.f28855e);
+            LogUtil.d("market", "requestMarketDialog = " + this.f28930f);
+            WeakReference weakReference = new WeakReference(this.f28929e);
             if (weakReference.get() == null || (activity = (Activity) weakReference.get()) == null) {
                 return;
             }
-            c cVar = new c(activity, str, this.f28856f);
+            c cVar = new c(activity, str, this.f28930f);
             cVar.setResponseCallback(this);
             cVar.execBean();
         }
@@ -399,10 +399,10 @@ public class a implements IBeanResponseCallback {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f28856f != null && this.f28856f.isPollingChanged()) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f28930f != null && this.f28930f.isPollingChanged()) {
             try {
-                String json = JsonUtils.toJson(this.f28856f);
-                FileCopyUtils.copyToFile(json, new File(this.f28855e.getApplication().getCacheDir() + "/popwindow_config.cfg"));
+                String json = JsonUtils.toJson(this.f28930f);
+                FileCopyUtils.copyToFile(json, new File(this.f28929e.getApplication().getCacheDir() + "/popwindow_config.cfg"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -412,19 +412,19 @@ public class a implements IBeanResponseCallback {
     public final void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            ImageLoader.getInstance(this.f28855e).getBitmapFromDiskOrNet(str, new b(this), null, 0);
+            ImageLoader.getInstance(this.f28929e).getBitmapFromDiskOrNet(str, new b(this), null, 0);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f28855e.isFinishing() || this.f28855e.isRestricted()) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f28929e.isFinishing() || this.f28929e.isRestricted()) {
             return;
         }
-        if (Build.VERSION.SDK_INT >= 17 && this.f28855e.isDestroyed()) {
+        if (Build.VERSION.SDK_INT >= 17 && this.f28929e.isDestroyed()) {
             return;
         }
-        File file = new File(this.f28855e.getCacheDir() + "/popwindow_config.cfg");
+        File file = new File(this.f28929e.getCacheDir() + "/popwindow_config.cfg");
         FileReader fileReader = null;
         try {
             try {
@@ -433,9 +433,9 @@ public class a implements IBeanResponseCallback {
                         FileReader fileReader2 = new FileReader(file);
                         try {
                             String copyToString = FileCopyUtils.copyToString(fileReader2);
-                            if (!TextUtils.isEmpty(copyToString) && this.f28856f == null) {
-                                this.f28856f = (MarketDialogResponse) JsonUtils.fromJson(copyToString, MarketDialogResponse.class);
-                                LogUtil.d("market", "get cache data o = " + this.f28856f.polling_md5);
+                            if (!TextUtils.isEmpty(copyToString) && this.f28930f == null) {
+                                this.f28930f = (MarketDialogResponse) JsonUtils.fromJson(copyToString, MarketDialogResponse.class);
+                                LogUtil.d("market", "get cache data o = " + this.f28930f.polling_md5);
                             }
                             fileReader = fileReader2;
                         } catch (Exception e2) {
@@ -485,18 +485,18 @@ public class a implements IBeanResponseCallback {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048583, this, i2, obj, str) == null) && obj != null && (obj instanceof MarketDialogResponse)) {
             MarketDialogResponse marketDialogResponse = (MarketDialogResponse) obj;
-            if (this.f28856f == null) {
+            if (this.f28930f == null) {
                 LogUtil.d("market", " m is null success o = " + marketDialogResponse);
-                this.f28856f = marketDialogResponse;
-                if (this.f28856f.polling != null && this.f28856f.polling.length > 0) {
-                    this.f28856f.setPollingChanged(true);
+                this.f28930f = marketDialogResponse;
+                if (this.f28930f.polling != null && this.f28930f.polling.length > 0) {
+                    this.f28930f.setPollingChanged(true);
                 }
             } else if (i2 == 65280) {
                 LogUtil.d("market", " m is not null success o = " + marketDialogResponse);
-                this.f28856f.setNetResponse(this.f28855e, marketDialogResponse);
+                this.f28930f.setNetResponse(this.f28929e, marketDialogResponse);
             }
             g();
-            f28854h.post(new RunnableC1609a(this));
+            f28928h.post(new RunnableC1613a(this));
         }
     }
 }

@@ -6,7 +6,7 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2130a {
+    public interface InterfaceC2137a {
         void a(a aVar);
     }
 

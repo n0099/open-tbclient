@@ -17,7 +17,7 @@ public class m {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1461b;
+    public static String f1888b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -91,7 +91,7 @@ public class m {
             switch (c2) {
                 case 0:
                     String e2 = e("ro.build.version.emui");
-                    f1461b = e2;
+                    f1888b = e2;
                     if (!TextUtils.isEmpty(e2)) {
                         a = "EMUI";
                         return "EMUI";
@@ -99,7 +99,7 @@ public class m {
                     return d();
                 case 1:
                     String e3 = e("ro.miui.ui.version.name");
-                    f1461b = e3;
+                    f1888b = e3;
                     if (!TextUtils.isEmpty(e3)) {
                         a = "MIUI";
                         return "MIUI";
@@ -107,7 +107,7 @@ public class m {
                     return d();
                 case 2:
                     String e4 = e("ro.build.version.opporom");
-                    f1461b = e4;
+                    f1888b = e4;
                     if (!TextUtils.isEmpty(e4)) {
                         a = "OPPO";
                         return "OPPO";
@@ -115,7 +115,7 @@ public class m {
                     return d();
                 case 3:
                     String e5 = e("ro.vivo.os.version");
-                    f1461b = e5;
+                    f1888b = e5;
                     if (!TextUtils.isEmpty(e5)) {
                         a = "VIVO";
                         return "VIVO";
@@ -123,7 +123,7 @@ public class m {
                     return d();
                 case 4:
                     String e6 = e("ro.smartisan.version");
-                    f1461b = e6;
+                    f1888b = e6;
                     if (!TextUtils.isEmpty(e6)) {
                         a = "SMARTISAN";
                         return "SMARTISAN";
@@ -131,7 +131,7 @@ public class m {
                     return d();
                 case 5:
                     String e7 = e(RomUtils.KEY_VERSION_GIONEE);
-                    f1461b = e7;
+                    f1888b = e7;
                     if (!TextUtils.isEmpty(e7)) {
                         a = RomUtils.ROM_GIONEE;
                         return RomUtils.ROM_GIONEE;
@@ -139,7 +139,7 @@ public class m {
                     return d();
                 case 6:
                     String e8 = e(RomUtils.KEY_VERSION_NUBIA);
-                    f1461b = e8;
+                    f1888b = e8;
                     if (!TextUtils.isEmpty(e8)) {
                         a = RomUtils.ROM_NUBIA;
                         return RomUtils.ROM_NUBIA;
@@ -179,11 +179,11 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String str = Build.DISPLAY;
-            f1461b = str;
+            f1888b = str;
             if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
                 a = "FLYME";
             } else {
-                f1461b = "unknown";
+                f1888b = "unknown";
                 a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
             }
             return a;

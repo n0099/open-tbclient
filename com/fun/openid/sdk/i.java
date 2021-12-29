@@ -10,7 +10,7 @@ public class i {
     public static f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f56343b;
+    public static boolean f56342b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public i() {

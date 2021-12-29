@@ -7,101 +7,61 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class al {
-    public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(408734359, "Lcom/kwad/sdk/utils/al;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(408734359, "Lcom/kwad/sdk/utils/al;");
-        }
-    }
 
     public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "" : (String) invokeV.objValue;
+        return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
     }
 
     public static String a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                String a2 = a();
-                a = a2;
-                if (TextUtils.isEmpty(a2)) {
-                    String b2 = b();
-                    a = b2;
-                    if (TextUtils.isEmpty(b2)) {
-                        String b3 = b(context);
-                        a = b3;
-                        return b3;
-                    }
-                    return a;
+        if (TextUtils.isEmpty(a)) {
+            String a2 = a();
+            a = a2;
+            if (TextUtils.isEmpty(a2)) {
+                String b2 = b();
+                a = b2;
+                if (TextUtils.isEmpty(b2)) {
+                    String b3 = b(context);
+                    a = b3;
+                    return b3;
                 }
                 return a;
             }
             return a;
         }
-        return (String) invokeL.objValue;
+        return a;
     }
 
     public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                Method declaredMethod = Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()).getDeclaredMethod("currentProcessName", new Class[0]);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(null, new Object[0]);
-                return invoke instanceof String ? (String) invoke : "";
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return "";
-            }
+        try {
+            Method declaredMethod = Class.forName("android.app.ActivityThread", false, Application.class.getClassLoader()).getDeclaredMethod("currentProcessName", new Class[0]);
+            declaredMethod.setAccessible(true);
+            Object invoke = declaredMethod.invoke(null, new Object[0]);
+            return invoke instanceof String ? (String) invoke : "";
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return "";
         }
-        return (String) invokeV.objValue;
     }
 
     public static String b(@NonNull Context context) {
-        InterceptResult invokeL;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null) {
-                return "";
-            }
-            int myPid = Process.myPid();
-            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-            if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo.processName;
-                    }
-                }
-            }
+        if (context == null) {
             return "";
         }
-        return (String) invokeL.objValue;
+        int myPid = Process.myPid();
+        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+        if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+        }
+        return "";
     }
 }

@@ -1,280 +1,80 @@
 package c.a.r0.a;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class a {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes.dex */
+public final class a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771984;
+    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771985;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771986;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771987;
+    public static final int aiapps_accelerate_quad = 2130771988;
+    public static final int aiapps_action_sheet_enter = 2130771989;
+    public static final int aiapps_action_sheet_exit = 2130771990;
+    public static final int aiapps_big_pic_toast_enter = 2130771991;
+    public static final int aiapps_big_pic_toast_exit = 2130771992;
+    public static final int aiapps_brower_menu_close = 2130771993;
+    public static final int aiapps_brower_menu_open = 2130771994;
+    public static final int aiapps_highlight_toast_show = 2130771995;
+    public static final int aiapps_highlight_toast_show_d20 = 2130771996;
+    public static final int aiapps_hold = 2130771997;
+    public static final int aiapps_loading_progress = 2130771998;
+    public static final int aiapps_pop_window_dismiss_anim = 2130771999;
+    public static final int aiapps_pop_window_show_anim = 2130772000;
+    public static final int aiapps_slide_in_from_right = 2130772003;
+    public static final int aiapps_slide_out_to_bottom = 2130772004;
+    public static final int aiapps_slide_out_to_right = 2130772006;
+    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772007;
+    public static final int aiapps_toast_enter = 2130772008;
+    public static final int aiapps_toast_exit = 2130772009;
+    public static final int aiapps_update_loading_progressbar_anim = 2130772010;
+    public static final int aiapps_wx_pay_loading_anim = 2130772011;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772036;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772037;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772038;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772039;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772041;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772042;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772043;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772044;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772045;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772046;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772047;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772048;
+    public static final int loading_rotate = 2130772132;
+    public static final int ng_game_ad_close = 2130772155;
+    public static final int ng_game_ad_open = 2130772156;
+    public static final int poly_sdk_common_dialog_fragment_in = 2130772211;
+    public static final int poly_sdk_common_dialog_fragment_out = 2130772212;
+    public static final int popupwindow_grow_fade_in = 2130772217;
+    public static final int popupwindow_grow_fade_in_from_bottom = 2130772218;
+    public static final int popupwindow_shrink_fade_out = 2130772219;
+    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772220;
+    public static final int slide_in_bottom = 2130772278;
+    public static final int slide_left_2_right = 2130772279;
+    public static final int slide_out_bottom = 2130772280;
+    public static final int slide_right_2_left = 2130772281;
+    public static final int swanapp_album_checkshake = 2130772294;
+    public static final int swanapp_album_floating_layer_in_animation = 2130772295;
+    public static final int swanapp_album_floating_layer_out_animation = 2130772296;
+    public static final int swanapp_album_preview_enter = 2130772297;
+    public static final int swanapp_album_preview_img_enter = 2130772298;
+    public static final int swanapp_album_preview_img_exit = 2130772299;
+    public static final int swanapp_album_rotate_loading = 2130772300;
+    public static final int swanapp_album_slide_bottom_in = 2130772301;
+    public static final int swanapp_album_slide_bottom_out = 2130772302;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c.a.r0.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0786a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-679213930, "Lc/a/r0/a/a$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-679213930, "Lc/a/r0/a/a$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-    }
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final a g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0786a.a : (a) invokeV.objValue;
-    }
-
-    public synchronized long a(c cVar) {
-        InterceptResult invokeL;
-        long h2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                h2 = h(f2, cVar);
-                f2.setTransactionSuccessful();
-                f2.endTransaction();
-            }
-            return h2;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<c> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                for (c cVar : list) {
-                    h(f2, cVar);
-                }
-                f2.setTransactionSuccessful();
-                f2.endTransaction();
-            }
-        }
-    }
-
-    public final ContentValues c(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
-            if (cVar == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(cVar.d()));
-            contentValues.put("missionid", Integer.valueOf(cVar.q()));
-            contentValues.put("activitysource", cVar.e());
-            contentValues.put("calltype", Integer.valueOf(cVar.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(cVar.x()));
-            contentValues.put("browsetimepage", cVar.g());
-            contentValues.put("browsetime", Long.valueOf(cVar.f()));
-            contentValues.put("threadnum", Integer.valueOf(cVar.A()));
-            contentValues.put("forumnum", Integer.valueOf(cVar.p()));
-            contentValues.put("cleartype", Integer.valueOf(cVar.k()));
-            contentValues.put("cleartime", Long.valueOf(cVar.j()));
-            contentValues.put("specificcleartime", Long.valueOf(cVar.t()));
-            contentValues.put("tid", Long.valueOf(cVar.C()));
-            contentValues.put("fid", Long.valueOf(cVar.o()));
-            contentValues.put("threadtext", cVar.B());
-            contentValues.put("threadimg", cVar.z());
-            contentValues.put("threadforum", Long.valueOf(cVar.y()));
-            contentValues.put("totalLimit", Integer.valueOf(cVar.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(cVar.w()));
-            contentValues.put("token", cVar.E());
-            contentValues.put("executingMissionList", cVar.b());
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final c d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor == null || cursor.isClosed()) {
-                return null;
-            }
-            c cVar = new c();
-            cVar.S(cursor.getInt(cursor.getColumnIndex("activityid")));
-            cVar.b0(cursor.getInt(cursor.getColumnIndex("missionid")));
-            cVar.T(cursor.getString(cursor.getColumnIndex("activitysource")));
-            cVar.W(cursor.getInt(cursor.getColumnIndex("calltype")));
-            cVar.f0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-            cVar.V(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-            cVar.U(cursor.getLong(cursor.getColumnIndex("browsetime")));
-            cVar.i0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-            cVar.a0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-            cVar.Y(cursor.getInt(cursor.getColumnIndex("cleartype")));
-            cVar.X(cursor.getLong(cursor.getColumnIndex("cleartime")));
-            cVar.d0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-            cVar.k0(cursor.getLong(cursor.getColumnIndex("tid")));
-            cVar.Z(cursor.getLong(cursor.getColumnIndex("fid")));
-            cVar.j0(cursor.getString(cursor.getColumnIndex("threadtext")));
-            cVar.h0(cursor.getString(cursor.getColumnIndex("threadimg")));
-            cVar.g0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-            cVar.m0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-            cVar.e0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-            cVar.P(cVar.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-            cVar.l0(cursor.getString(cursor.getColumnIndex("token")));
-            return cVar;
-        }
-        return (c) invokeL.objValue;
-    }
-
-    public synchronized boolean e(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
-            synchronized (this) {
-                if (cVar == null) {
-                    return false;
-                }
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                int delete = f2.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
-                f2.setTransactionSuccessful();
-                f2.endTransaction();
-                return delete >= 0;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized List<c> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f2.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    c d2 = d(rawQuery);
-                    if (d2 != null) {
-                        linkedList.add(d2);
-                    }
-                }
-                f2.setTransactionSuccessful();
-                c.a.d.f.p.n.a(rawQuery);
-                f2.endTransaction();
-            }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final long h(SQLiteDatabase sQLiteDatabase, c cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, cVar)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(cVar));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public synchronized long i(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cVar)) == null) {
-            synchronized (this) {
-                if (cVar == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                long j2 = j(f2, cVar);
-                f2.setTransactionSuccessful();
-                f2.endTransaction();
-                return j2;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, c cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, cVar)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(cVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public synchronized void k(List<c> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f2.beginTransaction();
-                for (c cVar : list) {
-                    j(f2, cVar);
-                }
-                f2.setTransactionSuccessful();
-                f2.endTransaction();
-            }
-        }
-    }
 }

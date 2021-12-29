@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import c.a.d.f.p.i;
+import c.a.d.f.p.j;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class StringU {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -31,7 +31,7 @@ public class StringU {
             }
         }
         try {
-            boolean h2 = i.d().h("stringu", 2);
+            boolean h2 = j.d().h("stringu", 2);
             a = h2;
             if (h2) {
                 a("stringu_so_load_success", null);

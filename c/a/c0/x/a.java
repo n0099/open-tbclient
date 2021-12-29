@@ -21,17 +21,17 @@ public class a {
 
     /* renamed from: c.a.c0.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class RunnableC0073a implements Runnable {
+    public static class RunnableC0094a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f2144e;
+        public final /* synthetic */ d f2571e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f2145f;
+        public final /* synthetic */ b f2572f;
 
-        public RunnableC0073a(d dVar, b bVar) {
+        public RunnableC0094a(d dVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,15 +46,15 @@ public class a {
                     return;
                 }
             }
-            this.f2144e = dVar;
-            this.f2145f = bVar;
+            this.f2571e = dVar;
+            this.f2572f = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a.d(this.f2144e, this.f2145f);
+                a.d(this.f2571e, this.f2572f);
             }
         }
     }
@@ -69,7 +69,7 @@ public class a {
     public static <T> void c(@NonNull d dVar, @Nullable b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, dVar, bVar) == null) {
-            c.a.c0.a0.b.c(new RunnableC0073a(dVar, bVar), "als_async_executor", 2);
+            c.a.c0.a0.b.c(new RunnableC0094a(dVar, bVar), "als_async_executor", 2);
         }
     }
 

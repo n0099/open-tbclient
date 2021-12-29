@@ -13,7 +13,7 @@ public final class e {
     public f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f2068b;
+    public c f2495b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
     public final c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2068b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2495b : (c) invokeV.objValue;
     }
 
     public final f b() {
@@ -44,7 +44,7 @@ public final class e {
     public final void c(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f2068b = cVar;
+            this.f2495b = cVar;
         }
     }
 

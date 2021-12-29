@@ -40,7 +40,7 @@ public class al {
         public List<b> f893a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<b> f63818b;
+        public List<b> f63813b;
 
         public a(al alVar) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class al {
             }
             this.a = alVar;
             this.f893a = new ArrayList();
-            this.f63818b = new ArrayList();
+            this.f63813b = new ArrayList();
         }
 
         public /* synthetic */ a(al alVar, am amVar) {
@@ -202,10 +202,10 @@ public class al {
                         if (!TextUtils.isEmpty(key)) {
                             a value = entry.getValue();
                             if (z && key.equals(b2) && !m639b(notification)) {
-                                (m638a(notification) ? value.f63818b : value.f893a).add(new b(this, i2, notification));
+                                (m638a(notification) ? value.f63813b : value.f893a).add(new b(this, i2, notification));
                             }
                             int size = value.f893a.size();
-                            if (value.f63818b.size() <= 0) {
+                            if (value.f63813b.size() <= 0) {
                                 if (z && size >= 2) {
                                     a(context, a2, key, value.f893a.get(0).f894a);
                                 }
@@ -278,7 +278,7 @@ public class al {
                 aVar = new a(this, null);
                 map.put(b2, aVar);
             }
-            (m638a(statusBarNotification.getNotification()) ? aVar.f63818b : aVar.f893a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
+            (m638a(statusBarNotification.getNotification()) ? aVar.f63813b : aVar.f893a).add(new b(this, statusBarNotification.getId(), statusBarNotification.getNotification()));
         }
     }
 

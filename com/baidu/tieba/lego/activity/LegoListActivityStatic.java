@@ -1,10 +1,10 @@
 package com.baidu.tieba.lego.activity;
 
-import c.a.s0.x1.l;
-import c.a.s0.x1.m.c;
-import c.a.s0.x1.m.e;
-import c.a.s0.x1.o.d;
-import c.a.s0.x1.r.b;
+import c.a.t0.x1.l;
+import c.a.t0.x1.m.c;
+import c.a.t0.x1.m.e;
+import c.a.t0.x1.o.d;
+import c.a.t0.x1.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -71,17 +71,17 @@ public class LegoListActivityStatic {
         }
         b.a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        c.a.s0.x1.o.b.h().g(d.f());
+        c.a.t0.x1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        c.a.s0.x1.m.b.a().b(new e());
-        c.a.s0.x1.m.a.a().b(new c());
-        c.a.s0.x1.m.a.a().b(new c.a.s0.x1.m.d());
-        c.a.r0.c.c.a.set(c.a.s0.x1.m.b.a());
-        c.a.r0.c.b.a.set(c.a.s0.x1.m.a.a());
+        c.a.t0.x1.m.b.a().b(new e());
+        c.a.t0.x1.m.a.a().b(new c());
+        c.a.t0.x1.m.a.a().b(new c.a.t0.x1.m.d());
+        c.a.s0.c.c.a.set(c.a.t0.x1.m.b.a());
+        c.a.s0.c.b.a.set(c.a.t0.x1.m.a.a());
     }
 
     public LegoListActivityStatic() {

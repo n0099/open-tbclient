@@ -1,10 +1,6 @@
 package com.kwad.sdk.collector;
 
 import androidx.annotation.Keep;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
 import com.kwad.sdk.collector.model.jni.AppRunningInfoNative;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
@@ -12,23 +8,6 @@ import com.kwad.sdk.collector.model.jni.UploadEntryNative;
 @Keep
 /* loaded from: classes3.dex */
 public class AppStatusNative {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public AppStatusNative() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     public static native String[] analyseTaskGetPathSuffixSet(AnalyseTaskNative analyseTaskNative);
 
     public static native long analyseTaskGetRunningInfo(AnalyseTaskNative analyseTaskNative);

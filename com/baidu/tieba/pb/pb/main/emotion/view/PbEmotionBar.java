@@ -20,8 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.d1.o0;
+import c.a.d.f.p.n;
+import c.a.s0.e1.o0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -45,30 +45,30 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int A;
     public boolean B;
     public boolean C;
-    public c.a.s0.s2.u.f.c1.g.b D;
+    public c.a.t0.s2.u.f.c1.g.b D;
     public TextWatcher E;
     public SearchEmotionModel.b F;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f48249e;
+    public RelativeLayout f48470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HListView f48250f;
+    public HListView f48471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.s0.s2.u.f.c1.g.a f48251g;
+    public c.a.t0.s2.u.f.c1.g.a f48472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f48252h;
+    public float f48473h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f48253i;
+    public float f48474i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f48254j;
+    public float f48475j;
 
     /* renamed from: k  reason: collision with root package name */
-    public double f48255k;
+    public double f48476k;
     public int l;
     public int m;
     public float n;
@@ -77,7 +77,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public int q;
     public int r;
     public j s;
-    public c.a.s0.s2.u.f.c1.e.a t;
+    public c.a.t0.s2.u.f.c1.e.a t;
     public RelativeLayout u;
     public EditText v;
     public ImageView w;
@@ -91,7 +91,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48256e;
+        public final /* synthetic */ PbEmotionBar f48477e;
 
         public a(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48256e = pbEmotionBar;
+            this.f48477e = pbEmotionBar;
         }
 
         @Override // android.view.View.OnClickListener
@@ -126,7 +126,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48257e;
+        public final /* synthetic */ PbEmotionBar f48478e;
 
         public b(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48257e = pbEmotionBar;
+            this.f48478e = pbEmotionBar;
         }
 
         @Override // android.text.InputFilter
@@ -180,7 +180,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48258e;
+        public final /* synthetic */ PbEmotionBar f48479e;
 
         public c(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48258e = pbEmotionBar;
+            this.f48479e = pbEmotionBar;
         }
 
         @Override // android.text.TextWatcher
@@ -208,18 +208,18 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             }
             String trim = editable.toString().trim();
             if (TextUtils.isEmpty(trim)) {
-                if (this.f48258e.t == null || ListUtils.isEmpty(this.f48258e.t.a())) {
+                if (this.f48479e.t == null || ListUtils.isEmpty(this.f48479e.t.a())) {
                     return;
                 }
-                this.f48258e.f48251g.e(this.f48258e.t.a());
-                this.f48258e.f48251g.notifyDataSetChanged();
+                this.f48479e.f48472g.e(this.f48479e.t.a());
+                this.f48479e.f48472g.notifyDataSetChanged();
                 return;
             }
-            if (this.f48258e.D == null) {
-                this.f48258e.D = new c.a.s0.s2.u.f.c1.g.b();
-                this.f48258e.D.g(this.f48258e.F);
+            if (this.f48479e.D == null) {
+                this.f48479e.D = new c.a.t0.s2.u.f.c1.g.b();
+                this.f48479e.D.g(this.f48479e.F);
             }
-            this.f48258e.D.f(trim);
+            this.f48479e.D.f(trim);
         }
 
         @Override // android.text.TextWatcher
@@ -262,13 +262,13 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, c.a.s0.x0.c.a aVar) {
+        public void a(String str, c.a.t0.x0.c.a aVar) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || aVar == null || ListUtils.isEmpty(aVar.a()) || !this.a.v.getText().toString().trim().equals(str)) {
                 return;
             }
-            this.a.f48251g.e(aVar.a());
-            this.a.f48251g.notifyDataSetChanged();
+            this.a.f48472g.e(aVar.a());
+            this.a.f48472g.notifyDataSetChanged();
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
@@ -285,10 +285,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RelativeLayout.LayoutParams f48259e;
+        public final /* synthetic */ RelativeLayout.LayoutParams f48480e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48260f;
+        public final /* synthetic */ PbEmotionBar f48481f;
 
         public e(PbEmotionBar pbEmotionBar, RelativeLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -305,8 +305,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48260f = pbEmotionBar;
-            this.f48259e = layoutParams;
+            this.f48481f = pbEmotionBar;
+            this.f48480e = layoutParams;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -314,12 +314,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                this.f48259e.leftMargin = intValue;
-                this.f48260f.s(intValue);
-                PbEmotionBar pbEmotionBar = this.f48260f;
-                pbEmotionBar.r(pbEmotionBar.l(this.f48259e.leftMargin));
-                this.f48260f.setLayoutParams(this.f48259e);
-                this.f48260f.o(this.f48259e.leftMargin);
+                this.f48480e.leftMargin = intValue;
+                this.f48481f.s(intValue);
+                PbEmotionBar pbEmotionBar = this.f48481f;
+                pbEmotionBar.r(pbEmotionBar.l(this.f48480e.leftMargin));
+                this.f48481f.setLayoutParams(this.f48480e);
+                this.f48481f.o(this.f48480e.leftMargin);
             }
         }
     }
@@ -330,7 +330,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48261e;
+        public final /* synthetic */ PbEmotionBar f48482e;
 
         public f(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -347,7 +347,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48261e = pbEmotionBar;
+            this.f48482e = pbEmotionBar;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -355,8 +355,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                if (((RelativeLayout.LayoutParams) this.f48261e.getLayoutParams()).leftMargin <= 0) {
-                    this.f48261e.setCanShowEmotionPreview(true);
+                if (((RelativeLayout.LayoutParams) this.f48482e.getLayoutParams()).leftMargin <= 0) {
+                    this.f48482e.setCanShowEmotionPreview(true);
                 }
             }
         }
@@ -368,7 +368,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48262e;
+        public final /* synthetic */ PbEmotionBar f48483e;
 
         public g(PbEmotionBar pbEmotionBar) {
             Interceptable interceptable = $ic;
@@ -385,15 +385,15 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48262e = pbEmotionBar;
+            this.f48483e = pbEmotionBar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48262e.v.requestFocus();
-                m.K(this.f48262e.getContext(), this.f48262e.v);
+                this.f48483e.v.requestFocus();
+                n.K(this.f48483e.getContext(), this.f48483e.v);
             }
         }
     }
@@ -405,7 +405,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         public final /* synthetic */ i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PbEmotionBar f48263b;
+        public final /* synthetic */ PbEmotionBar f48484b;
 
         public h(PbEmotionBar pbEmotionBar, i iVar) {
             Interceptable interceptable = $ic;
@@ -422,17 +422,17 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                     return;
                 }
             }
-            this.f48263b = pbEmotionBar;
+            this.f48484b = pbEmotionBar;
             this.a = iVar;
         }
 
         @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.i
         public void a(String str, List<String> list, List<String> list2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) || this.f48263b.t == null) {
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, list, list2) == null) || this.f48484b.t == null) {
                 return;
             }
-            this.a.a(this.f48263b.v.getText().toString(), this.f48263b.t.b(), list2);
+            this.a.a(this.f48484b.v.getText().toString(), this.f48484b.t.b(), list2);
             TiebaStatic.log("c12177");
         }
 
@@ -534,7 +534,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     }
 
     public void cancelLoadData() {
-        c.a.s0.s2.u.f.c1.g.b bVar;
+        c.a.t0.s2.u.f.c1.g.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bVar = this.D) == null) {
             return;
@@ -554,7 +554,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         boolean dispatchTouchEvent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            this.f48249e.requestDisallowInterceptTouchEvent(true);
+            this.f48470e.requestDisallowInterceptTouchEvent(true);
             if (!onInterceptTouchEvent(motionEvent)) {
                 if (this.C && motionEvent.getAction() == 2) {
                     MotionEvent obtain = MotionEvent.obtain(motionEvent);
@@ -573,11 +573,11 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
                 if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
                     setCanShowEmotionPreview(false);
                 }
-                this.f48252h = motionEvent.getRawX();
-                this.f48253i = motionEvent.getRawY();
-                this.f48254j = motionEvent.getRawX();
+                this.f48473h = motionEvent.getRawX();
+                this.f48474i = motionEvent.getRawY();
+                this.f48475j = motionEvent.getRawX();
             }
-            this.f48254j = motionEvent.getRawX();
+            this.f48475j = motionEvent.getRawX();
             return dispatchTouchEvent;
         }
         return invokeL.booleanValue;
@@ -592,41 +592,41 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public final int l(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (int) ((this.f48255k * i2) + this.p) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (int) ((this.f48476k * i2) + this.p) : invokeI.intValue;
     }
 
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setId(c.a.s0.s2.i.pb_emotion_bar);
-            LinearLayout.inflate(getContext(), c.a.s0.s2.j.layout_pb_emotion_bar, this);
+            setId(c.a.t0.s2.i.pb_emotion_bar);
+            LinearLayout.inflate(getContext(), c.a.t0.s2.j.layout_pb_emotion_bar, this);
             setOrientation(1);
-            setBackgroundColor(getResources().getColor(c.a.s0.s2.f.CAM_X0201));
-            this.f48250f = (HListView) findViewById(c.a.s0.s2.i.lv_emotion);
-            c.a.s0.s2.u.f.c1.g.a aVar = new c.a.s0.s2.u.f.c1.g.a();
-            this.f48251g = aVar;
+            setBackgroundColor(getResources().getColor(c.a.t0.s2.f.CAM_X0201));
+            this.f48471f = (HListView) findViewById(c.a.t0.s2.i.lv_emotion);
+            c.a.t0.s2.u.f.c1.g.a aVar = new c.a.t0.s2.u.f.c1.g.a();
+            this.f48472g = aVar;
             aVar.f(this);
-            this.f48250f.setAdapter((ListAdapter) this.f48251g);
-            this.f48250f.setDividerWidth(m.f(getContext(), c.a.s0.s2.g.ds7));
-            this.f48250f.setSelector(getResources().getDrawable(c.a.s0.s2.h.transparent_bg));
-            this.u = (RelativeLayout) findViewById(c.a.s0.s2.i.layout_search);
-            this.v = (EditText) findViewById(c.a.s0.s2.i.edit_search);
-            this.w = (ImageView) findViewById(c.a.s0.s2.i.iv_search);
+            this.f48471f.setAdapter((ListAdapter) this.f48472g);
+            this.f48471f.setDividerWidth(n.f(getContext(), c.a.t0.s2.g.ds7));
+            this.f48471f.setSelector(getResources().getDrawable(c.a.t0.s2.h.transparent_bg));
+            this.u = (RelativeLayout) findViewById(c.a.t0.s2.i.layout_search);
+            this.v = (EditText) findViewById(c.a.t0.s2.i.edit_search);
+            this.w = (ImageView) findViewById(c.a.t0.s2.i.iv_search);
             this.v.addTextChangedListener(this.E);
             this.v.setOnClickListener(new a(this));
             this.v.setFilters(new InputFilter[]{new b(this)});
-            this.l = m.k(getContext());
+            this.l = n.k(getContext());
             this.n = ViewConfiguration.get(getContext()).getScaledTouchSlop();
             this.z = ViewConfiguration.getMaximumFlingVelocity();
             this.y = ViewConfiguration.getMinimumFlingVelocity();
-            this.A = m.f(getContext(), c.a.s0.s2.g.ds150);
-            this.o = m.f(getContext(), c.a.s0.s2.g.ds58);
-            this.p = m.f(getContext(), c.a.s0.s2.g.ds114);
-            this.q = m.f(getContext(), c.a.s0.s2.g.ds10);
-            int f2 = this.l - m.f(getContext(), c.a.s0.s2.g.tbds196);
+            this.A = n.f(getContext(), c.a.t0.s2.g.ds150);
+            this.o = n.f(getContext(), c.a.t0.s2.g.ds58);
+            this.p = n.f(getContext(), c.a.t0.s2.g.ds114);
+            this.q = n.f(getContext(), c.a.t0.s2.g.ds10);
+            int f2 = this.l - n.f(getContext(), c.a.t0.s2.g.tbds196);
             this.m = f2;
-            this.f48255k = (this.o - this.p) * (1.0d / f2);
-            this.r = m.f(getContext(), c.a.s0.s2.g.ds100);
+            this.f48476k = (this.o - this.p) * (1.0d / f2);
+            this.r = n.f(getContext(), c.a.t0.s2.g.ds100);
             onChangeSkinType();
         }
     }
@@ -635,8 +635,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            float abs = Math.abs(motionEvent.getRawX() - this.f48252h);
-            float abs2 = Math.abs(motionEvent.getRawY() - this.f48253i);
+            float abs = Math.abs(motionEvent.getRawX() - this.f48473h);
+            float abs2 = Math.abs(motionEvent.getRawY() - this.f48474i);
             float f2 = this.n;
             return abs < f2 && abs2 < f2;
         }
@@ -656,10 +656,10 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SkinManager.setViewTextColor(this.v, c.a.s0.s2.f.CAM_X0105);
-            this.v.setHintTextColor(SkinManager.getColor(c.a.s0.s2.f.CAM_X0110));
-            SkinManager.setBackgroundColor(this, c.a.s0.s2.f.CAM_X0201);
-            c.a.s0.s2.u.f.c1.g.a aVar = this.f48251g;
+            SkinManager.setViewTextColor(this.v, c.a.t0.s2.f.CAM_X0105);
+            this.v.setHintTextColor(SkinManager.getColor(c.a.t0.s2.f.CAM_X0110));
+            SkinManager.setBackgroundColor(this, c.a.t0.s2.f.CAM_X0201);
+            c.a.t0.s2.u.f.c1.g.a aVar = this.f48472g;
             if (aVar != null) {
                 aVar.notifyDataSetChanged();
             }
@@ -669,7 +669,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            c.a.s0.s2.u.f.c1.g.a aVar = this.f48251g;
+            c.a.t0.s2.u.f.c1.g.a aVar = this.f48472g;
             if (aVar != null) {
                 aVar.d();
             }
@@ -719,7 +719,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             if (action != 1) {
                 if (action == 2) {
                     setCanShowEmotionPreview(false);
-                    int rawX = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.f48254j));
+                    int rawX = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.f48475j));
                     if (rawX >= 0 && rawX <= (i2 = this.m)) {
                         i2 = rawX;
                     }
@@ -738,7 +738,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             }
             this.x.computeCurrentVelocity(1000, this.z);
             float xVelocity = this.x.getXVelocity();
-            int rawX2 = (int) (motionEvent.getRawX() - this.f48252h);
+            int rawX2 = (int) (motionEvent.getRawX() - this.f48473h);
             if (Math.abs(xVelocity) <= this.y || Math.abs(rawX2) <= this.A) {
                 if (layoutParams.leftMargin > this.l * 0.4d) {
                     autoAnimate(false);
@@ -769,7 +769,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
                 return true;
             }
-            if (this.f48250f.getChildCount() <= 0 || this.f48250f.getFirstVisiblePosition() != 0 || (childAt = this.f48250f.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.f48254j) {
+            if (this.f48471f.getChildCount() <= 0 || this.f48471f.getFirstVisiblePosition() != 0 || (childAt = this.f48471f.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.f48475j) {
                 setCanShowEmotionPreview(true);
                 return false;
             }
@@ -792,8 +792,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
     public final void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.f48250f.getLayoutParams().height = (this.q * 2) + i2;
-            this.f48251g.h(i2);
+            this.f48471f.getLayoutParams().height = (this.q * 2) + i2;
+            this.f48472g.h(i2);
         }
     }
 
@@ -812,14 +812,14 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
             this.u.setAlpha(f2);
             this.w.setScaleX(f2);
             this.w.setScaleY(f2);
-            this.v.setTextSize(0, m.f(getContext(), c.a.s0.s2.g.fontsize32) * f2);
+            this.v.setTextSize(0, n.f(getContext(), c.a.t0.s2.g.fontsize32) * f2);
         }
     }
 
     public void setOnEmotionClickListener(i iVar) {
-        c.a.s0.s2.u.f.c1.g.a aVar;
+        c.a.t0.s2.u.f.c1.g.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, iVar) == null) || iVar == null || (aVar = this.f48251g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, iVar) == null) || iVar == null || (aVar = this.f48472g) == null) {
             return;
         }
         aVar.g(new h(this, iVar));
@@ -832,14 +832,14 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.c {
         }
     }
 
-    public void showView(RelativeLayout relativeLayout, c.a.s0.s2.u.f.c1.e.a aVar, boolean z) {
+    public void showView(RelativeLayout relativeLayout, c.a.t0.s2.u.f.c1.e.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLZ(1048598, this, relativeLayout, aVar, z) == null) || aVar == null || aVar.a() == null || aVar.a().isEmpty()) {
             return;
         }
-        this.f48249e = relativeLayout;
+        this.f48470e = relativeLayout;
         this.t = aVar;
-        this.f48251g.e(aVar.a());
+        this.f48472g.e(aVar.a());
         r(this.o);
         s(this.m);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);

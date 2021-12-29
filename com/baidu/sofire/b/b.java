@@ -21,18 +21,18 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39504d;
+    public static String f39660d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f39505e;
+    public static b f39661e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f39506b;
+    public a f39662b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f39507c;
+    public c f39663c;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public final class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (b.class) {
                 if (context == null) {
-                    return f39505e;
+                    return f39661e;
                 }
-                if (f39505e == null) {
-                    f39505e = new b(context);
+                if (f39661e == null) {
+                    f39661e = new b(context);
                 }
-                return f39505e;
+                return f39661e;
             }
         }
         return (b) invokeL.objValue;
@@ -75,7 +75,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                bVar = f39505e;
+                bVar = f39661e;
             }
             return bVar;
         }
@@ -87,16 +87,16 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceVerifyInfo, Boolean.valueOf(z)})) == null) {
             synchronized (this) {
-                if (com.baidu.sofire.core.c.a() != null && com.baidu.sofire.core.c.f39543b != null) {
-                    if (!v.a(com.baidu.sofire.core.c.f39543b)) {
+                if (com.baidu.sofire.core.c.a() != null && com.baidu.sofire.core.c.f39699b != null) {
+                    if (!v.a(com.baidu.sofire.core.c.f39699b)) {
                         a(activity, faceProcessCallback, -14);
                         return false;
-                    } else if (this.f39506b != null) {
+                    } else if (this.f39662b != null) {
                         a(activity, faceProcessCallback, -1);
                         return false;
                     } else {
                         a aVar = new a(this, activity, surfaceHolder, faceProcessCallback, i2, faceVerifyInfo, 1, z);
-                        this.f39506b = aVar;
+                        this.f39662b = aVar;
                         aVar.a();
                         return true;
                     }
@@ -113,12 +113,12 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, surfaceHolder, faceProcessCallback, Integer.valueOf(i2), faceCompareInfo, Boolean.valueOf(z)})) == null) {
             synchronized (this) {
-                if (this.f39506b != null) {
+                if (this.f39662b != null) {
                     a(activity, faceProcessCallback, -1);
                     return false;
                 }
                 a aVar = new a(this, activity, surfaceHolder, faceProcessCallback, i2, faceCompareInfo, 2, z);
-                this.f39506b = aVar;
+                this.f39662b = aVar;
                 aVar.a();
                 return true;
             }
@@ -137,10 +137,10 @@ public final class b {
             public final /* synthetic */ FaceProcessCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f39508b;
+            public final /* synthetic */ int f39664b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f39509c;
+            public final /* synthetic */ b f39665c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -157,16 +157,16 @@ public final class b {
                         return;
                     }
                 }
-                this.f39509c = this;
+                this.f39665c = this;
                 this.a = faceProcessCallback;
-                this.f39508b = i2;
+                this.f39664b = i2;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.onEnd(this.f39508b, null);
+                    this.a.onEnd(this.f39664b, null);
                 }
             }
         });
@@ -183,10 +183,10 @@ public final class b {
             public final /* synthetic */ RecordCallback a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f39510b;
+            public final /* synthetic */ int f39666b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f39511c;
+            public final /* synthetic */ b f39667c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -203,16 +203,16 @@ public final class b {
                         return;
                     }
                 }
-                this.f39511c = this;
+                this.f39667c = this;
                 this.a = recordCallback;
-                this.f39510b = i2;
+                this.f39666b = i2;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.onEnd(this.f39510b, null);
+                    this.a.onEnd(this.f39666b, null);
                 }
             }
         });
@@ -223,16 +223,16 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, activity, surfaceHolder, recordCallback, i2)) == null) {
             synchronized (this) {
-                if (com.baidu.sofire.core.c.a() != null && com.baidu.sofire.core.c.f39543b != null) {
-                    if (!v.a(com.baidu.sofire.core.c.f39543b)) {
+                if (com.baidu.sofire.core.c.a() != null && com.baidu.sofire.core.c.f39699b != null) {
+                    if (!v.a(com.baidu.sofire.core.c.f39699b)) {
                         a(activity, recordCallback, -14);
                         return null;
-                    } else if (this.f39507c != null) {
+                    } else if (this.f39663c != null) {
                         a(activity, recordCallback, -1);
                         return null;
                     } else {
                         c cVar = new c(this, activity, surfaceHolder, recordCallback, i2);
-                        this.f39507c = cVar;
+                        this.f39663c = cVar;
                         return cVar;
                     }
                 }

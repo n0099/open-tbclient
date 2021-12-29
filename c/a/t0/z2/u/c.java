@@ -1,0 +1,222 @@
+package c.a.t0.z2.u;
+
+import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.p.m;
+import c.a.s0.s.q.d2;
+import c.a.t0.h2.j;
+import c.a.t0.z2.g;
+import c.a.t0.z2.t;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public class c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f26882b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f26883c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public d2 f26884d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public t f26885e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f26886f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f26887g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public j f26888h;
+
+    public c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0L;
+        this.f26882b = 0L;
+        this.f26886f = "1";
+        this.f26888h = new j();
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j2 = this.f26883c;
+            float f2 = ((float) this.a) / ((float) j2);
+            return j2 <= 60000 ? ((double) f2) >= 0.9d : j2 <= 180000 ? ((double) f2) >= 0.8d : j2 <= 600000 ? ((double) f2) >= 0.7d : ((double) f2) >= 0.6d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26886f : (String) invokeV.objValue;
+    }
+
+    public t c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26885e : (t) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f26882b <= 0) {
+            return;
+        }
+        this.a += System.currentTimeMillis() - this.f26882b;
+        this.f26882b = 0L;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f26882b > 0) {
+                this.a += System.currentTimeMillis() - this.f26882b;
+                this.f26882b = 0L;
+            }
+            this.f26887g = false;
+        }
+    }
+
+    public void f(g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
+            this.f26888h.d(gVar);
+        }
+    }
+
+    public void g(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.f26883c = j2;
+            this.f26888h.c();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f26888h.e();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.f26882b != 0) {
+                this.a += System.currentTimeMillis() - this.f26882b;
+            }
+            this.f26882b = System.currentTimeMillis();
+            this.f26887g = true;
+            this.f26888h.b();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.f26882b > 0) {
+                this.a += System.currentTimeMillis() - this.f26882b;
+                this.f26882b = 0L;
+            }
+            k();
+            this.a = 0L;
+            this.f26882b = 0L;
+            this.f26887g = false;
+            this.f26888h.a();
+        }
+    }
+
+    public final void k() {
+        d2 d2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            long j2 = this.a;
+            if (j2 < 0 || j2 >= 86400000) {
+                return;
+            }
+            if (j2 > 0) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
+                statisticItem.param(TiebaStatic.Params.OBJ_DURATION, this.a);
+                statisticItem.param("obj_type", this.f26886f);
+                statisticItem.param("playduration", this.f26883c);
+                statisticItem.param("player_type", 1);
+                statisticItem.param("is_finish", a() ? 1 : 0);
+                if (!m.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                    statisticItem.param("task_id", TbadkCoreApplication.getInst().getTaskId());
+                }
+                t tVar = this.f26885e;
+                if (tVar != null) {
+                    tVar.a(statisticItem);
+                }
+                if (!statisticItem.hasParam(TiebaStatic.Params.OBJ_PARAM5) && (d2Var = this.f26884d) != null) {
+                    if (d2Var.L() != null) {
+                        if (this.f26884d.L().oriUgcType == 2) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                        } else if (this.f26884d.L().oriUgcType == 4) {
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+                        }
+                    } else {
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                    }
+                }
+                d2 d2Var2 = this.f26884d;
+                if (d2Var2 != null) {
+                    statisticItem.param(TiebaStatic.Params.IS_ZP, d2Var2.M2() ? 1 : 0);
+                }
+                TiebaStatic.log(statisticItem);
+                c.a.t0.z2.j.d(this.a, this.f26886f, this.f26885e, "", this.f26883c);
+            } else if (this.f26887g) {
+                c.a.t0.z2.j.d(j2, this.f26886f, this.f26885e, "", this.f26883c);
+            }
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.f26886f = str;
+        }
+    }
+
+    public void m(d2 d2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, d2Var) == null) {
+            this.f26884d = d2Var;
+        }
+    }
+
+    public void n(t tVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, tVar) == null) {
+            this.f26885e = tVar;
+        }
+    }
+}

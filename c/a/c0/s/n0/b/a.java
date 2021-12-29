@@ -18,19 +18,19 @@ public final class a extends b {
     public final ArrayList<Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f2063b;
+    public final String f2490b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f2064c;
+    public final Boolean f2491c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f2065d;
+    public final String f2492d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f2066e;
+    public final String f2493e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f2067f;
+    public final String f2494f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ArrayList<Object> arrayList, String str, Boolean bool, String str2, String str3, String str4) {
@@ -52,29 +52,29 @@ public final class a extends b {
             }
         }
         this.a = arrayList;
-        this.f2063b = str;
-        this.f2064c = bool;
-        this.f2065d = str2;
-        this.f2066e = str3;
-        this.f2067f = str4;
+        this.f2490b = str;
+        this.f2491c = bool;
+        this.f2492d = str2;
+        this.f2493e = str3;
+        this.f2494f = str4;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2067f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2494f : (String) invokeV.objValue;
     }
 
     public Boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2064c : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2491c : (Boolean) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2065d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2492d : (String) invokeV.objValue;
     }
 
     public final ArrayList<Object> d() {
@@ -86,7 +86,7 @@ public final class a extends b {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2066e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2493e : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -96,7 +96,7 @@ public final class a extends b {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f2063b, aVar.f2063b) && Intrinsics.areEqual(b(), aVar.b()) && Intrinsics.areEqual(c(), aVar.c()) && Intrinsics.areEqual(e(), aVar.e()) && Intrinsics.areEqual(a(), aVar.a());
+                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f2490b, aVar.f2490b) && Intrinsics.areEqual(b(), aVar.b()) && Intrinsics.areEqual(c(), aVar.c()) && Intrinsics.areEqual(e(), aVar.e()) && Intrinsics.areEqual(a(), aVar.a());
                 }
                 return false;
             }
@@ -108,7 +108,7 @@ public final class a extends b {
     public final String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2063b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2490b : (String) invokeV.objValue;
     }
 
     public int hashCode() {
@@ -117,7 +117,7 @@ public final class a extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ArrayList<Object> arrayList = this.a;
             int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
-            String str = this.f2063b;
+            String str = this.f2490b;
             int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
             Boolean b2 = b();
             int hashCode3 = (hashCode2 + (b2 != null ? b2.hashCode() : 0)) * 31;
@@ -135,7 +135,7 @@ public final class a extends b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "AdaptationSet(representationList=" + this.a + ", type=" + this.f2063b + ", frmAlign=" + b() + ", pre=" + c() + ", suf=" + e() + ", codecs=" + a() + SmallTailInfo.EMOTION_SUFFIX;
+            return "AdaptationSet(representationList=" + this.a + ", type=" + this.f2490b + ", frmAlign=" + b() + ", pre=" + c() + ", suf=" + e() + ", codecs=" + a() + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

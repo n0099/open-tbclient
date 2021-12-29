@@ -17,13 +17,13 @@ public final class ec {
     public static final /* synthetic */ ec[] f323a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ec f63420b;
+    public static final ec f63415b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ec f63421c;
+    public static final ec f63416c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ec f63422d;
+    public static final ec f63417d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -43,11 +43,11 @@ public final class ec {
             }
         }
         a = new ec("ACTIVITY", 0, "activity");
-        f63420b = new ec("SERVICE_ACTION", 1, "service_action");
-        f63421c = new ec("SERVICE_COMPONENT", 2, "service_component");
+        f63415b = new ec("SERVICE_ACTION", 1, "service_action");
+        f63416c = new ec("SERVICE_COMPONENT", 2, "service_component");
         ec ecVar = new ec("PROVIDER", 3, "provider");
-        f63422d = ecVar;
-        f323a = new ec[]{a, f63420b, f63421c, ecVar};
+        f63417d = ecVar;
+        f323a = new ec[]{a, f63415b, f63416c, ecVar};
     }
 
     public ec(String str, int i2, String str2) {

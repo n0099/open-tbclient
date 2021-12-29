@@ -13,10 +13,10 @@ public final class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63947b;
+    public String f63942b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63948c;
+    public int f63943c;
 
     public d(int i2, String str, String str2) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class d {
                 return;
             }
         }
-        this.f63948c = i2;
+        this.f63943c = i2;
         this.a = str;
-        this.f63947b = str2;
+        this.f63942b = str2;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CommandResult{result=" + this.f63948c + ", successMsg='" + this.a + ExtendedMessageFormat.QUOTE + ", errorMsg='" + this.f63947b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "CommandResult{result=" + this.f63943c + ", successMsg='" + this.a + ExtendedMessageFormat.QUOTE + ", errorMsg='" + this.f63942b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

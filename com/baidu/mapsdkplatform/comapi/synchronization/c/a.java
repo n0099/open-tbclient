@@ -18,18 +18,18 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37034b;
+    public int f37190b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f37035c;
+    public ExecutorService f37191c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static abstract class AbstractRunnableC1804a implements Runnable {
+    public static abstract class AbstractRunnableC1811a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC1804a() {
+        public AbstractRunnableC1811a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ AbstractRunnableC1804a(b bVar) {
+        public /* synthetic */ AbstractRunnableC1811a(b bVar) {
             this();
         }
 
@@ -90,8 +90,8 @@ public class a {
             }
         }
         this.a = 4000;
-        this.f37034b = 4000;
-        this.f37035c = Executors.newCachedThreadPool();
+        this.f37190b = 4000;
+        this.f37191c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -100,7 +100,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f37035c.submit(new b(this, eVar, str));
+            this.f37191c.submit(new b(this, eVar, str));
         }
     }
 }

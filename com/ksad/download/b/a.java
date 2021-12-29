@@ -29,16 +29,16 @@ public class a extends c {
     public Service f57171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HandlerC2058a f57172d;
+    public final HandlerC2065a f57172d;
 
     /* renamed from: com.ksad.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class HandlerC2058a extends Handler {
+    public static class HandlerC2065a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
-        public HandlerC2058a(a aVar) {
+        public HandlerC2065a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class a extends c {
             }
         }
         this.f57170b = new ConcurrentHashMap();
-        this.f57172d = new HandlerC2058a(this);
+        this.f57172d = new HandlerC2065a(this);
     }
 
     private void a(Intent intent) {

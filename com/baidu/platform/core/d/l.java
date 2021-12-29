@@ -28,11 +28,11 @@ public /* synthetic */ class l {
         int[] iArr = new int[SearchType.values().length];
         a = iArr;
         try {
-            iArr[SearchType.f38830j.ordinal()] = 1;
+            iArr[SearchType.f38986j.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[SearchType.f38831k.ordinal()] = 2;
+            a[SearchType.f38987k.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {

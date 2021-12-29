@@ -14,30 +14,30 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f36176c;
+    public static c f36332c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36177b;
+    public int f36333b;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36178d;
+    public int f36334d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36179e;
+    public int f36335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36180f;
+    public int f36336f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36181g;
+    public int f36337g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36182h;
+    public int f36338h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36183i;
+    public int f36339i;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -53,13 +53,13 @@ public class c {
             }
         }
         this.a = "firll.dat";
-        this.f36177b = 3164;
-        this.f36178d = 0;
-        this.f36179e = 20;
-        this.f36180f = 40;
-        this.f36181g = 60;
-        this.f36182h = 80;
-        this.f36183i = 100;
+        this.f36333b = 3164;
+        this.f36334d = 0;
+        this.f36335e = 20;
+        this.f36336f = 40;
+        this.f36337g = 60;
+        this.f36338h = 80;
+        this.f36339i = 100;
     }
 
     private long a(int i2) {
@@ -121,10 +121,10 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f36176c == null) {
-                f36176c = new c();
+            if (f36332c == null) {
+                f36332c = new c();
             }
-            return f36176c;
+            return f36332c;
         }
         return (c) invokeV.objValue;
     }
@@ -138,9 +138,9 @@ public class c {
         try {
             RandomAccessFile randomAccessFile = new RandomAccessFile(j3 + File.separator + this.a, "rw");
             randomAccessFile.seek(i2);
-            randomAccessFile.writeInt(this.f36177b);
+            randomAccessFile.writeInt(this.f36333b);
             randomAccessFile.writeLong(j2);
-            randomAccessFile.writeInt(this.f36177b);
+            randomAccessFile.writeInt(this.f36333b);
             randomAccessFile.close();
         } catch (Exception unused) {
         }
@@ -149,13 +149,13 @@ public class c {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            a(this.f36178d, j2);
+            a(this.f36334d, j2);
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f36178d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a(this.f36334d) : invokeV.longValue;
     }
 }

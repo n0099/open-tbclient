@@ -1,0 +1,120 @@
+package c.a.t0.g0.f0;
+
+import c.a.s0.s.q.d2;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
+/* loaded from: classes7.dex */
+public class m extends k {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String U0;
+    public List<String> V0;
+    public String W0;
+    public String X0;
+    public long Y0;
+
+    public m(d2 d2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {d2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (d2Var == null) {
+            return;
+        }
+        this.f18222e = d2Var;
+        String str = d2Var.E;
+        d2Var.getTitle();
+        VoiceRoom G1 = d2Var.G1();
+        if (G1 != null) {
+            this.U0 = G1.room_name;
+            this.V0 = g0(G1);
+            this.W0 = String.valueOf(G1.talker_num);
+            this.X0 = String.valueOf(G1.joined_num);
+            this.Y0 = G1.room_id.longValue();
+        }
+    }
+
+    public static boolean Y(d2 d2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d2Var)) == null) ? (d2Var == null || d2Var.G1() == null || d2Var.G1().room_id.longValue() <= 0 || StringUtils.isNull(d2Var.G1().room_name)) ? false : true : invokeL.booleanValue;
+    }
+
+    public String b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.X0 : (String) invokeV.objValue;
+    }
+
+    public List<String> c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.V0 : (List) invokeV.objValue;
+    }
+
+    public long d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.Y0 : invokeV.longValue;
+    }
+
+    public String e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.U0 : (String) invokeV.objValue;
+    }
+
+    public String f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.W0 : (String) invokeV.objValue;
+    }
+
+    public final List<String> g0(VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (User user : voiceRoom.talker) {
+                if (user != null) {
+                    arrayList.add(user.portrait);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // c.a.t0.g0.f0.k, com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.G) {
+                return k.M0;
+            }
+            return d2.u3;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+}

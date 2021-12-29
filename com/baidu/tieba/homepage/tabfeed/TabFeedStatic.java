@@ -4,10 +4,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HomePageTabFeedCollegeSecondActivityConfig;
+import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity;
+import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListActivity;
+import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
 import com.baidu.tieba.nearby.NearbyFriendsActivity;
 import com.baidu.tieba.nearby.message.NearbyFriendsHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,6 +40,8 @@ public class TabFeedStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(HomePageTabFeedCollegeSecondActivityConfig.class, HomePageTabFeedCollegeSecondActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NearbyFriendsActivityConfig.class, NearbyFriendsActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(LocalChannelTopicListActivityConfig.class, LocalChannelTopicListActivity.class);
+        b();
         a();
     }
 
@@ -57,6 +62,16 @@ public class TabFeedStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_LOCAL_CHANNEL_TOPIC_LIST, TbConfig.SERVER_ADDRESS + "c/f/recommend/localChannelHotTopic");
+            tbHttpMessageTask.setResponsedClass(LocalChannelTopicListResponseMessage.class);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS, TbConfig.SERVER_ADDRESS + "c/f/forum/getNearbyPersonInfo");
             tbHttpMessageTask.setResponsedClass(NearbyFriendsHttpResponseMessage.class);
             tbHttpMessageTask.setIsNeedTbs(true);

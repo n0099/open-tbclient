@@ -2,14 +2,7 @@ package com.kwad.sdk.core.request;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.request.model.f;
 import com.kwad.sdk.core.request.model.j;
@@ -26,8 +19,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends com.kwad.sdk.core.network.d {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
     public f f58272b;
@@ -35,67 +26,17 @@ public class a extends com.kwad.sdk.core.network.d {
     /* renamed from: c  reason: collision with root package name */
     public int f58273c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(f fVar) {
         this(fVar, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((f) objArr2[0], (k) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(f fVar, k kVar) {
         this(fVar, null, false, kVar, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, kVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((f) objArr2[0], (List) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (k) objArr2[3], (j) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(f fVar, @Nullable List<String> list, boolean z, k kVar, j jVar) {
         super(a(fVar));
         DevelopMangerPlugin.DevelopValue a;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, list, Boolean.valueOf(z), kVar, jVar};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.f58272b = fVar;
         com.kwad.sdk.internal.api.a a2 = fVar.a();
         if (a2 != null && !a2.b()) {
@@ -105,9 +46,9 @@ public class a extends com.kwad.sdk.core.network.d {
         t.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
         a("universePhotoInfo", kVar);
-        int i4 = this.f58273c;
-        if (i4 > 0) {
-            a("calledUnionType", i4);
+        int i2 = this.f58273c;
+        if (i2 > 0) {
+            a("calledUnionType", i2);
         }
         if (((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_MODIFY_CREATEID") != null) {
             list = new ArrayList<>();
@@ -137,82 +78,61 @@ public class a extends com.kwad.sdk.core.network.d {
     }
 
     public static int a(f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fVar)) == null) {
-            try {
-                return fVar.a.getScreenOrientation();
-            } catch (Throwable unused) {
-                return 0;
-            }
+        try {
+            return fVar.a.getScreenOrientation();
+        } catch (Throwable unused) {
+            return 0;
         }
-        return invokeL.intValue;
     }
 
     private void a(l lVar, com.kwad.sdk.internal.api.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, lVar, aVar) == null) {
-            int i2 = aVar.a;
-            if (i2 != 0) {
-                lVar.a = i2;
-            }
-            int i3 = aVar.f59224b;
-            if (i3 != 0) {
-                lVar.f58387b = i3;
-            }
-            if (TextUtils.isEmpty(aVar.f59225c)) {
-                return;
-            }
-            lVar.f58388c = aVar.f59225c;
+        int i2 = aVar.a;
+        if (i2 != 0) {
+            lVar.a = i2;
         }
+        int i3 = aVar.f59224b;
+        if (i3 != 0) {
+            lVar.f58387b = i3;
+        }
+        if (TextUtils.isEmpty(aVar.f59225c)) {
+            return;
+        }
+        lVar.f58388c = aVar.f59225c;
     }
 
     private void a(JSONObject jSONObject, com.kwad.sdk.internal.api.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, this, jSONObject, aVar) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            if (!TextUtils.isEmpty(aVar.f59226d)) {
-                t.a(jSONObject2, "prevTitle", aVar.f59226d);
-            }
-            if (!TextUtils.isEmpty(aVar.f59227e)) {
-                t.a(jSONObject2, "postTitle", aVar.f59227e);
-            }
-            if (!TextUtils.isEmpty(aVar.f59228f)) {
-                t.a(jSONObject2, "historyTitle", aVar.f59228f);
-            }
-            if (!TextUtils.isEmpty(aVar.f59229g)) {
-                t.a(jSONObject2, "channel", aVar.f59229g);
-            }
-            t.a(jSONObject, "content", jSONObject2);
-            a(DI.APP_INFO_NAME, jSONObject);
+        JSONObject jSONObject2 = new JSONObject();
+        if (!TextUtils.isEmpty(aVar.f59226d)) {
+            t.a(jSONObject2, "prevTitle", aVar.f59226d);
         }
+        if (!TextUtils.isEmpty(aVar.f59227e)) {
+            t.a(jSONObject2, "postTitle", aVar.f59227e);
+        }
+        if (!TextUtils.isEmpty(aVar.f59228f)) {
+            t.a(jSONObject2, "historyTitle", aVar.f59228f);
+        }
+        if (!TextUtils.isEmpty(aVar.f59229g)) {
+            t.a(jSONObject2, "channel", aVar.f59229g);
+        }
+        t.a(jSONObject, "content", jSONObject2);
+        a(DI.APP_INFO_NAME, jSONObject);
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.kwad.sdk.d.c() : (String) invokeV.objValue;
+        return com.kwad.sdk.d.c();
     }
 
     public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f58273c = i2;
-        }
+        this.f58273c = i2;
     }
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public SceneImpl b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f fVar = this.f58272b;
-            if (fVar != null) {
-                return fVar.a;
-            }
-            return null;
+        f fVar = this.f58272b;
+        if (fVar != null) {
+            return fVar.a;
         }
-        return (SceneImpl) invokeV.objValue;
+        return null;
     }
 }

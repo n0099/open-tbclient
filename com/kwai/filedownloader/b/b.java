@@ -23,7 +23,7 @@ public interface b extends IInterface {
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2135a implements b {
+        public static class C2142a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public interface b extends IInterface {
             /* renamed from: b  reason: collision with root package name */
             public IBinder f60454b;
 
-            public C2135a(IBinder iBinder) {
+            public C2142a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -432,7 +432,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C2135a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C2142a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -440,7 +440,7 @@ public interface b extends IInterface {
         public static b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2135a.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2142a.a : (b) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -462,11 +462,11 @@ public interface b extends IInterface {
                 switch (i2) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC2133a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC2140a.a(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC2133a.a(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC2140a.a(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");

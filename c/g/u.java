@@ -49,10 +49,10 @@ public class u implements z.a<l> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
             l lVar2 = lVar;
             LogPrinter.v("Update SlotId:%s", lVar2.a);
-            HashMap<String, p> hashMap = this.a.f29307c;
+            HashMap<String, p> hashMap = this.a.f29384c;
             String str = lVar2.a;
             hashMap.put(str, new p(str, new s(this, lVar2)));
-            n nVar = this.a.f29306b;
+            n nVar = this.a.f29383b;
             synchronized (nVar.a) {
                 nVar.a(lVar2.a).add(new n.a(lVar2));
             }

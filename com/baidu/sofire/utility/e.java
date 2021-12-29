@@ -119,7 +119,7 @@ public final class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             try {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-                String string = a2.f39610c.getString("sgud", "");
+                String string = a2.f39766c.getString("sgud", "");
                 if (TextUtils.isEmpty(string)) {
                     if (Build.VERSION.SDK_INT > 25) {
                         return "";
@@ -137,8 +137,8 @@ public final class e {
                     if (TextUtils.isEmpty(a3)) {
                         return "";
                     }
-                    a2.f39611d.putString("sgud", a3);
-                    a2.f39611d.commit();
+                    a2.f39767d.putString("sgud", a3);
+                    a2.f39767d.commit();
                     return a3;
                 }
                 return string;
@@ -150,9 +150,9 @@ public final class e {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x003b A[Catch: all -> 0x0094, TryCatch #2 {all -> 0x0094, blocks: (B:5:0x0006, B:13:0x0027, B:15:0x003b, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x003b A[Catch: all -> 0x0095, TryCatch #2 {all -> 0x0095, blocks: (B:5:0x0006, B:13:0x0027, B:15:0x003b, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0065 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0066 A[Catch: all -> 0x0094, TryCatch #2 {all -> 0x0094, blocks: (B:5:0x0006, B:13:0x0027, B:15:0x003b, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0066 A[Catch: all -> 0x0095, TryCatch #2 {all -> 0x0095, blocks: (B:5:0x0006, B:13:0x0027, B:15:0x003b, B:18:0x0066, B:21:0x0072, B:12:0x0024), top: B:33:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -220,13 +220,13 @@ public final class e {
                     if (!TextUtils.isEmpty(a2)) {
                         return a2 + "|" + stringBuffer;
                     }
-                } catch (Exception unused) {
+                } catch (Throwable unused) {
+                    c.a();
+                    return "";
                 }
-                return "";
-            } catch (Throwable unused2) {
-                c.a();
-                return "";
+            } catch (Exception unused2) {
             }
+            return "";
         }
         return (String) invokeL.objValue;
     }

@@ -12,34 +12,34 @@ public class t {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36977b;
+    public String f37133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36978c;
+    public String f37134c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36979d;
+    public String f37135d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36980e;
+    public int f37136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36981f;
+    public int f37137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GeoPoint f36982g;
+    public GeoPoint f37138g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36983h;
+    public int f37139h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36984i;
+    public int f37140i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f36985j;
+    public boolean f37141j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f36986k;
+    public int f37142k;
     public int l;
 
     public t() {

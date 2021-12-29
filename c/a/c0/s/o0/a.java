@@ -18,13 +18,13 @@ public abstract class a implements c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.s.k0.c f2083e;
+    public c.a.c0.s.k0.c f2510e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f2084f;
+    public Context f2511f;
 
     /* renamed from: g  reason: collision with root package name */
-    public f f2085g;
+    public f f2512g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -52,14 +52,14 @@ public abstract class a implements c {
     public void b(@NonNull f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fVar) == null) {
-            this.f2085g = fVar;
+            this.f2512g = fVar;
         }
     }
 
     public void c(@NonNull c.a.c0.s.k0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.f2083e = cVar;
+            this.f2510e = cVar;
             o();
         }
     }
@@ -74,18 +74,18 @@ public abstract class a implements c {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f2085g = null;
+            this.f2512g = null;
         }
     }
 
     public void f() {
         c.a.c0.s.k0.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cVar = this.f2083e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (cVar = this.f2510e) == null) {
             return;
         }
         cVar.e(this);
-        this.f2083e = null;
+        this.f2510e = null;
     }
 
     @Override // c.a.c0.s.o0.c
@@ -98,7 +98,7 @@ public abstract class a implements c {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2084f : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2511f : (Context) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.j
@@ -133,7 +133,7 @@ public abstract class a implements c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            f fVar = this.f2085g;
+            f fVar = this.f2512g;
             if (fVar != null) {
                 return fVar.b();
             }
@@ -160,9 +160,9 @@ public abstract class a implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
             if (context == null) {
-                this.f2084f = c.a.c0.s.d.b();
+                this.f2511f = c.a.c0.s.d.b();
             } else {
-                this.f2084f = context;
+                this.f2511f = context;
             }
         }
     }
@@ -187,7 +187,7 @@ public abstract class a implements c {
             return;
         }
         for (int i2 : subscribeEvent) {
-            this.f2083e.c(i2, this);
+            this.f2510e.c(i2, this);
         }
     }
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FaceDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     public a oy;
     public boolean oz;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,14 +248,14 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void a(a.C1746a c1746a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C1753a c1753a, int i2, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1746a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1753a, Integer.valueOf(i2), bVar, bVar2, str}) == null) {
             this.oA.G(i2);
-            if (c1746a != null) {
-                this.oA.a(Float.parseFloat(c1746a.pR), Float.parseFloat(c1746a.pS));
-                this.oA.d(Float.parseFloat(c1746a.pT));
+            if (c1753a != null) {
+                this.oA.a(Float.parseFloat(c1753a.pR), Float.parseFloat(c1753a.pS));
+                this.oA.d(Float.parseFloat(c1753a.pT));
             }
             this.oA.z(bVar.dy());
             this.oA.B(bVar.dz());

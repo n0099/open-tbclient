@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.video.message;
 
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -45,9 +45,9 @@ public class VideoTabRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst()));
             builder.new_net_type = Integer.valueOf(this.new_net_type);
             builder.load_type = Integer.valueOf(this.load_type);
             builder.page_thread_count = Integer.valueOf(this.page_thread_count);

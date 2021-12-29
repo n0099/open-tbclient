@@ -16,34 +16,34 @@ public final class g {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f2073b;
+    public final int f2500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f2074c;
+    public final String f2501c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f2075d;
+    public final String f2502d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f2076e;
+    public final String f2503e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f2077f;
+    public final String f2504f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f2078g;
+    public final int f2505g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f2079h;
+    public final int f2506h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final int f2080i;
+    public final int f2507i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final double f2081j;
+    public final double f2508j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final int f2082k;
+    public final int f2509k;
     public final double l;
     public final int m;
     public final boolean n;
@@ -64,16 +64,16 @@ public final class g {
             }
         }
         this.a = str;
-        this.f2073b = i2;
-        this.f2074c = str2;
-        this.f2075d = str3;
-        this.f2076e = str4;
-        this.f2077f = str5;
-        this.f2078g = i3;
-        this.f2079h = i4;
-        this.f2080i = i5;
-        this.f2081j = d2;
-        this.f2082k = i6;
+        this.f2500b = i2;
+        this.f2501c = str2;
+        this.f2502d = str3;
+        this.f2503e = str4;
+        this.f2504f = str5;
+        this.f2505g = i3;
+        this.f2506h = i4;
+        this.f2507i = i5;
+        this.f2508j = d2;
+        this.f2509k = i6;
         this.l = d3;
         this.m = i7;
         this.n = z;
@@ -82,13 +82,13 @@ public final class g {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2077f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2504f : (String) invokeV.objValue;
     }
 
     public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2078g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2505g : invokeV.intValue;
     }
 
     public final double c() {
@@ -100,7 +100,7 @@ public final class g {
     public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2076e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2503e : (String) invokeV.objValue;
     }
 
     public final boolean e() {
@@ -116,7 +116,7 @@ public final class g {
             if (this != obj) {
                 if (obj instanceof g) {
                     g gVar = (g) obj;
-                    return Intrinsics.areEqual(this.a, gVar.a) && this.f2073b == gVar.f2073b && Intrinsics.areEqual(this.f2074c, gVar.f2074c) && Intrinsics.areEqual(this.f2075d, gVar.f2075d) && Intrinsics.areEqual(this.f2076e, gVar.f2076e) && Intrinsics.areEqual(this.f2077f, gVar.f2077f) && this.f2078g == gVar.f2078g && this.f2079h == gVar.f2079h && this.f2080i == gVar.f2080i && Double.compare(this.f2081j, gVar.f2081j) == 0 && this.f2082k == gVar.f2082k && Double.compare(this.l, gVar.l) == 0 && this.m == gVar.m && this.n == gVar.n;
+                    return Intrinsics.areEqual(this.a, gVar.a) && this.f2500b == gVar.f2500b && Intrinsics.areEqual(this.f2501c, gVar.f2501c) && Intrinsics.areEqual(this.f2502d, gVar.f2502d) && Intrinsics.areEqual(this.f2503e, gVar.f2503e) && Intrinsics.areEqual(this.f2504f, gVar.f2504f) && this.f2505g == gVar.f2505g && this.f2506h == gVar.f2506h && this.f2507i == gVar.f2507i && Double.compare(this.f2508j, gVar.f2508j) == 0 && this.f2509k == gVar.f2509k && Double.compare(this.l, gVar.l) == 0 && this.m == gVar.m && this.n == gVar.n;
                 }
                 return false;
             }
@@ -128,7 +128,7 @@ public final class g {
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2080i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2507i : invokeV.intValue;
     }
 
     public final String g() {
@@ -140,7 +140,7 @@ public final class g {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2082k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2509k : invokeV.intValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v14, resolved type: boolean */
@@ -150,18 +150,18 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f2073b) * 31;
-            String str2 = this.f2074c;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.f2500b) * 31;
+            String str2 = this.f2501c;
             int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.f2075d;
+            String str3 = this.f2502d;
             int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            String str4 = this.f2076e;
+            String str4 = this.f2503e;
             int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f2077f;
+            String str5 = this.f2504f;
             int hashCode5 = str5 != null ? str5.hashCode() : 0;
-            long doubleToLongBits = Double.doubleToLongBits(this.f2081j);
+            long doubleToLongBits = Double.doubleToLongBits(this.f2508j);
             long doubleToLongBits2 = Double.doubleToLongBits(this.l);
-            int i2 = (((((((((((((((hashCode4 + hashCode5) * 31) + this.f2078g) * 31) + this.f2079h) * 31) + this.f2080i) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f2082k) * 31) + ((int) (doubleToLongBits2 ^ (doubleToLongBits2 >>> 32)))) * 31) + this.m) * 31;
+            int i2 = (((((((((((((((hashCode4 + hashCode5) * 31) + this.f2505g) * 31) + this.f2506h) * 31) + this.f2507i) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f2509k) * 31) + ((int) (doubleToLongBits2 ^ (doubleToLongBits2 >>> 32)))) * 31) + this.m) * 31;
             boolean z = this.n;
             int i3 = z;
             if (z != 0) {
@@ -181,32 +181,32 @@ public final class g {
     public final int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2073b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2500b : invokeV.intValue;
     }
 
     public final String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2074c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f2501c : (String) invokeV.objValue;
     }
 
     public final String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2075d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f2502d : (String) invokeV.objValue;
     }
 
     public final int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2079h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2506h : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "VideoRepresentation(key=" + this.a + ", rank=" + this.f2073b + ", title=" + this.f2074c + ", url=" + this.f2075d + ", downloadUrl=" + this.f2076e + ", airPlayUrl=" + this.f2077f + ", bps=" + this.f2078g + ", width=" + this.f2079h + ", height=" + this.f2080i + ", size=" + this.f2081j + ", moovSize=" + this.f2082k + ", clarityScore=" + this.l + ", prefetchSize=" + this.m + ", frmAlignRepresentation=" + this.n + SmallTailInfo.EMOTION_SUFFIX;
+            return "VideoRepresentation(key=" + this.a + ", rank=" + this.f2500b + ", title=" + this.f2501c + ", url=" + this.f2502d + ", downloadUrl=" + this.f2503e + ", airPlayUrl=" + this.f2504f + ", bps=" + this.f2505g + ", width=" + this.f2506h + ", height=" + this.f2507i + ", size=" + this.f2508j + ", moovSize=" + this.f2509k + ", clarityScore=" + this.l + ", prefetchSize=" + this.m + ", frmAlignRepresentation=" + this.n + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

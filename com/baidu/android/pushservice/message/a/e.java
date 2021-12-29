@@ -1,148 +1,101 @@
 package com.baidu.android.pushservice.message.a;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.RingtoneManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.PushService;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.Locale;
 /* loaded from: classes9.dex */
-public class e extends d {
+public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: com.baidu.android.pushservice.message.a.e$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1053564895, "Lcom/baidu/android/pushservice/message/a/e$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1053564895, "Lcom/baidu/android/pushservice/message/a/e$1;");
-                    return;
-                }
-            }
-            int[] iArr = new int[com.baidu.android.pushservice.a.c.a().length];
-            a = iArr;
-            try {
-                iArr[com.baidu.android.pushservice.a.c.a.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(Context context) {
-        super(context);
+    @SuppressLint({"NewApi"})
+    public static void a(Context context, PublicMsg publicMsg, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLI(65536, null, context, publicMsg, str, i2) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+            Intent intent = new Intent(context, PushService.class);
+            intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
+            intent.setData(Uri.parse("content://" + str));
+            intent.putExtra("public_msg", publicMsg);
+            Intent intent2 = new Intent(context, PushService.class);
+            intent2.setAction("com.baidu.pushservice.action.publicmsg.DELETE_V2");
+            intent2.setData(Uri.parse("content://" + str));
+            intent2.putExtra("public_msg", publicMsg);
+            intent.setClass(context, PushService.class);
+            intent2.setClass(context, PushService.class);
+            Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
+            notificationManager.notify(i2, Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
         }
     }
 
-    public static PublicMsg a(Context context, String str, String str2, byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLLLLL;
+    public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i2, byte[] bArr, byte[] bArr2, int i3, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, bArr, bArr2)) == null) {
-            if (m.a(context, bArr, str2, bArr2)) {
-                PublicMsg a = j.a(context, str2, str, bArr2);
-                a.mPkgName = context.getPackageName();
-                if (TextUtils.isEmpty(a.mTitle)) {
-                    a.mTitle = context.getPackageManager().getApplicationLabel(context.getApplicationInfo()).toString();
-                }
-                return a;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, publicMsg, str, str2, Integer.valueOf(i2), bArr, bArr2, Integer.valueOf(i3), str3}) == null) {
+            Intent intent = new Intent();
+            intent.putExtra("public_msg", publicMsg);
+            intent.putExtra("pushService_package_name", context.getPackageName());
+            intent.putExtra("service_name", m.m() ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
+            intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
+            intent.putExtra("message_id", str);
+            intent.putExtra("app_id", str2);
+            intent.putExtra("notify_id", i3);
+            intent.putExtra("widget_badge_info", str3);
+            intent.putExtra("baidu_message_type", i2);
+            if (m.g(context, publicMsg.mPkgName) > 45) {
+                intent.putExtra("baidu_message_body", bArr2);
+                intent.putExtra("baidu_message_secur_info", bArr);
             }
-            return null;
+            m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
         }
-        return (PublicMsg) invokeLLLLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0065  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x006e  */
-    @Override // com.baidu.android.pushservice.message.a.d
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+    public static boolean a(Context context, PublicMsg publicMsg) {
         InterceptResult invokeLL;
-        int i2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
-            String c2 = kVar.c();
-            String f2 = kVar.f();
-            int g2 = kVar.g();
-            int a = kVar.a();
-            byte[] i3 = kVar.i();
-            String d2 = kVar.d();
-            PublicMsg a2 = j.a(this.a, f2, c2, bArr);
-            if (a2 == null || TextUtils.isEmpty(a2.mDescription)) {
-                m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.a);
-                i2 = 2;
-            } else {
-                com.baidu.android.pushservice.a.d a3 = com.baidu.android.pushservice.a.d.a(this.a, c2);
-                if (TextUtils.isEmpty(d2) || !m.b(this.a, d2)) {
-                    if (a3.a() == com.baidu.android.pushservice.a.c.a) {
-                        d2 = a3.a.b();
-                    }
-                    m.a(this.a, a2);
-                    i2 = 1;
-                    if (AnonymousClass1.a[a3.a().ordinal()] == 1) {
-                        m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.a);
-                        i2 = 7;
-                    } else {
-                        PackageManager packageManager = this.a.getPackageManager();
-                        try {
-                            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a2.mPkgName, 128);
-                            if (TextUtils.isEmpty(a2.mTitle)) {
-                                a2.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
-                            }
-                            f.a(this.a, a2, f2, c2, g2, i3, bArr, a);
-                            m.a(f2 + " is showing Notification!", this.a);
-                        } catch (PackageManager.NameNotFoundException e2) {
-                            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
-                            i2 = 8;
-                        }
-                    }
-                }
-                a2.mPkgName = d2;
-                m.a(this.a, a2);
-                i2 = 1;
-                if (AnonymousClass1.a[a3.a().ordinal()] == 1) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, publicMsg)) == null) {
+            if (publicMsg.mNetType == 1) {
+                NetworkInfo c2 = com.baidu.android.pushservice.i.g.c(context);
+                if (!(c2 != null && "wifi".equals(c2.getTypeName().toLowerCase(Locale.getDefault())))) {
+                    return false;
                 }
             }
-            com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            gVar.a(i2);
-            return gVar;
+            if (TextUtils.isEmpty(publicMsg.mSupportAppname)) {
+                return true;
+            }
+            try {
+            } catch (PackageManager.NameNotFoundException e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            }
+            if (context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null) {
+                z = true;
+                return (!publicMsg.mIsSupportApp && z) || !(publicMsg.mIsSupportApp || z);
+            }
+            z = false;
+            if (publicMsg.mIsSupportApp) {
+            }
+            return false;
         }
-        return (com.baidu.android.pushservice.message.g) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 }

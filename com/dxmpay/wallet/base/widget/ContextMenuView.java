@@ -27,7 +27,7 @@ public class ContextMenuView extends BdContextMenuView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55883e;
+    public int f55882e;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -35,10 +35,10 @@ public class ContextMenuView extends BdContextMenuView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenuItem f55884e;
+        public final /* synthetic */ BdMenuItem f55883e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ContextMenuView f55885f;
+        public final /* synthetic */ ContextMenuView f55884f;
 
         public a(ContextMenuView contextMenuView, BdMenuItem bdMenuItem) {
             Interceptable interceptable = $ic;
@@ -55,18 +55,18 @@ public class ContextMenuView extends BdContextMenuView {
                     return;
                 }
             }
-            this.f55885f = contextMenuView;
-            this.f55884e = bdMenuItem;
+            this.f55884f = contextMenuView;
+            this.f55883e = bdMenuItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             BdMenuItem.OnItemClickListener onClickListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f55884e.getOnClickListener()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (onClickListener = this.f55883e.getOnClickListener()) == null) {
                 return;
             }
-            onClickListener.onClick(this.f55884e);
+            onClickListener.onClick(this.f55883e);
         }
     }
 
@@ -90,7 +90,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f55883e = 0;
+        this.f55882e = 0;
     }
 
     public final View c(BdMenuItem bdMenuItem) {
@@ -120,7 +120,7 @@ public class ContextMenuView extends BdContextMenuView {
     public int getMaxMenuItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55883e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55882e : invokeV.intValue;
     }
 
     @Override // com.dxmpay.wallet.base.widget.BdContextMenuView
@@ -160,9 +160,9 @@ public class ContextMenuView extends BdContextMenuView {
         for (int i2 = 0; i2 < size; i2++) {
             View c2 = c(list.get(i2));
             c2.measure(0, 0);
-            if (this.f55883e < c2.getMeasuredWidth()) {
+            if (this.f55882e < c2.getMeasuredWidth()) {
                 int measuredWidth = c2.getMeasuredWidth();
-                this.f55883e = measuredWidth;
+                this.f55882e = measuredWidth;
                 c2.setMinimumWidth(measuredWidth);
             }
             if (size == 1) {
@@ -204,7 +204,7 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f55883e = 0;
+        this.f55882e = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -225,6 +225,6 @@ public class ContextMenuView extends BdContextMenuView {
                 return;
             }
         }
-        this.f55883e = 0;
+        this.f55882e = 0;
     }
 }

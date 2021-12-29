@@ -22,15 +22,15 @@ public abstract class e extends g {
     @JvmField
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f1895f;
+    public ViewGroup f2322f;
     @JvmField
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.c0.h0.b0.d.d f1896g;
+    public c.a.c0.h0.b0.d.d f2323g;
     @JvmField
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f1897h;
+    public boolean f2324h;
 
     /* loaded from: classes.dex */
     public static final class a implements BubbleManager.b {
@@ -68,7 +68,7 @@ public abstract class e extends g {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.f1895f = null;
+                this.a.f2322f = null;
             }
         }
 
@@ -113,8 +113,8 @@ public abstract class e extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.j();
-            this.f1895f = null;
-            c.a.c0.h0.b0.d.d dVar = this.f1896g;
+            this.f2322f = null;
+            c.a.c0.h0.b0.d.d dVar = this.f2323g;
             if (dVar != null) {
                 dVar.k();
             }
@@ -124,7 +124,7 @@ public abstract class e extends g {
     public void s() {
         c.a.c0.h0.b0.d.d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f1896g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (dVar = this.f2323g) == null) {
             return;
         }
         dVar.c();
@@ -154,15 +154,15 @@ public abstract class e extends g {
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f1897h && this.f1895f != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f2324h && this.f2322f != null) {
             if (!n().V0()) {
-                o().d0(true, true);
+                o().W(true, true);
             }
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             int color = context.getResources().getColor(c.a.c0.h0.o.nad_video_bubble_bg_color);
             c.a.c0.h0.b0.c.c cVar = (c.a.c0.h0.b0.c.c) BubbleManager.t(c.a.c0.h0.b0.c.c.class);
-            cVar.j(t(), this.f1895f);
+            cVar.j(t(), this.f2322f);
             cVar.q(u());
             cVar.r(-1, -1);
             cVar.l(color, color);
@@ -173,12 +173,12 @@ public abstract class e extends g {
             cVar.i(true);
             cVar.o(new a(this));
             c.a.c0.h0.b0.d.d h2 = cVar.h();
-            this.f1896g = h2;
+            this.f2323g = h2;
             if (h2 != null) {
                 h2.p();
             }
-            this.f1897h = false;
-            o().a0(5000);
+            this.f2324h = false;
+            o().T(5000);
         }
     }
 }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.r0.s.v.c;
+import c.a.s0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -25,19 +25,19 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f45859e;
+    public final TextView f46052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TBSpecificationBtn f45860f;
+    public final TBSpecificationBtn f46053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final View f45861g;
+    public final View f46054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinearLayout f45862h;
+    public final LinearLayout f46055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f45863i;
+    public View.OnClickListener f46056i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HomePageBrowseModelTipView(Context context) {
@@ -63,28 +63,28 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
     public final View.OnClickListener getListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45863i : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46056i : (View.OnClickListener) invokeV.objValue;
     }
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c d2 = c.d(this.f45862h);
+            c d2 = c.d(this.f46055h);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f45859e, R.color.CAM_X0105);
-            this.f45860f.changeSkinType();
+            SkinManager.setViewTextColor(this.f46052e, R.color.CAM_X0105);
+            this.f46053f.changeSkinType();
         }
     }
 
     public final void setListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f45863i = onClickListener;
+            this.f46056i = onClickListener;
             if (onClickListener == null) {
                 return;
             }
-            this.f45860f.setOnClickListener(onClickListener);
+            this.f46053f.setOnClickListener(onClickListener);
         }
     }
 
@@ -107,47 +107,47 @@ public final class HomePageBrowseModelTipView extends LinearLayout {
                 return;
             }
         }
-        this.f45859e = new TextView(getContext());
-        this.f45860f = new TBSpecificationBtn(getContext());
-        this.f45861g = new View(getContext());
-        this.f45862h = new LinearLayout(getContext());
+        this.f46052e = new TextView(getContext());
+        this.f46053f = new TBSpecificationBtn(getContext());
+        this.f46054g = new View(getContext());
+        this.f46055h = new LinearLayout(getContext());
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.f45861g.setLayoutParams(new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
-        addView(this.f45861g);
-        addView(this.f45862h);
-        ViewGroup.LayoutParams layoutParams = this.f45862h.getLayoutParams();
+        this.f46054g.setLayoutParams(new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X003)));
+        addView(this.f46054g);
+        addView(this.f46055h);
+        ViewGroup.LayoutParams layoutParams = this.f46055h.getLayoutParams();
         layoutParams.width = -1;
         layoutParams.height = -2;
-        this.f45862h.setLayoutParams(layoutParams);
-        this.f45862h.setOrientation(0);
-        c d2 = c.d(this.f45862h);
+        this.f46055h.setLayoutParams(layoutParams);
+        this.f46055h.setOrientation(0);
+        c d2 = c.d(this.f46055h);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0201);
-        this.f45862h.addView(this.f45859e);
-        this.f45862h.addView(this.f45860f);
+        this.f46055h.addView(this.f46052e);
+        this.f46055h.addView(this.f46053f);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.tbds174), getContext().getResources().getDimensionPixelSize(R.dimen.tbds75));
         layoutParams2.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X005);
         layoutParams2.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_H_X005);
         layoutParams2.rightMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams2.gravity = 16;
-        this.f45860f.setLayoutParams(layoutParams2);
-        c.a.r0.s.i0.n.c cVar = new c.a.r0.s.i0.n.c();
+        this.f46053f.setLayoutParams(layoutParams2);
+        c.a.s0.s.i0.n.c cVar = new c.a.s0.s.i0.n.c();
         cVar.p(R.color.CAM_X0304);
-        this.f45860f.setConfig(cVar);
-        this.f45860f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
-        this.f45860f.setTextSize(R.dimen.T_X08);
+        this.f46053f.setConfig(cVar);
+        this.f46053f.setText(getContext().getString(R.string.browse_mode_tip_view_btn_text));
+        this.f46053f.setTextSize(R.dimen.T_X08);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams3.leftMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams3.rightMargin = getContext().getResources().getDimensionPixelSize(R.dimen.M_W_X005);
         layoutParams3.gravity = 16;
         layoutParams3.weight = 1.0f;
-        this.f45859e.setLayoutParams(layoutParams3);
-        c d3 = c.d(this.f45859e);
+        this.f46052e.setLayoutParams(layoutParams3);
+        c d3 = c.d(this.f46052e);
         d3.z(R.dimen.T_X06);
         d3.v(R.color.CAM_X0105);
-        this.f45859e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
-        this.f45859e.setSingleLine();
-        this.f45859e.setEllipsize(TextUtils.TruncateAt.END);
+        this.f46052e.setText(getContext().getString(R.string.browse_mode_tip_view_tip_text));
+        this.f46052e.setSingleLine();
+        this.f46052e.setEllipsize(TextUtils.TruncateAt.END);
     }
 }

@@ -28,10 +28,16 @@ public final class PushConstants {
     public static final int NOTIFY_STATUS_CLOSE = 0;
     public static final int NOTIFY_STATUS_OPEN = 1;
     public static final int NOTIFY_STATUS_UNKNOWN = 2;
+    public static final int PUSH_FREQUENCY_CHOSEN = 5;
+    public static final int PUSH_FREQUENCY_CORE = 4;
     public static final int PUSH_FREQUENCY_DEF = 0;
     public static final int PUSH_FREQUENCY_HIGH = 3;
     public static final int PUSH_FREQUENCY_LOW = 1;
+    public static final int PUSH_FREQUENCY_MAX = 7;
     public static final int PUSH_FREQUENCY_MED = 2;
+    public static final int PUSH_FREQUENCY_RICH = 6;
+    public static final int PUSH_LAUNCH_TASK_LEVEY_BACK_NOT_LAUNCH = 1;
+    public static final int PUSH_LAUNCH_TASK_LEVEY_GENERAL = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     public PushConstants() {

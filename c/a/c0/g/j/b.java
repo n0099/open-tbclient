@@ -17,13 +17,13 @@ public class b<VIEW extends d> {
     public CountDownTimer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1569b;
+    public long f1996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1570c;
+    public long f1997c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WeakReference<VIEW> f1571d;
+    public WeakReference<VIEW> f1998d;
 
     /* loaded from: classes.dex */
     public static class a extends CountDownTimer {
@@ -70,7 +70,7 @@ public class b<VIEW extends d> {
             if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || (bVar = this.a.get()) == null) {
                 return;
             }
-            bVar.f1570c = bVar.f1569b - j2;
+            bVar.f1997c = bVar.f1996b - j2;
             bVar.g(bVar.e(), bVar.j());
         }
     }
@@ -90,13 +90,13 @@ public class b<VIEW extends d> {
                 return;
             }
         }
-        this.f1571d = new WeakReference<>(view);
+        this.f1998d = new WeakReference<>(view);
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1570c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1997c : invokeV.longValue;
     }
 
     public final void f(long j2) {
@@ -121,14 +121,14 @@ public class b<VIEW extends d> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             i();
-            this.f1569b = j2;
-            this.f1570c = 0L;
-            a aVar = new a(this, this.f1569b, 1000L);
+            this.f1996b = j2;
+            this.f1997c = 0L;
+            a aVar = new a(this, this.f1996b, 1000L);
             this.a = aVar;
             aVar.start();
             VIEW k2 = k();
             if (k2 != null) {
-                long j3 = this.f1569b;
+                long j3 = this.f1996b;
                 k2.onStart(j3, j3);
             }
         }
@@ -143,19 +143,19 @@ public class b<VIEW extends d> {
         countDownTimer.cancel();
         VIEW k2 = k();
         if (k2 != null) {
-            k2.onCancel(this.f1570c, this.f1569b);
+            k2.onCancel(this.f1997c, this.f1996b);
         }
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1569b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f1996b : invokeV.longValue;
     }
 
     public final VIEW k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1571d.get() : (VIEW) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1998d.get() : (VIEW) invokeV.objValue;
     }
 }

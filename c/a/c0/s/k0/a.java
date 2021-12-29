@@ -28,15 +28,15 @@ public abstract class a implements c {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public k f2022b;
+    public k f2449b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public List<k> f2023c;
+    public List<k> f2450c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public List<m> f2024d;
+    public List<m> f2451d;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public abstract class a implements c {
     public void a(@Nullable k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
-            this.f2022b = kVar;
+            this.f2449b = kVar;
         }
     }
 
@@ -125,7 +125,7 @@ public abstract class a implements c {
     public void f(@NonNull m mVar) {
         List<m> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) || (list = this.f2024d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) || (list = this.f2451d) == null) {
             return;
         }
         list.remove(mVar);
@@ -186,7 +186,7 @@ public abstract class a implements c {
     public final void h(p pVar) {
         List<m> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) || (list = this.f2024d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) || (list = this.f2451d) == null) {
             return;
         }
         for (m mVar : list) {
@@ -198,13 +198,13 @@ public abstract class a implements c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, pVar)) == null) {
-            k kVar = this.f2022b;
-            if (kVar != null && kVar.getInterceptorLayer() != pVar.k() && this.f2022b.e(pVar)) {
+            k kVar = this.f2449b;
+            if (kVar != null && kVar.getInterceptorLayer() != pVar.k() && this.f2449b.e(pVar)) {
                 h.b("AbsMessenger", "isNeedIntercept() = true, event = " + pVar);
                 pVar.o();
                 return true;
             }
-            List<k> list = this.f2023c;
+            List<k> list = this.f2450c;
             if (list != null) {
                 for (k kVar2 : list) {
                     if (kVar2.getInterceptorLayer() != pVar.k() && kVar2.e(pVar)) {
@@ -223,20 +223,20 @@ public abstract class a implements c {
     public final void j(m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, mVar) == null) {
-            if (this.f2024d == null) {
-                this.f2024d = new ArrayList();
+            if (this.f2451d == null) {
+                this.f2451d = new ArrayList();
             }
-            if (this.f2024d.contains(mVar)) {
+            if (this.f2451d.contains(mVar)) {
                 return;
             }
             int expectOrder = mVar.getExpectOrder();
             if (expectOrder == 0) {
-                this.f2024d.add(mVar);
+                this.f2451d.add(mVar);
             } else if (expectOrder == 1) {
-                this.f2024d.add(0, mVar);
+                this.f2451d.add(0, mVar);
             } else if (expectOrder != 2) {
             } else {
-                List<m> list = this.f2024d;
+                List<m> list = this.f2451d;
                 list.add(list.size(), mVar);
             }
         }
@@ -261,17 +261,17 @@ public abstract class a implements c {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            List<m> list = this.f2024d;
+            List<m> list = this.f2451d;
             if (list != null) {
                 list.clear();
-                this.f2024d = null;
+                this.f2451d = null;
             }
             this.a.clear();
-            this.f2022b = null;
-            List<k> list2 = this.f2023c;
+            this.f2449b = null;
+            List<k> list2 = this.f2450c;
             if (list2 != null) {
                 list2.clear();
-                this.f2023c = null;
+                this.f2450c = null;
             }
         }
     }

@@ -6,12 +6,12 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
-import c.a.r0.i0.d;
-import c.a.r0.s.m.a;
-import c.a.r0.s.m.c;
-import c.a.r0.s.r.t0;
-import c.a.s0.z0.a.g.j;
+import c.a.d.f.p.n;
+import c.a.s0.i0.d;
+import c.a.s0.s.l.a;
+import c.a.s0.s.l.c;
+import c.a.s0.s.q.t0;
+import c.a.t0.z0.a.g.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -71,7 +71,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
     public boolean hasSendResult;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
     public PassProviderAuto.Result<PassProviderAuto.LoginResult> mLoginResult;
-    public final a.InterfaceC0840a mReLoginCallback;
+    public final a.InterfaceC0864a mReLoginCallback;
     public WeakReference<Activity> mWeakActivity;
 
     public PassProviderPlugin() {
@@ -87,7 +87,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 return;
             }
         }
-        this.mReLoginCallback = new a.InterfaceC0840a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
+        this.mReLoginCallback = new a.InterfaceC0864a(this) { // from class: com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PassProviderPlugin this$0;
@@ -110,7 +110,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 this.this$0 = this;
             }
 
-            @Override // c.a.r0.s.m.a.InterfaceC0840a
+            @Override // c.a.s0.s.l.a.InterfaceC0864a
             public void onBeforeLogin(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
@@ -118,7 +118,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // c.a.r0.s.m.a.InterfaceC0840a
+            @Override // c.a.s0.s.l.a.InterfaceC0864a
             public void onFailure(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i4, str2) == null) {
@@ -127,7 +127,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 }
             }
 
-            @Override // c.a.r0.s.m.a.InterfaceC0840a
+            @Override // c.a.s0.s.l.a.InterfaceC0864a
             public void onSuccess(AccountData accountData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -141,7 +141,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
 
     public static /* synthetic */ CustomResponsedMessage a(AccountData accountData, CustomMessage customMessage) {
         c.g(accountData);
-        c.a.r0.s.c0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+        c.a.s0.s.b0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
         return null;
     }
 
@@ -412,10 +412,10 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
                 saveAccountInfo(accountData);
-                c.a.r0.s.c0.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+                c.a.s0.s.b0.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
                 TbadkCoreApplication.getInst().onUserChanged(findCurrentActivity.getIntent());
-                if (c.a.r0.b.d.f()) {
-                    c.a.r0.a.d.y().r();
+                if (c.a.s0.b.d.f()) {
+                    c.a.s0.a.d.y().r();
                 }
                 if (this.mLoginResult != null) {
                     PassProviderAuto.LoginResult loginResult = new PassProviderAuto.LoginResult();
@@ -452,7 +452,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
         if (interceptable == null || interceptable.invokeL(65565, this, accountData) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
-                CustomMessageTask customMessageTask = new CustomMessageTask(2921643, new CustomMessageTask.CustomRunnable() { // from class: c.a.s0.z0.a.g.i
+                CustomMessageTask customMessageTask = new CustomMessageTask(2921643, new CustomMessageTask.CustomRunnable() { // from class: c.a.t0.z0.a.g.i
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -465,9 +465,9 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
                 });
                 customMessageTask.setPriority(4);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921643), customMessageTask);
-                c.a.r0.s.c0.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+                c.a.s0.s.b0.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
                 TbadkCoreApplication.setCurrentAccount(accountData, findCurrentActivity);
-                c.a.r0.m.a.f(TbadkCoreApplication.getInst());
+                c.a.s0.m.a.f(TbadkCoreApplication.getInst());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
             }
         }
@@ -480,10 +480,10 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity) && (findCurrentActivity instanceof BaseFragmentActivity)) {
                 BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) findCurrentActivity;
-                c.a.r0.s.i0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
+                c.a.s0.s.i0.a loadingDialog = baseFragmentActivity.getLoadingDialog();
                 if (loadingDialog == null || !loadingDialog.c()) {
                     baseFragmentActivity.showLoadingDialog(findCurrentActivity.getString(R.string.sapi_logining));
-                    c.a.r0.s.i0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
+                    c.a.s0.s.i0.a loadingDialog2 = baseFragmentActivity.getLoadingDialog();
                     if (loadingDialog2 != null) {
                         loadingDialog2.f(false);
                         loadingDialog2.g(false);
@@ -499,7 +499,7 @@ public class PassProviderPlugin implements FlutterPlugin, PassProviderAuto.PassP
         if (interceptable == null || interceptable.invokeL(65567, this, str) == null) {
             Activity findCurrentActivity = findCurrentActivity();
             if (checkActivityIsValid(findCurrentActivity)) {
-                m.M(findCurrentActivity, str);
+                n.M(findCurrentActivity, str);
             }
         }
     }

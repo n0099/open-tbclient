@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import c.a.d.h.c;
-import c.a.r0.l0.f.b;
-import c.a.s0.b3.d;
-import c.a.s0.b3.e;
-import c.a.s0.b3.f;
+import c.a.s0.l0.f.b;
+import c.a.t0.b3.d;
+import c.a.t0.b3.e;
+import c.a.t0.b3.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -34,7 +34,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.r0.l0.d.b, c.a.r0.l0.f.a<Object, c.a.r0.l0.d.b>> mPluginCenterAdapter;
+    public b<Object, c.a.s0.l0.d.b, c.a.s0.l0.f.a<Object, c.a.s0.l0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -48,10 +48,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f48988e;
+        public final /* synthetic */ BundleInfo f49217e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f48989f;
+        public final /* synthetic */ NpsPluginCenterActivity f49218f;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -68,15 +68,15 @@ public class NpsPluginCenterActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f48989f = npsPluginCenterActivity;
-            this.f48988e = bundleInfo;
+            this.f49218f = npsPluginCenterActivity;
+            this.f49217e = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f48988e.getPackageName());
+                ToastUtil.show(this.f49217e.getPackageName());
             }
         }
     }
@@ -150,7 +150,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            SkinManager.setBackgroundColor(this.mRootView, c.a.s0.b3.a.CAM_X0204);
+            SkinManager.setBackgroundColor(this.mRootView, c.a.t0.b3.a.CAM_X0204);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;

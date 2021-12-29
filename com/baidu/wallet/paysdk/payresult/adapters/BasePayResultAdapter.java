@@ -27,10 +27,10 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public WeakReference<BaseActivity> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayRequest f54107b;
+    public PayRequest f54110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PayResultContent f54108c;
+    public PayResultContent f54111c;
     public HashMap<String, String> contents;
 
     public BasePayResultAdapter(BaseActivity baseActivity) {
@@ -83,20 +83,20 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public String getAuthorizeMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54108c.authorize_msg : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54111c.authorize_msg : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getCouponContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             if (payResultContent == null || TextUtils.isEmpty(payResultContent.coupon_msg)) {
                 return null;
             }
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(this.f54108c.coupon_msg);
-            arrayList.add(this.f54108c.coupon_find_prompt);
+            arrayList.add(this.f54111c.coupon_msg);
+            arrayList.add(this.f54111c.coupon_find_prompt);
             return arrayList;
         }
         return (ArrayList) invokeV.objValue;
@@ -108,9 +108,9 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            PayRequest payRequest = this.f54107b;
+            PayRequest payRequest = this.f54110b;
             arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-            PayRequest payRequest2 = this.f54107b;
+            PayRequest payRequest2 = this.f54110b;
             arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
             return arrayList;
         }
@@ -130,14 +130,14 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public String getFpOpenMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54108c.fp_open_or_update_msg : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f54111c.fp_open_or_update_msg : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getLBSPayText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? isShowLBSPayText() ? this.f54107b.mRemotePayHostName : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? isShowLBSPayText() ? this.f54110b.mRemotePayHostName : "" : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getOKBtnOnClickEventValue() {
@@ -145,9 +145,9 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            PayRequest payRequest = this.f54107b;
+            PayRequest payRequest = this.f54110b;
             arrayList.add(payRequest != null ? payRequest.mSpNO : "");
-            PayRequest payRequest2 = this.f54107b;
+            PayRequest payRequest2 = this.f54110b;
             arrayList.add(payRequest2 != null ? payRequest2.mOrderNo : "");
             return arrayList;
         }
@@ -158,7 +158,7 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public PayResultContent getPayResultContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f54108c : (PayResultContent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f54111c : (PayResultContent) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
@@ -168,19 +168,19 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f54108c;
-            if (payResultContent == null || (payRequest = this.f54107b) == null) {
+            PayResultContent payResultContent = this.f54111c;
+            if (payResultContent == null || (payRequest = this.f54110b) == null) {
                 return null;
             }
             if (payResultContent.isPaySuccess) {
-                if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f54107b.withholding_auth.equals("1")) {
+                if (!TextUtils.isEmpty(payRequest.withholding_auth) && this.f54110b.withholding_auth.equals("1")) {
                     this.contents.put("mainTip", "dxm_wallet_withhold_success");
                 } else {
                     this.contents.put("mainTip", "ebpay_pay_success");
                 }
                 this.contents.put("statusDrawableName", "wallet_base_result_main_success");
                 this.contents.put("okBtnText", "dxm_ebpay_result_btn_success");
-                this.contents.put("payDetailInfo", this.f54108c.pay_detail_info);
+                this.contents.put("payDetailInfo", this.f54111c.pay_detail_info);
             }
             return this.contents;
         }
@@ -193,14 +193,14 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f54108c;
-            if (payResultContent == null || this.f54107b == null) {
+            PayResultContent payResultContent = this.f54111c;
+            if (payResultContent == null || this.f54110b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "dxm_wallet_base_result_paying");
                 this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-                this.contents.put("errorMsg", this.f54108c.mErrorMsg);
+                this.contents.put("errorMsg", this.f54111c.mErrorMsg);
             }
             return this.contents;
         }
@@ -229,8 +229,8 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
-            if (payResultContent == null || this.f54107b == null) {
+            PayResultContent payResultContent = this.f54111c;
+            if (payResultContent == null || this.f54110b == null) {
                 return false;
             }
             return payResultContent.isPaySuccess;
@@ -242,7 +242,7 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public boolean isShowLBSPayText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f54107b.mRemotePayHostName) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? PayDataCache.getInstance().isRemotePay() && !TextUtils.isEmpty(this.f54110b.mRemotePayHostName) : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
@@ -251,12 +251,12 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, bundle)) == null) {
             if (bundle != null) {
-                this.f54108c = (PayResultContent) bundle.getSerializable("mPayModle");
-                this.f54107b = (PayRequest) bundle.getSerializable("mPayRequest");
+                this.f54111c = (PayResultContent) bundle.getSerializable("mPayModle");
+                this.f54110b = (PayRequest) bundle.getSerializable("mPayRequest");
                 return true;
             }
-            this.f54108c = PayDataCache.getInstance().getPayStateContent();
-            this.f54107b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+            this.f54111c = PayDataCache.getInstance().getPayStateContent();
+            this.f54110b = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             return true;
         }
         return invokeL.booleanValue;
@@ -266,11 +266,11 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             if (payResultContent != null) {
                 bundle.putSerializable("mPayModle", payResultContent);
             }
-            PayRequest payRequest = this.f54107b;
+            PayRequest payRequest = this.f54110b;
             if (payRequest != null) {
                 bundle.putSerializable("mPayRequest", payRequest);
             }
@@ -281,7 +281,7 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             return (payResultContent == null || payResultContent.payResultCashbackDetail == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -291,10 +291,10 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             if (payResultContent != null) {
-                if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f54108c.cash_amount) && TextUtils.isEmpty(this.f54108c.discount_amount)) {
-                    String[][] strArr = this.f54108c.paytype_info;
+                if (TextUtils.isEmpty(payResultContent.total_amount) && TextUtils.isEmpty(this.f54111c.cash_amount) && TextUtils.isEmpty(this.f54111c.discount_amount)) {
+                    String[][] strArr = this.f54111c.paytype_info;
                     return strArr != null && strArr.length > 0;
                 }
                 return true;
@@ -309,7 +309,7 @@ public class BasePayResultAdapter implements IPayResultDataAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
+            PayResultContent payResultContent = this.f54111c;
             return (payResultContent == null || "0".equalsIgnoreCase(payResultContent.redirect_sp_succpage_remain_time)) ? false : true;
         }
         return invokeV.booleanValue;

@@ -14,14 +14,14 @@ public final class w implements Runnable {
     public final /* synthetic */ UPSNotificationMessage a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f63059b;
+    public final /* synthetic */ u f63059b;
 
-    public w(t tVar, UPSNotificationMessage uPSNotificationMessage) {
+    public w(u uVar, UPSNotificationMessage uPSNotificationMessage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tVar, uPSNotificationMessage};
+            Object[] objArr = {uVar, uPSNotificationMessage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public final class w implements Runnable {
                 return;
             }
         }
-        this.f63059b = tVar;
+        this.f63059b = uVar;
         this.a = uPSNotificationMessage;
     }
 
@@ -40,9 +40,9 @@ public final class w implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t tVar = this.f63059b;
-            PushMessageCallback pushMessageCallback = ((ab) tVar).f63032b;
-            context = tVar.a;
+            u uVar = this.f63059b;
+            PushMessageCallback pushMessageCallback = ((z) uVar).f63061b;
+            context = uVar.a;
             pushMessageCallback.onNotificationMessageClicked(context, this.a);
         }
     }

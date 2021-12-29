@@ -76,11 +76,11 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                long a = this.f30007h.a(this.a.b(this.n));
+                long a = this.f30085h.a(this.a.b(this.n));
                 if (a != -1) {
                     a += this.n;
                 }
-                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f30007h, this.n, a);
+                c.i.b.a.a0.b bVar = new c.i.b.a.a0.b(this.f30085h, this.n, a);
                 b g2 = g();
                 g2.c(0L);
                 c.i.b.a.a0.m a2 = g2.a(0, this.l);
@@ -88,11 +88,11 @@ public final class m extends a {
                 for (int i2 = 0; i2 != -1; i2 = a2.d(bVar, Integer.MAX_VALUE, true)) {
                     this.n += i2;
                 }
-                a2.c(this.f30005f, 1, this.n, 0, null);
-                v.h(this.f30007h);
+                a2.c(this.f30083f, 1, this.n, 0, null);
+                v.h(this.f30085h);
                 this.p = true;
             } catch (Throwable th) {
-                v.h(this.f30007h);
+                v.h(this.f30085h);
                 throw th;
             }
         }

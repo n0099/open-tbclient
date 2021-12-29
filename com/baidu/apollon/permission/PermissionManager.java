@@ -25,7 +25,7 @@ public class PermissionManager implements NoProguard {
     public static final int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f33410b;
+    public static int f33566b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -111,14 +111,14 @@ public class PermissionManager implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f33410b == 0) {
+            if (f33566b == 0) {
                 try {
-                    f33410b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
+                    f33566b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.targetSdkVersion;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                 }
             }
-            return f33410b;
+            return f33566b;
         }
         return invokeL.intValue;
     }

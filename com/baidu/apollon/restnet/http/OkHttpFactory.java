@@ -20,7 +20,7 @@ public class OkHttpFactory implements NoProguard {
     public final x a;
 
     /* renamed from: b  reason: collision with root package name */
-    public URLStreamHandler f33467b;
+    public URLStreamHandler f33623b;
 
     /* renamed from: com.baidu.apollon.restnet.http.OkHttpFactory$1  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -87,10 +87,10 @@ public class OkHttpFactory implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if ("http".equals(str) || "https".equals(str)) {
-                if (this.f33467b == null) {
-                    this.f33467b = this.a.createURLStreamHandler(str);
+                if (this.f33623b == null) {
+                    this.f33623b = this.a.createURLStreamHandler(str);
                 }
-                return this.f33467b;
+                return this.f33623b;
             }
             return null;
         }
@@ -120,7 +120,7 @@ public class OkHttpFactory implements NoProguard {
         }
         w.b t = new w().t();
         t.e(new u(d.a()));
-        t.h(b.f33478e);
+        t.h(b.f33634e);
         this.a = new x(t.a());
     }
 }

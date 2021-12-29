@@ -45,12 +45,12 @@ public class k extends a {
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, imageView) == null) {
             int b2 = dVar.b();
             int a = dVar.a();
-            RectF rectF = this.f2713f;
-            PointF b3 = b(rectF.left, rectF.top, this.f2712e);
+            RectF rectF = this.f3141f;
+            PointF b3 = b(rectF.left, rectF.top, this.f3140e);
             int i2 = (int) b3.x;
             int i3 = (int) b3.y;
-            RectF rectF2 = this.f2713f;
-            PointF b4 = b(rectF2.right, rectF2.bottom, this.f2712e);
+            RectF rectF2 = this.f3141f;
+            PointF b4 = b(rectF2.right, rectF2.bottom, this.f3140e);
             int i4 = (int) b4.x;
             int i5 = (int) b4.y;
             this.q.reset();
@@ -61,25 +61,25 @@ public class k extends a {
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
                 this.r = new BitmapShader(bitmap, tileMode, tileMode);
             } else {
-                this.r = dVar.f2721b.d();
+                this.r = dVar.f3149b.d();
             }
             BitmapShader bitmapShader = this.r;
             if (bitmapShader == null) {
                 return;
             }
             bitmapShader.setLocalMatrix(this.q);
-            this.f2709b.setShader(this.r);
+            this.f3137b.setShader(this.r);
             int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
             this.s.set(Math.max(i2, 0), Math.max(i3, 0), Math.min(i4, width), Math.min(i5, height));
-            DrawerArgs drawerArgs = this.f2718k;
-            if (drawerArgs.f32073c) {
-                float f2 = drawerArgs.f32074d / 2.0f;
-                if (!drawerArgs.f32077g) {
-                    this.f2714g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
+            DrawerArgs drawerArgs = this.f3146k;
+            if (drawerArgs.f32215c) {
+                float f2 = drawerArgs.f32216d / 2.0f;
+                if (!drawerArgs.f32219g) {
+                    this.f3142g.set(f2, f2, imageView.getWidth() - f2, imageView.getHeight() - f2);
                     return;
                 }
-                RectF rectF3 = this.f2714g;
+                RectF rectF3 = this.f3142g;
                 RectF rectF4 = this.s;
                 rectF3.set(rectF4.left + f2, rectF4.top + f2, rectF4.right - f2, rectF4.bottom - f2);
             }
@@ -90,10 +90,10 @@ public class k extends a {
     public void f(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) {
-            DrawerArgs drawerArgs = this.f2718k;
-            if (drawerArgs.f32073c) {
-                if (!drawerArgs.f32072b) {
-                    canvas.drawPath(l(this.f2714g, drawerArgs.a), this.f2710c);
+            DrawerArgs drawerArgs = this.f3146k;
+            if (drawerArgs.f32215c) {
+                if (!drawerArgs.f32214b) {
+                    canvas.drawPath(l(this.f3142g, drawerArgs.a), this.f3138c);
                     return;
                 }
                 RectF rectF = this.s;
@@ -105,7 +105,7 @@ public class k extends a {
                     f3 = (imageView.getTop() + imageView.getBottom()) / 2.0f;
                     min = Math.min(imageView.getWidth(), imageView.getHeight()) / 2.0f;
                 }
-                canvas.drawCircle(f2, f3, min - (this.f2718k.f32074d / 2.0f), this.f2710c);
+                canvas.drawCircle(f2, f3, min - (this.f3146k.f32216d / 2.0f), this.f3138c);
             }
         }
     }
@@ -116,17 +116,17 @@ public class k extends a {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dVar, imageView) == null) {
             boolean d2 = dVar.d();
             if (d2 && dVar.d()) {
-                dVar.f2721b.b(true);
+                dVar.f3149b.b(true);
             }
-            DrawerArgs drawerArgs = this.f2718k;
-            if (!drawerArgs.f32072b) {
-                canvas.drawPath(l(this.s, drawerArgs.a), this.f2709b);
+            DrawerArgs drawerArgs = this.f3146k;
+            if (!drawerArgs.f32214b) {
+                canvas.drawPath(l(this.s, drawerArgs.a), this.f3137b);
             } else {
                 RectF rectF = this.s;
-                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f2709b);
+                canvas.drawCircle((rectF.right + rectF.left) / 2.0f, (rectF.top + rectF.bottom) / 2.0f, Math.min(rectF.width(), this.s.height()) / 2.0f, this.f3137b);
             }
             if (d2 && dVar.d()) {
-                dVar.f2721b.b(false);
+                dVar.f3149b.b(false);
             }
         }
     }
@@ -134,20 +134,20 @@ public class k extends a {
     @Override // c.a.d.g.a.a
     public void i(Canvas canvas, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.f2718k.m == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.f3146k.m == 0) {
             return;
         }
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
         canvas.translate(scrollX, scrollY);
-        this.f2711d.setColor(this.f2718k.m);
-        if (!this.f2718k.f32072b) {
+        this.f3139d.setColor(this.f3146k.m);
+        if (!this.f3146k.f32214b) {
             this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            canvas.drawPath(l(this.n, this.f2718k.a), this.f2711d);
+            canvas.drawPath(l(this.n, this.f3146k.a), this.f3139d);
         } else {
             float width = imageView.getWidth() / 2.0f;
             float height = imageView.getHeight() / 2.0f;
-            canvas.drawCircle(width, height, Math.min(width, height) - (this.f2718k.f32074d / 2.0f), this.f2711d);
+            canvas.drawCircle(width, height, Math.min(width, height) - (this.f3146k.f32216d / 2.0f), this.f3139d);
         }
         canvas.translate(-scrollX, -scrollY);
     }

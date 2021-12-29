@@ -196,13 +196,13 @@ public class au {
                     }
                     if (a5.a()) {
                         com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: channel bind succeeded, chid=" + faVar.a());
-                        a6.a(av.c.f63833c, 1, 0, (String) null, (String) null);
+                        a6.a(av.c.f63828c, 1, 0, (String) null, (String) null);
                         return;
                     }
                     String a7 = a5.a();
                     if ("auth".equals(a7)) {
                         if ("invalid-sig".equals(a5.b())) {
-                            com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: bind error invalid-sig token = " + a6.f63822c + " sec = " + a6.f63827h);
+                            com.xiaomi.channel.commonutils.logger.b.m122a("SMACK: bind error invalid-sig token = " + a6.f63817c + " sec = " + a6.f63822h);
                             gz.a(0, ew.T.a(), 1, null, 0);
                         }
                         cVar = av.c.a;

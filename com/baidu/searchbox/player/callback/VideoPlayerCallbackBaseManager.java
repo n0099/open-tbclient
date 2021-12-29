@@ -5,7 +5,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.layer.ILayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +45,7 @@ public class VideoPlayerCallbackBaseManager {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x007d, code lost:
         if (r0.equals(com.baidu.searchbox.player.event.PlayerEvent.ACTION_SEEK_COMPLETE) != false) goto L14;
      */
     /*
@@ -110,13 +109,6 @@ public class VideoPlayerCallbackBaseManager {
                         }
                         c2 = 65535;
                         break;
-                    case 1162026036:
-                        if (action.equals(SystemEvent.ACTION_ORIENTATION_LOCK_SYNC_STATE)) {
-                            c2 = '\n';
-                            break;
-                        }
-                        c2 = 65535;
-                        break;
                     case 1370689931:
                         if (action.equals(PlayerEvent.ACTION_ON_INFO)) {
                             c2 = 0;
@@ -168,9 +160,6 @@ public class VideoPlayerCallbackBaseManager {
                     case '\t':
                         onEnd(0);
                         return;
-                    case '\n':
-                        onGlobalOrientationLock(videoEvent.getBooleanExtra(7));
-                        return;
                     default:
                         return;
                 }
@@ -221,19 +210,10 @@ public class VideoPlayerCallbackBaseManager {
         iVideoPlayerCallback.onError(i2, i3, obj != null ? obj.toString() : "");
     }
 
-    public void onGlobalOrientationLock(boolean z) {
-        IVideoPlayerCallback iVideoPlayerCallback;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
-            return;
-        }
-        iVideoPlayerCallback.onGlobalOrientationLock(z);
-    }
-
     public void onGoBackOrForeground(boolean z) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.goBackOrForeground(z);
@@ -242,7 +222,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onInfo(int i2, int i3, Object obj) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, obj) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, obj) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onInfo(i2, i3);
@@ -251,7 +231,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onLayerDismiss(ILayer iLayer) {
         ILayerActionCallback iLayerActionCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
             return;
         }
         iLayerActionCallback.onLayerDismiss(iLayer);
@@ -260,7 +240,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onLayerShow(ILayer iLayer) {
         ILayerActionCallback iLayerActionCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, iLayer) == null) || (iLayerActionCallback = this.mLayerActionCallback) == null) {
             return;
         }
         iLayerActionCallback.onLayerShow(iLayer);
@@ -269,7 +249,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onNetworkSpeedUpdate(int i2) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onNetworkSpeedUpdate(i2);
@@ -278,7 +258,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onPause() {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onPause();
@@ -287,7 +267,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onPrepared() {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onPrepared();
@@ -296,7 +276,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onResume() {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onResume();
@@ -305,7 +285,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onSeekEnd() {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onSeekEnd();
@@ -314,7 +294,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onStart() {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onStart();
@@ -323,7 +303,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onUpdateProgress(int i2, int i3, int i4) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(1048593, this, i2, i3, i4) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeIII(1048592, this, i2, i3, i4) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onUpdateProgress(i2, i3, i4);
@@ -332,7 +312,7 @@ public class VideoPlayerCallbackBaseManager {
     public void onVideoSizeChanged(int i2, int i3) {
         IVideoPlayerCallback iVideoPlayerCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048594, this, i2, i3) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) || (iVideoPlayerCallback = this.mVideoPlayerCallback) == null) {
             return;
         }
         iVideoPlayerCallback.onVideoSizeChanged(i2, i3);
@@ -340,7 +320,7 @@ public class VideoPlayerCallbackBaseManager {
 
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.mVideoPlayerCallback = null;
             this.mLayerActionCallback = null;
         }
@@ -348,7 +328,7 @@ public class VideoPlayerCallbackBaseManager {
 
     public void setLayerActionCallback(ILayerActionCallback iLayerActionCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, iLayerActionCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, iLayerActionCallback) == null) {
             this.mLayerActionCallback = iLayerActionCallback;
         }
     }
@@ -356,7 +336,7 @@ public class VideoPlayerCallbackBaseManager {
     @PublicMethod
     public void setVideoPlayerCallback(IVideoPlayerCallback iVideoPlayerCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, iVideoPlayerCallback) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, iVideoPlayerCallback) == null) {
             this.mVideoPlayerCallback = iVideoPlayerCallback;
         }
     }

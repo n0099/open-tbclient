@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String[] f11789b;
+    public String[] f5076b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f11790c;
+    public int f5077c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11791d;
+    public String f5078d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f11792e;
+    public long f5079e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11793f;
+    public long f5080f;
 
     public b(Context context, String str) {
         Interceptable interceptable = $ic;
@@ -49,13 +49,13 @@ public final class b {
         this.a = str;
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.f11791d = packageInfo.versionName;
-            this.f11790c = packageInfo.versionCode;
-            this.f11792e = packageInfo.firstInstallTime;
-            this.f11793f = packageInfo.lastUpdateTime;
-            this.f11789b = new String[packageInfo.signatures.length];
-            for (int i4 = 0; i4 < this.f11789b.length; i4++) {
-                this.f11789b[i4] = f.c(packageInfo.signatures[i4].toByteArray());
+            this.f5078d = packageInfo.versionName;
+            this.f5077c = packageInfo.versionCode;
+            this.f5079e = packageInfo.firstInstallTime;
+            this.f5080f = packageInfo.lastUpdateTime;
+            this.f5076b = new String[packageInfo.signatures.length];
+            for (int i4 = 0; i4 < this.f5076b.length; i4++) {
+                this.f5076b[i4] = f.c(packageInfo.signatures[i4].toByteArray());
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -66,7 +66,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + ExtendedMessageFormat.QUOTE + ", sigs=" + Arrays.toString(this.f11789b) + ", vc=" + this.f11790c + ", va=" + this.f11791d + ", installts=" + this.f11792e + ", lstupdatets=" + this.f11793f + ExtendedMessageFormat.END_FE;
+            return "SappInfo{pkg='" + this.a + ExtendedMessageFormat.QUOTE + ", sigs=" + Arrays.toString(this.f5076b) + ", vc=" + this.f5077c + ", va=" + this.f5078d + ", installts=" + this.f5079e + ", lstupdatets=" + this.f5080f + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

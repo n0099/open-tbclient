@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -140,7 +140,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+        a = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
     }
 
     public static int a(HeadType headType) {
@@ -153,15 +153,15 @@ public class BdListViewHelper {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds88);
+                            return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds88);
                         }
-                        return m.f(context, R.dimen.ds56);
+                        return n.f(context, R.dimen.ds56);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds168);
+                    return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds168);
                 }
-                return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds176);
+                return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds176);
             }
-            return UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds88);
+            return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds88);
         }
         return invokeL.intValue;
     }
@@ -178,10 +178,10 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = m.f(context, R.dimen.ds170);
+                f2 = n.f(context, R.dimen.ds170);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = m.f(context, R.dimen.ds240);
+                f2 = n.f(context, R.dimen.ds240);
             }
             return lightStatusBarHeight + f2;
         }
@@ -198,9 +198,9 @@ public class BdListViewHelper {
         if (z) {
             layoutParams.height = a(headType);
         } else if (HeadType.DEFAULT == headType) {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds170);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds170);
         } else {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + m.f(context, R.dimen.ds240);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.ds240);
         }
         view.setLayoutParams(layoutParams);
     }

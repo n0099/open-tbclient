@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.i;
+import com.bytedance.pangle.g;
 import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import java.io.PrintWriter;
@@ -34,13 +34,13 @@ public final class d {
                 a = "unknown";
             }
             try {
-                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f55115h)));
+                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f55118h)));
                 jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(a));
-                Plugin plugin2 = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""));
+                Plugin plugin2 = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""), false);
                 jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin2 != null ? plugin2.getApiVersionCode() : -1)));
-                jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.53-bugfix.13-pangle"));
+                jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.53-bugfix.19-pangle"));
                 ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
-                IZeusReporter reporter = i.a().f55184b.getReporter();
+                IZeusReporter reporter = g.a().f55178b.getReporter();
                 if (reporter != null) {
                     JSONObject jSONObject4 = new JSONObject();
                     Iterator<String> keys = jSONObject.keys();

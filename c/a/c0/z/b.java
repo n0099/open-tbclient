@@ -18,16 +18,16 @@ public class b {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f2147b;
+    public final String f2574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f2148c;
+    public final int f2575c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f2149d;
+    public final int f2576d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f2150e;
+    public final String f2577e;
 
     public b(int i2, String str, String str2, int i3, int i4) {
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class b {
             }
         }
         this.a = i2;
-        this.f2147b = str;
-        this.f2150e = str2;
-        this.f2148c = i3;
-        this.f2149d = i4;
+        this.f2574b = str;
+        this.f2577e = str2;
+        this.f2575c = i3;
+        this.f2576d = i4;
     }
 
     public static boolean a(Column column) {

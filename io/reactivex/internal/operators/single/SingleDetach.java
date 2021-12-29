@@ -26,7 +26,7 @@ public final class SingleDetach<T> extends Single<T> {
         public SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64607d;
+        public Disposable f64602d;
 
         public DetachSingleObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public final class SingleDetach<T> extends Single<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.actual = null;
-                this.f64607d.dispose();
-                this.f64607d = DisposableHelper.DISPOSED;
+                this.f64602d.dispose();
+                this.f64602d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -60,14 +60,14 @@ public final class SingleDetach<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64607d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64602d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                this.f64607d = DisposableHelper.DISPOSED;
+                this.f64602d = DisposableHelper.DISPOSED;
                 SingleObserver<? super T> singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;
@@ -79,8 +79,8 @@ public final class SingleDetach<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f64607d, disposable)) {
-                this.f64607d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f64602d, disposable)) {
+                this.f64602d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -89,7 +89,7 @@ public final class SingleDetach<T> extends Single<T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                this.f64607d = DisposableHelper.DISPOSED;
+                this.f64602d = DisposableHelper.DISPOSED;
                 SingleObserver<? super T> singleObserver = this.actual;
                 if (singleObserver != null) {
                     this.actual = null;

@@ -19,9 +19,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a p;
     public transient /* synthetic */ FieldHolder $fh;
+    public b m;
     public Context mContext;
     public b n;
-    public b o;
+    public boolean o;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -38,8 +39,9 @@ public class a {
                 return;
             }
         }
+        this.o = false;
+        this.m = new c();
         this.n = new c();
-        this.o = new c();
         this.mContext = context;
     }
 
@@ -69,14 +71,14 @@ public class a {
         if (TextUtils.isEmpty(aVar2)) {
             return;
         }
-        this.n.put(str, aVar2);
+        this.m.put(str, aVar2);
     }
 
     public com.baidu.searchbox.dns.d.a.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String str2 = this.n.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            String str2 = this.m.get(str);
             if (TextUtils.isEmpty(str2)) {
                 return null;
             }
@@ -87,17 +89,19 @@ public class a {
 
     public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.m.clear();
             this.n.clear();
+            this.o = false;
         }
     }
 
     public com.baidu.searchbox.dns.d.a.a d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
-                if (this.o.isEmpty()) {
+                if (this.n.isEmpty()) {
                     String f2 = f();
                     if (TextUtils.isEmpty(f2)) {
                         return null;
@@ -119,7 +123,7 @@ public class a {
                         }
                     }
                 }
-                String str2 = this.o.get(str);
+                String str2 = this.n.get(str);
                 if (!TextUtils.isEmpty(str2)) {
                     return new com.baidu.searchbox.dns.d.a.a(str2);
                 }
@@ -133,18 +137,24 @@ public class a {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_KEY", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_KEY", "") : (String) invokeV.objValue;
     }
 
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_VERSION_KEY", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_VERSION_KEY", "0") : (String) invokeV.objValue;
+    }
+
+    public boolean isIPv6TestArea() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : invokeV.booleanValue;
     }
 
     public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
             edit.putString("SP_BACKUPIP_KEY", str);
             edit.apply();
@@ -153,22 +163,29 @@ public class a {
 
     public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             SharedPreferences.Editor edit = this.mContext.getSharedPreferences("dns_prefs", 0).edit();
             edit.putString("SP_BACKUPIP_VERSION_KEY", str);
             edit.apply();
         }
     }
 
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.o = z;
+        }
+    }
+
     public void b(String str, com.baidu.searchbox.dns.d.a.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) || aVar == null) {
             return;
         }
         String aVar2 = aVar.toString();
         if (TextUtils.isEmpty(aVar2)) {
             return;
         }
-        this.o.put(str, aVar2);
+        this.n.put(str, aVar2);
     }
 }

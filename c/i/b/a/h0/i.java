@@ -16,31 +16,31 @@ public final class i implements c, p<Object> {
     public final Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a f30522b;
+    public final c.a f30600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c.i.b.a.i0.p f30523c;
+    public final c.i.b.a.i0.p f30601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.i.b.a.i0.b f30524d;
+    public final c.i.b.a.i0.b f30602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30525e;
+    public int f30603e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f30526f;
+    public long f30604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f30527g;
+    public long f30605g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f30528h;
+    public long f30606h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f30529i;
+    public long f30607i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f30530j;
+    public long f30608j;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {
@@ -48,16 +48,16 @@ public final class i implements c, p<Object> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f30531e;
+        public final /* synthetic */ int f30609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f30532f;
+        public final /* synthetic */ long f30610f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f30533g;
+        public final /* synthetic */ long f30611g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ i f30534h;
+        public final /* synthetic */ i f30612h;
 
         public a(i iVar, int i2, long j2, long j3) {
             Interceptable interceptable = $ic;
@@ -74,17 +74,17 @@ public final class i implements c, p<Object> {
                     return;
                 }
             }
-            this.f30534h = iVar;
-            this.f30531e = i2;
-            this.f30532f = j2;
-            this.f30533g = j3;
+            this.f30612h = iVar;
+            this.f30609e = i2;
+            this.f30610f = j2;
+            this.f30611g = j3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f30534h.f30522b.a(this.f30531e, this.f30532f, this.f30533g);
+                this.f30612h.f30600b.a(this.f30609e, this.f30610f, this.f30611g);
             }
         }
     }
@@ -113,7 +113,7 @@ public final class i implements c, p<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, obj, i2) == null) {
             synchronized (this) {
-                this.f30527g += i2;
+                this.f30605g += i2;
             }
         }
     }
@@ -123,26 +123,26 @@ public final class i implements c, p<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             synchronized (this) {
-                c.i.b.a.i0.a.f(this.f30525e > 0);
-                long a2 = this.f30524d.a();
-                int i2 = (int) (a2 - this.f30526f);
+                c.i.b.a.i0.a.f(this.f30603e > 0);
+                long a2 = this.f30602d.a();
+                int i2 = (int) (a2 - this.f30604f);
                 long j2 = i2;
-                this.f30528h += j2;
-                this.f30529i += this.f30527g;
+                this.f30606h += j2;
+                this.f30607i += this.f30605g;
                 if (i2 > 0) {
-                    this.f30523c.a((int) Math.sqrt(this.f30527g), (float) ((this.f30527g * 8000) / j2));
-                    if (this.f30528h >= 2000 || this.f30529i >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
-                        float d2 = this.f30523c.d(0.5f);
-                        this.f30530j = Float.isNaN(d2) ? -1L : d2;
+                    this.f30601c.a((int) Math.sqrt(this.f30605g), (float) ((this.f30605g * 8000) / j2));
+                    if (this.f30606h >= 2000 || this.f30607i >= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
+                        float d2 = this.f30601c.d(0.5f);
+                        this.f30608j = Float.isNaN(d2) ? -1L : d2;
                     }
                 }
-                f(i2, this.f30527g, this.f30530j);
-                int i3 = this.f30525e - 1;
-                this.f30525e = i3;
+                f(i2, this.f30605g, this.f30608j);
+                int i3 = this.f30603e - 1;
+                this.f30603e = i3;
                 if (i3 > 0) {
-                    this.f30526f = a2;
+                    this.f30604f = a2;
                 }
-                this.f30527g = 0L;
+                this.f30605g = 0L;
             }
         }
     }
@@ -154,7 +154,7 @@ public final class i implements c, p<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                j2 = this.f30530j;
+                j2 = this.f30608j;
             }
             return j2;
         }
@@ -166,10 +166,10 @@ public final class i implements c, p<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, obj, gVar) == null) {
             synchronized (this) {
-                if (this.f30525e == 0) {
-                    this.f30526f = this.f30524d.a();
+                if (this.f30603e == 0) {
+                    this.f30604f = this.f30602d.a();
                 }
-                this.f30525e++;
+                this.f30603e++;
             }
         }
     }
@@ -177,7 +177,7 @@ public final class i implements c, p<Object> {
     public final void f(int i2, long j2, long j3) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (handler = this.a) == null || this.f30522b == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (handler = this.a) == null || this.f30600b == null) {
             return;
         }
         handler.post(new a(this, i2, j2, j3));
@@ -241,9 +241,9 @@ public final class i implements c, p<Object> {
             }
         }
         this.a = handler;
-        this.f30522b = aVar;
-        this.f30523c = new c.i.b.a.i0.p(i2);
-        this.f30524d = bVar;
-        this.f30530j = -1L;
+        this.f30600b = aVar;
+        this.f30601c = new c.i.b.a.i0.p(i2);
+        this.f30602d = bVar;
+        this.f30608j = -1L;
     }
 }

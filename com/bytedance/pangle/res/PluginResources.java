@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.util.i;
+import com.bytedance.pangle.util.h;
 import java.util.HashSet;
 import java.util.List;
 @Keep
@@ -45,12 +45,12 @@ public class PluginResources extends Resources {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, resources)) == null) {
-            List<String> b2 = i.b();
+            List<String> b2 = h.b();
             a aVar = new a();
             AssetManager assets = resources.getAssets();
             AssetManager assets2 = Zeus.getAppApplication().getAssets();
-            HashSet hashSet = new HashSet(i.a(assets));
-            List<String> a = i.a(assets2);
+            HashSet hashSet = new HashSet(h.a(assets));
+            List<String> a = h.a(assets2);
             for (String str : b2) {
                 if (!hashSet.contains(str)) {
                     assets = aVar.a(assets, str, true);

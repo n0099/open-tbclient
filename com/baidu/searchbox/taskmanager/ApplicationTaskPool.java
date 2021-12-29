@@ -6,18 +6,21 @@ import com.baidu.searchbox.performance.speed.task.BaseTaskPool;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.task.item.CheckRepackagingTask;
 import com.baidu.searchbox.task.item.DeleteApkTask;
+import com.baidu.searchbox.task.item.InitAbi64WebViewCompatTask;
 import com.baidu.searchbox.task.item.InitAccountChangeTask;
-import com.baidu.searchbox.task.item.InitAdTask;
 import com.baidu.searchbox.task.item.InitAllTask;
 import com.baidu.searchbox.task.item.InitArTask;
+import com.baidu.searchbox.task.item.InitBearAdTask;
 import com.baidu.searchbox.task.item.InitCyberPlayerTask;
 import com.baidu.searchbox.task.item.InitDimenAdaptTask;
 import com.baidu.searchbox.task.item.InitFaceTask;
 import com.baidu.searchbox.task.item.InitImgLoaderProcTask;
 import com.baidu.searchbox.task.item.InitMessageTask;
+import com.baidu.searchbox.task.item.InitPrologueAdTask;
 import com.baidu.searchbox.task.item.InitSapiTask;
 import com.baidu.searchbox.task.item.InitSyncStaticTask;
 import com.baidu.searchbox.task.item.InitSyncSwitchTask;
+import com.baidu.searchbox.task.item.InitTbAdTask;
 import com.baidu.searchbox.task.item.LogoTask;
 import com.baidu.searchbox.task.item.NightPluginTask;
 import com.baidu.searchbox.task.item.PermissionUtilTask;
@@ -75,7 +78,9 @@ public class ApplicationTaskPool extends BaseTaskPool {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             ArrayList arrayList = new ArrayList();
             if (z && LaunchUpSpeedSwitch.getIsOn()) {
-                arrayList.add(new InitAdTask());
+                arrayList.add(new InitTbAdTask());
+                arrayList.add(new InitBearAdTask());
+                arrayList.add(new InitPrologueAdTask());
                 if (a.c().b() && DelayCyberPlayerSwitch.getIsOn()) {
                     a.c().a("InitCyberPlayerTask", new Runnable(this) { // from class: com.baidu.searchbox.taskmanager.ApplicationTaskPool.1
                         public static /* synthetic */ Interceptable $ic;
@@ -118,6 +123,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitArTask());
                 arrayList.add(new PermissionUtilTask());
                 arrayList.add(new InitAccountChangeTask());
+                arrayList.add(new InitAbi64WebViewCompatTask());
             }
             return arrayList;
         }

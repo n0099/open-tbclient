@@ -17,13 +17,13 @@ public interface b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54765b;
+        public String f54768b;
 
         /* renamed from: c  reason: collision with root package name */
-        public JSONObject f54766c;
+        public JSONObject f54769c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f54767d;
+        public JSONObject f54770d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public interface b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ScannerResult [type=" + this.a + ", linkaddr=" + this.f54765b + ", extJson=" + this.f54766c + PreferencesUtil.RIGHT_MOUNT;
+                return "ScannerResult [type=" + this.a + ", linkaddr=" + this.f54768b + ", extJson=" + this.f54769c + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

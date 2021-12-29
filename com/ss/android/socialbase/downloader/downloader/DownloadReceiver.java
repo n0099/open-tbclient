@@ -6,95 +6,22 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
 /* loaded from: classes3.dex */
 public class DownloadReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final String a = DownloadReceiver.class.getSimpleName();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1247023832, "Lcom/ss/android/socialbase/downloader/downloader/DownloadReceiver;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1247023832, "Lcom/ss/android/socialbase/downloader/downloader/DownloadReceiver;");
-                return;
-            }
-        }
-        a = DownloadReceiver.class.getSimpleName();
-    }
-
-    public DownloadReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    private void a(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, this, context, str) == null) && c.G()) {
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this, context, str) { // from class: com.ss.android.socialbase.downloader.downloader.DownloadReceiver.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ Context a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f62288b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ DownloadReceiver f62289c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, context, str};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f62289c = this;
-                    this.a = context;
-                    this.f62288b = str;
-                }
-
+    private void a(final Context context, final String str) {
+        if (c.G()) {
+            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.DownloadReceiver.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        try {
-                            Intent intent = new Intent(this.a, DownloadNotificationService.class);
-                            intent.setAction(this.f62288b);
-                            this.a.startService(intent);
-                        } catch (Throwable th) {
-                            th.printStackTrace();
-                        }
+                    try {
+                        Intent intent = new Intent(context, DownloadNotificationService.class);
+                        intent.setAction(str);
+                        context.startService(intent);
+                    } catch (Throwable th) {
+                        th.printStackTrace();
                     }
                 }
             }, 2000L);
@@ -102,22 +29,18 @@ public class DownloadReceiver extends BroadcastReceiver {
     }
 
     private void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, context, str) == null) {
-            try {
-                Intent intent = new Intent(context, DownloadNotificationService.class);
-                intent.setAction(str);
-                context.startService(intent);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        try {
+            Intent intent = new Intent(context, DownloadNotificationService.class);
+            intent.setAction(str);
+            context.startService(intent);
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || context == null || intent == null) {
+        if (context == null || intent == null) {
             return;
         }
         String action = intent.getAction();

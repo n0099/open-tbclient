@@ -1,17 +1,18 @@
 package com.baidu.tbadk.browser;
 
 import android.webkit.JsPromptResult;
+import c.a.d.f.p.c;
 import c.a.f.a.a;
-import c.a.r0.t.c.m;
-import c.a.s0.d4.d;
-import c.a.s0.v3.n0.b;
-import c.a.s0.v3.n0.d.c;
+import c.a.s0.n0.d;
+import c.a.s0.t.c.m;
+import c.a.t0.w3.n0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,6 +29,7 @@ public class UegTbJsBridge implements b {
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
     public static final String METHOD_CALL_NATIVE_SMS = "callNativeSMS";
     public static final String METHOD_COPY_TO_CLIPBOARD = "copyToClipboard";
+    public static final String METHOD_RECORD_NOVEL_INFO = "recordNovelInfo";
     public static final String METHOD_SET_BLOCK_POP_INFO = "setBlockPopInfo";
     public static final String SUCCESS_CODE = "1";
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,18 +57,18 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                c.a.d.f.p.b.a(new JSONObject(str).optString("content"));
+                c.a(new JSONObject(str).optString("content"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public c bindingMobileNumber() {
+    public c.a.t0.w3.n0.d.c bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            c cVar = new c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             try {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921372, m.b()));
             } catch (Exception e2) {
@@ -74,21 +76,21 @@ public class UegTbJsBridge implements b {
             }
             return cVar;
         }
-        return (c) invokeV.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeV.objValue;
     }
 
-    public c callNativeSMS(String str, String str2) {
+    public c.a.t0.w3.n0.d.c callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            c cVar = new c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
             return cVar;
         }
-        return (c) invokeLL.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeLL.objValue;
     }
 
-    @Override // c.a.s0.v3.n0.b
+    @Override // c.a.t0.w3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -119,6 +121,15 @@ public class UegTbJsBridge implements b {
                 } else if ("bindMobileNumber".equals(str2)) {
                     jsPromptResult.confirm(bindingMobileNumber().a());
                     return true;
+                } else if (METHOD_RECORD_NOVEL_INFO.equals(str2)) {
+                    try {
+                        JSONObject jSONObject3 = new JSONObject(str3);
+                        recordNovelInfo(jSONObject3.optString("bookProgress"), jSONObject3.optString("gid"), jSONObject3.optString("lastReadChapterId"), jSONObject3.optString("lastReadChapterIndex"), jSONObject3.optString("lastReadChapterName"));
+                        jsPromptResult.confirm("1");
+                    } catch (JSONException e4) {
+                        BdLog.e(e4);
+                    }
+                    return true;
                 } else {
                     return false;
                 }
@@ -128,11 +139,22 @@ public class UegTbJsBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
+    public c.a.t0.w3.n0.d.c recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
+            d.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
+            return cVar;
+        }
+        return (c.a.t0.w3.n0.d.c) invokeLLLLL.objValue;
+    }
+
+    public c.a.t0.w3.n0.d.c setBlockPopInfo(int i2, String str, String str2, String str3, String str4, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, Integer.valueOf(i3)})) == null) {
-            c cVar = new c();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, Integer.valueOf(i3)})) == null) {
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i2);
@@ -142,13 +164,13 @@ public class UegTbJsBridge implements b {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i3);
                 BlockPopInfo build = builder.build(false);
-                d.g(build);
-                d.f(build);
+                c.a.t0.e4.d.g(build);
+                c.a.t0.e4.d.f(build);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             return cVar;
         }
-        return (c) invokeCommon.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeCommon.objValue;
     }
 }

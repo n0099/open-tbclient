@@ -1,5 +1,5 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface d {
     String a(com.baidu.ar.vo.a.b bVar);
 

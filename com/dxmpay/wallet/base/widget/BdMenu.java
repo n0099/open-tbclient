@@ -52,7 +52,7 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55864e;
+        public final /* synthetic */ BdMenu f55863e;
 
         public a(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public abstract class BdMenu {
                     return;
                 }
             }
-            this.f55864e = bdMenu;
+            this.f55863e = bdMenu;
         }
 
         @Override // android.view.View.OnKeyListener
@@ -79,9 +79,9 @@ public abstract class BdMenu {
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 1) {
                     if (i2 == 4 || i2 == 82) {
-                        this.f55864e.dismiss();
-                        if (this.f55864e.mKeyClickListener != null) {
-                            this.f55864e.mKeyClickListener.onKey(view, i2, keyEvent);
+                        this.f55863e.dismiss();
+                        if (this.f55863e.mKeyClickListener != null) {
+                            this.f55863e.mKeyClickListener.onKey(view, i2, keyEvent);
                         }
                         return true;
                     }
@@ -171,9 +171,45 @@ public abstract class BdMenu {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55865e;
+        public final /* synthetic */ BdMenu f55864e;
 
         public d(BdMenu bdMenu) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdMenu};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55864e = bdMenu;
+        }
+
+        @Override // android.widget.PopupWindow.OnDismissListener
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55864e.mStateChangeListener == null) {
+                return;
+            }
+            this.f55864e.mStateChangeListener.onDismissMenu();
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BdMenu f55865e;
+
+        public e(BdMenu bdMenu) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,48 +227,12 @@ public abstract class BdMenu {
             this.f55865e = bdMenu;
         }
 
-        @Override // android.widget.PopupWindow.OnDismissListener
-        public void onDismiss() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f55865e.mStateChangeListener == null) {
-                return;
-            }
-            this.f55865e.mStateChangeListener.onDismissMenu();
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdMenu f55866e;
-
-        public e(BdMenu bdMenu) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bdMenu};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55866e = bdMenu;
-        }
-
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f55866e.showMenu(this.f55866e.mPopupWindow);
+                    this.f55865e.showMenu(this.f55865e.mPopupWindow);
                 } catch (Exception unused) {
                 }
             }

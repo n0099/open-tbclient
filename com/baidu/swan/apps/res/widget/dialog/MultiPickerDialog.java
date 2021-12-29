@@ -3,7 +3,7 @@ package com.baidu.swan.apps.res.widget.dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import c.a.q0.a.i;
+import c.a.r0.a.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.dialog.SwanAppPickerDialog;
@@ -19,19 +19,19 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdMultiPicker f40468g;
+    public BdMultiPicker f40624g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f40469h;
+    public JSONArray f40625h;
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f40470i;
+    public JSONArray f40626i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdMultiPicker.b f40471j;
+    public BdMultiPicker.b f40627j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f40472k;
+    public boolean f40628k;
 
     /* loaded from: classes11.dex */
     public static class a extends SwanAppPickerDialog.a {
@@ -39,16 +39,16 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public JSONArray f40473e;
+        public JSONArray f40629e;
 
         /* renamed from: f  reason: collision with root package name */
-        public JSONArray f40474f;
+        public JSONArray f40630f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f40475g;
+        public boolean f40631g;
 
         /* renamed from: h  reason: collision with root package name */
-        public BdMultiPicker.b f40476h;
+        public BdMultiPicker.b f40632h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(Context context) {
@@ -76,10 +76,10 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 MultiPickerDialog multiPickerDialog = (MultiPickerDialog) super.a();
-                multiPickerDialog.setDataArray(this.f40473e);
-                multiPickerDialog.setDataIndex(this.f40474f);
-                multiPickerDialog.setSingleMode(this.f40475g);
-                multiPickerDialog.setMultiSelectedListener(this.f40476h);
+                multiPickerDialog.setDataArray(this.f40629e);
+                multiPickerDialog.setDataIndex(this.f40630f);
+                multiPickerDialog.setSingleMode(this.f40631g);
+                multiPickerDialog.setMultiSelectedListener(this.f40632h);
                 return multiPickerDialog;
             }
             return (SwanAppPickerDialog) invokeV.objValue;
@@ -96,7 +96,7 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-                this.f40473e = jSONArray;
+                this.f40629e = jSONArray;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -106,7 +106,7 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-                this.f40474f = jSONArray;
+                this.f40630f = jSONArray;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -116,7 +116,7 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
-                this.f40476h = bVar;
+                this.f40632h = bVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -126,7 +126,7 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.f40475g = z;
+                this.f40631g = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -157,22 +157,22 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40468g = new BdMultiPicker(getContext());
+            this.f40624g = new BdMultiPicker(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 1;
-            this.f40468g.setLayoutParams(layoutParams);
-            this.f40468g.setMultiWheelData(this.f40469h, this.f40470i);
-            if (this.f40472k) {
+            this.f40624g.setLayoutParams(layoutParams);
+            this.f40624g.setMultiWheelData(this.f40625h, this.f40626i);
+            if (this.f40628k) {
                 return;
             }
-            this.f40468g.setMultiSelectedListener(this.f40471j);
+            this.f40624g.setMultiSelectedListener(this.f40627j);
         }
     }
 
     public JSONArray getCurrentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40468g.getCurrentIndex() : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40624g.getCurrentIndex() : (JSONArray) invokeV.objValue;
     }
 
     @Override // android.app.Dialog
@@ -180,42 +180,42 @@ public class MultiPickerDialog extends SwanAppPickerDialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             b();
-            getBuilder().j(this.f40468g);
+            getBuilder().j(this.f40624g);
         }
     }
 
     public void setDataArray(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
-            this.f40469h = jSONArray;
+            this.f40625h = jSONArray;
         }
     }
 
     public void setDataIndex(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
-            this.f40470i = jSONArray;
+            this.f40626i = jSONArray;
         }
     }
 
     public void setMultiSelectedListener(BdMultiPicker.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f40471j = bVar;
+            this.f40627j = bVar;
         }
     }
 
     public void setSingleMode(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f40472k = z;
+            this.f40628k = z;
         }
     }
 
     public void updateWheel(int i2, JSONArray jSONArray, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), jSONArray, Integer.valueOf(i3)}) == null) {
-            this.f40468g.updateWheel(i2, jSONArray, i3);
+            this.f40624g.updateWheel(i2, jSONArray, i3);
         }
     }
 }

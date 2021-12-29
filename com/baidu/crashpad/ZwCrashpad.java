@@ -15,6 +15,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,6 +29,7 @@ public class ZwCrashpad {
     public static String mCallback = "";
     public static String mChannel = "0";
     public static String mClientDir = "0";
+    public static CrashCallbackExtra mCrashCallbackListener = null;
     public static String mCuid = "0";
     public static String mCyberVersion = "0";
     public static boolean mCyberVersionIsReady = false;
@@ -77,9 +80,17 @@ public class ZwCrashpad {
         }
     }
 
+    public static void NotifyCrashStart() {
+        CrashCallbackExtra crashCallbackExtra;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && mIsEnabled && (crashCallbackExtra = mCrashCallbackListener) != null) {
+            crashCallbackExtra.onBeforeHandleCrash();
+        }
+    }
+
     public static synchronized void RecordUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && mNativeIsInitialized) {
                     nativeRecordUrl(str);
@@ -88,16 +99,30 @@ public class ZwCrashpad {
         }
     }
 
+    public static synchronized boolean ShouldIgnoreCrash() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && mNativeIsInitialized) {
+                    return nativeShouldIgnoreCrash();
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
     public static void clearCrashKey(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
             nativeClearCrashKey(str);
         }
     }
 
     public static void crashIntentionally(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65542, null, i2) == null) {
             if (i2 == 1) {
                 if (mNativeIsInitialized) {
                     nativeCrashIntentionally(i2);
@@ -108,104 +133,110 @@ public class ZwCrashpad {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(19:8|(3:78|79|(22:83|(1:85)|(1:76)(1:17)|18|(1:24)|25|(1:75)|31|32|33|34|35|36|(1:153)(1:40)|41|(1:43)|44|167|51|(1:58)|55|56))|10|(1:12)(1:77)|(0)|76|18|(3:20|22|24)|25|(1:27)|75|31|32|33|34|35|36|(1:38)|153) */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x0154 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Can't wrap try/catch for region: R(19:8|(3:81|82|(2:86|(22:88|(2:14|(1:16))|(1:80)(1:21)|22|(1:28)|29|(1:79)|35|36|37|38|39|40|(1:15d)(1:44)|45|(1:47)|48|171|55|(1:62)|59|60)))|10|(3:12|14|(0))|(0)|80|22|(3:24|26|28)|29|(1:31)|79|35|36|37|38|39|40|(1:42)|15d) */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:91:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @SuppressLint({"UnsafeDynamicallyLoadedCode"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void doInit(Context context, String[] strArr) {
-        boolean exists;
+        boolean z;
         String str;
         File file;
+        String str2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, strArr) == null) || !mIsEnabled || context == null || mIsInitialized) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, context, strArr) == null) || !mIsEnabled || context == null || mIsInitialized) {
             return;
         }
-        String str2 = strArr[10];
-        mClientDir = str2;
-        String str3 = "0";
-        boolean z = false;
-        if (str2 != null) {
-            if (!str2.isEmpty() && !mClientDir.equals("0")) {
-                String str4 = mClientDir + "/libcrashpad_client.so";
-                exists = new File(str4).exists();
-                if (exists) {
-                    str3 = str4;
-                }
-                if (!exists && str3 != null && !str3.equals("0")) {
-                    System.load(str3);
-                    mNativeIsInitialized = true;
-                } else {
-                    System.loadLibrary("crashpad_client");
-                    mNativeIsInitialized = true;
-                }
-                ZwDebugExtra.init(context);
-                mCyberVersion = strArr[0];
-                mCyberVersionIsReady = true;
-                mCPU = strArr[1];
-                mCuid = strArr[2];
-                mEmulator = strArr[3];
-                mCallback = strArr[4];
-                mChannel = strArr[5];
-                if (strArr[6] != null && !strArr[6].isEmpty() && !TextUtils.equals(strArr[6], "-1")) {
-                    mProcessType = strArr[6];
-                }
-                mUploadCrashLogFailedEncrypt = strArr[7];
-                mZeusVersion = strArr[9];
-                str = strArr[11];
-                mHandlerDir = str;
-                if (str != null || str.equals("0") || mHandlerDir.isEmpty()) {
-                    mHandlerDir = context.getApplicationInfo().nativeLibraryDir;
-                }
-                mDumpCopyDir = strArr[12];
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                mAppVersion = packageInfo.versionName;
-                mAppVersionCode = packageInfo.versionCode;
-                mAppPackageName = context.getPackageName();
-                mLocation = context.getFilesDir().getAbsolutePath() + "/zeuslogs/";
-                file = new File(mLocation);
-                if (file.exists() && !file.mkdirs()) {
-                    mLocation = context.getFilesDir().getAbsolutePath();
-                } else {
+        String str3 = strArr[10];
+        mClientDir = str3;
+        String str4 = "0";
+        boolean z2 = false;
+        if (str3 != null) {
+            if (!str3.isEmpty() && !mClientDir.equals("0")) {
+                String str5 = mClientDir + "/libcrashpad_client.so";
+                if (new File(str5).exists()) {
+                    str4 = str5;
+                    z = true;
+                    if (str4 != null && str4.equals("0")) {
+                        str2 = context.getFilesDir().getAbsolutePath() + "/zeus/libs/libcrashpad_client.so";
+                        if (new File(str2).exists()) {
+                            str4 = str2;
+                            z = true;
+                        }
+                    }
+                    if (!z && str4 != null && !str4.equals("0")) {
+                        System.load(str4);
+                        mNativeIsInitialized = true;
+                    } else {
+                        System.loadLibrary("crashpad_client");
+                        mNativeIsInitialized = true;
+                    }
+                    ZwDebugExtra.init(context);
+                    setCyberVersion(strArr[0]);
+                    mCPU = strArr[1];
+                    mCuid = strArr[2];
+                    mEmulator = strArr[3];
+                    mCallback = strArr[4];
+                    mChannel = strArr[5];
+                    if (strArr[6] != null && !strArr[6].isEmpty() && !TextUtils.equals(strArr[6], "-1")) {
+                        mProcessType = strArr[6];
+                    }
+                    mUploadCrashLogFailedEncrypt = strArr[7];
+                    mZeusVersion = strArr[9];
+                    str = strArr[11];
+                    mHandlerDir = str;
+                    if (str != null || str.equals("0") || mHandlerDir.isEmpty()) {
+                        mHandlerDir = context.getApplicationInfo().nativeLibraryDir;
+                    }
+                    mDumpCopyDir = strArr[12];
+                    PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                    mAppVersion = packageInfo.versionName;
+                    mAppVersionCode = packageInfo.versionCode;
+                    mAppPackageName = context.getPackageName();
+                    mLocation = context.getFilesDir().getAbsolutePath() + "/zeuslogs/";
+                    file = new File(mLocation);
+                    if (file.exists() && !file.mkdirs()) {
+                        mLocation = context.getFilesDir().getAbsolutePath();
+                    } else {
+                        synchronized (ZwCrashpad.class) {
+                            mLocationIsReady = true;
+                        }
+                    }
+                    String radioVersion = Build.getRadioVersion();
+                    mBaseBand = radioVersion;
+                    if (radioVersion == null) {
+                        mBaseBand = "no message";
+                    }
+                    String[] newInfos = newInfos();
                     synchronized (ZwCrashpad.class) {
-                        mLocationIsReady = true;
+                        if (mNativeIsInitialized) {
+                            nativeInit(newInfos);
+                            mIsInitialized = true;
+                        }
                     }
+                    setCrashKeyValue("USER", Build.USER);
+                    ZeusLogUploader.setBDSdcradDir(strArr[8]);
+                    ZeusLogUploader.setUploadCrashLogFailedEncrypt((strArr[7] == null || Boolean.valueOf(strArr[7]).booleanValue()) ? true : true);
+                    ZeusLogUploader.setEncryptKey(getEncryptKey());
+                    ZeusLogUploader.UploadLogDirectory(context.getFilesDir().getAbsolutePath() + "/zeuslogs/", "crashlog", true, null);
+                    return;
                 }
-                String radioVersion = Build.getRadioVersion();
-                mBaseBand = radioVersion;
-                if (radioVersion == null) {
-                    mBaseBand = "no message";
-                }
-                String[] newInfos = newInfos();
-                synchronized (ZwCrashpad.class) {
-                    if (mNativeIsInitialized) {
-                        nativeInit(newInfos);
-                        mIsInitialized = true;
-                    }
-                }
-                setCrashKeyValue("USER", Build.USER);
-                ZeusLogUploader.setBDSdcradDir(strArr[8]);
-                ZeusLogUploader.setUploadCrashLogFailedEncrypt((strArr[7] == null || Boolean.valueOf(strArr[7]).booleanValue()) ? true : true);
-                ZeusLogUploader.setEncryptKey(getEncryptKey());
-                ZeusLogUploader.UploadLogDirectory(context.getFilesDir().getAbsolutePath() + "/zeuslogs/", "crashlog", true, null);
-                return;
             }
         }
-        String str5 = context.getFilesDir().getAbsolutePath() + "/zeus/libs/libcrashpad_client.so";
-        if (new File(str5).exists()) {
-            str3 = str5;
-            exists = true;
-        } else {
-            exists = false;
+        z = false;
+        if (str4 != null) {
+            str2 = context.getFilesDir().getAbsolutePath() + "/zeus/libs/libcrashpad_client.so";
+            if (new File(str2).exists()) {
+            }
         }
-        if (!exists) {
+        if (!z) {
         }
         System.loadLibrary("crashpad_client");
         mNativeIsInitialized = true;
         ZwDebugExtra.init(context);
-        mCyberVersion = strArr[0];
-        mCyberVersionIsReady = true;
+        setCyberVersion(strArr[0]);
         mCPU = strArr[1];
         mCuid = strArr[2];
         mEmulator = strArr[3];
@@ -234,10 +265,133 @@ public class ZwCrashpad {
         }
     }
 
+    /* JADX WARN: Can't wrap try/catch for region: R(17:(9:12|13|(1:15)|16|(1:18)|19|(1:103)|25|(1:27))|29|30|31|(2:37|(18:39|(2:43|(1:45))|(1:100)(1:50)|51|52|53|54|55|56|(1:16f)(1:60)|61|(1:63)|64|183|71|(1:75)|76|(1:82)(2:80|81)))|101|(3:41|43|(0))|(0)|100|51|52|53|54|55|56|(1:58)|16f) */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x0170 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00fc  */
+    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void doInitGeneric(Context context, String str) {
+        File file;
+        boolean z;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(65544, null, context, str) != null) {
+            return;
+        }
+        String str3 = "zwCrashpad.doInitGeneric  mIsEnabled=" + mIsEnabled + ", mIsInitialized=" + mIsInitialized + ", mNativeIsInitialized=" + mNativeIsInitialized;
+        if (!mIsEnabled || context == null || mIsInitialized || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            String optString = jSONObject.optString("clientDir");
+            if (!TextUtils.isEmpty(optString)) {
+                mClientDir = optString;
+            }
+            String optString2 = jSONObject.optString("handlerDir");
+            if (!TextUtils.isEmpty(optString2)) {
+                mHandlerDir = optString2;
+            }
+            if (mHandlerDir == null || mHandlerDir.equals("0") || mHandlerDir.isEmpty()) {
+                mHandlerDir = context.getApplicationInfo().nativeLibraryDir;
+            }
+            String optString3 = jSONObject.optString("dumpCopyDir");
+            if (!TextUtils.isEmpty(optString3)) {
+                mDumpCopyDir = optString3;
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        String str4 = "0";
+        if (mClientDir != null && !mClientDir.isEmpty() && !mClientDir.equals("0")) {
+            String str5 = mClientDir + "/libcrashpad_client.so";
+            if (new File(str5).exists()) {
+                str4 = str5;
+                z = true;
+                if (str4 != null && str4.equals("0")) {
+                    str2 = context.getFilesDir().getAbsolutePath() + "/zeus/libs/libcrashpad_client.so";
+                    if (new File(str2).exists()) {
+                        str4 = str2;
+                        z = true;
+                    }
+                }
+                if (!z && str4 != null && !str4.equals("0")) {
+                    System.load(str4);
+                    mNativeIsInitialized = true;
+                } else {
+                    System.loadLibrary("crashpad_client");
+                    mNativeIsInitialized = true;
+                }
+                ZwDebugExtra.init(context);
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                mAppVersion = packageInfo.versionName;
+                mAppVersionCode = packageInfo.versionCode;
+                mAppPackageName = context.getPackageName();
+                mLocation = context.getFilesDir().getAbsolutePath() + "/zeuslogs/";
+                file = new File(mLocation);
+                if (file.exists() && !file.mkdirs()) {
+                    mLocation = context.getFilesDir().getAbsolutePath();
+                } else {
+                    synchronized (ZwCrashpad.class) {
+                        mLocationIsReady = true;
+                    }
+                }
+                String radioVersion = Build.getRadioVersion();
+                mBaseBand = radioVersion;
+                if (radioVersion == null) {
+                    mBaseBand = "no message";
+                }
+                String[] newInfos = newInfos();
+                synchronized (ZwCrashpad.class) {
+                    if (mNativeIsInitialized) {
+                        nativeInit(newInfos);
+                        mIsInitialized = true;
+                    }
+                }
+                setCrashKeyValue("USER", Build.USER);
+                File externalFilesDir = context.getExternalFilesDir("");
+                if (externalFilesDir != null && externalFilesDir.exists()) {
+                    ZeusLogUploader.setBDSdcradDir(externalFilesDir.getAbsolutePath());
+                }
+                ZeusLogUploader.setUploadCrashLogFailedEncrypt(true);
+                ZeusLogUploader.setEncryptKey(getEncryptKey());
+                File filesDir = context.getFilesDir();
+                if (filesDir == null || !filesDir.exists()) {
+                    return;
+                }
+                ZeusLogUploader.UploadLogDirectory(filesDir.getAbsolutePath() + "/zeuslogs/", "crashlog", true, null);
+                return;
+            }
+        }
+        z = false;
+        if (str4 != null) {
+            str2 = context.getFilesDir().getAbsolutePath() + "/zeus/libs/libcrashpad_client.so";
+            if (new File(str2).exists()) {
+            }
+        }
+        if (!z) {
+        }
+        System.loadLibrary("crashpad_client");
+        mNativeIsInitialized = true;
+        ZwDebugExtra.init(context);
+        PackageInfo packageInfo2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+        mAppVersion = packageInfo2.versionName;
+        mAppVersionCode = packageInfo2.versionCode;
+        mAppPackageName = context.getPackageName();
+        mLocation = context.getFilesDir().getAbsolutePath() + "/zeuslogs/";
+        file = new File(mLocation);
+        if (file.exists()) {
+        }
+        synchronized (ZwCrashpad.class) {
+        }
+    }
+
     public static synchronized String getEncryptKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (ZwCrashpad.class) {
                 return (mIsEnabled && mNativeIsInitialized) ? nativeGetEncryptKey() : "";
             }
@@ -248,7 +402,7 @@ public class ZwCrashpad {
     public static String[] getInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String[] newInfos = newInfos();
             synchronized (ZwCrashpad.class) {
                 mNativeIsInitialized = true;
@@ -262,7 +416,7 @@ public class ZwCrashpad {
         InterceptResult invokeV;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             synchronized (sCyberVersionLock) {
                 z = mCyberVersionIsReady;
             }
@@ -283,6 +437,8 @@ public class ZwCrashpad {
 
     public static native void nativeSetCallback(String str);
 
+    public static native void nativeSetCpu(String str);
+
     public static native void nativeSetCrashKeyValue(String str, String str2);
 
     public static native void nativeSetCuid(String str);
@@ -295,7 +451,11 @@ public class ZwCrashpad {
 
     public static native void nativeSetHandlerSoDir(String str);
 
+    public static native void nativeSetHasCallbackListener();
+
     public static native void nativeSetJavaException(String str);
+
+    public static native void nativeSetKernelInfoToDuliCrashpad(String[] strArr);
 
     public static native void nativeSetProcessType(String str);
 
@@ -307,12 +467,14 @@ public class ZwCrashpad {
 
     public static native void nativeSetZeusVersion(String str);
 
+    public static native boolean nativeShouldIgnoreCrash();
+
     public static String[] newInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
-                return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(' ', '_').replace(SignatureImpl.SEP, '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, " ", " ", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
+                return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(' ', '_').replace(SignatureImpl.SEP, '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, "", "", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
             } catch (Exception unused) {
                 return new String[0];
             }
@@ -322,7 +484,7 @@ public class ZwCrashpad {
 
     public static synchronized void setCallback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65564, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65571, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mCallback)) {
                     mCallback = str;
@@ -336,7 +498,7 @@ public class ZwCrashpad {
 
     public static synchronized void setClientSoDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65572, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mClientDir)) {
                     mClientDir = str;
@@ -345,16 +507,44 @@ public class ZwCrashpad {
         }
     }
 
+    public static synchronized void setCpu(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65573, null, str) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && !TextUtils.equals(str, mCPU)) {
+                    mCPU = str;
+                    if (mNativeIsInitialized) {
+                        nativeSetCpu(str);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized void setCrashCallbackListener(CrashCallbackExtra crashCallbackExtra) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65574, null, crashCallbackExtra) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled) {
+                    mCrashCallbackListener = crashCallbackExtra;
+                    if (mNativeIsInitialized) {
+                        nativeSetHasCallbackListener();
+                    }
+                }
+            }
+        }
+    }
+
     public static void setCrashKeyValue(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65566, null, str, str2) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
+        if ((interceptable == null || interceptable.invokeLL(65575, null, str, str2) == null) && mIsEnabled && mNativeIsInitialized && str != null) {
             nativeSetCrashKeyValue(str, str2);
         }
     }
 
     public static synchronized void setCuid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65576, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mCuid)) {
                     mCuid = str;
@@ -369,7 +559,7 @@ public class ZwCrashpad {
     public static boolean setCyberVersion(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, str)) == null) {
             if (!mIsEnabled || str == null || str.equals("0")) {
                 return false;
             }
@@ -390,7 +580,7 @@ public class ZwCrashpad {
 
     public static synchronized void setDumpCopyDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65578, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mDumpCopyDir)) {
                     mDumpCopyDir = str;
@@ -404,7 +594,7 @@ public class ZwCrashpad {
 
     public static synchronized void setEmulator(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65570, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65579, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mEmulator)) {
                     mEmulator = str;
@@ -418,7 +608,7 @@ public class ZwCrashpad {
 
     public static void setEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65571, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65580, null, z) == null) {
             mIsEnabled = z;
             ZeusLogUploader.setEnabled(z);
         }
@@ -426,7 +616,7 @@ public class ZwCrashpad {
 
     public static synchronized void setHandlerSoDir(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65572, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65581, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mHandlerDir)) {
                     mHandlerDir = str;
@@ -438,9 +628,20 @@ public class ZwCrashpad {
         }
     }
 
+    public static synchronized void setKernelInfoToDuliCrashpad(String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65582, null, strArr) == null) {
+            synchronized (ZwCrashpad.class) {
+                if (mIsEnabled && mNativeIsInitialized) {
+                    nativeSetKernelInfoToDuliCrashpad(strArr);
+                }
+            }
+        }
+    }
+
     public static synchronized void setProcessType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65573, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65583, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mProcessType)) {
                     mProcessType = str;
@@ -454,7 +655,7 @@ public class ZwCrashpad {
 
     public static synchronized void setStatisticParam(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65584, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mStatisticParam)) {
                     mStatisticParam = str;
@@ -468,7 +669,7 @@ public class ZwCrashpad {
 
     public static synchronized void setUploadCrashLogFailedEncrypt(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65575, null, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(65585, null, z) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled) {
                     mUploadCrashLogFailedEncrypt = z ? "true" : "false";
@@ -482,7 +683,7 @@ public class ZwCrashpad {
 
     public static synchronized void setWebviewNumber(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65576, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65586, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mWebviewNumber)) {
                     mWebviewNumber = str;
@@ -496,7 +697,7 @@ public class ZwCrashpad {
 
     public static synchronized void setZeusVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65587, null, str) == null) {
             synchronized (ZwCrashpad.class) {
                 if (mIsEnabled && !TextUtils.equals(str, mZeusVersion)) {
                     mZeusVersion = str;

@@ -1,829 +1,578 @@
 package c.a.r0.m;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.g;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.s0.k0.h;
-import c.a.s0.m4.a;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.TbWebViewActivity;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.PersonInfoMoreDialog;
-import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class e {
-    public static /* synthetic */ Interceptable $ic;
+public final class e {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int a = 2131230820;
+    public static final int abc_ab_share_pack_mtrl_alpha = 2131230821;
+    public static final int abc_action_bar_item_background_material = 2131230822;
+    public static final int abc_btn_borderless_material = 2131230823;
+    public static final int abc_btn_check_material = 2131230824;
+    public static final int abc_btn_check_material_anim = 2131230825;
+    public static final int abc_btn_check_to_on_mtrl_000 = 2131230826;
+    public static final int abc_btn_check_to_on_mtrl_015 = 2131230827;
+    public static final int abc_btn_colored_material = 2131230828;
+    public static final int abc_btn_default_mtrl_shape = 2131230829;
+    public static final int abc_btn_radio_material = 2131230830;
+    public static final int abc_btn_radio_material_anim = 2131230831;
+    public static final int abc_btn_radio_to_on_mtrl_000 = 2131230832;
+    public static final int abc_btn_radio_to_on_mtrl_015 = 2131230833;
+    public static final int abc_btn_switch_to_on_mtrl_00001 = 2131230834;
+    public static final int abc_btn_switch_to_on_mtrl_00012 = 2131230835;
+    public static final int abc_cab_background_internal_bg = 2131230836;
+    public static final int abc_cab_background_top_material = 2131230837;
+    public static final int abc_cab_background_top_mtrl_alpha = 2131230838;
+    public static final int abc_control_background_material = 2131230839;
+    public static final int abc_dialog_material_background = 2131230840;
+    public static final int abc_edit_text_material = 2131230841;
+    public static final int abc_ic_ab_back_material = 2131230842;
+    public static final int abc_ic_arrow_drop_right_black_24dp = 2131230843;
+    public static final int abc_ic_clear_material = 2131230844;
+    public static final int abc_ic_commit_search_api_mtrl_alpha = 2131230845;
+    public static final int abc_ic_go_search_api_material = 2131230846;
+    public static final int abc_ic_menu_copy_mtrl_am_alpha = 2131230847;
+    public static final int abc_ic_menu_cut_mtrl_alpha = 2131230848;
+    public static final int abc_ic_menu_overflow_material = 2131230849;
+    public static final int abc_ic_menu_paste_mtrl_am_alpha = 2131230850;
+    public static final int abc_ic_menu_selectall_mtrl_alpha = 2131230851;
+    public static final int abc_ic_menu_share_mtrl_alpha = 2131230852;
+    public static final int abc_ic_search_api_material = 2131230853;
+    public static final int abc_ic_star_black_16dp = 2131230854;
+    public static final int abc_ic_star_black_36dp = 2131230855;
+    public static final int abc_ic_star_black_48dp = 2131230856;
+    public static final int abc_ic_star_half_black_16dp = 2131230857;
+    public static final int abc_ic_star_half_black_36dp = 2131230858;
+    public static final int abc_ic_star_half_black_48dp = 2131230859;
+    public static final int abc_ic_voice_search_api_material = 2131230860;
+    public static final int abc_item_background_holo_dark = 2131230861;
+    public static final int abc_item_background_holo_light = 2131230862;
+    public static final int abc_list_divider_material = 2131230863;
+    public static final int abc_list_divider_mtrl_alpha = 2131230864;
+    public static final int abc_list_focused_holo = 2131230865;
+    public static final int abc_list_longpressed_holo = 2131230866;
+    public static final int abc_list_pressed_holo_dark = 2131230867;
+    public static final int abc_list_pressed_holo_light = 2131230868;
+    public static final int abc_list_selector_background_transition_holo_dark = 2131230869;
+    public static final int abc_list_selector_background_transition_holo_light = 2131230870;
+    public static final int abc_list_selector_disabled_holo_dark = 2131230871;
+    public static final int abc_list_selector_disabled_holo_light = 2131230872;
+    public static final int abc_list_selector_holo_dark = 2131230873;
+    public static final int abc_list_selector_holo_light = 2131230874;
+    public static final int abc_menu_hardkey_panel_mtrl_mult = 2131230875;
+    public static final int abc_popup_background_mtrl_mult = 2131230876;
+    public static final int abc_ratingbar_indicator_material = 2131230877;
+    public static final int abc_ratingbar_material = 2131230878;
+    public static final int abc_ratingbar_small_material = 2131230879;
+    public static final int abc_scrubber_control_off_mtrl_alpha = 2131230880;
+    public static final int abc_scrubber_control_to_pressed_mtrl_000 = 2131230881;
+    public static final int abc_scrubber_control_to_pressed_mtrl_005 = 2131230882;
+    public static final int abc_scrubber_primary_mtrl_alpha = 2131230883;
+    public static final int abc_scrubber_track_mtrl_alpha = 2131230884;
+    public static final int abc_seekbar_thumb_material = 2131230885;
+    public static final int abc_seekbar_tick_mark_material = 2131230886;
+    public static final int abc_seekbar_track_material = 2131230887;
+    public static final int abc_spinner_mtrl_am_alpha = 2131230888;
+    public static final int abc_spinner_textfield_background_material = 2131230889;
+    public static final int abc_switch_thumb_material = 2131230890;
+    public static final int abc_switch_track_mtrl_alpha = 2131230891;
+    public static final int abc_tab_indicator_material = 2131230892;
+    public static final int abc_tab_indicator_mtrl_alpha = 2131230893;
+    public static final int abc_text_cursor_material = 2131230894;
+    public static final int abc_text_select_handle_left_mtrl_dark = 2131230895;
+    public static final int abc_text_select_handle_left_mtrl_light = 2131230896;
+    public static final int abc_text_select_handle_middle_mtrl_dark = 2131230897;
+    public static final int abc_text_select_handle_middle_mtrl_light = 2131230898;
+    public static final int abc_text_select_handle_right_mtrl_dark = 2131230899;
+    public static final int abc_text_select_handle_right_mtrl_light = 2131230900;
+    public static final int abc_textfield_activated_mtrl_alpha = 2131230901;
+    public static final int abc_textfield_default_mtrl_alpha = 2131230902;
+    public static final int abc_textfield_search_activated_mtrl_alpha = 2131230903;
+    public static final int abc_textfield_search_default_mtrl_alpha = 2131230904;
+    public static final int abc_textfield_search_material = 2131230905;
+    public static final int abc_vector_test = 2131230906;
+    public static final int aiapp_alertdialog_button_day_bg_all_selector = 2131230927;
+    public static final int aiapp_alertdialog_button_day_bg_left_selector = 2131230928;
+    public static final int aiapp_alertdialog_button_day_bg_right_selector = 2131230929;
+    public static final int aiapp_alertdialog_button_day_bg_selector = 2131230930;
+    public static final int aiapp_bg_splash_layer = 2131230931;
+    public static final int aiapp_loading_progress = 2131230932;
+    public static final int aiapp_menu_item_add_fav = 2131230935;
+    public static final int aiapp_menu_item_add_fav_click = 2131230936;
+    public static final int aiapp_menu_item_add_fav_selector = 2131230937;
+    public static final int aiapp_menu_item_ai_apps_add_to_launcher_selector = 2131230938;
+    public static final int aiapp_menu_item_ai_apps_authority_management = 2131230939;
+    public static final int aiapp_menu_item_ai_apps_authority_management_click = 2131230940;
+    public static final int aiapp_menu_item_ai_apps_authority_management_selector = 2131230941;
+    public static final int aiapp_menu_item_apply_guarantee_selector = 2131230942;
+    public static final int aiapp_menu_item_cancel_fav = 2131230943;
+    public static final int aiapp_menu_item_cancel_fav_click = 2131230944;
+    public static final int aiapp_menu_item_cancel_fav_selector = 2131230945;
+    public static final int aiapp_menu_item_customer_service = 2131230946;
+    public static final int aiapp_menu_item_customer_service_pressed = 2131230947;
+    public static final int aiapp_menu_item_customer_service_selector = 2131230948;
+    public static final int aiapp_menu_item_day_mode = 2131230949;
+    public static final int aiapp_menu_item_day_mode_click = 2131230950;
+    public static final int aiapp_menu_item_daymode = 2131230951;
+    public static final int aiapp_menu_item_feedback = 2131230952;
+    public static final int aiapp_menu_item_feedback_click = 2131230953;
+    public static final int aiapp_menu_item_feedback_selector = 2131230954;
+    public static final int aiapp_menu_item_gamecenter = 2131230955;
+    public static final int aiapp_menu_item_gamecenter_click = 2131230956;
+    public static final int aiapp_menu_item_global_notice = 2131230957;
+    public static final int aiapp_menu_item_global_notice_pressed = 2131230958;
+    public static final int aiapp_menu_item_global_notice_selector = 2131230959;
+    public static final int aiapp_menu_item_global_private = 2131230960;
+    public static final int aiapp_menu_item_global_private_pressed = 2131230961;
+    public static final int aiapp_menu_item_global_private_selector = 2131230962;
+    public static final int aiapp_menu_item_guarantee_normal = 2131230963;
+    public static final int aiapp_menu_item_guarantee_pressed = 2131230964;
+    public static final int aiapp_menu_item_night_mode = 2131230968;
+    public static final int aiapp_menu_item_night_mode_click = 2131230969;
+    public static final int aiapp_menu_item_nightmode = 2131230970;
+    public static final int aiapp_menu_item_restart = 2131230971;
+    public static final int aiapp_menu_item_restart_click = 2131230972;
+    public static final int aiapp_menu_item_restart_selector = 2131230973;
+    public static final int aiapp_menu_item_share_arrow = 2131230974;
+    public static final int aiapp_menu_item_share_arrow_click = 2131230975;
+    public static final int aiapp_menu_item_share_arrow_selector = 2131230976;
+    public static final int aiapp_menu_slide_indicator_normal = 2131230977;
+    public static final int aiapp_menu_slide_indicator_selected = 2131230978;
+    public static final int aiapps_action_bar_back_black_normal = 2131230981;
+    public static final int aiapps_action_bar_back_black_pressed = 2131230982;
+    public static final int aiapps_action_bar_back_black_selector = 2131230983;
+    public static final int aiapps_action_bar_back_selector = 2131230984;
+    public static final int aiapps_action_bar_back_white_normal = 2131230985;
+    public static final int aiapps_action_bar_back_white_pressed = 2131230986;
+    public static final int aiapps_action_bar_back_white_selector = 2131230987;
+    public static final int aiapps_action_bar_close_black_normal = 2131230988;
+    public static final int aiapps_action_bar_close_black_pressed = 2131230989;
+    public static final int aiapps_action_bar_close_black_selector = 2131230990;
+    public static final int aiapps_action_bar_exit_black = 2131230991;
+    public static final int aiapps_action_bar_exit_black_pressed = 2131230992;
+    public static final int aiapps_action_bar_exit_black_selector = 2131230993;
+    public static final int aiapps_action_bar_exit_white = 2131230994;
+    public static final int aiapps_action_bar_exit_white_pressed = 2131230995;
+    public static final int aiapps_action_bar_exit_white_selector = 2131230996;
+    public static final int aiapps_action_bar_home_black_normal = 2131230997;
+    public static final int aiapps_action_bar_home_black_pressed = 2131230998;
+    public static final int aiapps_action_bar_home_black_selector = 2131230999;
+    public static final int aiapps_action_bar_home_white_normal = 2131231000;
+    public static final int aiapps_action_bar_home_white_pressed = 2131231001;
+    public static final int aiapps_action_bar_home_white_selector = 2131231002;
+    public static final int aiapps_action_bar_menu_black_normal = 2131231003;
+    public static final int aiapps_action_bar_menu_black_pressed = 2131231004;
+    public static final int aiapps_action_bar_menu_black_selector = 2131231005;
+    public static final int aiapps_action_bar_menu_normal = 2131231006;
+    public static final int aiapps_action_bar_menu_normal_pressed = 2131231007;
+    public static final int aiapps_action_bar_menu_normal_selector = 2131231008;
+    public static final int aiapps_action_bar_menu_white_normal = 2131231009;
+    public static final int aiapps_action_bar_menu_white_pressed = 2131231010;
+    public static final int aiapps_action_bar_menu_white_selector = 2131231011;
+    public static final int aiapps_action_bar_right_menu_bg = 2131231012;
+    public static final int aiapps_action_bar_right_menu_bg_solid = 2131231013;
+    public static final int aiapps_action_bar_single_menu_black_selector = 2131231014;
+    public static final int aiapps_action_bar_single_menu_white_normal = 2131231015;
+    public static final int aiapps_action_bar_single_menu_white_pressed = 2131231016;
+    public static final int aiapps_action_bar_single_menu_white_selector = 2131231017;
+    public static final int aiapps_action_sheet_bg = 2131231018;
+    public static final int aiapps_action_sheet_scrollbar = 2131231019;
+    public static final int aiapps_ad_landing_download_button = 2131231020;
+    public static final int aiapps_ai_games_input_view_bg = 2131231021;
+    public static final int aiapps_auth_dialog_detail_bg = 2131231022;
+    public static final int aiapps_bear_paw_enter_btn = 2131231023;
+    public static final int aiapps_bear_paw_follow_btn = 2131231024;
+    public static final int aiapps_bg_splash = 2131231025;
+    public static final int aiapps_big_pic_toast_close = 2131231026;
+    public static final int aiapps_big_pic_toast_close_clicked = 2131231027;
+    public static final int aiapps_black_shimmer_loading = 2131231028;
+    public static final int aiapps_checkbox_checked = 2131231029;
+    public static final int aiapps_checkbox_checked_disable = 2131231030;
+    public static final int aiapps_checkbox_normal = 2131231031;
+    public static final int aiapps_checkbox_normal_disable = 2131231032;
+    public static final int aiapps_checkbox_private = 2131231033;
+    public static final int aiapps_clickable_toast_icon = 2131231034;
+    public static final int aiapps_clickable_toast_view_bg = 2131231035;
+    public static final int aiapps_custom_blue_btn_corner_bg = 2131231041;
+    public static final int aiapps_data_error_icon_new = 2131231042;
+    public static final int aiapps_day_mode_toast_icon = 2131231043;
+    public static final int aiapps_default_grey_icon = 2131231044;
+    public static final int aiapps_default_icon = 2131231045;
+    public static final int aiapps_default_placeholder_image = 2131231046;
+    public static final int aiapps_default_ptr_rotate = 2131231047;
+    public static final int aiapps_dialog_bg_white = 2131231048;
+    public static final int aiapps_dialog_browser_security_bad = 2131231049;
+    public static final int aiapps_dialog_browser_security_good = 2131231050;
+    public static final int aiapps_dialog_btn_bg_day_all = 2131231051;
+    public static final int aiapps_dialog_btn_bg_day_left = 2131231052;
+    public static final int aiapps_dialog_btn_bg_day_right = 2131231053;
+    public static final int aiapps_dialog_btn_bg_pressed_day = 2131231054;
+    public static final int aiapps_dialog_multi_auth_dot = 2131231055;
+    public static final int aiapps_discovery_feedback_menu_bg = 2131231056;
+    public static final int aiapps_discovery_home_menu_item_selector = 2131231057;
+    public static final int aiapps_emptyview_btn_bg = 2131231058;
+    public static final int aiapps_emptyview_btn_bg_default = 2131231059;
+    public static final int aiapps_emptyview_btn_bg_pressed = 2131231060;
+    public static final int aiapps_enter_fullscreen = 2131231061;
+    public static final int aiapps_entry_guide_nightmode_mask = 2131231062;
+    public static final int aiapps_error_web_btn_bg = 2131231063;
+    public static final int aiapps_error_web_btn_bg_default = 2131231064;
+    public static final int aiapps_error_web_btn_bg_pressed = 2131231065;
+    public static final int aiapps_favorite_guide_add_bg = 2131231066;
+    public static final int aiapps_favorite_guide_add_text = 2131231067;
+    public static final int aiapps_favorite_guide_arrow = 2131231068;
+    public static final int aiapps_favorite_guide_bg = 2131231069;
+    public static final int aiapps_favorite_guide_close = 2131231070;
+    public static final int aiapps_favorite_guide_close_pressed = 2131231071;
+    public static final int aiapps_favorite_guide_close_selector = 2131231072;
+    public static final int aiapps_favorite_guide_tips_bg = 2131231073;
+    public static final int aiapps_float_view_button_shape = 2131231074;
+    public static final int aiapps_follow_vip_authentication = 2131231075;
+    public static final int aiapps_follow_vip_blue = 2131231076;
+    public static final int aiapps_follow_vip_golden = 2131231077;
+    public static final int aiapps_follow_vip_yellow = 2131231078;
+    public static final int aiapps_game_keyboard_sendbuton_bg = 2131231082;
+    public static final int aiapps_game_keyboard_sendbutton_disabled = 2131231083;
+    public static final int aiapps_game_keyboard_sendbutton_normal = 2131231084;
+    public static final int aiapps_game_keyboard_sendbutton_pressed = 2131231085;
+    public static final int aiapps_highlight_toast_image_d20 = 2131231096;
+    public static final int aiapps_home_fragment_button_pressed = 2131231097;
+    public static final int aiapps_home_fragment_button_radius = 2131231098;
+    public static final int aiapps_home_fragment_button_selector = 2131231099;
+    public static final int aiapps_icon_line_node = 2131231100;
+    public static final int aiapps_icon_route_en = 2131231101;
+    public static final int aiapps_icon_route_st = 2131231102;
+    public static final int aiapps_keyboard_arrow_down = 2131231109;
+    public static final int aiapps_keyboard_delete_normal = 2131231110;
+    public static final int aiapps_keyboard_delete_pressed = 2131231111;
+    public static final int aiapps_keyboard_delete_selector = 2131231112;
+    public static final int aiapps_keyboard_non_number_item_selector = 2131231113;
+    public static final int aiapps_keyboard_number_item_selector = 2131231114;
+    public static final int aiapps_loading_bg = 2131231116;
+    public static final int aiapps_loading_dark_image_view = 2131231117;
+    public static final int aiapps_loading_light_image_view = 2131231118;
+    public static final int aiapps_loading_progress = 2131231119;
+    public static final int aiapps_loading_progress_animation = 2131231120;
+    public static final int aiapps_location_ding = 2131231121;
+    public static final int aiapps_location_go_my_point = 2131231122;
+    public static final int aiapps_location_go_my_point_selected = 2131231123;
+    public static final int aiapps_location_item_bg = 2131231124;
+    public static final int aiapps_location_item_select = 2131231125;
+    public static final int aiapps_location_loading = 2131231126;
+    public static final int aiapps_location_my_point = 2131231127;
+    public static final int aiapps_location_my_point_bg = 2131231128;
+    public static final int aiapps_location_progress_bar_anim = 2131231129;
+    public static final int aiapps_location_search = 2131231130;
+    public static final int aiapps_location_search_del = 2131231131;
+    public static final int aiapps_location_search_no_result = 2131231132;
+    public static final int aiapps_location_selected = 2131231133;
+    public static final int aiapps_multi_custom_layout_bg = 2131231140;
+    public static final int aiapps_night_black_background_bg = 2131231142;
+    public static final int aiapps_night_mode_toast_icon = 2131231143;
+    public static final int aiapps_no_recommend = 2131231144;
+    public static final int aiapps_normal_toast_view_bg = 2131231145;
+    public static final int aiapps_null_drawable = 2131231146;
+    public static final int aiapps_open_app_buttion_selector = 2131231147;
+    public static final int aiapps_open_app_button_normal = 2131231148;
+    public static final int aiapps_open_app_button_pressed = 2131231149;
+    public static final int aiapps_openlocation_go_my_point_bg_shape = 2131231150;
+    public static final int aiapps_openlocation_path_selector = 2131231151;
+    public static final int aiapps_permission_denied = 2131231154;
+    public static final int aiapps_person_center_dot = 2131231155;
+    public static final int aiapps_person_header_new_dot = 2131231156;
+    public static final int aiapps_personal_swan_label_bg = 2131231157;
+    public static final int aiapps_pop_transparent_bg = 2131231158;
+    public static final int aiapps_progress_thumb = 2131231160;
+    public static final int aiapps_property_window_bg = 2131231162;
+    public static final int aiapps_pull_refresh_arrow_down = 2131231163;
+    public static final int aiapps_pull_refresh_icon = 2131231164;
+    public static final int aiapps_pull_refresh_loading = 2131231165;
+    public static final int aiapps_pull_refresh_success_tip_bg = 2131231166;
+    public static final int aiapps_pull_refresh_success_tip_icon = 2131231167;
+    public static final int aiapps_right_button_toast_view_bg = 2131231168;
+    public static final int aiapps_right_close_btn_new = 2131231169;
+    public static final int aiapps_running_info_edging_bg = 2131231170;
+    public static final int aiapps_scroll_bar_thumb_vertical = 2131231171;
+    public static final int aiapps_server_request_btn_pressed = 2131231172;
+    public static final int aiapps_subscribe_msg_selected = 2131231174;
+    public static final int aiapps_subscribe_msg_unselected = 2131231175;
+    public static final int aiapps_template_2_btn_bg_d20 = 2131231176;
+    public static final int aiapps_textarea_comfirm_bar = 2131231177;
+    public static final int aiapps_toast_bg_d20 = 2131231178;
+    public static final int aiapps_toast_button_view_bg = 2131231179;
+    public static final int aiapps_toast_loading_d20 = 2131231180;
+    public static final int aiapps_toast_right_jump_d20 = 2131231181;
+    public static final int aiapps_transparent_drawable = 2131231182;
+    public static final int aiapps_white_shimmer_loading = 2131231183;
+    public static final int aiapps_wsdk_npc_drawer_default = 2131231184;
+    public static final int aiapps_wx_pay_loading = 2131231185;
+    public static final int aiapps_xsearch_msg_pull_arrow_down = 2131231186;
+    public static final int bookmark_history_search_sug_bg = 2131231538;
+    public static final int btn_checkbox_checked_mtrl = 2131231613;
+    public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131231614;
+    public static final int btn_checkbox_unchecked_mtrl = 2131231615;
+    public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131231616;
+    public static final int btn_radio_off_mtrl = 2131231739;
+    public static final int btn_radio_off_to_on_mtrl_animation = 2131231740;
+    public static final int btn_radio_on_mtrl = 2131231741;
+    public static final int btn_radio_on_to_off_mtrl_animation = 2131231742;
+    public static final int cashersdk_common_dialog_background_shape = 2131231857;
+    public static final int cashersdk_common_dialog_background_shape_buttom = 2131231858;
+    public static final int cashersdk_conpon_item_background_left = 2131231859;
+    public static final int cashersdk_conpon_item_background_right = 2131231860;
+    public static final int cashersdk_coupon_buttom_shadow = 2131231861;
+    public static final int cashersdk_dash_line_horizontal = 2131231862;
+    public static final int channel_checked = 2131231864;
+    public static final int channel_closenew = 2131231865;
+    public static final int channel_list_installment_shape = 2131231866;
+    public static final int channel_list_installment_shape_selected = 2131231867;
+    public static final int channel_list_installment_shape_selector = 2131231868;
+    public static final int common_scrollbar_vertical = 2131231884;
+    public static final int conpon_item_checked = 2131231888;
+    public static final int conpon_item_unchecked = 2131231889;
+    public static final int core_permission_guide_next_step_button_bg = 2131231892;
+    public static final int core_permission_location_icon = 2131231893;
+    public static final int core_permission_phone_icon = 2131231894;
+    public static final int core_permission_storage_icon = 2131231895;
+    public static final int coupon_item_line = 2131231896;
+    public static final int coupon_item_line_no_use = 2131231897;
+    public static final int coupon_more = 2131231898;
+    public static final int coupon_selector = 2131231899;
+    public static final int cut = 2131231908;
+    public static final int discount_coupon_background_vip_tag = 2131231949;
+    public static final int du_vip_guide_bg = 2131231961;
+    public static final int guide_no_pwd_pay_window_bg = 2131232365;
+    public static final int huabei_price_background_shape = 2131232388;
+    public static final int ic_loading_4_toast = 2131232502;
+    public static final int ic_loading_for_dialog = 2131232504;
+    public static final int ic_no_pwd_pay_guide = 2131232510;
+    public static final int ic_pay_back = 2131232511;
+    public static final int ic_poly_sdk_drmb_pay_fail = 2131232530;
+    public static final int ic_success_4_toast = 2131232540;
+    public static final int icon_back = 2131232604;
+    public static final int icon_more_channel_list = 2131233095;
+    public static final int installment_to_change = 2131233967;
+    public static final int ksw_md_thumb = 2131234303;
+    public static final int loading = 2131234399;
+    public static final int location_search_bg = 2131234403;
+    public static final int menu_indicator_normal = 2131234435;
+    public static final int menu_indicator_selected = 2131234436;
+    public static final int menu_openlocation_path_enable = 2131234437;
+    public static final int menu_openlocation_path_normal = 2131234438;
+    public static final int mini_games_edit_person_header = 2131234439;
+    public static final int miui_back_drawable = 2131234441;
+    public static final int miui_thumb_drawable = 2131234442;
+    public static final int more = 2131234443;
+    public static final int ng_game_banner_ad_act_btn = 2131234646;
+    public static final int ng_game_banner_close = 2131234647;
+    public static final int ng_game_bg_close_ad = 2131234648;
+    public static final int ng_game_bg_reward_banner = 2131234649;
+    public static final int ng_game_reward_banner_act_btn = 2131234650;
+    public static final int ng_game_vol_close = 2131234651;
+    public static final int ng_game_vol_open = 2131234652;
+    public static final int notification_action_background = 2131234663;
+    public static final int notification_bg = 2131234664;
+    public static final int notification_bg_low = 2131234665;
+    public static final int notification_bg_low_normal = 2131234666;
+    public static final int notification_bg_low_pressed = 2131234667;
+    public static final int notification_bg_normal = 2131234668;
+    public static final int notification_bg_normal_pressed = 2131234669;
+    public static final int notification_icon_background = 2131234670;
+    public static final int notification_template_icon_bg = 2131234671;
+    public static final int notification_template_icon_low_bg = 2131234672;
+    public static final int notification_tile_bg = 2131234673;
+    public static final int notify_panel_notification_icon_bg = 2131234675;
+    public static final int openlocation_bottommenu_itemclick_selector = 2131234680;
+    public static final int openlocation_go_my_point_selector = 2131234681;
+    public static final int oval_top_left_right = 2131234687;
+    public static final int pay_button_top_shape = 2131234712;
+    public static final int pay_success = 2131234713;
+    public static final int pay_view_bg = 2131234767;
+    public static final int period_background_shape = 2131234793;
+    public static final int period_item_checked_background_shape = 2131234794;
+    public static final int period_list_confirm_button_enable_background_shape = 2131234795;
+    public static final int period_list_confirm_button_pressed_background_shape = 2131234796;
+    public static final int period_list_confirm_button_selector = 2131234797;
+    public static final int period_list_confirm_button_unenable_background_shape = 2131234798;
+    public static final int permission_guide_dialog_bg = 2131234799;
+    public static final int personal_swan_label_bg_game = 2131234816;
+    public static final int pin_red = 2131234985;
+    public static final int poly_sdk_common_light_toast_bg = 2131234990;
+    public static final int poly_sdk_pay_back_view_bg = 2131234991;
+    public static final int poly_sdk_simple_toast_bg = 2131234992;
+    public static final int poly_sdk_verification_code_cursor_bg = 2131234993;
+    public static final int poly_sdk_verification_code_et_bg = 2131234994;
+    public static final int poly_sdk_verification_code_et_error_bg = 2131234995;
+    public static final int pop_window_bg = 2131235000;
+    public static final int popup_view_bg = 2131235001;
+    public static final int sailor_ssl_ic_dialog_browser_security_bad = 2131235104;
+    public static final int success = 2131235442;
+    public static final int swan_ad_alertdialog_button_day_bg_all_selector = 2131235460;
+    public static final int swan_ad_alertdialog_button_day_bg_left_selector = 2131235461;
+    public static final int swan_ad_alertdialog_button_day_bg_right_selector = 2131235462;
+    public static final int swan_ad_alertdialog_button_day_bg_selector = 2131235463;
+    public static final int swan_ad_dialog_bg_white = 2131235464;
+    public static final int swan_ad_dialog_btn_bg_day_all = 2131235465;
+    public static final int swan_ad_dialog_btn_bg_day_left = 2131235466;
+    public static final int swan_ad_dialog_btn_bg_day_right = 2131235467;
+    public static final int swan_ad_dialog_btn_bg_pressed_day = 2131235468;
+    public static final int swan_ad_dialog_multi_auth_dot = 2131235469;
+    public static final int swan_ad_entry_guide_nightmode_mask = 2131235470;
+    public static final int swan_app_about_attention_pressed = 2131235471;
+    public static final int swan_app_about_attention_selector = 2131235472;
+    public static final int swan_app_about_cancel_attention_pressed = 2131235473;
+    public static final int swan_app_about_cancel_attention_selector = 2131235474;
+    public static final int swan_app_about_fragment_attentation = 2131235475;
+    public static final int swan_app_agreement_enter = 2131235476;
+    public static final int swan_app_agreement_layout_bg = 2131235477;
+    public static final int swan_app_agreement_layout_bg_normal = 2131235478;
+    public static final int swan_app_agreement_layout_bg_pressed = 2131235479;
+    public static final int swan_app_apply_guarantee_new = 2131235480;
+    public static final int swan_app_auth_neg_button_normal = 2131235481;
+    public static final int swan_app_auth_neg_button_pressed = 2131235482;
+    public static final int swan_app_auth_negative_bg_selector = 2131235483;
+    public static final int swan_app_auth_pos_button_normal = 2131235484;
+    public static final int swan_app_auth_pos_button_pressed = 2131235485;
+    public static final int swan_app_auth_pos_button_unable = 2131235486;
+    public static final int swan_app_auth_positive_bg_selector = 2131235487;
+    public static final int swan_app_auth_question_mark_pressed = 2131235488;
+    public static final int swan_app_common_scrollbar_horizontal = 2131235489;
+    public static final int swan_app_common_scrollbar_vertical = 2131235490;
+    public static final int swan_app_context_menu_bg = 2131235491;
+    public static final int swan_app_context_menu_bottom_corner_selector = 2131235492;
+    public static final int swan_app_context_menu_no_corner_selector = 2131235493;
+    public static final int swan_app_context_menu_round_corner_selector = 2131235494;
+    public static final int swan_app_context_menu_top_corner_selector = 2131235495;
+    public static final int swan_app_guarantee_icon_normal = 2131235496;
+    public static final int swan_app_guarantee_plan_enter = 2131235497;
+    public static final int swan_app_hover_button_shape = 2131235498;
+    public static final int swan_app_icon_label = 2131235499;
+    public static final int swan_app_menu_add_to_launcher = 2131235500;
+    public static final int swan_app_menu_add_to_launcher_click = 2131235501;
+    public static final int swan_app_menu_content_bg = 2131235502;
+    public static final int swan_app_menu_head_view_arrow = 2131235503;
+    public static final int swan_app_menu_item_font = 2131235504;
+    public static final int swan_app_menu_item_font_click = 2131235505;
+    public static final int swan_app_menu_item_font_setting_selector = 2131235506;
+    public static final int swan_app_menu_item_setting_selector = 2131235507;
+    public static final int swan_app_menu_item_settings = 2131235508;
+    public static final int swan_app_menu_item_settings_click = 2131235509;
+    public static final int swan_app_menu_new_bg = 2131235510;
+    public static final int swan_app_menu_new_dot = 2131235511;
+    public static final int swan_app_request_server_reload = 2131235520;
+    public static final int swan_app_request_server_reload_press = 2131235521;
+    public static final int swan_app_request_server_reload_selector = 2131235522;
+    public static final int swan_app_right_arrow = 2131235523;
+    public static final int swan_app_user_portrait_pressed = 2131235524;
+    public static final int swan_game_ad_volume_bg = 2131235525;
+    public static final int swan_image_menu_bg = 2131235526;
+    public static final int swan_image_menu_item_bg = 2131235527;
+    public static final int swan_image_menu_item_rounded_bg = 2131235528;
+    public static final int swan_image_menu_night_mask = 2131235529;
+    public static final int swanapp_ad_common_download_btn_selector = 2131235536;
+    public static final int swanapp_ad_tab_video_img_default_icon = 2131235537;
+    public static final int swanapp_ad_video_tail_head = 2131235538;
+    public static final int swanapp_album_back_normal = 2131235539;
+    public static final int swanapp_album_back_pressed = 2131235540;
+    public static final int swanapp_album_camera_icon = 2131235541;
+    public static final int swanapp_album_camera_item_selector = 2131235542;
+    public static final int swanapp_album_camera_pressed_icon = 2131235543;
+    public static final int swanapp_album_camera_unenable_icon = 2131235544;
+    public static final int swanapp_album_camera_video_pressed = 2131235545;
+    public static final int swanapp_album_camera_video_selector = 2131235546;
+    public static final int swanapp_album_camera_video_unpress = 2131235547;
+    public static final int swanapp_album_compress_progress = 2131235548;
+    public static final int swanapp_album_down_triangle = 2131235549;
+    public static final int swanapp_album_empty_icon = 2131235550;
+    public static final int swanapp_album_item_bg = 2131235551;
+    public static final int swanapp_album_item_duration_bg = 2131235552;
+    public static final int swanapp_album_name_item_selector = 2131235553;
+    public static final int swanapp_album_name_list_bg = 2131235554;
+    public static final int swanapp_album_preview_back_selector = 2131235555;
+    public static final int swanapp_album_preview_done_bg = 2131235556;
+    public static final int swanapp_album_preview_select_bg = 2131235557;
+    public static final int swanapp_album_preview_unselect = 2131235558;
+    public static final int swanapp_album_preview_unselect_unable = 2131235559;
+    public static final int swanapp_album_progress_bg = 2131235560;
+    public static final int swanapp_album_progress_icon = 2131235561;
+    public static final int swanapp_album_progress_medium = 2131235562;
+    public static final int swanapp_album_progress_night_layer = 2131235563;
+    public static final int swanapp_album_select_icon_bg = 2131235564;
+    public static final int swanapp_album_thumbnail_selected = 2131235565;
+    public static final int swanapp_album_unselect_thumb_icon = 2131235566;
+    public static final int swanapp_album_up_triangle = 2131235567;
+    public static final int swanapp_attention_btn_bg = 2131235568;
+    public static final int swanapp_attention_btn_bg_default = 2131235569;
+    public static final int swanapp_attention_btn_bg_pressed = 2131235570;
+    public static final int swanapp_browser_select_btn_bg = 2131235571;
+    public static final int swanapp_browser_select_btn_bg_pressed = 2131235572;
+    public static final int swanapp_browser_select_menu_down_bg = 2131235573;
+    public static final int swanapp_browser_select_menu_up_bg = 2131235574;
+    public static final int swanapp_cancel_attention_btn_bg = 2131235575;
+    public static final int swanapp_cancel_attention_btn_bg_default = 2131235576;
+    public static final int swanapp_cancel_attention_btn_bg_pressed = 2131235577;
+    public static final int swanapp_clear_title = 2131235578;
+    public static final int swanapp_error_page_device_res_lack = 2131235579;
+    public static final int swanapp_error_page_forbidden_path = 2131235580;
+    public static final int swanapp_error_page_general_tips = 2131235581;
+    public static final int swanapp_error_page_network_error = 2131235582;
+    public static final int swanapp_error_page_service_offline = 2131235583;
+    public static final int swanapp_hover_dialog_tip_bg = 2131235584;
+    public static final int swanapp_hover_dialog_tip_selector = 2131235585;
+    public static final int swanapp_menu_header_selector = 2131235587;
+    public static final int swanapp_picker_dialog_btn_bg = 2131235592;
+    public static final int swanapp_preview_video = 2131235593;
+    public static final int swanapp_preview_video_play = 2131235594;
+    public static final int swanapp_publisher_color_cursor = 2131235595;
+    public static final int swanapp_publisher_delete = 2131235596;
+    public static final int swanapp_publisher_photo_choose_selector = 2131235597;
+    public static final int swanapp_publisher_picture = 2131235598;
+    public static final int swanapp_reply_editor_emotion = 2131235599;
+    public static final int swanapp_reply_editor_input_bg = 2131235600;
+    public static final int swanapp_reply_editor_keyboard = 2131235601;
+    public static final int swanapp_reply_editor_pic = 2131235602;
+    public static final int swanapp_reply_editor_picture_bg = 2131235603;
+    public static final int swanapp_reply_editor_picture_close = 2131235604;
+    public static final int swanapp_reply_editor_publish_disabled = 2131235605;
+    public static final int swanapp_reply_editor_publish_normal = 2131235606;
+    public static final int swanapp_reply_editor_publish_pressed = 2131235607;
+    public static final int swanapp_reply_editor_publish_selector = 2131235608;
+    public static final int swanapp_right_menu_red_dot = 2131235609;
+    public static final int swanapp_scope_selected = 2131235610;
+    public static final int swanapp_scope_unselected = 2131235611;
+    public static final int swanapp_teen_mode_attention_btn_bg_selector = 2131235612;
+    public static final int swanapp_teen_mode_btn_bg = 2131235613;
+    public static final int swanapp_ugc_add_localalbum_selector = 2131235614;
+    public static final int swanapp_ugc_add_photo_pressed = 2131235615;
+    public static final int swanapp_ugc_add_photo_stroke_bg = 2131235616;
+    public static final int swanapp_ugc_add_photo_unpressed = 2131235617;
+    public static final int swanapp_ugc_choose_photo_pressed = 2131235618;
+    public static final int swanapp_ugc_delete_selected_img = 2131235619;
+    public static final int swanapp_ugc_img_stroke_bg = 2131235620;
+    public static final int swanapp_ugc_keyboard_pressed = 2131235621;
+    public static final int swanapp_ugc_keyboard_selector = 2131235622;
+    public static final int swanapp_ugc_keyboard_unpress = 2131235623;
+    public static final int swanapp_ugc_switch_soft_emoji_pressed = 2131235624;
+    public static final int swanapp_ugc_switch_soft_emoji_selector = 2131235625;
+    public static final int swanapp_ugc_switch_soft_emoji_unpress = 2131235626;
+    public static final int swanapp_ugc_video_timelong_bg = 2131235627;
+    public static final int swangame_game_ad_progressbar_color = 2131235658;
+    public static final int swangame_game_close_guide_bg = 2131235659;
+    public static final int swangame_recommend_button_bg = 2131235662;
+    public static final int swangame_recommend_list_bg = 2131235665;
+    public static final int swangame_recommend_list_button_selector = 2131235666;
+    public static final int swangame_recommend_list_item_selector = 2131235667;
+    public static final int swangame_recommend_list_night_mask = 2131235668;
+    public static final int tip_view_bg = 2131235694;
+    public static final int tips_loading = 2131235697;
+    public static final int toast_loading_view_bg = 2131235701;
+    public static final int tooltip_frame_dark = 2131235704;
+    public static final int tooltip_frame_light = 2131235705;
+    public static final int unchecked = 2131235766;
+    public static final int wechat_sign_bottom_back = 2131236304;
+    public static final int wechat_sign_query_doing = 2131236305;
+    public static final int wechat_sign_query_fail = 2131236306;
+    public static final int wechat_sign_query_success = 2131236307;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseWebViewActivity a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f12744b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public NavigationBar f12745c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f12746d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f12747e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f12748f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f12749g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f12750h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f12751i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f12752j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public LinearLayout f12753k;
-    public TextView l;
-    public ContinuousAnimationView m;
-    public NoDataView n;
-    public View.OnClickListener o;
-    public View p;
-    public MorePopupWindow q;
-    public View r;
-    public View s;
-    public View t;
-    public boolean u;
-    public boolean v;
-    public PersonInfoMoreDialog w;
-    public boolean x;
-    public View y;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12754e;
-
-        public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12754e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12754e.a == null) {
-                return;
-            }
-            if (((this.f12754e.a instanceof TbWebViewActivity) && ((TbWebViewActivity) this.f12754e.a).isDisableGoBack && ((TbWebViewActivity) this.f12754e.a).needDealClickGoBack()) || this.f12754e.a.webViewGoBack()) {
-                return;
-            }
-            this.f12754e.a.finish();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12755e;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12755e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f12755e.a == null) {
-                return;
-            }
-            this.f12755e.a.finish();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f12756e;
-
-        public c(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f12756e = eVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f12756e.f()) {
-                    this.f12756e.D();
-                } else if (this.f12756e.f12752j.getVisibility() == 0) {
-                } else {
-                    this.f12756e.G();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements KeyEventDealContainerView.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.G();
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* renamed from: c.a.r0.m.e$e  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0826e implements a.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public C0826e(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // c.a.s0.m4.a.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w == null || this.a.a == null) {
-                return;
-            }
-            this.a.w.dismiss();
-            FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.a).createNormalCfg(this.a.a.getResources().getString(R.string.user_feedback), null);
-            createNormalCfg.setCallFrom(12);
-            this.a.a.sendMessage(new CustomMessage(2003000, createNormalCfg));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements a.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public f(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // c.a.s0.m4.a.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w == null) {
-                return;
-            }
-            this.a.w.dismiss();
-        }
-    }
-
-    public e(BaseWebViewActivity baseWebViewActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseWebViewActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f12744b = null;
-        this.m = null;
-        this.u = true;
-        this.v = false;
-        this.x = false;
-        this.a = baseWebViewActivity;
-        k();
-    }
-
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = this.f12753k;
-            if (linearLayout != null) {
-                linearLayout.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            }
-            NavigationBar navigationBar = this.f12745c;
-            if (navigationBar == null || this.f12751i == null || this.f12752j == null) {
-                return;
-            }
-            navigationBar.setBackgroundDrawable(null);
-            this.f12745c.setBackgroundColor(R.color.transparent);
-            this.f12745c.setBackgroundResource(R.drawable.transparent_bg);
-            this.f12751i.setVisibility(8);
-            this.f12752j.setVisibility(0);
-            this.f12752j.setOnClickListener(this.a);
-            this.f12746d.setTextColor(-1);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12752j.getLayoutParams();
-            layoutParams.width = m.f(this.a, R.dimen.tbds100);
-            layoutParams.height = m.f(this.a, R.dimen.tbds100);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12750h, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12748f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12752j, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.u = z;
-        }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.l.setVisibility(0);
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.w == null) {
-                c.a.s0.m4.a aVar = new c.a.s0.m4.a(this.a);
-                ArrayList arrayList = new ArrayList();
-                a.b bVar = new a.b(this.a.getString(R.string.report_text), aVar);
-                bVar.h(new C0826e(this));
-                arrayList.add(bVar);
-                aVar.g(new f(this));
-                aVar.f(arrayList);
-                PersonInfoMoreDialog personInfoMoreDialog = new PersonInfoMoreDialog(this.a, aVar.b());
-                this.w = personInfoMoreDialog;
-                personInfoMoreDialog.setWindowDimAmount(0.7f);
-            }
-            this.w.show();
-        }
-    }
-
-    public void E() {
-        NavigationBar navigationBar;
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (navigationBar = this.f12745c) == null || navigationBar.getVisibility() != 0 || (imageView = this.f12750h) == null) {
-            return;
-        }
-        imageView.setVisibility(8);
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            if (this.n == null) {
-                this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f12744b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.refresh), this.o)));
-            }
-            if (!k.A()) {
-                this.n.resetImageOptipn(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, a2), this.a.getPageContext());
-            } else {
-                this.n.resetImageOptipn(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), this.a.getPageContext());
-            }
-            this.f12753k.setVisibility(8);
-            this.n.setVisibility(0);
-        }
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.q.showWindowInRightBottomOfHost();
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && TbSingleton.getInstance().isCanWebViewActivityShowProgress()) {
-            this.m.setVisibility(0);
-            this.m.playAnimation();
-        }
-    }
-
-    public void I(ShareItem shareItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) == null) || shareItem == null) {
-            return;
-        }
-        TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "share", "click", 1, new Object[0]);
-        StatisticItem statisticItem = new StatisticItem("c10898");
-        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.t);
-        statisticItem.param("obj_type", 0);
-        TiebaStatic.log(statisticItem);
-        if (shareItem.m) {
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a, shareItem, true, (SparseArray<String>) null);
-            shareDialogConfig.mShowMoreForumShare = true;
-            h.c().l(shareDialogConfig);
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.a, shareItem, true, g())));
-    }
-
-    public void J(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048585, this, z, str) == null) {
-            new BdTopToast(this.a).setIcon(z).setContent(str).show(this.f12744b);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            g.d(this.q, this.a.getPageContext().getPageActivity());
-        }
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.v : invokeV.booleanValue;
-    }
-
-    public final SparseArray<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            SparseArray<String> sparseArray = new SparseArray<>(8);
-            sparseArray.put(2, "pb_wx_timeline");
-            sparseArray.put(3, "pb_wx_friend");
-            sparseArray.put(4, "pb_qq_zone");
-            sparseArray.put(5, "pb_tencent_weibo");
-            sparseArray.put(6, "pb_sina_weibo");
-            sparseArray.put(7, "pb_renren");
-            return sparseArray;
-        }
-        return (SparseArray) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.l.setVisibility(8);
-        }
-    }
-
-    public void i() {
-        NoDataView noDataView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (noDataView = this.n) == null) {
-            return;
-        }
-        noDataView.setVisibility(8);
-        this.f12753k.setVisibility(0);
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.m.setVisibility(8);
-            this.m.cancelAnimation();
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.setContentView(R.layout.base_webview_activity_new);
-            this.f12744b = (ViewGroup) this.a.findViewById(R.id.root_view);
-            this.f12745c = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-            this.y = this.a.findViewById(R.id.night_mode_overlay);
-            this.f12745c.showBottomLine();
-            w("");
-            if (this.a.isTranslucent()) {
-                SkinManager.setBackgroundColor(this.f12744b, this.a.getResources().getColor(R.color.black_alpha0));
-                this.f12744b.setOnClickListener(this.a);
-                this.f12745c.setVisibility(8);
-            }
-            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.webview_container);
-            this.f12753k = linearLayout;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.addRule(3, R.id.view_navigation_bar);
-            this.f12753k.setLayoutParams(layoutParams);
-            this.l = (TextView) this.a.findViewById(R.id.webview_crash_tip);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.webview_progress);
-            this.m = continuousAnimationView;
-            SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_full_screen_refresh);
-            View addCustomView = this.f12745c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_back, new a(this));
-            this.f12747e = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
-            this.f12748f = imageView;
-            imageView.setContentDescription(this.a.getResources().getString(R.string.back));
-            View addCustomView2 = this.f12745c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, new b(this));
-            this.f12749g = addCustomView2;
-            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.widget_navi_back_button);
-            this.f12750h = imageView2;
-            imageView2.setContentDescription(this.a.getResources().getString(R.string.close));
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f12750h.getLayoutParams();
-            layoutParams2.leftMargin = m.f(this.a.getPageContext().getPageActivity(), R.dimen.ds4);
-            this.f12750h.setLayoutParams(layoutParams2);
-            View addCustomView3 = this.f12745c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_more, new c(this));
-            this.p = addCustomView3;
-            this.f12751i = (ImageView) addCustomView3.findViewById(R.id.widget_navi_more_button);
-            this.f12752j = (ImageView) this.p.findViewById(R.id.widget_navi_share_button);
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.tb_webview_pop_more, (ViewGroup) null);
-            this.q = new MorePopupWindow(this.a.getPageContext().getPageActivity(), inflate, this.f12745c, this.a.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new d(this));
-            View findViewById = inflate.findViewById(R.id.webview_more_pop_item_share_friend_layout);
-            this.r = findViewById;
-            findViewById.setOnClickListener(this.a);
-            if (c.a.r0.t.g.g.f(this.a.getPageContext().getPageActivity())) {
-                this.r.setVisibility(0);
-            } else {
-                this.r.setVisibility(8);
-            }
-            this.q.refresh();
-            View findViewById2 = inflate.findViewById(R.id.webview_more_pop_item_open_browser_layout);
-            this.t = findViewById2;
-            findViewById2.setOnClickListener(this.a);
-            View findViewById3 = inflate.findViewById(R.id.webview_more_pop_item_copy_link_layout);
-            this.s = findViewById3;
-            findViewById3.setOnClickListener(this.a);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            try {
-                this.f12753k.addView(this.a.createWebView());
-                this.l.setVisibility(8);
-                if (this.u) {
-                    return true;
-                }
-                this.f12745c.setStatusBarVisibility(8);
-                return true;
-            } catch (Exception e2) {
-                this.l.setVisibility(0);
-                BdLog.e(e2.getMessage());
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            NavigationBar navigationBar = this.f12745c;
-            return navigationBar != null && navigationBar.getVisibility() == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            ContinuousAnimationView continuousAnimationView = this.m;
-            if (continuousAnimationView != null) {
-                SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_full_screen_refresh);
-            }
-            MorePopupWindow morePopupWindow = this.q;
-            if (morePopupWindow != null) {
-                morePopupWindow.onChangeSkinType(this.a, i2, SkinManager.getDrawable(R.drawable.bg_pull_down_right_n));
-            }
-            NoDataView noDataView = this.n;
-            if (noDataView != null) {
-                noDataView.onChangeSkinType(this.a.getPageContext(), i2);
-            }
-            if (this.x) {
-                if (i2 == 1) {
-                    this.y.setVisibility(0);
-                    return;
-                }
-                return;
-            }
-            NavigationBar navigationBar = this.f12745c;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), i2);
-            }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12748f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12750h, R.drawable.icon_pure_topbar_close44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12751i, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12752j, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            LinearLayout linearLayout = this.f12753k;
-            if (linearLayout != null) {
-                linearLayout.removeAllViews();
-            }
-            NavigationBar navigationBar = this.f12745c;
-            if (navigationBar != null) {
-                navigationBar.release();
-            }
-            MorePopupWindow morePopupWindow = this.q;
-            if (morePopupWindow != null) {
-                g.d(morePopupWindow, this.a.getPageContext().getPageActivity());
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12753k.getLayoutParams();
-            layoutParams.addRule(3, R.id.view_navigation_bar);
-            this.f12753k.setLayoutParams(layoutParams);
-            ImageView imageView = this.f12748f;
-            if (imageView != null) {
-                imageView.setBackgroundDrawable(null);
-            }
-            ImageView imageView2 = this.f12750h;
-            if (imageView2 != null) {
-                imageView2.setBackgroundDrawable(null);
-            }
-            ImageView imageView3 = this.f12751i;
-            if (imageView3 != null) {
-                imageView3.setBackgroundDrawable(null);
-            }
-            ImageView imageView4 = this.f12752j;
-            if (imageView4 != null) {
-                imageView4.setBackgroundDrawable(null);
-            }
-            NavigationBar navigationBar = this.f12745c;
-            if (navigationBar != null) {
-                navigationBar.showBottomLine(true);
-            }
-            BaseWebViewActivity baseWebViewActivity = this.a;
-            if (baseWebViewActivity != null) {
-                baseWebViewActivity.getWindow().clearFlags(1024);
-            }
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12753k.getLayoutParams();
-            layoutParams.addRule(3, 0);
-            layoutParams.height = -1;
-            this.f12753k.setLayoutParams(layoutParams);
-            NavigationBar navigationBar = this.f12745c;
-            if (navigationBar != null) {
-                navigationBar.getBackground().mutate().setAlpha(0);
-                this.f12745c.showBottomLine(false);
-            }
-            SkinManager.setBackgroundResource(this.f12748f, R.drawable.frs_star_navigation_bg);
-            SkinManager.setBackgroundResource(this.f12750h, R.drawable.frs_star_navigation_bg);
-            SkinManager.setBackgroundResource(this.f12751i, R.drawable.frs_star_navigation_bg);
-            SkinManager.setBackgroundResource(this.f12752j, R.drawable.frs_star_navigation_bg);
-            w("");
-            this.a.getWindow().setFlags(1024, 1024);
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    public void s(boolean z) {
-        View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || (view = this.p) == null) {
-            return;
-        }
-        if (z) {
-            view.setVisibility(0);
-        } else {
-            view.setVisibility(8);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            if (z) {
-                this.f12753k.getLayoutParams().height = -1;
-                this.f12745c.setVisibility(0);
-                return;
-            }
-            this.f12753k.getLayoutParams().height = -1;
-            this.f12745c.setVisibility(8);
-        }
-    }
-
-    public void u(int i2) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || this.f12745c == null || (imageView = this.f12751i) == null) {
-            return;
-        }
-        imageView.setVisibility(i2);
-    }
-
-    public void v() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || this.f12745c == null || (imageView = this.f12751i) == null || this.f12752j == null) {
-            return;
-        }
-        imageView.setVisibility(8);
-        this.f12752j.setVisibility(0);
-        this.f12752j.setOnClickListener(this.a);
-    }
-
-    public void w(String str) {
-        NavigationBar navigationBar;
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, str) == null) || (navigationBar = this.f12745c) == null) {
-            return;
-        }
-        this.f12746d = navigationBar.setCenterTextTitle(str);
-        ImageView imageView2 = this.f12748f;
-        if (imageView2 != null && imageView2.getVisibility() == 0 && (imageView = this.f12750h) != null && imageView.getVisibility() == 0) {
-            this.f12746d.setMaxWidth(m.f(this.a.getPageContext().getPageActivity(), R.dimen.ds152) * 2);
-        }
-        if (!this.x) {
-            SkinManager.setNavbarTitleColor(this.f12746d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        } else {
-            this.f12746d.setTextColor(-1);
-        }
-    }
-
-    public void x(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, onClickListener) == null) {
-            this.o = onClickListener;
-        }
-    }
-
-    public void y(boolean z) {
-        View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048606, this, z) == null) || (view = this.r) == null) {
-            return;
-        }
-        if (z) {
-            view.setVisibility(0);
-            s(true);
-        } else {
-            view.setVisibility(8);
-            s(false);
-        }
-        this.q.refresh();
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.x = true;
-            A();
-        }
-    }
 }

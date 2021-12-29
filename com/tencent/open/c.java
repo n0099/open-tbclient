@@ -39,7 +39,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends com.tencent.open.b implements a.InterfaceC2231a {
+public class c extends com.tencent.open.b implements a.InterfaceC2238a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
@@ -53,7 +53,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
     public IUiListener f62906e;
 
     /* renamed from: f  reason: collision with root package name */
-    public C2232c f62907f;
+    public C2239c f62907f;
 
     /* renamed from: g  reason: collision with root package name */
     public Handler f62908g;
@@ -192,7 +192,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
 
     /* renamed from: com.tencent.open.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2232c extends DefaultUiListener {
+    public static class C2239c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -209,7 +209,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
         /* renamed from: e  reason: collision with root package name */
         public IUiListener f62916e;
 
-        public C2232c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
+        public C2239c(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -298,16 +298,16 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
         public final /* synthetic */ c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public C2232c f62917b;
+        public C2239c f62917b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(c cVar, C2232c c2232c, Looper looper) {
+        public d(c cVar, C2239c c2239c, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, c2232c, looper};
+                Object[] objArr = {cVar, c2239c, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -319,7 +319,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
                 }
             }
             this.a = cVar;
-            this.f62917b = c2232c;
+            this.f62917b = c2239c;
         }
 
         @Override // android.os.Handler
@@ -381,7 +381,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
         }
         this.f62911j = new WeakReference<>(context);
         this.f62905d = str2;
-        this.f62907f = new C2232c(context, str, str2, qQToken.getAppId(), iUiListener);
+        this.f62907f = new C2239c(context, str, str2, qQToken.getAppId(), iUiListener);
         this.f62908g = new d(this, this.f62907f, context.getMainLooper());
         this.f62906e = iUiListener;
         this.f62912k = Math.round(context.getResources().getDisplayMetrics().density * 185.0f);
@@ -484,7 +484,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC2231a
+    @Override // com.tencent.open.b.a.InterfaceC2238a
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
@@ -500,7 +500,7 @@ public class c extends com.tencent.open.b implements a.InterfaceC2231a {
         }
     }
 
-    @Override // com.tencent.open.b.a.InterfaceC2231a
+    @Override // com.tencent.open.b.a.InterfaceC2238a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {

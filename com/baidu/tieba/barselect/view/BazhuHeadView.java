@@ -3,8 +3,8 @@ package com.baidu.tieba.barselect.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.m;
-import c.a.s0.x1.o.k.b;
+import c.a.d.f.p.n;
+import c.a.t0.x1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class BazhuHeadView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.init();
-            int f2 = m.f(getContext(), R.dimen.tbds92);
-            int f3 = m.f(getContext(), R.dimen.tbds82);
+            int f2 = n.f(getContext(), R.dimen.tbds92);
+            int f3 = n.f(getContext(), R.dimen.tbds82);
             if (getPendantView() != null) {
                 getPendantView().setLayoutParams(new RelativeLayout.LayoutParams(f2, f3));
             }
@@ -62,10 +62,10 @@ public class BazhuHeadView extends HeadPendantView {
             tbImageView.setDefaultBgResource(0);
             this.q.setDefaultResource(0);
             this.q.setImageDrawable(null);
-            int f4 = m.f(getContext(), R.dimen.tbds115);
-            int f5 = m.f(getContext(), R.dimen.tbds34);
-            int f6 = m.f(getContext(), R.dimen.tbds154);
-            int f7 = m.f(getContext(), R.dimen.tbds32);
+            int f4 = n.f(getContext(), R.dimen.tbds115);
+            int f5 = n.f(getContext(), R.dimen.tbds34);
+            int f6 = n.f(getContext(), R.dimen.tbds154);
+            int f7 = n.f(getContext(), R.dimen.tbds32);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(f4, f5);
             layoutParams.topMargin = f6;
             layoutParams.leftMargin = f7;
@@ -78,10 +78,10 @@ public class BazhuHeadView extends HeadPendantView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                int f2 = m.f(getContext(), R.dimen.tbds5);
-                int f3 = m.f(getContext(), R.dimen.tbds130);
-                int f4 = m.f(getContext(), R.dimen.tbds26);
-                int f5 = m.f(getContext(), R.dimen.tbds44);
+                int f2 = n.f(getContext(), R.dimen.tbds5);
+                int f3 = n.f(getContext(), R.dimen.tbds130);
+                int f4 = n.f(getContext(), R.dimen.tbds26);
+                int f5 = n.f(getContext(), R.dimen.tbds44);
                 getHeadView().setBorderWidth(f2);
                 getHeadView().setBorderColor(b.b("#FCD442"));
                 getHeadView().setDrawBorder(true);
@@ -91,7 +91,7 @@ public class BazhuHeadView extends HeadPendantView {
                 getHeadView().setLayoutParams(layoutParams);
                 return;
             }
-            int f6 = m.f(getContext(), R.dimen.tbds90);
+            int f6 = n.f(getContext(), R.dimen.tbds90);
             getHeadView().setBorderWidth(0);
             getHeadView().setDrawBorder(false);
             getHeadView().setLayoutParams(new RelativeLayout.LayoutParams(f6, f6));

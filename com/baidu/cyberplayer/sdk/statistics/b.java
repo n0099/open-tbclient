@@ -24,7 +24,7 @@ public class b {
     public ArrayList<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f34558b;
+    public c f34714b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -44,19 +44,19 @@ public class b {
         this.a = new ArrayList<>();
         String networkStatisticsData = DpNetworkUtils.getNetworkStatisticsData(context);
         c cVar = new c(DpStatConstants.SESSION_TYPE_DP_INIT_COMMON);
-        this.f34558b = cVar;
+        this.f34714b = cVar;
         cVar.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "timestamp", System.currentTimeMillis()));
-        this.f34558b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
-        this.f34558b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
-        this.f34558b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
-        this.f34558b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
+        this.f34714b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "CPU", o.g()));
+        this.f34714b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "MODEL", Build.MODEL));
+        this.f34714b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "HARDWARE", Build.HARDWARE));
+        this.f34714b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, "network", networkStatisticsData));
     }
 
     private JSONObject a(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            this.f34558b.a(jSONObject);
+            this.f34714b.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
             int size = this.a.size();
             for (int i2 = 0; i2 < size; i2++) {
@@ -91,7 +91,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, str2) == null) {
             if (24323 == i2) {
-                this.f34558b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
+                this.f34714b.a(new e((int) DpStatConstants.SESSION_TYPE_DP_INIT_COMMON, str, str2));
                 return;
             }
             e eVar = new e(i2, str, str2);

@@ -143,23 +143,10 @@ public class VideoSessionManager {
         return (String) invokeL.objValue;
     }
 
-    public boolean isBatteryCharging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
-            if (systemEventTrigger != null) {
-                return systemEventTrigger.isBatteryCharging();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     @PublicMethod
     public void recycle(@NonNull VideoSession videoSession) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, videoSession) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, videoSession) == null) {
             videoSession.reset();
         }
     }
@@ -167,7 +154,7 @@ public class VideoSessionManager {
     @PublicMethod
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
             if (systemEventTrigger != null) {
                 systemEventTrigger.clear();
@@ -182,7 +169,7 @@ public class VideoSessionManager {
     public void sendEventToAll(@NonNull VideoEvent videoEvent) {
         SystemEventTrigger systemEventTrigger;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, videoEvent) == null) || (systemEventTrigger = this.mSystemEventTrigger) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, videoEvent) == null) || (systemEventTrigger = this.mSystemEventTrigger) == null) {
             return;
         }
         systemEventTrigger.triggerEvent(videoEvent);
@@ -190,7 +177,7 @@ public class VideoSessionManager {
 
     public void unbindPlayer(@NonNull BDVideoPlayer bDVideoPlayer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bDVideoPlayer) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bDVideoPlayer) == null) {
             BdVideoLog.d("session manager unbind player =>" + bDVideoPlayer);
             SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
             if (systemEventTrigger != null) {

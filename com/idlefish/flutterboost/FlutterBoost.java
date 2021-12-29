@@ -19,7 +19,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterEngineProvider;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -104,7 +103,7 @@ public class FlutterBoost {
                     return;
                 }
             }
-            this.dartEntrypoint = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+            this.dartEntrypoint = "main";
             this.initialRoute = "/";
             this.whenEngineStart = ANY_ACTIVITY_CREATED;
             this.isDebug = false;

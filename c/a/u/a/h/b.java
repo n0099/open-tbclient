@@ -77,7 +77,7 @@ public class b {
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
                         jSONObject.put("cuid", e2);
-                        jSONObject.put("device_type", "android");
+                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
                         jSONObject.put(HttpConstants.OS_VERSION, str);
                         jSONObject.put("manufacture", str2);
                         jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);

@@ -54,7 +54,7 @@ public class NativeAbilityInvoker {
         public ILightappInvokerCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f53340b;
+        public ArrayList<String> f53343b;
 
         public NativeAbilityInvokerCallback(ILightappInvokerCallback iLightappInvokerCallback, ArrayList<String> arrayList) {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class NativeAbilityInvoker {
                 }
             }
             this.a = iLightappInvokerCallback;
-            this.f53340b = arrayList;
+            this.f53343b = arrayList;
         }
 
         public void addStatics(String str) {
@@ -80,10 +80,10 @@ public class NativeAbilityInvoker {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
-            if (this.f53340b == null) {
-                this.f53340b = new ArrayList<>();
+            if (this.f53343b == null) {
+                this.f53343b = new ArrayList<>();
             }
-            this.f53340b.add(str);
+            this.f53343b.add(str);
         }
 
         @Override // com.baidu.wallet.api.ILightappInvokerCallback
@@ -94,7 +94,7 @@ public class NativeAbilityInvoker {
                 return;
             }
             if (i2 == 0) {
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f53340b);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeSuccess", this.f53343b);
                 this.a.onResult(i2, str);
             } else if (i2 != 1) {
                 iLightappInvokerCallback.onResult(i2, str);
@@ -103,17 +103,17 @@ public class NativeAbilityInvoker {
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
-                if (this.f53340b.size() >= 2) {
-                    this.f53340b.add(1, str);
+                if (this.f53343b.size() >= 2) {
+                    this.f53343b.add(1, str);
                 } else {
-                    this.f53340b.add(str);
+                    this.f53343b.add(str);
                 }
                 try {
                     str2 = ((NativeAbilityCommonModel) JsonUtils.fromJson(str, NativeAbilityCommonModel.class)).cnt.errCode;
                 } catch (Exception unused) {
                 }
-                this.f53340b.add(str2);
-                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f53340b);
+                this.f53343b.add(str2);
+                DXMSdkSAUtils.onEventWithValues("NA#invokeBdWalletNativeFail", this.f53343b);
                 this.a.onResult(i2, str);
             }
         }

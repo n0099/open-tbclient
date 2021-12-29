@@ -11,11 +11,11 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public c.a.j0.a.b.d<c.a.c0.d.d.a> a;
+    public c.a.k0.a.b.d<c.a.c0.d.d.a> a;
     @Inject(force = false)
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.j0.a.b.d<c.a.c0.d.e.a> f1441b;
+    public c.a.k0.a.b.d<c.a.c0.d.e.a> f1868b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class e {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.j0.a.b.b b2 = c.a.j0.a.b.b.b();
+            c.a.k0.a.b.b b2 = c.a.k0.a.b.b.b();
             this.a = b2;
             b2.a(new c.a.c0.d.d.b());
         }
@@ -46,8 +46,8 @@ public class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.j0.a.b.b b2 = c.a.j0.a.b.b.b();
-            this.f1441b = b2;
+            c.a.k0.a.b.b b2 = c.a.k0.a.b.b.b();
+            this.f1868b = b2;
             b2.a(new c.a.c0.d.e.b());
         }
     }

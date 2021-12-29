@@ -25,26 +25,26 @@ public class q0 implements PidLoader {
     public final PidLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f29276b;
+    public final long f29340b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f29277c;
+    public long f29341c;
 
     /* loaded from: classes9.dex */
-    public class a implements f {
+    public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final f a;
+        public final i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ q0 f29278b;
+        public final /* synthetic */ q0 f29342b;
 
-        public a(q0 q0Var, f fVar) {
+        public a(q0 q0Var, i iVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q0Var, fVar};
+                Object[] objArr = {q0Var, iVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -54,11 +54,11 @@ public class q0 implements PidLoader {
                     return;
                 }
             }
-            this.f29278b = q0Var;
-            this.a = fVar;
+            this.f29342b = q0Var;
+            this.a = iVar;
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -66,7 +66,7 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void a(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
@@ -74,7 +74,7 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void a(RippedAd rippedAd) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rippedAd) == null) {
@@ -82,7 +82,7 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -90,7 +90,7 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void b(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
@@ -98,7 +98,7 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -106,16 +106,16 @@ public class q0 implements PidLoader {
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                this.f29278b.f29277c = System.currentTimeMillis();
+                this.f29342b.f29341c = System.currentTimeMillis();
                 this.a.d();
             }
         }
 
-        @Override // c.g.f
+        @Override // c.g.i
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -140,14 +140,14 @@ public class q0 implements PidLoader {
             }
         }
         this.a = pidLoader;
-        this.f29276b = pidLoader.getPid().tmout * 60 * 1000;
+        this.f29340b = pidLoader.getPid().tmout * 60 * 1000;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void addListener(f fVar) {
+    public void addListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.a.addListener(new a(this, fVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
+            this.a.addListener(new a(this, iVar));
         }
     }
 
@@ -191,7 +191,7 @@ public class q0 implements PidLoader {
     public boolean isLoaded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f29277c < this.f29276b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isLoaded() && System.currentTimeMillis() - this.f29341c < this.f29340b : invokeV.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
@@ -202,10 +202,10 @@ public class q0 implements PidLoader {
     }
 
     @Override // com.fun.ad.sdk.internal.api.PidLoader
-    public void removeListener(f fVar) {
+    public void removeListener(i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.a.removeListener(fVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
+            this.a.removeListener(iVar);
         }
     }
 

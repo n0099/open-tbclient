@@ -16,7 +16,7 @@ public class BlessModel extends BdBaseModel<BaseActivity<?>> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f46131e;
+    public BaseActivity<?> f46351e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlessModel(BaseActivity<?> baseActivity) {
@@ -36,7 +36,7 @@ public class BlessModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f46131e = baseActivity;
+        this.f46351e = baseActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

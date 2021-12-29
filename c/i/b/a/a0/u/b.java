@@ -14,25 +14,25 @@ public final class b {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29828b;
+    public final int f29906b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29829c;
+    public final int f29907c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f29830d;
+    public final int f29908d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f29831e;
+    public final int f29909e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f29832f;
+    public final int f29910f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f29833g;
+    public long f29911g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f29834h;
+    public long f29912h;
 
     public b(int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
@@ -50,35 +50,35 @@ public final class b {
             }
         }
         this.a = i2;
-        this.f29828b = i3;
-        this.f29829c = i4;
-        this.f29830d = i5;
-        this.f29831e = i6;
-        this.f29832f = i7;
+        this.f29906b = i3;
+        this.f29907c = i4;
+        this.f29908d = i5;
+        this.f29909e = i6;
+        this.f29910f = i7;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29828b * this.f29831e * this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29906b * this.f29909e * this.a : invokeV.intValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29830d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29908d : invokeV.intValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((this.f29834h / this.f29830d) * 1000000) / this.f29828b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((this.f29912h / this.f29908d) * 1000000) / this.f29906b : invokeV.longValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29832f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29910f : invokeV.intValue;
     }
 
     public int e() {
@@ -91,8 +91,8 @@ public final class b {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            int i2 = this.f29830d;
-            return Math.min((((j2 * this.f29829c) / 1000000) / i2) * i2, this.f29834h - i2) + this.f29833g;
+            int i2 = this.f29908d;
+            return Math.min((((j2 * this.f29907c) / 1000000) / i2) * i2, this.f29912h - i2) + this.f29911g;
         }
         return invokeJ.longValue;
     }
@@ -100,26 +100,26 @@ public final class b {
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29828b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29906b : invokeV.intValue;
     }
 
     public long h(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? (j2 * 1000000) / this.f29829c : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? (j2 * 1000000) / this.f29907c : invokeJ.longValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f29833g == 0 || this.f29834h == 0) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f29911g == 0 || this.f29912h == 0) ? false : true : invokeV.booleanValue;
     }
 
     public void j(long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f29833g = j2;
-            this.f29834h = j3;
+            this.f29911g = j2;
+            this.f29912h = j3;
         }
     }
 }

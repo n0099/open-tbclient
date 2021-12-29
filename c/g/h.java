@@ -11,9 +11,9 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.g.e;
+import c.g.f;
 import c.g.n;
-import c.g.t0;
+import c.g.x0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,31 +36,35 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
-    public static final Handler a;
+    public static final Map<String, Double> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static FunAdSdk.SdkInitializeCallback f29234b;
+    public static final Handler f29300b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Handler f29235c;
+    public static FunAdSdk.SdkInitializeCallback f29301c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final z f29236d;
+    public static final Handler f29302d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final t0 f29237e;
+    public static final z f29303e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f29238f;
+    public static final x0 f29304f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f29239g;
+    public static boolean f29305g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static volatile boolean f29306h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -124,7 +128,7 @@ public final class h {
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
-            i0 a;
+            o0 a;
             JSONObject jSONObject;
             int i2;
             Interceptable interceptable = $ic;
@@ -155,7 +159,7 @@ public final class h {
                             LogPrinter.v("Config from assets load over.", new Object[0]);
                             open.close();
                             if (!TextUtils.isEmpty(stringWriter2)) {
-                                str2 = t.a(stringWriter2, str);
+                                str2 = x.a(stringWriter2, str);
                                 LogPrinter.v("Config from assets decrypted over.", new Object[0]);
                             }
                         } catch (Exception e2) {
@@ -169,7 +173,7 @@ public final class h {
                                 throw new RuntimeException("Config from assets parsed failed");
                             }
                         }
-                        h.a.obtainMessage(200).sendToTarget();
+                        h.f29300b.obtainMessage(200).sendToTarget();
                         return;
                     }
                     return;
@@ -177,7 +181,7 @@ public final class h {
                 HashMap hashMap = new HashMap();
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    g0.d(jSONObject2);
+                    m0.d(jSONObject2);
                     Iterator<String> keys = jSONObject2.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
@@ -191,24 +195,25 @@ public final class h {
                         LogPrinter.e("Pull ad config failed.", new Object[0]);
                     } else {
                         try {
-                            jSONObject = new JSONObject(a2.f29275b);
+                            jSONObject = new JSONObject(a2.f29339b);
                             i2 = jSONObject.getInt(Constants.KEYS.RET);
                             LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
                         } catch (JSONException e3) {
                             LogPrinter.e(e3);
-                            a = i0.a();
+                            a = o0.a();
                         }
                         if (i2 == 200) {
                             try {
                             } catch (Exception e4) {
                                 LogPrinter.e(e4);
-                                a = i0.a();
+                                a = o0.a();
                                 i4 = -2;
                             }
-                            if (new g().b(t.a(jSONObject.getJSONObject("data").getString("content"), FunAdSdk.getFunAdConfig().appId))) {
+                            if (new g().b(x.a(jSONObject.getJSONObject("data").getString("content"), FunAdSdk.getFunAdConfig().appId))) {
+                                h.a.clear();
                                 z = true;
                             } else {
-                                a = i0.a();
+                                a = o0.a();
                                 i4 = -3;
                                 a.b("k_ppcfg", "st", Integer.valueOf(i4));
                             }
@@ -217,9 +222,9 @@ public final class h {
                 } catch (IOException e5) {
                     LogPrinter.e(e5);
                 }
-                v.f29305b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                a0.f29051b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
                 if (z) {
-                    h.a.sendEmptyMessage(200);
+                    h.f29300b.sendEmptyMessage(200);
                 }
                 h.c();
             }
@@ -239,12 +244,13 @@ public final class h {
                 return;
             }
         }
-        a = new a(Looper.getMainLooper());
+        a = new HashMap();
+        f29300b = new a(Looper.getMainLooper());
         HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
         handlerThread.start();
-        f29235c = new b(handlerThread.getLooper());
-        f29236d = new z();
-        f29237e = new t0();
+        f29302d = new b(handlerThread.getLooper());
+        f29303e = new z();
+        f29304f = new x0();
     }
 
     public static int a(String str, Ssp.Pid pid) {
@@ -252,7 +258,7 @@ public final class h {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            n nVar = f29236d.f29306b;
+            n nVar = f29303e.f29383b;
             synchronized (nVar.a) {
                 Deque<n.c> deque = nVar.a.get(str);
                 i2 = 0;
@@ -280,13 +286,13 @@ public final class h {
         p pVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            z zVar = f29236d;
+            z zVar = f29303e;
             synchronized (zVar) {
                 if (zVar.a == null) {
                     LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
                     pVar = null;
                 } else {
-                    pVar = zVar.f29307c.get(str);
+                    pVar = zVar.f29384c.get(str);
                 }
             }
             return pVar;
@@ -297,7 +303,7 @@ public final class h {
     public static void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = v.f29305b;
+            SharedPreferences sharedPreferences = a0.f29051b;
             long j2 = 0;
             long j3 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
             if (j3 > 0) {
@@ -311,33 +317,33 @@ public final class h {
             }
             long max = Math.max(10000L, j2);
             LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = f29235c;
+            Handler handler = f29302d;
             handler.removeMessages(100);
             handler.sendEmptyMessageDelayed(100, max);
         }
     }
 
-    public static void d(i iVar) {
+    public static void d(k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iVar) == null) {
-            f29239g = true;
-            t0 t0Var = f29237e;
-            synchronized (t0Var.f29280b) {
-                t0Var.f29283e = iVar;
-                t0Var.f29282d = 1;
-                while (!t0Var.f29281c.isEmpty()) {
-                    t0.a pollFirst = t0Var.f29281c.pollFirst();
-                    if (!t0.f29279f && pollFirst == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kVar) == null) {
+            f29306h = true;
+            x0 x0Var = f29304f;
+            synchronized (x0Var.f29358b) {
+                x0Var.f29361e = kVar;
+                x0Var.f29360d = 1;
+                while (!x0Var.f29359c.isEmpty()) {
+                    x0.a pollFirst = x0Var.f29359c.pollFirst();
+                    if (!x0.f29357f && pollFirst == null) {
                         throw new AssertionError();
                     }
-                    t0Var.loadAd(pollFirst.a, pollFirst.f29284b, pollFirst.f29285c);
+                    x0Var.loadAd(pollFirst.a, pollFirst.f29362b, pollFirst.f29363c);
                 }
             }
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = f29234b;
+            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = f29301c;
             if (sdkInitializeCallback != null) {
                 sdkInitializeCallback.onComplete();
             }
-            f29234b = null;
+            f29301c = null;
         }
     }
 
@@ -368,7 +374,7 @@ public final class h {
         c();
         FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
         Set<j> set = null;
-        String string = v.f29305b.getString("key_adcfg", null);
+        String string = a0.f29051b.getString("key_adcfg", null);
         if (string != null && (decode = Base64.decode(string, 0)) != null) {
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(new ByteArrayInputStream(decode));
@@ -382,24 +388,24 @@ public final class h {
             LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
             if (cVar != null) {
                 if (z) {
-                    f29235c.obtainMessage(101).sendToTarget();
+                    f29302d.obtainMessage(101).sendToTarget();
                     return;
                 }
                 LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                t0 t0Var = f29237e;
-                synchronized (t0Var.f29280b) {
-                    t0Var.f29282d = -1;
-                    while (!t0Var.f29281c.isEmpty()) {
-                        t0.a pollFirst = t0Var.f29281c.pollFirst();
-                        if (!t0.f29279f && pollFirst == null) {
+                x0 x0Var = f29304f;
+                synchronized (x0Var.f29358b) {
+                    x0Var.f29360d = -1;
+                    while (!x0Var.f29359c.isEmpty()) {
+                        x0.a pollFirst = x0Var.f29359c.pollFirst();
+                        if (!x0.f29357f && pollFirst == null) {
                             throw new AssertionError();
                         }
-                        pollFirst.f29285c.onError(pollFirst.f29284b.getSid());
+                        pollFirst.f29363c.onError(pollFirst.f29362b.getSid());
                     }
                 }
                 return;
             }
-            z zVar = f29236d;
+            z zVar = f29303e;
             synchronized (zVar) {
                 c cVar2 = zVar.a;
                 if (cVar2 != null) {
@@ -440,12 +446,12 @@ public final class h {
                     z2 = false;
                 }
                 c cVar4 = zVar.a;
-                zVar.a(cVar4 == null ? null : cVar4.f29209b, cVar.f29209b, new u(zVar));
+                zVar.a(cVar4 == null ? null : cVar4.f29262b, cVar.f29262b, new u(zVar));
                 c cVar5 = zVar.a;
                 if (cVar5 != null) {
-                    set = cVar5.f29210c;
+                    set = cVar5.f29263c;
                 }
-                zVar.a(set, cVar.f29210c, new y(zVar));
+                zVar.a(set, cVar.f29263c, new y(zVar));
                 zVar.a = cVar;
                 z2 = true;
             }
@@ -453,11 +459,11 @@ public final class h {
                 LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
                 return;
             }
-            g0.s = v.f29305b.getLong("key_config_v", 0L);
-            if (f29238f) {
+            m0.s = a0.f29051b.getLong("key_config_v", 0L);
+            if (f29305g) {
                 return;
             }
-            f29238f = true;
+            f29305g = true;
             c.g.a aVar = c.g.a.a;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 HashMap hashMap = new HashMap();
@@ -581,11 +587,11 @@ public final class h {
                         LogPrinter.d("Ssp:%s is not initialized for type is forbidden", ssp3.type);
                     }
                 }
-                e.a aVar2 = e.a;
+                f.a aVar2 = f.a;
                 aVar2.a = System.currentTimeMillis() - 0;
-                aVar2.f29213b = SystemClock.currentThreadTimeMillis() - 0;
+                aVar2.f29289b = SystemClock.currentThreadTimeMillis() - 0;
                 LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
-                aVar.a(new i(hashMap));
+                aVar.a(new k(hashMap));
                 return;
             }
             throw new RuntimeException("Wrong thread");

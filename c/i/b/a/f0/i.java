@@ -15,16 +15,16 @@ public final class i {
     public final t a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean[] f30484b;
+    public final boolean[] f30562b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final g f30485c;
+    public final g f30563c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f30486d;
+    public final Object f30564d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.i.b.a.t[] f30487e;
+    public final c.i.b.a.t[] f30565e;
 
     public i(t tVar, boolean[] zArr, g gVar, Object obj, c.i.b.a.t[] tVarArr) {
         Interceptable interceptable = $ic;
@@ -42,10 +42,10 @@ public final class i {
             }
         }
         this.a = tVar;
-        this.f30484b = zArr;
-        this.f30485c = gVar;
-        this.f30486d = obj;
-        this.f30487e = tVarArr;
+        this.f30562b = zArr;
+        this.f30563c = gVar;
+        this.f30564d = obj;
+        this.f30565e = tVarArr;
     }
 
     public boolean a(i iVar) {
@@ -55,7 +55,7 @@ public final class i {
             if (iVar == null) {
                 return false;
             }
-            for (int i2 = 0; i2 < this.f30485c.a; i2++) {
+            for (int i2 = 0; i2 < this.f30563c.a; i2++) {
                 if (!b(iVar, i2)) {
                     return false;
                 }
@@ -68,6 +68,6 @@ public final class i {
     public boolean b(i iVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, i2)) == null) ? iVar != null && this.f30484b[i2] == iVar.f30484b[i2] && v.a(this.f30485c.a(i2), iVar.f30485c.a(i2)) && v.a(this.f30487e[i2], iVar.f30487e[i2]) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iVar, i2)) == null) ? iVar != null && this.f30562b[i2] == iVar.f30562b[i2] && v.a(this.f30563c.a(i2), iVar.f30563c.a(i2)) && v.a(this.f30565e[i2], iVar.f30565e[i2]) : invokeLI.booleanValue;
     }
 }

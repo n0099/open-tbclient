@@ -15,13 +15,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f32422b = null;
+    public static b f32562b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f32423c = "";
+    public static String f32563c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f32424d = "";
+    public static volatile String f32564d = "";
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -62,10 +62,10 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f32423c)) {
-                f32423c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f32563c)) {
+                f32563c = "0newiqr3mini0";
             }
-            return f32423c;
+            return f32563c;
         }
         return (String) invokeV.objValue;
     }
@@ -83,8 +83,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f32424d)) {
-                    f32424d = str;
+                if (TextUtils.isEmpty(f32564d)) {
+                    f32564d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -92,7 +92,7 @@ public final class c {
                     for (int i2 = 0; i2 < length; i2++) {
                         stringBuffer.append("0");
                     }
-                    f32423c = stringBuffer.toString().trim();
+                    f32563c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -126,14 +126,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f32422b == null) {
+            if (f32562b == null) {
                 synchronized (b.class) {
-                    if (f32422b == null) {
-                        f32422b = new c(context).b();
+                    if (f32562b == null) {
+                        f32562b = new c(context).b();
                     }
                 }
             }
-            return f32422b;
+            return f32562b;
         }
         return (b) invokeL.objValue;
     }

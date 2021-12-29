@@ -16,7 +16,7 @@ public class j0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout l;
-    public c.a.r0.s.r.a m;
+    public c.a.s0.s.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -24,7 +24,7 @@ public class j0 extends h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j0 f3832e;
+        public final /* synthetic */ j0 f4247e;
 
         public a(j0 j0Var) {
             Interceptable interceptable = $ic;
@@ -41,16 +41,16 @@ public class j0 extends h {
                     return;
                 }
             }
-            this.f3832e = j0Var;
+            this.f4247e = j0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3832e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4247e.c() == null) {
                 return;
             }
-            this.f3832e.c().a(view, this.f3832e.m);
+            this.f4247e.c().a(view, this.f4247e.m);
         }
     }
 
@@ -72,7 +72,7 @@ public class j0 extends h {
                 return;
             }
         }
-        q(c.a.d.f.p.m.f(context, R.dimen.M_H_X003));
+        q(c.a.d.f.p.n.f(context, R.dimen.M_H_X003));
         this.l = new ThreadSmartAppLayout(context);
         this.l.setAfterClickListener(new a(this));
     }
@@ -97,7 +97,7 @@ public class j0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: s */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.m = aVar;

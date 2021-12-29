@@ -32,34 +32,34 @@ public abstract class f implements e {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f1284b;
+    public volatile boolean f1677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.b0.b.a.b f1285c;
+    public c.a.b0.b.a.b f1678c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.b0.b.a.b f1286d;
+    public c.a.b0.b.a.b f1679d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1287e;
+    public boolean f1680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1288f;
+    public int f1681f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1289g;
+    public int f1682g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final LinkedList<Runnable> f1290h;
+    public final LinkedList<Runnable> f1683h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1291i;
+    public int f1684i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f1292j;
+    public long f1685j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<MediaTrack> f1293k;
+    public List<MediaTrack> f1686k;
     public Map<String, ShaderConfig> l;
     public Map<String, c.a.b0.b.a.a> m;
     public boolean n;
@@ -70,13 +70,13 @@ public abstract class f implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1294e;
+        public final /* synthetic */ int f1687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f1295f;
+        public final /* synthetic */ long f1688f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f1296g;
+        public final /* synthetic */ f f1689g;
 
         public a(f fVar, int i2, long j2) {
             Interceptable interceptable = $ic;
@@ -93,18 +93,18 @@ public abstract class f implements e {
                     return;
                 }
             }
-            this.f1296g = fVar;
-            this.f1294e = i2;
-            this.f1295f = j2;
+            this.f1689g = fVar;
+            this.f1687e = i2;
+            this.f1688f = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f fVar = this.f1296g;
-                fVar.f1291i = this.f1294e;
-                fVar.f1292j = this.f1295f;
+                f fVar = this.f1689g;
+                fVar.f1684i = this.f1687e;
+                fVar.f1685j = this.f1688f;
             }
         }
     }
@@ -115,13 +115,13 @@ public abstract class f implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f1297e;
+        public final /* synthetic */ List f1690e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f1298f;
+        public final /* synthetic */ Map f1691f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f1299g;
+        public final /* synthetic */ f f1692g;
 
         public b(f fVar, List list, Map map) {
             Interceptable interceptable = $ic;
@@ -138,21 +138,21 @@ public abstract class f implements e {
                     return;
                 }
             }
-            this.f1299g = fVar;
-            this.f1297e = list;
-            this.f1298f = map;
+            this.f1692g = fVar;
+            this.f1690e = list;
+            this.f1691f = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1299g.f1284b) {
-                    this.f1299g.s();
+                if (this.f1692g.f1677b) {
+                    this.f1692g.s();
                 }
-                f fVar = this.f1299g;
-                fVar.f1293k = this.f1297e;
-                fVar.l = this.f1298f;
+                f fVar = this.f1692g;
+                fVar.f1686k = this.f1690e;
+                fVar.l = this.f1691f;
             }
         }
     }
@@ -163,10 +163,10 @@ public abstract class f implements e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f1300e;
+        public final /* synthetic */ List f1693e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ f f1301f;
+        public final /* synthetic */ f f1694f;
 
         public c(f fVar, List list) {
             Interceptable interceptable = $ic;
@@ -183,15 +183,15 @@ public abstract class f implements e {
                     return;
                 }
             }
-            this.f1301f = fVar;
-            this.f1300e = list;
+            this.f1694f = fVar;
+            this.f1693e = list;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1301f.f1293k = this.f1300e;
+                this.f1694f.f1686k = this.f1693e;
             }
         }
     }
@@ -209,8 +209,8 @@ public abstract class f implements e {
                 return;
             }
         }
-        this.f1287e = false;
-        this.f1290h = new LinkedList<>();
+        this.f1680e = false;
+        this.f1683h = new LinkedList<>();
     }
 
     public int A(MediaTrack mediaTrack, int i2, Map<String, float[]> map) {
@@ -223,10 +223,10 @@ public abstract class f implements e {
         int e3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, mediaTrack, i2, map)) == null) {
-            if (this.f1291i == 0 && (mediaSegment2 = mediaTrack.superpositionHeader) != null && ((TextUtils.equals(mediaSegment2.superpositionType, "all") || TextUtils.equals(mediaTrack.superpositionHeader.superpositionType, "without_trans")) && (F2 = F(mediaTrack.superpositionHeader, map)) != null && (e3 = this.f1285c.e(i2, F2)) != i2)) {
+            if (this.f1684i == 0 && (mediaSegment2 = mediaTrack.superpositionHeader) != null && ((TextUtils.equals(mediaSegment2.superpositionType, "all") || TextUtils.equals(mediaTrack.superpositionHeader.superpositionType, "without_trans")) && (F2 = F(mediaTrack.superpositionHeader, map)) != null && (e3 = this.f1678c.e(i2, F2)) != i2)) {
                 i2 = e3;
             }
-            return (this.f1291i != mediaTrack.mediaSegments.size() + (-1) || (mediaSegment = mediaTrack.superpositionFooter) == null) ? i2 : ((!TextUtils.equals(mediaSegment.superpositionType, "all") && !TextUtils.equals(mediaTrack.superpositionFooter.superpositionType, "without_trans")) || (F = F(mediaTrack.superpositionFooter, map)) == null || (e2 = this.f1285c.e(i2, F)) == i2) ? i2 : e2;
+            return (this.f1684i != mediaTrack.mediaSegments.size() + (-1) || (mediaSegment = mediaTrack.superpositionFooter) == null) ? i2 : ((!TextUtils.equals(mediaSegment.superpositionType, "all") && !TextUtils.equals(mediaTrack.superpositionFooter.superpositionType, "without_trans")) || (F = F(mediaTrack.superpositionFooter, map)) == null || (e2 = this.f1678c.e(i2, F)) == i2) ? i2 : e2;
         }
         return invokeLIL.intValue;
     }
@@ -249,13 +249,13 @@ public abstract class f implements e {
             return;
         }
         int size = list2.size();
-        int i2 = this.f1291i;
+        int i2 = this.f1684i;
         if (size > i2) {
             MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i2);
             long j2 = mediaTransition.end;
             long j3 = mediaTransition.start;
             if (j2 - j3 > 0) {
-                long j4 = this.f1292j;
+                long j4 = this.f1685j;
                 if (j4 < j3 || j4 > j2) {
                     return;
                 }
@@ -263,7 +263,7 @@ public abstract class f implements e {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                H(this.f1291i, mediaTrack, mediaTransition, map);
+                H(this.f1684i, mediaTrack, mediaTransition, map);
                 c.a.b0.b.a.a aVar = this.m.get(str);
                 if (aVar != null) {
                     v(aVar, map);
@@ -299,7 +299,7 @@ public abstract class f implements e {
                     long j2 = mediaSegment.start;
                     long j3 = mediaSegment.end;
                     if (j2 != j3) {
-                        long j4 = this.f1292j;
+                        long j4 = this.f1685j;
                         if (j4 >= j2) {
                         }
                     }
@@ -307,7 +307,7 @@ public abstract class f implements e {
                     z = m ? i3 < mediaTrack.mediaSegments.size() : i3 >= 0;
                 }
                 if (!m && !c.a.b0.b.a.k.c.m(mediaTrack, "template_effect") && mediaSegment.mediaAEffect != null) {
-                    int e2 = this.f1285c.e(i4, E(mediaSegment, mediaSegment.textureId, map));
+                    int e2 = this.f1678c.e(i4, E(mediaSegment, mediaSegment.textureId, map));
                     if (e2 != i4) {
                         i4 = e2;
                     }
@@ -332,7 +332,7 @@ public abstract class f implements e {
                             long j7 = mediaSegment.effectEnd;
                             long j8 = j7 > 0 ? j7 : mediaSegment.end;
                             if (!TextUtils.isEmpty(str2)) {
-                                long j9 = this.f1292j;
+                                long j9 = this.f1685j;
                                 if (j9 >= j6 && j9 <= j8 && (aVar = this.m.get(str2)) != null) {
                                     v(aVar, map);
                                     J(str2, aVar);
@@ -411,7 +411,7 @@ public abstract class f implements e {
             long j2 = mediaSegment.start;
             long j3 = mediaSegment.end;
             if (j2 != j3) {
-                long j4 = this.f1292j;
+                long j4 = this.f1685j;
                 if (j4 >= j2) {
                 }
             }
@@ -474,7 +474,7 @@ public abstract class f implements e {
                 MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i4);
                 i3 = y(mediaSegment, x(z(mediaSegment, i3, map)), map);
                 MediaSegment mediaSegment2 = mediaTrack.superpositionFooter;
-                if (mediaSegment2 != null && TextUtils.equals(mediaSegment2.superpositionType, "all") && (F = F(mediaTrack.superpositionFooter, map)) != null && (e2 = this.f1285c.e(i3, F)) != i3) {
+                if (mediaSegment2 != null && TextUtils.equals(mediaSegment2.superpositionType, "all") && (F = F(mediaTrack.superpositionFooter, map)) != null && (e2 = this.f1678c.e(i3, F)) != i3) {
                     i3 = e2;
                 }
             }
@@ -493,8 +493,8 @@ public abstract class f implements e {
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            while (!this.f1290h.isEmpty()) {
-                this.f1290h.removeFirst().run();
+            while (!this.f1683h.isEmpty()) {
+                this.f1683h.removeFirst().run();
             }
         }
     }
@@ -535,7 +535,7 @@ public abstract class f implements e {
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1292j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1685j : invokeV.longValue;
     }
 
     @Override // c.a.b0.b.a.e
@@ -552,21 +552,21 @@ public abstract class f implements e {
                 e2.printStackTrace();
                 u(e2.toString(), e2);
             }
-            if (this.f1285c != null && this.f1293k != null && this.m != null && this.l != null) {
+            if (this.f1678c != null && this.f1686k != null && this.m != null && this.l != null) {
                 ArrayList arrayList = new ArrayList();
                 MediaTrack mediaTrack = null;
-                int size = c.a.b0.b.a.k.a.x(this.f1293k, "edit_sticker") ? this.f1293k.size() - 2 : this.f1293k.size() - 1;
+                int size = c.a.b0.b.a.k.a.x(this.f1686k, "edit_sticker") ? this.f1686k.size() - 2 : this.f1686k.size() - 1;
                 int i5 = 0;
-                for (int i6 = 0; i6 < this.f1293k.size(); i6++) {
-                    MediaTrack mediaTrack2 = this.f1293k.get(i6);
+                for (int i6 = 0; i6 < this.f1686k.size(); i6++) {
+                    MediaTrack mediaTrack2 = this.f1686k.get(i6);
                     if (i6 == 0) {
-                        if (mediaTrack2.mediaSegments != null && mediaTrack2.mediaSegments.size() > this.f1291i) {
-                            MediaSegment mediaSegment = mediaTrack2.mediaSegments.get(this.f1291i);
+                        if (mediaTrack2.mediaSegments != null && mediaTrack2.mediaSegments.size() > this.f1684i) {
+                            MediaSegment mediaSegment = mediaTrack2.mediaSegments.get(this.f1684i);
                             int i7 = mediaSegment.textureId;
                             if (TextUtils.equals(mediaSegment.type, "camera")) {
                                 this.n = true;
                                 if (mediaSegment.vertexMtx != null || mediaSegment.textureMtx != null) {
-                                    c.a.b0.b.a.c cVar = (c.a.b0.b.a.c) this.m.get(c.a.b0.b.a.k.c.f1306b);
+                                    c.a.b0.b.a.c cVar = (c.a.b0.b.a.c) this.m.get(c.a.b0.b.a.k.c.f1699b);
                                     if (mediaSegment.vertexMtx != null) {
                                         cVar.U(mediaSegment.vertexMtx);
                                     }
@@ -574,7 +574,7 @@ public abstract class f implements e {
                                         cVar.V(mediaSegment.textureMtx);
                                     }
                                     cVar.D(1.0f);
-                                    int e3 = this.f1285c.e(i7, cVar);
+                                    int e3 = this.f1678c.e(i7, cVar);
                                     if (e3 != i7) {
                                         i4 = e3;
                                         i5 = B(mediaTrack2, mediaSegment, i4, map, arrayList);
@@ -593,7 +593,7 @@ public abstract class f implements e {
                     }
                 }
                 if (i5 != 0) {
-                    return this.f1285c.f(i5, arrayList);
+                    return this.f1678c.f(i5, arrayList);
                 }
                 return 0;
             }
@@ -606,7 +606,7 @@ public abstract class f implements e {
     public void e(List<MediaTrack> list, Map<String, ShaderConfig> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, list, map) == null) {
-            this.f1290h.add(new b(this, list, map));
+            this.f1683h.add(new b(this, list, map));
         }
     }
 
@@ -614,7 +614,7 @@ public abstract class f implements e {
     public void g(int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.f1290h.add(new a(this, i2, j2));
+            this.f1683h.add(new a(this, i2, j2));
         }
     }
 
@@ -630,7 +630,7 @@ public abstract class f implements e {
     public List<MediaTrack> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1293k : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1686k : (List) invokeV.objValue;
     }
 
     @Override // c.a.b0.b.a.e
@@ -640,16 +640,16 @@ public abstract class f implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), fArr, fArr2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), map})) == null) {
             I();
-            List<MediaTrack> list = this.f1293k;
-            if (list != null && list.size() != 0 && this.f1293k.get(0).mediaSegments != null && this.f1293k.get(0).mediaSegments.size() == 1 && i4 != 0 && i5 != 0) {
-                if (i4 != this.f1288f || i5 != this.f1289g) {
-                    this.f1288f = i4;
-                    this.f1289g = i5;
+            List<MediaTrack> list = this.f1686k;
+            if (list != null && list.size() != 0 && this.f1686k.get(0).mediaSegments != null && this.f1686k.get(0).mediaSegments.size() == 1 && i4 != 0 && i5 != 0) {
+                if (i4 != this.f1681f || i5 != this.f1682g) {
+                    this.f1681f = i4;
+                    this.f1682g = i5;
                     t(" w * h : " + i4 + " * " + i5);
                     s();
                 }
                 try {
-                    MediaSegment mediaSegment = this.f1293k.get(0).mediaSegments.get(0);
+                    MediaSegment mediaSegment = this.f1686k.get(0).mediaSegments.get(0);
                     mediaSegment.textureId = i2;
                     mediaSegment.vertexMtx = fArr;
                     mediaSegment.textureMtx = fArr2;
@@ -677,7 +677,7 @@ public abstract class f implements e {
     public void n(List<MediaTrack> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-            this.f1290h.add(new c(this, list));
+            this.f1683h.add(new c(this, list));
         }
     }
 
@@ -691,27 +691,27 @@ public abstract class f implements e {
     public void q() {
         Map<String, ShaderConfig> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f1284b || this.f1293k == null || (map = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || this.f1677b || this.f1686k == null || (map = this.l) == null) {
             return;
         }
-        if (!map.containsKey(c.a.b0.b.a.k.c.f1306b)) {
-            this.l.put(c.a.b0.b.a.k.c.f1306b, ShaderConfig.getDefaultShaderConfig());
+        if (!map.containsKey(c.a.b0.b.a.k.c.f1699b)) {
+            this.l.put(c.a.b0.b.a.k.c.f1699b, ShaderConfig.getDefaultShaderConfig());
         }
-        if (!this.l.containsKey(c.a.b0.b.a.k.c.f1310f)) {
-            this.l.put(c.a.b0.b.a.k.c.f1310f, ShaderConfig.getStickerShaderConfig());
+        if (!this.l.containsKey(c.a.b0.b.a.k.c.f1703f)) {
+            this.l.put(c.a.b0.b.a.k.c.f1703f, ShaderConfig.getStickerShaderConfig());
         }
         Map<String, c.a.b0.b.a.a> l = c.a.b0.b.a.k.a.l(this.a, this.l);
         this.m = l;
         for (Map.Entry<String, c.a.b0.b.a.a> entry : l.entrySet()) {
             c.a.b0.b.a.a value = entry.getValue();
             value.l();
-            value.v(this.f1288f, this.f1289g);
+            value.v(this.f1681f, this.f1682g);
         }
-        if (this.f1285c == null) {
-            this.f1285c = new c.a.b0.b.a.b();
+        if (this.f1678c == null) {
+            this.f1678c = new c.a.b0.b.a.b();
         }
-        this.f1285c.c(this.f1288f, this.f1289g);
-        this.f1284b = true;
+        this.f1678c.c(this.f1681f, this.f1682g);
+        this.f1677b = true;
     }
 
     public int r(MediaSegment mediaSegment, int i2, Map<String, float[]> map) {
@@ -739,12 +739,12 @@ public abstract class f implements e {
                         long j4 = mediaSegment.effectEnd;
                         long j5 = j4 > 0 ? j4 : mediaSegment.end;
                         if (aVar != null) {
-                            long j6 = this.f1292j;
+                            long j6 = this.f1685j;
                             if (j6 >= j3 && j6 <= j5) {
                                 v(aVar, map);
                                 J(str, aVar);
                                 aVar.F(mediaAEffect2.effectType, j3, j5, mediaAEffect2.duration, mediaAEffect2.repeatMode, mediaAEffect2.mediaOneAEffects);
-                                int e2 = this.f1285c.e(i2, aVar);
+                                int e2 = this.f1678c.e(i2, aVar);
                                 if (e2 != i2) {
                                     return e2;
                                 }
@@ -763,13 +763,13 @@ public abstract class f implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             try {
-                if (this.f1285c != null) {
-                    this.f1285c.b();
-                    this.f1285c = null;
+                if (this.f1678c != null) {
+                    this.f1678c.b();
+                    this.f1678c = null;
                 }
-                if (this.f1286d != null) {
-                    this.f1286d.b();
-                    this.f1286d = null;
+                if (this.f1679d != null) {
+                    this.f1679d.b();
+                    this.f1679d = null;
                 }
                 if (this.l != null) {
                     for (Map.Entry<String, ShaderConfig> entry : this.l.entrySet()) {
@@ -788,15 +788,15 @@ public abstract class f implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             try {
-                if (this.f1284b) {
+                if (this.f1677b) {
                     if (this.m != null) {
                         for (Map.Entry<String, c.a.b0.b.a.a> entry : this.m.entrySet()) {
                             entry.getValue().h();
                         }
                         this.m = null;
                     }
-                    this.f1292j = 0L;
-                    this.f1284b = false;
+                    this.f1685j = 0L;
+                    this.f1677b = false;
                 }
             } catch (Exception e2) {
                 t(e2.getMessage());
@@ -806,14 +806,14 @@ public abstract class f implements e {
 
     public void t(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048600, this, str) == null) && this.f1287e) {
+        if ((interceptable == null || interceptable.invokeL(1048600, this, str) == null) && this.f1680e) {
             String str2 = "---> " + str;
         }
     }
 
     public void u(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048601, this, str, exc) == null) && this.f1287e) {
+        if ((interceptable == null || interceptable.invokeLL(1048601, this, str, exc) == null) && this.f1680e) {
             String str2 = "---> " + str;
         }
     }
@@ -821,7 +821,7 @@ public abstract class f implements e {
     public void v(c.a.b0.b.a.a aVar, Map<String, float[]> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048602, this, aVar, map) == null) {
-            float[] fArr = g.f1302b;
+            float[] fArr = g.f1695b;
             w(aVar, fArr, fArr, map);
         }
     }
@@ -833,10 +833,10 @@ public abstract class f implements e {
         }
         if (aVar instanceof c.a.b0.b.a.c) {
             if (fArr == null) {
-                fArr = g.f1302b;
+                fArr = g.f1695b;
             }
             if (fArr2 == null) {
-                fArr2 = g.f1302b;
+                fArr2 = g.f1695b;
             }
             c.a.b0.b.a.c cVar = (c.a.b0.b.a.c) aVar;
             cVar.U(fArr);
@@ -848,14 +848,14 @@ public abstract class f implements e {
                 aVar.I(GLES20.glGetUniformLocation(aVar.j(), entry.getKey()), entry.getValue(), true);
             }
         }
-        aVar.E(this.f1292j);
+        aVar.E(this.f1685j);
     }
 
     public int x(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            List<MediaTrack> list = this.f1293k;
+            List<MediaTrack> list = this.f1686k;
             if (list == null) {
                 return i2;
             }
@@ -865,12 +865,12 @@ public abstract class f implements e {
             }
             int i3 = 1;
             while (true) {
-                if (i3 >= this.f1293k.size()) {
+                if (i3 >= this.f1686k.size()) {
                     break;
                 }
-                MediaTrack mediaTrack = this.f1293k.get(i3);
+                MediaTrack mediaTrack = this.f1686k.get(i3);
                 if (mediaTrack != null && c.a.b0.b.a.k.c.m(mediaTrack, str)) {
-                    c.a.b0.b.a.b bVar = this.f1285c;
+                    c.a.b0.b.a.b bVar = this.f1678c;
                     float[] fArr = mediaTrack.glClearColor;
                     bVar.h(fArr[0], fArr[1], fArr[2], fArr[3]);
                     List<MediaSegment> list2 = mediaTrack.mediaSegments;
@@ -880,7 +880,7 @@ public abstract class f implements e {
                                 long j2 = mediaSegment.start;
                                 long j3 = mediaSegment.end;
                                 if (j2 != j3) {
-                                    long j4 = this.f1292j;
+                                    long j4 = this.f1685j;
                                     if (j4 >= j2 && j4 <= j3) {
                                     }
                                 } else {
@@ -892,7 +892,7 @@ public abstract class f implements e {
                             } else if (TextUtils.equals(mediaSegment.type, "input")) {
                                 return i2;
                             } else {
-                                c.a.b0.b.a.a aVar = this.m.get(c.a.b0.b.a.k.c.f1310f);
+                                c.a.b0.b.a.a aVar = this.m.get(c.a.b0.b.a.k.c.f1703f);
                                 if (aVar != null) {
                                     v(aVar, null);
                                     if (aVar instanceof d) {
@@ -901,7 +901,7 @@ public abstract class f implements e {
                                         ((d) aVar).Y(arrayList);
                                     }
                                     p(aVar);
-                                    int e2 = this.f1285c.e(mediaSegment.textureId, aVar);
+                                    int e2 = this.f1678c.e(mediaSegment.textureId, aVar);
                                     if (e2 != mediaSegment.textureId) {
                                         i2 = e2;
                                     }
@@ -909,19 +909,19 @@ public abstract class f implements e {
                             }
                         }
                     } else {
-                        c.a.b0.b.a.a aVar2 = this.m.get(c.a.b0.b.a.k.c.f1306b);
+                        c.a.b0.b.a.a aVar2 = this.m.get(c.a.b0.b.a.k.c.f1699b);
                         if (aVar2 != null) {
                             v(aVar2, null);
                             GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                             GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
-                            int e3 = this.f1285c.e(i2, aVar2);
+                            int e3 = this.f1678c.e(i2, aVar2);
                             GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                             if (e3 != i2) {
                                 i2 = e3;
                             }
                         }
                     }
-                    this.f1285c.h(0.0f, 0.0f, 0.0f, 0.0f);
+                    this.f1678c.h(0.0f, 0.0f, 0.0f, 0.0f);
                 } else {
                     i3++;
                 }
@@ -942,7 +942,7 @@ public abstract class f implements e {
             if (!TextUtils.isEmpty(str) && (aVar2 = this.m.get(str)) != null) {
                 v(aVar2, map);
                 J(str, aVar2);
-                int e2 = this.f1285c.e(i3, aVar2);
+                int e2 = this.f1678c.e(i3, aVar2);
                 if (e2 != i3) {
                     i3 = e2;
                 }
@@ -964,14 +964,14 @@ public abstract class f implements e {
                 if (TextUtils.isEmpty(str2)) {
                     return i3;
                 }
-                long j6 = this.f1292j;
+                long j6 = this.f1685j;
                 if (j6 < j3 || j6 > j5 || (aVar = this.m.get(str2)) == null) {
                     return i3;
                 }
                 v(aVar, map);
                 J(str2, aVar);
                 aVar.F(mediaAEffect2.effectType, j3, j5, mediaAEffect2.duration, mediaAEffect2.repeatMode, mediaAEffect2.mediaOneAEffects);
-                int e3 = this.f1285c.e(i3, aVar);
+                int e3 = this.f1678c.e(i3, aVar);
                 return e3 != i3 ? e3 : i3;
             }
             return i3;
@@ -1011,7 +1011,7 @@ public abstract class f implements e {
             }
             v(aVar, map);
             J(str2, aVar);
-            int e2 = this.f1285c.e(i2, aVar);
+            int e2 = this.f1678c.e(i2, aVar);
             return e2 != i2 ? e2 : i2;
         }
         return invokeLIL.intValue;

@@ -101,7 +101,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public SORT f32022e;
+        public SORT f32164e;
 
         public a(SORT sort) {
             Interceptable interceptable = $ic;
@@ -118,8 +118,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return;
                 }
             }
-            this.f32022e = null;
-            this.f32022e = sort;
+            this.f32164e = null;
+            this.f32164e = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,7 +129,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                if (this.f32022e == SORT.ASCEND) {
+                if (this.f32164e == SORT.ASCEND) {
                     return entry.getKey().compareTo(entry2.getKey());
                 }
                 return entry2.getKey().compareTo(entry.getKey());
@@ -174,7 +174,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                 }
                 return (byte[]) invoke;
             } catch (Exception e2) {
-                BdLog.detailException(e2);
+                BdLog.detailException((Throwable) e2, true);
                 return null;
             }
         }
@@ -201,7 +201,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     Object value = entry.getValue();
                     String str2 = StringUtil.NULL_STRING;
                     sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
-                    sb.append(com.alipay.sdk.encrypt.a.f31721h);
+                    sb.append(com.alipay.sdk.encrypt.a.f31864h);
                     if (value != null) {
                         str2 = value.toString();
                     }
@@ -249,7 +249,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     addHeader("Cookie", map2KVString(";", parseKVString));
                     return str3;
                 }
-                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f31721h + str2 + ';');
+                addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f31864h + str2 + ';');
             }
             return null;
         }

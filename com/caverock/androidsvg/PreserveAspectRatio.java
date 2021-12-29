@@ -13,15 +13,15 @@ public class PreserveAspectRatio {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final PreserveAspectRatio f55377c;
+    public static final PreserveAspectRatio f55376c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final PreserveAspectRatio f55378d;
+    public static final PreserveAspectRatio f55377d;
     public transient /* synthetic */ FieldHolder $fh;
     public Alignment a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Scale f55379b;
+    public Scale f55378b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -172,8 +172,8 @@ public class PreserveAspectRatio {
                 return;
             }
         }
-        f55377c = new PreserveAspectRatio(Alignment.None, null);
-        f55378d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
+        f55376c = new PreserveAspectRatio(Alignment.None, null);
+        f55377d = new PreserveAspectRatio(Alignment.XMidYMid, Scale.Meet);
         Alignment alignment = Alignment.XMinYMin;
         Scale scale = Scale.Meet;
         Alignment alignment2 = Alignment.XMaxYMax;
@@ -204,7 +204,7 @@ public class PreserveAspectRatio {
             }
         }
         this.a = alignment;
-        this.f55379b = scale;
+        this.f55378b = scale;
     }
 
     public Alignment a() {
@@ -216,7 +216,7 @@ public class PreserveAspectRatio {
     public Scale b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55379b : (Scale) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55378b : (Scale) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -228,7 +228,7 @@ public class PreserveAspectRatio {
             }
             if (obj != null && PreserveAspectRatio.class == obj.getClass()) {
                 PreserveAspectRatio preserveAspectRatio = (PreserveAspectRatio) obj;
-                return this.a == preserveAspectRatio.a && this.f55379b == preserveAspectRatio.f55379b;
+                return this.a == preserveAspectRatio.a && this.f55378b == preserveAspectRatio.f55378b;
             }
             return false;
         }

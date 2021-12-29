@@ -19,7 +19,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, column, str)) == null) {
             if (column.isAssignedValue) {
-                return column.field.f2147b + " " + str + h.g(column);
+                return column.field.f2574b + " " + str + h.g(column);
             }
             return "";
         }
@@ -59,7 +59,7 @@ public class g {
             for (b[] bVarArr : jVar.e()) {
                 String[] strArr = new String[bVarArr.length];
                 for (int i2 = 0; i2 < bVarArr.length; i2++) {
-                    strArr[i2] = bVarArr[i2].f2147b;
+                    strArr[i2] = bVarArr[i2].f2574b;
                 }
                 arrayList.add("CREATE INDEX IF NOT EXISTS i_" + jVar.g() + "_" + TextUtils.join("_", strArr) + " ON " + jVar.g() + " (" + TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, strArr) + SmallTailInfo.EMOTION_SUFFIX);
             }
@@ -81,14 +81,14 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar)) == null) {
-            int i2 = bVar.f2149d;
+            int i2 = bVar.f2576d;
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {
                         if (i2 == 3) {
                             return " PRIMARY KEY AUTOINCREMENT";
                         }
-                        throw new IllegalArgumentException("Unsupported field attribute " + bVar.f2149d);
+                        throw new IllegalArgumentException("Unsupported field attribute " + bVar.f2576d);
                     }
                     return " PRIMARY KEY";
                 }
@@ -120,7 +120,7 @@ public class g {
                     sb.append(str);
                     sb.append(".");
                 }
-                sb.append(bVar.f2147b);
+                sb.append(bVar.f2574b);
                 i2++;
                 str2 = StringUtil.ARRAY_ELEMENT_SEPARATOR;
             }
@@ -156,7 +156,7 @@ public class g {
             while (i2 < length) {
                 b bVar = bVarArr[i2];
                 sb.append(str);
-                sb.append(bVar.f2147b);
+                sb.append(bVar.f2574b);
                 sb.append(getType(bVar));
                 sb.append(e(bVar));
                 i2++;

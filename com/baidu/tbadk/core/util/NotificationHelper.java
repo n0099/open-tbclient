@@ -14,10 +14,10 @@ import android.widget.RemoteViews;
 import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import c.a.d.f.q.h;
-import c.a.r0.t.d.b;
-import c.a.r0.t.d.d;
+import c.a.s0.t.d.b;
+import c.a.s0.t.d.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -209,13 +209,13 @@ public class NotificationHelper {
                     AudioManager audioManager = (AudioManager) context.getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                     boolean z = audioManager.getRingerMode() == 0;
                     boolean z2 = audioManager.getRingerMode() == 1;
-                    if (d.d().u()) {
+                    if (d.d().w()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (d.d().v()) {
+                    if (d.d().x()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -227,7 +227,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (d.d().q()) {
+            if (d.d().s()) {
                 switchData.isLight = true;
             }
             return switchData;
@@ -333,7 +333,7 @@ public class NotificationHelper {
             if (switchData == null) {
                 return false;
             }
-            if (l.isEmpty(str)) {
+            if (m.isEmpty(str)) {
                 str = context.getString(R.string.app_name);
             }
             try {

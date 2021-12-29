@@ -5,7 +5,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.webkit.ProxyConfig;
 import com.baidu.android.ddmlib.ByteBufferUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -558,7 +557,7 @@ public class VmTraceParser {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            String[] split = str.split(TrackUI.SEPERATOR);
+            String[] split = str.split("\t");
             try {
                 long longValue = Long.decode(split[0]).longValue();
                 String str5 = split[1];

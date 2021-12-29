@@ -1,57 +1,84 @@
 package c.a.m0.a.d;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import c.a.i0.b.f.h;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import java.io.File;
 /* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public Context a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public V8ExceptionInfo f4155b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f4156c;
-
-    public b(int i2, V8ExceptionInfo v8ExceptionInfo, long j2) {
+    public b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), v8ExceptionInfo, Long.valueOf(j2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = j2;
-        this.f4155b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-        this.f4156c = i2;
+        this.a = context;
     }
 
-    public V8ExceptionInfo a() {
-        InterceptResult invokeV;
+    public Bitmap a(String str, c.a.m0.a.f.a aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4155b : (V8ExceptionInfo) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.a + ", mV8ExceptionInfo=" + this.f4155b + ", type=" + this.f4156c + ExtendedMessageFormat.END_FE;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, aVar)) == null) {
+            File a = h.a(str);
+            if (a != null && a.exists() && a.isFile()) {
+                return BitmapFactory.decodeFile(a.getAbsolutePath());
+            }
+            return MaterialLoader.k(this.a).i(str, aVar);
         }
-        return (String) invokeV.objValue;
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
+            try {
+                File a = h.a(str);
+                if (a != null && a.exists() && a.isFile()) {
+                    return a.getAbsolutePath();
+                }
+                return MaterialLoader.k(this.a).m(str, materialCacheType);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) ? MaterialLoader.k(this.a).o(str, materialCacheType) || d(str) : invokeLL.booleanValue;
+    }
+
+    public final boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File a = h.a(str);
+            return a != null && a.exists() && a.isFile();
+        }
+        return invokeL.booleanValue;
     }
 }

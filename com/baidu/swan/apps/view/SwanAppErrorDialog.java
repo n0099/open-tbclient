@@ -2,9 +2,9 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import c.a.q0.a.f;
-import c.a.q0.a.k;
-import c.a.q0.a.z2.q0;
+import c.a.r0.a.f;
+import c.a.r0.a.k;
+import c.a.r0.a.z2.q0;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;

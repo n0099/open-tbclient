@@ -1,13 +1,13 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
-import c.a.r0.d1.i;
-import c.a.r0.s.r.g1;
-import c.a.s0.j3.j0.a;
-import c.a.s0.j3.l0.b;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
+import c.a.s0.e1.i;
+import c.a.s0.s.q.g1;
+import c.a.t0.j3.j0.a;
+import c.a.t0.j3.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -74,12 +74,12 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(k.I());
+            builder.new_net_type = Integer.valueOf(l.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
@@ -88,9 +88,9 @@ public class RecPersonalizeRequest extends NetMessage {
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 g1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(c.a.d.f.m.b.g(pbToHomeUpdateData.a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f13334b;
-                builder.first_dir = pbToHomeUpdateData.f13335c;
-                builder.second_dir = pbToHomeUpdateData.f13336d;
+                builder.query_eqid = pbToHomeUpdateData.f13710b;
+                builder.first_dir = pbToHomeUpdateData.f13711c;
+                builder.second_dir = pbToHomeUpdateData.f13712d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
             AdExtParam.a b2 = AdExtParam.a.b();

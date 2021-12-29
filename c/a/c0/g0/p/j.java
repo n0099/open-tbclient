@@ -12,7 +12,7 @@ public interface j {
     public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f1584b = new a();
+    public static final j f2011b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements j {

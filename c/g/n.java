@@ -27,7 +27,7 @@ public class n {
         public final l a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<Ssp.Pid> f29267b;
+        public final HashSet<Ssp.Pid> f29335b;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class n {
                 }
             }
             this.a = lVar;
-            this.f29267b = new HashSet<>();
-            for (l.b bVar : lVar.f29258e) {
-                for (l.a aVar : bVar.f29262b) {
-                    this.f29267b.add(aVar.f29260c);
+            this.f29335b = new HashSet<>();
+            for (l.b bVar : lVar.f29316e) {
+                for (l.a aVar : bVar.f29320b) {
+                    this.f29335b.add(aVar.f29318c);
                 }
             }
         }
@@ -57,14 +57,14 @@ public class n {
         public Set<Ssp.Pid> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29267b : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29335b : (Set) invokeV.objValue;
         }
 
         @Override // c.g.n.c
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f29257d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f29315d : invokeV.intValue;
         }
     }
 
@@ -75,7 +75,7 @@ public class n {
         public final j a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<Ssp.Pid> f29268b;
+        public final HashSet<Ssp.Pid> f29336b;
 
         public b(j jVar) {
             Interceptable interceptable = $ic;
@@ -93,10 +93,10 @@ public class n {
                 }
             }
             this.a = jVar;
-            this.f29268b = new HashSet<>();
-            for (j.b bVar : jVar.f29241b) {
-                for (j.a aVar : bVar.f29245b) {
-                    this.f29268b.add(aVar.f29244c);
+            this.f29336b = new HashSet<>();
+            for (j.b bVar : jVar.f29307b) {
+                for (j.a aVar : bVar.f29311b) {
+                    this.f29336b.add(aVar.f29310c);
                 }
             }
         }
@@ -105,14 +105,14 @@ public class n {
         public Set<Ssp.Pid> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29268b : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29336b : (Set) invokeV.objValue;
         }
 
         @Override // c.g.n.c
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f29242c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.f29308c : invokeV.intValue;
         }
     }
 

@@ -30,7 +30,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f38452e;
+    public final b f38608e;
 
     /* loaded from: classes10.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -38,7 +38,7 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NadRewardStayDialog f38453e;
+        public final /* synthetic */ NadRewardStayDialog f38609e;
 
         public a(NadRewardStayDialog nadRewardStayDialog) {
             Interceptable interceptable = $ic;
@@ -55,14 +55,14 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
                     return;
                 }
             }
-            this.f38453e = nadRewardStayDialog;
+            this.f38609e = nadRewardStayDialog;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f38453e.f38452e.a(false);
+                this.f38609e.f38608e.a(false);
             }
         }
     }
@@ -91,18 +91,18 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
             }
         }
         c(adBaseModel);
-        this.f38452e = bVar;
+        this.f38608e = bVar;
     }
 
     public final void b(AdBaseModel adBaseModel) {
         o oVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
-            o.a aVar = (adBaseModel == null || (oVar = adBaseModel.l) == null) ? null : oVar.f1822d;
+            o.a aVar = (adBaseModel == null || (oVar = adBaseModel.l) == null) ? null : oVar.f2249d;
             View inflate = LayoutInflater.from(getContext()).inflate(g.nad_reward_stay_view, (ViewGroup) null);
             String string = (aVar == null || TextUtils.isEmpty(aVar.a)) ? getContext().getResources().getString(h.nad_reward_stay_title) : aVar.a;
-            String string2 = (aVar == null || TextUtils.isEmpty(aVar.f1827b)) ? getContext().getResources().getString(h.nad_reward_stay_confirm) : aVar.f1827b;
-            String string3 = (aVar == null || TextUtils.isEmpty(aVar.f1828c)) ? getContext().getResources().getString(h.nad_reward_stay_cancel) : aVar.f1828c;
+            String string2 = (aVar == null || TextUtils.isEmpty(aVar.f2254b)) ? getContext().getResources().getString(h.nad_reward_stay_confirm) : aVar.f2254b;
+            String string3 = (aVar == null || TextUtils.isEmpty(aVar.f2255c)) ? getContext().getResources().getString(h.nad_reward_stay_cancel) : aVar.f2255c;
             ((TextView) inflate.findViewById(e.nad_reward_stay_content)).setText(string);
             TextView textView = (TextView) inflate.findViewById(e.nad_reward_stay_continue);
             textView.setText(string2);
@@ -137,9 +137,9 @@ public class NadRewardStayDialog extends Dialog implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             if (view.getId() == e.nad_reward_stay_continue) {
-                this.f38452e.a(false);
+                this.f38608e.a(false);
             } else if (view.getId() == e.nad_reward_stay_cancel) {
-                this.f38452e.a(true);
+                this.f38608e.a(true);
             }
         }
     }

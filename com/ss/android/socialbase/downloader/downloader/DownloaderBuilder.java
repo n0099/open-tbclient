@@ -1,13 +1,6 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.depend.aa;
 import com.ss.android.socialbase.downloader.depend.af;
 import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
@@ -16,8 +9,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes3.dex */
 public class DownloaderBuilder {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public g chunkAdjustCalculator;
     public h chunkCntCalculator;
     public ExecutorService chunkDownloadExecutor;
@@ -25,9 +16,7 @@ public class DownloaderBuilder {
     public ExecutorService cpuThreadExecutor;
     public ExecutorService dbThreadExecutor;
     public j downloadCache;
-    public List<com.ss.android.socialbase.downloader.depend.m> downloadCompleteHandlers;
     public com.ss.android.socialbase.downloader.network.f downloadDns;
-    public int downloadExpSwitch;
     public boolean downloadInMultiProcess;
     public l downloadLaunchHandler;
     public com.ss.android.socialbase.downloader.d.b downloadMonitorListener;
@@ -41,481 +30,273 @@ public class DownloaderBuilder {
     public ExecutorService mixDefaultDownloadExecutor;
     public ExecutorService mixFrequentDownloadExecutor;
     public q monitorConfig;
-    public boolean needAutoRefreshUnSuccessTask;
     public af notificationClickCallback;
     public ExecutorService okHttpDispatcherExecutor;
     public u ttNetHandler;
     public int writeBufferSize;
+    public List<com.ss.android.socialbase.downloader.depend.m> downloadCompleteHandlers = new ArrayList();
+    public boolean needAutoRefreshUnSuccessTask = true;
+    public int downloadExpSwitch = 1056964607;
 
     public DownloaderBuilder(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.downloadCompleteHandlers = new ArrayList();
-        this.needAutoRefreshUnSuccessTask = true;
-        this.downloadExpSwitch = 1056964607;
         this.context = context;
     }
 
     public DownloaderBuilder addDownloadCompleteHandler(com.ss.android.socialbase.downloader.depend.m mVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mVar)) == null) {
-            synchronized (this.downloadCompleteHandlers) {
-                if (mVar != null) {
-                    if (!this.downloadCompleteHandlers.contains(mVar)) {
-                        this.downloadCompleteHandlers.add(mVar);
-                        return this;
-                    }
+        synchronized (this.downloadCompleteHandlers) {
+            if (mVar != null) {
+                if (!this.downloadCompleteHandlers.contains(mVar)) {
+                    this.downloadCompleteHandlers.add(mVar);
+                    return this;
                 }
-                return this;
             }
+            return this;
         }
-        return (DownloaderBuilder) invokeL.objValue;
     }
 
     public Downloader build() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new Downloader(this) : (Downloader) invokeV.objValue;
+        return new Downloader(this);
     }
 
     public DownloaderBuilder chunkAdjustCalculator(g gVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar)) == null) {
-            this.chunkAdjustCalculator = gVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.chunkAdjustCalculator = gVar;
+        return this;
     }
 
     public DownloaderBuilder chunkCntCalculator(h hVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hVar)) == null) {
-            this.chunkCntCalculator = hVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.chunkCntCalculator = hVar;
+        return this;
     }
 
     public DownloaderBuilder chunkThreadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, executorService)) == null) {
-            this.chunkDownloadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.chunkDownloadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder cpuThreadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, executorService)) == null) {
-            this.cpuThreadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.cpuThreadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder dbThreadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, executorService)) == null) {
-            this.dbThreadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.dbThreadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder downloadCache(j jVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jVar)) == null) {
-            this.downloadCache = jVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.downloadCache = jVar;
+        return this;
     }
 
     public DownloaderBuilder downloadDns(com.ss.android.socialbase.downloader.network.f fVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar)) == null) {
-            this.downloadDns = fVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.downloadDns = fVar;
+        return this;
     }
 
     public DownloaderBuilder downloadExpSwitch(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            this.downloadExpSwitch = i2;
-            return this;
-        }
-        return (DownloaderBuilder) invokeI.objValue;
+        this.downloadExpSwitch = i2;
+        return this;
     }
 
     public DownloaderBuilder downloadInMultiProcess(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            this.downloadInMultiProcess = z;
-            return this;
-        }
-        return (DownloaderBuilder) invokeZ.objValue;
+        this.downloadInMultiProcess = z;
+        return this;
     }
 
     public DownloaderBuilder downloadLaunchHandler(l lVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, lVar)) == null) {
-            this.downloadLaunchHandler = lVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.downloadLaunchHandler = lVar;
+        return this;
     }
 
     public DownloaderBuilder downloadMonitorListener(com.ss.android.socialbase.downloader.d.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, bVar)) == null) {
-            this.downloadMonitorListener = bVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.downloadMonitorListener = bVar;
+        return this;
     }
 
     public DownloaderBuilder downloadSetting(aa aaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, aaVar)) == null) {
-            this.downloadSetting = aaVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.downloadSetting = aaVar;
+        return this;
     }
 
     public ExecutorService getCPUThreadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.cpuThreadExecutor : (ExecutorService) invokeV.objValue;
+        return this.cpuThreadExecutor;
     }
 
     public g getChunkAdjustCalculator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.chunkAdjustCalculator : (g) invokeV.objValue;
+        return this.chunkAdjustCalculator;
     }
 
     public h getChunkCntCalculator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.chunkCntCalculator : (h) invokeV.objValue;
+        return this.chunkCntCalculator;
     }
 
     public ExecutorService getChunkThreadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.chunkDownloadExecutor : (ExecutorService) invokeV.objValue;
+        return this.chunkDownloadExecutor;
     }
 
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.context : (Context) invokeV.objValue;
+        return this.context;
     }
 
     public ExecutorService getDBThreadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.dbThreadExecutor : (ExecutorService) invokeV.objValue;
+        return this.dbThreadExecutor;
     }
 
     public j getDownloadCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.downloadCache : (j) invokeV.objValue;
+        return this.downloadCache;
     }
 
     public List<com.ss.android.socialbase.downloader.depend.m> getDownloadCompleteHandlers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.downloadCompleteHandlers : (List) invokeV.objValue;
+        return this.downloadCompleteHandlers;
     }
 
     public com.ss.android.socialbase.downloader.network.f getDownloadDns() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.downloadDns : (com.ss.android.socialbase.downloader.network.f) invokeV.objValue;
+        return this.downloadDns;
     }
 
     public int getDownloadExpSwitch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.downloadExpSwitch : invokeV.intValue;
+        return this.downloadExpSwitch;
     }
 
     public l getDownloadLaunchHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.downloadLaunchHandler : (l) invokeV.objValue;
+        return this.downloadLaunchHandler;
     }
 
     public com.ss.android.socialbase.downloader.d.b getDownloadMonitorListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.downloadMonitorListener : (com.ss.android.socialbase.downloader.d.b) invokeV.objValue;
+        return this.downloadMonitorListener;
     }
 
     public aa getDownloadSetting() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.downloadSetting : (aa) invokeV.objValue;
+        return this.downloadSetting;
     }
 
     public com.ss.android.socialbase.downloader.network.h getHeadHttpService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.headHttpService : (com.ss.android.socialbase.downloader.network.h) invokeV.objValue;
+        return this.headHttpService;
     }
 
     public IDownloadHttpService getHttpService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.httpService : (IDownloadHttpService) invokeV.objValue;
+        return this.httpService;
     }
 
     public ExecutorService getIOThreadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.ioThreadExecutor : (ExecutorService) invokeV.objValue;
+        return this.ioThreadExecutor;
     }
 
     public k getIdGenerator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.idGenerator : (k) invokeV.objValue;
+        return this.idGenerator;
     }
 
     public int getMaxDownloadPoolSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.maxDownloadPoolSize : invokeV.intValue;
+        return this.maxDownloadPoolSize;
     }
 
     public ExecutorService getMixApkDownloadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mixApkDownloadExecutor : (ExecutorService) invokeV.objValue;
+        return this.mixApkDownloadExecutor;
     }
 
     public ExecutorService getMixDefaultDownloadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mixDefaultDownloadExecutor : (ExecutorService) invokeV.objValue;
+        return this.mixDefaultDownloadExecutor;
     }
 
     public ExecutorService getMixFrequentDownloadExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mixFrequentDownloadExecutor : (ExecutorService) invokeV.objValue;
+        return this.mixFrequentDownloadExecutor;
     }
 
     public q getMonitorConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.monitorConfig : (q) invokeV.objValue;
+        return this.monitorConfig;
     }
 
     public af getNotificationClickCallback() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.notificationClickCallback : (af) invokeV.objValue;
+        return this.notificationClickCallback;
     }
 
     public ExecutorService getOkHttpDispatcherExecutor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.okHttpDispatcherExecutor : (ExecutorService) invokeV.objValue;
+        return this.okHttpDispatcherExecutor;
     }
 
     public u getTTNetHandler() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.ttNetHandler : (u) invokeV.objValue;
+        return this.ttNetHandler;
     }
 
     public int getWriteBufferSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.writeBufferSize : invokeV.intValue;
+        return this.writeBufferSize;
     }
 
     public DownloaderBuilder headHttpService(com.ss.android.socialbase.downloader.network.h hVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, hVar)) == null) {
-            this.headHttpService = hVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.headHttpService = hVar;
+        return this;
     }
 
     public DownloaderBuilder httpService(IDownloadHttpService iDownloadHttpService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, iDownloadHttpService)) == null) {
-            this.httpService = iDownloadHttpService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.httpService = iDownloadHttpService;
+        return this;
     }
 
     public DownloaderBuilder idGenerator(k kVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, kVar)) == null) {
-            this.idGenerator = kVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.idGenerator = kVar;
+        return this;
     }
 
     public DownloaderBuilder ioThreadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, executorService)) == null) {
-            this.ioThreadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.ioThreadExecutor = executorService;
+        return this;
     }
 
     public boolean isDownloadInMultiProcess() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.downloadInMultiProcess : invokeV.booleanValue;
+        return this.downloadInMultiProcess;
     }
 
     public DownloaderBuilder maxDownloadPoolSize(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-            this.maxDownloadPoolSize = i2;
-            return this;
-        }
-        return (DownloaderBuilder) invokeI.objValue;
+        this.maxDownloadPoolSize = i2;
+        return this;
     }
 
     public DownloaderBuilder mixApkDownloadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, executorService)) == null) {
-            this.mixApkDownloadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.mixApkDownloadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder mixDefaultDownloadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, executorService)) == null) {
-            this.mixDefaultDownloadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.mixDefaultDownloadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder mixFrequentDownloadExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, executorService)) == null) {
-            this.mixFrequentDownloadExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.mixFrequentDownloadExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder monitorConfig(q qVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, qVar)) == null) {
-            this.monitorConfig = qVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.monitorConfig = qVar;
+        return this;
     }
 
     public DownloaderBuilder needAutoRefreshUnSuccessTask(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048626, this, z)) == null) {
-            this.needAutoRefreshUnSuccessTask = z;
-            return this;
-        }
-        return (DownloaderBuilder) invokeZ.objValue;
+        this.needAutoRefreshUnSuccessTask = z;
+        return this;
     }
 
     public DownloaderBuilder notificationClickCallback(af afVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, afVar)) == null) {
-            this.notificationClickCallback = afVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.notificationClickCallback = afVar;
+        return this;
     }
 
     public DownloaderBuilder okHttpDispatcherExecutor(ExecutorService executorService) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, executorService)) == null) {
-            this.okHttpDispatcherExecutor = executorService;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.okHttpDispatcherExecutor = executorService;
+        return this;
     }
 
     public DownloaderBuilder ttNetHandler(u uVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, uVar)) == null) {
-            this.ttNetHandler = uVar;
-            return this;
-        }
-        return (DownloaderBuilder) invokeL.objValue;
+        this.ttNetHandler = uVar;
+        return this;
     }
 
     public DownloaderBuilder writeBufferSize(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) {
-            this.writeBufferSize = i2;
-            return this;
-        }
-        return (DownloaderBuilder) invokeI.objValue;
+        this.writeBufferSize = i2;
+        return this;
     }
 
     public boolean needAutoRefreshUnSuccessTask() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) ? this.needAutoRefreshUnSuccessTask : invokeV.booleanValue;
+        return this.needAutoRefreshUnSuccessTask;
     }
 }

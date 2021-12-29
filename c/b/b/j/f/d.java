@@ -14,7 +14,7 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27729b;
+    public a f27803b;
 
     /* loaded from: classes9.dex */
     public static class a {
@@ -23,10 +23,10 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.b.b.n.b f27730b;
+        public c.b.b.n.b f27804b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Cubemap f27731c;
+        public Cubemap f27805c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,25 +49,25 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public Pixmap.Format f27732b;
+        public Pixmap.Format f27806b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Cubemap f27733c;
+        public Cubemap f27807c;
 
         /* renamed from: d  reason: collision with root package name */
-        public c.b.b.n.b f27734d;
+        public c.b.b.n.b f27808d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Texture.TextureFilter f27735e;
+        public Texture.TextureFilter f27809e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Texture.TextureFilter f27736f;
+        public Texture.TextureFilter f27810f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Texture.TextureWrap f27737g;
+        public Texture.TextureWrap f27811g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Texture.TextureWrap f27738h;
+        public Texture.TextureWrap f27812h;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -82,15 +82,15 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
                     return;
                 }
             }
-            this.f27732b = null;
-            this.f27733c = null;
-            this.f27734d = null;
+            this.f27806b = null;
+            this.f27807c = null;
+            this.f27808d = null;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27735e = textureFilter;
-            this.f27736f = textureFilter;
+            this.f27809e = textureFilter;
+            this.f27810f = textureFilter;
             Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.f27737g = textureWrap;
-            this.f27738h = textureWrap;
+            this.f27811g = textureWrap;
+            this.f27812h = textureWrap;
         }
     }
 
@@ -112,7 +112,7 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
                 return;
             }
         }
-        this.f27729b = new a();
+        this.f27803b = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -134,26 +134,26 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         c.b.b.n.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, bVar) == null) {
-            a aVar2 = this.f27729b;
+            a aVar2 = this.f27803b;
             aVar2.a = str;
-            if (bVar != null && (bVar2 = bVar.f27734d) != null) {
-                aVar2.f27730b = bVar2;
-                aVar2.f27731c = bVar.f27733c;
+            if (bVar != null && (bVar2 = bVar.f27808d) != null) {
+                aVar2.f27804b = bVar2;
+                aVar2.f27805c = bVar.f27807c;
             } else {
-                a aVar3 = this.f27729b;
-                aVar3.f27731c = null;
+                a aVar3 = this.f27803b;
+                aVar3.f27805c = null;
                 if (bVar != null) {
-                    Pixmap.Format format = bVar.f27732b;
-                    aVar3.f27731c = bVar.f27733c;
+                    Pixmap.Format format = bVar.f27806b;
+                    aVar3.f27805c = bVar.f27807c;
                 }
                 if (str.contains(".ktx") || str.contains(".zktx")) {
-                    this.f27729b.f27730b = new c.b.b.n.m.g(aVar, false);
+                    this.f27803b.f27804b = new c.b.b.n.m.g(aVar, false);
                 }
             }
-            if (this.f27729b.f27730b.a()) {
+            if (this.f27803b.f27804b.a()) {
                 return;
             }
-            this.f27729b.f27730b.prepare();
+            this.f27803b.f27804b.prepare();
         }
     }
 
@@ -164,19 +164,19 @@ public class d extends c.b.b.j.f.b<Cubemap, b> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, bVar)) == null) {
-            a aVar2 = this.f27729b;
+            a aVar2 = this.f27803b;
             if (aVar2 == null) {
                 return null;
             }
-            Cubemap cubemap = aVar2.f27731c;
+            Cubemap cubemap = aVar2.f27805c;
             if (cubemap != null) {
-                cubemap.y(aVar2.f27730b);
+                cubemap.y(aVar2.f27804b);
             } else {
-                cubemap = new Cubemap(this.f27729b.f27730b);
+                cubemap = new Cubemap(this.f27803b.f27804b);
             }
             if (bVar != null) {
-                cubemap.l(bVar.f27735e, bVar.f27736f);
-                cubemap.m(bVar.f27737g, bVar.f27738h);
+                cubemap.l(bVar.f27809e, bVar.f27810f);
+                cubemap.m(bVar.f27811g, bVar.f27812h);
             }
             return cubemap;
         }

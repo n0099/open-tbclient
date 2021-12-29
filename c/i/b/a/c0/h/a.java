@@ -24,10 +24,10 @@ public final class a implements c.i.b.a.c0.a {
     public final l a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k f29849b;
+    public final k f29927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public s f29850c;
+    public s f29928c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public final class a implements c.i.b.a.c0.a {
             }
         }
         this.a = new l();
-        this.f29849b = new k();
+        this.f29927b = new k();
     }
 
     @Override // c.i.b.a.c0.a
@@ -51,22 +51,22 @@ public final class a implements c.i.b.a.c0.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            s sVar = this.f29850c;
-            if (sVar == null || cVar.f29845j != sVar.e()) {
-                s sVar2 = new s(cVar.f30849h);
-                this.f29850c = sVar2;
-                sVar2.a(cVar.f30849h - cVar.f29845j);
+            s sVar = this.f29928c;
+            if (sVar == null || cVar.f29923j != sVar.e()) {
+                s sVar2 = new s(cVar.f30927h);
+                this.f29928c = sVar2;
+                sVar2.a(cVar.f30927h - cVar.f29923j);
             }
-            ByteBuffer byteBuffer = cVar.f30848g;
+            ByteBuffer byteBuffer = cVar.f30926g;
             byte[] array = byteBuffer.array();
             int limit = byteBuffer.limit();
             this.a.H(array, limit);
-            this.f29849b.k(array, limit);
-            this.f29849b.n(39);
-            long g2 = (this.f29849b.g(1) << 32) | this.f29849b.g(32);
-            this.f29849b.n(20);
-            int g3 = this.f29849b.g(12);
-            int g4 = this.f29849b.g(8);
+            this.f29927b.k(array, limit);
+            this.f29927b.n(39);
+            long g2 = (this.f29927b.g(1) << 32) | this.f29927b.g(32);
+            this.f29927b.n(20);
+            int g3 = this.f29927b.g(12);
+            int g4 = this.f29927b.g(8);
             Metadata.Entry entry = null;
             this.a.K(14);
             if (g4 == 0) {
@@ -76,9 +76,9 @@ public final class a implements c.i.b.a.c0.a {
             } else if (g4 == 4) {
                 entry = SpliceScheduleCommand.parseFromSection(this.a);
             } else if (g4 == 5) {
-                entry = SpliceInsertCommand.parseFromSection(this.a, g2, this.f29850c);
+                entry = SpliceInsertCommand.parseFromSection(this.a, g2, this.f29928c);
             } else if (g4 == 6) {
-                entry = TimeSignalCommand.parseFromSection(this.a, g2, this.f29850c);
+                entry = TimeSignalCommand.parseFromSection(this.a, g2, this.f29928c);
             }
             return entry == null ? new Metadata(new Metadata.Entry[0]) : new Metadata(entry);
         }

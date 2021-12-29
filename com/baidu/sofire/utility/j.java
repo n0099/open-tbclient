@@ -1,7 +1,6 @@
 package com.baidu.sofire.utility;
 
 import android.util.Base64;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +16,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                return Base64.encodeToString((UUID.randomUUID() + "_" + System.currentTimeMillis() + "_" + str).getBytes(), 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, "");
+                return Base64.encodeToString((UUID.randomUUID() + "_" + System.currentTimeMillis() + "_" + str).getBytes(), 0).replace(StringUtils.LF, "").replace("\t", "").replace(StringUtils.CR, "");
             } catch (Throwable unused) {
                 c.a();
                 return "";

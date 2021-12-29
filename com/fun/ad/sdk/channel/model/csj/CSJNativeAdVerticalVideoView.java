@@ -20,7 +20,7 @@ public final class CSJNativeAdVerticalVideoView extends e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f56225f;
+    public FrameLayout f56224f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdVerticalVideoView(Context context) {
@@ -94,8 +94,8 @@ public final class CSJNativeAdVerticalVideoView extends e0 {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f56225f.removeAllViews();
-                this.f56225f.addView(adView);
+                this.f56224f.removeAllViews();
+                this.f56224f.addView(adView);
             }
         }
     }
@@ -105,7 +105,7 @@ public final class CSJNativeAdVerticalVideoView extends e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f56225f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f56224f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class cv implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.PatchAdInfo> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public cv() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(AdStyleInfo.PlayDetailInfo.PatchAdInfo patchAdInfo, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, patchAdInfo, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         patchAdInfo.weakStyleIcon = jSONObject.optString("weakStyleIcon");
@@ -78,29 +54,24 @@ public class cv implements com.kwad.sdk.core.d<AdStyleInfo.PlayDetailInfo.PatchA
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(AdStyleInfo.PlayDetailInfo.PatchAdInfo patchAdInfo, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, patchAdInfo, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleIcon", patchAdInfo.weakStyleIcon);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleTitle", patchAdInfo.weakStyleTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleDownloadingTitle", patchAdInfo.weakStyleDownloadingTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAdMark", patchAdInfo.weakStyleAdMark);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAppearTime", patchAdInfo.weakStyleAppearTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleEnableClose", patchAdInfo.weakStyleEnableClose);
-            com.kwad.sdk.utils.t.a(jSONObject, "typePortrait", patchAdInfo.typePortrait);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleCardUrl", patchAdInfo.strongStyleCardUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAppearTime", patchAdInfo.strongStyleAppearTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleTitle", patchAdInfo.strongStyleTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleSubTitle", patchAdInfo.strongStyleSubTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAdMark", patchAdInfo.strongStyleAdMark);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleEnableClose", patchAdInfo.strongStyleEnableClose);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleShowTime", patchAdInfo.weakStyleShowTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleShowTime", patchAdInfo.strongStyleShowTime);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleIcon", patchAdInfo.weakStyleIcon);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleTitle", patchAdInfo.weakStyleTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleDownloadingTitle", patchAdInfo.weakStyleDownloadingTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAdMark", patchAdInfo.weakStyleAdMark);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAppearTime", patchAdInfo.weakStyleAppearTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleEnableClose", patchAdInfo.weakStyleEnableClose);
+        com.kwad.sdk.utils.t.a(jSONObject, "typePortrait", patchAdInfo.typePortrait);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleCardUrl", patchAdInfo.strongStyleCardUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAppearTime", patchAdInfo.strongStyleAppearTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleTitle", patchAdInfo.strongStyleTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleSubTitle", patchAdInfo.strongStyleSubTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAdMark", patchAdInfo.strongStyleAdMark);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleEnableClose", patchAdInfo.strongStyleEnableClose);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleShowTime", patchAdInfo.weakStyleShowTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleShowTime", patchAdInfo.strongStyleShowTime);
+        return jSONObject;
     }
 }

@@ -31,10 +31,10 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34911b;
+    public boolean f35067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<IEditTextPasteFilter> f34912c;
+    public List<IEditTextPasteFilter> f35068c;
     public boolean isAlwaysShow;
     public int off;
 
@@ -80,13 +80,13 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         }
         this.a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f34911b = true;
-        this.f34912c = new ArrayList();
+        this.f35067b = true;
+        this.f35068c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f34912c.addAll(parseEditTextPasteFilter);
+        this.f35068c.addAll(parseEditTextPasteFilter);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,13 +110,13 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         }
         this.a = getClass().getSimpleName();
         this.isAlwaysShow = false;
-        this.f34911b = true;
-        this.f34912c = new ArrayList();
+        this.f35067b = true;
+        this.f35068c = new ArrayList();
         List<IEditTextPasteFilter> parseEditTextPasteFilter = EditTextPasteFilterUtils.parseEditTextPasteFilter(attributeSet);
         if (parseEditTextPasteFilter == null || parseEditTextPasteFilter.size() <= 0) {
             return;
         }
-        this.f34912c.addAll(parseEditTextPasteFilter);
+        this.f35068c.addAll(parseEditTextPasteFilter);
     }
 
     public void addEditTextPasteFilter(IEditTextPasteFilter iEditTextPasteFilter) {
@@ -124,13 +124,13 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, iEditTextPasteFilter) == null) || iEditTextPasteFilter == null) {
             return;
         }
-        this.f34912c.add(iEditTextPasteFilter);
+        this.f35068c.add(iEditTextPasteFilter);
     }
 
     public List<IEditTextPasteFilter> getEditTextPasteFilters() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34912c : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35068c : (List) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -152,7 +152,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
             if (i2 == 16908322) {
-                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f34912c);
+                String applyEditTextPasteFilters = EditTextPasteFilterUtils.applyEditTextPasteFilters(getContext(), this.f35068c);
                 try {
                     int selectionStart = getSelectionStart();
                     int selectionEnd = getSelectionEnd();
@@ -210,7 +210,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
-            if (this.f34911b) {
+            if (this.f35067b) {
                 RimGlobalUtils.showInputMethod(getContext(), view);
                 return true;
             }
@@ -245,7 +245,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
     public void setShowSystemMethodFlag(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f34911b = z;
+            this.f35067b = z;
         }
     }
 }

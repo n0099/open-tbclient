@@ -59,7 +59,7 @@ public class CyberVersion {
     public static String getSDKVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? CyberCfgManager.getInstance().a("enable_version_for_short", true) ? "7.32.6" : SDKVersion.VERSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? CyberCfgManager.getInstance().a("enable_version_for_short", true) ? "7.32.9" : SDKVersion.VERSION : (String) invokeV.objValue;
     }
 
     public static String getSDKVersionInternal() {

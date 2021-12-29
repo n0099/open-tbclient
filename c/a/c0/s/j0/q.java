@@ -33,13 +33,13 @@ public class q extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public FrameLayout f2009i;
+    public FrameLayout f2436i;
 
     /* renamed from: j  reason: collision with root package name */
-    public a f2010j;
+    public a f2437j;
 
     /* renamed from: k  reason: collision with root package name */
-    public b f2011k;
+    public b f2438k;
     public BdNetUtils.NetStatus l;
 
     /* loaded from: classes.dex */
@@ -58,25 +58,25 @@ public class q extends j {
         public final Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ViewGroup f2012b;
+        public ViewGroup f2439b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f2013c;
+        public TextView f2440c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f2014d;
+        public TextView f2441d;
 
         /* renamed from: e  reason: collision with root package name */
-        public TextView f2015e;
+        public TextView f2442e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f2016f;
+        public TextView f2443f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Button f2017g;
+        public Button f2444g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final q f2018h;
+        public final q f2445h;
 
         /* loaded from: classes.dex */
         public class a implements View.OnClickListener {
@@ -84,7 +84,7 @@ public class q extends j {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f2019e;
+            public final /* synthetic */ b f2446e;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -101,14 +101,14 @@ public class q extends j {
                         return;
                     }
                 }
-                this.f2019e = bVar;
+                this.f2446e = bVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f2019e.f2018h.Q();
+                    this.f2446e.f2445h.L();
                 }
             }
         }
@@ -129,7 +129,7 @@ public class q extends j {
                 }
             }
             this.a = context;
-            this.f2018h = qVar;
+            this.f2445h = qVar;
             e();
         }
 
@@ -149,18 +149,18 @@ public class q extends j {
                 ClarityUrlList clarityList = bdVideoSeries.getClarityList();
                 if (a2 >= 0 && clarityList != null && clarityList.size() > 0) {
                     String string2 = this.a.getResources().getString(t.nad_video_net_tip_size, String.valueOf(clarityList.get(0).j()));
-                    this.f2013c.setText(this.a.getResources().getString(t.nad_video_net_tip_duration) + c.a.c0.d0.c.a(a2, false));
-                    this.f2014d.setText(string2);
-                    this.f2015e.setVisibility(0);
-                    this.f2014d.setVisibility(0);
-                    this.f2013c.setVisibility(0);
+                    this.f2440c.setText(this.a.getResources().getString(t.nad_video_net_tip_duration) + c.a.c0.d0.c.a(a2, false));
+                    this.f2441d.setText(string2);
+                    this.f2442e.setVisibility(0);
+                    this.f2441d.setVisibility(0);
+                    this.f2440c.setVisibility(0);
                 } else {
-                    this.f2015e.setVisibility(8);
-                    this.f2014d.setVisibility(8);
-                    this.f2013c.setVisibility(8);
+                    this.f2442e.setVisibility(8);
+                    this.f2441d.setVisibility(8);
+                    this.f2440c.setVisibility(8);
                 }
-                this.f2016f.setText(string);
-                this.f2017g.setOnClickListener(new a(this));
+                this.f2443f.setText(string);
+                this.f2444g.setOnClickListener(new a(this));
             }
         }
 
@@ -168,19 +168,19 @@ public class q extends j {
         public View c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2012b : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2439b : (View) invokeV.objValue;
         }
 
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(c.a.c0.h0.s.nad_bd_embeded_net_tips_layout, (ViewGroup) null);
-                this.f2012b = viewGroup;
-                this.f2013c = (TextView) viewGroup.findViewById(c.a.c0.h0.r.tv_net_duration);
-                this.f2014d = (TextView) this.f2012b.findViewById(c.a.c0.h0.r.tv_net_size);
-                this.f2015e = (TextView) this.f2012b.findViewById(c.a.c0.h0.r.nad_tv_net_divide);
-                this.f2016f = (TextView) this.f2012b.findViewById(c.a.c0.h0.r.tv_net_tips);
-                this.f2017g = (Button) this.f2012b.findViewById(c.a.c0.h0.r.bt_continue_play);
+                this.f2439b = viewGroup;
+                this.f2440c = (TextView) viewGroup.findViewById(c.a.c0.h0.r.tv_net_duration);
+                this.f2441d = (TextView) this.f2439b.findViewById(c.a.c0.h0.r.tv_net_size);
+                this.f2442e = (TextView) this.f2439b.findViewById(c.a.c0.h0.r.nad_tv_net_divide);
+                this.f2443f = (TextView) this.f2439b.findViewById(c.a.c0.h0.r.tv_net_tips);
+                this.f2444g = (Button) this.f2439b.findViewById(c.a.c0.h0.r.bt_continue_play);
             }
         }
     }
@@ -199,12 +199,12 @@ public class q extends j {
             }
         }
         this.l = BdNetUtils.NetStatus.NET_DOWN;
-        FrameLayout frameLayout = new FrameLayout(this.f1987g);
-        this.f2009i = frameLayout;
+        FrameLayout frameLayout = new FrameLayout(this.f2414g);
+        this.f2436i = frameLayout;
         frameLayout.setVisibility(8);
     }
 
-    public final void O(String str) {
+    public final void K(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String h1 = u().h1();
@@ -219,23 +219,23 @@ public class q extends j {
         }
     }
 
-    public void Q() {
+    public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             F(c.a.c0.s.c0.f.w(LayerEvent.ACTION_CLICK_NET_TIP));
-            this.f2009i.setVisibility(8);
-            T(true);
+            this.f2436i.setVisibility(8);
+            N(true);
         }
     }
 
-    public void S() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             F(c.a.c0.s.c0.f.w(LayerEvent.ACTION_HIDE_CACHE_LOADING));
         }
     }
 
-    public void T(boolean z) {
+    public void N(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             c.a.c0.e0.a.c.a().b(z);
@@ -264,12 +264,12 @@ public class q extends j {
                 if (c2 != 1) {
                     return;
                 }
-                this.f2009i.setVisibility(8);
+                this.f2436i.setVisibility(8);
                 return;
             }
             int g2 = pVar.g(1);
             if (g2 == 904 || g2 == 956) {
-                this.f2009i.setVisibility(8);
+                this.f2436i.setVisibility(8);
             }
         }
     }
@@ -279,7 +279,7 @@ public class q extends j {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2009i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2436i : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.j
@@ -296,7 +296,7 @@ public class q extends j {
         if (interceptable == null || interceptable.invokeLL(1048583, this, playerStatus, playerStatus2) == null) {
             super.h(playerStatus, playerStatus2);
             if (playerStatus == PlayerStatus.PLAYING) {
-                this.f2009i.setVisibility(8);
+                this.f2436i.setVisibility(8);
             }
         }
     }
@@ -304,13 +304,13 @@ public class q extends j {
     @Override // c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void k(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) || this.f2010j == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) || this.f2437j == null) {
             return;
         }
         if (LayerEvent.ACTION_SWITCH_FULL.equals(pVar.c())) {
-            this.f2010j.a(true);
+            this.f2437j.a(true);
         } else if (LayerEvent.ACTION_SWITCH_HALF.equals(pVar.c())) {
-            this.f2010j.a(false);
+            this.f2437j.a(false);
         }
     }
 
@@ -321,12 +321,12 @@ public class q extends j {
             BdNetUtils.NetStatus a2 = BdNetUtils.a();
             if (a2 == BdNetUtils.NetStatus.NET_MOBILE && !BdNetUtils.h() && this.l != BdNetUtils.NetStatus.NET_MOBILE) {
                 if (u().Y() && u().r() > 0 && u().S()) {
-                    O(this.f1987g.getString(t.nad_video_net_tip_rest_size));
+                    K(this.f2414g.getString(t.nad_video_net_tip_rest_size));
                 }
             } else {
                 BdNetUtils.NetStatus netStatus = BdNetUtils.NetStatus.NET_WIFI;
                 if (a2 == netStatus && this.l != netStatus) {
-                    this.f2009i.setVisibility(8);
+                    this.f2436i.setVisibility(8);
                     if (u().S() && !u().a0()) {
                         if (u().R()) {
                             u().m0();
@@ -348,8 +348,8 @@ public class q extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onLayerRelease();
-            this.f2011k = null;
-            this.f2010j = null;
+            this.f2438k = null;
+            this.f2437j = null;
         }
     }
 
@@ -360,25 +360,25 @@ public class q extends j {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, pVar) == null) || !ControlEvent.ACTION_SHOW_TIP.equals(pVar.c()) || u().U0() || (o1 = u().o1()) == null) {
             return;
         }
-        if (this.f2011k == null) {
-            this.f2011k = new b(this.f1987g, this);
+        if (this.f2438k == null) {
+            this.f2438k = new b(this.f2414g, this);
         }
-        b bVar = this.f2011k;
-        this.f2010j = bVar;
+        b bVar = this.f2438k;
+        this.f2437j = bVar;
         if (bVar == null) {
-            this.f2009i.removeAllViews();
-            this.f2009i.setVisibility(8);
+            this.f2436i.removeAllViews();
+            this.f2436i.setVisibility(8);
             return;
         }
-        if (this.f2009i.getChildAt(0) != this.f2010j.c()) {
-            this.f2009i.removeAllViews();
-            this.f2009i.addView(this.f2010j.c());
+        if (this.f2436i.getChildAt(0) != this.f2437j.c()) {
+            this.f2436i.removeAllViews();
+            this.f2436i.addView(this.f2437j.c());
         }
-        this.f2010j.c().setVisibility(0);
-        this.f2010j.b(o1);
-        this.f2009i.setVisibility(0);
+        this.f2437j.c().setVisibility(0);
+        this.f2437j.b(o1);
+        this.f2436i.setVisibility(0);
         u().y().y(true);
         u().y().j(this);
-        S();
+        M();
     }
 }

@@ -23,10 +23,10 @@ public final class c {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.c0.v.b f1391b;
+    public static final c.a.c0.v.b f1818b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f1392c;
+    public static final c f1819c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -35,10 +35,10 @@ public final class c {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f1393e;
+        public final /* synthetic */ long f1820e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f1394f;
+        public final /* synthetic */ String f1821f;
 
         public a(long j2, String str) {
             Interceptable interceptable = $ic;
@@ -55,8 +55,8 @@ public final class c {
                     return;
                 }
             }
-            this.f1393e = j2;
-            this.f1394f = str;
+            this.f1820e = j2;
+            this.f1821f = str;
         }
 
         @Override // java.lang.Runnable
@@ -64,22 +64,22 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (c.s()) {
-                    c cVar = c.f1392c;
+                    c cVar = c.f1819c;
                     boolean unused = c.a;
                     return;
                 }
-                long j2 = this.f1393e;
+                long j2 = this.f1820e;
                 if (j2 < 0) {
                     return;
                 }
                 if (j2 > System.currentTimeMillis()) {
-                    c cVar2 = c.f1392c;
+                    c cVar2 = c.f1819c;
                     boolean unused2 = c.a;
                     return;
                 }
-                c.a.c0.x.a.b(new ClogBuilder().r(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).g("APP").m(this.f1394f).h(String.valueOf(this.f1393e)).i(String.valueOf(System.currentTimeMillis())).j("1"));
+                c.a.c0.x.a.b(new ClogBuilder().r(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).g("APP").m(this.f1821f).h(String.valueOf(this.f1820e)).i(String.valueOf(System.currentTimeMillis())).j("1"));
                 c.y();
-                c cVar3 = c.f1392c;
+                c cVar3 = c.f1819c;
                 boolean unused3 = c.a;
             }
         }
@@ -98,10 +98,10 @@ public final class c {
                 return;
             }
         }
-        f1392c = new c();
+        f1819c = new c();
         c.a.c0.v.b b2 = e.a().b("nad_deeplink_stay_time");
         Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().ge…\"nad_deeplink_stay_time\")");
-        f1391b = b2;
+        f1818b = b2;
     }
 
     public c() {
@@ -133,7 +133,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (str != null) {
-                return f1391b.getBoolean(str, true);
+                return f1818b.getBoolean(str, true);
             }
             return true;
         }
@@ -144,14 +144,14 @@ public final class c {
     public static final long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f1391b.getInt("sp_key_stay_time", 15) * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f1818b.getInt("sp_key_stay_time", 15) * 1000 : invokeV.longValue;
     }
 
     @JvmStatic
     public static final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f1391b.getBoolean("key_deep_link_open", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f1818b.getBoolean("key_deep_link_open", false) : invokeV.booleanValue;
     }
 
     @JvmStatic
@@ -171,7 +171,7 @@ public final class c {
     public static final boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f1391b.getBoolean("key_no_need_post_deep_link_trans_on_cold_boot", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? f1818b.getBoolean("key_no_need_post_deep_link_trans_on_cold_boot", false) : invokeV.booleanValue;
     }
 
     @JvmStatic
@@ -237,7 +237,7 @@ public final class c {
     public static final long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f1391b.getLong("key_deep_link_open_time", -1L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? f1818b.getLong("key_deep_link_open_time", -1L) : invokeV.longValue;
     }
 
     @JvmStatic
@@ -245,7 +245,7 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            String string = f1391b.getString("key_deep_link_source_activity", "");
+            String string = f1818b.getString("key_deep_link_source_activity", "");
             return string != null ? string : "";
         }
         return (String) invokeV.objValue;
@@ -255,12 +255,12 @@ public final class c {
     public static final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            f1392c.n();
-            f1392c.o();
-            f1392c.r();
-            f1392c.m();
-            f1392c.q();
-            f1392c.p();
+            f1819c.n();
+            f1819c.o();
+            f1819c.r();
+            f1819c.m();
+            f1819c.q();
+            f1819c.p();
         }
     }
 
@@ -268,7 +268,7 @@ public final class c {
     public static final boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f1391b.getBoolean("key_deep_link_return_before_time_threshold", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) ? f1818b.getBoolean("key_deep_link_return_before_time_threshold", false) : invokeV.booleanValue;
     }
 
     @JvmStatic
@@ -286,7 +286,7 @@ public final class c {
     public static final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            f1391b.e("key_deep_link_open", true);
+            f1818b.e("key_deep_link_open", true);
         }
     }
 
@@ -294,7 +294,7 @@ public final class c {
     public static final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            f1391b.f("key_deep_link_open_time", System.currentTimeMillis());
+            f1818b.f("key_deep_link_open_time", System.currentTimeMillis());
         }
     }
 
@@ -304,7 +304,7 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeL(65555, null, activity) == null) || activity == null) {
             return;
         }
-        f1391b.g("key_deep_link_source_activity", activity.getLocalClassName());
+        f1818b.g("key_deep_link_source_activity", activity.getLocalClassName());
     }
 
     @JvmStatic
@@ -313,14 +313,14 @@ public final class c {
         if (!(interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) || str == null) {
             return;
         }
-        f1391b.e(str, z);
+        f1818b.e(str, z);
     }
 
     @JvmStatic
     public static final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65557, null) == null) {
-            f1391b.e("key_no_need_post_deep_link_trans_on_cold_boot", true);
+            f1818b.e("key_no_need_post_deep_link_trans_on_cold_boot", true);
         }
     }
 
@@ -328,7 +328,7 @@ public final class c {
     public static final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            f1391b.e("key_deep_link_return_before_time_threshold", true);
+            f1818b.e("key_deep_link_return_before_time_threshold", true);
         }
     }
 
@@ -342,35 +342,35 @@ public final class c {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f1391b.e("key_deep_link_open", false);
+            f1818b.e("key_deep_link_open", false);
         }
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f1391b.f("key_deep_link_open_time", -1L);
+            f1818b.f("key_deep_link_open_time", -1L);
         }
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            f1391b.g("key_deep_link_source_activity", "");
+            f1818b.g("key_deep_link_source_activity", "");
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            f1391b.e("key_no_need_post_deep_link_trans_on_cold_boot", false);
+            f1818b.e("key_no_need_post_deep_link_trans_on_cold_boot", false);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f1391b.e("key_deep_link_return_before_time_threshold", false);
+            f1818b.e("key_deep_link_return_before_time_threshold", false);
         }
     }
 }

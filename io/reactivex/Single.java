@@ -725,7 +725,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, singleSource)) == null) ? merge(this, singleSource) : (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -834,7 +834,7 @@ public abstract class Single<T> implements SingleSource<T> {
 
     public abstract void subscribeActual(@NonNull SingleObserver<? super T> singleObserver);
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -966,7 +966,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (Observable) invokeV.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     @Experimental
     public final Single<T> unsubscribeOn(Scheduler scheduler) {
@@ -1034,7 +1034,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Single<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1114,7 +1114,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (Disposable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1134,7 +1134,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (Single) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static <T> Single<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1142,7 +1142,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{future, Long.valueOf(j2), timeUnit, scheduler})) == null) ? toSingle(Flowable.fromFuture(future, j2, timeUnit, scheduler)) : (Single) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1211,7 +1211,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (TestObserver) invokeZ.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
@@ -1232,7 +1232,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, publisher)) == null) ? concat(publisher, 2) : (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static <T> Single<T> fromFuture(Future<? extends T> future, Scheduler scheduler) {
         InterceptResult invokeLL;
@@ -1280,7 +1280,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (Single) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     @Experimental
     public final Single<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
@@ -1478,7 +1478,7 @@ public abstract class Single<T> implements SingleSource<T> {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048589, this, j2, timeUnit)) == null) ? delaySubscription(j2, timeUnit, Schedulers.computation()) : (Single) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Single<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;

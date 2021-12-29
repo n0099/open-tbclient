@@ -25,20 +25,20 @@ public final class b extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static boolean f2086j = false;
+    public static boolean f2513j = false;
 
     /* renamed from: k  reason: collision with root package name */
-    public static boolean f2087k = false;
+    public static boolean f2514k = false;
     public static boolean l = false;
     public static boolean m = false;
     public static int n = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2088h;
+    public boolean f2515h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f2089i;
+    public boolean f2516i;
 
     static {
         InterceptResult invokeClinit;
@@ -82,13 +82,13 @@ public final class b extends a {
         if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
             if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_SET_DATA_SOURCE)) {
-                this.f2089i = false;
+                this.f2516i = false;
                 boolean r = r();
                 if (!r) {
                     n = k.c(getContext());
                 }
-                if (r != f2086j) {
-                    f2086j = r;
+                if (r != f2513j) {
+                    f2513j = r;
                     if (!r && c.a.c0.s.e.T() && k.c(getContext()) > 0) {
                         h.b("HeadsetPlugin", "恢复操作,静音->非静音");
                         m = false;
@@ -99,7 +99,7 @@ public final class b extends a {
                     }
                 }
                 c.a.c0.s.e i3 = i();
-                this.f2088h = i3 != null ? i3.V() : false;
+                this.f2515h = i3 != null ? i3.V() : false;
             }
         }
     }
@@ -119,13 +119,13 @@ public final class b extends a {
             if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_HEADSET_PLUG)) {
                 boolean d2 = event.d(3);
                 l = d2;
-                if (f2087k) {
+                if (f2514k) {
                     return;
                 }
                 p(d2);
             } else if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_BLUETOOTH_HEADSET)) {
                 boolean d3 = event.d(6);
-                f2087k = d3;
+                f2514k = d3;
                 if (l) {
                     return;
                 }
@@ -160,12 +160,12 @@ public final class b extends a {
             sb.append(i7 != null ? Boolean.valueOf(i7.U()) : null);
             h.b("HeadsetPlugin", sb.toString());
             if (z) {
-                f2086j = true;
+                f2513j = true;
                 m = c.a.c0.s.e.T();
                 c.a.c0.s.e i8 = i();
-                this.f2088h = i8 != null ? i8.V() : false;
-                h.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + m + ", 播放器=" + this.f2088h);
-                boolean z2 = this.f2088h;
+                this.f2515h = i8 != null ? i8.V() : false;
+                h.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + m + ", 播放器=" + this.f2515h);
+                boolean z2 = this.f2515h;
                 if (!z2) {
                     c.a.c0.s.e i9 = i();
                     z2 = i9 != null && i9.V();
@@ -178,28 +178,28 @@ public final class b extends a {
                     c2 = (int) (k.b(getContext()) * 0.35d);
                 }
                 k.d(getContext(), c2);
-                if (s.k() && (i3 = i()) != null && i3.W() && this.f2089i) {
+                if (s.k() && (i3 = i()) != null && i3.W() && this.f2516i) {
                     c.a.c0.s.e i10 = i();
                     int r = i10 != null ? i10.r() : 0;
                     c.a.c0.s.e i11 = i();
                     if (r > (i11 != null ? i11.C() : 0)) {
-                        this.f2089i = false;
+                        this.f2516i = false;
                         c.a.c0.s.e i12 = i();
                         if (i12 != null) {
                             i12.l0();
                         }
                     }
                 }
-            } else if (f2086j) {
-                f2086j = false;
+            } else if (f2513j) {
+                f2513j = false;
                 if (s.k() && (i2 = i()) != null && i2.Y()) {
-                    this.f2089i = true;
+                    this.f2516i = true;
                     c.a.c0.s.e i13 = i();
                     if (i13 != null) {
                         i13.f0(4);
                     }
                 }
-                h.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + m + ", 播放器=" + this.f2088h + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + n);
+                h.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + m + ", 播放器=" + this.f2515h + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + n);
                 if (n == 0) {
                     k.d(getContext(), n);
                 }
@@ -209,7 +209,7 @@ public final class b extends a {
                 }
                 c.a.c0.s.e i15 = i();
                 if (i15 != null) {
-                    i15.w0(this.f2088h);
+                    i15.w0(this.f2515h);
                 }
             } else {
                 c.a.c0.s.q0.b.c().d(c.a.c0.s.c0.f.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));

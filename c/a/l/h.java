@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public abstract class h extends a<c.a.r0.s.r.a> {
+public abstract class h extends a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3823j;
+    public int f4238j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f3824k;
+    public int f4239k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(Context context) {
@@ -36,33 +36,33 @@ public abstract class h extends a<c.a.r0.s.r.a> {
                 return;
             }
         }
-        this.f3823j = 0;
-        this.f3824k = 0;
+        this.f4238j = 0;
+        this.f4239k = 0;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3824k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4239k : invokeV.intValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3823j : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4238j : invokeV.intValue;
     }
 
     public void p(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f3824k = i2;
+            this.f4239k = i2;
         }
     }
 
     public void q(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f3823j = i2;
+            this.f4238j = i2;
         }
     }
 }

@@ -16,7 +16,7 @@ public class ZeusConstants {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f55032b;
+    public static final String f55035b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +33,7 @@ public class ZeusConstants {
             }
         }
         a = "." + BASE_LIB_NAME + ".servermanager.";
-        f55032b = "." + BASE_LIB_NAME + ".provider.proxy.";
+        f55035b = "." + BASE_LIB_NAME + ".provider.proxy.";
     }
 
     public ZeusConstants() {

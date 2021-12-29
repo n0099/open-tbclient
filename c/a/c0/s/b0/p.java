@@ -26,22 +26,22 @@ public class p extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public VerticalVolumeBar f1922f;
+    public VerticalVolumeBar f2349f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AudioManager f1923g;
+    public AudioManager f2350g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f1924h;
+    public boolean f2351h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f1925i;
+    public boolean f2352i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1926j;
+    public boolean f2353j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f1927k;
+    public int f2354k;
     public final Runnable l;
 
     /* loaded from: classes.dex */
@@ -50,7 +50,7 @@ public class p extends g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f1928e;
+        public final /* synthetic */ p f2355e;
 
         public a(p pVar) {
             Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public class p extends g {
                     return;
                 }
             }
-            this.f1928e = pVar;
+            this.f2355e = pVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1928e.v();
+                this.f2355e.v();
             }
         }
     }
@@ -92,8 +92,8 @@ public class p extends g {
                 return;
             }
         }
-        this.f1925i = false;
-        this.f1926j = false;
+        this.f2352i = false;
+        this.f2353j = false;
         this.l = new a(this);
     }
 
@@ -102,14 +102,14 @@ public class p extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
-            this.f1922f = verticalVolumeBar;
+            this.f2349f = verticalVolumeBar;
             verticalVolumeBar.setLayoutParams(t(false));
-            this.f1922f.setProgressDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_video_volume_bar_color));
-            this.f1922f.setBackgroundResource(q.nad_videoplayer_video_volume_bar_shadow_bg);
+            this.f2349f.setProgressDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_video_volume_bar_color));
+            this.f2349f.setBackgroundResource(q.nad_videoplayer_video_volume_bar_shadow_bg);
             int dimension = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_volume_shadow_width);
             int i2 = dimension / 2;
-            this.f1922f.setPadding(i2, dimension, i2, dimension);
-            this.f1922f.setVisibility(8);
+            this.f2349f.setPadding(i2, dimension, i2, dimension);
+            this.f2349f.setVisibility(8);
         }
     }
 
@@ -127,7 +127,7 @@ public class p extends g {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1922f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2349f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -217,7 +217,7 @@ public class p extends g {
                     w();
                     return;
                 case 1:
-                    if (this.f1924h) {
+                    if (this.f2351h) {
                         return;
                     }
                     v();
@@ -234,19 +234,19 @@ public class p extends g {
                     x(false);
                     return;
                 case 7:
-                    this.f1926j = true;
-                    this.f1927k = pVar.g(20);
+                    this.f2353j = true;
+                    this.f2354k = pVar.g(20);
                     w();
                     return;
                 case '\b':
-                    this.f1926j = false;
+                    this.f2353j = false;
                     return;
                 case '\t':
-                    VerticalVolumeBar verticalVolumeBar = this.f1922f;
+                    VerticalVolumeBar verticalVolumeBar = this.f2349f;
                     if (verticalVolumeBar == null || verticalVolumeBar.getVisibility() != 0) {
                         return;
                     }
-                    this.f1922f.setVisibility(8);
+                    this.f2349f.setVisibility(8);
                     return;
                 default:
                     return;
@@ -258,7 +258,7 @@ public class p extends g {
     public void p(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f1924h = z;
+            this.f2351h = z;
             if (z) {
                 v();
             }
@@ -281,7 +281,7 @@ public class p extends g {
             }
             int i3 = i2 + dimension3;
             int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_volume_height));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f1922f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2349f.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new FrameLayout.LayoutParams(i3, dimension4);
             }
@@ -307,16 +307,16 @@ public class p extends g {
 
     public void u() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && o() != null && o().b0()) {
-            o().c0(false);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && o() != null && o().U()) {
+            o().V(false);
         }
     }
 
     public final void v() {
         VerticalVolumeBar verticalVolumeBar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (verticalVolumeBar = this.f1922f) != null && verticalVolumeBar.getVisibility() == 0) {
-            this.f1922f.setVisibility(8);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (verticalVolumeBar = this.f2349f) != null && verticalVolumeBar.getVisibility() == 0) {
+            this.f2349f.setVisibility(8);
             b(c.a.c0.s.c0.f.w(LayerEvent.ACTION_HIDE_VOLUME_BAR));
         }
     }
@@ -326,31 +326,31 @@ public class p extends g {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Activity activity = n().getActivity();
             if (activity != null && activity.hasWindowFocus()) {
-                if ((!n().Y() && !n().W()) || this.f1925i) {
+                if ((!n().Y() && !n().W()) || this.f2352i) {
                     v();
                     return;
                 }
-                VerticalVolumeBar verticalVolumeBar = this.f1922f;
+                VerticalVolumeBar verticalVolumeBar = this.f2349f;
                 if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() != 0) {
-                    this.f1922f.setVisibility(0);
+                    this.f2349f.setVisibility(0);
                     c.a.c0.s.c0.p w = c.a.c0.s.c0.f.w(LayerEvent.ACTION_SHOW_VOLUME_BAR);
                     b(w);
                     l(w);
                 }
                 u();
-                if (this.f1923g == null) {
-                    this.f1923g = (AudioManager) getContext().getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+                if (this.f2350g == null) {
+                    this.f2350g = (AudioManager) getContext().getApplicationContext().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
                 }
-                int streamMaxVolume = this.f1923g.getStreamMaxVolume(3);
-                int streamVolume = this.f1923g.getStreamVolume(3);
-                VerticalVolumeBar verticalVolumeBar2 = this.f1922f;
+                int streamMaxVolume = this.f2350g.getStreamMaxVolume(3);
+                int streamVolume = this.f2350g.getStreamVolume(3);
+                VerticalVolumeBar verticalVolumeBar2 = this.f2349f;
                 if (verticalVolumeBar2 != null) {
-                    if (!this.f1926j) {
+                    if (!this.f2353j) {
                         verticalVolumeBar2.setMax(streamMaxVolume);
-                        this.f1922f.setProgress(streamVolume);
+                        this.f2349f.setProgress(streamVolume);
                     } else {
                         verticalVolumeBar2.setMax(100);
-                        this.f1922f.setProgress(this.f1927k);
+                        this.f2349f.setProgress(this.f2354k);
                     }
                 }
                 o().w().removeCallbacks(this.l);
@@ -364,10 +364,10 @@ public class p extends g {
     public final void x(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (this.f1922f == null) {
+            if (this.f2349f == null) {
                 f();
             }
-            this.f1922f.setLayoutParams(t(z));
+            this.f2349f.setLayoutParams(t(z));
             v();
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.Tachikoma;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "tachikoma";

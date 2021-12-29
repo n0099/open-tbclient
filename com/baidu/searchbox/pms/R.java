@@ -34,7 +34,6 @@ public final class R {
         public static final int META_ERROR_NETWORK = 0x7f0f0034;
         public static final int META_ERROR_PARAMS = 0x7f0f0035;
         public static final int META_ERROR_RESPONSE = 0x7f0f0036;
-        public static final int META_REQ_SUCCESS = 0x7f0f0037;
         public static final int app_name = 0x7f0f029e;
         public transient /* synthetic */ FieldHolder $fh;
 

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.util.g;
+import com.vivo.push.util.aa;
+import com.vivo.push.util.f;
 import com.vivo.push.util.p;
-import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class a extends d<com.vivo.push.model.a> {
+public final class a extends c<com.vivo.push.model.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,14 +39,14 @@ public final class a extends d<com.vivo.push.model.a> {
         }
     }
 
-    @Override // com.vivo.push.cache.d
+    @Override // com.vivo.push.cache.c
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "com.vivo.pushservice.back_up" : (String) invokeV.objValue;
     }
 
-    @Override // com.vivo.push.cache.d
+    @Override // com.vivo.push.cache.c
     public final List<com.vivo.push.model.a> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -56,14 +56,14 @@ public final class a extends d<com.vivo.push.model.a> {
             }
             ArrayList arrayList = new ArrayList();
             if (!TextUtils.isEmpty(str)) {
-                for (String str2 : str.trim().split(com.vivo.push.cache.impl.a.SPILTE_TAG)) {
+                for (String str2 : str.trim().split("@#")) {
                     String trim = str2.trim();
                     String[] split = trim.trim().split(",");
                     if (split.length >= 2) {
                         try {
                             arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
                         } catch (Exception e2) {
-                            p.d("AppConfigSettings", "str2Clients E: " + e2);
+                            p.d("AppConfigSettings", "str2Clients E: ".concat(String.valueOf(e2)));
                         }
                     }
                 }
@@ -73,19 +73,19 @@ public final class a extends d<com.vivo.push.model.a> {
         return (List) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.cache.d
+    @Override // com.vivo.push.cache.c
     public final String b(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(g.a(g.a(d.a), g.a(d.f63065b), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new String(f.a(f.a(e()), f.a(f()), Base64.decode(str, 2)), "utf-8") : (String) invokeL.objValue;
     }
 
     public final com.vivo.push.model.a c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (d.f63066c) {
-                for (T t : this.f63067d) {
+            synchronized (c.a) {
+                for (T t : this.f63063b) {
                     if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                         return t;
                     }
@@ -119,7 +119,7 @@ public final class a extends d<com.vivo.push.model.a> {
             if (i2 != -1) {
                 return (i2 & 1) != 0;
             }
-            return z.b("persist.sys.log.ctrl", "no").equals("yes");
+            return aa.b("persist.sys.log.ctrl", "no").equals("yes");
         }
         return invokeI.booleanValue;
     }

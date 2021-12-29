@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.m;
-import c.a.s0.r1.f;
+import c.a.d.f.p.n;
+import c.a.t0.r1.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SelectTopicToolBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_TYPE_GENERAL = 2;
@@ -33,28 +33,28 @@ public class SelectTopicToolBar extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView.Adapter<d> f51782e;
+    public RecyclerView.Adapter<d> f52036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<f> f51783f;
+    public final List<f> f52037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f51784g;
+    public int f52038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f51785h;
+    public long f52039h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SelectTopicToolItem f51786i;
+    public SelectTopicToolItem f52040i;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f51787j;
+    public View f52041j;
 
     /* renamed from: k  reason: collision with root package name */
-    public e f51788k;
+    public e f52042k;
     public final SelectTopicToolItem.b l;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements SelectTopicToolItem.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,22 +82,22 @@ public class SelectTopicToolBar extends LinearLayout {
         public void a(@NonNull f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                fVar.k(this.a.f51784g == 1);
+                fVar.k(this.a.f52038g == 1);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, fVar));
-                if (fVar.j() && this.a.f51784g == 1) {
+                if (fVar.j() && this.a.f52038g == 1) {
                     TiebaStatic.log(new StatisticItem("c14419").addParam("obj_locate", "1").addParam("is_video_topic", "1").addParam("topic_id", fVar.d().longValue()));
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectTopicToolBar f51789e;
+        public final /* synthetic */ SelectTopicToolBar f52043e;
 
         public b(SelectTopicToolBar selectTopicToolBar) {
             Interceptable interceptable = $ic;
@@ -114,20 +114,20 @@ public class SelectTopicToolBar extends LinearLayout {
                     return;
                 }
             }
-            this.f51789e = selectTopicToolBar;
+            this.f52043e = selectTopicToolBar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51789e.f51788k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f52043e.f52042k == null) {
                 return;
             }
-            this.f51789e.f51788k.onOpen();
+            this.f52043e.f52042k.onOpen();
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c extends RecyclerView.Adapter<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,7 +157,7 @@ public class SelectTopicToolBar extends LinearLayout {
         public void onBindViewHolder(@NonNull d dVar, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dVar, i2) == null) {
-                dVar.a.bindData((f) this.a.f51783f.get(i2));
+                dVar.a.bindData((f) this.a.f52037f.get(i2));
             }
         }
 
@@ -170,9 +170,9 @@ public class SelectTopicToolBar extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
                 SelectTopicToolItem selectTopicToolItem = new SelectTopicToolItem(viewGroup.getContext());
-                if (this.a.f51784g == 1) {
+                if (this.a.f52038g == 1) {
                     selectTopicToolItem.setFromBar(true);
-                    selectTopicToolItem.setPadding(0, m.f(this.a.getContext(), c.a.s0.n4.e.M_H_X005), 0, m.f(this.a.getContext(), c.a.s0.n4.e.M_H_X007));
+                    selectTopicToolItem.setPadding(0, n.f(this.a.getContext(), c.a.t0.o4.e.M_H_X005), 0, n.f(this.a.getContext(), c.a.t0.o4.e.M_H_X007));
                 }
                 selectTopicToolItem.setItemClickListener(this.a.l);
                 return new d(selectTopicToolItem);
@@ -188,7 +188,7 @@ public class SelectTopicToolBar extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
                 super.onViewAttachedToWindow(dVar);
                 int adapterPosition = dVar.getAdapterPosition();
-                f fVar = (f) this.a.f51783f.get(adapterPosition);
+                f fVar = (f) this.a.f52037f.get(adapterPosition);
                 if (adapterPosition == 0 || !fVar.j()) {
                     return;
                 }
@@ -201,16 +201,16 @@ public class SelectTopicToolBar extends LinearLayout {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.a.f51783f == null) {
+                if (this.a.f52037f == null) {
                     return 0;
                 }
-                return this.a.f51783f.size();
+                return this.a.f52037f.size();
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public static class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +238,7 @@ public class SelectTopicToolBar extends LinearLayout {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface e {
         void onOpen();
     }
@@ -261,7 +261,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 return;
             }
         }
-        this.f51783f = new ArrayList();
+        this.f52037f = new ArrayList();
         this.l = new a(this);
         e();
     }
@@ -271,15 +271,15 @@ public class SelectTopicToolBar extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f51783f.clear();
-        this.f51783f.addAll(list);
-        for (int i2 = 0; i2 < this.f51783f.size(); i2++) {
-            f fVar = this.f51783f.get(i2);
+        this.f52037f.clear();
+        this.f52037f.addAll(list);
+        for (int i2 = 0; i2 < this.f52037f.size(); i2++) {
+            f fVar = this.f52037f.get(i2);
             if (fVar != null) {
-                fVar.m(this.f51785h == fVar.d().longValue());
+                fVar.m(this.f52039h == fVar.d().longValue());
             }
         }
-        this.f51782e.notifyDataSetChanged();
+        this.f52036e.notifyDataSetChanged();
     }
 
     public final void e() {
@@ -287,26 +287,26 @@ public class SelectTopicToolBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(0);
             SelectTopicToolItem selectTopicToolItem = new SelectTopicToolItem(getContext());
-            this.f51786i = selectTopicToolItem;
+            this.f52040i = selectTopicToolItem;
             selectTopicToolItem.setIsAddTopicItem();
-            this.f51786i.setOnClickListener(new b(this));
-            addView(this.f51786i);
-            this.f51787j = new View(getContext());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds1), UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds42));
-            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds26);
+            this.f52040i.setOnClickListener(new b(this));
+            addView(this.f52040i);
+            this.f52041j = new View(getContext());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds1), UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds42));
+            layoutParams.rightMargin = UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds26);
             layoutParams.gravity = 16;
-            addView(this.f51787j, layoutParams);
+            addView(this.f52041j, layoutParams);
             RecyclerView recyclerView = new RecyclerView(getContext());
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             recyclerView.setFadingEdgeLength(0);
             recyclerView.setOverScrollMode(2);
             c cVar = new c(this);
-            this.f51782e = cVar;
+            this.f52036e = cVar;
             recyclerView.setAdapter(cVar);
             recyclerView.setClipChildren(false);
             recyclerView.setClipToPadding(false);
             recyclerView.setHorizontalFadingEdgeEnabled(true);
-            recyclerView.setFadingEdgeLength(UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds70));
+            recyclerView.setFadingEdgeLength(UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds70));
             addView(recyclerView);
         }
     }
@@ -314,37 +314,37 @@ public class SelectTopicToolBar extends LinearLayout {
     public int getmFromType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51784g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f52038g : invokeV.intValue;
     }
 
     public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f51786i.changeSkin();
-            this.f51782e.notifyDataSetChanged();
-            c.a.r0.s.v.c.d(this.f51787j).f(c.a.s0.n4.d.CAM_X0401);
-            c.a.r0.s.v.c.d(this).f(c.a.s0.n4.d.CAM_X0201);
+            this.f52040i.changeSkin();
+            this.f52036e.notifyDataSetChanged();
+            c.a.s0.s.u.c.d(this.f52041j).f(c.a.t0.o4.d.CAM_X0401);
+            c.a.s0.s.u.c.d(this).f(c.a.t0.o4.d.CAM_X0201);
         }
     }
 
     public void setOpenTopicLayoutListener(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f51788k = eVar;
+            this.f52042k = eVar;
         }
     }
 
     public void setSelectTopicId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f51785h = j2;
-            for (int i2 = 0; i2 < this.f51783f.size(); i2++) {
-                f fVar = this.f51783f.get(i2);
+            this.f52039h = j2;
+            for (int i2 = 0; i2 < this.f52037f.size(); i2++) {
+                f fVar = this.f52037f.get(i2);
                 if (fVar != null) {
                     fVar.m(j2 == fVar.d().longValue());
                 }
             }
-            RecyclerView.Adapter<d> adapter = this.f51782e;
+            RecyclerView.Adapter<d> adapter = this.f52036e;
             if (adapter != null) {
                 adapter.notifyDataSetChanged();
             }
@@ -354,9 +354,9 @@ public class SelectTopicToolBar extends LinearLayout {
     public void setmFromType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f51784g = i2;
+            this.f52038g = i2;
             if (i2 == 1) {
-                this.f51786i.setPadding(0, m.f(getContext(), c.a.s0.n4.e.M_H_X005), 0, m.f(getContext(), c.a.s0.n4.e.M_H_X007));
+                this.f52040i.setPadding(0, n.f(getContext(), c.a.t0.o4.e.M_H_X005), 0, n.f(getContext(), c.a.t0.o4.e.M_H_X007));
             }
         }
     }
@@ -364,7 +364,7 @@ public class SelectTopicToolBar extends LinearLayout {
     public void showAddTopicItem(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f51786i.setVisibility(z ? 0 : 8);
+            this.f52040i.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -387,7 +387,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 return;
             }
         }
-        this.f51783f = new ArrayList();
+        this.f52037f = new ArrayList();
         this.l = new a(this);
         e();
     }
@@ -411,7 +411,7 @@ public class SelectTopicToolBar extends LinearLayout {
                 return;
             }
         }
-        this.f51783f = new ArrayList();
+        this.f52037f = new ArrayList();
         this.l = new a(this);
         e();
     }

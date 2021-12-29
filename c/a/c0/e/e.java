@@ -13,7 +13,7 @@ public interface e {
     public static final ServiceReference a = new ServiceReference("nad.core", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f1472b = new a();
+    public static final e f1899b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements e {

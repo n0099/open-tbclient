@@ -1,49 +1,168 @@
 package com.vivo.push.c;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.UPSNotificationMessage;
-import com.vivo.push.sdk.PushMessageCallback;
+import com.vivo.push.util.NotifyAdapterUtil;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class u implements Runnable {
+public final class u extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ UPSNotificationMessage a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ t f63057b;
-
-    public u(t tVar, UPSNotificationMessage uPSNotificationMessage) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u(com.vivo.push.o oVar) {
+        super(oVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tVar, uPSNotificationMessage};
+            Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f63057b = tVar;
-        this.a = uPSNotificationMessage;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Context context;
+    public static Intent b(Intent intent, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t tVar = this.f63057b;
-            PushMessageCallback pushMessageCallback = ((ab) tVar).f63032b;
-            context = tVar.a;
-            pushMessageCallback.onNotificationMessageClicked(context, this.a);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, intent, map)) == null) {
+            if (map != null && map.entrySet() != null) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (entry != null && entry.getKey() != null) {
+                        intent.putExtra(entry.getKey(), entry.getValue());
+                    }
+                }
+            }
+            return intent;
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    @Override // com.vivo.push.l
+    public final void a(com.vivo.push.o oVar) {
+        Intent parseUri;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
+            com.vivo.push.b.p pVar = (com.vivo.push.b.p) oVar;
+            InsideNotificationItem f2 = pVar.f();
+            if (f2 == null) {
+                com.vivo.push.util.p.d("OnNotificationClickTask", "current notification item is null");
+                return;
+            }
+            UPSNotificationMessage a = com.vivo.push.util.q.a(f2);
+            String d2 = pVar.d();
+            f2.getAppType();
+            boolean equals = this.a.getPackageName().equals(d2);
+            if (equals) {
+                NotifyAdapterUtil.cancelNotify(this.a);
+            }
+            if (equals) {
+                com.vivo.push.b.x xVar = new com.vivo.push.b.x(1030L);
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("type", "2");
+                hashMap.put("messageID", String.valueOf(pVar.e()));
+                hashMap.put(Constants.PARAM_PLATFORM, this.a.getPackageName());
+                Context context = this.a;
+                String b2 = com.vivo.push.util.aa.b(context, context.getPackageName());
+                if (!TextUtils.isEmpty(b2)) {
+                    hashMap.put("remoteAppId", b2);
+                }
+                xVar.a(hashMap);
+                com.vivo.push.e.a().a(xVar);
+                com.vivo.push.util.p.d("OnNotificationClickTask", "notification is clicked by skip type[" + a.getSkipType() + PreferencesUtil.RIGHT_MOUNT);
+                int skipType = a.getSkipType();
+                boolean z = true;
+                if (skipType == 1) {
+                    new Thread(new v(this, this.a, a.getParams())).start();
+                    a(a);
+                    return;
+                } else if (skipType == 2) {
+                    String skipContent = a.getSkipContent();
+                    if (!skipContent.startsWith("http://") && !skipContent.startsWith("https://")) {
+                        z = false;
+                    }
+                    if (z) {
+                        Uri parse = Uri.parse(skipContent);
+                        Intent intent = new Intent("android.intent.action.VIEW", parse);
+                        intent.setFlags(268435456);
+                        b(intent, a.getParams());
+                        try {
+                            this.a.startActivity(intent);
+                        } catch (Exception unused) {
+                            com.vivo.push.util.p.a("OnNotificationClickTask", "startActivity error : ".concat(String.valueOf(parse)));
+                        }
+                    } else {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "url not legal");
+                    }
+                    a(a);
+                    return;
+                } else if (skipType == 3) {
+                    a(a);
+                    return;
+                } else if (skipType != 4) {
+                    com.vivo.push.util.p.a("OnNotificationClickTask", "illegitmacy skip type error : " + a.getSkipType());
+                    return;
+                } else {
+                    String skipContent2 = a.getSkipContent();
+                    try {
+                        parseUri = Intent.parseUri(skipContent2, 1);
+                        str = parseUri.getPackage();
+                    } catch (Exception e2) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : ".concat(String.valueOf(skipContent2)), e2);
+                    }
+                    if (!TextUtils.isEmpty(str) && !this.a.getPackageName().equals(str)) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                        return;
+                    }
+                    String packageName = parseUri.getComponent() == null ? null : parseUri.getComponent().getPackageName();
+                    if (!TextUtils.isEmpty(packageName) && !this.a.getPackageName().equals(packageName)) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "open activity component error : local pkgName is " + this.a.getPackageName() + "; but remote pkgName is " + parseUri.getPackage());
+                        return;
+                    }
+                    parseUri.setSelector(null);
+                    parseUri.setPackage(this.a.getPackageName());
+                    parseUri.addFlags(335544320);
+                    b(parseUri, a.getParams());
+                    ActivityInfo resolveActivityInfo = parseUri.resolveActivityInfo(this.a.getPackageManager(), 65536);
+                    if (resolveActivityInfo != null && !resolveActivityInfo.exported) {
+                        com.vivo.push.util.p.a("OnNotificationClickTask", "activity is not exported : " + resolveActivityInfo.toString());
+                        return;
+                    }
+                    this.a.startActivity(parseUri);
+                    a(a);
+                    return;
+                }
+            }
+            com.vivo.push.util.p.a("OnNotificationClickTask", "notify is " + a + " ; isMatch is " + equals);
+        }
+    }
+
+    private void a(UPSNotificationMessage uPSNotificationMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, this, uPSNotificationMessage) == null) {
+            com.vivo.push.m.c(new w(this, uPSNotificationMessage));
         }
     }
 }

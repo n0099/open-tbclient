@@ -53,7 +53,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f47397b;
+        public int f47618b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f47397b = i5;
+            this.f47618b = i5;
         }
 
         public int a(float f2) {
@@ -162,7 +162,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                             if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                                 int a2 = this.S.a(this.R - this.Q);
                                 b bVar = this.S;
-                                if (a2 > bVar.a && a2 <= bVar.f47397b) {
+                                if (a2 > bVar.a && a2 <= bVar.f47618b) {
                                     this.T = true;
                                     this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
                                     y(a2 - this.S.a);
@@ -170,7 +170,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                                     b bVar2 = this.S;
                                     if (a2 <= bVar2.a) {
                                         this.T = false;
-                                    } else if (a2 > bVar2.f47397b) {
+                                    } else if (a2 > bVar2.f47618b) {
                                         this.T = true;
                                     } else {
                                         this.T = false;
@@ -242,7 +242,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f47397b - (this.a0 / 2)) {
+        if (height >= this.S.f47618b - (this.a0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

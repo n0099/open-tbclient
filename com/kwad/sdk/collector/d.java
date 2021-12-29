@@ -2,14 +2,6 @@ package com.kwad.sdk.collector;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.AbiUtil;
 import com.kwai.sodler.lib.ext.PluginError;
@@ -17,9 +9,7 @@ import com.kwai.sodler.lib.ext.b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public class d {
-    public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final AtomicBoolean a = new AtomicBoolean(false);
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -28,25 +18,8 @@ public class d {
         void a(String str);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1320780940, "Lcom/kwad/sdk/collector/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1320780940, "Lcom/kwad/sdk/collector/d;");
-                return;
-            }
-        }
-        a = new AtomicBoolean(false);
-    }
-
-    public static void a(Context context, a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, aVar) == null) || a.get()) {
+    public static void a(Context context, final a aVar) {
+        if (a.get()) {
             return;
         }
         if (KsAdSDKImpl.get().getIsExternal()) {
@@ -78,49 +51,21 @@ public class d {
         bVar.a = str;
         bVar.f60664b = ah;
         bVar.f60669g = false;
-        com.kwai.sodler.kwai.b.a(str, bVar, new b.a(aVar) { // from class: com.kwad.sdk.collector.d.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
+        com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, hVar) == null) {
-                    super.a(hVar);
-                }
+                super.a(hVar);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar, PluginError pluginError) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar, pluginError) == null) {
-                    super.a(hVar, pluginError);
-                    if (this.a != null) {
-                        this.a.a(pluginError == null ? "load error" : pluginError.toString());
-                    }
+                super.a(hVar, pluginError);
+                if (a.this != null) {
+                    a.this.a(pluginError == null ? "load error" : pluginError.toString());
                 }
             }
 
@@ -128,27 +73,21 @@ public class d {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.kwai.sodler.lib.ext.b.a, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.h hVar, com.kwai.sodler.lib.g gVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hVar, gVar) == null) {
-                    super.a(hVar, gVar);
-                    d.b(this.a);
-                }
+                super.a(hVar, gVar);
+                d.b(a.this);
             }
         });
     }
 
     public static void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, aVar) == null) {
-            try {
-                System.loadLibrary("kwappstatus");
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
-                com.kwad.sdk.crash.a.a(th);
-            }
-            if (aVar != null) {
-                aVar.a();
-            }
+        try {
+            System.loadLibrary("kwappstatus");
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.a.b(th);
+            com.kwad.sdk.crash.a.a(th);
+        }
+        if (aVar != null) {
+            aVar.a();
         }
     }
 }

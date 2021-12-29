@@ -1,7 +1,7 @@
 package com.baidu.tbadk.collectTab;
 
 import android.os.Bundle;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,7 +22,7 @@ public abstract class CollectFragment extends BaseFragment {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CustomMessageListener f41355e;
+    public final CustomMessageListener f41511e;
     public boolean mIsEnableEdit;
 
     /* loaded from: classes11.dex */
@@ -82,7 +82,7 @@ public abstract class CollectFragment extends BaseFragment {
             }
         }
         this.mIsEnableEdit = false;
-        this.f41355e = new a(this, 2000994);
+        this.f41511e = new a(this, 2000994);
     }
 
     public abstract int getType();
@@ -100,7 +100,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onStart();
-            registerListener(this.f41355e);
+            registerListener(this.f41511e);
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onStop();
-            MessageManager.getInstance().unRegisterListener(this.f41355e);
+            MessageManager.getInstance().unRegisterListener(this.f41511e);
         }
     }
 
@@ -117,7 +117,7 @@ public abstract class CollectFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             Bundle bundle = new Bundle();
-            boolean z = !isEmptyData() && k.z();
+            boolean z = !isEmptyData() && l.z();
             this.mIsEnableEdit = z;
             bundle.putBoolean(EDITOR_ENABLE_EXTRA, z);
             bundle.putInt(FRAGMENT_TYPE, i2);

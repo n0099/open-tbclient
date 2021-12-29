@@ -20,25 +20,25 @@ public class Session {
     public volatile long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile long f37413b;
+    public volatile long f37569b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile long f37414c;
+    public volatile long f37570c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile long f37415d;
+    public volatile long f37571d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile long f37416e;
+    public volatile long f37572e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile int f37417f;
+    public volatile int f37573f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<a> f37418g;
+    public List<a> f37574g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile JSONObject f37419h;
+    public volatile JSONObject f37575h;
 
     /* loaded from: classes10.dex */
     public static class a {
@@ -47,25 +47,25 @@ public class Session {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37420b;
+        public String f37576b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37421c;
+        public String f37577c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f37422d;
+        public long f37578d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f37423e;
+        public long f37579e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f37424f;
+        public boolean f37580f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f37425g;
+        public JSONObject f37581g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f37426h;
+        public boolean f37582h;
 
         public a(String str, String str2, String str3, long j2, long j3, boolean z, ExtraInfo extraInfo, boolean z2) {
             Interceptable interceptable = $ic;
@@ -82,64 +82,64 @@ public class Session {
                     return;
                 }
             }
-            this.f37420b = str;
-            this.f37421c = str2;
+            this.f37576b = str;
+            this.f37577c = str2;
             this.a = str3;
-            this.f37422d = j2;
-            this.f37423e = j3;
-            this.f37424f = z;
-            this.f37425g = extraInfo != null ? extraInfo.dumpToJson() : new JSONObject();
-            this.f37426h = z2;
+            this.f37578d = j2;
+            this.f37579e = j3;
+            this.f37580f = z;
+            this.f37581g = extraInfo != null ? extraInfo.dumpToJson() : new JSONObject();
+            this.f37582h = z2;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37420b : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37576b : (String) invokeV.objValue;
         }
 
         public JSONObject e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37425g : (JSONObject) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37581g : (JSONObject) invokeV.objValue;
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37424f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37580f : invokeV.booleanValue;
         }
 
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 this.a = aVar.a;
-                this.f37420b = aVar.f37420b;
-                this.f37421c = aVar.f37421c;
-                this.f37422d = aVar.f37422d;
-                this.f37423e = aVar.f37423e;
-                this.f37424f = aVar.f37424f;
-                this.f37425g = aVar.f37425g;
-                this.f37426h = aVar.f37426h;
+                this.f37576b = aVar.f37576b;
+                this.f37577c = aVar.f37577c;
+                this.f37578d = aVar.f37578d;
+                this.f37579e = aVar.f37579e;
+                this.f37580f = aVar.f37580f;
+                this.f37581g = aVar.f37581g;
+                this.f37582h = aVar.f37582h;
             }
         }
 
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37421c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37577c : (String) invokeV.objValue;
         }
 
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37422d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37578d : invokeV.longValue;
         }
 
         public long d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37423e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37579e : invokeV.longValue;
         }
     }
 
@@ -157,13 +157,13 @@ public class Session {
             }
         }
         this.a = 0L;
-        this.f37413b = 0L;
-        this.f37414c = 0L;
-        this.f37415d = 0L;
-        this.f37416e = 0L;
-        this.f37417f = 0;
-        this.f37418g = new ArrayList();
-        this.f37419h = null;
+        this.f37569b = 0L;
+        this.f37570c = 0L;
+        this.f37571d = 0L;
+        this.f37572e = 0L;
+        this.f37573f = 0;
+        this.f37574g = new ArrayList();
+        this.f37575h = null;
     }
 
     private void a(List<a> list, a aVar) {
@@ -178,8 +178,8 @@ public class Session {
         }
         a aVar2 = list.get(size - 1);
         if (!TextUtils.isEmpty(aVar2.a) && !TextUtils.isEmpty(aVar.a)) {
-            if (aVar2.a.equals(aVar.a) && aVar2.f37424f != aVar.f37424f) {
-                if (aVar2.f37424f) {
+            if (aVar2.a.equals(aVar.a) && aVar2.f37580f != aVar.f37580f) {
+                if (aVar2.f37580f) {
                     aVar2.a(aVar);
                     return;
                 }
@@ -211,7 +211,7 @@ public class Session {
                 if (e2 != null && e2.length() != 0) {
                     jSONObject.put("ext", e2);
                 }
-                if (!aVar.f37426h) {
+                if (!aVar.f37582h) {
                     i2 = 0;
                 }
                 jSONObject.put("h5", i2);
@@ -225,7 +225,7 @@ public class Session {
     public void addPageView(String str, String str2, String str3, long j2, long j3, boolean z, ExtraInfo extraInfo, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), extraInfo, Boolean.valueOf(z2)}) == null) {
-            a(this.f37418g, new a(str, str2, str3, j2, j3, z, extraInfo, z2));
+            a(this.f37574g, new a(str, str2, str3, j2, j3, z, extraInfo, z2));
         }
     }
 
@@ -236,18 +236,18 @@ public class Session {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("s", this.a);
-                jSONObject.put("e", this.f37413b);
-                jSONObject.put("i", this.f37416e);
+                jSONObject.put("e", this.f37569b);
+                jSONObject.put("i", this.f37572e);
                 jSONObject.put("c", 1);
-                jSONObject.put("s2", this.f37414c == 0 ? this.a : this.f37414c);
-                jSONObject.put("e2", this.f37415d == 0 ? this.f37413b : this.f37415d);
-                jSONObject.put("pc", this.f37417f);
-                if (this.f37419h != null && this.f37419h.length() != 0) {
-                    jSONObject.put("launch", this.f37419h);
+                jSONObject.put("s2", this.f37570c == 0 ? this.a : this.f37570c);
+                jSONObject.put("e2", this.f37571d == 0 ? this.f37569b : this.f37571d);
+                jSONObject.put("pc", this.f37573f);
+                if (this.f37575h != null && this.f37575h.length() != 0) {
+                    jSONObject.put("launch", this.f37575h);
                 }
                 JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < this.f37418g.size(); i2++) {
-                    jSONArray.put(getPVJson(this.f37418g.get(i2), this.a));
+                for (int i2 = 0; i2 < this.f37574g.size(); i2++) {
+                    jSONArray.put(getPVJson(this.f37574g.get(i2), this.a));
                 }
                 jSONObject.put("p", jSONArray);
             } catch (JSONException unused) {
@@ -264,12 +264,12 @@ public class Session {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("s", this.a);
-                jSONObject.put("e", this.f37413b);
-                jSONObject.put("i", this.f37416e);
+                jSONObject.put("e", this.f37569b);
+                jSONObject.put("i", this.f37572e);
                 jSONObject.put("c", 1);
-                jSONObject.put("s2", this.f37414c == 0 ? this.a : this.f37414c);
-                jSONObject.put("e2", this.f37415d == 0 ? this.f37413b : this.f37415d);
-                jSONObject.put("pc", this.f37417f);
+                jSONObject.put("s2", this.f37570c == 0 ? this.a : this.f37570c);
+                jSONObject.put("e2", this.f37571d == 0 ? this.f37569b : this.f37571d);
+                jSONObject.put("pc", this.f37573f);
             } catch (Exception unused) {
             }
             return jSONObject;
@@ -286,7 +286,7 @@ public class Session {
     public boolean hasEnd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37413b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37569b > 0 : invokeV.booleanValue;
     }
 
     public boolean hasStart() {
@@ -299,32 +299,32 @@ public class Session {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.a = 0L;
-            this.f37413b = 0L;
-            this.f37414c = 0L;
-            this.f37415d = 0L;
-            this.f37417f = 0;
-            this.f37418g.clear();
+            this.f37569b = 0L;
+            this.f37570c = 0L;
+            this.f37571d = 0L;
+            this.f37573f = 0;
+            this.f37574g.clear();
         }
     }
 
     public void setEndTime(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f37413b = j2;
+            this.f37569b = j2;
         }
     }
 
     public void setInvokeType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f37417f = i2;
+            this.f37573f = i2;
         }
     }
 
     public void setLaunchInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) {
-            this.f37419h = jSONObject;
+            this.f37575h = jSONObject;
         }
     }
 
@@ -334,22 +334,22 @@ public class Session {
             return;
         }
         this.a = j2;
-        this.f37416e = j2;
+        this.f37572e = j2;
     }
 
     public void setTrackEndTime(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.f37415d = j2;
+            this.f37571d = j2;
         }
     }
 
     public void setTrackStartTime(long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) || this.f37414c > 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) || this.f37570c > 0) {
             return;
         }
-        this.f37414c = j2;
+        this.f37570c = j2;
     }
 
     public String toString() {
@@ -361,7 +361,7 @@ public class Session {
     public void addPageView(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            a(this.f37418g, aVar);
+            a(this.f37574g, aVar);
         }
     }
 }

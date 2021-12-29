@@ -5,7 +5,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.n.a;
-import c.a.r0.s.r.s;
+import c.a.s0.s.q.s;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -35,34 +35,34 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     public s a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f46917b;
+    public int f47137b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f46918c;
+    public boolean f47138c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f46919d;
+    public long f47139d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f46920e;
+    public float f47140e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46921f;
+    public int f47141f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f46922g;
+    public int f47142g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f46923h;
+    public int f47143h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f46924i;
+    public int f47144i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdAsyncTaskParallel f46925j;
+    public BdAsyncTaskParallel f47145j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final CdnErrorJsonData f46926k;
+    public final CdnErrorJsonData f47146k;
     public Handler l;
 
     /* loaded from: classes12.dex */
@@ -72,25 +72,25 @@ public class CDNProblemUploader extends ICDNProblemUploader {
         public final NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f46927b;
+        public final int f47147b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f46928c;
+        public final int f47148c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final String f46929d;
+        public final String f47149d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f46930e;
+        public final String f47150e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f46931f;
+        public final int f47151f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f46932g;
+        public final int f47152g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CDNProblemUploader f46933h;
+        public final /* synthetic */ CDNProblemUploader f47153h;
 
         public CDNUpLoadTask(CDNProblemUploader cDNProblemUploader, int i2, int i3, int i4, String str, int i5, String str2) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                     return;
                 }
             }
-            this.f46933h = cDNProblemUploader;
+            this.f47153h = cDNProblemUploader;
             this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);
-            this.f46927b = i4;
-            this.f46928c = i5;
-            this.f46929d = str;
-            this.f46930e = str2;
-            this.f46931f = i2;
-            this.f46932g = i3;
+            this.f47147b = i4;
+            this.f47148c = i5;
+            this.f47149d = str;
+            this.f47150e = str2;
+            this.f47151f = i2;
+            this.f47152g = i3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -124,24 +124,24 @@ public class CDNProblemUploader extends ICDNProblemUploader {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                if (this.f46933h.getmCdnLogData() == null || !this.f46933h.getmCdnLogData().g() || this.f46931f == 0) {
+                if (this.f47153h.getmCdnLogData() == null || !this.f47153h.getmCdnLogData().g() || this.f47151f == 0) {
                     return null;
                 }
-                this.a.addPostData("number", String.valueOf(this.f46932g));
-                int i2 = this.f46931f;
+                this.a.addPostData("number", String.valueOf(this.f47152g));
+                int i2 = this.f47151f;
                 if (i2 == 1) {
-                    this.a.addPostData("ab_num_error", String.valueOf(this.f46927b));
-                    this.a.addPostData("error", this.f46929d);
-                    this.a.addPostData("ab_num_slow", String.valueOf(this.f46928c));
-                    this.a.addPostData("time", this.f46930e);
+                    this.a.addPostData("ab_num_error", String.valueOf(this.f47147b));
+                    this.a.addPostData("error", this.f47149d);
+                    this.a.addPostData("ab_num_slow", String.valueOf(this.f47148c));
+                    this.a.addPostData("time", this.f47150e);
                 } else if (i2 == 3) {
                     NetWork netWork = this.a;
-                    netWork.addPostData("ab_num_slow", this.f46928c + "");
-                    this.a.addPostData("time", this.f46930e);
+                    netWork.addPostData("ab_num_slow", this.f47148c + "");
+                    this.a.addPostData("time", this.f47150e);
                 } else if (i2 == 2) {
                     NetWork netWork2 = this.a;
-                    netWork2.addPostData("ab_num_error", this.f46927b + "");
-                    this.a.addPostData("error", this.f46929d);
+                    netWork2.addPostData("ab_num_error", this.f47147b + "");
+                    this.a.addPostData("error", this.f47149d);
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.isNetSuccess() && !TextUtils.isEmpty(postNetData)) {
@@ -175,9 +175,9 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                         logItem.b("result", "1");
                         logItem.b("type", "end");
                         BdStatisticsManager.getInstance().debug("img", logItem);
-                    } else if (CDNProblemUploader.a(this.f46933h) >= 5) {
-                        this.f46933h.a.j(false);
-                        this.f46933h.f46919d = System.currentTimeMillis();
+                    } else if (CDNProblemUploader.a(this.f47153h) >= 5) {
+                        this.f47153h.a.j(false);
+                        this.f47153h.f47139d = System.currentTimeMillis();
                     } else {
                         if (jSONObject.optJSONObject(Constants.KEYS.RET).optInt("err_no", -1) != 0) {
                             a logItem2 = ImageLogger.getLogItem();
@@ -191,19 +191,19 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                             logItem3.b("result", "0");
                             logItem3.b("type", "end");
                             BdStatisticsManager.getInstance().debug("img", logItem3);
-                            this.f46933h.g();
-                            this.f46933h.a.j(false);
-                            this.f46933h.f46919d = System.currentTimeMillis();
+                            this.f47153h.g();
+                            this.f47153h.a.j(false);
+                            this.f47153h.f47139d = System.currentTimeMillis();
                         }
                         String optString = jSONObject.optString("photo_strategy");
                         s sVar = new s();
                         sVar.h(optString);
-                        if (sVar.g() != this.f46933h.getmCdnLogData().g() || sVar.a() != this.f46933h.getmCdnLogData().a() || sVar.c() != this.f46933h.getmCdnLogData().c() || sVar.f() != this.f46933h.getmCdnLogData().f()) {
-                            this.f46933h.setmCdnLogData(sVar);
+                        if (sVar.g() != this.f47153h.getmCdnLogData().g() || sVar.a() != this.f47153h.getmCdnLogData().a() || sVar.c() != this.f47153h.getmCdnLogData().c() || sVar.f() != this.f47153h.getmCdnLogData().f()) {
+                            this.f47153h.setmCdnLogData(sVar);
                         }
                     }
                 } finally {
-                    this.f46933h.f46918c = false;
+                    this.f47153h.f47138c = false;
                 }
             }
         }
@@ -286,13 +286,13 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                 return;
             }
         }
-        this.f46917b = 0;
-        this.f46918c = false;
-        this.f46919d = 0L;
-        this.f46920e = 0.0f;
-        this.f46925j = null;
+        this.f47137b = 0;
+        this.f47138c = false;
+        this.f47139d = 0L;
+        this.f47140e = 0.0f;
+        this.f47145j = null;
         this.l = null;
-        this.f46926k = new CdnErrorJsonData();
+        this.f47146k = new CdnErrorJsonData();
         this.l = new Handler(this) { // from class: com.baidu.tieba.imageProblem.util.CDNProblemUploader.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -333,8 +333,8 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     }
 
     public static /* synthetic */ int a(CDNProblemUploader cDNProblemUploader) {
-        int i2 = cDNProblemUploader.f46917b + 1;
-        cDNProblemUploader.f46917b = i2;
+        int i2 = cDNProblemUploader.f47137b + 1;
+        cDNProblemUploader.f47137b = i2;
         return i2;
     }
 
@@ -360,29 +360,29 @@ public class CDNProblemUploader extends ICDNProblemUploader {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
             synchronized (m) {
                 if (getmCdnLogData() == null) {
-                    this.f46920e += 25.0f;
+                    this.f47140e += 25.0f;
                 } else {
-                    this.f46920e += getmCdnLogData().b();
+                    this.f47140e += getmCdnLogData().b();
                 }
-                this.f46923h++;
-                this.f46922g++;
-                this.f46926k.add(i2);
-                int i4 = this.f46923h;
-                int i5 = this.f46922g;
-                int i6 = this.f46921f;
-                int i7 = this.f46921f != 0 ? this.f46924i / this.f46921f : 0;
-                String cdnErrorJsonData = this.f46926k.toString();
-                if (getmCdnLogData() != null && this.f46919d > 0 && System.currentTimeMillis() - this.f46919d > 86400000) {
+                this.f47143h++;
+                this.f47142g++;
+                this.f47146k.add(i2);
+                int i4 = this.f47143h;
+                int i5 = this.f47142g;
+                int i6 = this.f47141f;
+                int i7 = this.f47141f != 0 ? this.f47144i / this.f47141f : 0;
+                String cdnErrorJsonData = this.f47146k.toString();
+                if (getmCdnLogData() != null && this.f47139d > 0 && System.currentTimeMillis() - this.f47139d > 86400000) {
                     getmCdnLogData().j(true);
-                    this.f46917b = 0;
+                    this.f47137b = 0;
                 }
                 if (getmCdnLogData() != null && getmCdnLogData().g()) {
-                    if (this.f46923h >= 5) {
-                        if (this.f46920e >= 100.0f && this.f46922g >= getmCdnLogData().a() && this.f46921f >= getmCdnLogData().c()) {
+                    if (this.f47143h >= 5) {
+                        if (this.f47140e >= 100.0f && this.f47142g >= getmCdnLogData().a() && this.f47141f >= getmCdnLogData().c()) {
                             i3 = 1;
-                        } else if (this.f46920e >= 100.0f && this.f46922g >= getmCdnLogData().a()) {
+                        } else if (this.f47140e >= 100.0f && this.f47142g >= getmCdnLogData().a()) {
                             i3 = 2;
-                        } else if (this.f46920e >= 100.0f && this.f46921f >= getmCdnLogData().c()) {
+                        } else if (this.f47140e >= 100.0f && this.f47141f >= getmCdnLogData().c()) {
                             i3 = 3;
                         }
                         f(i3, i4, i5, cdnErrorJsonData, i6, i7);
@@ -402,30 +402,30 @@ public class CDNProblemUploader extends ICDNProblemUploader {
             synchronized (m) {
                 if (j2 >= f2) {
                     if (getmCdnLogData() == null) {
-                        this.f46920e += 10.0f;
+                        this.f47140e += 10.0f;
                     } else {
-                        this.f46920e += getmCdnLogData().d();
+                        this.f47140e += getmCdnLogData().d();
                     }
-                    int i3 = this.f46921f + 1;
-                    this.f46921f = i3;
-                    int i4 = (int) (this.f46924i + j2);
-                    this.f46924i = i4;
-                    int i5 = this.f46923h + 1;
-                    this.f46923h = i5;
-                    int i6 = this.f46922g;
+                    int i3 = this.f47141f + 1;
+                    this.f47141f = i3;
+                    int i4 = (int) (this.f47144i + j2);
+                    this.f47144i = i4;
+                    int i5 = this.f47143h + 1;
+                    this.f47143h = i5;
+                    int i6 = this.f47142g;
                     int i7 = i3 != 0 ? i4 / i3 : 0;
-                    String cdnErrorJsonData = this.f46926k.toString();
-                    if (getmCdnLogData() != null && this.f46919d > 0 && System.currentTimeMillis() - this.f46919d > 86400000) {
+                    String cdnErrorJsonData = this.f47146k.toString();
+                    if (getmCdnLogData() != null && this.f47139d > 0 && System.currentTimeMillis() - this.f47139d > 86400000) {
                         getmCdnLogData().j(true);
-                        this.f46917b = 0;
+                        this.f47137b = 0;
                     }
                     if (getmCdnLogData() != null && getmCdnLogData().g()) {
-                        if (this.f46923h >= 5) {
-                            if (this.f46920e >= 100.0f && this.f46922g >= getmCdnLogData().a() && this.f46921f >= getmCdnLogData().c()) {
+                        if (this.f47143h >= 5) {
+                            if (this.f47140e >= 100.0f && this.f47142g >= getmCdnLogData().a() && this.f47141f >= getmCdnLogData().c()) {
                                 i2 = 1;
-                            } else if (this.f46920e >= 100.0f && this.f46922g >= getmCdnLogData().a()) {
+                            } else if (this.f47140e >= 100.0f && this.f47142g >= getmCdnLogData().a()) {
                                 i2 = 2;
-                            } else if (this.f46920e >= 100.0f && this.f46921f >= getmCdnLogData().c()) {
+                            } else if (this.f47140e >= 100.0f && this.f47141f >= getmCdnLogData().c()) {
                                 i2 = 3;
                             }
                             f(i2, i5, i6, cdnErrorJsonData, i3, i7);
@@ -438,12 +438,12 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                     return;
                 }
                 if (getmCdnLogData() == null) {
-                    this.f46920e -= 25.0f;
+                    this.f47140e -= 25.0f;
                 } else {
-                    this.f46920e -= getmCdnLogData().e();
+                    this.f47140e -= getmCdnLogData().e();
                 }
-                if (this.f46920e < 0.0f) {
-                    this.f46920e = 0.0f;
+                if (this.f47140e < 0.0f) {
+                    this.f47140e = 0.0f;
                 }
             }
         }
@@ -451,7 +451,7 @@ public class CDNProblemUploader extends ICDNProblemUploader {
 
     public final void f(int i2, int i3, int i4, String str, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || getmCdnLogData() == null || !getmCdnLogData().g() || i2 == 0 || this.f46918c) {
+        if (!(interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || getmCdnLogData() == null || !getmCdnLogData().g() || i2 == 0 || this.f47138c) {
             return;
         }
         h(i2, i3, i4, str, i5, i6 + "");
@@ -460,12 +460,12 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f46923h = 0;
-            this.f46921f = 0;
-            this.f46922g = 0;
-            this.f46924i = 0;
-            this.f46920e = 0.0f;
-            this.f46926k.clear();
+            this.f47143h = 0;
+            this.f47141f = 0;
+            this.f47142g = 0;
+            this.f47144i = 0;
+            this.f47140e = 0.0f;
+            this.f47146k.clear();
         }
     }
 
@@ -479,13 +479,13 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     public final void h(int i2, int i3, int i4, String str, int i5, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5), str2}) == null) {
-            if (this.f46925j == null) {
-                this.f46925j = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+            if (this.f47145j == null) {
+                this.f47145j = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }
             CDNUpLoadTask cDNUpLoadTask = new CDNUpLoadTask(this, i2, i3, i4, str, i5, str2);
-            cDNUpLoadTask.setParallel(this.f46925j);
+            cDNUpLoadTask.setParallel(this.f47145j);
             cDNUpLoadTask.execute(new Object[0]);
-            this.f46918c = true;
+            this.f47138c = true;
             a logItem = ImageLogger.getLogItem();
             logItem.b("act", "fallback");
             logItem.b("type", "start");

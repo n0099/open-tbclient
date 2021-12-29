@@ -21,7 +21,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38195e;
+    public boolean f38351e;
     public a mOnItemClickListener;
 
     /* loaded from: classes10.dex */
@@ -47,7 +47,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f38195e = true;
+        this.f38351e = true;
         a(context);
     }
 
@@ -62,7 +62,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public boolean isShowSharePanel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38195e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38351e : invokeV.booleanValue;
     }
 
     public abstract View onCreateView(Context context);
@@ -87,7 +87,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public void setShowSharePanel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f38195e = z;
+            this.f38351e = z;
         }
     }
 
@@ -110,7 +110,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f38195e = true;
+        this.f38351e = true;
         a(context);
     }
 
@@ -133,7 +133,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f38195e = true;
+        this.f38351e = true;
         a(context);
     }
 
@@ -157,7 +157,7 @@ public abstract class BaseVideoPlayEndUI extends FrameLayout {
                 return;
             }
         }
-        this.f38195e = true;
+        this.f38351e = true;
         a(context);
     }
 }

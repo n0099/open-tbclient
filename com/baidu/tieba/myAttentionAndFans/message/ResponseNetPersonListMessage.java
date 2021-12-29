@@ -1,8 +1,8 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
 import c.a.d.f.d.l;
-import c.a.r0.s.r.i1;
-import c.a.r0.s.s.a;
+import c.a.s0.s.q.i1;
+import c.a.s0.s.r.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;

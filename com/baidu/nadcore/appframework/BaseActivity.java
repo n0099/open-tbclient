@@ -112,10 +112,10 @@ public class BaseActivity extends FragmentActivity {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f38018b;
+        public final /* synthetic */ int f38174b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f38019c;
+        public final /* synthetic */ BaseActivity f38175c;
 
         public b(BaseActivity baseActivity, int i2) {
             Interceptable interceptable = $ic;
@@ -132,8 +132,8 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f38019c = baseActivity;
-            this.f38018b = i2;
+            this.f38175c = baseActivity;
+            this.f38174b = i2;
             this.a = true;
         }
 
@@ -141,17 +141,17 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelClosed(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f38019c.mSuspensionBallSlideListener != null) {
-                    this.f38019c.mSuspensionBallSlideListener.onPanelClosed(view);
+                if (this.f38175c.mSuspensionBallSlideListener != null) {
+                    this.f38175c.mSuspensionBallSlideListener.onPanelClosed(view);
                 }
-                if (this.f38019c.mSlideListener != null) {
-                    this.f38019c.mSlideListener.onPanelClosed(view);
+                if (this.f38175c.mSlideListener != null) {
+                    this.f38175c.mSlideListener.onPanelClosed(view);
                 }
-                if (!this.f38019c.mSlideCancelActivityTransparent && !this.f38019c.mForceActivityTransparent && this.a) {
+                if (!this.f38175c.mSlideCancelActivityTransparent && !this.f38175c.mForceActivityTransparent && this.a) {
                     this.a = false;
-                    w.c(this.f38019c, null);
+                    w.c(this.f38175c, null);
                 }
-                this.f38019c.setPreDecorPosition(0.0f);
+                this.f38175c.setPreDecorPosition(0.0f);
             }
         }
 
@@ -159,16 +159,16 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelOpened(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                if (this.f38019c.mSuspensionBallSlideListener != null) {
-                    this.f38019c.mSuspensionBallSlideListener.onPanelOpened(view);
+                if (this.f38175c.mSuspensionBallSlideListener != null) {
+                    this.f38175c.mSuspensionBallSlideListener.onPanelOpened(view);
                 }
-                if (this.f38019c.mSlideListener != null) {
-                    this.f38019c.mSlideListener.onPanelOpened(view);
+                if (this.f38175c.mSlideListener != null) {
+                    this.f38175c.mSlideListener.onPanelOpened(view);
                 }
-                this.f38019c.setPreDecorPosition(0.0f);
-                this.f38019c.mSlideHelper.setShadowDrawable(null);
-                this.f38019c.finish();
-                this.f38019c.overridePendingTransition(0, 0);
+                this.f38175c.setPreDecorPosition(0.0f);
+                this.f38175c.mSlideHelper.setShadowDrawable(null);
+                this.f38175c.finish();
+                this.f38175c.overridePendingTransition(0, 0);
             }
         }
 
@@ -176,7 +176,7 @@ public class BaseActivity extends FragmentActivity {
         public void onPanelSlide(View view, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                View maskView = this.f38019c.mSlideHelper.getMaskView();
+                View maskView = this.f38175c.mSlideHelper.getMaskView();
                 if (maskView != null) {
                     float f3 = 1.0f - f2;
                     if (f3 < 0.0f) {
@@ -184,18 +184,18 @@ public class BaseActivity extends FragmentActivity {
                     }
                     maskView.setAlpha(f3);
                 }
-                if (this.f38019c.mSuspensionBallSlideListener != null) {
-                    this.f38019c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
+                if (this.f38175c.mSuspensionBallSlideListener != null) {
+                    this.f38175c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
                 }
-                if (this.f38019c.mSlideListener != null) {
-                    this.f38019c.mSlideListener.onPanelSlide(view, f2);
+                if (this.f38175c.mSlideListener != null) {
+                    this.f38175c.mSlideListener.onPanelSlide(view, f2);
                 }
-                if (!this.f38019c.mSlideCancelActivityTransparent && !this.f38019c.mForceActivityTransparent && !this.a) {
+                if (!this.f38175c.mSlideCancelActivityTransparent && !this.f38175c.mForceActivityTransparent && !this.a) {
                     this.a = true;
-                    w.d(this.f38019c, null);
+                    w.d(this.f38175c, null);
                 }
-                float f4 = this.f38018b >> 2;
-                this.f38019c.setPreDecorPosition((f2 * f4) - f4);
+                float f4 = this.f38174b >> 2;
+                this.f38175c.setPreDecorPosition((f2 * f4) - f4);
             }
         }
     }
@@ -206,7 +206,7 @@ public class BaseActivity extends FragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f38020e;
+        public final /* synthetic */ BaseActivity f38176e;
 
         public c(BaseActivity baseActivity) {
             Interceptable interceptable = $ic;
@@ -223,14 +223,14 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f38020e = baseActivity;
+            this.f38176e = baseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseActivity baseActivity = this.f38020e;
+                BaseActivity baseActivity = this.f38176e;
                 baseActivity.setDrawDuringWindowsAnimating(baseActivity.getWindow().getDecorView());
             }
         }

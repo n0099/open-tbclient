@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import c.a.d.a.j;
-import c.a.d.f.p.m;
-import c.a.r0.d1.o0;
-import c.a.s0.a0.f.c.c;
+import c.a.d.f.p.n;
+import c.a.s0.e1.o0;
+import c.a.t0.a0.f.c.c;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.ala.utils.AlaUtilHelper;
 import com.baidu.ala.view.AlaRoundRelativeLayout;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_ALA_LIVE_OFFICIAL_RECOMMEND = 102;
@@ -43,37 +43,37 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f43320e;
+    public TbImageView f43508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f43321f;
+    public HeadImageView f43509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f43322g;
+    public View f43510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43323h;
+    public TextView f43511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f43324i;
+    public TextView f43512i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43325j;
+    public TextView f43513j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f43326k;
+    public View f43514k;
     public TabLiveStageLiveZanLottieView l;
     public int m;
     public SdkLiveInfoData n;
     public int[] o;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TabLiveStageLiveView f43327e;
+        public final /* synthetic */ TabLiveStageLiveView f43515e;
 
         public a(TabLiveStageLiveView tabLiveStageLiveView) {
             Interceptable interceptable = $ic;
@@ -90,32 +90,32 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                     return;
                 }
             }
-            this.f43327e = tabLiveStageLiveView;
+            this.f43515e = tabLiveStageLiveView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!c.d(this.f43327e.n)) {
-                    c.h(this.f43327e.getContext(), this.f43327e.n);
-                } else if (j.a(this.f43327e.getContext()) instanceof TbPageContext) {
-                    int i2 = this.f43327e.m;
+                if (!c.d(this.f43515e.n)) {
+                    c.h(this.f43515e.getContext(), this.f43515e.n);
+                } else if (j.a(this.f43515e.getContext()) instanceof TbPageContext) {
+                    int i2 = this.f43515e.m;
                     String str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_STAGE;
-                    if (i2 != 101 && this.f43327e.m == 102) {
+                    if (i2 != 101 && this.f43515e.m == 102) {
                         str = YYLiveUtil.SOURCE_HOME_LIVE_TAB_RECOMMEND;
                     }
-                    c.j((TbPageContext) j.a(this.f43327e.getContext()), this.f43327e.n, str);
+                    c.j((TbPageContext) j.a(this.f43515e.getContext()), this.f43515e.n, str);
                 }
-                int i3 = this.f43327e.m;
+                int i3 = this.f43515e.m;
                 String str2 = TiebaStatic.YYValues.YY_LIVE;
                 if (i3 != 101) {
-                    if (this.f43327e.m == 102) {
+                    if (this.f43515e.m == 102) {
                         StatisticItem statisticItem = new StatisticItem("c13559");
-                        if (this.f43327e.n.liveInfo != null) {
-                            int a = c.a(this.f43327e.n.liveInfo);
-                            if (this.f43327e.n.liveInfo.yyExt != null) {
-                                TiebaStaticHelper.addYYParam(statisticItem, c.k(this.f43327e.n.liveInfo.yyExt, this.f43327e.n.roomId));
+                        if (this.f43515e.n.liveInfo != null) {
+                            int a = c.a(this.f43515e.n.liveInfo);
+                            if (this.f43515e.n.liveInfo.yyExt != null) {
+                                TiebaStaticHelper.addYYParam(statisticItem, c.k(this.f43515e.n.liveInfo.yyExt, this.f43515e.n.roomId));
                             } else {
                                 str2 = "";
                             }
@@ -123,18 +123,18 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                             statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str2);
                         }
                         statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-                        statisticItem.param("nid", this.f43327e.n.nid);
-                        statisticItem.param(TiebaStatic.Params.LOGID, this.f43327e.n.logid);
+                        statisticItem.param("nid", this.f43515e.n.nid);
+                        statisticItem.param(TiebaStatic.Params.LOGID, this.f43515e.n.logid);
                         TiebaStatic.log(statisticItem);
                         return;
                     }
                     return;
                 }
                 StatisticItem statisticItem2 = new StatisticItem("c13556");
-                if (this.f43327e.n.liveInfo != null) {
-                    int a2 = c.a(this.f43327e.n.liveInfo);
-                    if (this.f43327e.n.liveInfo.yyExt != null) {
-                        TiebaStaticHelper.addYYParam(statisticItem2, c.k(this.f43327e.n.liveInfo.yyExt, this.f43327e.n.roomId));
+                if (this.f43515e.n.liveInfo != null) {
+                    int a2 = c.a(this.f43515e.n.liveInfo);
+                    if (this.f43515e.n.liveInfo.yyExt != null) {
+                        TiebaStaticHelper.addYYParam(statisticItem2, c.k(this.f43515e.n.liveInfo.yyExt, this.f43515e.n.roomId));
                     } else {
                         str2 = "";
                     }
@@ -142,8 +142,8 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
                     statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str2);
                 }
                 statisticItem2.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-                statisticItem2.param("nid", this.f43327e.n.nid);
-                statisticItem2.param(TiebaStatic.Params.LOGID, this.f43327e.n.logid);
+                statisticItem2.param("nid", this.f43515e.n.nid);
+                statisticItem2.param(TiebaStatic.Params.LOGID, this.f43515e.n.logid);
                 TiebaStatic.log(statisticItem2);
             }
         }
@@ -214,24 +214,24 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             this.l = tabLiveStageLiveZanLottieView;
             tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.cover);
-            this.f43320e = tbImageView;
+            this.f43508e = tbImageView;
             tbImageView.setBackgroundColor(0);
-            this.f43320e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-            this.f43320e.setConrers(15);
+            this.f43508e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+            this.f43508e.setConrers(15);
             HeadImageView headImageView = (HeadImageView) findViewById(R.id.head_img);
-            this.f43321f = headImageView;
+            this.f43509f = headImageView;
             headImageView.setAutoChangeStyle(false);
-            this.f43321f.setClickable(true);
-            this.f43321f.setIsRound(true);
-            this.f43321f.setBorderWidth(m.f(getContext(), R.dimen.tbds1));
-            this.f43322g = findViewById(R.id.head_mask_view);
-            this.f43323h = (TextView) findViewById(R.id.title);
-            this.f43324i = (TextView) findViewById(R.id.user_name);
-            this.f43325j = (TextView) findViewById(R.id.audience_count);
-            this.f43326k = findViewById(R.id.bottom_gradient_bg);
+            this.f43509f.setClickable(true);
+            this.f43509f.setIsRound(true);
+            this.f43509f.setBorderWidth(n.f(getContext(), R.dimen.tbds1));
+            this.f43510g = findViewById(R.id.head_mask_view);
+            this.f43511h = (TextView) findViewById(R.id.title);
+            this.f43512i = (TextView) findViewById(R.id.user_name);
+            this.f43513j = (TextView) findViewById(R.id.audience_count);
+            this.f43514k = findViewById(R.id.bottom_gradient_bg);
             GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.o);
             gradientDrawable.setCornerRadii(q);
-            this.f43326k.setBackgroundDrawable(gradientDrawable);
+            this.f43514k.setBackgroundDrawable(gradientDrawable);
             setOnClickListener(new a(this));
             c();
         }
@@ -253,13 +253,13 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SkinManager.setViewTextColor(this.f43323h, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f43324i, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f43325j, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f43511h, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f43512i, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f43513j, R.color.CAM_X0101);
             Drawable drawable = SkinManager.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
             drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            this.f43325j.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f43325j.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.f43513j.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.f43513j.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
         }
     }
 
@@ -281,24 +281,24 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
                 this.n = sdkLiveInfoData;
                 this.m = i2;
-                this.f43320e.setPlaceHolder(3);
-                this.f43320e.startLoad(sdkLiveInfoData.liveInfo.cover, 10, false);
+                this.f43508e.setPlaceHolder(3);
+                this.f43508e.startLoad(sdkLiveInfoData.liveInfo.cover, 10, false);
                 SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
                 if (liveAuthor != null) {
                     String name_show = liveAuthor.getName_show();
                     if (o0.d(name_show) > 16) {
                         name_show = o0.m(name_show, 16) + "...";
                     }
-                    this.f43324i.setText(name_show);
-                    AlaUtilHelper.startLoadPortrait(this.f43321f, sdkLiveInfoData.liveAuthor.portrait, false);
+                    this.f43512i.setText(name_show);
+                    AlaUtilHelper.startLoadPortrait(this.f43509f, sdkLiveInfoData.liveAuthor.portrait, false);
                     if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                        this.f43322g.setVisibility(0);
+                        this.f43510g.setVisibility(0);
                     } else {
-                        this.f43322g.setVisibility(8);
+                        this.f43510g.setVisibility(8);
                     }
                 }
-                this.f43323h.setText(sdkLiveInfoData.title);
-                this.f43325j.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+                this.f43511h.setText(sdkLiveInfoData.title);
+                this.f43513j.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
                 return;
             }
             setVisibility(4);

@@ -2,11 +2,10 @@ package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
 import c.a.d.f.d.l;
-import c.a.d.f.p.c;
-import c.a.d.f.p.o;
-import c.a.r0.l0.b.d;
-import c.a.r0.l0.b.h;
-import c.a.r0.s.s.a;
+import c.a.d.f.p.p;
+import c.a.s0.l0.b.d;
+import c.a.s0.l0.b.h;
+import c.a.s0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,20 +95,20 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends h, M extends Mes
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
             super.decodeInBackGround(i2, bArr);
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c3 = c.c(parseFrom, Error.class);
+            List<Field> c3 = c.a.d.f.p.d.c(parseFrom, Error.class);
             if (c3 == null || c3.size() <= 0) {
                 z = false;
             } else {
                 z = true;
-                Object a = o.a(parseFrom, c3.get(0));
+                Object a = p.a(parseFrom, c3.get(0));
                 if (a instanceof Error) {
                     Error error = (Error) a;
                     setError(error.errorno.intValue());
                     setErrorString(error.usermsg);
                 }
             }
-            if (!z && (c2 = c.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
-                Object a2 = o.a(parseFrom, c2.get(0));
+            if (!z && (c2 = c.a.d.f.p.d.c(parseFrom, tbclient.Error.class)) != null && c2.size() > 0) {
+                Object a2 = p.a(parseFrom, c2.get(0));
                 if (a2 instanceof tbclient.Error) {
                     tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());

@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f39876e;
+    public a f40032e;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
         void a(int i2, int i3);
     }
@@ -47,7 +47,7 @@ public class SwanEditText extends AppCompatEditText {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             super.onSelectionChanged(i2, i3);
-            a aVar = this.f39876e;
+            a aVar = this.f40032e;
             if (aVar != null) {
                 aVar.a(i2, i3);
             }
@@ -57,7 +57,7 @@ public class SwanEditText extends AppCompatEditText {
     public void setSelectListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f39876e = aVar;
+            this.f40032e = aVar;
         }
     }
 

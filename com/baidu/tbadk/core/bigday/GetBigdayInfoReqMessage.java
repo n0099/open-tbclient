@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -46,8 +46,8 @@ public class GetBigdayInfoReqMessage extends NetMessage {
                 if (z) {
                     b0.a(builder, true);
                 }
-                builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst().getContext()));
-                builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getContext()));
+                builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getContext()));
                 GetBigdayReqIdl.Builder builder2 = new GetBigdayReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

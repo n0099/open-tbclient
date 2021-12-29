@@ -1,65 +1,44 @@
 package com.kwad.sdk.reward;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class n {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static boolean a(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adTemplate)) == null) {
-            if (b(adTemplate)) {
-                return true;
-            }
-            String a = com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate));
-            String a2 = aa.a(a);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a2 + "--url:" + a);
-            c.a aVar = new c.a();
-            boolean a3 = com.kwad.sdk.core.diskcache.a.a.a().a(a, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a2 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a3);
-            if (a3) {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1);
-            } else {
-                com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.a);
-            }
-            return a3;
+        if (b(adTemplate)) {
+            return true;
         }
-        return invokeL.booleanValue;
+        String a = com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate));
+        String a2 = aa.a(a);
+        long currentTimeMillis = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a2 + "--url:" + a);
+        c.a aVar = new c.a();
+        boolean a3 = com.kwad.sdk.core.diskcache.a.a.a().a(a, aVar);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a2 + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a3);
+        if (a3) {
+            com.kwad.sdk.core.report.d.a(adTemplate, 1);
+        } else {
+            com.kwad.sdk.core.report.d.a(adTemplate, 1, aVar.a);
+        }
+        return a3;
     }
 
     public static boolean a(@NonNull String str, String str2, c.a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, aVar)) == null) {
-            String a = aa.a(str2);
-            long currentTimeMillis = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a + "--url:" + str);
-            boolean a2 = com.kwad.sdk.core.diskcache.a.a.a().a(str, str2, aVar);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a2);
-            return a2;
-        }
-        return invokeLLL.booleanValue;
+        String a = aa.a(str2);
+        long currentTimeMillis = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.c("VideoCacheHelper", "start cache video key:" + a + "--url:" + str);
+        boolean a2 = com.kwad.sdk.core.diskcache.a.a.a().a(str, str2, aVar);
+        long currentTimeMillis2 = System.currentTimeMillis();
+        com.kwad.sdk.core.d.a.c("VideoCacheHelper", "finish cache video key:" + a + "--cache time:" + (currentTimeMillis2 - currentTimeMillis) + "--success:" + a2);
+        return a2;
     }
 
     public static boolean b(@NonNull AdTemplate adTemplate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adTemplate)) == null) {
-            File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)));
-            return b2 != null && b2.exists();
-        }
-        return invokeL.booleanValue;
+        File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(com.kwad.sdk.core.response.a.a.a(com.kwad.sdk.core.response.a.d.j(adTemplate)));
+        return b2 != null && b2.exists();
     }
 }

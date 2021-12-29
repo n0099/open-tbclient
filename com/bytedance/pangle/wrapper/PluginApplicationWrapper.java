@@ -16,8 +16,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
-import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.b;
 import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
 @Keep
@@ -46,7 +44,6 @@ public class PluginApplicationWrapper extends Application {
         }
         this.mOriginApplication = application;
         this.mPluginContext = pluginContext;
-        Zeus.getAppApplication().registerActivityLifecycleCallbacks(new b());
         try {
             FieldUtils.writeField(this, "mBase", pluginContext);
         } catch (IllegalAccessException e2) {

@@ -357,7 +357,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
                     case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY /* 4021 */:
                         this.mHomeFragmentStartFirstLoadStartStamp = j2;
                         return;
-                    case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
+                    case 4022:
                         this.mHomeFragmentStartFirstLoadPaperEndStamp = j2;
                         return;
                     case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:

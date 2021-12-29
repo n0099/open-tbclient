@@ -39,8 +39,10 @@ public class DnsParseResult {
     public static final int TYPE_LOCAL = 0;
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
     public transient /* synthetic */ FieldHolder $fh;
-    public int l;
-    public List<String> m;
+
+    /* renamed from: k  reason: collision with root package name */
+    public int f39593k;
+    public List<String> l;
     public int stackType;
     public int type;
 
@@ -61,19 +63,19 @@ public class DnsParseResult {
         }
         this.stackType = 0;
         if (list != null && !list.isEmpty()) {
-            this.m = Collections.unmodifiableList(list);
+            this.l = Collections.unmodifiableList(list);
         } else {
-            this.m = null;
+            this.l = null;
         }
         this.type = i2;
-        this.l = i3;
+        this.f39593k = i3;
         this.stackType = i4;
     }
 
     public List<String> getIpList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (List) invokeV.objValue;
     }
 
     public int getStackType() {
@@ -85,7 +87,7 @@ public class DnsParseResult {
     public int getSubType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39593k : invokeV.intValue;
     }
 
     public int getType() {
@@ -101,8 +103,8 @@ public class DnsParseResult {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", this.type);
-                jSONObject.put("subType", this.l);
-                jSONObject.put("ipList", new JSONArray((Collection) this.m));
+                jSONObject.put("subType", this.f39593k);
+                jSONObject.put("ipList", new JSONArray((Collection) this.l));
                 jSONObject.put("stackType", this.stackType);
             } catch (JSONException e2) {
                 e2.printStackTrace();

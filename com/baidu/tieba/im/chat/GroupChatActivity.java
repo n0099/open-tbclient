@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.r0.d1.k0;
-import c.a.r0.d1.n0;
-import c.a.r0.d1.s;
+import c.a.d.f.p.m;
+import c.a.s0.e1.k0;
+import c.a.s0.e1.n0;
+import c.a.s0.e1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -44,7 +44,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f46297b;
+        public final /* synthetic */ GroupChatActivity f46517b;
 
         public a(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -61,17 +61,17 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f46297b = groupChatActivity;
+            this.f46517b = groupChatActivity;
             this.a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.r0.d1.k0
+        @Override // c.a.s0.e1.k0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.s0.s1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.t0.s1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -82,7 +82,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public final /* synthetic */ GroupData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GroupChatActivity f46298b;
+        public final /* synthetic */ GroupChatActivity f46518b;
 
         public b(GroupChatActivity groupChatActivity, GroupData groupData) {
             Interceptable interceptable = $ic;
@@ -99,12 +99,12 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                     return;
                 }
             }
-            this.f46298b = groupChatActivity;
+            this.f46518b = groupChatActivity;
             this.a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.d1.s
+        @Override // c.a.s0.e1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             GroupData groupData;
@@ -113,18 +113,18 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 return;
             }
             if (bool.booleanValue()) {
-                this.f46298b.mListView.closeNotNotify();
+                this.f46518b.mListView.closeNotNotify();
             } else {
-                this.f46298b.mListView.showNotNotfiy();
+                this.f46518b.mListView.showNotNotfiy();
             }
-            if (this.f46298b.mListModel == null || (groupData = this.a) == null) {
+            if (this.f46518b.mListModel == null || (groupData = this.a) == null) {
                 return;
             }
             String name = groupData.getName();
             if (TextUtils.isEmpty(name)) {
                 return;
             }
-            this.f46298b.mListView.refreshHeaderFooter(name, true);
+            this.f46518b.mListView.refreshHeaderFooter(name, true);
         }
     }
 
@@ -207,12 +207,12 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             return;
         }
         String stringExtra = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
-        if (!l.isEmpty(stringExtra)) {
+        if (!m.isEmpty(stringExtra)) {
             getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
             this.mListModel.sendExtraMessage(stringExtra);
         }
         String stringExtra2 = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
-        if (l.isEmpty(stringExtra2) || stringExtra2.trim().length() <= 0) {
+        if (m.isEmpty(stringExtra2) || stringExtra2.trim().length() <= 0) {
             return;
         }
         getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
@@ -220,7 +220,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(c.a.s0.s1.f.c cVar) {
+    public boolean first(c.a.t0.s1.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
@@ -321,7 +321,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.r0.f1.n.i
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.s0.g1.n.i
     public void onLinkButtonClicked(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str) == null) {
@@ -365,7 +365,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(2, true);
             String curId = ChatStatusManager.getInst().getCurId(2);
-            c.a.r0.t.d.b.g0().d(curId);
+            c.a.s0.t.d.b.g0().d(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
         }
     }

@@ -8,7 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -168,7 +168,7 @@ public class CustomPushNotificationBuilder extends PushNotificationBuilder {
                 if (TextUtils.isEmpty(this.mChannelName)) {
                     this.mChannelName = "云推送";
                 }
-                com.baidu.android.pushservice.j.h.a(context, this.mChannelId, this.mChannelName);
+                com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
                 builder.setChannelId(this.mChannelId);
             }
             Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();

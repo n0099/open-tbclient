@@ -20,28 +20,28 @@ public class b {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f1274b;
+    public int[] f1667b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final FloatBuffer f1275c;
+    public final FloatBuffer f1668c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final FloatBuffer f1276d;
+    public final FloatBuffer f1669d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final FloatBuffer f1277e;
+    public final FloatBuffer f1670e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1278f;
+    public int f1671f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1279g;
+    public int f1672g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1280h;
+    public int f1673h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float[] f1281i;
+    public float[] f1674i;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class b {
                 return;
             }
         }
-        this.f1281i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        this.f1674i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
         FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(g.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.f1275c = asFloatBuffer;
+        this.f1668c = asFloatBuffer;
         asFloatBuffer.put(g.a).position(0);
         FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(i.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.f1276d = asFloatBuffer2;
+        this.f1669d = asFloatBuffer2;
         asFloatBuffer2.put(i.a).position(0);
         float[] b2 = i.b(Rotation.NORMAL, false, true);
         FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b2.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.f1277e = asFloatBuffer3;
+        this.f1670e = asFloatBuffer3;
         asFloatBuffer3.put(b2).position(0);
     }
 
@@ -74,7 +74,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             int[] iArr = this.a;
-            return iArr == null || this.f1280h >= iArr.length;
+            return iArr == null || this.f1673h >= iArr.length;
         }
         return invokeV.booleanValue;
     }
@@ -82,10 +82,10 @@ public class b {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int[] iArr = this.f1274b;
+            int[] iArr = this.f1667b;
             if (iArr != null) {
                 GLES20.glDeleteTextures(iArr.length, iArr, 0);
-                this.f1274b = null;
+                this.f1667b = null;
             }
             int[] iArr2 = this.a;
             if (iArr2 != null) {
@@ -100,14 +100,14 @@ public class b {
         if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) || i2 == 0 || i3 == 0) {
             return;
         }
-        if (this.f1278f == i2 && this.f1279g == i3) {
+        if (this.f1671f == i2 && this.f1672g == i3) {
             return;
         }
         if (this.a != null) {
             b();
         }
-        this.f1278f = i2;
-        this.f1279g = i3;
+        this.f1671f = i2;
+        this.f1672g = i3;
         d(2);
     }
 
@@ -123,7 +123,7 @@ public class b {
                 if (iArr4 != null && iArr4.length > i3) {
                     iArr2[i3] = iArr4[i3];
                 }
-                int[] iArr5 = this.f1274b;
+                int[] iArr5 = this.f1667b;
                 if (iArr5 != null && iArr5.length > i3) {
                     iArr3[i3] = iArr5[i3];
                 }
@@ -131,7 +131,7 @@ public class b {
                     GLES20.glGenFramebuffers(1, iArr2, i3);
                     GLES20.glGenTextures(1, iArr3, i3);
                     GLES20.glBindTexture(3553, iArr3[i3]);
-                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f1278f, this.f1279g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f1671f, this.f1672g, 0, GeneratedTexture.FORMAT, 5121, null);
                     GLES20.glTexParameterf(3553, 10240, 9729.0f);
                     GLES20.glTexParameterf(3553, 10241, 9729.0f);
                     GLES20.glTexParameterf(3553, 10242, 33071.0f);
@@ -143,7 +143,7 @@ public class b {
                 }
             }
             this.a = iArr2;
-            this.f1274b = iArr3;
+            this.f1667b = iArr3;
         }
     }
 
@@ -159,14 +159,14 @@ public class b {
                     d(2);
                 }
                 aVar.s();
-                GLES20.glBindFramebuffer(36160, this.a[this.f1280h]);
-                GLES20.glViewport(0, 0, this.f1278f, this.f1279g);
-                GLES20.glClearColor(this.f1281i[0], this.f1281i[1], this.f1281i[2], this.f1281i[3]);
+                GLES20.glBindFramebuffer(36160, this.a[this.f1673h]);
+                GLES20.glViewport(0, 0, this.f1671f, this.f1672g);
+                GLES20.glClearColor(this.f1674i[0], this.f1674i[1], this.f1674i[2], this.f1674i[3]);
                 GLES20.glClear(16640);
-                aVar.p(i2, this.f1275c, this.f1277e);
+                aVar.p(i2, this.f1668c, this.f1670e);
                 GLES20.glBindFramebuffer(36160, 0);
-                i2 = this.f1274b[this.f1280h];
-                this.f1280h++;
+                i2 = this.f1667b[this.f1673h];
+                this.f1673h++;
                 return i2;
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -186,28 +186,28 @@ public class b {
                 if (size == 0) {
                     return i2;
                 }
-                if (this.a.length - this.f1280h <= size) {
+                if (this.a.length - this.f1673h <= size) {
                     d(size);
                 }
-                int i4 = this.f1280h;
+                int i4 = this.f1673h;
                 while (true) {
-                    i3 = this.f1280h;
+                    i3 = this.f1673h;
                     if (i4 >= i3 + size) {
                         break;
                     }
                     a aVar = list.get(i4 - i3);
                     aVar.s();
                     GLES20.glBindFramebuffer(36160, this.a[i4]);
-                    GLES20.glViewport(0, 0, this.f1278f, this.f1279g);
-                    float[] fArr = this.f1281i;
+                    GLES20.glViewport(0, 0, this.f1671f, this.f1672g);
+                    float[] fArr = this.f1674i;
                     GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
                     GLES20.glClear(16640);
-                    aVar.p(i2, this.f1275c, this.f1277e);
+                    aVar.p(i2, this.f1668c, this.f1670e);
                     GLES20.glBindFramebuffer(36160, 0);
-                    i2 = this.f1274b[i4];
+                    i2 = this.f1667b[i4];
                     i4++;
                 }
-                this.f1280h = i3 + size;
+                this.f1673h = i3 + size;
             }
             return i2;
         }
@@ -217,14 +217,14 @@ public class b {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f1280h = 0;
+            this.f1673h = 0;
         }
     }
 
     public void h(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            float[] fArr = this.f1281i;
+            float[] fArr = this.f1674i;
             fArr[0] = f2;
             fArr[1] = f3;
             fArr[2] = f4;

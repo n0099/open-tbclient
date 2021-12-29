@@ -21,7 +21,7 @@ public class GLVersion {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Type f31990b;
+    public final Type f32133b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes9.dex */
@@ -103,19 +103,19 @@ public class GLVersion {
             }
         }
         if (applicationType == Application.ApplicationType.Android) {
-            this.f31990b = Type.GLES;
+            this.f32133b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.iOS) {
-            this.f31990b = Type.GLES;
+            this.f32133b = Type.GLES;
         } else if (applicationType == Application.ApplicationType.Desktop) {
-            this.f31990b = Type.OpenGL;
+            this.f32133b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.Applet) {
-            this.f31990b = Type.OpenGL;
+            this.f32133b = Type.OpenGL;
         } else if (applicationType == Application.ApplicationType.WebGL) {
-            this.f31990b = Type.WebGL;
+            this.f32133b = Type.WebGL;
         } else {
-            this.f31990b = Type.NONE;
+            this.f32133b = Type.NONE;
         }
-        Type type = this.f31990b;
+        Type type = this.f32133b;
         if (type == Type.GLES) {
             a("OpenGL ES (\\d(\\.\\d){0,2})", str);
         } else if (type == Type.WebGL) {
@@ -173,6 +173,6 @@ public class GLVersion {
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31990b : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32133b : (Type) invokeV.objValue;
     }
 }

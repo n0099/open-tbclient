@@ -1,12 +1,5 @@
 package com.ss.android.downloadlib.addownload.c;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.k;
 import com.ss.android.downloadlib.g.l;
@@ -16,121 +9,83 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes3.dex */
 public class a implements r {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private long b(com.ss.android.socialbase.downloader.g.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar)) == null) {
-            long a = aVar.a("clear_space_sleep_time", 0L);
-            if (a <= 0) {
-                return 0L;
-            }
-            if (a > 5000) {
-                a = 5000;
-            }
-            k.b("AppDownloadDiskSpaceHandler", "waiting for space clear, sleepTime = " + a, null);
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
-            }
-            k.b("AppDownloadDiskSpaceHandler", "waiting end!", null);
-            return a;
+        long a = aVar.a("clear_space_sleep_time", 0L);
+        if (a <= 0) {
+            return 0L;
         }
-        return invokeL.longValue;
+        if (a > 5000) {
+            a = 5000;
+        }
+        k.b("AppDownloadDiskSpaceHandler", "waiting for space clear, sleepTime = " + a, null);
+        try {
+            Thread.sleep(a);
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
+        }
+        k.b("AppDownloadDiskSpaceHandler", "waiting end!", null);
+        return a;
     }
 
     public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.a = i2;
-        }
+        this.a = i2;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.r
     public boolean a(long j2, long j3, q qVar) {
-        InterceptResult invokeCommon;
         long j4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), qVar})) == null) {
-            com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(this.a);
-            if (a(a)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                d.a().c();
-                long a2 = l.a(0L);
-                a();
-                long a3 = l.a(0L);
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (a3 < j3) {
-                    long b2 = b(a);
-                    if (b2 > 0) {
-                        a3 = l.a(0L);
-                    }
-                    j4 = b2;
-                } else {
-                    j4 = 0;
+        com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(this.a);
+        if (a(a)) {
+            long currentTimeMillis = System.currentTimeMillis();
+            d.a().c();
+            long a2 = l.a(0L);
+            a();
+            long a3 = l.a(0L);
+            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+            if (a3 < j3) {
+                long b2 = b(a);
+                if (b2 > 0) {
+                    a3 = l.a(0L);
                 }
-                k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j3 + ", byteAvailableAfter = " + a3 + ", cleaned = " + (a3 - a2), null);
-                a(a2, a3, j3, currentTimeMillis2, j4);
-                if (a3 < j3) {
-                    return false;
-                }
-                if (qVar != null) {
-                    qVar.a();
-                    return true;
-                }
+                j4 = b2;
+            } else {
+                j4 = 0;
+            }
+            k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j3 + ", byteAvailableAfter = " + a3 + ", cleaned = " + (a3 - a2), null);
+            a(a2, a3, j3, currentTimeMillis2, j4);
+            if (a3 < j3) {
+                return false;
+            }
+            if (qVar != null) {
+                qVar.a();
                 return true;
             }
-            return false;
+            return true;
         }
-        return invokeCommon.booleanValue;
+        return false;
     }
 
     private boolean a(com.ss.android.socialbase.downloader.g.a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
-            if (aVar.a("clear_space_use_disk_handler", 0) != 1) {
-                return false;
-            }
-            return System.currentTimeMillis() - d.a().b() >= aVar.a("clear_space_min_time_interval", 600000L);
+        if (aVar.a("clear_space_use_disk_handler", 0) != 1) {
+            return false;
         }
-        return invokeL.booleanValue;
+        return System.currentTimeMillis() - d.a().b() >= aVar.a("clear_space_min_time_interval", 600000L);
     }
 
     private void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            com.ss.android.download.api.config.e o = j.o();
-            if (o != null) {
-                o.a();
-            }
-            c.a();
-            c.b();
+        com.ss.android.download.api.config.e o = j.o();
+        if (o != null) {
+            o.a();
         }
+        c.a();
+        c.b();
     }
 
     private void a(long j2, long j3, long j4, long j5, long j6) {
-        DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.a)) == null) {
+        DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.a);
+        if (downloadInfo == null) {
             return;
         }
         try {

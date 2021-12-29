@@ -296,7 +296,7 @@ public final class FlutterActivityDelegate implements FlutterActivityEvents, Flu
         }
         FlutterRunArguments flutterRunArguments = new FlutterRunArguments();
         flutterRunArguments.bundlePath = str;
-        flutterRunArguments.entrypoint = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+        flutterRunArguments.entrypoint = "main";
         this.flutterView.runFromBundle(flutterRunArguments);
     }
 

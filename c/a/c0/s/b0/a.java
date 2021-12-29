@@ -19,7 +19,7 @@ public abstract class a implements h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.s.j0.l f1891e;
+    public c.a.c0.s.j0.l f2318e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public abstract class a implements h {
     public void b(c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
-            this.f1891e.S(pVar);
+            this.f2318e.M(pVar);
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class a implements h {
     public c.a.c0.s.e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1891e.u() : (c.a.c0.s.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2318e.u() : (c.a.c0.s.e) invokeV.objValue;
     }
 
     public void e(Message message) {
@@ -84,7 +84,7 @@ public abstract class a implements h {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f1891e.getContentView().getContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2318e.getContentView().getContext() : (Context) invokeV.objValue;
     }
 
     public void h(@NonNull c.a.c0.s.c0.p pVar) {
@@ -114,14 +114,14 @@ public abstract class a implements h {
     public void l(c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) {
-            this.f1891e.F(pVar);
+            this.f2318e.F(pVar);
         }
     }
 
     public void m(@NonNull c.a.c0.s.j0.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, lVar) == null) {
-            this.f1891e = lVar;
+            this.f2318e = lVar;
         }
     }
 }

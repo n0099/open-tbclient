@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.danmu;
 
-import c.a.s0.m0.i.c;
+import c.a.t0.m0.i.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

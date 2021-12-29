@@ -25,7 +25,7 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
     public VideoContainerLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPbViewModel f48479b;
+    public VideoPbViewModel f48700b;
 
     public VideoZoomBehavior() {
         Interceptable interceptable = $ic;
@@ -97,20 +97,20 @@ public class VideoZoomBehavior extends AppBarLayout.Behavior {
                     layoutParams.height = maxHeight;
                     this.a.setLayoutParams(layoutParams);
                 }
-                if (this.f48479b == null && (this.a.getContext() instanceof AbsPbActivity)) {
-                    this.f48479b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
+                if (this.f48700b == null && (this.a.getContext() instanceof AbsPbActivity)) {
+                    this.f48700b = (VideoPbViewModel) ViewModelProviders.of((AbsPbActivity) this.a.getContext()).get(VideoPbViewModel.class);
                 }
-                VideoPbViewModel videoPbViewModel = this.f48479b;
+                VideoPbViewModel videoPbViewModel = this.f48700b;
                 if (videoPbViewModel != null) {
                     if (i2 > -5) {
                         MutableLiveData<Boolean> isDetailTabTop = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop == null || isDetailTabTop.getValue() == null || !isDetailTabTop.getValue().booleanValue()) {
-                            this.f48479b.setIsDetailTabTop(true);
+                            this.f48700b.setIsDetailTabTop(true);
                         }
                     } else {
                         MutableLiveData<Boolean> isDetailTabTop2 = videoPbViewModel.getIsDetailTabTop();
                         if (isDetailTabTop2 == null || isDetailTabTop2.getValue() == null || isDetailTabTop2.getValue().booleanValue()) {
-                            this.f48479b.setIsDetailTabTop(false);
+                            this.f48700b.setIsDetailTabTop(false);
                         }
                     }
                 }

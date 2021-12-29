@@ -1,8 +1,8 @@
 package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
-import c.a.d.f.p.k;
-import c.a.s0.j3.l0.c;
+import c.a.d.f.p.l;
+import c.a.t0.j3.l0.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -55,7 +55,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam("productId", 2);
-        addParam("net_type", k.I());
+        addParam("net_type", l.I());
         addParam(KEY_OS_TYPE, 2);
     }
 

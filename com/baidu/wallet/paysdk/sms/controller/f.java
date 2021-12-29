@@ -29,19 +29,19 @@ public class f implements ISmsController {
     public PayBaseActivity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54203b;
+    public String f54206b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54204c;
+    public String f54207c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SmsUpdateUiInterface f54205d;
+    public SmsUpdateUiInterface f54208d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f54206e;
+    public boolean f54209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SmsVerifyHandler f54207f;
+    public SmsVerifyHandler f54210f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class f implements ISmsController {
                 return;
             }
         }
-        this.f54206e = false;
+        this.f54209e = false;
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
@@ -109,8 +109,8 @@ public class f implements ISmsController {
     public void doOnSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            bundle.putString("card_no", this.f54203b);
-            bundle.putString("phone_no", this.f54204c);
+            bundle.putString("card_no", this.f54206b);
+            bundle.putString("phone_no", this.f54207c);
         }
     }
 
@@ -121,19 +121,19 @@ public class f implements ISmsController {
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i2, i3, str)) == null) {
             if (i2 == 514) {
                 WalletGlobalUtils.safeDismissDialog(this.a, 0);
-                this.f54206e = false;
+                this.f54209e = false;
                 if (!TextUtils.isEmpty(str)) {
                     GlobalUtils.toast(this.a, str);
                 }
-                SmsUpdateUiInterface smsUpdateUiInterface = this.f54205d;
+                SmsUpdateUiInterface smsUpdateUiInterface = this.f54208d;
                 if (smsUpdateUiInterface != null) {
                     smsUpdateUiInterface.clearSmsEditText();
-                    this.f54205d.doStopCountDown();
+                    this.f54208d.doStopCountDown();
                 }
                 if (TextUtils.isEmpty(str)) {
                     str = ResUtils.getString(this.a, "ebpay_send_fail");
                 }
-                SmsVerifyHandler smsVerifyHandler = this.f54207f;
+                SmsVerifyHandler smsVerifyHandler = this.f54210f;
                 if (smsVerifyHandler != null) {
                     smsVerifyHandler.onSmsSendFailure(i3, str);
                 }
@@ -141,7 +141,7 @@ public class f implements ISmsController {
                 return false;
             } else {
                 WalletGlobalUtils.safeDismissDialog(this.a, 0);
-                SmsVerifyHandler smsVerifyHandler2 = this.f54207f;
+                SmsVerifyHandler smsVerifyHandler2 = this.f54210f;
                 if (smsVerifyHandler2 != null) {
                     smsVerifyHandler2.onSmsVerifyFailure(i3, str);
                 }
@@ -158,15 +158,15 @@ public class f implements ISmsController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, obj, str)) == null) {
             if (i2 == 514) {
-                this.f54206e = false;
+                this.f54209e = false;
                 WalletGlobalUtils.safeDismissDialog(this.a, 0);
                 PayBaseActivity payBaseActivity = this.a;
                 GlobalUtils.toast(payBaseActivity, ResUtils.getString(payBaseActivity, "ebpay_sms_sent"));
-                if (obj != null && (obj instanceof UnBindSmSResponse) && (smsUpdateUiInterface = this.f54205d) != null) {
+                if (obj != null && (obj instanceof UnBindSmSResponse) && (smsUpdateUiInterface = this.f54208d) != null) {
                     UnBindSmSResponse unBindSmSResponse = (UnBindSmSResponse) obj;
                     smsUpdateUiInterface.upDateSafeKeyBoradView(unBindSmSResponse.sms_length, unBindSmSResponse.sms_type);
                 }
-                SmsVerifyHandler smsVerifyHandler = this.f54207f;
+                SmsVerifyHandler smsVerifyHandler = this.f54210f;
                 if (smsVerifyHandler != null) {
                     smsVerifyHandler.onSmsSendSuccess();
                 }
@@ -174,7 +174,7 @@ public class f implements ISmsController {
                 return false;
             } else {
                 WalletGlobalUtils.safeDismissDialog(this.a, 0);
-                SmsVerifyHandler smsVerifyHandler2 = this.f54207f;
+                SmsVerifyHandler smsVerifyHandler2 = this.f54210f;
                 if (smsVerifyHandler2 != null) {
                     smsVerifyHandler2.onSmsVerifySuccess();
                 }
@@ -192,7 +192,7 @@ public class f implements ISmsController {
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (payBaseActivity = this.a) == null) {
             return;
         }
-        this.f54205d.initSMSActivityView("dxm_wallet_base_verify_phone_no", "", ResUtils.getString(payBaseActivity, "wallet_base_unbind_tip"), this.f54204c, false);
+        this.f54208d.initSMSActivityView("dxm_wallet_base_verify_phone_no", "", ResUtils.getString(payBaseActivity, "wallet_base_unbind_tip"), this.f54207c, false);
     }
 
     @Override // com.baidu.wallet.paysdk.sms.controller.ISmsController
@@ -210,7 +210,7 @@ public class f implements ISmsController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            this.f54206e = true;
+            this.f54209e = true;
             return true;
         }
         return invokeV.booleanValue;
@@ -226,15 +226,15 @@ public class f implements ISmsController {
                 if (payBaseActivity == null) {
                     return false;
                 }
-                this.f54203b = payBaseActivity.getIntent().getStringExtra(BeanConstants.EXTRA_CARD_NO);
-                this.f54204c = this.a.getIntent().getStringExtra(BeanConstants.EXTRA_PHONE_NO);
+                this.f54206b = payBaseActivity.getIntent().getStringExtra(BeanConstants.EXTRA_CARD_NO);
+                this.f54207c = this.a.getIntent().getStringExtra(BeanConstants.EXTRA_PHONE_NO);
             } else {
-                this.f54203b = bundle.getString("card_no");
-                this.f54204c = bundle.getString("phone_no");
+                this.f54206b = bundle.getString("card_no");
+                this.f54207c = bundle.getString("phone_no");
             }
             com.baidu.wallet.paysdk.datamodel.b bVar = new com.baidu.wallet.paysdk.datamodel.b();
-            bVar.f54029b = this.f54203b;
-            bVar.a = this.f54204c;
+            bVar.f54032b = this.f54206b;
+            bVar.a = this.f54207c;
             if (bVar.checkRequestValidity()) {
                 PayRequestCache.getInstance().addBeanRequestToCache(bVar.getRequestId(), bVar);
             }
@@ -248,8 +248,8 @@ public class f implements ISmsController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             UnbindCardBean unbindCardBean = (UnbindCardBean) PayBeanFactory.getInstance().getBean((Context) this.a, 516, ISmsController.BEAN_TAG);
-            unbindCardBean.setCardNo(this.f54203b);
-            unbindCardBean.setPhoneNo(this.f54204c);
+            unbindCardBean.setCardNo(this.f54206b);
+            unbindCardBean.setPhoneNo(this.f54207c);
             unbindCardBean.setUsePass(false);
             unbindCardBean.setValue(str);
             unbindCardBean.setResponseCallback(this.a);
@@ -262,7 +262,7 @@ public class f implements ISmsController {
         PayBaseActivity payBaseActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.f54206e && (payBaseActivity = this.a) != null) {
+            if (this.f54209e && (payBaseActivity = this.a) != null) {
                 WalletGlobalUtils.safeShowDialog(payBaseActivity, 0, "");
             }
             p pVar = (p) PayBeanFactory.getInstance().getBean((Context) this.a, 514, ISmsController.BEAN_TAG);
@@ -283,7 +283,7 @@ public class f implements ISmsController {
     public void setSmsUpdateUIInterface(SmsUpdateUiInterface smsUpdateUiInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, smsUpdateUiInterface) == null) {
-            this.f54205d = smsUpdateUiInterface;
+            this.f54208d = smsUpdateUiInterface;
         }
     }
 
@@ -291,7 +291,7 @@ public class f implements ISmsController {
     public void setSmsVerifyHandler(SmsVerifyHandler smsVerifyHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, smsVerifyHandler) == null) {
-            this.f54207f = smsVerifyHandler;
+            this.f54210f = smsVerifyHandler;
         }
     }
 }

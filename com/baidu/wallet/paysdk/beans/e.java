@@ -28,10 +28,10 @@ public class e extends BaseBean<CardAddResponse> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BindFastRequest f53988b;
+    public BindFastRequest f53991b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f53989c;
+    public Context f53992c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(Context context) {
@@ -52,8 +52,8 @@ public class e extends BaseBean<CardAddResponse> {
             }
         }
         this.a = null;
-        this.f53988b = null;
-        this.f53989c = context;
+        this.f53991b = null;
+        this.f53992c = context;
     }
 
     public void a(String str) {
@@ -77,7 +77,7 @@ public class e extends BaseBean<CardAddResponse> {
         List<RestNameValuePair> json2KeyValuePairs;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f53988b != null) {
+            if (this.f53991b != null) {
                 if (TextUtils.isEmpty(this.a)) {
                     json2KeyValuePairs = new ArrayList<>();
                 } else {
@@ -93,8 +93,8 @@ public class e extends BaseBean<CardAddResponse> {
                         }
                     }
                 }
-                String str = WalletFingerprint.getInstance(this.f53989c).isDevicesSupport() ? "1" : "0";
-                String str2 = WalletFingerprint.getInstance(this.f53989c).hasEnrollFingerprint() ? "1" : "0";
+                String str = WalletFingerprint.getInstance(this.f53992c).isDevicesSupport() ? "1" : "0";
+                String str2 = WalletFingerprint.getInstance(this.f53992c).hasEnrollFingerprint() ? "1" : "0";
                 json2KeyValuePairs.add(new RestNameValuePair("device_support", str));
                 json2KeyValuePairs.add(new RestNameValuePair("enroll_fingerprint", str2));
                 json2KeyValuePairs.add(new RestNameValuePair("verify_type", "2"));
@@ -128,7 +128,7 @@ public class e extends BaseBean<CardAddResponse> {
     public void handleSession(BeanResponseBase.Session session) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, session) == null) {
-            BindFastRequest bindFastRequest = this.f53988b;
+            BindFastRequest bindFastRequest = this.f53991b;
             if (bindFastRequest != null) {
                 bindFastRequest.saveSession(session);
             } else {
@@ -140,13 +140,13 @@ public class e extends BaseBean<CardAddResponse> {
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bindFastRequest) == null) {
-            this.f53988b = bindFastRequest;
+            this.f53991b = bindFastRequest;
         }
     }
 
     public BindFastRequest a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53988b : (BindFastRequest) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53991b : (BindFastRequest) invokeV.objValue;
     }
 }

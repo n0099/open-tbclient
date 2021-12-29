@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.b;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.h.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,22 +48,22 @@ public class a {
                                 sb.append(readLine);
                             } catch (IOException e2) {
                                 new b.c(context).a(Log.getStackTraceString(e2)).a();
-                                com.baidu.android.pushservice.e.c.a(context, bufferedReader);
+                                com.baidu.android.pushservice.d.c.a(context, bufferedReader);
                             }
                         } catch (Throwable th) {
-                            com.baidu.android.pushservice.e.c.a(context, bufferedReader);
+                            com.baidu.android.pushservice.d.c.a(context, bufferedReader);
                             throw th;
                         }
                     }
-                    com.baidu.android.pushservice.e.c.a(context, bufferedReader);
-                    com.baidu.android.pushservice.e.c.a(context, b2);
+                    com.baidu.android.pushservice.d.c.a(context, bufferedReader);
+                    com.baidu.android.pushservice.d.c.a(context, b2);
                 } catch (UnsupportedEncodingException e3) {
                     new b.c(context).a(Log.getStackTraceString(e3)).a();
-                    com.baidu.android.pushservice.e.c.a(context, b2);
+                    com.baidu.android.pushservice.d.c.a(context, b2);
                 }
                 return sb.toString();
             } catch (Throwable th2) {
-                com.baidu.android.pushservice.e.c.a(context, b2);
+                com.baidu.android.pushservice.d.c.a(context, b2);
                 throw th2;
             }
         }
@@ -97,18 +97,18 @@ public class a {
             }
             try {
                 bufferedWriter.write(str2);
-                com.baidu.android.pushservice.e.c.a(context, bufferedWriter, fileWriter);
+                com.baidu.android.pushservice.d.c.a(context, bufferedWriter, fileWriter);
                 return true;
             } catch (Exception e3) {
                 bufferedWriter2 = bufferedWriter;
                 e = e3;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
-                com.baidu.android.pushservice.e.c.a(context, bufferedWriter2, fileWriter);
+                com.baidu.android.pushservice.d.c.a(context, bufferedWriter2, fileWriter);
                 return false;
             } catch (Throwable th2) {
                 bufferedWriter2 = bufferedWriter;
                 th = th2;
-                com.baidu.android.pushservice.e.c.a(context, bufferedWriter2, fileWriter);
+                com.baidu.android.pushservice.d.c.a(context, bufferedWriter2, fileWriter);
                 throw th;
             }
         } catch (Exception e4) {

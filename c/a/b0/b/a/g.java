@@ -17,7 +17,7 @@ public class g {
     public static final float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f1302b;
+    public static final float[] f1695b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class g {
         }
         a = new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
         float[] fArr = new float[16];
-        f1302b = fArr;
+        f1695b = fArr;
         Matrix.setIdentityM(fArr, 0);
     }
 

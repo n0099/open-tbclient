@@ -44,7 +44,7 @@ public final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f27052e;
+        public static final a f27493e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -60,7 +60,7 @@ public final class b {
                     return;
                 }
             }
-            f27052e = new a();
+            f27493e = new a();
         }
 
         public a() {
@@ -89,11 +89,11 @@ public final class b {
 
     /* renamed from: c.a.x.g.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static final class C1562b<T> implements Comparator<Map.Entry<? extends String, ? extends String>> {
+    public static final class C1583b<T> implements Comparator<Map.Entry<? extends String, ? extends String>> {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final C1562b f27053e;
+        public static final C1583b f27494e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,10 +109,10 @@ public final class b {
                     return;
                 }
             }
-            f27053e = new C1562b();
+            f27494e = new C1583b();
         }
 
-        public C1562b() {
+        public C1583b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,7 +237,7 @@ public final class b {
                 Intrinsics.checkNotNullExpressionValue(f3, "LiveFeedPageSdk.getInstance()");
                 c.a.x.d.b.c g2 = f3.g();
                 Intrinsics.checkNotNullExpressionValue(g2, "LiveFeedPageSdk.getInstance().invoker");
-                String iid = g2.d();
+                String iid = g2.getIID();
                 if (!TextUtils.isEmpty(iid)) {
                     LinkedHashMap linkedHashMap = new LinkedHashMap();
                     Intrinsics.checkNotNullExpressionValue(iid, "iid");
@@ -267,7 +267,7 @@ public final class b {
             if (map3 != null) {
                 arrayList.addAll(map3.entrySet());
             }
-            Collections.sort(arrayList, a.f27052e);
+            Collections.sort(arrayList, a.f27493e);
             StringBuffer stringBuffer = new StringBuffer(1024);
             e(stringBuffer, arrayList);
             stringBuffer.append("tiebaclient!!!");
@@ -300,7 +300,7 @@ public final class b {
             if (map3 != null) {
                 arrayList.addAll(map3.entrySet());
             }
-            Collections.sort(arrayList, C1562b.f27053e);
+            Collections.sort(arrayList, C1583b.f27494e);
             StringBuffer stringBuffer = new StringBuffer(1024);
             d(stringBuffer, arrayList);
             stringBuffer.append("CtmXzYPtdE58nCCcvqM0ectyqW3N5rfY");

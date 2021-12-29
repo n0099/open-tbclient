@@ -13,7 +13,7 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26566b;
+    public String f27005b;
 
     public h(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class h {
             }
         }
         this.a = str2;
-        this.f26566b = str3;
+        this.f27005b = str3;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26566b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27005b : (String) invokeV.objValue;
     }
 
     public String b() {

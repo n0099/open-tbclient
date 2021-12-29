@@ -15,13 +15,13 @@ public class CyberRTCAudioSamples {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f34544b;
+    public final int f34700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f34545c;
+    public final int f34701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final byte[] f34546d;
+    public final byte[] f34702d;
 
     @Keep
     /* loaded from: classes10.dex */
@@ -45,9 +45,9 @@ public class CyberRTCAudioSamples {
             }
         }
         this.a = i2;
-        this.f34544b = i3;
-        this.f34545c = i4;
-        this.f34546d = bArr;
+        this.f34700b = i3;
+        this.f34701c = i4;
+        this.f34702d = bArr;
     }
 
     public int getAudioFormat() {
@@ -59,18 +59,18 @@ public class CyberRTCAudioSamples {
     public int getChannelCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34544b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34700b : invokeV.intValue;
     }
 
     public byte[] getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34546d : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34702d : (byte[]) invokeV.objValue;
     }
 
     public int getSampleRate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34545c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34701c : invokeV.intValue;
     }
 }

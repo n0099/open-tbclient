@@ -4,10 +4,10 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.g.a;
 import c.a.d.c.g.c;
 import c.a.d.f.m.e;
-import c.a.d.f.p.m;
-import c.a.r0.l0.b.g;
-import c.a.r0.l0.b.h;
-import c.a.r0.z0.b;
+import c.a.d.f.p.n;
+import c.a.s0.a1.b;
+import c.a.s0.l0.b.g;
+import c.a.s0.l0.b.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -758,7 +758,7 @@ public class FlutterNetModelAuto<T extends g, D extends h> implements NetworkSer
             if (this.socketCallback == null && this.httpCallback == null && TbadkCoreApplication.getInst().isDebugMode()) {
                 throw new RuntimeException("NetModel must have callback");
             }
-            this.isNetOk = m.C();
+            this.isNetOk = n.C();
             if (this.timeout >= 10) {
                 e.a().postDelayed(getTimeoutRunnable(), this.timeout * 1000);
             }

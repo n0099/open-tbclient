@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.d.f.p.m;
-import c.a.s0.j3.i0.b.g;
+import c.a.d.f.p.n;
+import c.a.t0.j3.i0.b.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -92,10 +92,10 @@ public class AdWebVideoActivity extends AdWebViewActivity {
         public AdvertAppInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f49137b;
+        public int f49363b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f49138c;
+        public String f49364c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -135,14 +135,14 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             return;
         }
         layoutParams.topMargin = i2;
-        layoutParams.height = (m.i(getActivity()) - m.r(getActivity())) - getToolBarHeight();
+        layoutParams.height = (n.i(getActivity()) - n.r(getActivity())) - getToolBarHeight();
         this.mWebView.setLayoutParams(layoutParams);
     }
 
     private int getToolBarHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? m.f(this, R.dimen.ds98) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? n.f(this, R.dimen.ds98) : invokeV.intValue;
     }
 
     public static void setConfigAndJump(AdWebVideoActivityConfig adWebVideoActivityConfig) {
@@ -158,8 +158,8 @@ public class AdWebVideoActivity extends AdWebViewActivity {
             b bVar = new b();
             STATISTIC_DATA = bVar;
             bVar.a = advertAppInfo;
-            bVar.f49138c = str;
-            bVar.f49137b = i2;
+            bVar.f49364c = str;
+            bVar.f49363b = i2;
         }
     }
 
@@ -179,11 +179,11 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 builder.thumbnail_url = this.mThumbUrl;
                 builder.video_duration = Integer.valueOf(this.mVideoDuration);
                 if (this.mGoodsStyle == 14) {
-                    Integer valueOf = Integer.valueOf(m.k(getActivity()));
+                    Integer valueOf = Integer.valueOf(n.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(c.a.s0.j3.i0.c.a.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(c.a.t0.j3.i0.c.a.c(valueOf.intValue()));
                 } else {
-                    Integer valueOf2 = Integer.valueOf(m.k(getActivity()));
+                    Integer valueOf2 = Integer.valueOf(n.k(getActivity()));
                     builder.video_width = valueOf2;
                     builder.video_height = valueOf2;
                     if (this.mVideoRatio > 0.0f) {
@@ -213,7 +213,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                     this.mVideoView.updateTailFrameView(bVar.a);
                     DistributeVideoView distributeVideoView = this.mVideoView;
                     b bVar2 = STATISTIC_DATA;
-                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f49137b, bVar2.f49138c);
+                    distributeVideoView.setStatisticInfo(bVar2.a, bVar2.f49363b, bVar2.f49364c);
                 } else {
                     this.mVideoView.updateTailFrameView(null);
                 }

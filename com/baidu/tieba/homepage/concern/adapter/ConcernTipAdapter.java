@@ -5,9 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.d.m.e.a;
-import c.a.s0.o1.c.f.b;
+import c.a.d.f.p.n;
+import c.a.d.n.e.a;
+import c.a.t0.o1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, b.f20724j);
+        super(context, b.f20765j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,14 +87,14 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                 return;
             }
         }
-        m = m.f(context, R.dimen.tbds102);
-        n = m.f(context, R.dimen.tbds166);
+        m = n.f(context, R.dimen.tbds102);
+        n = n.f(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: g0 */
-    public ConcernTipViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: Z */
+    public ConcernTipViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
@@ -111,18 +111,18 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public View S(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.tip.setText(bVar.f20727f);
+            concernTipViewHolder.tip.setText(bVar.f20768f);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
-            if (bVar.f20728g) {
+            if (bVar.f20769g) {
                 layoutParams.height = n;
                 concernTipViewHolder.topDivider.setVisibility(0);
-            } else if (bVar.f20729h) {
+            } else if (bVar.f20770h) {
                 layoutParams.height = m;
             }
             concernTipViewHolder.tip.setLayoutParams(layoutParams);

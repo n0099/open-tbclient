@@ -7,16 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.model.UnvarnishedMessage;
+import com.vivo.push.model.InsideNotificationItem;
 /* loaded from: classes4.dex */
-public final class q extends x {
+public final class q extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UnvarnishedMessage a;
+    public InsideNotificationItem a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f63027b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q() {
-        super(3);
+        super(4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,53 +35,61 @@ public final class q extends x {
         }
     }
 
-    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("msg_v1", this.a.unpackToJson());
+            String b2 = com.vivo.push.util.q.b(this.a);
+            this.f63027b = b2;
+            aVar.a("notification_v1", b2);
         }
     }
 
-    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    public final InsideNotificationItem d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (InsideNotificationItem) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.f63027b)) {
+                InsideNotificationItem insideNotificationItem = this.a;
+                if (insideNotificationItem == null) {
+                    return null;
+                }
+                return com.vivo.push.util.q.b(insideNotificationItem);
+            }
+            return this.f63027b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public final String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnNotifyArrivedCommand" : (String) invokeV.objValue;
+    }
+
+    @Override // com.vivo.push.b.v, com.vivo.push.b.s, com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
-            String a = aVar.a("msg_v1");
+            String a = aVar.a("notification_v1");
+            this.f63027b = a;
             if (TextUtils.isEmpty(a)) {
                 return;
             }
-            UnvarnishedMessage unvarnishedMessage = new UnvarnishedMessage(a);
-            this.a = unvarnishedMessage;
-            unvarnishedMessage.setMsgId(f());
-        }
-    }
-
-    public final UnvarnishedMessage e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (UnvarnishedMessage) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnMessageCommand" : (String) invokeV.objValue;
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UnvarnishedMessage unvarnishedMessage = this.a;
-            if (unvarnishedMessage == null) {
-                return null;
+            InsideNotificationItem a2 = com.vivo.push.util.q.a(this.f63027b);
+            this.a = a2;
+            if (a2 != null) {
+                a2.setMsgId(f());
             }
-            return unvarnishedMessage.unpackToJson();
         }
-        return (String) invokeV.objValue;
     }
 }

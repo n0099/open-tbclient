@@ -24,7 +24,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (short) 119;
+            return (short) 130;
         }
         return invokeV.shortValue;
     }

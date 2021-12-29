@@ -16,31 +16,31 @@ public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1534b;
+    public String f1961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1535c;
+    public String f1962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1536d;
+    public String f1963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1537e;
+    public String f1964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1538f;
+    public String f1965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1539g;
+    public String f1966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1540h;
+    public String f1967h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1541i;
+    public String f1968i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f1542j;
+    public String f1969j;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -63,15 +63,15 @@ public class d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("als_ext", dVar.a);
-                jSONObject.put("cmd", dVar.f1534b);
-                jSONObject.put("defer_cmd", dVar.f1535c);
-                jSONObject.put("init_text", dVar.f1536d);
-                jSONObject.put("opt_icon", dVar.f1537e);
-                jSONObject.put("opt_text", dVar.f1538f);
-                jSONObject.put("app_icon_url", dVar.f1539g);
-                jSONObject.put("app_name", dVar.f1540h);
-                jSONObject.put("version_code", dVar.f1541i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, dVar.f1542j);
+                jSONObject.put("cmd", dVar.f1961b);
+                jSONObject.put("defer_cmd", dVar.f1962c);
+                jSONObject.put("init_text", dVar.f1963d);
+                jSONObject.put("opt_icon", dVar.f1964e);
+                jSONObject.put("opt_text", dVar.f1965f);
+                jSONObject.put("app_icon_url", dVar.f1966g);
+                jSONObject.put("app_name", dVar.f1967h);
+                jSONObject.put("version_code", dVar.f1968i);
+                jSONObject.put(LegoListActivityConfig.AD_ID, dVar.f1969j);
             } catch (JSONException unused) {
             }
             return jSONObject.toString();

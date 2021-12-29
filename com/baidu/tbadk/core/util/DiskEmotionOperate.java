@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -207,7 +207,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (isGif() || !m.A(bArr)) {
+            if (isGif() || !n.A(bArr)) {
                 return;
             }
             setGif(true);

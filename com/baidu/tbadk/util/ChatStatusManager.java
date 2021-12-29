@@ -28,7 +28,7 @@ public class ChatStatusManager {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42427b;
+        public String f42608b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class ChatStatusManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
             a aVar = this.mStatus.get(i2);
-            return aVar != null ? aVar.f42427b : "";
+            return aVar != null ? aVar.f42608b : "";
         }
         return (String) invokeI.objValue;
     }
@@ -112,11 +112,11 @@ public class ChatStatusManager {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
             a aVar = this.mStatus.get(i2);
             if (aVar != null) {
-                aVar.f42427b = str;
+                aVar.f42608b = str;
                 return;
             }
             a aVar2 = new a();
-            aVar2.f42427b = str;
+            aVar2.f42608b = str;
             this.mStatus.put(i2, aVar2);
         }
     }

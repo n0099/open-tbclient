@@ -10,34 +10,34 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34602b = "com.baidu.fsg.base";
+    public static final String f34758b = "com.baidu.fsg.base";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34603c = "release";
+    public static final String f34759c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34604d = "";
+    public static final String f34760d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f34605e = 1;
+    public static final int f34761e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34606f = "1.0";
+    public static final String f34762f = "1.0";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34607g = "test";
+    public static final String f34763g = "test";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34608h = "BgAAAA";
+    public static final String f34764h = "BgAAAA";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final boolean f34609i = false;
+    public static final boolean f34765i = false;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final boolean f34610j = false;
+    public static final boolean f34766j = false;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34611k = "2.1.0.0";
+    public static final String f34767k = "2.1.0.0";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

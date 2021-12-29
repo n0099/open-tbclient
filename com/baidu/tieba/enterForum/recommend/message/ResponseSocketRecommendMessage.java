@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.s0.u0.k.c.a;
+import c.a.t0.u0.k.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;

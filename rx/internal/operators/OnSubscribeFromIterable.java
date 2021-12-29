@@ -17,7 +17,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends T> f64898e;
+    public final Iterable<? extends T> f64893e;
 
     /* loaded from: classes4.dex */
     public static final class IterableProducer<T> extends AtomicLong implements f {
@@ -155,7 +155,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
             }
         }
         if (iterable != null) {
-            this.f64898e = iterable;
+            this.f64893e = iterable;
             return;
         }
         throw new NullPointerException("iterable must not be null");
@@ -170,7 +170,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             try {
-                Iterator<? extends T> it = this.f64898e.iterator();
+                Iterator<? extends T> it = this.f64893e.iterator();
                 boolean hasNext = it.hasNext();
                 if (jVar.isUnsubscribed()) {
                     return;

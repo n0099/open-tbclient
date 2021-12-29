@@ -1,200 +1,131 @@
 package com.ss.android.socialbase.downloader.c;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic = null;
     public static int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2176a f62231b;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static AbstractC2183a f62231b;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC2176a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
+    public static abstract class AbstractC2183a {
         public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            }
         }
 
         public void a(String str, String str2, Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, th) == null) {
-            }
         }
 
         public void b(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            }
         }
 
         public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            }
         }
 
         public void d(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            }
         }
 
         public void e(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(479251524, "Lcom/ss/android/socialbase/downloader/c/a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(479251524, "Lcom/ss/android/socialbase/downloader/c/a;");
         }
     }
 
     public static void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
-            a = i2;
-        }
+        a = i2;
     }
 
     public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "DownloaderLogger";
-            }
-            return "Downloader-" + str;
+        if (TextUtils.isEmpty(str)) {
+            return "DownloaderLogger";
         }
-        return (String) invokeL.objValue;
+        return "Downloader-" + str;
     }
 
     public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || str2 == null) {
+        if (str2 == null) {
             return;
         }
         if (a <= 4) {
             b(str);
         }
-        AbstractC2176a abstractC2176a = f62231b;
-        if (abstractC2176a != null) {
-            abstractC2176a.c(b(str), str2);
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.c(b(str), str2);
         }
     }
 
     public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || str2 == null) {
+        if (str2 == null) {
             return;
         }
         if (a <= 5) {
             b(str);
         }
-        AbstractC2176a abstractC2176a = f62231b;
-        if (abstractC2176a != null) {
-            abstractC2176a.e(b(str), str2);
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.e(b(str), str2);
         }
     }
 
     public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || str2 == null) {
+        if (str2 == null) {
             return;
         }
         if (a <= 6) {
             b(str);
         }
-        AbstractC2176a abstractC2176a = f62231b;
-        if (abstractC2176a != null) {
-            abstractC2176a.d(b(str), str2);
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.d(b(str), str2);
         }
     }
 
     public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? a <= 3 : invokeV.booleanValue;
+        return a <= 3;
     }
 
     public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || str2 == null) {
+        if (str2 == null) {
             return;
         }
         int i2 = a;
-        AbstractC2176a abstractC2176a = f62231b;
-        if (abstractC2176a != null) {
-            abstractC2176a.a(b(str), str2);
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.a(b(str), str2);
         }
     }
 
     public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || str2 == null) {
+        if (str2 == null) {
             return;
         }
         if (a <= 3) {
             b(str);
         }
-        AbstractC2176a abstractC2176a = f62231b;
-        if (abstractC2176a != null) {
-            abstractC2176a.b(b(str), str2);
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.b(b(str), str2);
         }
     }
 
     public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            d("DownloaderLogger", str);
-        }
+        d("DownloaderLogger", str);
     }
 
     public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            b("DownloaderLogger", str);
-        }
+        b("DownloaderLogger", str);
     }
 
     public static void a(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
-            if (str2 == null && th == null) {
-                return;
-            }
-            if (a <= 6) {
-                b(str);
-            }
-            AbstractC2176a abstractC2176a = f62231b;
-            if (abstractC2176a != null) {
-                abstractC2176a.a(b(str), str2, th);
-            }
+        if (str2 == null && th == null) {
+            return;
+        }
+        if (a <= 6) {
+            b(str);
+        }
+        AbstractC2183a abstractC2183a = f62231b;
+        if (abstractC2183a != null) {
+            abstractC2183a.a(b(str), str2, th);
         }
     }
 }

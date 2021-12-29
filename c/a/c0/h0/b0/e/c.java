@@ -54,17 +54,17 @@ public class c extends a {
     public void C(CharSequence charSequence, int i2, int i3, float f2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || (textView = this.f1696e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || (textView = this.f2123e) == null) {
             return;
         }
         if (charSequence != null) {
             textView.setText(charSequence);
         }
-        this.f1696e.setTextColor(i2);
+        this.f2123e.setTextColor(i2);
         if (i3 < 0 || f2 <= 0.0f) {
             return;
         }
-        this.f1696e.setTextSize(i3, f2);
+        this.f2123e.setTextSize(i3, f2);
     }
 
     public void D(CharSequence charSequence) {
@@ -96,10 +96,10 @@ public class c extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (super.g()) {
                 int B = B();
-                TextView textView = (TextView) this.f1693b.findViewById(r.bubble_text);
-                this.f1696e = textView;
+                TextView textView = (TextView) this.f2120b.findViewById(r.bubble_text);
+                this.f2123e = textView;
                 textView.setTextColor(B);
-                this.f1696e.setVisibility(0);
+                this.f2123e.setVisibility(0);
                 return true;
             }
             return false;

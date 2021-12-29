@@ -18,7 +18,7 @@ public class a extends Dialog {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RotateAnimation f34639b;
+    public RotateAnimation f34795b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
@@ -72,11 +72,11 @@ public class a extends Dialog {
             setCancelable(false);
             this.a = findViewById(ResUtils.id(getContext(), "rim_base_dialog_common_loading_view"));
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
-            this.f34639b = rotateAnimation;
+            this.f34795b = rotateAnimation;
             rotateAnimation.setRepeatCount(-1);
-            this.f34639b.setDuration(1000L);
-            this.f34639b.setInterpolator(new LinearInterpolator());
-            this.a.startAnimation(this.f34639b);
+            this.f34795b.setDuration(1000L);
+            this.f34795b.setInterpolator(new LinearInterpolator());
+            this.a.startAnimation(this.f34795b);
         }
     }
 }

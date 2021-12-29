@@ -12,7 +12,7 @@ public class c extends a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.b.b.n.k.c f28138h;
+    public c.b.b.n.k.c f28212h;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -31,13 +31,13 @@ public class c extends a implements b {
     public c.b.b.n.k.c o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28138h : (c.b.b.n.k.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28212h : (c.b.b.n.k.c) invokeV.objValue;
     }
 
     public void p(c.b.b.n.k.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f28138h = cVar;
+            this.f28212h = cVar;
             if (cVar != null) {
                 j(cVar.k());
                 h(cVar.j());
@@ -54,7 +54,7 @@ public class c extends a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             c cVar = new c(this);
-            cVar.f28138h = new c.b.b.n.k.c(cVar.o(), aVar);
+            cVar.f28212h = new c.b.b.n.k.c(cVar.o(), aVar);
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -96,6 +96,6 @@ public class c extends a implements b {
                 return;
             }
         }
-        this.f28138h = cVar.f28138h;
+        this.f28212h = cVar.f28212h;
     }
 }

@@ -23,25 +23,25 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f35873d;
+    public Runnable f36029d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OverScroller f35874e;
+    public OverScroller f36030e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35875f;
+    public boolean f36031f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35876g;
+    public int f36032g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35877h;
+    public int f36033h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35878i;
+    public int f36034i;
 
     /* renamed from: j  reason: collision with root package name */
-    public VelocityTracker f35879j;
+    public VelocityTracker f36035j;
 
     /* loaded from: classes10.dex */
     public class a implements Runnable {
@@ -49,13 +49,13 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final CoordinatorLayout f35880e;
+        public final CoordinatorLayout f36036e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final V f35881f;
+        public final V f36037f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HeaderBehavior f35882g;
+        public final /* synthetic */ HeaderBehavior f36038g;
 
         public a(HeaderBehavior headerBehavior, CoordinatorLayout coordinatorLayout, V v) {
             Interceptable interceptable = $ic;
@@ -72,25 +72,25 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                     return;
                 }
             }
-            this.f35882g = headerBehavior;
-            this.f35880e = coordinatorLayout;
-            this.f35881f = v;
+            this.f36038g = headerBehavior;
+            this.f36036e = coordinatorLayout;
+            this.f36037f = v;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             OverScroller overScroller;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f35881f == null || (overScroller = this.f35882g.f35874e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f36037f == null || (overScroller = this.f36038g.f36030e) == null) {
                 return;
             }
             if (overScroller.computeScrollOffset()) {
-                HeaderBehavior headerBehavior = this.f35882g;
-                headerBehavior.P(this.f35880e, this.f35881f, headerBehavior.f35874e.getCurrY());
-                ViewCompat.postOnAnimation(this.f35881f, this);
+                HeaderBehavior headerBehavior = this.f36038g;
+                headerBehavior.P(this.f36036e, this.f36037f, headerBehavior.f36030e.getCurrY());
+                ViewCompat.postOnAnimation(this.f36037f, this);
                 return;
             }
-            this.f35882g.N(this.f35880e, this.f35881f);
+            this.f36038g.N(this.f36036e, this.f36037f);
         }
     }
 
@@ -107,8 +107,8 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                 return;
             }
         }
-        this.f35876g = -1;
-        this.f35878i = -1;
+        this.f36032g = -1;
+        this.f36034i = -1;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0025, code lost:
@@ -122,56 +122,56 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, v, motionEvent)) == null) {
-            if (this.f35878i < 0) {
-                this.f35878i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
+            if (this.f36034i < 0) {
+                this.f36034i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
             }
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked != 0) {
                 if (actionMasked == 1) {
-                    VelocityTracker velocityTracker = this.f35879j;
+                    VelocityTracker velocityTracker = this.f36035j;
                     if (velocityTracker != null) {
                         velocityTracker.addMovement(motionEvent);
-                        this.f35879j.computeCurrentVelocity(1000);
-                        J(coordinatorLayout, v, -L(v), 0, this.f35879j.getYVelocity(this.f35876g));
+                        this.f36035j.computeCurrentVelocity(1000);
+                        J(coordinatorLayout, v, -L(v), 0, this.f36035j.getYVelocity(this.f36032g));
                     }
                 } else if (actionMasked == 2) {
-                    int findPointerIndex = motionEvent.findPointerIndex(this.f35876g);
+                    int findPointerIndex = motionEvent.findPointerIndex(this.f36032g);
                     if (findPointerIndex == -1) {
                         return false;
                     }
                     int y = (int) motionEvent.getY(findPointerIndex);
-                    int i2 = this.f35877h - y;
-                    if (!this.f35875f) {
+                    int i2 = this.f36033h - y;
+                    if (!this.f36031f) {
                         int abs = Math.abs(i2);
-                        int i3 = this.f35878i;
+                        int i3 = this.f36034i;
                         if (abs > i3) {
-                            this.f35875f = true;
+                            this.f36031f = true;
                             i2 = i2 > 0 ? i2 - i3 : i2 + i3;
                         }
                     }
                     int i4 = i2;
-                    if (this.f35875f) {
-                        this.f35877h = y;
+                    if (this.f36031f) {
+                        this.f36033h = y;
                         O(coordinatorLayout, v, i4, K(v), 0);
                     }
                 }
-                this.f35875f = false;
-                this.f35876g = -1;
-                VelocityTracker velocityTracker2 = this.f35879j;
+                this.f36031f = false;
+                this.f36032g = -1;
+                VelocityTracker velocityTracker2 = this.f36035j;
                 if (velocityTracker2 != null) {
                     velocityTracker2.recycle();
-                    this.f35879j = null;
+                    this.f36035j = null;
                 }
             } else {
                 int y2 = (int) motionEvent.getY();
                 if (!coordinatorLayout.isPointInChildBounds(v, (int) motionEvent.getX(), y2) || !H(v)) {
                     return false;
                 }
-                this.f35877h = y2;
-                this.f35876g = motionEvent.getPointerId(0);
+                this.f36033h = y2;
+                this.f36032g = motionEvent.getPointerId(0);
                 I();
             }
-            VelocityTracker velocityTracker3 = this.f35879j;
+            VelocityTracker velocityTracker3 = this.f36035j;
             if (velocityTracker3 != null) {
                 velocityTracker3.addMovement(motionEvent);
             }
@@ -191,8 +191,8 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
 
     public final void I() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f35879j == null) {
-            this.f35879j = VelocityTracker.obtain();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f36035j == null) {
+            this.f36035j = VelocityTracker.obtain();
         }
     }
 
@@ -200,18 +200,18 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
-            Runnable runnable = this.f35873d;
+            Runnable runnable = this.f36029d;
             if (runnable != null) {
                 v.removeCallbacks(runnable);
-                this.f35873d = null;
+                this.f36029d = null;
             }
-            if (this.f35874e == null) {
-                this.f35874e = new OverScroller(v.getContext());
+            if (this.f36030e == null) {
+                this.f36030e = new OverScroller(v.getContext());
             }
-            this.f35874e.fling(0, E(), 0, Math.round(f2), 0, 0, i2, i3);
-            if (this.f35874e.computeScrollOffset()) {
+            this.f36030e.fling(0, E(), 0, Math.round(f2), 0, 0, i2, i3);
+            if (this.f36030e.computeScrollOffset()) {
                 a aVar = new a(this, coordinatorLayout, v);
-                this.f35873d = aVar;
+                this.f36029d = aVar;
                 ViewCompat.postOnAnimation(v, aVar);
                 return true;
             }
@@ -284,48 +284,48 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         int findPointerIndex;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, coordinatorLayout, v, motionEvent)) == null) {
-            if (this.f35878i < 0) {
-                this.f35878i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
+            if (this.f36034i < 0) {
+                this.f36034i = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
             }
-            if (motionEvent.getAction() == 2 && this.f35875f) {
+            if (motionEvent.getAction() == 2 && this.f36031f) {
                 return true;
             }
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
-                        int i2 = this.f35876g;
+                        int i2 = this.f36032g;
                         if (i2 != -1 && (findPointerIndex = motionEvent.findPointerIndex(i2)) != -1) {
                             int y = (int) motionEvent.getY(findPointerIndex);
-                            if (Math.abs(y - this.f35877h) > this.f35878i) {
-                                this.f35875f = true;
-                                this.f35877h = y;
+                            if (Math.abs(y - this.f36033h) > this.f36034i) {
+                                this.f36031f = true;
+                                this.f36033h = y;
                             }
                         }
                     }
                 }
-                this.f35875f = false;
-                this.f35876g = -1;
-                VelocityTracker velocityTracker = this.f35879j;
+                this.f36031f = false;
+                this.f36032g = -1;
+                VelocityTracker velocityTracker = this.f36035j;
                 if (velocityTracker != null) {
                     velocityTracker.recycle();
-                    this.f35879j = null;
+                    this.f36035j = null;
                 }
             } else {
-                this.f35875f = false;
+                this.f36031f = false;
                 int x = (int) motionEvent.getX();
                 int y2 = (int) motionEvent.getY();
                 if (H(v) && coordinatorLayout.isPointInChildBounds(v, x, y2)) {
-                    this.f35877h = y2;
-                    this.f35876g = motionEvent.getPointerId(0);
+                    this.f36033h = y2;
+                    this.f36032g = motionEvent.getPointerId(0);
                     I();
                 }
             }
-            VelocityTracker velocityTracker2 = this.f35879j;
+            VelocityTracker velocityTracker2 = this.f36035j;
             if (velocityTracker2 != null) {
                 velocityTracker2.addMovement(motionEvent);
             }
-            return this.f35875f;
+            return this.f36031f;
         }
         return invokeLLL.booleanValue;
     }
@@ -349,7 +349,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                 return;
             }
         }
-        this.f35876g = -1;
-        this.f35878i = -1;
+        this.f36032g = -1;
+        this.f36034i = -1;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.ala.data;
 
 import android.text.TextUtils;
-import c.a.r0.s.r.p;
+import c.a.s0.s.q.p;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
@@ -84,7 +84,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.isNewGiftPriceStrategy = false;
     }
 
-    @Override // c.a.r0.s.r.p
+    @Override // c.a.s0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {

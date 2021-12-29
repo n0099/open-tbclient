@@ -13,7 +13,6 @@ import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
-import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +94,7 @@ public class SapiDeviceInfo implements NoProguard {
                 arrayList.add("is_root");
                 arrayList.add("wifi");
                 arrayList.add("imei");
-                arrayList.add(Constant.KEY_EMULATOR);
+                arrayList.add("emulator");
                 arrayList.add("mac_address");
                 arrayList.add("cpu_info");
                 arrayList.add("ram");
@@ -212,7 +211,7 @@ public class SapiDeviceInfo implements NoProguard {
             if (diExceptIndex.contains(17)) {
                 str6 = "";
             } else if (SapiUtils.isEmulator(context)) {
-                str6 = Constant.KEY_EMULATOR;
+                str6 = "emulator";
             }
             arrayList.add(str6);
             diExceptIndex.contains(18);

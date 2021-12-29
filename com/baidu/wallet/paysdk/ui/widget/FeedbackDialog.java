@@ -61,7 +61,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         public FeedbackInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f54508b;
+        public b f54511b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f54509b;
+        public String[] f54512b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.mFeedbackInfo = aVar.a;
-            this.mListener = aVar.f54508b;
+            this.mListener = aVar.f54511b;
             this.mCloseButton.setOnClickListener(this);
             this.mSubmit.setOnClickListener(this);
             FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -245,7 +245,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                         }
                     }
                     String[] strArr = new String[arrayList.size()];
-                    cVar.f54509b = strArr;
+                    cVar.f54512b = strArr;
                     arrayList.toArray(strArr);
                     this.mListener.a(cVar);
                 }

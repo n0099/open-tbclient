@@ -19,7 +19,7 @@ public class n implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f2114b;
+    public static final boolean f2541b;
     public transient /* synthetic */ FieldHolder $fh;
     public final SharedPreferences a;
 
@@ -36,7 +36,7 @@ public class n implements SharedPreferences {
                 return;
             }
         }
-        f2114b = c.a.c0.s.d.f();
+        f2541b = c.a.c0.s.d.f();
     }
 
     public n(String str) {
@@ -78,7 +78,7 @@ public class n implements SharedPreferences {
 
     public final void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str2 != null && str2.length() > 256 && f2114b) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str2 != null && str2.length() > 256 && f2541b) {
             throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
         }
     }

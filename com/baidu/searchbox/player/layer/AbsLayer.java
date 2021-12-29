@@ -29,7 +29,6 @@ public abstract class AbsLayer implements ILayer {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public Handler mHandler;
-    @Nullable
     public LayerContainer mLayerContainer;
     @Nullable
     public IMessenger mMessenger;
@@ -202,7 +201,6 @@ public abstract class AbsLayer implements ILayer {
     }
 
     @Override // com.baidu.searchbox.player.layer.ILayer
-    @Nullable
     public LayerContainer getLayerContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -343,7 +341,7 @@ public abstract class AbsLayer implements ILayer {
         }
     }
 
-    public void setLayerContainer(@Nullable LayerContainer layerContainer) {
+    public void setLayerContainer(@NonNull LayerContainer layerContainer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, layerContainer) == null) {
             this.mLayerContainer = layerContainer;

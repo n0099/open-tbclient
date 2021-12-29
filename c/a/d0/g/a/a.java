@@ -26,20 +26,20 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f3016b;
+    public static volatile a f3444b;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: c.a.d0.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0098a extends d {
+    public class C0119a extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ContentValues f3017b;
+        public final /* synthetic */ ContentValues f3445b;
 
-        public C0098a(a aVar, ContentValues contentValues) {
+        public C0119a(a aVar, ContentValues contentValues) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a {
                     return;
                 }
             }
-            this.f3017b = contentValues;
+            this.f3445b = contentValues;
         }
 
         @Override // c.a.d0.g.a.d
@@ -62,7 +62,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sQLiteDatabase)) == null) {
-                BundleInfo bundleInfo = BundleInfo.toBundleInfo(this.f3017b);
+                BundleInfo bundleInfo = BundleInfo.toBundleInfo(this.f3445b);
                 if (bundleInfo == null) {
                     return false;
                 }
@@ -73,7 +73,7 @@ public class a {
                 } catch (Exception unused) {
                 }
                 if (bundleInfoList.isEmpty()) {
-                    sQLiteDatabase.insert("bundleinfo", null, this.f3017b);
+                    sQLiteDatabase.insert("bundleinfo", null, this.f3445b);
                     return true;
                 }
                 HashMap hashMap = new HashMap();
@@ -129,7 +129,7 @@ public class a {
                         hashMap.put(1, bundleInfo);
                     }
                 }
-                sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f3017b.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
+                sQLiteDatabase.delete("bundleinfo", "pkg_name =? ", new String[]{this.f3445b.getAsString(EmotionResourceInfo.JSON_KEY_PKG_NAME)});
                 for (BundleInfo bundleInfo6 : hashMap.values()) {
                     sQLiteDatabase.insert("bundleinfo", null, BundleInfo.toContentValues(bundleInfo6));
                 }
@@ -177,18 +177,18 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f3016b == null) {
+            if (f3444b == null) {
                 synchronized (a.class) {
-                    if (f3016b == null) {
+                    if (f3444b == null) {
                         Application applicationContext = ContextHolder.getApplicationContext();
                         if (applicationContext != null) {
                             context = applicationContext;
                         }
-                        f3016b = new a(context);
+                        f3444b = new a(context);
                     }
                 }
             }
-            return f3016b;
+            return f3444b;
         }
         return (a) invokeL.objValue;
     }
@@ -295,7 +295,7 @@ public class a {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, uri, contentValues, str, strArr)) == null) {
-            f(new C0098a(this, contentValues));
+            f(new C0119a(this, contentValues));
             return 1;
         }
         return invokeLLLL.intValue;

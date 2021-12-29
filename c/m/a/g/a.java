@@ -14,13 +14,13 @@ public final class a {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f31057b;
+    public final int f31135b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Integer f31058c;
+    public Integer f31136c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Integer f31059d;
+    public Integer f31137d;
 
     public a(AudioEntity audioEntity) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class a {
         Integer num = audioEntity.startFrame;
         this.a = num != null ? num.intValue() : 0;
         Integer num2 = audioEntity.endFrame;
-        this.f31057b = num2 != null ? num2.intValue() : 0;
+        this.f31135b = num2 != null ? num2.intValue() : 0;
         Integer num3 = audioEntity.startTime;
         if (num3 != null) {
             num3.intValue();
@@ -55,19 +55,19 @@ public final class a {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31057b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31135b : invokeV.intValue;
     }
 
     public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31059d : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31137d : (Integer) invokeV.objValue;
     }
 
     public final Integer c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31058c : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31136c : (Integer) invokeV.objValue;
     }
 
     public final int d() {
@@ -79,14 +79,14 @@ public final class a {
     public final void e(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.f31059d = num;
+            this.f31137d = num;
         }
     }
 
     public final void f(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-            this.f31058c = num;
+            this.f31136c = num;
         }
     }
 }

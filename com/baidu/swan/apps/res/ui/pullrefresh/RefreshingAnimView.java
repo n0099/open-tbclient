@@ -17,7 +17,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.z2.n0;
+import c.a.r0.a.z2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,25 +44,25 @@ public class RefreshingAnimView extends View {
     public int F;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40405e;
+    public float f40561e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f40406f;
+    public float f40562f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f40407g;
+    public float f40563g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f40408h;
+    public float f40564h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f40409i;
+    public float f40565i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f40410j;
+    public float f40566j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f40411k;
+    public float f40567k;
     public float l;
     public PointF m;
     public Paint n;
@@ -85,7 +85,7 @@ public class RefreshingAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RefreshingAnimView f40412e;
+        public final /* synthetic */ RefreshingAnimView f40568e;
 
         public a(RefreshingAnimView refreshingAnimView) {
             Interceptable interceptable = $ic;
@@ -102,14 +102,14 @@ public class RefreshingAnimView extends View {
                     return;
                 }
             }
-            this.f40412e = refreshingAnimView;
+            this.f40568e = refreshingAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f40412e.o(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f40568e.o(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -120,7 +120,7 @@ public class RefreshingAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RefreshingAnimView f40413e;
+        public final /* synthetic */ RefreshingAnimView f40569e;
 
         public b(RefreshingAnimView refreshingAnimView) {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class RefreshingAnimView extends View {
                     return;
                 }
             }
-            this.f40413e = refreshingAnimView;
+            this.f40569e = refreshingAnimView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -145,7 +145,7 @@ public class RefreshingAnimView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                 super.onAnimationEnd(animator);
-                this.f40413e.q(750L);
+                this.f40569e.q(750L);
             }
         }
 
@@ -172,7 +172,7 @@ public class RefreshingAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RefreshingAnimView f40414e;
+        public final /* synthetic */ RefreshingAnimView f40570e;
 
         public c(RefreshingAnimView refreshingAnimView) {
             Interceptable interceptable = $ic;
@@ -189,14 +189,14 @@ public class RefreshingAnimView extends View {
                     return;
                 }
             }
-            this.f40414e = refreshingAnimView;
+            this.f40570e = refreshingAnimView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f40414e.n(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.f40570e.n(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -207,7 +207,7 @@ public class RefreshingAnimView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RefreshingAnimView f40415e;
+        public final /* synthetic */ RefreshingAnimView f40571e;
 
         public d(RefreshingAnimView refreshingAnimView) {
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class RefreshingAnimView extends View {
                     return;
                 }
             }
-            this.f40415e = refreshingAnimView;
+            this.f40571e = refreshingAnimView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -240,11 +240,11 @@ public class RefreshingAnimView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                 super.onAnimationRepeat(animator);
-                RefreshingAnimView.e(this.f40415e);
-                if (this.f40415e.v <= this.f40415e.u || this.f40415e.p == null) {
+                RefreshingAnimView.e(this.f40571e);
+                if (this.f40571e.v <= this.f40571e.u || this.f40571e.p == null) {
                     return;
                 }
-                this.f40415e.p.a(true);
+                this.f40571e.p.a(true);
             }
         }
 
@@ -296,13 +296,13 @@ public class RefreshingAnimView extends View {
                 return;
             }
         }
-        this.f40405e = 0.0f;
-        this.f40406f = 0.0f;
-        this.f40407g = 0.0f;
-        this.f40408h = 0.0f;
-        this.f40409i = 0.0f;
-        this.f40410j = 0.0f;
-        this.f40411k = 0.0f;
+        this.f40561e = 0.0f;
+        this.f40562f = 0.0f;
+        this.f40563g = 0.0f;
+        this.f40564h = 0.0f;
+        this.f40565i = 0.0f;
+        this.f40566j = 0.0f;
+        this.f40567k = 0.0f;
         this.l = 0.0f;
         this.m = new PointF();
         this.q = new RectF();
@@ -330,20 +330,20 @@ public class RefreshingAnimView extends View {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float f2 = this.f40405e;
-            this.f40406f = f2;
+            float f2 = this.f40561e;
+            this.f40562f = f2;
             if (f2 < 0.5f) {
-                this.f40407g = 0.0f;
-                this.f40409i = 0.0f;
+                this.f40563g = 0.0f;
+                this.f40565i = 0.0f;
                 return;
             }
-            this.f40409i = ((f2 - 0.5f) / 0.5f) * this.f40410j;
+            this.f40565i = ((f2 - 0.5f) / 0.5f) * this.f40566j;
             if (f2 < 0.625f) {
-                this.f40407g = 0.0f;
+                this.f40563g = 0.0f;
                 return;
             }
             float f3 = (f2 - 0.625f) / 0.375f;
-            this.f40407g = f3;
+            this.f40563g = f3;
             PointF pointF = this.r;
             float f4 = pointF.x;
             float f5 = this.t;
@@ -401,7 +401,7 @@ public class RefreshingAnimView extends View {
         this.n.setAlpha(abs);
         Canvas canvas2 = this.B;
         PointF pointF = this.m;
-        canvas2.drawCircle(pointF.x, pointF.y, this.f40411k, this.n);
+        canvas2.drawCircle(pointF.x, pointF.y, this.f40567k, this.n);
         this.D.reset();
         this.C.save();
         this.C.setLocation(0.0f, 0.0f, -100.0f);
@@ -425,22 +425,22 @@ public class RefreshingAnimView extends View {
         }
         bitmap.eraseColor(0);
         this.n.setStyle(Paint.Style.FILL);
-        if (this.E != c.a.q0.a.c1.a.M().a()) {
-            this.n.setColor(getResources().getColor(c.a.q0.a.c.aiapps_pull_loading_refresh_anim_color));
-            this.E = c.a.q0.a.c1.a.M().a();
+        if (this.E != c.a.r0.a.c1.a.M().a()) {
+            this.n.setColor(getResources().getColor(c.a.r0.a.c.aiapps_pull_loading_refresh_anim_color));
+            this.E = c.a.r0.a.c1.a.M().a();
         }
         this.n.setAlpha(76);
         RectF rectF = this.q;
         PointF pointF = this.m;
         float f2 = pointF.x;
-        float f3 = this.f40408h;
+        float f3 = this.f40564h;
         float f4 = pointF.y;
         rectF.set(f2 - f3, f4 - f3, f2 + f3, f4 + f3);
-        this.B.drawArc(this.q, -90.0f, this.f40406f * (-360.0f), true, this.n);
+        this.B.drawArc(this.q, -90.0f, this.f40562f * (-360.0f), true, this.n);
         Canvas canvas2 = this.B;
         PointF pointF2 = this.m;
-        canvas2.drawCircle(pointF2.x, pointF2.y, this.f40409i, this.o);
-        if (this.f40407g > 0.0f) {
+        canvas2.drawCircle(pointF2.x, pointF2.y, this.f40565i, this.o);
+        if (this.f40563g > 0.0f) {
             Canvas canvas3 = this.B;
             PointF pointF3 = this.s;
             canvas3.drawCircle(pointF3.x, pointF3.y, 0.75f, this.n);
@@ -468,10 +468,10 @@ public class RefreshingAnimView extends View {
         float f2 = this.r.x + ((float) (this.t / G));
         Canvas canvas2 = this.B;
         PointF pointF = this.m;
-        canvas2.drawCircle(pointF.x, pointF.y, this.f40408h, this.n);
+        canvas2.drawCircle(pointF.x, pointF.y, this.f40564h, this.n);
         Canvas canvas3 = this.B;
         PointF pointF2 = this.m;
-        canvas3.drawCircle(pointF2.x, pointF2.y, this.f40410j, this.o);
+        canvas3.drawCircle(pointF2.x, pointF2.y, this.f40566j, this.o);
         this.B.drawCircle(f2, f2, 0.75f, this.n);
         this.n.setStyle(Paint.Style.STROKE);
         this.n.setStrokeWidth(n0.f(getContext(), 1.5f));
@@ -496,11 +496,11 @@ public class RefreshingAnimView extends View {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.E = c.a.q0.a.c1.a.M().a();
+            this.E = c.a.r0.a.c1.a.M().a();
             Paint paint = new Paint();
             this.n = paint;
             paint.setAntiAlias(true);
-            this.n.setColor(getResources().getColor(c.a.q0.a.c.aiapps_pull_loading_refresh_anim_color));
+            this.n.setColor(getResources().getColor(c.a.r0.a.c.aiapps_pull_loading_refresh_anim_color));
             Paint paint2 = new Paint();
             this.o = paint2;
             paint2.setAntiAlias(true);
@@ -568,13 +568,13 @@ public class RefreshingAnimView extends View {
             } else {
                 this.l = getMeasuredWidth();
             }
-            this.f40408h = n0.f(getContext(), 8.0f);
-            this.f40410j = n0.f(getContext(), 6.5f);
+            this.f40564h = n0.f(getContext(), 8.0f);
+            this.f40566j = n0.f(getContext(), 6.5f);
             this.t = n0.f(getContext(), 5.0f);
-            this.f40411k = n0.f(getContext(), 7.5f);
+            this.f40567k = n0.f(getContext(), 7.5f);
             float f2 = this.l / 2.0f;
             this.m.set(f2, f2);
-            float f3 = f2 + ((float) (this.f40408h / G));
+            float f3 = f2 + ((float) (this.f40564h / G));
             this.r.set(f3, f3);
         }
     }
@@ -672,7 +672,7 @@ public class RefreshingAnimView extends View {
             if (f2 > 1.0f) {
                 f2 = 1.0f;
             }
-            this.f40405e = f2;
+            this.f40561e = f2;
             h();
             postInvalidate();
         }
@@ -711,7 +711,7 @@ public class RefreshingAnimView extends View {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             p();
             clearAnimation();
-            this.f40405e = 0.0f;
+            this.f40561e = 0.0f;
             this.v = 1;
             i(1);
             postInvalidate();
@@ -737,13 +737,13 @@ public class RefreshingAnimView extends View {
                 return;
             }
         }
-        this.f40405e = 0.0f;
-        this.f40406f = 0.0f;
-        this.f40407g = 0.0f;
-        this.f40408h = 0.0f;
-        this.f40409i = 0.0f;
-        this.f40410j = 0.0f;
-        this.f40411k = 0.0f;
+        this.f40561e = 0.0f;
+        this.f40562f = 0.0f;
+        this.f40563g = 0.0f;
+        this.f40564h = 0.0f;
+        this.f40565i = 0.0f;
+        this.f40566j = 0.0f;
+        this.f40567k = 0.0f;
         this.l = 0.0f;
         this.m = new PointF();
         this.q = new RectF();
@@ -781,13 +781,13 @@ public class RefreshingAnimView extends View {
                 return;
             }
         }
-        this.f40405e = 0.0f;
-        this.f40406f = 0.0f;
-        this.f40407g = 0.0f;
-        this.f40408h = 0.0f;
-        this.f40409i = 0.0f;
-        this.f40410j = 0.0f;
-        this.f40411k = 0.0f;
+        this.f40561e = 0.0f;
+        this.f40562f = 0.0f;
+        this.f40563g = 0.0f;
+        this.f40564h = 0.0f;
+        this.f40565i = 0.0f;
+        this.f40566j = 0.0f;
+        this.f40567k = 0.0f;
         this.l = 0.0f;
         this.m = new PointF();
         this.q = new RectF();

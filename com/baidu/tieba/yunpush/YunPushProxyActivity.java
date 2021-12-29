@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.r0.a.g;
-import c.a.r0.s.z.a;
+import c.a.s0.a.g;
+import c.a.s0.s.y.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JUME_SCHEME = "jump_scheme";

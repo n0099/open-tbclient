@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -65,7 +66,7 @@ public class ClientStartStatic {
                     return;
                 }
                 if (SystemClock.elapsedRealtime() - this.a > 30000) {
-                    new b(null).execute(new Void[0]);
+                    new c(null).execute(new Void[0]);
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
             }
@@ -73,15 +74,50 @@ public class ClientStartStatic {
     }
 
     /* loaded from: classes12.dex */
-    public static class b extends BdAsyncTask<Void, Void, Void> {
+    public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public /* synthetic */ b(a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+                new c(null).execute(new Void[0]);
+            }
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    public static class c extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ c(a aVar) {
             this();
         }
 
-        public b() {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,41 +139,41 @@ public class ClientStartStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                    return null;
-                }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-                netWork.addPostData("type", "1");
-                netWork.postNetData();
-                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && netWork.getNetContext() != null && netWork.getNetContext().getResponse() != null && netWork.getNetContext().getResponse().mHeader != null) {
-                    List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
-                    if (!ListUtils.isEmpty(list)) {
-                        boolean z = false;
-                        for (int i2 = 0; i2 < list.size(); i2++) {
-                            if (list.get(i2) != null && list.get(i2).contains("BAIDUID=")) {
-                                String[] split = list.get(i2).split(";");
-                                if (split != null) {
-                                    int length = split.length;
-                                    int i3 = 0;
-                                    while (true) {
-                                        if (i3 >= length) {
-                                            break;
+                if (PermissionUtil.isAgreePrivacyPolicy() && !TbadkCoreApplication.getInst().checkInterrupt()) {
+                    NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                    netWork.addPostData("type", "1");
+                    netWork.postNetData();
+                    if (TbSingleton.getInstance().getBaiduIdForAnti() == null && netWork.getNetContext() != null && netWork.getNetContext().getResponse() != null && netWork.getNetContext().getResponse().mHeader != null) {
+                        List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
+                        if (!ListUtils.isEmpty(list)) {
+                            boolean z = false;
+                            for (int i2 = 0; i2 < list.size(); i2++) {
+                                if (list.get(i2) != null && list.get(i2).contains("BAIDUID=")) {
+                                    String[] split = list.get(i2).split(";");
+                                    if (split != null) {
+                                        int length = split.length;
+                                        int i3 = 0;
+                                        while (true) {
+                                            if (i3 >= length) {
+                                                break;
+                                            }
+                                            String str = split[i3];
+                                            if (str != null && str.contains("BAIDUID=")) {
+                                                TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
+                                                z = true;
+                                                break;
+                                            }
+                                            i3++;
                                         }
-                                        String str = split[i3];
-                                        if (str != null && str.contains("BAIDUID=")) {
-                                            TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
-                                            z = true;
-                                            break;
-                                        }
-                                        i3++;
                                     }
-                                }
-                                if (z) {
-                                    break;
+                                    if (z) {
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
+                    return null;
                 }
                 return null;
             }
@@ -159,8 +195,9 @@ public class ClientStartStatic {
             }
         }
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            new b(null).execute(new Void[0]);
+            new c(null).execute(new Void[0]);
             MessageManager.getInstance().registerListener(new a(2001011));
+            MessageManager.getInstance().registerListener(2921644, new b(0));
         }
     }
 

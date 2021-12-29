@@ -14,16 +14,16 @@ public class g {
     public h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f54975b;
+    public h f54978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f54976c;
+    public h f54979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public h f54977d;
+    public h f54980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f54978e;
+    public h f54981e;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -42,52 +42,52 @@ public class g {
     public h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54978e : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f54981e : (h) invokeV.objValue;
     }
 
     public void a(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-            this.f54978e = hVar;
+            this.f54981e = hVar;
         }
     }
 
     public h b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54976c : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54979c : (h) invokeV.objValue;
     }
 
     public void b(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-            this.f54976c = hVar;
+            this.f54979c = hVar;
         }
     }
 
     public h c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54977d : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54980d : (h) invokeV.objValue;
     }
 
     public void c(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-            this.f54977d = hVar;
+            this.f54980d = hVar;
         }
     }
 
     public h d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54975b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f54978b : (h) invokeV.objValue;
     }
 
     public void d(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
-            this.f54975b = hVar;
+            this.f54978b = hVar;
         }
     }
 
@@ -108,10 +108,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.a = null;
-            this.f54975b = null;
-            this.f54976c = null;
-            this.f54977d = null;
-            this.f54978e = null;
+            this.f54978b = null;
+            this.f54979c = null;
+            this.f54980d = null;
+            this.f54981e = null;
         }
     }
 }

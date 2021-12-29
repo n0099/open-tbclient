@@ -10,17 +10,17 @@ import com.vivo.push.sdk.PushMessageCallback;
 public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ com.vivo.push.b.p a;
+    public final /* synthetic */ com.vivo.push.b.n a;
 
     /* renamed from: b  reason: collision with root package name */
     public final /* synthetic */ n f63053b;
 
-    public o(n nVar, com.vivo.push.b.p pVar) {
+    public o(n nVar, com.vivo.push.b.n nVar2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nVar, pVar};
+            Object[] objArr = {nVar, nVar2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,7 +31,7 @@ public final class o implements Runnable {
             }
         }
         this.f63053b = nVar;
-        this.a = pVar;
+        this.a = nVar2;
     }
 
     @Override // java.lang.Runnable
@@ -40,7 +40,7 @@ public final class o implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             n nVar = this.f63053b;
-            PushMessageCallback pushMessageCallback = ((ab) nVar).f63032b;
+            PushMessageCallback pushMessageCallback = ((z) nVar).f63061b;
             context = nVar.a;
             pushMessageCallback.onLog(context, this.a.d(), this.a.e(), this.a.f());
         }

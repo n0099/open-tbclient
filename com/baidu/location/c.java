@@ -41,8 +41,8 @@ public class c extends Thread {
             cVar = this.a.C;
             if (cVar == null) {
                 LocationClient locationClient = this.a;
-                context = this.a.f35950f;
-                locationClientOption = this.a.f35948d;
+                context = this.a.f36106f;
+                locationClientOption = this.a.f36104d;
                 locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.a);
             }
             cVar2 = this.a.C;

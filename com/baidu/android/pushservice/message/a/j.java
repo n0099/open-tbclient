@@ -1,182 +1,117 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.message.CrossPushMessage;
-import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public final class j {
+public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static PublicMsg a(Context context, String str, String str2, byte[] bArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, str, str2, bArr)) == null) {
-            PublicMsg publicMsg = new PublicMsg();
-            publicMsg.mMsgId = str;
-            publicMsg.mAppId = str2;
+    /* renamed from: com.baidu.android.pushservice.message.a.j$1  reason: invalid class name */
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1053415940, "Lcom/baidu/android/pushservice/message/a/j$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1053415940, "Lcom/baidu/android/pushservice/message/a/j$1;");
+                    return;
+                }
+            }
+            int[] iArr = new int[k.a().length];
+            a = iArr;
             try {
-                JSONObject jSONObject = new JSONObject(new String(bArr));
-                if (!jSONObject.isNull("title")) {
-                    publicMsg.mTitle = jSONObject.getString("title");
-                }
-                if (!jSONObject.isNull("description")) {
-                    publicMsg.mDescription = jSONObject.getString("description");
-                }
-                if (!jSONObject.isNull("url")) {
-                    publicMsg.mUrl = jSONObject.getString("url");
-                }
-                if (!jSONObject.isNull("notification_builder_id")) {
-                    publicMsg.mNotificationBuilder = jSONObject.getInt("notification_builder_id");
-                }
-                if (!jSONObject.isNull("open_type")) {
-                    publicMsg.mOpenType = jSONObject.getInt("open_type");
-                }
-                if (!jSONObject.isNull("notification_basic_style")) {
-                    publicMsg.mNotificationBasicStyle = jSONObject.getInt("notification_basic_style");
-                }
-                if (!jSONObject.isNull("custom_content")) {
-                    publicMsg.mCustomContent = jSONObject.getString("custom_content");
-                }
-                if (!jSONObject.isNull("net_support")) {
-                    publicMsg.mNetType = jSONObject.getInt("net_support");
-                }
-                if (!jSONObject.isNull("app_situation")) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("app_situation");
-                    boolean z = true;
-                    if (jSONObject2.getInt("as_is_support") != 1) {
-                        z = false;
-                    }
-                    publicMsg.mIsSupportApp = z;
-                    publicMsg.mSupportAppname = jSONObject2.getString("as_pkg_name");
-                }
-                if (!jSONObject.isNull(EmotionResourceInfo.JSON_KEY_PKG_NAME)) {
-                    publicMsg.mPkgName = jSONObject.getString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                }
-                if (!jSONObject.isNull("pkg_vercode")) {
-                    publicMsg.mPkgVercode = jSONObject.getInt("pkg_vercode");
-                }
-                if (jSONObject.isNull("pkg_content")) {
-                    return publicMsg;
-                }
-                publicMsg.mPkgContent = jSONObject.getString("pkg_content");
-                return publicMsg;
-            } catch (JSONException e2) {
-                com.baidu.android.pushservice.g.a.a("PublicMsgParser", e2, context.getApplicationContext());
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
-                return null;
+                iArr[k.f33341b.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[k.f33342c.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[k.f33346g.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[k.f33343d.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[k.f33344e.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[k.f33345f.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[k.f33347h.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[k.f33348i.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
             }
         }
-        return (PublicMsg) invokeLLLL.objValue;
     }
 
-    public static com.baidu.android.pushservice.message.i a(Context context, String str) {
-        InterceptResult invokeLL;
-        String string;
-        String string2;
+    public j(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (!jSONObject.isNull("msgContent")) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
-                    if (!jSONObject2.isNull("adContent")) {
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
-                        iVar.f33219e = jSONObject3.getString("notifyTitle");
-                        iVar.f33220f = jSONObject3.getString("content");
-                        if (!jSONObject3.isNull("param")) {
-                            JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
-                            if (!jSONObject4.isNull("url")) {
-                                iVar.a = jSONObject4.getString("url");
-                            }
-                            if (!jSONObject4.isNull("intentUri")) {
-                                string2 = jSONObject4.getString("intentUri");
-                            } else if (!jSONObject4.isNull("acn")) {
-                                string2 = jSONObject4.getString("acn");
-                            }
-                            iVar.f33217c = string2;
-                        }
-                    }
-                    if (!jSONObject2.isNull("psContent")) {
-                        JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
-                        iVar.f33221g = jSONObject5.getString("notifyTitle");
-                        iVar.f33222h = jSONObject5.getString("content");
-                        if (!jSONObject5.isNull("param")) {
-                            JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
-                            if (!jSONObject6.isNull("url")) {
-                                iVar.f33216b = jSONObject6.getString("url");
-                            }
-                            if (!jSONObject6.isNull("intentUri")) {
-                                string = jSONObject6.getString("intentUri");
-                            } else if (!jSONObject6.isNull("acn")) {
-                                string = jSONObject6.getString("acn");
-                            }
-                            iVar.f33218d = string;
-                        }
-                    }
-                    if (!jSONObject2.isNull("extras")) {
-                        iVar.a(context, jSONObject2.getJSONArray("extras"));
-                    }
-                    if (TextUtils.isEmpty(iVar.f33224j)) {
-                        iVar.f33224j = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
-                    }
-                }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return iVar;
         }
-        return (com.baidu.android.pushservice.message.i) invokeLL.objValue;
+        this.a = context;
     }
 
-    public static CrossPushMessage b(Context context, String str, String str2, byte[] bArr) {
-        InterceptResult invokeLLLL;
+    public c a(k kVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, str, str2, bArr)) == null) {
-            CrossPushMessage crossPushMessage = new CrossPushMessage();
-            crossPushMessage.mMsgId = str;
-            crossPushMessage.mAppId = str2;
-            try {
-                JSONObject jSONObject = new JSONObject(new String(bArr));
-                if (!jSONObject.isNull("title")) {
-                    crossPushMessage.mTitle = jSONObject.getString("title");
-                }
-                if (!jSONObject.isNull("description")) {
-                    crossPushMessage.mDescription = jSONObject.getString("description");
-                }
-                if (!jSONObject.isNull("open_type")) {
-                    crossPushMessage.mOpenType = jSONObject.getInt("open_type");
-                }
-                if (!jSONObject.isNull("custom_content")) {
-                    crossPushMessage.mCustomContent = jSONObject.getString("custom_content");
-                }
-                if (!jSONObject.isNull(EmotionResourceInfo.JSON_KEY_PKG_NAME)) {
-                    crossPushMessage.mPkgName = jSONObject.getString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                }
-                if (!jSONObject.isNull("pkg_content")) {
-                    crossPushMessage.mPkgContent = jSONObject.getString("pkg_content");
-                }
-                if (!jSONObject.isNull("dest_pkg")) {
-                    crossPushMessage.a = jSONObject.getString("dest_pkg");
-                }
-                if (!jSONObject.isNull("dest_icon")) {
-                    crossPushMessage.f33181b = jSONObject.getString("dest_icon");
-                }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kVar)) == null) {
+            switch (AnonymousClass1.a[kVar.ordinal()]) {
+                case 1:
+                case 2:
+                    return new f(this.a);
+                case 3:
+                    return new g(this.a);
+                case 4:
+                case 5:
+                    return new h(this.a);
+                case 6:
+                    return new d(this.a);
+                case 7:
+                    return new b(this.a);
+                case 8:
+                    return new a(this.a);
+                default:
+                    return null;
             }
-            return crossPushMessage;
         }
-        return (CrossPushMessage) invokeLLLL.objValue;
+        return (c) invokeL.objValue;
     }
 }

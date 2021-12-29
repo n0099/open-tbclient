@@ -1,13 +1,6 @@
 package com.ss.android.socialbase.downloader.f;
 
 import android.os.SystemClock;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.IOException;
@@ -18,18 +11,9 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class g {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<l> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final List<l> f62364b;
 
     /* renamed from: c  reason: collision with root package name */
     public final DownloadInfo f62365c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.downloader.j f62366d;
 
     /* renamed from: e  reason: collision with root package name */
     public final com.ss.android.socialbase.downloader.g.a f62367e;
@@ -42,51 +26,35 @@ public class g {
 
     /* renamed from: h  reason: collision with root package name */
     public BaseException f62370h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f62371i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f62372j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public volatile boolean f62373k;
-    public final com.ss.android.socialbase.downloader.a.a l;
     public final boolean m;
     public final long n;
     public final long o;
     public final boolean p;
     public long q;
-    public volatile long r;
-    public volatile long s;
+    public final List<l> a = new LinkedList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final List<l> f62364b = new ArrayList();
+
+    /* renamed from: i  reason: collision with root package name */
+    public volatile boolean f62371i = false;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile boolean f62372j = false;
+
+    /* renamed from: k  reason: collision with root package name */
+    public volatile boolean f62373k = false;
+    public volatile long r = 0;
+    public volatile long s = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.ss.android.socialbase.downloader.downloader.j f62366d = com.ss.android.socialbase.downloader.downloader.c.x();
+    public final com.ss.android.socialbase.downloader.a.a l = com.ss.android.socialbase.downloader.a.a.a();
 
     public g(DownloadInfo downloadInfo, com.ss.android.socialbase.downloader.h.f fVar, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadInfo, fVar, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new LinkedList();
-        this.f62364b = new ArrayList();
-        this.f62371i = false;
-        this.f62372j = false;
-        this.f62373k = false;
-        this.r = 0L;
-        this.s = 0L;
         this.f62365c = downloadInfo;
-        this.f62366d = com.ss.android.socialbase.downloader.downloader.c.x();
         this.f62368f = fVar;
         this.f62369g = cVar;
-        this.l = com.ss.android.socialbase.downloader.a.a.a();
         com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
         this.f62367e = a;
         boolean z = a.a("sync_strategy", 0) == 1;
@@ -102,95 +70,81 @@ public class g {
     }
 
     private boolean a(long j2, long j3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 > 65536 && j3 > 500 : invokeCommon.booleanValue;
+        return j2 > 65536 && j3 > 500;
     }
 
     private void b(List<l> list) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, list) == null) {
-            for (l lVar : list) {
-                lVar.c();
-            }
+        for (l lVar : list) {
+            lVar.c();
         }
     }
 
     private void c() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            boolean z = this.p;
-            long nanoTime = z ? System.nanoTime() : 0L;
-            DownloadInfo downloadInfo = this.f62365c;
-            com.ss.android.socialbase.downloader.downloader.j jVar = this.f62366d;
-            List<l> list = this.a;
-            List<l> list2 = this.f62364b;
-            Map<Long, i> l = jVar.l(downloadInfo.getId());
-            if (l == null) {
-                l = new HashMap<>(4);
+        boolean z = this.p;
+        long nanoTime = z ? System.nanoTime() : 0L;
+        DownloadInfo downloadInfo = this.f62365c;
+        com.ss.android.socialbase.downloader.downloader.j jVar = this.f62366d;
+        List<l> list = this.a;
+        List<l> list2 = this.f62364b;
+        Map<Long, i> l = jVar.l(downloadInfo.getId());
+        if (l == null) {
+            l = new HashMap<>(4);
+        }
+        synchronized (this) {
+            a(list);
+            b(list);
+            a(list, l);
+            if (list2.size() > 0) {
+                c(list2);
+                list.removeAll(list2);
+                list2.clear();
             }
-            synchronized (this) {
-                a(list);
-                b(list);
-                a(list, l);
-                if (list2.size() > 0) {
-                    c(list2);
-                    list.removeAll(list2);
-                    list2.clear();
-                }
-            }
-            if (1 != 0) {
-                downloadInfo.updateRealDownloadTime(true);
-                jVar.a(downloadInfo.getId(), l);
-                jVar.a(downloadInfo);
-                this.r = downloadInfo.getCurBytes();
-            }
-            if (z) {
-                this.q += System.nanoTime() - nanoTime;
-            }
+        }
+        if (1 != 0) {
+            downloadInfo.updateRealDownloadTime(true);
+            jVar.a(downloadInfo.getId(), l);
+            jVar.a(downloadInfo);
+            this.r = downloadInfo.getCurBytes();
+        }
+        if (z) {
+            this.q += System.nanoTime() - nanoTime;
         }
     }
 
     public void a(l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
-            synchronized (this) {
-                this.a.add(lVar);
-            }
+        synchronized (this) {
+            this.a.add(lVar);
         }
     }
 
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f62372j = true;
-            this.f62371i = true;
-        }
+        this.f62372j = true;
+        this.f62371i = true;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:210:0x02a6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:208:0x02a2, code lost:
         r3.b(r15);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:65:0x00bc, code lost:
-        if (r13 <= 0) goto L269;
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00b8, code lost:
+        if (r13 <= 0) goto L267;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x00bf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00bb, code lost:
         r3.b(r13);
      */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x01f7 A[Catch: all -> 0x03db, TryCatch #28 {all -> 0x03db, blocks: (B:160:0x01f3, B:162:0x01f7, B:165:0x01fd, B:167:0x0203, B:168:0x0206, B:169:0x021c, B:206:0x02a0, B:207:0x02a2, B:246:0x0329, B:248:0x0333, B:250:0x0337, B:287:0x03b9, B:289:0x03bf, B:290:0x03c2, B:291:0x03da), top: B:366:0x002b, inners: #24 }] */
-    /* JADX WARN: Removed duplicated region for block: B:167:0x0203 A[Catch: all -> 0x03db, TryCatch #28 {all -> 0x03db, blocks: (B:160:0x01f3, B:162:0x01f7, B:165:0x01fd, B:167:0x0203, B:168:0x0206, B:169:0x021c, B:206:0x02a0, B:207:0x02a2, B:246:0x0329, B:248:0x0333, B:250:0x0337, B:287:0x03b9, B:289:0x03bf, B:290:0x03c2, B:291:0x03da), top: B:366:0x002b, inners: #24 }] */
-    /* JADX WARN: Removed duplicated region for block: B:171:0x0223  */
-    /* JADX WARN: Removed duplicated region for block: B:248:0x0333 A[Catch: all -> 0x03db, TryCatch #28 {all -> 0x03db, blocks: (B:160:0x01f3, B:162:0x01f7, B:165:0x01fd, B:167:0x0203, B:168:0x0206, B:169:0x021c, B:206:0x02a0, B:207:0x02a2, B:246:0x0329, B:248:0x0333, B:250:0x0337, B:287:0x03b9, B:289:0x03bf, B:290:0x03c2, B:291:0x03da), top: B:366:0x002b, inners: #24 }] */
-    /* JADX WARN: Removed duplicated region for block: B:289:0x03bf A[Catch: all -> 0x03db, TryCatch #28 {all -> 0x03db, blocks: (B:160:0x01f3, B:162:0x01f7, B:165:0x01fd, B:167:0x0203, B:168:0x0206, B:169:0x021c, B:206:0x02a0, B:207:0x02a2, B:246:0x0329, B:248:0x0333, B:250:0x0337, B:287:0x03b9, B:289:0x03bf, B:290:0x03c2, B:291:0x03da), top: B:366:0x002b, inners: #24 }] */
-    /* JADX WARN: Removed duplicated region for block: B:302:0x03ef  */
-    /* JADX WARN: Removed duplicated region for block: B:344:0x022d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:346:0x02af A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:348:0x0366 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:350:0x00e7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:371:0x0419 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:375:0x03f9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:381:0x024c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:383:0x02ce A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x01f3 A[Catch: all -> 0x03d7, TryCatch #27 {all -> 0x03d7, blocks: (B:158:0x01ef, B:160:0x01f3, B:163:0x01f9, B:165:0x01ff, B:166:0x0202, B:167:0x0218, B:204:0x029c, B:205:0x029e, B:244:0x0325, B:246:0x032f, B:248:0x0333, B:285:0x03b5, B:287:0x03bb, B:288:0x03be, B:289:0x03d6), top: B:361:0x0027, inners: #29 }] */
+    /* JADX WARN: Removed duplicated region for block: B:165:0x01ff A[Catch: all -> 0x03d7, TryCatch #27 {all -> 0x03d7, blocks: (B:158:0x01ef, B:160:0x01f3, B:163:0x01f9, B:165:0x01ff, B:166:0x0202, B:167:0x0218, B:204:0x029c, B:205:0x029e, B:244:0x0325, B:246:0x032f, B:248:0x0333, B:285:0x03b5, B:287:0x03bb, B:288:0x03be, B:289:0x03d6), top: B:361:0x0027, inners: #29 }] */
+    /* JADX WARN: Removed duplicated region for block: B:169:0x021f  */
+    /* JADX WARN: Removed duplicated region for block: B:246:0x032f A[Catch: all -> 0x03d7, TryCatch #27 {all -> 0x03d7, blocks: (B:158:0x01ef, B:160:0x01f3, B:163:0x01f9, B:165:0x01ff, B:166:0x0202, B:167:0x0218, B:204:0x029c, B:205:0x029e, B:244:0x0325, B:246:0x032f, B:248:0x0333, B:285:0x03b5, B:287:0x03bb, B:288:0x03be, B:289:0x03d6), top: B:361:0x0027, inners: #29 }] */
+    /* JADX WARN: Removed duplicated region for block: B:287:0x03bb A[Catch: all -> 0x03d7, TryCatch #27 {all -> 0x03d7, blocks: (B:158:0x01ef, B:160:0x01f3, B:163:0x01f9, B:165:0x01ff, B:166:0x0202, B:167:0x0218, B:204:0x029c, B:205:0x029e, B:244:0x0325, B:246:0x032f, B:248:0x0333, B:285:0x03b5, B:287:0x03bb, B:288:0x03be, B:289:0x03d6), top: B:361:0x0027, inners: #29 }] */
+    /* JADX WARN: Removed duplicated region for block: B:300:0x03eb  */
+    /* JADX WARN: Removed duplicated region for block: B:341:0x0229 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:343:0x02ab A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:345:0x0362 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:347:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:368:0x0415 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:372:0x03f5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:376:0x0248 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:378:0x02ca A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -211,8 +165,7 @@ public class g {
         Throwable th4;
         Throwable th5;
         Throwable th6;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) || this.f62372j || this.f62373k) {
+        if (this.f62372j || this.f62373k) {
             return;
         }
         com.ss.android.socialbase.downloader.network.b.e();
@@ -483,6 +436,17 @@ public class g {
                                             i3 = i4;
                                             j2 = j5;
                                             if (!this.f62372j) {
+                                                if (com.ss.android.socialbase.downloader.c.a.a()) {
+                                                }
+                                                com.ss.android.socialbase.downloader.c.a.d("MultiSegmentWriter", "loopAndWrite:  e = " + th);
+                                                com.ss.android.socialbase.downloader.i.f.a(th, "loopAndWrite");
+                                                if (i3 > 0) {
+                                                }
+                                                if (!this.f62373k) {
+                                                }
+                                                th3 = null;
+                                                synchronized (this) {
+                                                }
                                             }
                                             if (!this.f62373k) {
                                             }
@@ -606,17 +570,6 @@ public class g {
                             i3 = i4;
                             j2 = j8;
                             if (!this.f62372j) {
-                                if (com.ss.android.socialbase.downloader.c.a.a()) {
-                                }
-                                com.ss.android.socialbase.downloader.c.a.d("MultiSegmentWriter", "loopAndWrite:  e = " + th);
-                                com.ss.android.socialbase.downloader.i.f.a(th, "loopAndWrite");
-                                if (i3 > 0) {
-                                }
-                                if (!this.f62373k) {
-                                }
-                                th3 = null;
-                                synchronized (this) {
-                                }
                             }
                             if (!this.f62373k) {
                             }
@@ -722,73 +675,55 @@ public class g {
     }
 
     private void c(List<l> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, list) == null) {
-            for (l lVar : list) {
-                lVar.d();
-            }
+        for (l lVar : list) {
+            lVar.d();
         }
     }
 
     private void a(long j2, boolean z) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            long j3 = j2 - this.s;
-            if (this.m) {
-                if (j3 > (this.l.b() ? this.n : this.o)) {
-                    c();
-                    this.s = j2;
-                    return;
-                }
-                return;
-            }
-            long curBytes = this.f62365c.getCurBytes() - this.r;
-            if (z || a(curBytes, j3)) {
+        long j3 = j2 - this.s;
+        if (this.m) {
+            if (j3 > (this.l.b() ? this.n : this.o)) {
                 c();
                 this.s = j2;
+                return;
             }
+            return;
+        }
+        long curBytes = this.f62365c.getCurBytes() - this.r;
+        if (z || a(curBytes, j3)) {
+            c();
+            this.s = j2;
         }
     }
 
     private void a(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, eVar) == null) {
-            synchronized (this) {
-                this.f62364b.add((l) eVar);
-            }
+        synchronized (this) {
+            this.f62364b.add((l) eVar);
         }
     }
 
     private void a(List<l> list) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, list) == null) {
-            for (l lVar : list) {
-                lVar.b();
-            }
+        for (l lVar : list) {
+            lVar.b();
         }
     }
 
     private void a(List<l> list, Map<Long, i> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, list, map) == null) {
-            for (l lVar : list) {
-                i e2 = lVar.e();
-                i iVar = map.get(Long.valueOf(e2.c()));
-                if (iVar == null) {
-                    map.put(Long.valueOf(e2.c()), new i(e2));
-                } else {
-                    iVar.a(e2.d());
-                    iVar.c(e2.f());
-                }
+        for (l lVar : list) {
+            i e2 = lVar.e();
+            i iVar = map.get(Long.valueOf(e2.c()));
+            if (iVar == null) {
+                map.put(Long.valueOf(e2.c()), new i(e2));
+            } else {
+                iVar.a(e2.d());
+                iVar.c(e2.f());
             }
         }
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f62373k = true;
-            this.f62371i = true;
-        }
+        this.f62373k = true;
+        this.f62371i = true;
     }
 }

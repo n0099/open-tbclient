@@ -20,7 +20,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<?> f47935e;
+    public f<?> f48156e;
 
     public PayVcodeModel(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
                 return;
             }
         }
-        this.f47935e = fVar;
+        this.f48156e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -73,7 +73,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f47935e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+            this.f48156e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
         }
     }
 }

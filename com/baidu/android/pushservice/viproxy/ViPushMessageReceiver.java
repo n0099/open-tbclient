@@ -6,8 +6,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.frequency.b;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
         }
     }
 
-    @Override // com.vivo.push.sdk.PushMessageCallback
+    @Override // com.vivo.push.sdk.OpenClientPushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, uPSNotificationMessage) == null) || uPSNotificationMessage == null) {
@@ -68,7 +68,7 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
         }
     }
 
-    @Override // com.vivo.push.sdk.PushMessageCallback
+    @Override // com.vivo.push.sdk.OpenClientPushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onReceiveRegId(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {

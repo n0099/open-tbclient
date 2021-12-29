@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import c.a.s0.d;
+import c.a.t0.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;

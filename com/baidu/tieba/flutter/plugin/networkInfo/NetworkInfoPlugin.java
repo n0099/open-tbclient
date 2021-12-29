@@ -3,8 +3,8 @@ package com.baidu.tieba.flutter.plugin.networkInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import c.a.d.f.j.a.a;
-import c.a.d.f.p.k;
-import c.a.s0.z0.a.e.j;
+import c.a.d.f.p.l;
+import c.a.t0.z0.a.e.j;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -78,13 +78,13 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
                     boolean z = true;
                     try {
-                        z = k.z();
+                        z = l.z();
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                     NetworkInfoAuto.NetworkStatus networkStatus = new NetworkInfoAuto.NetworkStatus();
                     networkStatus.setIsNetOk(Boolean.valueOf(z));
-                    networkStatus.setNetType(Long.valueOf(k.I()));
+                    networkStatus.setNetType(Long.valueOf(l.I()));
                     networkStatus.setNetTypeString(NetWorkUtil.getNetType());
                     if (this.this$0.mFlutterNetworkInfo != null) {
                         this.this$0.mFlutterNetworkInfo.setNetInfo(networkStatus, new NetworkInfoAuto.FlutterNetworkInfo.Reply<NetworkInfoAuto.SetNetInfoResult>(this) { // from class: com.baidu.tieba.flutter.plugin.networkInfo.NetworkInfoPlugin.1.1
@@ -184,8 +184,8 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, result) == null) {
             NetworkInfoAuto.NetworkStatus networkStatus = new NetworkInfoAuto.NetworkStatus();
-            networkStatus.setIsNetOk(Boolean.valueOf(k.z()));
-            networkStatus.setNetType(Long.valueOf(k.I()));
+            networkStatus.setIsNetOk(Boolean.valueOf(l.z()));
+            networkStatus.setNetType(Long.valueOf(l.I()));
             networkStatus.setNetTypeString(NetWorkUtil.getNetType());
             result.success(networkStatus);
         }
@@ -196,7 +196,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, result) == null) {
             NetworkInfoAuto.NetWorkAvailable netWorkAvailable = new NetworkInfoAuto.NetWorkAvailable();
-            netWorkAvailable.setIsAvailable(Boolean.valueOf(k.z()));
+            netWorkAvailable.setIsAvailable(Boolean.valueOf(l.z()));
             result.success(netWorkAvailable);
         }
     }
@@ -206,7 +206,7 @@ public class NetworkInfoPlugin implements FlutterPlugin, NetworkInfoAuto.HostNet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, result) == null) {
             NetworkInfoAuto.NetWorkAvailable netWorkAvailable = new NetworkInfoAuto.NetWorkAvailable();
-            netWorkAvailable.setIsAvailable(Boolean.valueOf(k.A()));
+            netWorkAvailable.setIsAvailable(Boolean.valueOf(l.A()));
             result.success(netWorkAvailable);
         }
     }

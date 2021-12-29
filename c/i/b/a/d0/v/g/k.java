@@ -13,7 +13,7 @@ public final class k {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30135b;
+    public final String f30213b;
 
     public k(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -31,14 +31,14 @@ public final class k {
             }
         }
         this.a = str;
-        this.f30135b = str2;
+        this.f30213b = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f30135b;
+            return this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f30213b;
         }
         return (String) invokeV.objValue;
     }

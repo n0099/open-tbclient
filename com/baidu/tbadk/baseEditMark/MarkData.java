@@ -2,7 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -109,7 +109,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!l.isEmpty(this.mAuthorName)) {
+            if (!m.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -357,7 +357,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (l.isEmpty(this.portrait)) {
+                if (m.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);

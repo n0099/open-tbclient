@@ -14,14 +14,14 @@ public final class a {
     public static final d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f64197b;
+    public static final d f64192b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C2250a implements d {
+    public static final class C2258a implements d {
         public static /* synthetic */ Interceptable $ic;
-        public static final C2250a a;
+        public static final C2258a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -37,10 +37,10 @@ public final class a {
                     return;
                 }
             }
-            a = new C2250a();
+            a = new C2258a();
         }
 
-        public C2250a() {
+        public C2258a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,8 +179,8 @@ public final class a {
         }
         c cVar = c.a;
         a = cVar;
-        f64197b = cVar;
+        f64192b = cVar;
         b bVar = b.a;
-        C2250a c2250a = C2250a.a;
+        C2258a c2258a = C2258a.a;
     }
 }

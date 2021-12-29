@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.m.e.a;
-import c.a.d.m.e.n;
-import c.a.d.m.e.r;
+import c.a.d.n.e.a;
+import c.a.d.n.e.n;
+import c.a.d.n.e.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,14 +24,14 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public SparseArray<a<n, ViewHolder>> f32259e;
+    public SparseArray<a<n, ViewHolder>> f32401e;
     @SuppressLint({"UseSparseArrays"})
 
     /* renamed from: f  reason: collision with root package name */
-    public SparseArray<Integer> f32260f;
+    public SparseArray<Integer> f32402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<n> f32261g;
+    public List<n> f32403g;
 
     /* loaded from: classes9.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -79,8 +79,8 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
                 return;
             }
         }
-        this.f32260f = new SparseArray<>();
-        this.f32261g = new ArrayList();
+        this.f32402f = new SparseArray<>();
+        this.f32403g = new ArrayList();
     }
 
     public void a(a<n, ViewHolder> aVar) {
@@ -88,38 +88,38 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || aVar.getType() == null) {
             return;
         }
-        if (this.f32259e == null) {
-            this.f32259e = new SparseArray<>();
+        if (this.f32401e == null) {
+            this.f32401e = new SparseArray<>();
         }
         if (aVar.getType() != null) {
-            aVar.b0(this);
+            aVar.U(this);
             int id = aVar.getType().getId();
-            int size = this.f32259e.size();
-            this.f32259e.put(size, aVar);
-            this.f32260f.put(id, Integer.valueOf(size));
+            int size = this.f32401e.size();
+            this.f32401e.put(size, aVar);
+            this.f32402f.put(id, Integer.valueOf(size));
         }
     }
 
     public List<n> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32261g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32403g : (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter, c.a.d.m.e.o
+    @Override // android.widget.Adapter, c.a.d.n.e.o
     /* renamed from: c */
     public n getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            List<n> list = this.f32261g;
+            List<n> list = this.f32403g;
             if (list != null) {
                 int size = list.size();
                 if (i2 < 0 || i2 >= size) {
                     return null;
                 }
-                return this.f32261g.get(i2);
+                return this.f32403g.get(i2);
             }
             return null;
         }
@@ -128,12 +128,12 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
 
     public void d(ViewGroup viewGroup, View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f32259e == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.f32401e == null) {
             return;
         }
         n item = getItem(i2);
         int itemViewType = getItemViewType(i2);
-        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f32259e.valueAt(itemViewType) : null;
+        a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f32401e.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.A() == null) {
             return;
         }
@@ -144,12 +144,12 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{viewGroup, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            if (this.f32259e == null) {
+            if (this.f32401e == null) {
                 return false;
             }
             n item = getItem(i2);
             int itemViewType = getItemViewType(i2);
-            a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f32259e.valueAt(itemViewType) : null;
+            a<n, ViewHolder> valueAt = itemViewType >= 0 ? this.f32401e.valueAt(itemViewType) : null;
             if (valueAt == null || valueAt.B() == null) {
                 return false;
             }
@@ -161,18 +161,18 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
     public void f(List<? extends n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            List<n> list2 = this.f32261g;
+            List<n> list2 = this.f32403g;
             if (list2 == null) {
-                this.f32261g = new ArrayList();
+                this.f32403g = new ArrayList();
             } else {
                 list2.clear();
             }
-            this.f32261g.addAll(list);
+            this.f32403g.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    @Override // c.a.d.m.e.r
+    @Override // c.a.d.n.e.r
     public a<n, ViewHolder> getAdapterByData(n nVar) {
         InterceptResult invokeL;
         SparseArray<a<n, ViewHolder>> sparseArray;
@@ -180,13 +180,13 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, nVar)) == null) {
-            if (nVar != null && (sparseArray = this.f32259e) != null) {
+            if (nVar != null && (sparseArray = this.f32401e) != null) {
                 int i2 = -1;
-                if (sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f32260f.get(type.getId())) != null) {
+                if (sparseArray.size() != 0 && (type = nVar.getType()) != null && (num = this.f32402f.get(type.getId())) != null) {
                     i2 = num.intValue();
                 }
-                if (i2 >= 0 && i2 < this.f32259e.size()) {
-                    return this.f32259e.get(i2);
+                if (i2 >= 0 && i2 < this.f32401e.size()) {
+                    return this.f32401e.get(i2);
                 }
             }
             return null;
@@ -194,12 +194,12 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         return (a) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter, c.a.d.m.e.o
+    @Override // android.widget.Adapter, c.a.d.n.e.o
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<n> list = this.f32261g;
+            List<n> list = this.f32403g;
             if (list != null) {
                 return list.size();
             }
@@ -226,8 +226,8 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            SparseArray<a<n, ViewHolder>> sparseArray = this.f32259e;
-            if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i2)) == null || (type = item.getType()) == null || (num = this.f32260f.get(type.getId())) == null) {
+            SparseArray<a<n, ViewHolder>> sparseArray = this.f32401e;
+            if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i2)) == null || (type = item.getType()) == null || (num = this.f32402f.get(type.getId())) == null) {
                 return -1;
             }
             return num.intValue();
@@ -235,18 +235,18 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         return invokeI.intValue;
     }
 
-    @Override // c.a.d.m.e.r
+    @Override // c.a.d.n.e.r
     public int getPositionByType(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i2, i3)) == null) {
-            List<n> list = this.f32261g;
+            List<n> list = this.f32403g;
             if (list != null && list.size() != 0) {
-                int size = this.f32261g.size();
+                int size = this.f32403g.size();
                 int i4 = -1;
                 for (int i5 = 0; i5 < size; i5++) {
-                    if (this.f32261g.get(i5) != null && this.f32261g.get(i5).getType() != null) {
-                        if (i3 == this.f32261g.get(i5).getType().getId()) {
+                    if (this.f32403g.get(i5) != null && this.f32403g.get(i5).getType() != null) {
+                        if (i3 == this.f32403g.get(i5).getType().getId()) {
                             i4++;
                         }
                         if (i5 == i2) {
@@ -267,9 +267,9 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i2, view, viewGroup)) == null) {
             View view2 = null;
-            if (this.f32259e != null && this.f32261g != null) {
+            if (this.f32401e != null && this.f32403g != null) {
                 int count = getCount();
-                if (i2 >= 0 && i2 < count && (aVar = this.f32259e.get(getItemViewType(i2))) != null) {
+                if (i2 >= 0 && i2 < count && (aVar = this.f32401e.get(getItemViewType(i2))) != null) {
                     n item = getItem(i2);
                     if (item != null && (item instanceof n)) {
                         view2 = aVar.E(i2, view, viewGroup, item);
@@ -289,7 +289,7 @@ public class TypeAdapter extends BaseAdapter implements r<n> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            SparseArray<a<n, ViewHolder>> sparseArray = this.f32259e;
+            SparseArray<a<n, ViewHolder>> sparseArray = this.f32401e;
             if (sparseArray != null) {
                 return sparseArray.size();
             }

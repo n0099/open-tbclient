@@ -2,10 +2,11 @@ package com.baidu.tbadk.core.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -20,7 +21,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes11.dex */
 public class HeadImageView extends TbClipImageView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final float ACTIVE_STATUS_DISTANCE_PROPORTION_OF_IMG = 0.77f;
+    public static final float ACTIVE_STATUS_STROKE_WIDTH = 4.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public int Q;
     public int R;
@@ -42,6 +45,8 @@ public class HeadImageView extends TbClipImageView {
     public int q0;
     public AlaInfoData r0;
     public int s0;
+    public Paint t0;
+    public boolean u0;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public HeadImageView(Context context) {
@@ -67,7 +72,7 @@ public class HeadImageView extends TbClipImageView {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.R = m.f(getContext(), R.dimen.tbds36);
+            this.R = n.f(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -89,6 +94,7 @@ public class HeadImageView extends TbClipImageView {
                 return;
             }
             updateVIcon(canvas);
+            t(canvas);
         }
     }
 
@@ -203,7 +209,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
             setIsRound(true);
             if (i2 > 0) {
-                this.Q = m.f(getContext(), i2);
+                this.Q = n.f(getContext(), i2);
             }
             invalidate();
         }
@@ -220,7 +226,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             if (i2 > 0) {
-                this.R = m.f(getContext(), i2);
+                this.R = n.f(getContext(), i2);
             }
             invalidate();
         }
@@ -268,45 +274,74 @@ public class HeadImageView extends TbClipImageView {
         }
     }
 
-    public void setShowV(boolean z) {
+    public void setShowActiveStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.u0 = z;
+            if (z) {
+                Paint paint = new Paint(1);
+                this.t0 = paint;
+                paint.setStyle(Paint.Style.FILL);
+                invalidate();
+            }
+        }
+    }
+
+    public void setShowV(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             this.S = z;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             this.W = str;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.a0 = str;
         }
     }
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
             this.T = str;
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
             setUserName(str, str + getResources().getString(R.string.somebodys_portrait));
+        }
+    }
+
+    public final void t(Canvas canvas) {
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048608, this, canvas) == null) && this.u0 && (i2 = this.k0) == (i3 = this.q0)) {
+            float f2 = i2 * 0.77f;
+            float f3 = (i2 - f2) / 2.0f;
+            float f4 = f2 + f3;
+            float f5 = (i3 * 0.77f) + f3;
+            this.t0.setColor(SkinManager.getColor(R.color.CAM_X0201));
+            canvas.drawCircle(f4, f5, f3, this.t0);
+            this.t0.setColor(SkinManager.getColor(R.color.CAM_X0309));
+            canvas.drawCircle(f4, f5, f3 - 4.0f, this.t0);
         }
     }
 
     public void updateVIcon(Canvas canvas) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, canvas) == null) && this.S && this.R > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048609, this, canvas) == null) && this.S && this.R > 0) {
             int i2 = this.h0;
             if (i2 != 0) {
                 Drawable drawable2 = SkinManager.getDrawable(i2);
@@ -381,7 +416,7 @@ public class HeadImageView extends TbClipImageView {
 
     public void setUserName(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048607, this, str, str2) == null) {
             this.U = str;
             setContentDescription(str2);
         }

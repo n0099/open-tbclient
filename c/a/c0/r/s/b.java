@@ -31,24 +31,24 @@ public class b extends c.a.c0.r.a {
     public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a.InterfaceC0058a a;
+        public final /* synthetic */ a.InterfaceC0079a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f1859b;
+        public final /* synthetic */ boolean f2286b;
 
         /* renamed from: c.a.c0.r.s.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0061a implements Runnable {
+        public class RunnableC0082a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ IOException f1860e;
+            public final /* synthetic */ IOException f2287e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f1861f;
+            public final /* synthetic */ a f2288f;
 
-            public RunnableC0061a(a aVar, IOException iOException) {
+            public RunnableC0082a(a aVar, IOException iOException) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,32 +63,32 @@ public class b extends c.a.c0.r.a {
                         return;
                     }
                 }
-                this.f1861f = aVar;
-                this.f1860e = iOException;
+                this.f2288f = aVar;
+                this.f2287e = iOException;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1861f.a.a(this.f1860e, 502);
+                    this.f2288f.a.a(this.f2287e, 502);
                 }
             }
         }
 
         /* renamed from: c.a.c0.r.s.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0062b implements Runnable {
+        public class RunnableC0083b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f1862e;
+            public final /* synthetic */ int f2289e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f1863f;
+            public final /* synthetic */ a f2290f;
 
-            public RunnableC0062b(a aVar, int i2) {
+            public RunnableC0083b(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,25 +103,25 @@ public class b extends c.a.c0.r.a {
                         return;
                     }
                 }
-                this.f1863f = aVar;
-                this.f1862e = i2;
+                this.f2290f = aVar;
+                this.f2289e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1863f.a.a(new Exception("body is null!"), this.f1862e);
+                    this.f2290f.a.a(new Exception("body is null!"), this.f2289e);
                 }
             }
         }
 
-        public a(b bVar, a.InterfaceC0058a interfaceC0058a, boolean z) {
+        public a(b bVar, a.InterfaceC0079a interfaceC0079a, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC0058a, Boolean.valueOf(z)};
+                Object[] objArr = {bVar, interfaceC0079a, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -131,15 +131,15 @@ public class b extends c.a.c0.r.a {
                     return;
                 }
             }
-            this.a = interfaceC0058a;
-            this.f1859b = z;
+            this.a = interfaceC0079a;
+            this.f2286b = z;
         }
 
         @Override // okhttp3.Callback
         public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                g.b(new RunnableC0061a(this, iOException));
+                g.b(new RunnableC0082a(this, iOException));
             }
         }
 
@@ -158,7 +158,7 @@ public class b extends c.a.c0.r.a {
                         }
                     }
                     try {
-                        if (this.f1859b) {
+                        if (this.f2286b) {
                             this.a.c(aVar.c(), body.string(), code);
                         } else {
                             InputStream byteStream = body.byteStream();
@@ -170,20 +170,20 @@ public class b extends c.a.c0.r.a {
                         throw new IOException(e2);
                     }
                 }
-                g.b(new RunnableC0062b(this, code));
+                g.b(new RunnableC0083b(this, code));
             }
         }
     }
 
     /* renamed from: c.a.c0.r.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0063b implements a.InterfaceC0058a {
+    public class C0084b implements a.InterfaceC0079a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.c0.r.p.b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f1864b;
+        public final /* synthetic */ d f2291b;
 
         /* renamed from: c.a.c0.r.s.b$b$a */
         /* loaded from: classes.dex */
@@ -192,23 +192,23 @@ public class b extends c.a.c0.r.a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Headers f1865e;
+            public final /* synthetic */ Headers f2292e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f1866f;
+            public final /* synthetic */ Object f2293f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f1867g;
+            public final /* synthetic */ int f2294g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ C0063b f1868h;
+            public final /* synthetic */ C0084b f2295h;
 
-            public a(C0063b c0063b, Headers headers, Object obj, int i2) {
+            public a(C0084b c0084b, Headers headers, Object obj, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0063b, headers, obj, Integer.valueOf(i2)};
+                    Object[] objArr = {c0084b, headers, obj, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -218,42 +218,42 @@ public class b extends c.a.c0.r.a {
                         return;
                     }
                 }
-                this.f1868h = c0063b;
-                this.f1865e = headers;
-                this.f1866f = obj;
-                this.f1867g = i2;
+                this.f2295h = c0084b;
+                this.f2292e = headers;
+                this.f2293f = obj;
+                this.f2294g = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1868h.a.b(this.f1865e, this.f1866f, this.f1867g);
+                    this.f2295h.a.b(this.f2292e, this.f2293f, this.f2294g);
                 }
             }
         }
 
         /* renamed from: c.a.c0.r.s.b$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0064b implements Runnable {
+        public class RunnableC0085b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Exception f1869e;
+            public final /* synthetic */ Exception f2296e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f1870f;
+            public final /* synthetic */ int f2297f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ C0063b f1871g;
+            public final /* synthetic */ C0084b f2298g;
 
-            public RunnableC0064b(C0063b c0063b, Exception exc, int i2) {
+            public RunnableC0085b(C0084b c0084b, Exception exc, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0063b, exc, Integer.valueOf(i2)};
+                    Object[] objArr = {c0084b, exc, Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i3 = newInitContext.flag;
                     if ((i3 & 1) != 0) {
@@ -263,21 +263,21 @@ public class b extends c.a.c0.r.a {
                         return;
                     }
                 }
-                this.f1871g = c0063b;
-                this.f1869e = exc;
-                this.f1870f = i2;
+                this.f2298g = c0084b;
+                this.f2296e = exc;
+                this.f2297f = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1871g.a.a(this.f1869e, this.f1870f);
+                    this.f2298g.a.a(this.f2296e, this.f2297f);
                 }
             }
         }
 
-        public C0063b(b bVar, c.a.c0.r.p.b bVar2, d dVar) {
+        public C0084b(b bVar, c.a.c0.r.p.b bVar2, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -293,24 +293,24 @@ public class b extends c.a.c0.r.a {
                 }
             }
             this.a = bVar2;
-            this.f1864b = dVar;
+            this.f2291b = dVar;
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void a(Exception exc, int i2) {
             c.a.c0.r.p.b bVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) || (bVar = this.a) == null) {
                 return;
             }
-            if (this.f1864b.f1887j) {
-                g.b(new RunnableC0064b(this, exc, i2));
+            if (this.f2291b.f2314j) {
+                g.b(new RunnableC0085b(this, exc, i2));
             } else {
                 bVar.a(exc, i2);
             }
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void b(Headers headers, InputStream inputStream, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i2) == null) {
@@ -318,7 +318,7 @@ public class b extends c.a.c0.r.a {
             }
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void c(Headers headers, String str, int i2) throws Exception {
             c.a.c0.r.p.b bVar;
             Interceptable interceptable = $ic;
@@ -326,7 +326,7 @@ public class b extends c.a.c0.r.a {
                 return;
             }
             Object d2 = bVar.d(headers, str, i2);
-            if (this.f1864b.f1887j) {
+            if (this.f2291b.f2314j) {
                 g.b(new a(this, headers, d2, i2));
             } else {
                 this.a.b(headers, d2, i2);
@@ -335,7 +335,7 @@ public class b extends c.a.c0.r.a {
     }
 
     /* loaded from: classes.dex */
-    public class c implements a.InterfaceC0058a {
+    public class c implements a.InterfaceC0079a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c.a.c0.r.p.a a;
@@ -358,7 +358,7 @@ public class b extends c.a.c0.r.a {
             this.a = aVar;
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void a(Exception exc, int i2) {
             c.a.c0.r.p.a aVar;
             Interceptable interceptable = $ic;
@@ -368,7 +368,7 @@ public class b extends c.a.c0.r.a {
             aVar.a(exc, i2);
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void b(Headers headers, InputStream inputStream, int i2) throws Exception {
             c.a.c0.r.p.a aVar;
             Interceptable interceptable = $ic;
@@ -378,7 +378,7 @@ public class b extends c.a.c0.r.a {
             aVar.c(headers, inputStream, i2);
         }
 
-        @Override // c.a.c0.r.a.InterfaceC0058a
+        @Override // c.a.c0.r.a.InterfaceC0079a
         public void c(Headers headers, String str, int i2) throws Exception {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, str, i2) == null) {
@@ -405,7 +405,7 @@ public class b extends c.a.c0.r.a {
     public <T> void a(@NonNull d dVar, @Nullable c.a.c0.r.p.b<T> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, dVar, bVar) == null) {
-            c(dVar, true, new C0063b(this, bVar, dVar));
+            c(dVar, true, new C0084b(this, bVar, dVar));
         }
     }
 
@@ -417,32 +417,32 @@ public class b extends c.a.c0.r.a {
         }
     }
 
-    public final void c(@NonNull d dVar, boolean z, @NonNull a.InterfaceC0058a interfaceC0058a) {
+    public final void c(@NonNull d dVar, boolean z, @NonNull a.InterfaceC0079a interfaceC0079a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dVar, Boolean.valueOf(z), interfaceC0058a}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dVar, Boolean.valueOf(z), interfaceC0079a}) == null) {
             RequestError b2 = dVar.b();
             if (b2 != null) {
-                interfaceC0058a.a(b2, 1001);
+                interfaceC0079a.a(b2, 1001);
                 return;
             }
             Request.Builder a2 = e.a(dVar);
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            int i2 = dVar.f1884g;
+            int i2 = dVar.f2311g;
             if (i2 > 0) {
                 builder.readTimeout(i2, TimeUnit.MILLISECONDS);
             }
-            int i3 = dVar.f1885h;
+            int i3 = dVar.f2312h;
             if (i3 > 0) {
                 builder.writeTimeout(i3, TimeUnit.MILLISECONDS);
             }
-            int i4 = dVar.f1883f;
+            int i4 = dVar.f2310f;
             if (i4 > 0) {
                 builder.connectTimeout(i4, TimeUnit.MILLISECONDS);
             }
-            if (dVar.f1886i != null) {
-                builder.cookieJar(new c.a.c0.r.q.a(dVar.f1886i));
+            if (dVar.f2313i != null) {
+                builder.cookieJar(new c.a.c0.r.q.a(dVar.f2313i));
             }
-            builder.build().newCall(a2.build()).enqueue(new a(this, interfaceC0058a, z));
+            builder.build().newCall(a2.build()).enqueue(new a(this, interfaceC0079a, z));
         }
     }
 }

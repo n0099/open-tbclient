@@ -12,10 +12,10 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37193b;
+    public int f37349b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f37194c;
+    public int f37350c;
 
     public c(NetworkInfo networkInfo) {
         Interceptable interceptable = $ic;
@@ -33,14 +33,14 @@ public class c {
             }
         }
         this.a = networkInfo.getTypeName();
-        this.f37193b = networkInfo.getType();
+        this.f37349b = networkInfo.getType();
         int i4 = d.a[networkInfo.getState().ordinal()];
         if (i4 == 1) {
-            this.f37194c = 2;
+            this.f37350c = 2;
         } else if (i4 != 2) {
-            this.f37194c = 0;
+            this.f37350c = 0;
         } else {
-            this.f37194c = 1;
+            this.f37350c = 1;
         }
     }
 }

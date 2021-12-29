@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.m0.j.b;
+import c.a.t0.m0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,19 +21,19 @@ public final class DanmakuView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float f43864e;
+    public final float f44051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final float f43865f;
+    public final float f44052f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f43866g;
+    public final int f44053g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DanmakuPlayer f43867h;
+    public DanmakuPlayer f44054h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final a f43868i;
+    public final a f44055i;
 
     /* loaded from: classes12.dex */
     public static final class a implements b {
@@ -42,19 +42,19 @@ public final class DanmakuView extends View {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43869b;
+        public int f44056b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f43870c;
+        public int f44057c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f43871d;
+        public float f44058d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f43872e;
+        public float f44059e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f43873f;
+        public int f44060f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -69,72 +69,72 @@ public final class DanmakuView extends View {
                     return;
                 }
             }
-            this.f43870c = 4;
-            this.f43872e = 1.0f;
-            this.f43873f = 160;
+            this.f44057c = 4;
+            this.f44059e = 1.0f;
+            this.f44060f = 160;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43873f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44060f : invokeV.intValue;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public float b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43872e : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44059e : invokeV.floatValue;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43870c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44057c : invokeV.intValue;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public float d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? b.a.a(this) : invokeV.floatValue;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43871d : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44058d : invokeV.floatValue;
         }
 
         public void f(float f2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-                this.f43872e = f2;
+                this.f44059e = f2;
             }
         }
 
         public void g(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.f43873f = i2;
+                this.f44060f = i2;
             }
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public int getHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public int getWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f43869b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f44056b : invokeV.intValue;
         }
 
         public void h(float f2) {
@@ -143,7 +143,7 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public void setHeight(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
@@ -151,11 +151,11 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // c.a.s0.m0.j.b
+        @Override // c.a.t0.m0.j.b
         public void setWidth(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.f43869b = i2;
+                this.f44056b = i2;
             }
         }
     }
@@ -178,44 +178,44 @@ public final class DanmakuView extends View {
                 return;
             }
         }
-        this.f43864e = 3.0f;
-        this.f43865f = 3.0f;
-        this.f43866g = 360;
+        this.f44051e = 3.0f;
+        this.f44052f = 3.0f;
+        this.f44053g = 360;
         a aVar = new a();
-        this.f43868i = aVar;
-        aVar.f(this.f43864e);
-        this.f43868i.h(this.f43865f);
-        this.f43868i.g(this.f43866g);
+        this.f44055i = aVar;
+        aVar.f(this.f44051e);
+        this.f44055i.h(this.f44052f);
+        this.f44055i.g(this.f44053g);
     }
 
     public final float getDEFAULT_DENSITY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43864e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44051e : invokeV.floatValue;
     }
 
     public final int getDEFAULT_DENSITY_DPI() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43866g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44053g : invokeV.intValue;
     }
 
     public final float getDEFAULT_SCALE_DENSITY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43865f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f44052f : invokeV.floatValue;
     }
 
     public final DanmakuPlayer getDanmakuPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43867h : (DanmakuPlayer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44054h : (DanmakuPlayer) invokeV.objValue;
     }
 
     public final a getDisplayer$danmu_release() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43868i : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44055i : (a) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -228,11 +228,11 @@ public final class DanmakuView extends View {
             if (measuredWidth == 0 || measuredHeight == 0) {
                 return;
             }
-            DanmakuPlayer danmakuPlayer = this.f43867h;
+            DanmakuPlayer danmakuPlayer = this.f44054h;
             if (danmakuPlayer != null) {
                 danmakuPlayer.o(measuredWidth, measuredHeight);
             }
-            DanmakuPlayer danmakuPlayer2 = this.f43867h;
+            DanmakuPlayer danmakuPlayer2 = this.f44054h;
             if (danmakuPlayer2 == null) {
                 return;
             }
@@ -245,7 +245,7 @@ public final class DanmakuView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            DanmakuPlayer danmakuPlayer = this.f43867h;
+            DanmakuPlayer danmakuPlayer = this.f44054h;
             if (danmakuPlayer == null) {
                 return;
             }
@@ -257,7 +257,7 @@ public final class DanmakuView extends View {
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         DanmakuPlayer danmakuPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) || (danmakuPlayer = this.f43867h) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) || (danmakuPlayer = this.f44054h) == null) {
             return;
         }
         danmakuPlayer.o(i2, i3);
@@ -266,7 +266,7 @@ public final class DanmakuView extends View {
     public final void setDanmakuPlayer(DanmakuPlayer danmakuPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, danmakuPlayer) == null) {
-            this.f43867h = danmakuPlayer;
+            this.f44054h = danmakuPlayer;
         }
     }
 
@@ -289,14 +289,14 @@ public final class DanmakuView extends View {
                 return;
             }
         }
-        this.f43864e = 3.0f;
-        this.f43865f = 3.0f;
-        this.f43866g = 360;
+        this.f44051e = 3.0f;
+        this.f44052f = 3.0f;
+        this.f44053g = 360;
         a aVar = new a();
-        this.f43868i = aVar;
-        aVar.f(this.f43864e);
-        this.f43868i.h(this.f43865f);
-        this.f43868i.g(this.f43866g);
+        this.f44055i = aVar;
+        aVar.f(this.f44051e);
+        this.f44055i.h(this.f44052f);
+        this.f44055i.g(this.f44053g);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -318,13 +318,13 @@ public final class DanmakuView extends View {
                 return;
             }
         }
-        this.f43864e = 3.0f;
-        this.f43865f = 3.0f;
-        this.f43866g = 360;
+        this.f44051e = 3.0f;
+        this.f44052f = 3.0f;
+        this.f44053g = 360;
         a aVar = new a();
-        this.f43868i = aVar;
-        aVar.f(this.f43864e);
-        this.f43868i.h(this.f43865f);
-        this.f43868i.g(this.f43866g);
+        this.f44055i = aVar;
+        aVar.f(this.f44051e);
+        this.f44055i.h(this.f44052f);
+        this.f44055i.g(this.f44053g);
     }
 }

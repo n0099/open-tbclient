@@ -149,10 +149,10 @@ public class b {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f34433b;
+                    public final /* synthetic */ String f34589b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f34434c;
+                    public final /* synthetic */ a f34590c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -170,15 +170,15 @@ public class b {
                             }
                         }
                         this.a = str4;
-                        this.f34433b = str;
-                        this.f34434c = aVar;
+                        this.f34589b = str;
+                        this.f34590c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.a, this.f34433b, this.f34434c);
+                            b.b(this.a, this.f34589b, this.f34590c);
                         }
                     }
                 });
@@ -188,9 +188,9 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0034 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0029 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x000e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0035 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v10, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r1v11 */

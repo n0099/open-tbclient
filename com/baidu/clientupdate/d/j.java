@@ -32,7 +32,7 @@ public final class j {
     public static final char[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34313b;
+    public static String f34469b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,7 +49,7 @@ public final class j {
             }
         }
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f34313b = "";
+        f34469b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -105,8 +105,8 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f34313b;
-                    if (TextUtils.isEmpty(f34313b)) {
+                    String str = f34469b;
+                    if (TextUtils.isEmpty(f34469b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
@@ -128,7 +128,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f34313b = str;
+            f34469b = str;
         }
     }
 

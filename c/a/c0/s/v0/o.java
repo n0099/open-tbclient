@@ -98,7 +98,7 @@ public final class o {
     public static final int f(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 == -2 && Intrinsics.areEqual(c.a.c0.s.w.b.c(), a.C0070a.a)) ? p.f() : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? (i2 == -2 && Intrinsics.areEqual(c.a.c0.s.w.b.c(), a.C0091a.a)) ? p.f() : i2 : invokeI.intValue;
     }
 
     public static final c.a.c0.s.m0.c g(ClarityUrlList list, int i2, double d2, boolean z) {
@@ -111,7 +111,7 @@ public final class o {
             Pair<Integer, Integer> h2 = h(z, list, b(i2, a, size, size - 1, d2, list, 0));
             c.a.c0.s.m0.c cVar = new c.a.c0.s.m0.c();
             cVar.a = h2.getFirst().intValue();
-            cVar.f2044b = h2.getSecond().intValue();
+            cVar.f2471b = h2.getSecond().intValue();
             return cVar;
         }
         return (c.a.c0.s.m0.c) invokeCommon.objValue;

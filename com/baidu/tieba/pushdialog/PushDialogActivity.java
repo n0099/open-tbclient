@@ -14,9 +14,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.r0.s.l;
-import c.a.r0.s.t.a;
+import c.a.d.f.p.l;
+import c.a.s0.s.k;
+import c.a.s0.s.s.a;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -50,18 +50,18 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
     public CustomMessageListener attentionListener;
     public boolean hasNetBack;
     public String lifeSequence;
-    public c.a.s0.d4.b mCancelController;
+    public c.a.t0.e4.b mCancelController;
     public c.a.d.f.k.b<GifView> mGifViewPool;
     public HomeWatcherReceiver mHomeWatcherReceiver;
     public c.a.d.f.k.b<ImageView> mImageViewPool;
     public c.a.d.f.k.b<RelativeLayout> mMemeViewPool;
-    public c.a.s0.f3.a mModel;
+    public c.a.t0.f3.a mModel;
     public CustomMessageListener mNetworkChangedListener;
     public c.a.d.f.k.b<TextView> mTextViewPool;
     public c.a.d.f.k.b<LinearLayout> mTextVoiceViewPool;
-    public c.a.s0.f3.c mView;
+    public c.a.t0.f3.c mView;
     public c.a.d.f.k.b<View> mVoiceViewPool;
-    public c.a.s0.h4.c screenLockUtils;
+    public c.a.t0.i4.c screenLockUtils;
 
     /* loaded from: classes12.dex */
     public class HomeWatcherReceiver extends BroadcastReceiver {
@@ -132,7 +132,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && k.z() && this.a.mView != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && l.z() && this.a.mView != null) {
                 this.a.mView.e();
             }
         }
@@ -165,8 +165,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 }
             }
 
-            @Override // c.a.r0.s.t.a.e
-            public void onClick(c.a.r0.s.t.a aVar) {
+            @Override // c.a.s0.s.s.a.e
+            public void onClick(c.a.s0.s.s.a aVar) {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && aVar != null && aVar.isShowing()) {
                     aVar.dismiss();
@@ -202,10 +202,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f42047c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f42213c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getPageContext().getUniqueId()) || updateAttentionMessage.getData().a) {
                     return;
                 }
-                c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(this.a);
+                c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.a);
                 aVar.setMessage(this.a.getString(R.string.push_dialog_attention_failed));
                 aVar.setNegativeButton(R.string.confirm, new a(this));
                 aVar.create(this.a.getPageContext()).show();
@@ -262,7 +262,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (l.c().g()) {
+                    if (k.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -303,7 +303,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a);
-                boolean g2 = l.c().g();
+                boolean g2 = k.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g2) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -704,7 +704,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -770,10 +770,10 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.id.push_dialog_content : invokeV.intValue;
     }
 
-    public c.a.s0.h4.c getScreenLockUtils() {
+    public c.a.t0.i4.c getScreenLockUtils() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.screenLockUtils : (c.a.s0.h4.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.screenLockUtils : (c.a.t0.i4.c) invokeV.objValue;
     }
 
     public c.a.d.f.k.b<TextView> getTextViewPool() {
@@ -804,7 +804,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            c.a.s0.f3.a aVar = this.mModel;
+            c.a.t0.f3.a aVar = this.mModel;
             if (aVar == null) {
                 return null;
             }
@@ -848,9 +848,9 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             this.lifeSequence = str;
             TiebaStatic.eventStat(this, "push_dialog", str);
             super.onCreate(bundle);
-            this.screenLockUtils = c.a.s0.l3.a.j().f19154d;
+            this.screenLockUtils = c.a.t0.l3.a.j().f19640d;
             if (this.mCancelController == null) {
-                this.mCancelController = new c.a.s0.d4.b();
+                this.mCancelController = new c.a.t0.e4.b();
             }
             this.mCancelController.g(true);
             setSwipeBackEnabled(false);
@@ -860,8 +860,8 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
                 window.addFlags(524288);
             }
             getWindow().getDecorView().setDrawingCacheEnabled(false);
-            this.mView = new c.a.s0.f3.c(this, R.layout.activtiy_push_dialog);
-            c.a.s0.f3.a aVar = new c.a.s0.f3.a(this);
+            this.mView = new c.a.t0.f3.c(this, R.layout.activtiy_push_dialog);
+            c.a.t0.f3.a aVar = new c.a.t0.f3.a(this);
             this.mModel = aVar;
             aVar.e();
             registerListener(this.mNetworkChangedListener);
@@ -891,7 +891,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             if (homeWatcherReceiver != null) {
                 unregisterReceiver(homeWatcherReceiver);
             }
-            c.a.s0.d4.b bVar = this.mCancelController;
+            c.a.t0.e4.b bVar = this.mCancelController;
             if (bVar != null) {
                 bVar.g(false);
             }
@@ -924,7 +924,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
         }
     }
 
-    public void onNetCallback(boolean z, c.a.s0.f3.d.a aVar) {
+    public void onNetCallback(boolean z, c.a.t0.f3.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048597, this, z, aVar) == null) {
             String str = this.lifeSequence + "_3";
@@ -932,7 +932,7 @@ public class PushDialogActivity extends BaseActivity<PushDialogActivity> impleme
             TiebaStatic.eventStat(this, "push_dialog", str);
             this.hasNetBack = true;
             if (z && aVar != null) {
-                c.a.s0.f3.c cVar = this.mView;
+                c.a.t0.f3.c cVar = this.mView;
                 if (cVar != null) {
                     cVar.i(aVar);
                     TiebaStatic.log(new StatisticItem("c13197").param("tid", getTid()));

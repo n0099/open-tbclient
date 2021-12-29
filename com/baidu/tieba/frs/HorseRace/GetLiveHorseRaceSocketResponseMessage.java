@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.HorseRace;
 
-import c.a.s0.d1.l0.a;
+import c.a.t0.d1.l0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

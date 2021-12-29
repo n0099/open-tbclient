@@ -144,13 +144,13 @@ public class ChannelAliPay extends AbstractChannelPay {
                 public final /* synthetic */ Activity a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayDataBean f32474b;
+                public final /* synthetic */ PayDataBean f32614b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f32475c;
+                public final /* synthetic */ String f32615c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f32476d;
+                public final /* synthetic */ ChannelAliPay f32616d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -167,10 +167,10 @@ public class ChannelAliPay extends AbstractChannelPay {
                             return;
                         }
                     }
-                    this.f32476d = this;
+                    this.f32616d = this;
                     this.a = activity;
-                    this.f32474b = payDataBean;
-                    this.f32475c = str;
+                    this.f32614b = payDataBean;
+                    this.f32615c = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -183,23 +183,23 @@ public class ChannelAliPay extends AbstractChannelPay {
                         List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), new String[0]);
                         HashMap hashMap = new HashMap();
                         hashMap.put("pay_amount", StatHelper.getPayAmount());
-                        PayDataBean payDataBean2 = this.f32474b;
+                        PayDataBean payDataBean2 = this.f32614b;
                         int i2 = 1;
                         if (payDataBean2 != null && 2 == payDataBean2.alipayVersion) {
                             LogUtil.d("alipay:", "alipayV2");
-                            int i3 = this.f32474b.alipayVersion;
-                            message.obj = new JSONObject(payTask.payV2(this.f32475c, true)).toString();
+                            int i3 = this.f32614b.alipayVersion;
+                            message.obj = new JSONObject(payTask.payV2(this.f32615c, true)).toString();
                             message.what = 101;
                             i2 = i3;
                         } else {
                             LogUtil.d("alipay:", "alipayV1");
-                            message.obj = payTask.pay(this.f32475c, true);
+                            message.obj = payTask.pay(this.f32615c, true);
                             message.what = 100;
                         }
                         collectData.add(i2 + "");
                         StatHelper.cacheAlipayVersion(i2 + "");
                         StatisticManager.onEventWithValues(PayStatServiceEvent.ALIPAY_ENTER, collectData, hashMap);
-                        this.f32476d.mAliPayChannelHandler.sendMessage(message);
+                        this.f32616d.mAliPayChannelHandler.sendMessage(message);
                     }
                 }
             }.start();

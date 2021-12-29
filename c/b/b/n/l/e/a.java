@@ -18,16 +18,16 @@ public class a extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27968h;
+    public boolean f28042h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f27969i;
+    public int f28043i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f27970j;
+    public int f28044j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27971k;
+    public float f28045k;
 
     static {
         InterceptResult invokeClinit;
@@ -70,30 +70,30 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27954e;
-            long j3 = aVar.f27954e;
+            long j2 = this.f28028e;
+            long j3 = aVar.f28028e;
             if (j2 != j3) {
                 return (int) (j2 - j3);
             }
             a aVar2 = (a) aVar;
-            boolean z = this.f27968h;
-            if (z != aVar2.f27968h) {
+            boolean z = this.f28042h;
+            if (z != aVar2.f28042h) {
                 return z ? 1 : -1;
             }
-            int i2 = this.f27969i;
-            int i3 = aVar2.f27969i;
+            int i2 = this.f28043i;
+            int i3 = aVar2.f28043i;
             if (i2 != i3) {
                 return i2 - i3;
             }
-            int i4 = this.f27970j;
-            int i5 = aVar2.f27970j;
+            int i4 = this.f28044j;
+            int i5 = aVar2.f28044j;
             if (i4 != i5) {
                 return i4 - i5;
             }
-            if (com.badlogic.gdx.math.d.e(this.f27971k, aVar2.f27971k)) {
+            if (com.badlogic.gdx.math.d.e(this.f28045k, aVar2.f28045k)) {
                 return 0;
             }
-            return this.f27971k < aVar2.f27971k ? 1 : -1;
+            return this.f28045k < aVar2.f28045k ? 1 : -1;
         }
         return invokeL.intValue;
     }
@@ -103,7 +103,7 @@ public class a extends c.b.b.n.l.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.f27968h ? 1 : 0)) * 947) + this.f27969i) * 947) + this.f27970j) * 947) + t.b(this.f27971k);
+            return (((((((super.hashCode() * 947) + (this.f28042h ? 1 : 0)) * 947) + this.f28043i) * 947) + this.f28044j) * 947) + t.b(this.f28045k);
         }
         return invokeV.intValue;
     }
@@ -126,11 +126,11 @@ public class a extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27971k = 1.0f;
-        this.f27968h = z;
-        this.f27969i = i2;
-        this.f27970j = i3;
-        this.f27971k = f2;
+        this.f28045k = 1.0f;
+        this.f28042h = z;
+        this.f28043i = i2;
+        this.f28044j = i3;
+        this.f28045k = f2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -156,7 +156,7 @@ public class a extends c.b.b.n.l.a {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(a aVar) {
-        this(aVar == null || aVar.f27968h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f27969i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f27970j, aVar == null ? 1.0f : aVar.f27971k);
+        this(aVar == null || aVar.f28042h, aVar == null ? BankSignFactory.BEAN_ID_QUERY : aVar.f28043i, aVar == null ? BankSignFactory.BEAN_ID_BIND_CARD : aVar.f28044j, aVar == null ? 1.0f : aVar.f28045k);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

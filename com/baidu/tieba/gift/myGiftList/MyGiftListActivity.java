@@ -3,8 +3,8 @@ package com.baidu.tieba.gift.myGiftList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import c.a.d.f.p.m;
-import c.a.r0.s.i0.f;
+import c.a.d.f.p.n;
+import c.a.s0.s.i0.f;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -29,7 +29,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     public boolean mIsHost;
     public MyGiftListModel.b mLoadDataCallback;
     public MyGiftListModel mModel;
-    public c.a.s0.h1.c.c mMyGiftListView;
+    public c.a.t0.h1.c.c mMyGiftListView;
     public NoNetworkView.b mNetworkChangeListener;
     public final CustomMessageListener mSendGiftSucceedListener;
     public long mUserId;
@@ -66,7 +66,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         }
 
         @Override // com.baidu.tieba.gift.myGiftList.MyGiftListModel.b
-        public void a(int i2, String str, boolean z, c.a.s0.h1.c.a aVar) {
+        public void a(int i2, String str, boolean z, c.a.t0.h1.c.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z), aVar}) == null) {
                 this.a.closeLoadingDialog();
@@ -92,7 +92,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyGiftListActivity f45522e;
+        public final /* synthetic */ MyGiftListActivity f45709e;
 
         public b(MyGiftListActivity myGiftListActivity) {
             Interceptable interceptable = $ic;
@@ -109,23 +109,23 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f45522e = myGiftListActivity;
+            this.f45709e = myGiftListActivity;
         }
 
-        @Override // c.a.r0.s.i0.f.g
+        @Override // c.a.s0.s.i0.f.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!m.C()) {
-                    this.f45522e.mMyGiftListView.k();
-                    this.f45522e.mMyGiftListView.t(this.f45522e.getString(R.string.neterror), true);
+                if (!n.C()) {
+                    this.f45709e.mMyGiftListView.k();
+                    this.f45709e.mMyGiftListView.t(this.f45709e.getString(R.string.neterror), true);
                     return;
                 }
-                c.a.r0.t.d.b.g0().n();
-                this.f45522e.mModel.I(false);
-                this.f45522e.mModel.loadData();
-                c.a.r0.t.d.b.g0().d0(0);
-                this.f45522e.mMyGiftListView.m();
+                c.a.s0.t.d.b.g0().n();
+                this.f45709e.mModel.I(false);
+                this.f45709e.mModel.loadData();
+                c.a.s0.t.d.b.g0().d0(0);
+                this.f45709e.mMyGiftListView.m();
             }
         }
     }
@@ -136,7 +136,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyGiftListActivity f45523e;
+        public final /* synthetic */ MyGiftListActivity f45710e;
 
         public c(MyGiftListActivity myGiftListActivity) {
             Interceptable interceptable = $ic;
@@ -153,28 +153,28 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f45523e = myGiftListActivity;
+            this.f45710e = myGiftListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45523e.mIsHost) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45710e.mIsHost) {
                 return;
             }
-            if (m.C()) {
-                long uid = this.f45523e.mModel.getUid();
+            if (n.C()) {
+                long uid = this.f45710e.mModel.getUid();
                 if (uid == 0) {
                     return;
                 }
                 TiebaStatic.log("gift_list_btn");
-                GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.f45523e.getPageContext().getPageActivity(), uid, this.f45523e.username, this.f45523e.nameShow);
-                giftTabActivityConfig.getIntent().putExtra("account_type", this.f45523e.userType);
+                GiftTabActivityConfig giftTabActivityConfig = new GiftTabActivityConfig(this.f45710e.getPageContext().getPageActivity(), uid, this.f45710e.username, this.f45710e.nameShow);
+                giftTabActivityConfig.getIntent().putExtra("account_type", this.f45710e.userType);
                 giftTabActivityConfig.setReferPageAndClickZone(MemberPayStatistic.REFER_PAGE_GIFT_WALLS, MemberPayStatistic.CLICK_ZONE_T_RECHARGE);
-                this.f45523e.sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
+                this.f45710e.sendMessage(new CustomMessage(2002001, giftTabActivityConfig));
                 return;
             }
-            this.f45523e.showToast(R.string.neterror);
+            this.f45710e.showToast(R.string.neterror);
         }
     }
 
@@ -184,7 +184,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyGiftListActivity f45524e;
+        public final /* synthetic */ MyGiftListActivity f45711e;
 
         public d(MyGiftListActivity myGiftListActivity) {
             Interceptable interceptable = $ic;
@@ -201,15 +201,15 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f45524e = myGiftListActivity;
+            this.f45711e = myGiftListActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f45524e.mModel.I(false);
-                this.f45524e.mModel.loadData();
+                this.f45711e.mModel.I(false);
+                this.f45711e.mModel.loadData();
             }
         }
     }
@@ -260,7 +260,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MyGiftListActivity f45525e;
+        public final /* synthetic */ MyGiftListActivity f45712e;
 
         public f(MyGiftListActivity myGiftListActivity) {
             Interceptable interceptable = $ic;
@@ -277,20 +277,20 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                     return;
                 }
             }
-            this.f45525e = myGiftListActivity;
+            this.f45712e = myGiftListActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.BdListView.p
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f45525e.mModel.E()) {
-                    this.f45525e.mModel.I(true);
-                    this.f45525e.mModel.loadData();
-                    this.f45525e.mMyGiftListView.l().setVisibility(0);
+                if (this.f45712e.mModel.E()) {
+                    this.f45712e.mModel.I(true);
+                    this.f45712e.mModel.loadData();
+                    this.f45712e.mMyGiftListView.l().setVisibility(0);
                     return;
                 }
-                this.f45525e.mMyGiftListView.l().setVisibility(8);
+                this.f45712e.mMyGiftListView.l().setVisibility(8);
             }
         }
     }
@@ -327,7 +327,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            c.a.s0.h1.c.c cVar = new c.a.s0.h1.c.c(this, this.scrollToBottomListener, this.mIsHost);
+            c.a.t0.h1.c.c cVar = new c.a.t0.h1.c.c(this, this.scrollToBottomListener, this.mIsHost);
             this.mMyGiftListView = cVar;
             cVar.s(new b(this));
             addNetWorkChangeListener();
@@ -363,7 +363,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            c.a.r0.t.d.b.g0().n();
+            c.a.s0.t.d.b.g0().n();
             Intent intent = getIntent();
             if (intent != null) {
                 this.suid = intent.getStringExtra("id");
@@ -386,12 +386,12 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             initUI();
             registerListener(this.mSendGiftSucceedListener);
             this.mModel.I(false);
-            if (m.C()) {
+            if (n.C()) {
                 this.mMyGiftListView.u();
             } else {
                 this.mMyGiftListView.t(getString(R.string.neterror), true);
             }
-            c.a.r0.t.d.b.g0().d0(0);
+            c.a.s0.t.d.b.g0().d0(0);
         }
     }
 }

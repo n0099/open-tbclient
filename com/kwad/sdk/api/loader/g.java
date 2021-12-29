@@ -2,172 +2,97 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.utils.Constant;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class g {
-    public static /* synthetic */ Interceptable $ic;
     public static File a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     public static File a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (a == null) {
-                a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
-            }
-            return a;
+        if (a == null) {
+            a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return (File) invokeL.objValue;
+        return a;
     }
 
     public static File a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            File a2 = a(context);
-            return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-        }
-        return (File) invokeLL.objValue;
+        File a2 = a(context);
+        return new File(a2, "dynamic-" + System.currentTimeMillis() + "-" + str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
     }
 
     public static void a(File file) {
         File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            if (!file.isFile() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    a(file2);
-                }
+        if (!file.isFile() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                a(file2);
             }
-            file.delete();
         }
+        file.delete();
     }
 
     public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            File a2 = a(context);
-            return c(new File(a2, "apk-" + str)).getPath();
-        }
-        return (String) invokeLL.objValue;
+        File a2 = a(context);
+        return c(new File(a2, "apk-" + str)).getPath();
     }
 
     public static void b(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
-            try {
-                a(file);
-            } catch (Exception unused) {
-            }
+        try {
+            a(file);
+        } catch (Exception unused) {
         }
     }
 
     public static File c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            File a2 = a(context);
-            return c(new File(a2, "apk-" + str));
-        }
-        return (File) invokeLL.objValue;
+        File a2 = a(context);
+        return c(new File(a2, "apk-" + str));
     }
 
     public static File c(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, file)) == null) {
-            if (file.exists() && file.isFile()) {
-                file.delete();
-            }
-            if (file.exists() && file.isDirectory()) {
-                return file;
-            }
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (file.exists() && file.isDirectory()) {
-                return file;
-            }
-            throw new RuntimeException("Can not ensureDir:" + file);
+        if (file.exists() && file.isFile()) {
+            file.delete();
         }
-        return (File) invokeL.objValue;
+        if (file.exists() && file.isDirectory()) {
+            return file;
+        }
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        if (file.exists() && file.isDirectory()) {
+            return file;
+        }
+        throw new RuntimeException("Can not ensureDir:" + file);
     }
 
     public static String d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? new File(b(context, str), "dynamic.apk").getPath() : (String) invokeLL.objValue;
+        return new File(b(context, str), "dynamic.apk").getPath();
     }
 
     public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) ? c(new File(b(context, str), "dex")).getPath() : (String) invokeLL.objValue;
+        return c(new File(b(context, str), "dex")).getPath();
     }
 
     public static String f(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) ? c(new File(b(context, str), "libs")).getPath() : (String) invokeLL.objValue;
+        return c(new File(b(context, str), "libs")).getPath();
     }
 
-    public static void g(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, context, str) == null) || TextUtils.isEmpty(str)) {
+    public static void g(final Context context, final String str) {
+        if (TextUtils.isEmpty(str)) {
             return;
         }
-        i.a(new Runnable(context, str) { // from class: com.kwad.sdk.api.loader.g.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Context a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ String f57584b;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {context, str};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = context;
-                this.f57584b = str;
-            }
-
+        i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.g.1
             @Override // java.lang.Runnable
             public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    try {
-                        File[] listFiles = g.c(this.a, this.f57584b).getParentFile().listFiles();
-                        if (listFiles == null || listFiles.length <= 0) {
-                            return;
-                        }
-                        for (File file : listFiles) {
-                            if (f.a(this.f57584b, file.getName().substring(file.getName().indexOf("-") + 1))) {
-                                g.a(file);
-                            }
-                        }
-                    } catch (Exception unused) {
+                try {
+                    File[] listFiles = g.c(context, str).getParentFile().listFiles();
+                    if (listFiles == null || listFiles.length <= 0) {
+                        return;
                     }
+                    for (File file : listFiles) {
+                        if (f.a(str, file.getName().substring(file.getName().indexOf("-") + 1))) {
+                            g.a(file);
+                        }
+                    }
+                } catch (Exception unused) {
                 }
             }
         });

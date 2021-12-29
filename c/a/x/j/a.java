@@ -16,18 +16,18 @@ public class a {
     public static final c.a.x.l.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c.a.x.a.c f27065b;
+    public static final c.a.x.a.c f27506b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.x.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1563a<T> extends BdAsyncTask<String, Object, T> {
+    public static class C1584a<T> extends BdAsyncTask<String, Object, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b<T> m;
         public c<T> n;
 
-        public C1563a(b<T> bVar, c<T> cVar) {
+        public C1584a(b<T> bVar, c<T> cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class a {
             }
         }
         a = c.a.x.l.b.a();
-        f27065b = new c.a.x.a.c(BdAsyncTaskParallelType.SERIAL, a);
+        f27506b = new c.a.x.a.c(BdAsyncTaskParallelType.SERIAL, a);
     }
 
     public static <T> BdAsyncTask a(b<T> bVar, c<T> cVar) {
@@ -107,12 +107,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, cVar, i2)) == null) {
             if (bVar != null) {
-                C1563a c1563a = new C1563a(bVar, cVar);
-                c1563a.v(f27065b);
-                c1563a.x(a);
-                c1563a.w(i2);
-                c1563a.g(new String[0]);
-                return c1563a;
+                C1584a c1584a = new C1584a(bVar, cVar);
+                c1584a.v(f27506b);
+                c1584a.x(a);
+                c1584a.w(i2);
+                c1584a.g(new String[0]);
+                return c1584a;
             }
             return null;
         }

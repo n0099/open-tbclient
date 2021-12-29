@@ -1,6 +1,6 @@
 package c.g;
 
-import c.g.b;
+import c.g.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,14 +22,14 @@ public final class d {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(i iVar);
+        void a(k kVar);
     }
 
-    public static <T extends k> T a(Random random, Collection<T> collection, o<T> oVar) {
+    public static <T extends o> T a(Random random, Collection<T> collection, r<T> rVar) {
         InterceptResult invokeLLL;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, collection, oVar)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, collection, rVar)) == null) {
             if (random == null || collection == null || collection.isEmpty()) {
                 return null;
             }
@@ -38,8 +38,8 @@ public final class d {
             long j2 = 0;
             long j3 = 0;
             for (T t : collection) {
-                if (oVar != null) {
-                    if (((b.d) oVar).a(t)) {
+                if (rVar != null) {
+                    if (((e.d) rVar).a(t)) {
                         j3 += t.b();
                         arrayList.add(t);
                     }
@@ -57,7 +57,7 @@ public final class d {
                 LogPrinter.v("Select the only one", new Object[0]);
                 obj = arrayList.get(0);
             } else if (j3 != 0) {
-                Collections.sort(arrayList, new m());
+                Collections.sort(arrayList, new q());
                 long nextFloat = j3 > 2147483647L ? random.nextFloat() * ((float) j3) : random.nextInt((int) j3);
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {

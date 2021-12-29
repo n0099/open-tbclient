@@ -94,12 +94,12 @@ public class NotifyUtil {
         if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
             synchronized (NotifyUtil.class) {
                 if (sNotifyData == null) {
-                    BaseNotifyDataAdapter baseNotifyDataAdapter = (BaseNotifyDataAdapter) getObjectByReflect(sNotifyDataAdapter, new i());
+                    BaseNotifyDataAdapter baseNotifyDataAdapter = (BaseNotifyDataAdapter) getObjectByReflect(sNotifyDataAdapter, new h());
                     sNotifyData = baseNotifyDataAdapter;
                     baseNotifyDataAdapter.init(context);
                 }
                 if (sNotifyLayout == null) {
-                    BaseNotifyLayoutAdapter baseNotifyLayoutAdapter = (BaseNotifyLayoutAdapter) getObjectByReflect(sNotifyLayoutAdapter, new j());
+                    BaseNotifyLayoutAdapter baseNotifyLayoutAdapter = (BaseNotifyLayoutAdapter) getObjectByReflect(sNotifyLayoutAdapter, new i());
                     sNotifyLayout = baseNotifyLayoutAdapter;
                     baseNotifyLayoutAdapter.init(context);
                 }

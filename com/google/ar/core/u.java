@@ -52,17 +52,17 @@ public final class u extends com.google.a.b.a.a.a.e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             int i2 = bundle.getInt("error.code", -100);
             if (i2 == -5) {
-                this.a.f30896f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
+                this.a.f30974f.a(ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE);
             } else if (i2 == -3) {
-                this.a.f30896f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.a.f30974f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             } else if (i2 != 0) {
                 StringBuilder sb = new StringBuilder(33);
                 sb.append("requestInfo returned: ");
                 sb.append(i2);
                 sb.toString();
-                this.a.f30896f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                this.a.f30974f.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             } else {
-                this.a.f30896f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
+                this.a.f30974f.a(ArCoreApk.Availability.SUPPORTED_NOT_INSTALLED);
             }
         }
     }

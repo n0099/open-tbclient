@@ -34,25 +34,25 @@ public class bu {
     public final String f169a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ai.a f63328b;
+    public ai.a f63323b;
 
     /* renamed from: b  reason: collision with other field name */
     public final String f170b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ai.a f63329c;
+    public ai.a f63324c;
 
     /* renamed from: c  reason: collision with other field name */
     public final String f171c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f63330d;
+    public final String f63325d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63331e;
+    public String f63326e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63332f;
+    public String f63327f;
 
     public bu(Context context) {
         Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public class bu {
         this.f169a = "push_stat_sp";
         this.f170b = "upload_time";
         this.f171c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
-        this.f63330d = "check_time";
+        this.f63325d = "check_time";
         this.f166a = new bv(this);
-        this.f63328b = new bw(this);
-        this.f63329c = new bx(this);
+        this.f63323b = new bw(this);
+        this.f63324c = new bx(this);
         this.f165a = context;
     }
 
@@ -122,7 +122,7 @@ public class bu {
     public String m244a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63331e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63326e : (String) invokeV.objValue;
     }
 
     public void a(cg.a aVar) {
@@ -161,6 +161,6 @@ public class bu {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63332f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63327f : (String) invokeV.objValue;
     }
 }

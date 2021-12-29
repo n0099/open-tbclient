@@ -6,13 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.l;
-import c.a.r0.s.v.c;
-import c.a.s0.l4.b;
-import c.a.s0.l4.d;
-import c.a.s0.l4.f;
-import c.a.s0.l4.g;
-import c.a.s0.l4.i;
+import c.a.d.f.p.m;
+import c.a.s0.s.u.c;
+import c.a.t0.m4.b;
+import c.a.t0.m4.d;
+import c.a.t0.m4.f;
+import c.a.t0.m4.g;
+import c.a.t0.m4.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -39,13 +39,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<VideoItemData> f50519b;
+    public List<VideoItemData> f50767b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f50520c;
+    public View f50768c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f50521d;
+    public String f50769d;
     public boolean isNaniVideo;
 
     /* loaded from: classes12.dex */
@@ -92,7 +92,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             c.d(this.mMaskView).s(b.Mask_X003);
             c d2 = c.d(view);
             d2.n(i.J_X05);
-            d2.f(c.a.s0.l4.c.CAM_X0613);
+            d2.f(c.a.t0.m4.c.CAM_X0613);
         }
 
         public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -111,13 +111,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f50522e;
+        public final /* synthetic */ int f50770e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ VideoItemData f50523f;
+        public final /* synthetic */ VideoItemData f50771f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ VideoAttentionReccomendListAdapter f50524g;
+        public final /* synthetic */ VideoAttentionReccomendListAdapter f50772g;
 
         public a(VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter, int i2, VideoItemData videoItemData) {
             Interceptable interceptable = $ic;
@@ -134,20 +134,20 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                     return;
                 }
             }
-            this.f50524g = videoAttentionReccomendListAdapter;
-            this.f50522e = i2;
-            this.f50523f = videoItemData;
+            this.f50772g = videoAttentionReccomendListAdapter;
+            this.f50770e = i2;
+            this.f50771f = videoItemData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f50524g.a, this.f50524g.f50519b, 0, null, "video_attention_tab", "", "", "");
-                videoRecommentPlayActivityConfig.setVideoShowIndex(this.f50522e);
+                VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this.f50772g.a, this.f50772g.f50767b, 0, null, "video_attention_tab", "", "", "");
+                videoRecommentPlayActivityConfig.setVideoShowIndex(this.f50770e);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
-                this.f50524g.f50521d = this.f50523f.thread_id;
-                this.f50524g.attentionListPageClick(4);
+                this.f50772g.f50769d = this.f50771f.thread_id;
+                this.f50772g.attentionListPageClick(4);
             }
         }
     }
@@ -168,7 +168,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             }
         }
         this.isNaniVideo = false;
-        this.f50519b = new ArrayList();
+        this.f50767b = new ArrayList();
         this.a = context;
     }
 
@@ -177,7 +177,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_PAGE_CLICK);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", this.f50521d);
+            statisticItem.param("tid", this.f50769d);
             statisticItem.param("obj_locate", i2);
             TiebaStatic.log(statisticItem);
         }
@@ -191,7 +191,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         forumViewHolder.mPlayNumber.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
         c d2 = c.d(forumViewHolder.mPlayNumber);
         d2.z(d.T_X09);
-        d2.v(c.a.s0.l4.c.CAM_X0101);
+        d2.v(c.a.t0.m4.c.CAM_X0101);
     }
 
     public final void e(VideoItemData videoItemData, ForumViewHolder forumViewHolder) {
@@ -231,7 +231,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         }
         c d2 = c.d(forumViewHolder.mPlayTime);
         d2.z(d.T_X09);
-        d2.v(c.a.s0.l4.c.CAM_X0101);
+        d2.v(c.a.t0.m4.c.CAM_X0101);
         forumViewHolder.mPlayTime.setText(sb.toString());
     }
 
@@ -240,9 +240,9 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, videoItemData, forumViewHolder) == null) || videoItemData == null || forumViewHolder == null) {
             return;
         }
-        if (!l.isEmpty(videoItemData.title)) {
+        if (!m.isEmpty(videoItemData.title)) {
             forumViewHolder.mTextTitle.setText(videoItemData.title);
-        } else if (!l.isEmpty(videoItemData.abstext)) {
+        } else if (!m.isEmpty(videoItemData.abstext)) {
             forumViewHolder.mTextTitle.setText(videoItemData.abstext);
         } else {
             forumViewHolder.mTextTitle.setText(TbadkCoreApplication.getInst().getString(i.original_recommend_video_attention_txt));
@@ -262,7 +262,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<VideoItemData> list = this.f50519b;
+            List<VideoItemData> list = this.f50767b;
             if (list == null) {
                 return 0;
             }
@@ -280,8 +280,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
     public void setData(List<VideoItemData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            this.f50519b.clear();
-            this.f50519b.addAll(list);
+            this.f50767b.clear();
+            this.f50767b.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -292,7 +292,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         List<VideoItemData> list;
         VideoItemData videoItemData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f50519b) == null || (videoItemData = list.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, forumViewHolder, i2) == null) || forumViewHolder == null || (list = this.f50767b) == null || (videoItemData = list.get(i2)) == null) {
             return;
         }
         g(videoItemData, forumViewHolder);
@@ -308,8 +308,8 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i2)) == null) {
-            this.f50520c = LayoutInflater.from(this.a).inflate(g.video_attention_list_cover_view, viewGroup, false);
-            return new ForumViewHolder(this.f50520c);
+            this.f50768c = LayoutInflater.from(this.a).inflate(g.video_attention_list_cover_view, viewGroup, false);
+            return new ForumViewHolder(this.f50768c);
         }
         return (ForumViewHolder) invokeLI.objValue;
     }

@@ -23,13 +23,13 @@ public class j {
     public IvParameterSpec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SecretKeySpec f36041b;
+    public SecretKeySpec f36197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Cipher f36042c;
+    public Cipher f36198c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f36043d;
+    public boolean f36199d;
 
     /* renamed from: com.baidu.location.b.j$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -74,7 +74,7 @@ public class j {
                 return;
             }
         }
-        this.f36043d = false;
+        this.f36199d = false;
         try {
             String str = Jni.getldkaiv();
             if (str == null || !str.contains("|")) {
@@ -82,9 +82,9 @@ public class j {
             }
             String[] split = str.split("\\|");
             this.a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f36041b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
-            this.f36042c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            this.f36043d = true;
+            this.f36197b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
+            this.f36198c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            this.f36199d = true;
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         } catch (NoSuchAlgorithmException e3) {
@@ -108,10 +108,10 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f36043d) {
+            if (this.f36199d) {
                 try {
-                    this.f36042c.init(2, this.f36041b, this.a);
-                    return new String(this.f36042c.doFinal(Base64.decode(str, 0)), "UTF-8");
+                    this.f36198c.init(2, this.f36197b, this.a);
+                    return new String(this.f36198c.doFinal(Base64.decode(str, 0)), "UTF-8");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -125,6 +125,6 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36043d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36199d : invokeV.booleanValue;
     }
 }

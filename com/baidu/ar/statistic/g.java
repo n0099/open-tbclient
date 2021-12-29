@@ -2,7 +2,7 @@ package com.baidu.ar.statistic;
 
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface g {
     boolean isAllowPerformanceEvent(String str);
 

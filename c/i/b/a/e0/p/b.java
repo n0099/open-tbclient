@@ -22,34 +22,34 @@ public final class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30369b;
+    public final String f30447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f30370c;
+    public final boolean f30448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30371d;
+    public final long f30449d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f30372e;
+    public final long f30450e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final e f30373f;
+    public final e f30451f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f30374g;
+    public final String f30452g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String[] f30375h;
+    public final String[] f30453h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final HashMap<String, Integer> f30376i;
+    public final HashMap<String, Integer> f30454i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Integer> f30377j;
+    public final HashMap<String, Integer> f30455j;
 
     /* renamed from: k  reason: collision with root package name */
-    public List<b> f30378k;
+    public List<b> f30456k;
 
     public b(String str, String str2, long j2, long j3, e eVar, String[] strArr, String str3) {
         Interceptable interceptable = $ic;
@@ -67,16 +67,16 @@ public final class b {
             }
         }
         this.a = str;
-        this.f30369b = str2;
-        this.f30373f = eVar;
-        this.f30375h = strArr;
-        this.f30370c = str2 != null;
-        this.f30371d = j2;
-        this.f30372e = j3;
+        this.f30447b = str2;
+        this.f30451f = eVar;
+        this.f30453h = strArr;
+        this.f30448c = str2 != null;
+        this.f30449d = j2;
+        this.f30450e = j3;
         c.i.b.a.i0.a.e(str3);
-        this.f30374g = str3;
-        this.f30376i = new HashMap<>();
-        this.f30377j = new HashMap<>();
+        this.f30452g = str3;
+        this.f30454i = new HashMap<>();
+        this.f30455j = new HashMap<>();
     }
 
     public static b c(String str, long j2, long j3, e eVar, String[] strArr, String str2) {
@@ -106,17 +106,17 @@ public final class b {
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (this.f30378k == null) {
-                this.f30378k = new ArrayList();
+            if (this.f30456k == null) {
+                this.f30456k = new ArrayList();
             }
-            this.f30378k.add(bVar);
+            this.f30456k.add(bVar);
         }
     }
 
     public final void b(Map<String, e> map, SpannableStringBuilder spannableStringBuilder, int i2, int i3) {
         e d2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, spannableStringBuilder, i2, i3) == null) || i2 == i3 || (d2 = d.d(this.f30373f, this.f30375h, map)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, spannableStringBuilder, i2, i3) == null) || i2 == i3 || (d2 = d.d(this.f30451f, this.f30453h, map)) == null) {
             return;
         }
         d.a(spannableStringBuilder, i2, i3, d2);
@@ -193,7 +193,7 @@ public final class b {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            List<b> list = this.f30378k;
+            List<b> list = this.f30456k;
             if (list != null) {
                 return list.get(i2);
             }
@@ -206,7 +206,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<b> list = this.f30378k;
+            List<b> list = this.f30456k;
             if (list == null) {
                 return 0;
             }
@@ -220,14 +220,14 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), map, map2})) == null) {
             TreeMap treeMap = new TreeMap();
-            n(j2, false, this.f30374g, treeMap);
+            n(j2, false, this.f30452g, treeMap);
             m(map, treeMap);
             ArrayList arrayList = new ArrayList();
             for (Map.Entry entry : treeMap.entrySet()) {
                 c cVar = map2.get(entry.getKey());
                 SpannableStringBuilder spannableStringBuilder = (SpannableStringBuilder) entry.getValue();
                 e(spannableStringBuilder);
-                arrayList.add(new c.i.b.a.e0.b(spannableStringBuilder, null, cVar.f30380c, cVar.f30381d, cVar.f30382e, cVar.f30379b, Integer.MIN_VALUE, cVar.f30383f));
+                arrayList.add(new c.i.b.a.e0.b(spannableStringBuilder, null, cVar.f30458c, cVar.f30459d, cVar.f30460e, cVar.f30457b, Integer.MIN_VALUE, cVar.f30461f));
             }
             return arrayList;
         }
@@ -239,20 +239,20 @@ public final class b {
         if (interceptable == null || interceptable.invokeLZ(1048582, this, treeSet, z) == null) {
             boolean equals = "p".equals(this.a);
             if (z || equals) {
-                long j2 = this.f30371d;
+                long j2 = this.f30449d;
                 if (j2 != -9223372036854775807L) {
                     treeSet.add(Long.valueOf(j2));
                 }
-                long j3 = this.f30372e;
+                long j3 = this.f30450e;
                 if (j3 != -9223372036854775807L) {
                     treeSet.add(Long.valueOf(j3));
                 }
             }
-            if (this.f30378k == null) {
+            if (this.f30456k == null) {
                 return;
             }
-            for (int i2 = 0; i2 < this.f30378k.size(); i2++) {
-                this.f30378k.get(i2).i(treeSet, z || equals);
+            for (int i2 = 0; i2 < this.f30456k.size(); i2++) {
+                this.f30456k.get(i2).i(treeSet, z || equals);
             }
         }
     }
@@ -278,15 +278,15 @@ public final class b {
     public boolean l(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? (this.f30371d == -9223372036854775807L && this.f30372e == -9223372036854775807L) || (this.f30371d <= j2 && this.f30372e == -9223372036854775807L) || ((this.f30371d == -9223372036854775807L && j2 < this.f30372e) || (this.f30371d <= j2 && j2 < this.f30372e)) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? (this.f30449d == -9223372036854775807L && this.f30450e == -9223372036854775807L) || (this.f30449d <= j2 && this.f30450e == -9223372036854775807L) || ((this.f30449d == -9223372036854775807L && j2 < this.f30450e) || (this.f30449d <= j2 && j2 < this.f30450e)) : invokeJ.booleanValue;
     }
 
     public final void m(Map<String, e> map, Map<String, SpannableStringBuilder> map2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, map, map2) == null) {
-            for (Map.Entry<String, Integer> entry : this.f30377j.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.f30455j.entrySet()) {
                 String key = entry.getKey();
-                b(map, map2.get(key), this.f30376i.containsKey(key) ? this.f30376i.get(key).intValue() : 0, entry.getValue().intValue());
+                b(map, map2.get(key), this.f30454i.containsKey(key) ? this.f30454i.get(key).intValue() : 0, entry.getValue().intValue());
                 for (int i2 = 0; i2 < g(); i2++) {
                     f(i2).m(map, map2);
                 }
@@ -297,20 +297,20 @@ public final class b {
     public final void n(long j2, boolean z, String str, Map<String, SpannableStringBuilder> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), str, map}) == null) {
-            this.f30376i.clear();
-            this.f30377j.clear();
-            String str2 = this.f30374g;
+            this.f30454i.clear();
+            this.f30455j.clear();
+            String str2 = this.f30452g;
             if (!"".equals(str2)) {
                 str = str2;
             }
-            if (this.f30370c && z) {
-                k(str, map).append((CharSequence) this.f30369b);
+            if (this.f30448c && z) {
+                k(str, map).append((CharSequence) this.f30447b);
             } else if ("br".equals(this.a) && z) {
                 k(str, map).append('\n');
             } else if (!"metadata".equals(this.a) && l(j2)) {
                 boolean equals = "p".equals(this.a);
                 for (Map.Entry<String, SpannableStringBuilder> entry : map.entrySet()) {
-                    this.f30376i.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
+                    this.f30454i.put(entry.getKey(), Integer.valueOf(entry.getValue().length()));
                 }
                 for (int i2 = 0; i2 < g(); i2++) {
                     f(i2).n(j2, z || equals, str, map);
@@ -319,7 +319,7 @@ public final class b {
                     d.c(k(str, map));
                 }
                 for (Map.Entry<String, SpannableStringBuilder> entry2 : map.entrySet()) {
-                    this.f30377j.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
+                    this.f30455j.put(entry2.getKey(), Integer.valueOf(entry2.getValue().length()));
                 }
             }
         }

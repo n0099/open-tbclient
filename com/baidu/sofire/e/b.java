@@ -12,10 +12,10 @@ public final class b {
     public JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39600b;
+    public String f39756b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39601c;
+    public int f39757c;
 
     public b(JSONObject jSONObject, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class b {
             }
         }
         this.a = jSONObject;
-        this.f39600b = str;
-        this.f39601c = i2;
+        this.f39756b = str;
+        this.f39757c = i2;
     }
 }

@@ -7,9 +7,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.d.m.d.a;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.d.n.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -98,14 +98,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     public int getSuggestHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? m.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? n.i(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
     public int getSuggestWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? m.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? n.k(TbadkCoreApplication.getInst().getApp()) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
@@ -167,7 +167,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 diskCancelWorker.setOperate(createDiskPicOperate);
                 bVar.a = diskCancelWorker;
             }
-            boolean H = k.H();
+            boolean H = l.H();
             if (d.f().a(createDiskPicOperate)) {
                 int i4 = H ? 300 : 2000;
                 synchronized (bArr) {
@@ -223,10 +223,10 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         int suggestWidth = i2 == 0 ? getSuggestWidth() : i2;
         int suggestHeight = i3 == 0 ? getSuggestHeight() : i3;
         if (suggestWidth == 0) {
-            suggestWidth = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+            suggestWidth = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
         if (suggestHeight == 0) {
-            suggestHeight = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+            suggestHeight = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
         boolean isFromCDN = isFromCDN();
         String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, suggestWidth, suggestHeight);
@@ -260,7 +260,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     try {
                         InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
                         byte[] d2 = c.a.d.f.j.b.b.d(openRawResource);
-                        if (!webClient3.isGif && !m.A(d2)) {
+                        if (!webClient3.isGif && !n.A(d2)) {
                             z5 = false;
                             a aVar = new a((Bitmap) null, z5, str, d2);
                             boolean z6 = z4;
@@ -308,8 +308,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                c.a.r0.c0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
-                boolean z7 = webClient2.isGif || m.A(bArr);
+                c.a.s0.c0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                boolean z7 = webClient2.isGif || n.A(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;
                 aVar3.y(z8);

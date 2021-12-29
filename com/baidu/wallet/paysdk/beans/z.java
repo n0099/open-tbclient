@@ -21,7 +21,7 @@ public class z extends BaseBean<Object> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FeedbackDialog.c f54013b;
+    public FeedbackDialog.c f54016b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(Context context) {
@@ -47,7 +47,7 @@ public class z extends BaseBean<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
             this.a = str;
-            this.f54013b = cVar;
+            this.f54016b = cVar;
         }
     }
 
@@ -66,9 +66,9 @@ public class z extends BaseBean<Object> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new RestNameValuePair("trans_no", this.a));
-            arrayList.add(new RestNameValuePair("score", "" + this.f54013b.a));
-            FeedbackDialog.c cVar = this.f54013b;
-            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f54509b : null)));
+            arrayList.add(new RestNameValuePair("score", "" + this.f54016b.a));
+            FeedbackDialog.c cVar = this.f54016b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f54512b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;

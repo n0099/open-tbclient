@@ -19,35 +19,35 @@ public class DynamicWaveView extends View {
     public static final int a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f35398b = 30.0f;
+    public static final float f35554b = 30.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f35399c = 0;
+    public static final int f35555c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f35400d = 3;
+    public static final int f35556d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35401e = 5;
+    public static final int f35557e = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f35402f;
+    public float f35558f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f35403g;
+    public int f35559g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f35404h;
+    public int f35560h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f35405i;
+    public int f35561i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f35406j;
+    public int f35562j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f35407k;
+    public int f35563k;
     public float[] l;
     public float[] m;
     public float[] n;
@@ -105,17 +105,17 @@ public class DynamicWaveView extends View {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             canvas.setDrawFilter(this.t);
             b();
-            int i2 = this.f35406j;
-            int i3 = this.f35403g - i2;
+            int i2 = this.f35562j;
+            int i3 = this.f35559g - i2;
             while (i2 < i3) {
-                int i4 = (int) ((this.f35404h - this.m[i2]) - this.f35407k);
-                int i5 = this.f35405i;
-                int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f35405i - i2), 2.0d)));
+                int i4 = (int) ((this.f35560h - this.m[i2]) - this.f35563k);
+                int i5 = this.f35561i;
+                int sqrt = (int) (i5 + Math.sqrt(Math.pow(i5, 2.0d) - Math.pow(Math.abs(this.f35561i - i2), 2.0d)));
                 if (sqrt >= i4) {
                     float f2 = i2;
                     canvas.drawLine(f2, i4, f2, sqrt, this.s);
                 }
-                int i6 = (int) ((this.f35404h - this.n[i2]) - this.f35407k);
+                int i6 = (int) ((this.f35560h - this.n[i2]) - this.f35563k);
                 if (sqrt >= i6) {
                     float f3 = i2;
                     canvas.drawLine(f3, i6, f3, sqrt, this.s);
@@ -125,10 +125,10 @@ public class DynamicWaveView extends View {
             int i7 = this.q + this.o;
             this.q = i7;
             this.r += this.p;
-            if (i7 >= this.f35403g) {
+            if (i7 >= this.f35559g) {
                 this.q = 0;
             }
-            if (this.r > this.f35403g) {
+            if (this.r > this.f35559g) {
                 this.r = 0;
             }
         }
@@ -139,15 +139,15 @@ public class DynamicWaveView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f35403g = i2;
-            this.f35404h = i3;
-            this.f35405i = i2 / 2;
+            this.f35559g = i2;
+            this.f35560h = i3;
+            this.f35561i = i2 / 2;
             this.l = new float[i2];
             this.m = new float[i2];
             this.n = new float[i2];
-            this.f35402f = (float) (6.283185307179586d / i2);
-            for (int i6 = 0; i6 < this.f35403g; i6++) {
-                this.l[i6] = (float) ((Math.sin(this.f35402f * i6) * 30.0d) + 0.0d);
+            this.f35558f = (float) (6.283185307179586d / i2);
+            for (int i6 = 0; i6 < this.f35559g; i6++) {
+                this.l[i6] = (float) ((Math.sin(this.f35558f * i6) * 30.0d) + 0.0d);
             }
         }
     }
@@ -283,8 +283,8 @@ public class DynamicWaveView extends View {
         this.s.setStyle(Paint.Style.FILL);
         this.s.setColor(a);
         this.t = new PaintFlagsDrawFilter(0, 3);
-        this.f35406j = h.a(context, 5.0f);
-        this.f35407k = h.a(context, 30.0f);
+        this.f35562j = h.a(context, 5.0f);
+        this.f35563k = h.a(context, 30.0f);
         a();
     }
 }

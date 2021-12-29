@@ -29,29 +29,29 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, Object> f54821b;
+    public HashMap<String, Object> f54824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WebView f54822c;
+    public WebView f54825c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54823d;
+    public String f54826d;
     @SuppressLint({"SdCardPath"})
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54824e;
+    public String f54827e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54825f;
+    public boolean f54828f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54826g;
+    public String f54829g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f54827h;
+    public boolean f54830h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f54828i;
+    public boolean f54831i;
 
     static {
         InterceptResult invokeClinit;
@@ -84,13 +84,13 @@ public final class a {
                 return;
             }
         }
-        this.f54824e = "/data/data/";
-        this.f54825f = true;
-        this.f54827h = true;
-        this.f54828i = true;
-        this.f54822c = webView;
+        this.f54827e = "/data/data/";
+        this.f54828f = true;
+        this.f54830h = true;
+        this.f54831i = true;
+        this.f54825c = webView;
         try {
-            this.f54824e += webView.getContext().getPackageName();
+            this.f54827e += webView.getContext().getPackageName();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -152,16 +152,16 @@ public final class a {
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.f54828i || str == null || str.startsWith("javascript")) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !this.f54831i || str == null || str.startsWith("javascript")) {
             return;
         }
-        this.f54826g = str;
-        WebView webView = this.f54822c;
+        this.f54829g = str;
+        WebView webView = this.f54825c;
         if (webView == null || webView.getSettings() == null) {
             return;
         }
-        if (!this.f54826g.startsWith("file://")) {
-            this.f54822c.getSettings().setJavaScriptEnabled(true);
+        if (!this.f54829g.startsWith("file://")) {
+            this.f54825c.getSettings().setJavaScriptEnabled(true);
             return;
         }
         boolean z = false;
@@ -174,53 +174,53 @@ public final class a {
         } catch (Throwable th) {
             Log.e("WebViewSecureProcessor", "getStaticWebSeting error:".concat(String.valueOf(th)));
         }
-        this.f54822c.getSettings().setJavaScriptEnabled(z);
+        this.f54825c.getSettings().setJavaScriptEnabled(z);
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z == this.f54825f) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || z == this.f54828f) {
             return;
         }
         if (z) {
             throw new RuntimeException("can not reverse!!");
         }
-        this.f54825f = z;
+        this.f54828f = z;
         for (String str : d().keySet()) {
-            this.f54822c.addJavascriptInterface(d().get(str), str, false);
+            this.f54825c.addJavascriptInterface(d().get(str), str, false);
         }
-        HashMap<String, Object> hashMap = this.f54821b;
+        HashMap<String, Object> hashMap = this.f54824b;
         if (hashMap != null) {
             hashMap.clear();
         }
-        this.f54823d = null;
+        this.f54826d = null;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54825f && (g() ^ true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f54828f && (g() ^ true) : invokeV.booleanValue;
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f54827h = z;
+            this.f54830h = z;
         }
     }
 
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54827h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f54830h : invokeV.booleanValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f54827h && a()) {
-            String str = this.f54823d;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f54830h && a()) {
+            String str = this.f54826d;
             if (str != null) {
-                this.f54822c.execJavaScript(str);
+                this.f54825c.execJavaScript(str);
                 return;
             }
             StringBuilder sb = new StringBuilder();
@@ -234,8 +234,8 @@ public final class a {
             sb.append("}");
             sb.append(")()");
             String sb2 = sb.toString();
-            this.f54823d = sb2;
-            this.f54822c.execJavaScript(sb2);
+            this.f54826d = sb2;
+            this.f54825c.execJavaScript(sb2);
         }
     }
 
@@ -243,10 +243,10 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f54821b == null) {
-                this.f54821b = new HashMap<>();
+            if (this.f54824b == null) {
+                this.f54824b = new HashMap<>();
             }
-            return this.f54821b;
+            return this.f54824b;
         }
         return (HashMap) invokeV.objValue;
     }
@@ -258,7 +258,7 @@ public final class a {
             if (g()) {
                 return false;
             }
-            this.f54822c.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.f54825c.removeJavascriptInterface("searchBoxJavaBridge_");
             return true;
         }
         return invokeV.booleanValue;
@@ -299,7 +299,7 @@ public final class a {
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            if (this.a.f54822c != null && !this.a.f54822c.isDestroyed()) {
+                            if (this.a.f54825c != null && !this.a.f54825c.isDestroyed()) {
                                 this.a.e();
                                 Thread.sleep(20L);
                             }

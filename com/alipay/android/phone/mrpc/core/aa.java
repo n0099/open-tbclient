@@ -15,10 +15,10 @@ public final class aa {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Header> f31493b;
+    public List<Header> f31636b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f31494c;
+    public boolean f31637c;
 
     public aa() {
         Interceptable interceptable = $ic;
@@ -50,12 +50,12 @@ public final class aa {
     public final List<Header> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31493b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31636b : (List) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31494c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31637c : invokeV.booleanValue;
     }
 }

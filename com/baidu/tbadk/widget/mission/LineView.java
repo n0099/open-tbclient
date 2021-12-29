@@ -8,7 +8,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -22,10 +22,10 @@ public class LineView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f42706e;
+    public Paint f42894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f42707f;
+    public Path f42895f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LineView(Context context) {
@@ -52,20 +52,20 @@ public class LineView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f42706e = paint;
+            this.f42894e = paint;
             paint.setAntiAlias(true);
-            this.f42706e.setColor(SkinManager.getColor(R.color.CAM_X0203));
-            this.f42706e.setStyle(Paint.Style.STROKE);
-            this.f42706e.setStrokeWidth(m.f(getContext(), R.dimen.tbds2));
-            this.f42706e.setPathEffect(new DashPathEffect(new float[]{m.f(getContext(), R.dimen.tbds8), m.f(getContext(), R.dimen.tbds8)}, 0.0f));
-            this.f42707f = new Path();
+            this.f42894e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+            this.f42894e.setStyle(Paint.Style.STROKE);
+            this.f42894e.setStrokeWidth(n.f(getContext(), R.dimen.tbds2));
+            this.f42894e.setPathEffect(new DashPathEffect(new float[]{n.f(getContext(), R.dimen.tbds8), n.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.f42895f = new Path();
         }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f42706e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+            this.f42894e.setColor(SkinManager.getColor(R.color.CAM_X0203));
             invalidate();
         }
     }
@@ -75,11 +75,11 @@ public class LineView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f42707f.reset();
+            this.f42895f.reset();
             float height = getHeight() / 2;
-            this.f42707f.moveTo(0.0f, height);
-            this.f42707f.lineTo(getWidth(), height);
-            canvas.drawPath(this.f42707f, this.f42706e);
+            this.f42895f.moveTo(0.0f, height);
+            this.f42895f.lineTo(getWidth(), height);
+            canvas.drawPath(this.f42895f, this.f42894e);
         }
     }
 

@@ -62,19 +62,19 @@ public class l {
     public static final String a = "com.alipay.android.app";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31810b = "com.eg.android.AlipayGphone";
+    public static final String f31953b = "com.eg.android.AlipayGphone";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31811c = "com.eg.android.AlipayGphoneRC";
+    public static final String f31954c = "com.eg.android.AlipayGphoneRC";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f31812d = 99;
+    public static final int f31955d = 99;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String[] f31813e;
+    public static final String[] f31956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f31814f = 125;
+    public static final int f31957f = 125;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -123,7 +123,7 @@ public class l {
                 return;
             }
         }
-        f31813e = new String[]{"10.1.5.1013151", "10.1.5.1013148"};
+        f31956e = new String[]{"10.1.5.1013151", "10.1.5.1013148"};
     }
 
     public l() {
@@ -145,12 +145,12 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             if (EnvUtils.isSandBox()) {
-                return f31811c;
+                return f31954c;
             }
             try {
-                return com.alipay.sdk.app.a.f31638d.get(0).a;
+                return com.alipay.sdk.app.a.f31781d.get(0).a;
             } catch (Throwable unused) {
-                return f31810b;
+                return f31953b;
             }
         }
         return (String) invokeV.objValue;
@@ -165,7 +165,7 @@ public class l {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) ? (EnvUtils.isSandBox() && TextUtils.equals(str, f31811c)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) ? (EnvUtils.isSandBox() && TextUtils.equals(str, f31954c)) ? "com.eg.android.AlipayGphoneRC.IAlixPay" : "com.eg.android.AlipayGphone.IAlixPay" : (String) invokeL.objValue;
     }
 
     public static String c() {
@@ -350,10 +350,10 @@ public class l {
         public final PackageInfo a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f31815b;
+        public final int f31958b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f31816c;
+        public final String f31959c;
 
         public b(PackageInfo packageInfo, int i2, String str) {
             Interceptable interceptable = $ic;
@@ -371,8 +371,8 @@ public class l {
                 }
             }
             this.a = packageInfo;
-            this.f31815b = i2;
-            this.f31816c = str;
+            this.f31958b = i2;
+            this.f31959c = str;
         }
 
         public boolean a(com.alipay.sdk.sys.a aVar) {
@@ -385,8 +385,8 @@ public class l {
                 }
                 for (Signature signature : signatureArr) {
                     String a = l.a(aVar, signature.toByteArray());
-                    if (a != null && !TextUtils.equals(a, this.f31816c)) {
-                        com.alipay.sdk.app.statistic.a.b(aVar, "biz", com.alipay.sdk.app.statistic.b.H, String.format("Got %s, expected %s", a, this.f31816c));
+                    if (a != null && !TextUtils.equals(a, this.f31959c)) {
+                        com.alipay.sdk.app.statistic.a.b(aVar, "biz", com.alipay.sdk.app.statistic.b.H, String.format("Got %s, expected %s", a, this.f31959c));
                         return true;
                     }
                 }
@@ -398,7 +398,7 @@ public class l {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.versionCode < this.f31815b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.versionCode < this.f31958b : invokeV.booleanValue;
         }
     }
 
@@ -534,8 +534,8 @@ public class l {
                 for (a.b bVar : list) {
                     if (bVar != null) {
                         String str = bVar.a;
-                        if (EnvUtils.isSandBox() && f31810b.equals(str)) {
-                            str = f31811c;
+                        if (EnvUtils.isSandBox() && f31953b.equals(str)) {
+                            str = f31954c;
                         }
                         try {
                             if (context.getPackageManager().getPackageInfo(str, 128) != null) {
@@ -650,7 +650,7 @@ public class l {
                 return null;
             }
             for (a.b bVar : list) {
-                if (bVar != null && (a2 = a(aVar, context, bVar.a, bVar.f31704b, bVar.f31705c)) != null && !a2.a(aVar) && !a2.a()) {
+                if (bVar != null && (a2 = a(aVar, context, bVar.a, bVar.f31847b, bVar.f31848c)) != null && !a2.a(aVar) && !a2.a()) {
                     return a2;
                 }
             }
@@ -664,8 +664,8 @@ public class l {
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{aVar, context, str, Integer.valueOf(i2), str2})) == null) {
-            if (EnvUtils.isSandBox() && f31810b.equals(str)) {
-                str = f31811c;
+            if (EnvUtils.isSandBox() && f31953b.equals(str)) {
+                str = f31954c;
             }
             try {
                 packageInfo = b(context, str);
@@ -728,8 +728,8 @@ public class l {
             }
             try {
                 String str = packageInfo.versionName;
-                if (!TextUtils.equals(str, f31813e[0])) {
-                    if (!TextUtils.equals(str, f31813e[1])) {
+                if (!TextUtils.equals(str, f31956e[0])) {
+                    if (!TextUtils.equals(str, f31956e[1])) {
                         return false;
                     }
                 }
@@ -814,8 +814,8 @@ public class l {
                         } catch (Exception unused) {
                             com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.e());
                         }
-                        if (parseInt != com.alipay.sdk.app.c.f31640c.b() && parseInt != com.alipay.sdk.app.c.f31646i.b()) {
-                            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31641d.b());
+                        if (parseInt != com.alipay.sdk.app.c.f31783c.b() && parseInt != com.alipay.sdk.app.c.f31789i.b()) {
+                            com.alipay.sdk.app.c b2 = com.alipay.sdk.app.c.b(com.alipay.sdk.app.c.f31784d.b());
                             com.alipay.sdk.app.b.a(com.alipay.sdk.app.b.a(b2.b(), b2.a(), ""));
                             activity.runOnUiThread(new a(activity));
                             return true;
@@ -847,7 +847,7 @@ public class l {
                 return true;
             }
             try {
-                b a2 = a(aVar, activity, com.alipay.sdk.app.a.f31638d);
+                b a2 = a(aVar, activity, com.alipay.sdk.app.a.f31781d);
                 if (a2 != null && !a2.a() && !a2.a(aVar)) {
                     if (str.startsWith("intent://platformapi/startapp")) {
                         str = str.replaceFirst("intent://platformapi/startapp\\?", com.alipay.sdk.cons.a.l);
