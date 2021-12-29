@@ -1,57 +1,28 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cj implements com.kwad.sdk.core.d<b.C2093b> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public cj() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
+public class cj implements com.kwad.sdk.core.d<b.C2100b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public void a(b.C2093b c2093b, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2093b, jSONObject) == null) || jSONObject == null) {
+    public void a(b.C2100b c2100b, JSONObject jSONObject) {
+        if (jSONObject == null) {
             return;
         }
-        c2093b.a = jSONObject.optString("payload");
+        c2100b.a = jSONObject.optString("payload");
         if (jSONObject.opt("payload") == JSONObject.NULL) {
-            c2093b.a = "";
+            c2100b.a = "";
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public JSONObject b(b.C2093b c2093b, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c2093b, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "payload", c2093b.a);
-            return jSONObject;
+    public JSONObject b(b.C2100b c2100b, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "payload", c2100b.a);
+        return jSONObject;
     }
 }

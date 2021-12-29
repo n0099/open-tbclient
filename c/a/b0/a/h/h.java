@@ -19,13 +19,13 @@ public class h {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1183b;
+    public File f1576b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f1184c;
+    public File f1577c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f1185d;
+    public volatile boolean f1578d;
 
     /* loaded from: classes.dex */
     public class a extends Thread {
@@ -33,7 +33,7 @@ public class h {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ h f1186e;
+        public final /* synthetic */ h f1579e;
 
         public a(h hVar) {
             Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class h {
                     return;
                 }
             }
-            this.f1186e = hVar;
+            this.f1579e = hVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -58,11 +58,11 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.run();
-                this.f1186e.g();
-                synchronized (this.f1186e) {
-                    this.f1186e.f1185d = false;
-                    if (this.f1186e.l()) {
-                        this.f1186e.j("cleanCacehAsync finish.");
+                this.f1579e.g();
+                synchronized (this.f1579e) {
+                    this.f1579e.f1578d = false;
+                    if (this.f1579e.l()) {
+                        this.f1579e.j("cleanCacehAsync finish.");
                     }
                 }
             }
@@ -85,13 +85,13 @@ public class h {
                 return;
             }
         }
-        this.f1185d = false;
+        this.f1578d = false;
         this.a = (File) Objects.requireNonNull(file);
         if (l()) {
             j("create " + file.getAbsolutePath());
         }
-        this.f1183b = new File(this.a, ".property/lockers");
-        this.f1184c = new File(this.a, ".property/holders");
+        this.f1576b = new File(this.a, ".property/lockers");
+        this.f1577c = new File(this.a, ".property/holders");
     }
 
     public void d(String str, File file) {
@@ -99,7 +99,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, file) == null) || TextUtils.isEmpty(str) || file == null) {
             return;
         }
-        File file2 = new File(this.f1184c, file.getName());
+        File file2 = new File(this.f1577c, file.getName());
         if (!file2.exists()) {
             file2.mkdirs();
         }
@@ -124,10 +124,10 @@ public class h {
                 return null;
             }
             String str2 = str + ".locker." + System.currentTimeMillis();
-            File file = new File(this.f1183b, str2);
+            File file = new File(this.f1576b, str2);
             if (!file.exists()) {
-                if (!this.f1183b.exists()) {
-                    this.f1183b.mkdirs();
+                if (!this.f1576b.exists()) {
+                    this.f1576b.mkdirs();
                 }
                 try {
                     file.createNewFile();
@@ -146,7 +146,7 @@ public class h {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f1185d) {
+            if (this.f1578d) {
                 if (l()) {
                     j("cleanCacehAsync isCleaning... ");
                     return;
@@ -154,13 +154,13 @@ public class h {
                 return;
             }
             synchronized (this) {
-                if (this.f1185d) {
+                if (this.f1578d) {
                     if (l()) {
                         j("cleanCacehAsync isCleaning... ");
                     }
                     return;
                 }
-                this.f1185d = true;
+                this.f1578d = true;
                 new a(this).start();
             }
         }
@@ -186,13 +186,13 @@ public class h {
         String[] list;
         File file;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (list = this.f1183b.list()) == null || list.length == 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (list = this.f1576b.list()) == null || list.length == 0) {
             return;
         }
         String str2 = str + ".locker.";
         for (String str3 : list) {
             if (str3 != null && str3.startsWith(str2)) {
-                c.a.b0.a.j.e.e(new File(this.f1183b, str3));
+                c.a.b0.a.j.e.e(new File(this.f1576b, str3));
                 if (l()) {
                     j("cleanLockerTag , " + file.getAbsolutePath());
                 }
@@ -205,7 +205,7 @@ public class h {
         File file2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, file) == null) {
-            File[] listFiles = this.f1184c.listFiles();
+            File[] listFiles = this.f1577c.listFiles();
             String str3 = str + ".holder";
             if (file != null) {
                 str2 = file.getName();
@@ -254,7 +254,7 @@ public class h {
             if (file == null || !file.exists()) {
                 return false;
             }
-            File file2 = new File(this.f1184c, file.getName());
+            File file2 = new File(this.f1577c, file.getName());
             if (file2.exists()) {
                 if (file2.isDirectory()) {
                     String[] list = file2.list();
@@ -284,7 +284,7 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String[] list = this.f1183b.list();
+            String[] list = this.f1576b.list();
             return list != null && list.length > 0;
         }
         return invokeV.booleanValue;
@@ -295,7 +295,7 @@ public class h {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        File file = new File(this.f1183b, str);
+        File file = new File(this.f1576b, str);
         if (file.exists()) {
             c.a.b0.a.j.e.e(file);
         }

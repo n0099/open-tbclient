@@ -3,7 +3,7 @@ package c.a.r.g.a;
 import android.content.Context;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public interface i {
     String a();
 

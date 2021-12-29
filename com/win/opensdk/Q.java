@@ -14,28 +14,28 @@ public final class Q {
     public static final Q a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Q f63190b;
+    public static final Q f63185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Q f63191c;
+    public static final Q f63186c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Q f63192d;
+    public static final Q f63187d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Q f63193e;
+    public static final Q f63188e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Q f63194f;
+    public static final Q f63189f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final Q f63195g;
+    public static final Q f63190g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Q f63196h;
+    public static final Q f63191h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ Q[] f63197i;
+    public static final /* synthetic */ Q[] f63192i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,15 +52,15 @@ public final class Q {
             }
         }
         a = new Q("UnknownHost", 0);
-        f63190b = new Q("Socket", 1);
-        f63191c = new Q("SocketTimeout", 2);
-        f63192d = new Q("ConnectTimeout", 3);
-        f63193e = new Q("IO", 4);
-        f63194f = new Q("HttpResponse", 5);
-        f63195g = new Q("JSON", 6);
+        f63185b = new Q("Socket", 1);
+        f63186c = new Q("SocketTimeout", 2);
+        f63187d = new Q("ConnectTimeout", 3);
+        f63188e = new Q("IO", 4);
+        f63189f = new Q("HttpResponse", 5);
+        f63190g = new Q("JSON", 6);
         Q q = new Q("Interrupted", 7);
-        f63196h = q;
-        f63197i = new Q[]{a, f63190b, f63191c, f63192d, f63193e, f63194f, f63195g, q};
+        f63191h = q;
+        f63192i = new Q[]{a, f63185b, f63186c, f63187d, f63188e, f63189f, f63190g, q};
     }
 
     public Q(String str, int i2) {
@@ -91,6 +91,6 @@ public final class Q {
     public static Q[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Q[]) f63197i.clone() : (Q[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Q[]) f63192i.clone() : (Q[]) invokeV.objValue;
     }
 }

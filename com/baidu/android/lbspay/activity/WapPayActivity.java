@@ -101,7 +101,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         public final /* synthetic */ WapPayActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f32466b;
+        public boolean f32606b;
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
@@ -114,7 +114,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32468b;
+                    public final /* synthetic */ a f32608b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -131,7 +131,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32468b = this;
+                        this.f32608b = this;
                         this.a = jsResult;
                     }
 
@@ -148,7 +148,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32467b;
+                    public final /* synthetic */ a f32607b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -165,7 +165,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32467b = this;
+                        this.f32607b = this;
                         this.a = jsResult;
                     }
 
@@ -193,7 +193,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32470b;
+                    public final /* synthetic */ a f32610b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -210,7 +210,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32470b = this;
+                        this.f32610b = this;
                         this.a = jsResult;
                     }
 
@@ -227,7 +227,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32469b;
+                    public final /* synthetic */ a f32609b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -244,7 +244,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32469b = this;
+                        this.f32609b = this;
                         this.a = jsResult;
                     }
 
@@ -272,7 +272,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsPromptResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32472b;
+                    public final /* synthetic */ a f32612b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -289,7 +289,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32472b = this;
+                        this.f32612b = this;
                         this.a = jsPromptResult;
                     }
 
@@ -306,7 +306,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     public final /* synthetic */ JsPromptResult a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f32471b;
+                    public final /* synthetic */ a f32611b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -323,7 +323,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f32471b = this;
+                        this.f32611b = this;
                         this.a = jsPromptResult;
                     }
 
@@ -345,10 +345,10 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, webView, i2) == null) {
                 if (i2 <= 25) {
-                    this.f32466b = false;
-                } else if (!this.f32466b) {
+                    this.f32606b = false;
+                } else if (!this.f32606b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
-                    this.f32466b = true;
+                    this.f32606b = true;
                 }
                 if (i2 == 100) {
                     WapPayActivity wapPayActivity = this.a;
@@ -364,11 +364,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-                if (!this.f32466b) {
+                if (!this.f32606b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.onReceivedTitle(webView, str);
-                this.f32466b = true;
+                this.f32606b = true;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
@@ -402,17 +402,17 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         public final /* synthetic */ WapPayActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f32473b;
+        public boolean f32613b;
 
         @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
-                if (!this.f32473b) {
+                if (!this.f32613b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.doUpdateVisitedHistory(webView, str, z);
-                this.f32473b = true;
+                this.f32613b = true;
             }
         }
 
@@ -435,12 +435,12 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
                 String str2 = "url=" + str;
-                if (!this.f32473b) {
+                if (!this.f32613b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 WalletGlobalUtils.safeDismissDialog(this.a, -2);
                 super.onPageFinished(webView, str);
-                this.f32473b = false;
+                this.f32613b = false;
                 WapPayActivity wapPayActivity = this.a;
                 if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !this.a.title.startsWith("http") && !this.a.title.contains("错误") && !this.a.title.contains("error")) {
                     WapPayActivity wapPayActivity2 = this.a;
@@ -463,7 +463,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                 String str2 = "url=" + str;
                 WapPayActivity wapPayActivity = this.a;
                 wapPayActivity.titleBar.setTitle(wapPayActivity.mLoadingTitle);
-                if (!this.f32473b) {
+                if (!this.f32613b) {
                     this.a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 if (str.contains(WapPayActivity.PAGE_URL)) {
@@ -474,7 +474,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                         this.a.finish();
                     } else if (str.contains(WapPayActivity.PAY_PAY_FAILED)) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, f.f31788j);
+                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, f.f31931j);
                         this.a.setResult(99, intent2);
                         this.a.finish();
                     } else {
@@ -503,7 +503,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                 } else {
                     WalletGlobalUtils.safeShowDialog(this.a, -2, "");
                     super.onPageStarted(webView, str, bitmap);
-                    this.f32473b = true;
+                    this.f32613b = true;
                 }
             }
         }

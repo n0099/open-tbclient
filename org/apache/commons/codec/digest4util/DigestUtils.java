@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,6 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.base.binary4util.CodecStringUtils;
 import org.apache.commons.base.binary4util.Hex;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes4.dex */
 public class DigestUtils {
     public static /* synthetic */ Interceptable $ic = null;

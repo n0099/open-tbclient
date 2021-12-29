@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.item;
 
-import c.a.d.f.p.m;
-import c.a.r0.a.d;
-import c.a.r0.d1.c0;
+import c.a.d.f.p.n;
+import c.a.s0.a.d;
+import c.a.s0.e1.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
@@ -43,7 +43,7 @@ public class PreLoadTiebaClass extends LaunchTask {
             d.y();
             ItemCardHelper.i();
             c0.b();
-            m.x(TbadkCoreApplication.getInst());
+            n.x(TbadkCoreApplication.getInst());
         }
     }
 

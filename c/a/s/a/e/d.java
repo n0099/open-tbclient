@@ -16,12 +16,12 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, Integer> f14154c;
+    public static final HashMap<String, Integer> f12333c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f14155b;
+    public int f12334b;
 
     static {
         InterceptResult invokeClinit;
@@ -37,16 +37,16 @@ public final class d {
             }
         }
         HashMap<String, Integer> hashMap = new HashMap<>();
-        f14154c = hashMap;
+        f12333c = hashMap;
         hashMap.put(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 1);
-        f14154c.put("3GNET", 21);
-        f14154c.put("3GWAP", 22);
-        f14154c.put("CMNET", 31);
-        f14154c.put("UNINET", 32);
-        f14154c.put("CTNET", 33);
-        f14154c.put("CMWAP", 41);
-        f14154c.put("UNIWAP", 42);
-        f14154c.put("CTWAP", 43);
+        f12333c.put("3GNET", 21);
+        f12333c.put("3GWAP", 22);
+        f12333c.put("CMNET", 31);
+        f12333c.put("UNINET", 32);
+        f12333c.put("CTNET", 33);
+        f12333c.put("CMWAP", 41);
+        f12333c.put("UNIWAP", 42);
+        f12333c.put("CTWAP", 43);
     }
 
     public d(Context context) {
@@ -70,11 +70,11 @@ public final class d {
             if (!"wifi".equals(a.getTypeName().toLowerCase())) {
                 String extraInfo = a.getExtraInfo();
                 upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
-                this.f14155b = a.getSubtype();
+                this.f12334b = a.getSubtype();
             }
             "wifi".toUpperCase();
             this.a = upperCase;
-            this.f14155b = a.getSubtype();
+            this.f12334b = a.getSubtype();
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.play.monitor;
 
 import androidx.core.app.NotificationCompat;
 import c.a.d.f.m.b;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -412,8 +412,8 @@ public class VideoSerializeVideoThreadInfo implements Serializable {
             this.forumId = originalForumInfo.id;
         }
         if (originalThreadInfo != null) {
-            this.threadId = originalThreadInfo.f41395f;
-            this.title = originalThreadInfo.f41391b;
+            this.threadId = originalThreadInfo.f41554f;
+            this.title = originalThreadInfo.f41550b;
             this.postNum = originalThreadInfo.A.intValue();
         }
         if (originalThreadInfo != null && (agree = originalThreadInfo.z) != null) {

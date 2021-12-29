@@ -16,7 +16,7 @@ public final class Util {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f32438b = "Util";
+    public static final String f32578b = "Util";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Util() {

@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public class DefaultConfig implements IIMConfig {
@@ -87,7 +86,7 @@ public class DefaultConfig implements IIMConfig {
     public String getProductLineName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "main" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IIMConfig

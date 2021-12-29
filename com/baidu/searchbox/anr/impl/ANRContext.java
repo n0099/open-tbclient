@@ -2,7 +2,7 @@ package com.baidu.searchbox.anr.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.j0.a.b.d;
+import c.a.k0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRContext;

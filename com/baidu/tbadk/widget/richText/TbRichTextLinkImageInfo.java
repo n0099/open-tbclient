@@ -16,19 +16,19 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42816e;
+    public int f43004e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42817f;
+    public int f43005f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f42818g;
+    public String f43006g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f42819h;
+    public String f43007h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f42820i;
+    public boolean f43008i;
 
     public TbRichTextLinkImageInfo() {
         Interceptable interceptable = $ic;
@@ -43,41 +43,41 @@ public class TbRichTextLinkImageInfo extends OrmObject {
                 return;
             }
         }
-        this.f42816e = 1;
-        this.f42817f = 1;
-        this.f42818g = null;
-        this.f42819h = null;
-        this.f42820i = true;
+        this.f43004e = 1;
+        this.f43005f = 1;
+        this.f43006g = null;
+        this.f43007h = null;
+        this.f43008i = true;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42817f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43005f : invokeV.intValue;
     }
 
     public String getLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42819h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43007h : (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42816e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43004e : invokeV.intValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42818g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43006g : (String) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42820i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43008i : invokeV.booleanValue;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -95,30 +95,30 @@ public class TbRichTextLinkImageInfo extends OrmObject {
                 return;
             }
         }
-        this.f42816e = 1;
-        this.f42817f = 1;
-        this.f42818g = null;
-        this.f42819h = null;
-        this.f42820i = true;
-        this.f42818g = pbContent.cdn_src;
-        this.f42819h = pbContent.link;
+        this.f43004e = 1;
+        this.f43005f = 1;
+        this.f43006g = null;
+        this.f43007h = null;
+        this.f43008i = true;
+        this.f43006g = pbContent.cdn_src;
+        this.f43007h = pbContent.link;
         String str = pbContent.bsize;
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f42816e = Integer.valueOf(split[0]).intValue();
-                this.f42817f = Integer.valueOf(split[1]).intValue();
+                this.f43004e = Integer.valueOf(split[0]).intValue();
+                this.f43005f = Integer.valueOf(split[1]).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f42816e <= 0) {
-            this.f42816e = 1;
+        if (this.f43004e <= 0) {
+            this.f43004e = 1;
         }
-        if (this.f42817f <= 0) {
-            this.f42817f = 1;
+        if (this.f43005f <= 0) {
+            this.f43005f = 1;
         }
-        String str2 = this.f42818g;
+        String str2 = this.f43006g;
         if (str2 != null) {
             str2.indexOf(Domains.BAIDU);
         }

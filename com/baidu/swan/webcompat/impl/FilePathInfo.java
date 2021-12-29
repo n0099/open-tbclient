@@ -20,13 +20,13 @@ public final class FilePathInfo {
     public final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Lazy f41291b;
+    public final Lazy f41447b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Lazy f41292c;
+    public final Lazy f41448c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final File f41293d;
+    public final File f41449d;
 
     public FilePathInfo(File root) {
         Interceptable interceptable = $ic;
@@ -44,28 +44,28 @@ public final class FilePathInfo {
             }
         }
         Intrinsics.checkNotNullParameter(root, "root");
-        this.f41293d = root;
+        this.f41449d = root;
         this.a = LazyKt__LazyJVMKt.lazy(new FilePathInfo$uri$2(this));
-        this.f41291b = LazyKt__LazyJVMKt.lazy(new FilePathInfo$filesUrl$2(this));
-        this.f41292c = LazyKt__LazyJVMKt.lazy(new FilePathInfo$filesPath$2(this));
+        this.f41447b = LazyKt__LazyJVMKt.lazy(new FilePathInfo$filesUrl$2(this));
+        this.f41448c = LazyKt__LazyJVMKt.lazy(new FilePathInfo$filesPath$2(this));
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (String) this.f41292c.getValue() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (String) this.f41448c.getValue() : (String) invokeV.objValue;
     }
 
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (String) this.f41291b.getValue() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (String) this.f41447b.getValue() : (String) invokeV.objValue;
     }
 
     public final File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41293d : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41449d : (File) invokeV.objValue;
     }
 
     public final Uri d() {

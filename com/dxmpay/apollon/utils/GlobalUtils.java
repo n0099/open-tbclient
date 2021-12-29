@@ -27,7 +27,7 @@ public final class GlobalUtils {
     public static LayoutInflater a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Toast> f55759b = null;
+    public static WeakReference<Toast> f55758b = null;
     public static String showStr = "";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,10 +37,10 @@ public final class GlobalUtils {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f55760e;
+        public final /* synthetic */ Context f55759e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ View f55761f;
+        public final /* synthetic */ View f55760f;
 
         public a(Context context, View view) {
             Interceptable interceptable = $ic;
@@ -57,15 +57,15 @@ public final class GlobalUtils {
                     return;
                 }
             }
-            this.f55760e = context;
-            this.f55761f = view;
+            this.f55759e = context;
+            this.f55760f = view;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ((InputMethodManager) this.f55760e.getSystemService("input_method")).showSoftInput(this.f55761f, 0);
+                ((InputMethodManager) this.f55759e.getSystemService("input_method")).showSoftInput(this.f55760f, 0);
             }
         }
     }
@@ -175,9 +175,9 @@ public final class GlobalUtils {
             if (TextUtils.isEmpty(charSequence)) {
                 return;
             }
-            WeakReference<Toast> weakReference = f55759b;
+            WeakReference<Toast> weakReference = f55758b;
             if (weakReference != null && weakReference.get() != null) {
-                f55759b.get().cancel();
+                f55758b.get().cancel();
             }
             if (a == null) {
                 a = LayoutInflater.from(applicationContext);
@@ -196,7 +196,7 @@ public final class GlobalUtils {
             toast.setDuration(i3);
             toast.setGravity(17, 0, 0);
             toast.setView(inflate);
-            f55759b = new WeakReference<>(toast);
+            f55758b = new WeakReference<>(toast);
             toast.show();
         }
     }

@@ -21,40 +21,40 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BdZeusDownloadHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static BdZeusDownloadHelper f33993g = null;
+    public static BdZeusDownloadHelper f34149g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f33994h = null;
+    public static String f34150h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f33995i = null;
+    public static String f34151i = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f33996j = "com.baidu.android.appswitchsdk:web";
+    public static String f34152j = "com.baidu.android.appswitchsdk:web";
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33997b;
+    public String f34153b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33998c;
+    public int f34154c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33999d;
+    public String f34155d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34000e;
+    public long f34156e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f34001f;
+    public long f34157f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class BdZeusDownloadHelper {
         public void onDownloadCancel(String str, long j2, long j3, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), str2}) == null) {
-                this.this$0.f33998c = a.f34006f;
+                this.this$0.f34154c = a.f34162f;
                 Log.i(EngineManager.LOG_TAG, "onDownloadCancel");
                 WebKitFactory.getLoadErrorCode().addDownloadInfo(1026);
                 ZeusPerformanceTiming.setZeusDownloadInfo(WebKitFactory.getLoadErrorCode().getDownloadInfo());
@@ -100,7 +100,7 @@ public final class BdZeusDownloadHelper {
         public void onDownloadFail(String str, long j2, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), str2, str3}) == null) {
-                this.this$0.f33998c = a.f34005e;
+                this.this$0.f34154c = a.f34161e;
                 Log.i(EngineManager.LOG_TAG, "onDownloadFail");
                 this.this$0.d("");
                 WebKitFactory.getLoadErrorCode().addDownloadInfo(1025);
@@ -115,7 +115,7 @@ public final class BdZeusDownloadHelper {
         public void onDownloadPause(String str, long j2, long j3, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), str2}) == null) {
-                this.this$0.f33998c = a.f34002b;
+                this.this$0.f34154c = a.f34158b;
                 Log.i(EngineManager.LOG_TAG, "onDownloadPause");
             }
         }
@@ -125,7 +125,7 @@ public final class BdZeusDownloadHelper {
         public void onDownloadStart(String str, long j2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
-                this.this$0.f33998c = a.a;
+                this.this$0.f34154c = a.a;
             }
         }
 
@@ -134,36 +134,36 @@ public final class BdZeusDownloadHelper {
         public void onDownloadSuccess(String str, String str2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
-                this.this$0.f33998c = a.f34004d;
+                this.this$0.f34154c = a.f34160d;
                 Log.i(EngineManager.LOG_TAG, "aKey:" + str + ", aFilelength:" + j2);
                 Log.i(EngineManager.LOG_TAG, "onDownloadSuccess");
-                if (TextUtils.isEmpty(BdZeusDownloadHelper.f33995i)) {
+                if (TextUtils.isEmpty(BdZeusDownloadHelper.f34151i)) {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1007);
                     return;
                 }
                 this.this$0.d("");
-                File file = new File(BdZeusDownloadHelper.f33995i);
+                File file = new File(BdZeusDownloadHelper.f34151i);
                 if (!file.exists()) {
                     Log.e("Apk file is not exist.");
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1009);
-                    if (TextUtils.isEmpty(this.this$0.f33997b)) {
+                    if (TextUtils.isEmpty(this.this$0.f34153b)) {
                         return;
                     }
                     BdZeusDownloadHelper bdZeusDownloadHelper = this.this$0;
-                    bdZeusDownloadHelper.e(bdZeusDownloadHelper.f33997b, this.this$0.f33999d);
+                    bdZeusDownloadHelper.e(bdZeusDownloadHelper.f34153b, this.this$0.f34155d);
                 } else if (file.length() != j2) {
                     Log.e("Apk file download failed: wrong size");
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1010);
                     file.delete();
-                    if (TextUtils.isEmpty(this.this$0.f33997b)) {
+                    if (TextUtils.isEmpty(this.this$0.f34153b)) {
                         return;
                     }
                     BdZeusDownloadHelper bdZeusDownloadHelper2 = this.this$0;
-                    bdZeusDownloadHelper2.e(bdZeusDownloadHelper2.f33997b, this.this$0.f33999d);
+                    bdZeusDownloadHelper2.e(bdZeusDownloadHelper2.f34153b, this.this$0.f34155d);
                 } else {
                     Log.i(EngineManager.LOG_TAG, " begine check md5");
-                    String a = c.a.k.b.c.b.a(BdZeusDownloadHelper.f33995i);
-                    if (a == null || !a.equalsIgnoreCase(this.this$0.f33999d)) {
+                    String a = c.a.k.b.c.b.a(BdZeusDownloadHelper.f34151i);
+                    if (a == null || !a.equalsIgnoreCase(this.this$0.f34155d)) {
                         WebKitFactory.getLoadErrorCode().addDownloadInfo(1011);
                         Log.i(EngineManager.LOG_TAG, " check md5 failed ");
                         return;
@@ -173,7 +173,7 @@ public final class BdZeusDownloadHelper {
                         BdSailorPlatform.getStatic().c("download-webkit-end", String.valueOf(System.currentTimeMillis()));
                         BdSailorPlatform.getStatic().a();
                     }
-                    BdSailorPlatform.getWebkitManager().installZeusFromDownload(BdZeusDownloadHelper.f33995i);
+                    BdSailorPlatform.getWebkitManager().installZeusFromDownload(BdZeusDownloadHelper.f34151i);
                 }
             }
         }
@@ -184,40 +184,40 @@ public final class BdZeusDownloadHelper {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                 BdZeusDownloadHelper bdZeusDownloadHelper = this.this$0;
-                bdZeusDownloadHelper.f34000e += j2;
-                bdZeusDownloadHelper.f34001f = j3;
-                bdZeusDownloadHelper.f33998c = a.a;
+                bdZeusDownloadHelper.f34156e += j2;
+                bdZeusDownloadHelper.f34157f = j3;
+                bdZeusDownloadHelper.f34154c = a.a;
             }
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f34002b = 2;
+        public static final int f34158b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f34003c = 3;
+        public static final int f34159c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f34004d = 4;
+        public static final int f34160d = 4;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f34005e = 5;
+        public static final int f34161e = 5;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int f34006f = 6;
+        public static final int f34162f = 6;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f34007g = 7;
+        public static final int f34163g = 7;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ int[] f34008h;
+        public static final /* synthetic */ int[] f34164h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -233,11 +233,11 @@ public final class BdZeusDownloadHelper {
                     return;
                 }
             }
-            f34008h = new int[]{1, 2, 3, 4, 5, 6, 7};
+            f34164h = new int[]{1, 2, 3, 4, 5, 6, 7};
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,13 +273,13 @@ public final class BdZeusDownloadHelper {
                 return;
             }
         }
-        this.f33997b = "";
-        this.f33999d = "";
+        this.f34153b = "";
+        this.f34155d = "";
         this.a = context;
-        int i4 = a.f34003c;
+        int i4 = a.f34159c;
         if (context != null) {
-            f33994h = this.a.getExternalFilesDir("").getAbsolutePath() + "/baidu/zeus/";
-            f33995i = f33994h + "updateZeus.zes";
+            f34150h = this.a.getExternalFilesDir("").getAbsolutePath() + "/baidu/zeus/";
+            f34151i = f34150h + "updateZeus.zes";
         }
     }
 
@@ -287,14 +287,14 @@ public final class BdZeusDownloadHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f33993g == null) {
+            if (f34149g == null) {
                 synchronized (BdZeusDownloadHelper.class) {
-                    if (f33993g == null) {
-                        f33993g = new BdZeusDownloadHelper(context);
+                    if (f34149g == null) {
+                        f34149g = new BdZeusDownloadHelper(context);
                     }
                 }
             }
-            return f33993g;
+            return f34149g;
         }
         return (BdZeusDownloadHelper) invokeL.objValue;
     }
@@ -302,14 +302,14 @@ public final class BdZeusDownloadHelper {
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            SharedPreferences.Editor edit = this.a.getSharedPreferences(f33996j, 0).edit();
+            SharedPreferences.Editor edit = this.a.getSharedPreferences(f34152j, 0).edit();
             edit.putString("zeus_download_id", str);
             edit.commit();
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(f33994h)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(f34150h)) {
                 return;
             }
             try {
-                File file = new File(f33994h);
+                File file = new File(f34150h);
                 if (file.exists()) {
                     for (File file2 : file.listFiles()) {
                         file2.delete();
@@ -329,9 +329,9 @@ public final class BdZeusDownloadHelper {
                 WebKitFactory.getLoadErrorCode().addDownloadInfo(1004);
                 return;
             }
-            this.f33997b = str;
-            this.f33999d = str2;
-            if (TextUtils.isEmpty(this.a.getSharedPreferences(f33996j, 0).getString("zeus_download_id", ""))) {
+            this.f34153b = str;
+            this.f34155d = str2;
+            if (TextUtils.isEmpty(this.a.getSharedPreferences(f34152j, 0).getString("zeus_download_id", ""))) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(System.currentTimeMillis());
                 d(sb.toString());
@@ -340,10 +340,10 @@ public final class BdZeusDownloadHelper {
                 BdSailorClient sailorClient = BdSailor.getInstance().getSailorClient();
                 if (sailorClient == null) {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1005);
-                } else if (TextUtils.isEmpty(f33994h)) {
+                } else if (TextUtils.isEmpty(f34150h)) {
                     WebKitFactory.getLoadErrorCode().addDownloadInfo(1006);
                 } else {
-                    sailorClient.onDownloadTask(this.f33997b, "", f33994h, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener(this, null));
+                    sailorClient.onDownloadTask(this.f34153b, "", f34150h, "updateZeus.zes", BdSailorClient.DownloadTaskType.ZEUS, new ZeusDownloadTaskListener(this, null));
                 }
             } catch (Throwable th) {
                 LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();

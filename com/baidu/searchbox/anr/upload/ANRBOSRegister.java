@@ -3,6 +3,7 @@ package com.baidu.searchbox.anr.upload;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.FileUtils;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.anr.impl.ANRInfo;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
@@ -44,9 +45,19 @@ public class ANRBOSRegister implements IANRRegister {
         this.uploadFiles = new ArrayList();
     }
 
+    private void deleteFiles(List<File> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, list) == null) || list == null || list.size() <= 0) {
+            return;
+        }
+        for (File file : list) {
+            FileUtils.deleteFile(file);
+        }
+    }
+
     private void fileUploadBOS(List<File> list, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, this, list, str) == null) || list.isEmpty() || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, list, str) == null) || list.isEmpty() || TextUtils.isEmpty(str)) {
             return;
         }
         this.fileUploadStrategy.upload(list, str, this.uploadType);
@@ -65,8 +76,9 @@ public class ANRBOSRegister implements IANRRegister {
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
             AppConfig.isDebug();
             this.uploadFiles.clear();
+            File file = null;
             if (!TextUtils.isEmpty(aNRInfo.getLogcatPath())) {
-                File file = new File(aNRInfo.getLogcatPath());
+                file = new File(aNRInfo.getLogcatPath());
                 if (file.exists()) {
                     this.uploadFiles.add(file);
                 }
@@ -76,6 +88,7 @@ public class ANRBOSRegister implements IANRRegister {
                 if (file2.exists() && file2.canRead()) {
                     this.uploadFiles.add(file2);
                     fileUploadBOS(this.uploadFiles, aNRInfo.getLogId());
+                    FileUtils.deleteFile(file);
                     return;
                 }
             }
@@ -86,6 +99,7 @@ public class ANRBOSRegister implements IANRRegister {
             if (file3.exists()) {
                 this.uploadFiles.add(file3);
                 fileUploadBOS(this.uploadFiles, aNRInfo.getLogId());
+                deleteFiles(this.uploadFiles);
             }
         }
     }

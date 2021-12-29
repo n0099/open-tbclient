@@ -2,7 +2,7 @@ package c.a.d.f.j.a;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.network.http.BdHttpCancelException;
 import com.baidu.adp.lib.util.BdLog;
@@ -45,34 +45,34 @@ public class b {
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f2372b;
+    public HttpURLConnection f2799b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2373c;
+    public long f2800c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2374d;
+    public long f2801d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2375e;
+    public long f2802e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2376f;
+    public long f2803f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2377g;
+    public long f2804g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f2378h;
+    public boolean f2805h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f2379i;
+    public boolean f2806i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f2380j;
+    public boolean f2807j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f2381k;
+    public boolean f2808k;
     public int l;
     public TimerTask m;
     public TimerTask n;
@@ -84,7 +84,7 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f2382e;
+        public final /* synthetic */ b f2809e;
 
         public a(b bVar) {
             Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class b {
                     return;
                 }
             }
-            this.f2382e = bVar;
+            this.f2809e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -109,7 +109,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f2382e.b();
+                    this.f2809e.b();
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -119,14 +119,14 @@ public class b {
 
     /* renamed from: c.a.d.f.j.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0082b extends TimerTask {
+    public class C0103b extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f2383e;
+        public final /* synthetic */ b f2810e;
 
-        public C0082b(b bVar) {
+        public C0103b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class b {
                     return;
                 }
             }
-            this.f2383e = bVar;
+            this.f2810e = bVar;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -149,7 +149,7 @@ public class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.a.d.f.m.a.e(this.f2383e.f2372b);
+                    c.a.d.f.m.a.e(this.f2810e.f2799b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -229,18 +229,18 @@ public class b {
                 return;
             }
         }
-        this.f2373c = 0L;
-        this.f2374d = 0L;
-        this.f2375e = 0L;
-        this.f2376f = 0L;
-        this.f2377g = 0L;
-        this.f2378h = false;
-        this.f2379i = true;
-        this.f2380j = true;
-        this.f2381k = true;
+        this.f2800c = 0L;
+        this.f2801d = 0L;
+        this.f2802e = 0L;
+        this.f2803f = 0L;
+        this.f2804g = 0L;
+        this.f2805h = false;
+        this.f2806i = true;
+        this.f2807j = true;
+        this.f2808k = true;
         this.l = 0;
         this.m = new a(this);
-        this.n = new C0082b(this);
+        this.n = new C0103b(this);
         this.o = new Timer();
         if (eVar != null) {
             this.a = eVar;
@@ -253,7 +253,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.c().a = true;
-            c.a.d.f.m.a.e(this.f2372b);
+            c.a.d.f.m.a.e(this.f2799b);
         }
     }
 
@@ -264,12 +264,12 @@ public class b {
             if (str != null && str.toLowerCase().contains("gzip")) {
                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                c.a.d.f.p.h.c(byteArrayInputStream, byteArrayOutputStream);
-                this.f2377g = System.currentTimeMillis();
+                c.a.d.f.p.i.c(byteArrayInputStream, byteArrayOutputStream);
+                this.f2804g = System.currentTimeMillis();
                 return byteArrayOutputStream.toByteArray();
             }
-            if (this.f2377g == 0) {
-                this.f2377g = System.currentTimeMillis();
+            if (this.f2804g == 0) {
+                this.f2804g = System.currentTimeMillis();
             }
             return bArr;
         }
@@ -302,23 +302,23 @@ public class b {
             String i6 = this.a.b().i();
             dVar2.s = i6;
             URL n = n(i6, dVar2);
-            this.f2372b = g(n, i3, i2);
+            this.f2799b = g(n, i3, i2);
             if (this.a.c().a) {
-                this.f2376f = System.currentTimeMillis();
+                this.f2803f = System.currentTimeMillis();
                 c.a.d.f.m.a.c(null);
-                c.a.d.f.m.a.e(this.f2372b);
+                c.a.d.f.m.a.e(this.f2799b);
                 c.a.d.f.m.a.d(null);
                 return false;
             }
             if (z2) {
                 try {
-                    c.a.d.f.p.g.k(str);
+                    c.a.d.f.p.h.k(str);
                 } catch (Throwable th) {
                     th = th;
                     r15 = inputStream2;
-                    this.f2376f = System.currentTimeMillis();
+                    this.f2803f = System.currentTimeMillis();
                     c.a.d.f.m.a.c(inputStream2);
-                    c.a.d.f.m.a.e(this.f2372b);
+                    c.a.d.f.m.a.e(this.f2799b);
                     c.a.d.f.m.a.d(r15);
                     throw th;
                 }
@@ -326,46 +326,46 @@ public class b {
             if (z) {
                 i4 = new File(str);
             } else {
-                i4 = c.a.d.f.p.g.i(str);
+                i4 = c.a.d.f.p.h.i(str);
             }
             if (i4 != null) {
                 long length = i4.length();
                 r15 = new FileOutputStream(i4, true);
                 try {
                     try {
-                        this.a.b().t(this.f2372b);
-                        this.f2372b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                        this.f2372b.connect();
-                        if (this.f2373c <= 0) {
+                        this.a.b().t(this.f2799b);
+                        this.f2799b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                        this.f2799b.connect();
+                        if (this.f2800c <= 0) {
                             try {
-                                this.f2373c = System.currentTimeMillis();
+                                this.f2800c = System.currentTimeMillis();
                             } catch (Throwable th2) {
                                 th = th2;
                                 inputStream2 = null;
-                                this.f2376f = System.currentTimeMillis();
+                                this.f2803f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(inputStream2);
-                                c.a.d.f.m.a.e(this.f2372b);
+                                c.a.d.f.m.a.e(this.f2799b);
                                 c.a.d.f.m.a.d(r15);
                                 throw th;
                             }
                         }
-                        this.f2374d = System.currentTimeMillis();
-                        int responseCode = this.f2372b.getResponseCode();
-                        this.f2375e = System.currentTimeMillis();
+                        this.f2801d = System.currentTimeMillis();
+                        int responseCode = this.f2799b.getResponseCode();
+                        this.f2802e = System.currentTimeMillis();
                         if (responseCode == 302) {
-                            url = this.f2372b.getURL();
+                            url = this.f2799b.getURL();
                             if (url != null) {
                                 dVar2.r = url.toString();
                             }
                             if (url != null) {
                                 i5 = responseCode;
                                 if (!TextUtils.equals(url.getProtocol(), n.getProtocol())) {
-                                    c.a.d.f.m.a.e(this.f2372b);
-                                    this.f2372b = g(new URL(url.toString()), i3, i2);
-                                    this.a.b().t(this.f2372b);
-                                    this.f2372b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
-                                    this.f2372b.connect();
-                                    responseCode = this.f2372b.getResponseCode();
+                                    c.a.d.f.m.a.e(this.f2799b);
+                                    this.f2799b = g(new URL(url.toString()), i3, i2);
+                                    this.a.b().t(this.f2799b);
+                                    this.f2799b.addRequestProperty("Range", "bytes=" + String.valueOf(length) + "-");
+                                    this.f2799b.connect();
+                                    responseCode = this.f2799b.getResponseCode();
                                     z3 = true;
                                 }
                             } else {
@@ -377,60 +377,60 @@ public class b {
                             z3 = false;
                             url = null;
                         }
-                        this.a.c().f2408b = responseCode;
-                        String headerField2 = this.f2372b.getHeaderField("Content-Range");
+                        this.a.c().f2835b = responseCode;
+                        String headerField2 = this.f2799b.getHeaderField("Content-Range");
                         int e2 = (headerField2 == null || (indexOf = headerField2.indexOf("/")) == -1) ? 0 : c.a.d.f.m.b.e(headerField2.substring(indexOf + 1), 0);
-                        if (e2 == 0 && this.a.c().f2408b == 200 && (headerField = this.f2372b.getHeaderField("Content-Length")) != null) {
+                        if (e2 == 0 && this.a.c().f2835b == 200 && (headerField = this.f2799b.getHeaderField("Content-Length")) != null) {
                             e2 = c.a.d.f.m.b.e(headerField, 0);
                         }
-                        this.a.c().f2412f = String.valueOf(e2);
+                        this.a.c().f2839f = String.valueOf(e2);
                         if (!o()) {
                             str2 = "";
                             if (responseCode == 302) {
                                 str2 = (z3 ? "isReConn " : "") + "url=" + n + "-newUrl=" + url;
                             } else if (responseCode == 416) {
                                 if (e2 > 0 && e2 == length) {
-                                    this.f2376f = System.currentTimeMillis();
+                                    this.f2803f = System.currentTimeMillis();
                                     c.a.d.f.m.a.c(null);
-                                    c.a.d.f.m.a.e(this.f2372b);
+                                    c.a.d.f.m.a.e(this.f2799b);
                                     c.a.d.f.m.a.d(r15);
                                     return false;
                                 }
                                 str2 = "fileLen=" + length + "-contentLen=" + e2;
                             }
                             throw new UnsupportedOperationException(str2);
-                        } else if (this.f2372b.getContentType() != null && this.f2372b.getContentType().contains("text/vnd.wap.wml")) {
-                            this.f2372b.disconnect();
-                            this.a.c().f2408b = 0;
+                        } else if (this.f2799b.getContentType() != null && this.f2799b.getContentType().contains("text/vnd.wap.wml")) {
+                            this.f2799b.disconnect();
+                            this.a.c().f2835b = 0;
                             boolean d2 = d(str, hVar, i2, i3, z, dVar2, z2);
-                            this.f2376f = System.currentTimeMillis();
+                            this.f2803f = System.currentTimeMillis();
                             c.a.d.f.m.a.c(null);
-                            c.a.d.f.m.a.e(this.f2372b);
+                            c.a.d.f.m.a.e(this.f2799b);
                             c.a.d.f.m.a.d(r15);
                             return d2;
                         } else {
                             dVar2.a = i6.getBytes().length;
-                            long length2 = this.f2372b.getHeaderFields().toString().getBytes().length;
-                            dVar2.f2389b = length2;
+                            long length2 = this.f2799b.getHeaderFields().toString().getBytes().length;
+                            dVar2.f2816b = length2;
                             long j2 = e2;
-                            dVar2.f2389b = length2 + j2;
+                            dVar2.f2816b = length2 + j2;
                             if (e2 != 0 && length >= j2) {
-                                this.f2376f = System.currentTimeMillis();
-                                this.f2376f = System.currentTimeMillis();
+                                this.f2803f = System.currentTimeMillis();
+                                this.f2803f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(null);
-                                c.a.d.f.m.a.e(this.f2372b);
+                                c.a.d.f.m.a.e(this.f2799b);
                                 c.a.d.f.m.a.d(r15);
                                 return true;
                             }
                             inputStream = null;
                             try {
-                                inputStream2 = this.f2372b.getInputStream();
+                                inputStream2 = this.f2799b.getInputStream();
                             } catch (Throwable th3) {
                                 th = th3;
                                 inputStream2 = inputStream;
-                                this.f2376f = System.currentTimeMillis();
+                                this.f2803f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(inputStream2);
-                                c.a.d.f.m.a.e(this.f2372b);
+                                c.a.d.f.m.a.e(this.f2799b);
                                 c.a.d.f.m.a.d(r15);
                                 throw th;
                             }
@@ -472,9 +472,9 @@ public class b {
                                     dVar2.x = length;
                                     dVar2.y = j2;
                                     boolean z4 = j3 + length >= j2;
-                                    this.f2376f = System.currentTimeMillis();
+                                    this.f2803f = System.currentTimeMillis();
                                     c.a.d.f.m.a.c(inputStream2);
-                                    c.a.d.f.m.a.e(this.f2372b);
+                                    c.a.d.f.m.a.e(this.f2799b);
                                     c.a.d.f.m.a.d(r15);
                                     return z4;
                                 } catch (Exception unused2) {
@@ -482,9 +482,9 @@ public class b {
                                 }
                             } catch (Throwable th4) {
                                 th = th4;
-                                this.f2376f = System.currentTimeMillis();
+                                this.f2803f = System.currentTimeMillis();
                                 c.a.d.f.m.a.c(inputStream2);
-                                c.a.d.f.m.a.e(this.f2372b);
+                                c.a.d.f.m.a.e(this.f2799b);
                                 c.a.d.f.m.a.d(r15);
                                 throw th;
                             }
@@ -503,9 +503,9 @@ public class b {
                     th = th7;
                     inputStream2 = null;
                     r15 = inputStream2;
-                    this.f2376f = System.currentTimeMillis();
+                    this.f2803f = System.currentTimeMillis();
                     c.a.d.f.m.a.c(inputStream2);
-                    c.a.d.f.m.a.e(this.f2372b);
+                    c.a.d.f.m.a.e(this.f2799b);
                     c.a.d.f.m.a.d(r15);
                     throw th;
                 }
@@ -518,7 +518,7 @@ public class b {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2377g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2804g : invokeV.longValue;
     }
 
     public final HttpURLConnection f(URL url) {
@@ -531,9 +531,9 @@ public class b {
         }
         HttpsURLConnection httpsURLConnection = null;
         try {
-            if (k.z()) {
-                if (k.x() && (c2 = k.c()) != null && c2.length() > 0) {
-                    if (k.F(c2) && k.D()) {
+            if (l.z()) {
+                if (l.x() && (c2 = l.c()) != null && c2.length() > 0) {
+                    if (l.F(c2) && l.D()) {
                         StringBuilder sb = new StringBuilder(80);
                         sb.append("http://");
                         sb.append(c2);
@@ -552,14 +552,14 @@ public class b {
                             return httpsURLConnection;
                         }
                     } else {
-                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, k.d())));
+                        httpURLConnection = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(c2, l.d())));
                     }
                     httpsURLConnection = httpURLConnection;
                 }
                 if (httpsURLConnection == null) {
                     httpsURLConnection = (HttpURLConnection) url.openConnection();
                 }
-                if (this.f2378h && url.getProtocol().equals("https")) {
+                if (this.f2805h && url.getProtocol().equals("https")) {
                     HttpsURLConnection httpsURLConnection2 = httpsURLConnection;
                     httpsURLConnection2.setSSLSocketFactory(new i(httpsURLConnection2));
                     httpsURLConnection2.setHostnameVerifier(new c(this, httpsURLConnection2));
@@ -591,19 +591,19 @@ public class b {
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2375e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2802e : invokeV.longValue;
     }
 
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2373c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2800c : invokeV.longValue;
     }
 
     public long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2374d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2801d : invokeV.longValue;
     }
 
     public void k(int i2, int i3, d dVar) throws Exception {
@@ -613,66 +613,66 @@ public class b {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048585, this, i2, i3, dVar) == null) {
-            dVar.f2397j = -1;
+            dVar.f2824j = -1;
             if (!this.a.c().a) {
                 String f2 = this.a.b().f(dVar);
                 dVar.s = f2;
                 URL n = n(f2, dVar);
                 if (!this.a.c().a) {
-                    dVar.f2397j = -2;
-                    this.f2372b = f(n);
-                    dVar.f2397j = -3;
+                    dVar.f2824j = -2;
+                    this.f2799b = f(n);
+                    dVar.f2824j = -3;
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
-                        if (this.f2372b != null) {
-                            this.f2372b.setRequestMethod("GET");
-                            this.f2372b.setConnectTimeout(i3);
-                            this.f2372b.setReadTimeout(i2);
-                            this.a.b().t(this.f2372b);
+                        if (this.f2799b != null) {
+                            this.f2799b.setRequestMethod("GET");
+                            this.f2799b.setConnectTimeout(i3);
+                            this.f2799b.setReadTimeout(i2);
+                            this.a.b().t(this.f2799b);
                             if (!this.a.c().a) {
-                                dVar.f2394g = new Date().getTime() - currentTimeMillis;
-                                dVar.f2397j = -4;
-                                this.f2372b.connect();
-                                if (this.f2373c <= 0) {
-                                    this.f2373c = System.currentTimeMillis();
+                                dVar.f2821g = new Date().getTime() - currentTimeMillis;
+                                dVar.f2824j = -4;
+                                this.f2799b.connect();
+                                if (this.f2800c <= 0) {
+                                    this.f2800c = System.currentTimeMillis();
                                 }
-                                this.f2374d = System.currentTimeMillis();
-                                dVar.f2397j = -5;
-                                dVar.f2390c = (new Date().getTime() - currentTimeMillis) - dVar.f2394g;
+                                this.f2801d = System.currentTimeMillis();
+                                dVar.f2824j = -5;
+                                dVar.f2817c = (new Date().getTime() - currentTimeMillis) - dVar.f2821g;
                                 if (!this.a.c().a) {
                                     if (this.a.b().k() && this.o != null && this.l >= 0 && this.l < 3) {
                                         this.o.schedule(this.n, (this.l + 1) * 3000);
                                     }
-                                    String contentType = this.f2372b.getContentType();
-                                    this.f2375e = System.currentTimeMillis();
+                                    String contentType = this.f2799b.getContentType();
+                                    this.f2802e = System.currentTimeMillis();
                                     if (c.a.d.f.j.b.b.c(contentType)) {
-                                        this.f2372b.disconnect();
-                                        this.f2372b.connect();
+                                        this.f2799b.disconnect();
+                                        this.f2799b.connect();
                                         if (this.a.c().a) {
                                             throw new BdHttpCancelException();
                                         }
                                     }
-                                    dVar.f2397j = -8;
-                                    this.a.c().a(this.f2372b);
-                                    if (f2.contains("c.tieba.baidu.com") && (map = this.a.c().f2413g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+                                    dVar.f2824j = -8;
+                                    this.a.c().a(this.f2799b);
+                                    if (f2.contains("c.tieba.baidu.com") && (map = this.a.c().f2840g) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                                         dVar.t = list.get(0);
                                         dVar.u = list.get(1);
                                     }
-                                    if (this.a.c().f2408b == 302 && (url = this.f2372b.getURL()) != null) {
+                                    if (this.a.c().f2835b == 302 && (url = this.f2799b.getURL()) != null) {
                                         dVar.r = url.toString();
                                     }
-                                    dVar.f2396i = this.a.c().f2408b;
-                                    dVar.f2389b = this.f2372b.getHeaderFields().toString().getBytes().length;
+                                    dVar.f2823i = this.a.c().f2835b;
+                                    dVar.f2816b = this.f2799b.getHeaderFields().toString().getBytes().length;
                                     if (this.o != null) {
                                         this.o.cancel();
                                     }
-                                    byte[] m = m(this.f2372b);
+                                    byte[] m = m(this.f2799b);
                                     if (m != null) {
-                                        dVar.f2389b += m.length;
-                                        this.a.c().f2414h = c(this.a.c().f2410d, m);
+                                        dVar.f2816b += m.length;
+                                        this.a.c().f2841h = c(this.a.c().f2837d, m);
                                     }
-                                    dVar.f2397j = -9;
-                                    dVar.f2391d = new Date().getTime() - currentTimeMillis;
+                                    dVar.f2824j = -9;
+                                    dVar.f2818d = new Date().getTime() - currentTimeMillis;
                                     if (httpURLConnection != null) {
                                         return;
                                     }
@@ -688,7 +688,7 @@ public class b {
                         if (timer != null) {
                             timer.cancel();
                         }
-                        httpURLConnection = this.f2372b;
+                        httpURLConnection = this.f2799b;
                         if (httpURLConnection != null) {
                             httpURLConnection.disconnect();
                         }
@@ -703,7 +703,7 @@ public class b {
     public long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2376f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2803f : invokeV.longValue;
     }
 
     public final byte[] m(HttpURLConnection httpURLConnection) throws Exception {
@@ -728,7 +728,7 @@ public class b {
                         throw new BdHttpCancelException();
                     }
                 } catch (Throwable th) {
-                    this.f2376f = System.currentTimeMillis();
+                    this.f2803f = System.currentTimeMillis();
                     c.a.d.f.m.a.d(byteArrayOutputStream);
                     c.a.d.f.m.a.c(null);
                     throw th;
@@ -736,7 +736,7 @@ public class b {
             } else {
                 inputStream = null;
             }
-            this.f2376f = System.currentTimeMillis();
+            this.f2803f = System.currentTimeMillis();
             c.a.d.f.m.a.d(byteArrayOutputStream);
             c.a.d.f.m.a.c(inputStream);
             return bArr;
@@ -751,7 +751,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, dVar)) == null) {
             String str2 = "hiphotos.baidu.com";
             URL url = new URL(str);
-            if (!TextUtils.isEmpty(str) && this.f2380j && this.f2381k) {
+            if (!TextUtils.isEmpty(str) && this.f2807j && this.f2808k) {
                 try {
                     String host = url.getHost();
                     if (!TextUtils.isEmpty(host)) {
@@ -771,7 +771,7 @@ public class b {
                                     this.a.b().a("Host", str2);
                                     URL url2 = new URL(str.replaceFirst("://(.*)" + str2, "://" + str3));
                                     try {
-                                        this.f2378h = true;
+                                        this.f2805h = true;
                                         dVar.q = size;
                                         dVar.l = str3;
                                         dVar.n = true;
@@ -780,7 +780,7 @@ public class b {
                                         e = e2;
                                         url = url2;
                                         BdLog.e(e);
-                                        return this.f2379i ? url : url;
+                                        return this.f2806i ? url : url;
                                     }
                                 }
                             }
@@ -790,7 +790,7 @@ public class b {
                     e = e3;
                 }
             }
-            if (this.f2379i || !this.f2381k || (b2 = c.a.d.f.j.a.a.b()) == null) {
+            if (this.f2806i || !this.f2808k || (b2 = c.a.d.f.j.a.a.b()) == null) {
                 return url;
             }
             String a3 = b2.a(str);
@@ -799,7 +799,7 @@ public class b {
             }
             this.a.b().a("Host", url.getHost());
             URL url3 = new URL(str.replace("://" + url.getHost(), "://" + a3));
-            this.f2378h = true;
+            this.f2805h = true;
             dVar.l = a3;
             return url3;
         }
@@ -809,77 +809,77 @@ public class b {
     public final boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a.c().f2408b == 200 || this.a.c().f2408b == 206 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a.c().f2835b == 200 || this.a.c().f2835b == 206 : invokeV.booleanValue;
     }
 
     public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2378h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f2805h : invokeV.booleanValue;
     }
 
     public void q(int i2, int i3, d dVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048591, this, i2, i3, dVar) == null) {
-            dVar.f2397j = -1;
+            dVar.f2824j = -1;
             try {
                 String i4 = this.a.b().i();
                 dVar.s = i4;
                 URL n = n(i4, dVar);
                 if (!this.a.c().a) {
-                    dVar.f2397j = -2;
-                    this.f2372b = f(n);
-                    dVar.f2397j = -3;
+                    dVar.f2824j = -2;
+                    this.f2799b = f(n);
+                    dVar.f2824j = -3;
                     System.currentTimeMillis();
-                    if (this.f2372b != null) {
-                        this.f2372b.setRequestMethod("POST");
-                        this.f2372b.setDoOutput(true);
-                        this.f2372b.setDoInput(true);
-                        this.f2372b.setConnectTimeout(i3);
-                        this.f2372b.setReadTimeout(i2);
-                        this.f2372b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + p);
+                    if (this.f2799b != null) {
+                        this.f2799b.setRequestMethod("POST");
+                        this.f2799b.setDoOutput(true);
+                        this.f2799b.setDoInput(true);
+                        this.f2799b.setConnectTimeout(i3);
+                        this.f2799b.setReadTimeout(i2);
+                        this.f2799b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + p);
                         if (!this.a.c().a) {
-                            this.a.b().t(this.f2372b);
+                            this.a.b().t(this.f2799b);
                             if (!this.a.c().a) {
                                 long time = new Date().getTime();
-                                dVar.f2394g = new Date().getTime() - time;
-                                dVar.f2397j = -4;
-                                this.f2372b.connect();
-                                if (this.f2373c <= 0) {
-                                    this.f2373c = System.currentTimeMillis();
+                                dVar.f2821g = new Date().getTime() - time;
+                                dVar.f2824j = -4;
+                                this.f2799b.connect();
+                                if (this.f2800c <= 0) {
+                                    this.f2800c = System.currentTimeMillis();
                                 }
-                                this.f2374d = System.currentTimeMillis();
-                                dVar.f2397j = -5;
-                                dVar.f2390c = (new Date().getTime() - time) - dVar.f2394g;
+                                this.f2801d = System.currentTimeMillis();
+                                dVar.f2824j = -5;
+                                dVar.f2817c = (new Date().getTime() - time) - dVar.f2821g;
                                 if (!this.a.c().a) {
                                     if (this.o != null) {
                                         this.o.schedule(this.m, 45000L);
                                     }
-                                    dVar.f2397j = -6;
-                                    this.a.b().v(this.f2372b, p, dVar);
-                                    dVar.f2397j = -7;
-                                    String contentType = this.f2372b.getContentType();
-                                    this.f2375e = System.currentTimeMillis();
+                                    dVar.f2824j = -6;
+                                    this.a.b().v(this.f2799b, p, dVar);
+                                    dVar.f2824j = -7;
+                                    String contentType = this.f2799b.getContentType();
+                                    this.f2802e = System.currentTimeMillis();
                                     if (c.a.d.f.j.b.b.c(contentType)) {
-                                        this.f2372b.disconnect();
-                                        this.f2372b.connect();
+                                        this.f2799b.disconnect();
+                                        this.f2799b.connect();
                                         if (this.a.c().a) {
                                             throw new BdHttpCancelException();
                                         }
                                     }
                                     if (!this.a.c().a) {
-                                        dVar.f2397j = -8;
-                                        this.a.c().a(this.f2372b);
-                                        dVar.f2396i = this.a.c().f2408b;
-                                        dVar.f2389b = this.f2372b.getHeaderFields().toString().getBytes().length;
-                                        byte[] m = m(this.f2372b);
+                                        dVar.f2824j = -8;
+                                        this.a.c().a(this.f2799b);
+                                        dVar.f2823i = this.a.c().f2835b;
+                                        dVar.f2816b = this.f2799b.getHeaderFields().toString().getBytes().length;
+                                        byte[] m = m(this.f2799b);
                                         if (m != null) {
-                                            dVar.f2389b += m.length;
-                                            this.a.c().f2415i = m.length;
-                                            this.a.c().f2414h = c(this.a.c().f2410d, m);
+                                            dVar.f2816b += m.length;
+                                            this.a.c().f2842i = m.length;
+                                            this.a.c().f2841h = c(this.a.c().f2837d, m);
                                         }
-                                        dVar.f2391d = new Date().getTime() - time;
-                                        dVar.f2397j = -9;
+                                        dVar.f2818d = new Date().getTime() - time;
+                                        dVar.f2824j = -9;
                                         return;
                                     }
                                     throw new BdHttpCancelException();
@@ -898,7 +898,7 @@ public class b {
                 if (timer != null) {
                     timer.cancel();
                 }
-                c.a.d.f.m.a.e(this.f2372b);
+                c.a.d.f.m.a.e(this.f2799b);
             }
         }
     }
@@ -906,61 +906,61 @@ public class b {
     public void r(int i2, int i3, d dVar) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048592, this, i2, i3, dVar) == null) {
-            dVar.f2397j = -1;
+            dVar.f2824j = -1;
             try {
                 String i4 = this.a.b().i();
                 dVar.s = i4;
                 URL n = n(i4, dVar);
                 if (!this.a.c().a) {
-                    dVar.f2397j = -2;
-                    this.f2372b = f(n);
-                    dVar.f2397j = -3;
+                    dVar.f2824j = -2;
+                    this.f2799b = f(n);
+                    dVar.f2824j = -3;
                     long currentTimeMillis = System.currentTimeMillis();
-                    if (this.f2372b != null) {
-                        this.f2372b.setRequestMethod("POST");
-                        this.f2372b.setDoOutput(true);
-                        this.f2372b.setDoInput(true);
-                        this.f2372b.setConnectTimeout(i3);
-                        this.f2372b.setReadTimeout(i2);
-                        this.f2372b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    if (this.f2799b != null) {
+                        this.f2799b.setRequestMethod("POST");
+                        this.f2799b.setDoOutput(true);
+                        this.f2799b.setDoInput(true);
+                        this.f2799b.setConnectTimeout(i3);
+                        this.f2799b.setReadTimeout(i2);
+                        this.f2799b.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                         if (!this.a.c().a) {
-                            this.a.b().t(this.f2372b);
+                            this.a.b().t(this.f2799b);
                             if (!this.a.c().a) {
-                                dVar.f2394g = System.currentTimeMillis() - currentTimeMillis;
-                                dVar.f2397j = -4;
-                                this.f2372b.connect();
-                                if (this.f2373c <= 0) {
-                                    this.f2373c = System.currentTimeMillis();
+                                dVar.f2821g = System.currentTimeMillis() - currentTimeMillis;
+                                dVar.f2824j = -4;
+                                this.f2799b.connect();
+                                if (this.f2800c <= 0) {
+                                    this.f2800c = System.currentTimeMillis();
                                 }
-                                this.f2374d = System.currentTimeMillis();
-                                dVar.f2397j = -5;
-                                dVar.f2390c = (System.currentTimeMillis() - currentTimeMillis) - dVar.f2394g;
+                                this.f2801d = System.currentTimeMillis();
+                                dVar.f2824j = -5;
+                                dVar.f2817c = (System.currentTimeMillis() - currentTimeMillis) - dVar.f2821g;
                                 if (!this.a.c().a) {
-                                    dVar.f2397j = -6;
-                                    this.a.b().u(this.f2372b, dVar);
-                                    dVar.f2397j = -7;
+                                    dVar.f2824j = -6;
+                                    this.a.b().u(this.f2799b, dVar);
+                                    dVar.f2824j = -7;
                                     if (!this.a.c().a) {
-                                        String contentType = this.f2372b.getContentType();
-                                        this.f2375e = System.currentTimeMillis();
+                                        String contentType = this.f2799b.getContentType();
+                                        this.f2802e = System.currentTimeMillis();
                                         if (c.a.d.f.j.b.b.c(contentType)) {
-                                            this.f2372b.disconnect();
-                                            this.f2372b.connect();
+                                            this.f2799b.disconnect();
+                                            this.f2799b.connect();
                                             if (this.a.c().a) {
                                                 throw new BdHttpCancelException();
                                             }
                                         }
-                                        dVar.f2397j = -8;
-                                        this.a.c().a(this.f2372b);
-                                        dVar.f2396i = this.a.c().f2408b;
-                                        dVar.f2389b = this.f2372b.getHeaderFields().toString().getBytes().length;
-                                        byte[] m = m(this.f2372b);
+                                        dVar.f2824j = -8;
+                                        this.a.c().a(this.f2799b);
+                                        dVar.f2823i = this.a.c().f2835b;
+                                        dVar.f2816b = this.f2799b.getHeaderFields().toString().getBytes().length;
+                                        byte[] m = m(this.f2799b);
                                         if (m != null) {
-                                            dVar.f2389b += m.length;
-                                            this.a.c().f2415i = m.length;
-                                            this.a.c().f2414h = c(this.a.c().f2410d, m);
+                                            dVar.f2816b += m.length;
+                                            this.a.c().f2842i = m.length;
+                                            this.a.c().f2841h = c(this.a.c().f2837d, m);
                                         }
-                                        dVar.f2391d = new Date().getTime() - currentTimeMillis;
-                                        dVar.f2397j = -9;
+                                        dVar.f2818d = new Date().getTime() - currentTimeMillis;
+                                        dVar.f2824j = -9;
                                         return;
                                     }
                                     throw new BdHttpCancelException();
@@ -975,7 +975,7 @@ public class b {
                 }
                 throw new BdHttpCancelException();
             } finally {
-                c.a.d.f.m.a.e(this.f2372b);
+                c.a.d.f.m.a.e(this.f2799b);
             }
         }
     }
@@ -990,14 +990,14 @@ public class b {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.f2381k = z;
+            this.f2808k = z;
         }
     }
 
     public void u(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.f2380j = z;
+            this.f2807j = z;
         }
     }
 }

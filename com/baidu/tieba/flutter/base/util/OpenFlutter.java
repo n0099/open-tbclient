@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.r0.a.g;
+import c.a.s0.a.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -290,6 +290,10 @@ public class OpenFlutter {
                 if (!TextUtils.isEmpty(stringExtra2)) {
                     hashMap.put("portrait", stringExtra2);
                 }
+                String stringExtra3 = intentConfig.getIntent().getStringExtra("thread_id");
+                if (!TextUtils.isEmpty(stringExtra3)) {
+                    hashMap.put("tid", stringExtra3);
+                }
             } else if (ACTIVITY_VIDEO_TOPIC_DETAILS_PAGE.equals(str)) {
                 hashMap.putAll(DataExt.g(intentConfig.getIntent().getExtras()));
             }
@@ -332,7 +336,7 @@ public class OpenFlutter {
                         this.val$params = hashMap;
                     }
 
-                    @Override // c.a.r0.a.g.b
+                    @Override // c.a.s0.a.g.b
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap2) == null) || hashMap2 == null) {

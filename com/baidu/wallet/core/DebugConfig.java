@@ -43,34 +43,34 @@ public final class DebugConfig {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52945b = "wallet_config.properties";
+    public static final String f52948b = "wallet_config.properties";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f52946c = "wallet_https_host";
+    public static final String f52949c = "wallet_https_host";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f52947d = "wallet_passport_host";
+    public static final String f52950d = "wallet_passport_host";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f52948e = "environment";
+    public static final String f52951e = "environment";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f52949f = "wallet_plugin_host";
+    public static final String f52952f = "wallet_plugin_host";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f52950g = "wallet_nfc_host";
+    public static final String f52953g = "wallet_nfc_host";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f52951h = "wallet_web_cache_host";
+    public static final String f52954h = "wallet_web_cache_host";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f52952i = "voiceprint_service";
+    public static final String f52955i = "voiceprint_service";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f52953j = "voiceprint_host";
+    public static final String f52956j = "voiceprint_host";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f52954k = "wallet_stat_host";
+    public static final String f52957k = "wallet_stat_host";
     public static final String l = "wallet_stat_strategy_host";
     public static final String m = "wallet_sensor_stat_host";
     public static final String n = "wallet_coupon_host";
@@ -133,14 +133,14 @@ public final class DebugConfig {
                     if (externalFilesDir != null && !externalFilesDir.exists()) {
                         externalFilesDir.mkdirs();
                     }
-                    this.E = new File(externalFilesDir, f52945b);
+                    this.E = new File(externalFilesDir, f52948b);
                     this.F = b();
                 }
             } catch (Exception unused) {
                 return;
             }
         }
-        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f52945b);
+        this.E = new File(String.valueOf(Environment.getExternalStorageDirectory()), f52948b);
         this.F = b();
     }
 
@@ -160,7 +160,7 @@ public final class DebugConfig {
             c.a().j(a(c.v));
             c.a().l(a("wallet_web_cache_host"));
             DomainConfig.getInstance().setStrategy(DomainConfig.DomainStrategyType.QA);
-            String a2 = a(f52954k);
+            String a2 = a(f52957k);
             w = a2;
             if (TextUtils.isEmpty(a2)) {
                 w = "https://www.baifubao.com";
@@ -283,7 +283,7 @@ public final class DebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (a) {
-                return a(f52948e);
+                return a(f52951e);
             }
             return DEFAULT_ENVIRONMENT;
         }

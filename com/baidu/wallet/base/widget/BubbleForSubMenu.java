@@ -30,28 +30,28 @@ public class BubbleForSubMenu extends FrameLayout {
     public FrameLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52603b;
+    public TextView f52606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CountDownTimer f52604c;
+    public CountDownTimer f52607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ObjectAnimator f52605d;
+    public ObjectAnimator f52608d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Animator.AnimatorListener f52606e;
+    public Animator.AnimatorListener f52609e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ObjectAnimator f52607f;
+    public ObjectAnimator f52610f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animator.AnimatorListener f52608g;
+    public Animator.AnimatorListener f52611g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f52609h;
+    public float f52612h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f52610i;
+    public float f52613i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @RequiresApi(api = 11)
@@ -82,12 +82,12 @@ public class BubbleForSubMenu extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65550, this, z) == null) {
             if (z) {
-                this.f52603b.setAlpha(0.0f);
-                this.f52603b.setTextColor(ResUtils.getColor(getContext(), "wallet_base_transparent"));
+                this.f52606b.setAlpha(0.0f);
+                this.f52606b.setTextColor(ResUtils.getColor(getContext(), "wallet_base_transparent"));
                 return;
             }
-            this.f52603b.setAlpha(1.0f);
-            this.f52603b.setTextColor(ResUtils.getColor(getContext(), "bd_wallet_white"));
+            this.f52606b.setAlpha(1.0f);
+            this.f52606b.setTextColor(ResUtils.getColor(getContext(), "bd_wallet_white"));
         }
     }
 
@@ -95,16 +95,16 @@ public class BubbleForSubMenu extends FrameLayout {
     public void addExitAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ObjectAnimator objectAnimator = this.f52607f;
+            ObjectAnimator objectAnimator = this.f52610f;
             if (objectAnimator == null || !objectAnimator.isRunning()) {
                 this.a.clearAnimation();
-                LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "hide fromX = " + this.f52610i + " ; toX = " + this.f52609h);
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a, AnimationProperty.TRANSLATE_X, this.f52610i, this.f52609h);
-                this.f52607f = ofFloat;
+                LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "hide fromX = " + this.f52613i + " ; toX = " + this.f52612h);
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.a, AnimationProperty.TRANSLATE_X, this.f52613i, this.f52612h);
+                this.f52610f = ofFloat;
                 if (ofFloat != null && ofFloat.getListeners() == null) {
-                    this.f52607f.addListener(this.f52608g);
+                    this.f52610f.addListener(this.f52611g);
                 }
-                this.f52607f.setDuration(400L).start();
+                this.f52610f.setDuration(400L).start();
             }
         }
     }
@@ -114,7 +114,7 @@ public class BubbleForSubMenu extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "隐藏bubble");
-            CountDownTimer countDownTimer = this.f52604c;
+            CountDownTimer countDownTimer = this.f52607c;
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
@@ -136,7 +136,7 @@ public class BubbleForSubMenu extends FrameLayout {
             sb.append("正在展示bubble = ");
             sb.append(this.a.getVisibility() == 0);
             LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, sb.toString());
-            return this.a.getVisibility() == 0 && this.f52603b.getAlpha() == 1.0f;
+            return this.a.getVisibility() == 0 && this.f52606b.getAlpha() == 1.0f;
         }
         return invokeV.booleanValue;
     }
@@ -148,26 +148,26 @@ public class BubbleForSubMenu extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "onDetachedFromWindow");
             super.onDetachedFromWindow();
-            ObjectAnimator objectAnimator = this.f52605d;
+            ObjectAnimator objectAnimator = this.f52608d;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f52605d.cancel();
-                this.f52605d.removeAllListeners();
-                this.f52605d = null;
+                this.f52608d.cancel();
+                this.f52608d.removeAllListeners();
+                this.f52608d = null;
             }
-            ObjectAnimator objectAnimator2 = this.f52607f;
+            ObjectAnimator objectAnimator2 = this.f52610f;
             if (objectAnimator2 == null || !objectAnimator2.isRunning()) {
                 return;
             }
-            this.f52607f.cancel();
-            this.f52607f.removeAllListeners();
-            this.f52607f = null;
+            this.f52610f.cancel();
+            this.f52610f.removeAllListeners();
+            this.f52610f = null;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f52603b.setText(str);
+            this.f52606b.setText(str);
         }
     }
 
@@ -176,7 +176,7 @@ public class BubbleForSubMenu extends FrameLayout {
     public void showBubble(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            if (!TextUtils.isEmpty(str) && (!isShowingBubble() || !str.equals(this.f52603b.getText()))) {
+            if (!TextUtils.isEmpty(str) && (!isShowingBubble() || !str.equals(this.f52606b.getText()))) {
                 if (isShowingBubble()) {
                     hideBubble(false);
                 }
@@ -189,8 +189,8 @@ public class BubbleForSubMenu extends FrameLayout {
                     setTransparent(false);
                 }
                 LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "展示bubble width = " + getWidth());
-                if (this.f52604c == null) {
-                    this.f52604c = new CountDownTimer(this, 5000L, 1000L) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.3
+                if (this.f52607c == null) {
+                    this.f52607c = new CountDownTimer(this, 5000L, 1000L) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BubbleForSubMenu a;
@@ -264,10 +264,10 @@ public class BubbleForSubMenu extends FrameLayout {
                         }
                     };
                 }
-                CountDownTimer countDownTimer = this.f52604c;
+                CountDownTimer countDownTimer = this.f52607c;
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
-                    this.f52604c.start();
+                    this.f52607c.start();
                     return;
                 }
                 return;
@@ -281,9 +281,9 @@ public class BubbleForSubMenu extends FrameLayout {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            ObjectAnimator objectAnimator = this.f52605d;
+            ObjectAnimator objectAnimator = this.f52608d;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f52605d.cancel();
+                this.f52608d.cancel();
             }
             this.a.post(new Runnable(this) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.4
                 public static /* synthetic */ Interceptable $ic;
@@ -313,16 +313,16 @@ public class BubbleForSubMenu extends FrameLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         BubbleForSubMenu bubbleForSubMenu = this.a;
-                        bubbleForSubMenu.f52609h = bubbleForSubMenu.f52603b.getRight();
+                        bubbleForSubMenu.f52612h = bubbleForSubMenu.f52606b.getRight();
                         BubbleForSubMenu bubbleForSubMenu2 = this.a;
-                        bubbleForSubMenu2.f52610i = bubbleForSubMenu2.f52603b.getLeft();
-                        LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "show fromX = " + this.a.f52609h + " ; toX = " + this.a.f52610i);
+                        bubbleForSubMenu2.f52613i = bubbleForSubMenu2.f52606b.getLeft();
+                        LogUtil.d(FileHelper.FILE_CACHE_BUBBLE, "show fromX = " + this.a.f52612h + " ; toX = " + this.a.f52613i);
                         BubbleForSubMenu bubbleForSubMenu3 = this.a;
-                        bubbleForSubMenu3.f52605d = ObjectAnimator.ofFloat(bubbleForSubMenu3.a, AnimationProperty.TRANSLATE_X, this.a.f52609h, this.a.f52610i);
-                        if (this.a.f52605d != null && this.a.f52605d.getListeners() == null) {
-                            this.a.f52605d.addListener(this.a.f52606e);
+                        bubbleForSubMenu3.f52608d = ObjectAnimator.ofFloat(bubbleForSubMenu3.a, AnimationProperty.TRANSLATE_X, this.a.f52612h, this.a.f52613i);
+                        if (this.a.f52608d != null && this.a.f52608d.getListeners() == null) {
+                            this.a.f52608d.addListener(this.a.f52609e);
                         }
-                        this.a.f52605d.setDuration(400L).start();
+                        this.a.f52608d.setDuration(400L).start();
                     }
                 }
             });
@@ -333,7 +333,7 @@ public class BubbleForSubMenu extends FrameLayout {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f52606e = new Animator.AnimatorListener(this) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.1
+            this.f52609e = new Animator.AnimatorListener(this) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BubbleForSubMenu a;
@@ -386,7 +386,7 @@ public class BubbleForSubMenu extends FrameLayout {
                     }
                 }
             };
-            this.f52608g = new Animator.AnimatorListener(this) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.2
+            this.f52611g = new Animator.AnimatorListener(this) { // from class: com.baidu.wallet.base.widget.BubbleForSubMenu.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BubbleForSubMenu a;
@@ -453,7 +453,7 @@ public class BubbleForSubMenu extends FrameLayout {
             layoutParams.rightMargin = DisplayUtils.dip2px(getContext(), 82.0f);
             setLayoutParams(layoutParams);
             this.a = (FrameLayout) findViewById(ResUtils.id(getContext(), FileHelper.FILE_CACHE_BUBBLE));
-            this.f52603b = (TextView) findViewById(ResUtils.id(getContext(), "bubble_text"));
+            this.f52606b = (TextView) findViewById(ResUtils.id(getContext(), "bubble_text"));
         }
     }
 }

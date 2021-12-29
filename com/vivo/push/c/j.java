@@ -53,7 +53,7 @@ public final class j implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             h hVar = this.f63051e;
-            PushMessageCallback pushMessageCallback = ((ab) hVar).f63032b;
+            PushMessageCallback pushMessageCallback = ((z) hVar).f63061b;
             context = hVar.a;
             pushMessageCallback.onDelAlias(context, this.a, this.f63048b, this.f63049c, this.f63050d);
         }

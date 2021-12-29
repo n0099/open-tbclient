@@ -1,46 +1,41 @@
 package c.a.r0.a0;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.UserData;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetUserInfo.DataRes;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
 
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1779188783, "Lc/a/r0/a0/a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1779188783, "Lc/a/r0/a0/a;");
+                return;
             }
         }
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    public UserData a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (UserData) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
         }
-        UserData userData = new UserData();
-        this.a = userData;
-        userData.parserProtobuf(dataRes.user);
+        return invokeV.booleanValue;
     }
 }

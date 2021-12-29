@@ -1,17 +1,8 @@
 package com.kwad.sdk.crash;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final com.kwad.sdk.crash.model.b a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -47,24 +38,15 @@ public class b {
     public final String m;
     public final String n;
 
-    /* renamed from: com.kwad.sdk.crash.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes3.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
         public String[] f58725b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f58726c;
+        public boolean f58726c = false;
 
         /* renamed from: d  reason: collision with root package name */
         public Context f58727d;
@@ -101,234 +83,107 @@ public class b {
         public f u;
         public String[] v;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f58726c = false;
-        }
-
         public a a(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.n = i2;
-                return this;
-            }
-            return (a) invokeI.objValue;
+            this.n = i2;
+            return this;
         }
 
         public a a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                this.f58727d = context;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58727d = context;
+            return this;
         }
 
         public a a(e eVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
-                this.f58728e = eVar;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58728e = eVar;
+            return this;
         }
 
         public a a(f fVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fVar)) == null) {
-                this.u = fVar;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.u = fVar;
+            return this;
         }
 
         public a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f58729f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58729f = str;
+            return this;
         }
 
         public a a(String[] strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-                this.v = strArr;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.v = strArr;
+            return this;
         }
 
         public b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new b(this, null) : (b) invokeV.objValue;
+            return new b(this);
         }
 
         public a b(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.p = i2;
-                return this;
-            }
-            return (a) invokeI.objValue;
+            this.p = i2;
+            return this;
         }
 
         public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f58731h = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58731h = str;
+            return this;
         }
 
         public a b(String[] strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) {
-                this.f58725b = strArr;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58725b = strArr;
+            return this;
         }
 
         public a c(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-                this.a = i2;
-                return this;
-            }
-            return (a) invokeI.objValue;
+            this.a = i2;
+            return this;
         }
 
         public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-                this.f58732i = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58732i = str;
+            return this;
         }
 
         public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f58734k = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f58734k = str;
+            return this;
         }
 
         public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.l = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.l = str;
+            return this;
         }
 
         public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-                this.m = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.m = str;
+            return this;
         }
 
         public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-                this.o = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.o = str;
+            return this;
         }
 
         public a h(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-                this.q = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.q = str;
+            return this;
         }
 
         public a i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-                this.r = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.r = str;
+            return this;
         }
 
         public a j(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-                this.s = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.s = str;
+            return this;
         }
 
         public a k(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-                this.t = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.t = str;
+            return this;
         }
     }
 
     public b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = new com.kwad.sdk.crash.model.b();
         this.f58715b = new com.kwad.sdk.crash.model.a();
         this.f58719f = aVar.f58726c;
@@ -355,19 +210,11 @@ public class b {
         this.f58718e = aVar.f58725b;
     }
 
-    public /* synthetic */ b(a aVar, AnonymousClass1 anonymousClass1) {
-        this(aVar);
-    }
-
     public e a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58721h : (e) invokeV.objValue;
+        return this.f58721h;
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f58719f : invokeV.booleanValue;
+        return this.f58719f;
     }
 }

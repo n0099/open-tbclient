@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.x1.o.j.c;
-import c.a.s0.x1.o.k.b;
+import c.a.t0.x1.o.j.c;
+import c.a.t0.x1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;

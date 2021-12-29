@@ -20,15 +20,15 @@ public class b implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f1760d;
+    public static final Object f2187d;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.c0.i.a f1761b;
+    public final c.a.c0.i.a f2188b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1762c;
+    public boolean f2189c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -38,7 +38,7 @@ public class b implements l {
 
     /* renamed from: c.a.c0.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0056b {
+    public static final class C0077b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class b implements l {
                 return;
             }
         }
-        f1760d = new Object();
+        f2187d = new Object();
     }
 
     public /* synthetic */ b(a aVar) {
@@ -83,7 +83,7 @@ public class b implements l {
     public static b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0056b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0077b.a : (b) invokeV.objValue;
     }
 
     @Override // c.a.c0.i.l
@@ -96,7 +96,7 @@ public class b implements l {
                 return i2;
             }
             g(NodeJS.GLOBAL);
-            if (c.a.c0.u.c.a(this.f1761b.a(), str) && (str2 = (String) c.a.c0.u.c.b(this.f1761b.a(), str)) != null) {
+            if (c.a.c0.u.c.a(this.f2188b.a(), str) && (str2 = (String) c.a.c0.u.c.b(this.f2188b.a(), str)) != null) {
                 try {
                     return Integer.parseInt(str2);
                 } catch (NumberFormatException unused) {
@@ -115,7 +115,7 @@ public class b implements l {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 g(str);
-                Map map = (Map) c.a.c0.u.c.b(this.f1761b.b(), str);
+                Map map = (Map) c.a.c0.u.c.b(this.f2188b.b(), str);
                 if (map != null && c.a.c0.u.c.a(map, str2) && (str3 = (String) c.a.c0.u.c.b(map, str2)) != null) {
                     try {
                         return Integer.parseInt(str3);
@@ -131,7 +131,7 @@ public class b implements l {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1761b.f1759d = true;
+            this.f2188b.f2186d = true;
         }
     }
 
@@ -153,8 +153,8 @@ public class b implements l {
                                             return;
                                         }
                                         c.a.c0.v.e.a().b("nad_app_quick_config").g("_ad_adc_conf_sign", optString2);
-                                        synchronized (f1760d) {
-                                            this.f1761b.update(b3);
+                                        synchronized (f2187d) {
+                                            this.f2188b.update(b3);
                                         }
                                         return;
                                     }
@@ -177,7 +177,7 @@ public class b implements l {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f1761b.f1759d = false;
+            this.f2188b.f2186d = false;
         }
     }
 
@@ -189,13 +189,13 @@ public class b implements l {
             c.a.c0.v.e a2 = c.a.c0.v.e.a();
             c.a.c0.v.b b2 = a2.b("nad.launch.config." + str);
             if (NodeJS.GLOBAL.equals(str)) {
-                if (this.f1762c || (all2 = b2.getAll()) == null) {
+                if (this.f2189c || (all2 = b2.getAll()) == null) {
                     return;
                 }
-                c.a.c0.u.c.f(this.f1761b.a(), all2);
-                this.f1762c = true;
-            } else if (((Map) c.a.c0.u.c.b(this.f1761b.b(), str)) == null && (all = b2.getAll()) != null) {
-                c.a.c0.u.c.e(this.f1761b.b(), str, all);
+                c.a.c0.u.c.f(this.f2188b.a(), all2);
+                this.f2189c = true;
+            } else if (((Map) c.a.c0.u.c.b(this.f2188b.b(), str)) == null && (all = b2.getAll()) != null) {
+                c.a.c0.u.c.e(this.f2188b.b(), str, all);
             }
         }
     }
@@ -213,7 +213,7 @@ public class b implements l {
                 return;
             }
         }
-        this.f1761b = new c.a.c0.i.a();
-        this.f1762c = false;
+        this.f2188b = new c.a.c0.i.a();
+        this.f2189c = false;
     }
 }

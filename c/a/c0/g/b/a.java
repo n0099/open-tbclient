@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: c.a.c0.g.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0032a {
+    public static /* synthetic */ class C0053a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -63,7 +63,7 @@ public class a {
         TimeUnit.DAYS.toMillis(10L);
     }
 
-    public /* synthetic */ a(C0032a c0032a) {
+    public /* synthetic */ a(C0053a c0053a) {
         this();
     }
 

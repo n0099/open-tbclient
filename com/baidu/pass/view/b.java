@@ -13,7 +13,7 @@ public class b implements View.OnClickListener {
     public final /* synthetic */ CommonDialog a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ CommonDialog.Builder f38814b;
+    public final /* synthetic */ CommonDialog.Builder f38970b;
 
     public b(CommonDialog.Builder builder, CommonDialog commonDialog) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class b implements View.OnClickListener {
                 return;
             }
         }
-        this.f38814b = builder;
+        this.f38970b = builder;
         this.a = commonDialog;
     }
 
@@ -39,7 +39,7 @@ public class b implements View.OnClickListener {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            onClickListener = this.f38814b.f38809g;
+            onClickListener = this.f38970b.f38965g;
             onClickListener.onClick(view);
             this.a.dismiss();
         }

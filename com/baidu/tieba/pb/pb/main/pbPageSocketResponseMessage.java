@@ -1,9 +1,9 @@
 package com.baidu.tieba.pb.pb.main;
 
-import c.a.s0.j3.l0.b;
-import c.a.s0.s2.r.d;
-import c.a.s0.s2.r.f;
-import c.a.s0.s2.u.f.j;
+import c.a.t0.j3.l0.b;
+import c.a.t0.s2.r.d;
+import c.a.t0.s2.r.f;
+import c.a.t0.s2.u.f.j;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -111,11 +111,11 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
                     dVar.a = appealInfo.source;
-                    dVar.f22518c = appealInfo.appeal_url;
+                    dVar.f23030c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f22517b = simpleForum.name;
+                    this.mAppealInfo.f23029b = simpleForum.name;
                     return;
                 }
                 return;

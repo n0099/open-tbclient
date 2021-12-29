@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.v.c;
-import c.a.s0.n4.d;
-import c.a.s0.n4.e;
-import c.a.s0.n4.f;
-import c.a.s0.n4.g;
-import c.a.s0.n4.h;
-import c.a.s0.n4.j;
+import c.a.s0.s.u.c;
+import c.a.t0.o4.d;
+import c.a.t0.o4.e;
+import c.a.t0.o4.f;
+import c.a.t0.o4.g;
+import c.a.t0.o4.h;
+import c.a.t0.o4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,16 +33,16 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\b\u0016\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0010\u00102\u001a\u0002032\b\u00104\u001a\u0004\u0018\u00010-J\u0006\u00105\u001a\u000203J\b\u00106\u001a\u000203H\u0016R\u001a\u0010\u000b\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u001a\u0010\u0011\u001a\u00020\u0012X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001a\u0010\u0017\u001a\u00020\u0012X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0018\u0010\u0014\"\u0004\b\u0019\u0010\u0016R\u001a\u0010\u001a\u001a\u00020\u001bX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001fR\u001a\u0010 \u001a\u00020!X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\"\u0010#\"\u0004\b$\u0010%R\u001a\u0010&\u001a\u00020\u0012X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b'\u0010\u0014\"\u0004\b(\u0010\u0016R\u001a\u0010)\u001a\u00020\u001bX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010\u001d\"\u0004\b+\u0010\u001fR\u001c\u0010,\u001a\u0004\u0018\u00010-X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u00067"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectClassView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "mCenterContent", "Landroid/widget/TextView;", "getMCenterContent", "()Landroid/widget/TextView;", "setMCenterContent", "(Landroid/widget/TextView;)V", "mCenterContentTips", "getMCenterContentTips", "setMCenterContentTips", "mClassTitleSign", "Landroid/widget/ImageView;", "getMClassTitleSign", "()Landroid/widget/ImageView;", "setMClassTitleSign", "(Landroid/widget/ImageView;)V", "mIsSelectedTags", "", "getMIsSelectedTags", "()Z", "setMIsSelectedTags", "(Z)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "mRightArrow", "getMRightArrow", "setMRightArrow", "mVideoCategoryClassData", "Lcom/baidu/tbadk/data/VideoCategoryClassData;", "getMVideoCategoryClassData", "()Lcom/baidu/tbadk/data/VideoCategoryClassData;", "setMVideoCategoryClassData", "(Lcom/baidu/tbadk/data/VideoCategoryClassData;)V", "bindData", "", "bean", "init", "onChangeSkin", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SelectClassView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51721e;
+    public boolean f51975e;
 
     /* renamed from: f  reason: collision with root package name */
-    public VideoCategoryClassData f51722f;
+    public VideoCategoryClassData f51976f;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentTips;
@@ -89,7 +89,7 @@ public class SelectClassView extends LinearLayout {
     public final void bindData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, videoCategoryClassData) == null) {
-            this.f51722f = videoCategoryClassData;
+            this.f51976f = videoCategoryClassData;
             if (videoCategoryClassData != null) {
                 String firstClass = videoCategoryClassData.getFirstClass();
                 boolean z = true;
@@ -175,7 +175,7 @@ public class SelectClassView extends LinearLayout {
     public final boolean getMIsSelectedTags() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51721e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f51975e : invokeV.booleanValue;
     }
 
     public final TextView getMLeftTitle() {
@@ -209,7 +209,7 @@ public class SelectClassView extends LinearLayout {
     public final VideoCategoryClassData getMVideoCategoryClassData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f51722f : (VideoCategoryClassData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f51976f : (VideoCategoryClassData) invokeV.objValue;
     }
 
     public final void init() {
@@ -235,7 +235,7 @@ public class SelectClassView extends LinearLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             onChangeSkin();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.s0.n4.e0.p.z.e
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.t0.o4.e0.p.z.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -300,7 +300,7 @@ public class SelectClassView extends LinearLayout {
     public final void setMIsSelectedTags(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f51721e = z;
+            this.f51975e = z;
         }
     }
 
@@ -323,7 +323,7 @@ public class SelectClassView extends LinearLayout {
     public final void setMVideoCategoryClassData(VideoCategoryClassData videoCategoryClassData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, videoCategoryClassData) == null) {
-            this.f51722f = videoCategoryClassData;
+            this.f51976f = videoCategoryClassData;
         }
     }
 

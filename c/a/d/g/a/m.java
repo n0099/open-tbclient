@@ -35,7 +35,7 @@ public class m extends j {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2712e;
+            Matrix matrix = this.f3140e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
@@ -49,10 +49,10 @@ public class m extends j {
             if (dVar.e()) {
                 Bitmap bitmap = dVar.a.getBitmap();
                 this.v.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.v, this.f2713f, this.f2709b);
+                canvas.drawBitmap(bitmap, this.v, this.f3141f, this.f3137b);
             } else {
                 this.v.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2721b.g(canvas, this.v, this.f2713f, this.f2709b);
+                dVar.f3149b.g(canvas, this.v, this.f3141f, this.f3137b);
             }
             canvas.restore();
         }

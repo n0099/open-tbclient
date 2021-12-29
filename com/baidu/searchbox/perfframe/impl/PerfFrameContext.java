@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
-import c.a.j0.a.b.d;
+import c.a.k0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -66,7 +66,6 @@ public class PerfFrameContext {
                     if (AppConfig.isDebug()) {
                         String str = "perfExpInfo = " + perfExpInfo.toString();
                     }
-                    String str2 = "perfExpInfo = " + perfExpInfo.toString();
                     perfExpInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
                     perfExpInfo.setLogId(CommonUtils.getLogId());
                     for (IPerfFrameRegister iPerfFrameRegister : perfFrameRegister.getList()) {

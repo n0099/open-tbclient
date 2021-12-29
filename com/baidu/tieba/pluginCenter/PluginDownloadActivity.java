@@ -11,10 +11,10 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.m.g;
-import c.a.d.f.p.k;
-import c.a.s0.b3.d;
-import c.a.s0.b3.e;
-import c.a.s0.b3.f;
+import c.a.d.f.p.l;
+import c.a.t0.b3.d;
+import c.a.t0.b3.e;
+import c.a.t0.b3.f;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
@@ -42,7 +42,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDownloadActivity f48996e;
+        public final /* synthetic */ PluginDownloadActivity f49225e;
 
         public a(PluginDownloadActivity pluginDownloadActivity) {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     return;
                 }
             }
-            this.f48996e = pluginDownloadActivity;
+            this.f49225e = pluginDownloadActivity;
         }
 
         @Override // android.content.DialogInterface.OnKeyListener
@@ -67,16 +67,16 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i2, keyEvent)) == null) {
-                if (!this.f48996e.mStarting) {
-                    g.b(this.f48996e.mDialog, this.f48996e.getPageContext());
+                if (!this.f49225e.mStarting) {
+                    g.b(this.f49225e.mDialog, this.f49225e.getPageContext());
                     return true;
                 } else if (i2 == 4 && keyEvent.getAction() == 1) {
-                    if (this.f48996e.mDialog.l.getVisibility() == 0) {
-                        this.f48996e.mDialog.l.setVisibility(8);
-                        this.f48996e.mDialog.f48998e.setVisibility(0);
+                    if (this.f49225e.mDialog.l.getVisibility() == 0) {
+                        this.f49225e.mDialog.l.setVisibility(8);
+                        this.f49225e.mDialog.f49227e.setVisibility(0);
                     } else {
-                        this.f48996e.mDialog.l.setVisibility(0);
-                        this.f48996e.mDialog.f48998e.setVisibility(8);
+                        this.f49225e.mDialog.l.setVisibility(0);
+                        this.f49225e.mDialog.f49227e.setVisibility(8);
                     }
                     return true;
                 } else {
@@ -93,7 +93,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDownloadActivity f48997e;
+        public final /* synthetic */ PluginDownloadActivity f49226e;
 
         public b(PluginDownloadActivity pluginDownloadActivity) {
             Interceptable interceptable = $ic;
@@ -110,15 +110,15 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     return;
                 }
             }
-            this.f48997e = pluginDownloadActivity;
+            this.f49226e = pluginDownloadActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f48997e.setResult(0);
-                this.f48997e.finish();
+                this.f49226e.setResult(0);
+                this.f49226e.finish();
             }
         }
     }
@@ -129,25 +129,25 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public LinearLayout f48998e;
+        public LinearLayout f49227e;
 
         /* renamed from: f  reason: collision with root package name */
-        public TextView f48999f;
+        public TextView f49228f;
 
         /* renamed from: g  reason: collision with root package name */
-        public TextView f49000g;
+        public TextView f49229g;
 
         /* renamed from: h  reason: collision with root package name */
-        public TextView f49001h;
+        public TextView f49230h;
 
         /* renamed from: i  reason: collision with root package name */
-        public TextView f49002i;
+        public TextView f49231i;
 
         /* renamed from: j  reason: collision with root package name */
-        public TextView f49003j;
+        public TextView f49232j;
 
         /* renamed from: k  reason: collision with root package name */
-        public TextView f49004k;
+        public TextView f49233k;
         public LinearLayout l;
         public TextView m;
         public TextView n;
@@ -161,7 +161,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f49005e;
+            public final /* synthetic */ c f49234e;
 
             public a(c cVar) {
                 Interceptable interceptable = $ic;
@@ -178,15 +178,15 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                         return;
                     }
                 }
-                this.f49005e = cVar;
+                this.f49234e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49005e.q.setResult(0);
-                    this.f49005e.q.finish();
+                    this.f49234e.q.setResult(0);
+                    this.f49234e.q.finish();
                 }
             }
         }
@@ -197,7 +197,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f49006e;
+            public final /* synthetic */ c f49235e;
 
             public b(c cVar) {
                 Interceptable interceptable = $ic;
@@ -214,41 +214,41 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                         return;
                     }
                 }
-                this.f49006e = cVar;
+                this.f49235e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49006e.l.setVisibility(8);
-                    this.f49006e.f48998e.setVisibility(0);
+                    this.f49235e.l.setVisibility(8);
+                    this.f49235e.f49227e.setVisibility(0);
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class View$OnClickListenerC1929c implements View.OnClickListener {
+        public class View$OnClickListenerC1936c implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f49007e;
+            public final /* synthetic */ c f49236e;
 
             /* renamed from: com.baidu.tieba.pluginCenter.PluginDownloadActivity$c$c$a */
             /* loaded from: classes12.dex */
             public class a implements c.a.d.i.j.c {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ View$OnClickListenerC1929c a;
+                public final /* synthetic */ View$OnClickListenerC1936c a;
 
-                public a(View$OnClickListenerC1929c view$OnClickListenerC1929c) {
+                public a(View$OnClickListenerC1936c view$OnClickListenerC1936c) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {view$OnClickListenerC1929c};
+                        Object[] objArr = {view$OnClickListenerC1936c};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -258,21 +258,21 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                             return;
                         }
                     }
-                    this.a = view$OnClickListenerC1929c;
+                    this.a = view$OnClickListenerC1936c;
                 }
 
                 @Override // c.a.d.i.j.c
                 public void a(BdFileDownloadData bdFileDownloadData) {
                     Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) && bdFileDownloadData != null && bdFileDownloadData.getId().equals(this.a.f49007e.q.mPluginConfig.package_name)) {
-                        this.a.f49007e.q.showToast(bdFileDownloadData.getStatusMsg());
-                        this.a.f49007e.q.mFinished = true;
-                        g.b(this.a.f49007e.q.mDialog, this.a.f49007e.q.getPageContext());
+                    if ((interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) && bdFileDownloadData != null && bdFileDownloadData.getId().equals(this.a.f49236e.q.mPluginConfig.package_name)) {
+                        this.a.f49236e.q.showToast(bdFileDownloadData.getStatusMsg());
+                        this.a.f49236e.q.mFinished = true;
+                        g.b(this.a.f49236e.q.mDialog, this.a.f49236e.q.getPageContext());
                     }
                 }
             }
 
-            public View$OnClickListenerC1929c(c cVar) {
+            public View$OnClickListenerC1936c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -287,22 +287,22 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                         return;
                     }
                 }
-                this.f49007e = cVar;
+                this.f49236e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    if (k.z()) {
-                        this.f49007e.q.mStarting = true;
-                        this.f49007e.f49001h.setVisibility(8);
-                        this.f49007e.f49002i.setVisibility(8);
-                        this.f49007e.f49003j.setVisibility(0);
-                        PluginPackageManager.u().K(this.f49007e.q.mPluginConfig, new a(this));
+                    if (l.z()) {
+                        this.f49236e.q.mStarting = true;
+                        this.f49236e.f49230h.setVisibility(8);
+                        this.f49236e.f49231i.setVisibility(8);
+                        this.f49236e.f49232j.setVisibility(0);
+                        PluginPackageManager.u().K(this.f49236e.q.mPluginConfig, new a(this));
                         return;
                     }
-                    this.f49007e.q.showToast(f.neterror);
+                    this.f49236e.q.showToast(f.neterror);
                 }
             }
         }
@@ -313,7 +313,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ c f49008e;
+            public final /* synthetic */ c f49237e;
 
             public d(c cVar) {
                 Interceptable interceptable = $ic;
@@ -330,17 +330,17 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                         return;
                     }
                 }
-                this.f49008e = cVar;
+                this.f49237e = cVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.f49008e.q.setResult(0);
-                    this.f49008e.q.finish();
-                    c.a.r0.s.g0.b.j().t("install_plugin_dialog_closed", true);
-                    c.a.r0.s.g0.b.j().w("install_plugin_dialog_shown_time", new Date().getTime());
+                    this.f49237e.q.setResult(0);
+                    this.f49237e.q.finish();
+                    c.a.s0.s.g0.b.j().t("install_plugin_dialog_closed", true);
+                    c.a.s0.s.g0.b.j().w("install_plugin_dialog_shown_time", new Date().getTime());
                 }
             }
         }
@@ -373,25 +373,25 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
                 super.onCreate(bundle);
                 setContentView(e.update_dialog);
-                findViewById(c.a.s0.b3.d.warning).setVisibility(8);
-                findViewById(c.a.s0.b3.d.incremental_button).setVisibility(8);
-                findViewById(c.a.s0.b3.d.incremental_size).setVisibility(8);
-                this.f48998e = (LinearLayout) findViewById(c.a.s0.b3.d.down_dialog);
-                this.o = (TextView) findViewById(c.a.s0.b3.d.update_tip);
-                this.f48999f = (TextView) findViewById(c.a.s0.b3.d.newversion);
-                this.f49000g = (TextView) findViewById(c.a.s0.b3.d.desc);
-                TextView textView = (TextView) findViewById(c.a.s0.b3.d.update_button);
-                this.f49001h = textView;
+                findViewById(c.a.t0.b3.d.warning).setVisibility(8);
+                findViewById(c.a.t0.b3.d.incremental_button).setVisibility(8);
+                findViewById(c.a.t0.b3.d.incremental_size).setVisibility(8);
+                this.f49227e = (LinearLayout) findViewById(c.a.t0.b3.d.down_dialog);
+                this.o = (TextView) findViewById(c.a.t0.b3.d.update_tip);
+                this.f49228f = (TextView) findViewById(c.a.t0.b3.d.newversion);
+                this.f49229g = (TextView) findViewById(c.a.t0.b3.d.desc);
+                TextView textView = (TextView) findViewById(c.a.t0.b3.d.update_button);
+                this.f49230h = textView;
                 textView.setText(this.q.getPageContext().getString(f.install_app));
-                this.f49002i = (TextView) findViewById(c.a.s0.b3.d.update_cancel);
-                this.f49003j = (TextView) findViewById(c.a.s0.b3.d.downloading);
-                TextView textView2 = (TextView) findViewById(c.a.s0.b3.d.otherApp);
+                this.f49231i = (TextView) findViewById(c.a.t0.b3.d.update_cancel);
+                this.f49232j = (TextView) findViewById(c.a.t0.b3.d.downloading);
+                TextView textView2 = (TextView) findViewById(c.a.t0.b3.d.otherApp);
                 this.p = textView2;
                 textView2.setVisibility(8);
-                this.f49004k = (TextView) findViewById(c.a.s0.b3.d.app_size);
-                this.l = (LinearLayout) findViewById(c.a.s0.b3.d.cancel_dialog);
-                this.m = (TextView) findViewById(c.a.s0.b3.d.sure_cancel);
-                this.n = (TextView) findViewById(c.a.s0.b3.d.cancel_button);
+                this.f49233k = (TextView) findViewById(c.a.t0.b3.d.app_size);
+                this.l = (LinearLayout) findViewById(c.a.t0.b3.d.cancel_dialog);
+                this.m = (TextView) findViewById(c.a.t0.b3.d.sure_cancel);
+                this.n = (TextView) findViewById(c.a.t0.b3.d.cancel_button);
                 this.m.setOnClickListener(new a(this));
                 this.n.setOnClickListener(new b(this));
                 if (!TextUtils.isEmpty(this.q.mPluginConfig.display_name)) {
@@ -401,31 +401,31 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                 }
                 if (this.q.mPluginConfig.newest != null) {
                     if (TextUtils.isEmpty(this.q.mPluginConfig.newest.version)) {
-                        this.f48999f.setText("");
+                        this.f49228f.setText("");
                     } else {
-                        TextView textView3 = this.f48999f;
+                        TextView textView3 = this.f49228f;
                         textView3.setText("版本：" + this.q.mPluginConfig.newest.version);
                     }
                     if (!TextUtils.isEmpty(this.q.mPluginConfig.newest.change_log)) {
-                        this.f49000g.setText(this.q.mPluginConfig.newest.change_log);
+                        this.f49229g.setText(this.q.mPluginConfig.newest.change_log);
                     } else {
-                        this.f49000g.setText("");
+                        this.f49229g.setText("");
                     }
                     String valueOf = String.valueOf(this.q.mPluginConfig.newest.size / 1024);
                     if (valueOf != null && !"".equals(valueOf)) {
-                        this.f49004k.setVisibility(0);
-                        TextView textView4 = this.f49004k;
-                        textView4.setText(((Object) this.f49004k.getText()) + valueOf + "KB");
+                        this.f49233k.setVisibility(0);
+                        TextView textView4 = this.f49233k;
+                        textView4.setText(((Object) this.f49233k.getText()) + valueOf + "KB");
                     } else {
-                        this.f49004k.setVisibility(8);
+                        this.f49233k.setVisibility(8);
                     }
                 } else {
-                    this.f48999f.setText("");
-                    this.f49000g.setText("");
-                    this.f49004k.setText("");
+                    this.f49228f.setText("");
+                    this.f49229g.setText("");
+                    this.f49233k.setText("");
                 }
-                this.f49001h.setOnClickListener(new View$OnClickListenerC1929c(this));
-                this.f49002i.setOnClickListener(new d(this));
+                this.f49230h.setOnClickListener(new View$OnClickListenerC1936c(this));
+                this.f49231i.setOnClickListener(new d(this));
             }
         }
     }
@@ -469,7 +469,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.alpha = 0.0f;
             getWindow().setAttributes(attributes);
-            c cVar = new c(this, getPageContext().getPageActivity(), c.a.s0.b3.g.common_alert_dialog);
+            c cVar = new c(this, getPageContext().getPageActivity(), c.a.t0.b3.g.common_alert_dialog);
             this.mDialog = cVar;
             cVar.setCancelable(false);
             this.mDialog.setOnKeyListener(new a(this));

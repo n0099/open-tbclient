@@ -120,7 +120,7 @@ public class FaceSDKManager {
                 public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f38771b;
+                public final /* synthetic */ FaceSDKManager f38927b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -137,7 +137,7 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f38771b = this;
+                    this.f38927b = this;
                     this.a = iInitCallback;
                 }
 
@@ -157,7 +157,7 @@ public class FaceSDKManager {
                 public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f38772b;
+                public final /* synthetic */ FaceSDKManager f38928b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -174,7 +174,7 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f38772b = this;
+                    this.f38928b = this;
                     this.a = iInitCallback;
                 }
 
@@ -194,7 +194,7 @@ public class FaceSDKManager {
                 public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f38773b;
+                public final /* synthetic */ FaceSDKManager f38929b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -211,7 +211,7 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f38773b = this;
+                    this.f38929b = this;
                     this.a = iInitCallback;
                 }
 
@@ -231,7 +231,7 @@ public class FaceSDKManager {
                 public final /* synthetic */ IInitCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ FaceSDKManager f38774b;
+                public final /* synthetic */ FaceSDKManager f38930b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -248,7 +248,7 @@ public class FaceSDKManager {
                             return;
                         }
                     }
-                    this.f38774b = this;
+                    this.f38930b = this;
                     this.a = iInitCallback;
                 }
 
@@ -263,7 +263,7 @@ public class FaceSDKManager {
                         if (i2 != 0 || this.a == null) {
                             return;
                         }
-                        this.f38774b.mInitFlag = true;
+                        this.f38930b.mInitFlag = true;
                         this.a.initSuccess();
                     }
                 }
@@ -515,10 +515,10 @@ public class FaceSDKManager {
             public final /* synthetic */ Context a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ IInitCallback f38769b;
+            public final /* synthetic */ IInitCallback f38925b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ FaceSDKManager f38770c;
+            public final /* synthetic */ FaceSDKManager f38926c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -535,9 +535,9 @@ public class FaceSDKManager {
                         return;
                     }
                 }
-                this.f38770c = this;
+                this.f38926c = this;
                 this.a = context;
-                this.f38769b = iInitCallback;
+                this.f38925b = iInitCallback;
             }
 
             @Override // com.baidu.pass.main.facesdk.callback.Callback
@@ -545,10 +545,10 @@ public class FaceSDKManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str3) == null) {
                     if (i2 == 0) {
-                        this.f38770c.initModel(this.a, this.f38769b);
+                        this.f38926c.initModel(this.a, this.f38925b);
                         return;
                     }
-                    IInitCallback iInitCallback2 = this.f38769b;
+                    IInitCallback iInitCallback2 = this.f38925b;
                     if (iInitCallback2 != null) {
                         iInitCallback2.initFailure(i2, str3);
                     }

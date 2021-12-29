@@ -3,7 +3,7 @@ package com.baidu.android.pushservice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.i.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

@@ -1,181 +1,206 @@
 package com.bytedance.pangle;
 
-import android.content.ComponentName;
-import android.os.Binder;
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.content.pm.ProviderInfo;
+import android.text.TextUtils;
+import com.android.server.SystemConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.ZeusParam;
+import com.bytedance.pangle.log.ZeusLogger;
+import com.bytedance.pangle.plugin.PluginManager;
+import com.bytedance.pangle.provider.ContentProviderManager;
+import com.bytedance.pangle.util.FieldUtils;
+import java.util.Collections;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public interface g extends IInterface {
-    int a();
+public class g {
+    public static /* synthetic */ Interceptable $ic;
 
-    void a(ComponentName componentName, IBinder iBinder);
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile g f55177d;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* loaded from: classes2.dex */
-    public static abstract class a extends Binder implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: b  reason: collision with root package name */
+    public ZeusParam f55178b;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* renamed from: c  reason: collision with root package name */
+    public List<ZeusPluginStateListener> f55179c;
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            attachInterface(this, "com.bytedance.pangle.ServiceConnection");
         }
+        this.f55179c = Collections.emptyList();
+    }
 
-        public static g a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.bytedance.pangle.ServiceConnection");
-                if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
-                    return (g) queryLocalInterface;
-                }
-                return new C2017a(iBinder);
-            }
-            return (g) invokeL.objValue;
-        }
-
-        public static g b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2017a.a : (g) invokeV.objValue;
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
-                    parcel.enforceInterface("com.bytedance.pangle.ServiceConnection");
-                    a(parcel.readInt() != 0 ? (ComponentName) ComponentName.CREATOR.createFromParcel(parcel) : null, parcel.readStrongBinder());
-                    parcel2.writeNoException();
-                    return true;
-                } else if (i2 != 2) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
+    public static g a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f55177d == null) {
+                synchronized (g.class) {
+                    if (f55177d == null) {
+                        f55177d = new g();
                     }
-                    parcel2.writeString("com.bytedance.pangle.ServiceConnection");
-                    return true;
+                }
+            }
+            return f55177d;
+        }
+        return (g) invokeV.objValue;
+    }
+
+    public static void b() {
+        ProviderInfo[] providerInfoArr;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            try {
+                for (ProviderInfo providerInfo : Zeus.getAppApplication().getPackageManager().getPackageInfo(Zeus.getAppApplication().getPackageName(), 8).providers) {
+                    if (!TextUtils.isEmpty(providerInfo.authority)) {
+                        if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.a)) {
+                            if (!TextUtils.isEmpty(providerInfo.processName) && providerInfo.processName.contains(":")) {
+                                str = providerInfo.processName.split(":")[1];
+                                Zeus.getServerManagerHashMap().put(str, providerInfo);
+                            }
+                            str = "main";
+                            Zeus.getServerManagerHashMap().put(str, providerInfo);
+                        }
+                    }
+                }
+            } catch (Exception e2) {
+                throw new RuntimeException(e2);
+            }
+        }
+    }
+
+    public final synchronized void a(Application application, ZeusParam zeusParam) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, application, zeusParam) == null) {
+            synchronized (this) {
+                if (this.a) {
+                    ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager zeus has been inited!");
+                } else if (application != null) {
+                    if (zeusParam == null) {
+                        zeusParam = new ZeusParam.Builder().build();
+                        ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
+                    }
+                    this.f55178b = zeusParam;
+                    ZeusLogger.setDebug(zeusParam.isDebug());
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f55178b);
+                    if (!this.f55178b.isCloseDefaultReport()) {
+                        com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
+                    }
+                    com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
+                    com.bytedance.pangle.b.a aVar = new com.bytedance.pangle.b.a(this) { // from class: com.bytedance.pangle.g.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ g a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.a = this;
+                        }
+
+                        @Override // com.bytedance.pangle.b.a
+                        public final void a(String str, JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, jSONObject, jSONObject2, jSONObject3) == null) {
+                                com.bytedance.pangle.log.d.a(str, jSONObject, jSONObject2, jSONObject3);
+                            }
+                        }
+                    };
+                    synchronized (a.a) {
+                        a.a.add(aVar);
+                    }
+                    if (this.f55178b.isEnable()) {
+                        b.a();
+                        if (com.bytedance.pangle.util.g.e()) {
+                            com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ g a;
+
+                                {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this};
+                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.a = this;
+                                }
+
+                                @Override // java.lang.Runnable
+                                public final void run() {
+                                    Interceptable interceptable2 = $ic;
+                                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                        try {
+                                            SystemConfig.getInstance();
+                                        } catch (Throwable unused) {
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                        if (com.bytedance.pangle.util.g.d()) {
+                            try {
+                                FieldUtils.writeField(com.bytedance.pangle.helper.a.a(), "mHiddenApiWarningShown", Boolean.TRUE);
+                                ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager disableApiWarningShownForAndroidP, true");
+                            } catch (Exception e2) {
+                                ZeusLogger.e(ZeusLogger.TAG_INIT, "disableApiWarningShownForAndroidP failed", e2);
+                            }
+                        }
+                        b();
+                        ContentProviderManager.getInstance().initSystemContentProviderInfo();
+                        if (com.bytedance.pangle.helper.c.b(application)) {
+                            if (this.f55178b.autoFetch()) {
+                                com.bytedance.pangle.download.f.a();
+                                com.bytedance.pangle.download.f.b();
+                            }
+                            PluginManager.getInstance().installFromDownloadDir();
+                        }
+                        com.bytedance.pangle.receiver.b.a(application);
+                    }
+                    this.a = true;
                 } else {
-                    parcel.enforceInterface("com.bytedance.pangle.ServiceConnection");
-                    int a = a();
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a);
-                    return true;
+                    throw new IllegalArgumentException("context must be not null !!!");
                 }
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        /* renamed from: com.bytedance.pangle.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C2017a implements g {
-            public static /* synthetic */ Interceptable $ic;
-            public static g a;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f55177b;
-
-            public C2017a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f55177b = iBinder;
-            }
-
-            @Override // com.bytedance.pangle.g
-            public final void a(ComponentName componentName, IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.ServiceConnection");
-                        if (componentName != null) {
-                            obtain.writeInt(1);
-                            componentName.writeToParcel(obtain, 0);
-                        } else {
-                            obtain.writeInt(0);
-                        }
-                        obtain.writeStrongBinder(iBinder);
-                        if (!this.f55177b.transact(1, obtain, obtain2, 0) && a.b() != null) {
-                            a.b().a(componentName, iBinder);
-                        } else {
-                            obtain2.readException();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-            }
-
-            @Override // android.os.IInterface
-            public final IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f55177b : (IBinder) invokeV.objValue;
-            }
-
-            @Override // com.bytedance.pangle.g
-            public final int a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.bytedance.pangle.ServiceConnection");
-                        if (!this.f55177b.transact(2, obtain, obtain2, 0) && a.b() != null) {
-                            return a.b().a();
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.intValue;
             }
         }
     }

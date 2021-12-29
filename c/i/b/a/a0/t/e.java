@@ -20,7 +20,7 @@ public final class e implements w.c {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<Format> f29661b;
+    public final List<Format> f29739b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public e(int i2) {
@@ -50,18 +50,18 @@ public final class e implements w.c {
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bVar)) == null) {
             if (i2 != 2) {
                 if (i2 == 3 || i2 == 4) {
-                    return new p(new n(bVar.f29817b));
+                    return new p(new n(bVar.f29895b));
                 }
                 if (i2 == 15) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new d(false, bVar.f29817b));
+                    return new p(new d(false, bVar.f29895b));
                 } else if (i2 == 17) {
                     if (d(2)) {
                         return null;
                     }
-                    return new p(new m(bVar.f29817b));
+                    return new p(new m(bVar.f29895b));
                 } else if (i2 != 21) {
                     if (i2 == 27) {
                         if (d(4)) {
@@ -83,11 +83,11 @@ public final class e implements w.c {
                                         }
                                     }
                                 }
-                                return new p(new b(bVar.f29817b));
+                                return new p(new b(bVar.f29895b));
                             }
-                            return new p(new f(bVar.f29817b));
+                            return new p(new f(bVar.f29895b));
                         }
-                        return new p(new g(bVar.f29818c));
+                        return new p(new g(bVar.f29896c));
                     } else {
                         return new p(new k(c(bVar)));
                     }
@@ -114,10 +114,10 @@ public final class e implements w.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             if (d(32)) {
-                return new t(this.f29661b);
+                return new t(this.f29739b);
             }
-            c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(bVar.f29819d);
-            List<Format> list = this.f29661b;
+            c.i.b.a.i0.l lVar = new c.i.b.a.i0.l(bVar.f29897d);
+            List<Format> list = this.f29739b;
             while (lVar.a() > 0) {
                 int x = lVar.x();
                 int c2 = lVar.c() + lVar.x();
@@ -170,6 +170,6 @@ public final class e implements w.c {
         if (!d(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.createTextSampleFormat(null, "application/cea-608", 0, null));
         }
-        this.f29661b = list;
+        this.f29739b = list;
     }
 }

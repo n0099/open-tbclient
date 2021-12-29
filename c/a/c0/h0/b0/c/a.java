@@ -17,7 +17,7 @@ public abstract class a<T> {
     public c.a.c0.h0.b0.e.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.h0.b0.d.a f1675b;
+    public c.a.c0.h0.b0.d.a f2102b;
 
     public a(c.a.c0.h0.b0.d.a aVar) {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public abstract class a<T> {
             }
         }
         this.a = aVar.f();
-        this.f1675b = aVar;
+        this.f2102b = aVar;
     }
 
     public a<T> a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f1675b.d(z);
+            this.f2102b.d(z);
             return this;
         }
         return (a) invokeZ.objValue;
@@ -62,7 +62,7 @@ public abstract class a<T> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f1675b.m(i2);
+            this.f2102b.m(i2);
             return this;
         }
         return (a) invokeI.objValue;
@@ -98,8 +98,8 @@ public abstract class a<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
-            this.f1675b.e().f1672d = false;
-            this.f1675b.e().f1673e = bubblePosition;
+            this.f2102b.e().f2099d = false;
+            this.f2102b.e().f2100e = bubblePosition;
             return this;
         }
         return (a) invokeL.objValue;
@@ -109,7 +109,7 @@ public abstract class a<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.f1675b.n(bVar);
+            this.f2102b.n(bVar);
             return this;
         }
         return (a) invokeL.objValue;
@@ -119,7 +119,7 @@ public abstract class a<T> {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f2)) == null) {
-            this.f1675b.e().q(f2);
+            this.f2102b.e().q(f2);
             return this;
         }
         return (a) invokeF.objValue;

@@ -18,7 +18,7 @@ public class e implements Runnable {
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f56342b;
+    public final OnGetOaidListener f56341b;
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
@@ -36,14 +36,14 @@ public class e implements Runnable {
             }
         }
         this.a = context.getApplicationContext();
-        this.f56342b = onGetOaidListener;
+        this.f56341b = onGetOaidListener;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = this.a;
-            f.a aVar = new f.a() { // from class: c.g.f0.a.a
+            f.a aVar = new f.a() { // from class: c.g.g0.a.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,11 +62,11 @@ public class e implements Runnable {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     throw new IllegalStateException("Cannot be called from the main thread");
                 }
-                if (i.a == null && !i.f56343b) {
+                if (i.a == null && !i.f56342b) {
                     synchronized (i.class) {
-                        if (i.a == null && !i.f56343b) {
+                        if (i.a == null && !i.f56342b) {
                             i.a = b.a();
-                            i.f56343b = true;
+                            i.f56342b = true;
                         }
                     }
                 }
@@ -92,7 +92,7 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 String str = "==========在缓存中查找到oaid，直接返回 oaid = " + string;
             }
-            OnGetOaidListener onGetOaidListener = this.f56342b;
+            OnGetOaidListener onGetOaidListener = this.f56341b;
             if (onGetOaidListener != null) {
                 onGetOaidListener.onGetOaid(string);
             }
@@ -125,20 +125,20 @@ public class e implements Runnable {
                         return;
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        onGetOaidListener = this.f56342b;
+                        onGetOaidListener = this.f56341b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = this.f56342b;
+                    onGetOaidListener = this.f56341b;
                     if (onGetOaidListener == null) {
                         return;
                     }
                 }
                 str = null;
             } else {
-                onGetOaidListener = this.f56342b;
+                onGetOaidListener = this.f56341b;
                 if (onGetOaidListener == null) {
                     return;
                 }

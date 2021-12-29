@@ -1,5 +1,5 @@
 package com.baidu.ar.recg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IOnDeviceIRResult {
     String getARKey();
 

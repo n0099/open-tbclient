@@ -27,13 +27,13 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final a0 f38275e;
+    public final a0 f38431e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IAdImageView.ImageScaleType f38276f;
+    public IAdImageView.ImageScaleType f38432f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f38277g;
+    public final Path f38433g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdImageView(@NonNull Context context) {
@@ -64,11 +64,11 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, v.AdImageView);
         int resourceId = obtainStyledAttributes.getResourceId(v.AdImageView_holder, 0);
         if (resourceId != 0) {
-            this.f38275e.b(resourceId);
+            this.f38431e.b(resourceId);
         }
         int resourceId2 = obtainStyledAttributes.getResourceId(v.AdImageView_errorHolder, 0);
         if (resourceId2 != 0) {
-            this.f38275e.a(resourceId2);
+            this.f38431e.a(resourceId2);
         }
         a0.a aVar = new a0.a();
         if (obtainStyledAttributes.getBoolean(v.AdImageView_circleType, false)) {
@@ -82,7 +82,7 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 aVar.b(new float[]{obtainStyledAttributes.getDimensionPixelSize(v.AdImageView_leftTopRadius, 0), obtainStyledAttributes.getDimensionPixelSize(v.AdImageView_rightTopRadius, 0), obtainStyledAttributes.getDimensionPixelSize(v.AdImageView_leftBottomRadius, 0), obtainStyledAttributes.getDimensionPixelSize(v.AdImageView_rightBottomRadius, 0)});
             }
         }
-        this.f38275e.c(aVar);
+        this.f38431e.c(aVar);
         int i2 = obtainStyledAttributes.getInt(v.AdImageView_imageScaleType, -1);
         if (i2 >= 0) {
             setScaleType(IAdImageView.j0[i2]);
@@ -112,20 +112,20 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     public a0 getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38275e : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38431e : (a0) invokeV.objValue;
     }
 
     public IAdImageView.ImageScaleType getImageScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38276f : (IAdImageView.ImageScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38432f : (IAdImageView.ImageScaleType) invokeV.objValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            a0.a aVar = getConfig().f1667c;
+            a0.a aVar = getConfig().f2094c;
             if (aVar == null) {
                 super.onDraw(canvas);
                 return;
@@ -133,12 +133,12 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             int width = getWidth();
             int height = getHeight();
             if (aVar.a) {
-                this.f38277g.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
-                canvas.clipPath(this.f38277g);
+                this.f38433g.addCircle(width / 2.0f, height / 2.0f, Math.min(width, height) / 2, Path.Direction.CCW);
+                canvas.clipPath(this.f38433g);
                 super.onDraw(canvas);
                 return;
             }
-            float[] fArr = aVar.f1668b;
+            float[] fArr = aVar.f2095b;
             if (fArr == null) {
                 super.onDraw(canvas);
                 return;
@@ -149,16 +149,16 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
             if (f2 >= max) {
                 float f3 = height;
                 if (f3 > max2) {
-                    this.f38277g.moveTo(fArr[0], 0.0f);
-                    this.f38277g.lineTo(f2 - fArr[1], 0.0f);
-                    this.f38277g.quadTo(f2, 0.0f, f2, fArr[1]);
-                    this.f38277g.lineTo(f2, f3 - fArr[3]);
-                    this.f38277g.quadTo(f2, f3, f2 - fArr[3], f3);
-                    this.f38277g.lineTo(fArr[2], f3);
-                    this.f38277g.quadTo(0.0f, f3, 0.0f, f3 - fArr[2]);
-                    this.f38277g.lineTo(0.0f, fArr[0]);
-                    this.f38277g.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
-                    canvas.clipPath(this.f38277g);
+                    this.f38433g.moveTo(fArr[0], 0.0f);
+                    this.f38433g.lineTo(f2 - fArr[1], 0.0f);
+                    this.f38433g.quadTo(f2, 0.0f, f2, fArr[1]);
+                    this.f38433g.lineTo(f2, f3 - fArr[3]);
+                    this.f38433g.quadTo(f2, f3, f2 - fArr[3], f3);
+                    this.f38433g.lineTo(fArr[2], f3);
+                    this.f38433g.quadTo(0.0f, f3, 0.0f, f3 - fArr[2]);
+                    this.f38433g.lineTo(0.0f, fArr[0]);
+                    this.f38433g.quadTo(0.0f, 0.0f, fArr[0], 0.0f);
+                    canvas.clipPath(this.f38433g);
                 }
             }
             super.onDraw(canvas);
@@ -183,8 +183,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageScaleType) == null) {
             if (imageScaleType != null) {
-                if (this.f38276f != imageScaleType) {
-                    this.f38276f = imageScaleType;
+                if (this.f38432f != imageScaleType) {
+                    this.f38432f = imageScaleType;
                     requestLayout();
                     invalidate();
                     return;
@@ -235,8 +235,8 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
                 return;
             }
         }
-        this.f38275e = new a0();
-        this.f38277g = new Path();
+        this.f38431e = new a0();
+        this.f38433g = new Path();
         a(attributeSet);
     }
 }

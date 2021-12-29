@@ -4,10 +4,10 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.r0.d1.k0;
-import c.a.r0.d1.n0;
-import c.a.r0.d1.s;
+import c.a.d.f.p.l;
+import c.a.s0.e1.k0;
+import c.a.s0.e1.n0;
+import c.a.s0.e1.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -29,7 +29,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @c.a.f.a.a
 /* loaded from: classes11.dex */
-public class SearchJsBridge implements c.a.s0.v3.n0.b {
+public class SearchJsBridge implements c.a.t0.w3.n0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -84,13 +84,13 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.d1.k0
+        @Override // c.a.s0.e1.k0
         /* renamed from: a */
         public String doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.s0.v3.p0.a.h(this.a);
+                c.a.t0.w3.p0.a.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -119,7 +119,7 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.r0.d1.s
+        @Override // c.a.s0.e1.s
         /* renamed from: a */
         public void onReturnDataInUI(String str) {
             Interceptable interceptable = $ic;
@@ -150,12 +150,12 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
             }
         }
 
-        @Override // c.a.r0.d1.k0
+        @Override // c.a.s0.e1.k0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.s0.v3.p0.a.b();
+                c.a.t0.w3.p0.a.b();
                 return null;
             }
             return invokeV.objValue;
@@ -186,7 +186,7 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
             this.a = searchJsBridge;
         }
 
-        @Override // c.a.r0.d1.s
+        @Override // c.a.s0.e1.s
         public void onReturnDataInUI(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -238,7 +238,7 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
                 addCookie(jSONObject, COOKIE_MOD, Build.MODEL);
                 addCookie(jSONObject, COOKIE_OV, Build.VERSION.RELEASE);
                 addCookie(jSONObject, "os_type", String.valueOf(2));
-                addCookie(jSONObject, "net_type", String.valueOf(k.I()));
+                addCookie(jSONObject, "net_type", String.valueOf(l.I()));
                 addCookie(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
                 addCookie(jSONObject, "from", TbConfig.getFrom());
                 addCookie(jSONObject, "cfrom", TbConfig.getCurrentFrom());
@@ -258,7 +258,7 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.s0.v3.n0.b
+    @Override // c.a.t0.w3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -298,44 +298,44 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
         return invokeLLLL.booleanValue;
     }
 
-    public c.a.s0.v3.n0.d.c deleteAllSearchHistory() {
+    public c.a.t0.w3.n0.d.c deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             n0.b(new c(this), new d(this));
             return cVar;
         }
-        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.s0.v3.n0.d.c deleteSearchHistory(String str) {
+    public c.a.t0.w3.n0.d.c deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             n0.b(new a(this, str), new b(this));
             return cVar;
         }
-        return (c.a.s0.v3.n0.d.c) invokeL.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeL.objValue;
     }
 
-    public c.a.s0.v3.n0.d.c getSearchAdCookie() {
+    public c.a.t0.w3.n0.d.c getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             cVar.o(initCookies());
             return cVar;
         }
-        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.s0.v3.n0.d.c getSearchHistoryJson() {
+    public c.a.t0.w3.n0.d.c getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
                 cVar.o("");
@@ -348,14 +348,14 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
             return cVar;
         }
-        return (c.a.s0.v3.n0.d.c) invokeV.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeV.objValue;
     }
 
-    public c.a.s0.v3.n0.d.c openSearchPage(String str, int i2) {
+    public c.a.t0.w3.n0.d.c openSearchPage(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
-            c.a.s0.v3.n0.d.c cVar = new c.a.s0.v3.n0.d.c();
+            c.a.t0.w3.n0.d.c cVar = new c.a.t0.w3.n0.d.c();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -366,7 +366,7 @@ public class SearchJsBridge implements c.a.s0.v3.n0.b {
             }
             return cVar;
         }
-        return (c.a.s0.v3.n0.d.c) invokeLI.objValue;
+        return (c.a.t0.w3.n0.d.c) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

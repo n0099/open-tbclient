@@ -5,10 +5,13 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes10.dex */
 public class FileUploadStrategy implements IUpload {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final boolean DEBUG = false;
+    public static final boolean DEBUG;
     public static final int KEEP_ALIVE_TIME = 60000;
     public static final String TAG = "FileUploadStrategy";
     public transient /* synthetic */ FieldHolder $fh;
@@ -319,16 +322,32 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-266522518, "Lcom/baidu/searchbox/aperf/bosuploader/uploadstrategy/FileUploadStrategy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-266522518, "Lcom/baidu/searchbox/aperf/bosuploader/uploadstrategy/FileUploadStrategy;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+    }
+
     public FileUploadStrategy() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
@@ -339,13 +358,13 @@ public class FileUploadStrategy implements IUpload {
     public static boolean checkFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? StoreUtil.getAttachFlag().exists() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? StoreUtil.getAttachFlag().exists() : invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cleanDiskCache() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             clearInvalidFiles();
             updateFileFlag();
         }
@@ -354,7 +373,7 @@ public class FileUploadStrategy implements IUpload {
     private Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             File[] listFiles = StoreUtil.getAttachDir().listFiles();
             if (listFiles == null || listFiles.length == 0) {
                 return null;
@@ -365,6 +384,9 @@ public class FileUploadStrategy implements IUpload {
                 while (it.hasNext()) {
                     File file = (File) it.next();
                     if (file != null) {
+                        if (DEBUG) {
+                            String str = "invalid delete = " + file.getAbsolutePath();
+                        }
                         file.delete();
                     }
                 }
@@ -378,7 +400,7 @@ public class FileUploadStrategy implements IUpload {
     private File createAttachZipFile(@Nullable List<File> list, @NonNull String str, @NonNull String str2, @NonNull String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, this, list, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, this, list, str, str2, str3)) == null) {
             FileName fileName = FileName.getFileName(str, str2, str3);
             if (fileName == null) {
                 return null;
@@ -393,7 +415,10 @@ public class FileUploadStrategy implements IUpload {
                     obtainFilePath.delete();
                 }
                 obtainFilePath.createNewFile();
-            } catch (IOException unused) {
+            } catch (IOException e2) {
+                if (DEBUG) {
+                    e2.getMessage();
+                }
             }
             if (obtainFilePath.exists()) {
                 LinkedList linkedList = new LinkedList();
@@ -411,7 +436,10 @@ public class FileUploadStrategy implements IUpload {
                     }
                     ZipUtils.zip(obtainFilePath, linkedList2);
                     return obtainFilePath;
-                } catch (IOException unused2) {
+                } catch (IOException e3) {
+                    if (DEBUG) {
+                        e3.getMessage();
+                    }
                 }
             }
             return null;
@@ -424,7 +452,7 @@ public class FileUploadStrategy implements IUpload {
         InterceptResult invokeI;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) {
             Pair<LinkedList<FileEntity>, LinkedList<File>> clearInvalidFiles = clearInvalidFiles();
             if (clearInvalidFiles == null) {
                 return false;
@@ -455,7 +483,7 @@ public class FileUploadStrategy implements IUpload {
     private Pair<LinkedList<FileEntity>, LinkedList<File>> fileCluster(@NonNull File[] fileArr, @NonNull TrimConfig trimConfig) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, fileArr, trimConfig)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, fileArr, trimConfig)) == null) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
             long currentTimeMillis = System.currentTimeMillis();
@@ -483,6 +511,9 @@ public class FileUploadStrategy implements IUpload {
                     if (i2 > trimConfig.mMaxCount) {
                         linkedList2.add(fileEntity2.mFile);
                         it.remove();
+                        if (DEBUG) {
+                            String str = "fileCluster + " + Thread.currentThread().getName();
+                        }
                     }
                 }
             }
@@ -494,7 +525,7 @@ public class FileUploadStrategy implements IUpload {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateFileFlag() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             File attachFlag = StoreUtil.getAttachFlag();
             File attachDir = StoreUtil.getAttachDir();
             if (attachFlag == null || attachDir == null) {
@@ -525,7 +556,7 @@ public class FileUploadStrategy implements IUpload {
     private ResponseEntity uploadAction(@NonNull FileEntity fileEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, fileEntity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, fileEntity)) == null) {
             if (fileEntity == null) {
                 return new ResponseEntity(false);
             }
@@ -540,10 +571,20 @@ public class FileUploadStrategy implements IUpload {
     public ResponseEntity uploadAttachmentSync(@NonNull String str, @NonNull File file) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, str, file)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, str, file)) == null) {
             if (!TextUtils.isEmpty(str) && file != null) {
                 ResponseEntity uploadSync = new BOSFileUpload().uploadSync(str, file);
-                return uploadSync == null ? new ResponseEntity(false) : uploadSync;
+                if (uploadSync == null) {
+                    uploadSync = new ResponseEntity(false);
+                }
+                if (DEBUG && uploadSync != null) {
+                    String str2 = "attachment upload success = " + uploadSync.isSuccess() + "," + file.getAbsolutePath();
+                    String message = uploadSync.getMessage();
+                    if (!TextUtils.isEmpty(message)) {
+                        String str3 = "attachment upload message = " + message;
+                    }
+                }
+                return uploadSync;
             }
             return new ResponseEntity(false);
         }
@@ -654,6 +695,9 @@ public class FileUploadStrategy implements IUpload {
                         return;
                     }
                     this.this$0.updateFileFlag();
+                    if (FileUploadStrategy.DEBUG) {
+                        String str3 = "new attachement file = " + this.val$attachZipFile.getAbsolutePath();
+                    }
                     ResponseEntity uploadAttachmentSync = this.this$0.uploadAttachmentSync(this.val$fileIDPrefix, this.val$attachZipFile);
                     if (uploadAttachmentSync.isSuccess()) {
                         this.val$attachZipFile.delete();

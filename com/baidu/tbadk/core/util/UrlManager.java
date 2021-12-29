@@ -6,9 +6,8 @@ import android.text.SpannableString;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
-import c.a.d.f.p.m;
-import c.a.r0.f1.n.f;
-import c.a.s0.v3.j0.n;
+import c.a.d.f.p.n;
+import c.a.s0.g1.n.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -17,6 +16,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -262,7 +262,7 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (m.B()) {
+            if (n.B()) {
                 addListenerInner(urlDealListener);
             } else {
                 e.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
@@ -302,23 +302,23 @@ public class UrlManager {
         }
     }
 
-    public boolean dealOneLink(TbPageContext<?> tbPageContext, String[] strArr, Bundle bundle) {
+    public boolean dealOneLink(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, tbPageContext, strArr, bundle)) == null) ? dealOneLinkWithDialog(tbPageContext, "", strArr, false, null, false, bundle) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, bundle)) == null) ? dealOneLinkWithDialog(tbPageContext, "", new String[]{str}, false, null, false, bundle) : invokeLLL.booleanValue;
     }
 
     public boolean dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2)})) == null) ? dealOneLinkWithDialog(tbPageContext, "", strArr, z, urlWebDialogCancelListener, z2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2)})) == null) ? dealOneLinkWithDialog(tbPageContext, "", strArr, z, urlWebDialogCancelListener, z2) : invokeCommon.booleanValue;
     }
 
     public int dealOneLinkWithOutJumpWebView(TbPageContext<?> tbPageContext, String[] strArr) {
         InterceptResult invokeLL;
         int deal;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, tbPageContext, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, tbPageContext, strArr)) == null) {
             if (strArr == null || strArr.length == 0 || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
                 return 3;
             }
@@ -333,7 +333,7 @@ public class UrlManager {
                     return deal;
                 }
             }
-            return 3;
+            return SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str, null) ? 0 : 3;
         }
         return invokeLL.intValue;
     }
@@ -341,7 +341,7 @@ public class UrlManager {
     public String getSchemaKeyByUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -359,7 +359,7 @@ public class UrlManager {
     public String getTidFromPbUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             if (isPbUrl(str)) {
                 String[] split = str.split("\\?");
                 if (split != null && split[0] != null) {
@@ -376,7 +376,7 @@ public class UrlManager {
     public boolean isFindUrlEndWithBlank(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, charSequence)) == null) {
             if (charSequence == null) {
                 return false;
             }
@@ -388,7 +388,7 @@ public class UrlManager {
     public boolean isPbUrl(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
             if (charSequence == null) {
                 return false;
             }
@@ -400,7 +400,7 @@ public class UrlManager {
     public boolean isUrlValid(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, charSequence)) == null) {
             if (charSequence == null) {
                 return false;
             }
@@ -411,7 +411,7 @@ public class UrlManager {
 
     public void registerSchema(String str, UrlSchemaHandler urlSchemaHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, urlSchemaHandler) == null) || StringUtils.isNull(str) || urlSchemaHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, urlSchemaHandler) == null) || StringUtils.isNull(str) || urlSchemaHandler == null) {
             return;
         }
         String schemaKey = getSchemaKey(str);
@@ -423,7 +423,7 @@ public class UrlManager {
 
     public void setWebListener(UrlWebDealListener urlWebDealListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, urlWebDealListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, urlWebDealListener) == null) {
             this.mWebListener = urlWebDealListener;
         }
     }
@@ -446,17 +446,29 @@ public class UrlManager {
         this.mWebListener = null;
     }
 
-    public boolean dealOneLink(TbPageContext<?> tbPageContext, String[] strArr) {
-        InterceptResult invokeLL;
+    public boolean dealOneLink(TbPageContext<?> tbPageContext, String[] strArr, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, tbPageContext, strArr)) == null) ? dealOneLinkWithDialog(tbPageContext, strArr, false, (UrlWebDialogCancelListener) null, false) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, strArr, bundle)) == null) ? dealOneLinkWithDialog(tbPageContext, "", strArr, false, null, false, bundle) : invokeLLL.booleanValue;
     }
 
     public void dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), urlWebDialogCancelListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), urlWebDialogCancelListener}) == null) {
             dealOneLinkWithDialog(tbPageContext, strArr, z, urlWebDialogCancelListener, false);
         }
+    }
+
+    public boolean dealOneLink(TbPageContext<?> tbPageContext, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, tbPageContext, strArr)) == null) ? dealOneLinkWithDialog(tbPageContext, strArr, false, (UrlWebDialogCancelListener) null, false) : invokeLL.booleanValue;
+    }
+
+    public boolean dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2)})) == null) ? dealOneLinkWithDialog(tbPageContext, str, strArr, z, urlWebDialogCancelListener, z2, null) : invokeCommon.booleanValue;
     }
 
     public void dealOneLink(TbPageContext<?> tbPageContext, String[] strArr, boolean z) {
@@ -466,24 +478,11 @@ public class UrlManager {
         }
     }
 
-    public boolean dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2)})) == null) ? dealOneLinkWithDialog(tbPageContext, str, strArr, z, urlWebDialogCancelListener, z2, null) : invokeCommon.booleanValue;
-    }
-
-    public void dealOneLink(TbPageContext<?> tbPageContext, String[] strArr, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), bundle}) == null) {
-            dealOneLinkWithDialog(tbPageContext, "", strArr, false, null, z, bundle);
-        }
-    }
-
     public boolean dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2), bundle})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener, Boolean.valueOf(z2), bundle})) == null) {
             if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0]) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(tbPageContext, null)) {
                 return false;
             }
@@ -496,7 +495,7 @@ public class UrlManager {
                     for (String str3 : parse.getQueryParameterNames()) {
                         hashMap.put(str3, parse.getQueryParameter(str3));
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new n(tbPageContext.getPageActivity(), host, hashMap)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new c.a.t0.w3.j0.n(tbPageContext.getPageActivity(), host, hashMap)));
                     return false;
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -536,21 +535,31 @@ public class UrlManager {
                     break;
                 }
             }
-            if (!z3 && this.mWebListener != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
+            if (z3 || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str2, null)) {
+                if (!z3 && this.mWebListener != null) {
+                    if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
+                        return true;
+                    }
+                    if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && YUN_PUSH_TAG.equals(strArr[1])) {
+                        MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
+                        mainTabActivityConfig.setTargetScheme(strArr[0]);
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
+                    } else {
+                        jumpToWeb(tbPageContext, str, strArr[0], z, urlWebDialogCancelListener, z2, bundle);
+                    }
                 }
-                if (strArr.length > 1 && !StringUtils.isNull(strArr[1]) && YUN_PUSH_TAG.equals(strArr[1])) {
-                    MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(tbPageContext.getPageActivity());
-                    mainTabActivityConfig.setTargetScheme(strArr[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2015002, mainTabActivityConfig));
-                } else {
-                    jumpToWeb(tbPageContext, str, strArr[0], z, urlWebDialogCancelListener, z2, bundle);
-                }
+                return z3;
             }
-            return z3;
+            return true;
         }
         return invokeCommon.booleanValue;
+    }
+
+    public void dealOneLink(TbPageContext<?> tbPageContext, String[] strArr, boolean z, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{tbPageContext, strArr, Boolean.valueOf(z), bundle}) == null) {
+            dealOneLinkWithDialog(tbPageContext, "", strArr, false, null, z, bundle);
+        }
     }
 
     public void dealOneLink(TbPageContext<?> tbPageContext, String str, String[] strArr) {
@@ -569,7 +578,7 @@ public class UrlManager {
 
     public void dealOneLinkWithDialog(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{tbPageContext, str, strArr, Boolean.valueOf(z), urlWebDialogCancelListener}) == null) {
             dealOneLinkWithDialog(tbPageContext, str, strArr, z, urlWebDialogCancelListener, false);
         }
     }

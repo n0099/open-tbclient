@@ -387,7 +387,7 @@ public class PlaybackControlView extends FrameLayout {
             }
             int o = wVar.o();
             for (int i2 = 0; i2 < o; i2++) {
-                if (wVar.l(i2, cVar).f30746i == -9223372036854775807L) {
+                if (wVar.l(i2, cVar).f30824i == -9223372036854775807L) {
                     return false;
                 }
             }
@@ -451,14 +451,14 @@ public class PlaybackControlView extends FrameLayout {
             int u = this.A.u();
             if (u != -1) {
                 L(u, -9223372036854775807L);
-            } else if (m.m(k2, this.t, false).f30742e) {
+            } else if (m.m(k2, this.t, false).f30820e) {
                 L(k2, -9223372036854775807L);
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0039, code lost:
-        if (r1.f30741d == false) goto L15;
+        if (r1.f30819d == false) goto L15;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -475,7 +475,7 @@ public class PlaybackControlView extends FrameLayout {
             if (r != -1) {
                 if (this.A.getCurrentPosition() > 3000) {
                     w.c cVar = this.t;
-                    if (cVar.f30742e) {
+                    if (cVar.f30820e) {
                     }
                 }
                 L(r, -9223372036854775807L);
@@ -595,9 +595,9 @@ public class PlaybackControlView extends FrameLayout {
         } else {
             m.l(this.A.k(), this.t);
             w.c cVar = this.t;
-            z2 = cVar.f30741d;
-            z = (!z2 && cVar.f30742e && this.A.r() == -1) ? false : true;
-            if (this.t.f30742e || this.A.u() != -1) {
+            z2 = cVar.f30819d;
+            z = (!z2 && cVar.f30820e && this.A.r() == -1) ? false : true;
+            if (this.t.f30820e || this.A.u() != -1) {
                 z3 = true;
                 O(z, this.f56461f);
                 O(z3, this.f56462g);
@@ -680,14 +680,14 @@ public class PlaybackControlView extends FrameLayout {
                         m.l(i4, this.t);
                         w.c cVar2 = this.t;
                         int i5 = i4;
-                        if (cVar2.f30746i == -9223372036854775807L) {
+                        if (cVar2.f30824i == -9223372036854775807L) {
                             c.i.b.a.i0.a.f(this.F ^ z);
                             break;
                         }
-                        int i6 = cVar2.f30743f;
+                        int i6 = cVar2.f30821f;
                         while (true) {
                             cVar = this.t;
-                            if (i6 <= cVar.f30744g) {
+                            if (i6 <= cVar.f30822g) {
                                 m.f(i6, this.s);
                                 int c2 = this.s.c();
                                 int i7 = 0;
@@ -695,7 +695,7 @@ public class PlaybackControlView extends FrameLayout {
                                     long f2 = this.s.f(i7);
                                     if (f2 == Long.MIN_VALUE) {
                                         i3 = k2;
-                                        long j7 = this.s.f30731d;
+                                        long j7 = this.s.f30809d;
                                         if (j7 == -9223372036854775807L) {
                                             i7++;
                                             k2 = i3;
@@ -706,7 +706,7 @@ public class PlaybackControlView extends FrameLayout {
                                         i3 = k2;
                                     }
                                     long k3 = f2 + this.s.k();
-                                    if (k3 >= 0 && k3 <= this.t.f30746i) {
+                                    if (k3 >= 0 && k3 <= this.t.f30824i) {
                                         long[] jArr = this.N;
                                         if (i2 == jArr.length) {
                                             int length = jArr.length == 0 ? 1 : jArr.length * 2;
@@ -723,7 +723,7 @@ public class PlaybackControlView extends FrameLayout {
                                 i6++;
                             }
                         }
-                        j6 += cVar.f30746i;
+                        j6 += cVar.f30824i;
                         i4 = i5 + 1;
                         k2 = k2;
                         z = true;

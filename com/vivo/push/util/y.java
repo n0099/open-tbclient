@@ -1,6 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,145 +10,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public final class y implements c {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
+public final class y implements d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, Long> f63150b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final HashMap<String, String> f63151c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static y f63152d;
+    public static String f63156b = "com.vivo.push.cache";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f63153e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c f63154f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f63155g;
+    /* renamed from: c  reason: collision with root package name */
+    public SharedPreferences f63157c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178883, "Lcom/vivo/push/util/y;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(744178883, "Lcom/vivo/push/util/y;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(744178883, "Lcom/vivo/push/util/y;")) == null) {
+            return;
         }
-        a = new HashMap<>();
-        f63150b = new HashMap<>();
-        f63151c = new HashMap<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(744178883, "Lcom/vivo/push/util/y;");
+        }
     }
 
-    public y(Context context) {
+    public y() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f63155g = false;
-        this.f63153e = context;
-        this.f63155g = a(context);
-        p.d("SystemCache", "init status is " + this.f63155g + ";  curCache is " + this.f63154f);
     }
 
-    public static synchronized y b(Context context) {
+    @Override // com.vivo.push.util.d
+    public final boolean a(Context context) {
         InterceptResult invokeL;
-        y yVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (y.class) {
-                if (f63152d == null) {
-                    f63152d = new y(context.getApplicationContext());
-                }
-                yVar = f63152d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.f63157c == null) {
+                this.f63157c = context.getSharedPreferences(f63156b, 0);
+                return true;
             }
-            return yVar;
+            return true;
         }
-        return (y) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.vivo.push.util.d
+    public final void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            SharedPreferences.Editor edit = this.f63157c.edit();
+            if (edit != null) {
+                edit.putString(str, str2);
+                b.a(edit);
+                p.d(a, "putString by ".concat(String.valueOf(str)));
+                return;
+            }
+            p.b(a, "putString error by ".concat(String.valueOf(str)));
+        }
+    }
+
+    @Override // com.vivo.push.util.d
+    public final String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String string = this.f63157c.getString(str, str2);
+            String str3 = a;
+            p.d(str3, "getString " + str + " is " + string);
+            return string;
+        }
+        return (String) invokeLL.objValue;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x xVar = new x();
-            if (xVar.a(this.f63153e)) {
-                xVar.a();
-                p.d("SystemCache", "sp cache is cleared");
+            SharedPreferences.Editor edit = this.f63157c.edit();
+            if (edit != null) {
+                edit.clear();
+                b.a(edit);
             }
+            p.d(a, "system cache is cleared");
         }
-    }
-
-    @Override // com.vivo.push.util.c
-    public final void b(String str, String str2) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f63151c.put(str, str2);
-            if (!this.f63155g || (cVar = this.f63154f) == null) {
-                return;
-            }
-            cVar.b(str, str2);
-        }
-    }
-
-    @Override // com.vivo.push.util.c
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            v vVar = new v();
-            this.f63154f = vVar;
-            boolean a2 = vVar.a(context);
-            if (!a2) {
-                u uVar = new u();
-                this.f63154f = uVar;
-                a2 = uVar.a(context);
-            }
-            if (!a2) {
-                x xVar = new x();
-                this.f63154f = xVar;
-                a2 = xVar.a(context);
-            }
-            if (!a2) {
-                this.f63154f = null;
-            }
-            return a2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.vivo.push.util.c
-    public final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = f63151c.get(str);
-            return (str3 != null || (cVar = this.f63154f) == null) ? str3 : cVar.a(str, str2);
-        }
-        return (String) invokeLL.objValue;
     }
 }

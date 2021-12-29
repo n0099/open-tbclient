@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -32,12 +32,12 @@ public class SoftInputUtil {
     public static int sMinSoftInputHeight;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface OnSoftInputShowingListener {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

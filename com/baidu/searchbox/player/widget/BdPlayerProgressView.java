@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -202,16 +201,6 @@ public class BdPlayerProgressView extends View {
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.mProgressMode == 2) {
             this.mTimeText = str;
             postInvalidate();
-        }
-    }
-
-    public void setTypeface(@NonNull Typeface typeface, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048586, this, typeface, z) == null) {
-            if (this.mPaint.getTypeface() != typeface) {
-                this.mPaint.setTypeface(typeface);
-            }
-            this.mPaint.setFakeBoldText(z);
         }
     }
 

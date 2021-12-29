@@ -604,7 +604,7 @@ public class TDialog extends b {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            new TextView(this.f62863e.get()).setText(com.baidu.fsg.base.a.f34607g);
+            new TextView(this.f62863e.get()).setText(com.baidu.fsg.base.a.f34763g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             com.tencent.open.b.b bVar = new com.tencent.open.b.b(this.f62863e.get());
             this.f62868k = bVar;

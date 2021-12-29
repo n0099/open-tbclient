@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.webkit.WebView;
-import c.a.r0.m.e;
+import c.a.s0.m.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -83,7 +83,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ YoungsterVerifyActivity f49493c;
+        public final /* synthetic */ YoungsterVerifyActivity f49716c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(YoungsterVerifyActivity youngsterVerifyActivity) {
@@ -103,7 +103,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
                     return;
                 }
             }
-            this.f49493c = youngsterVerifyActivity;
+            this.f49716c = youngsterVerifyActivity;
         }
 
         @Override // com.baidu.tbadk.browser.TbWebViewActivity.u, android.webkit.WebViewClient
@@ -129,7 +129,7 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 if (!StringUtils.isNull(str) && str.contains(TbConfig.URL_YOUNGSTER_VERIFY_AUTHID)) {
-                    this.f49493c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
+                    this.f49716c.youngsterVerifyModel.B(UrlUtil.getUrlField(str, YoungsterVerifyActivityConfig.PARAMA_AUTH_ID));
                     return true;
                 }
                 return super.shouldOverrideUrlLoading(webView, str);

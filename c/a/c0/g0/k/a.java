@@ -15,21 +15,21 @@ public class a {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f1572b;
+    public Handler f1999b;
 
     /* renamed from: c.a.c0.g0.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0042a implements Runnable {
+    public class RunnableC0063a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.a f1573e;
+        public final /* synthetic */ b.a f2000e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f1574f;
+        public final /* synthetic */ a f2001f;
 
-        public RunnableC0042a(a aVar, b.a aVar2) {
+        public RunnableC0063a(a aVar, b.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,15 +44,15 @@ public class a {
                     return;
                 }
             }
-            this.f1574f = aVar;
-            this.f1573e = aVar2;
+            this.f2001f = aVar;
+            this.f2000e = aVar2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1574f.c(this.f1573e.a);
+                this.f2001f.c(this.f2000e.a);
             }
         }
     }
@@ -78,10 +78,10 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || this.a || aVar == null || !aVar.a()) {
             return;
         }
-        if (this.f1572b == null) {
-            this.f1572b = new Handler();
+        if (this.f1999b == null) {
+            this.f1999b = new Handler();
         }
-        this.f1572b.postDelayed(new RunnableC0042a(this, aVar), (long) (aVar.f1616c * 1000.0d));
+        this.f1999b.postDelayed(new RunnableC0063a(this, aVar), (long) (aVar.f2043c * 1000.0d));
     }
 
     public final void c(String str) {
@@ -96,10 +96,10 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.f1572b;
+            Handler handler = this.f1999b;
             if (handler != null) {
                 handler.removeCallbacksAndMessages(null);
-                this.f1572b = null;
+                this.f1999b = null;
             }
             this.a = false;
         }

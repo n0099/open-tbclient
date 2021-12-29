@@ -1,8 +1,8 @@
 package com.baidu.swan.webcompat.impl;
 
 import androidx.webkit.WebViewAssetLoader;
-import c.a.q0.a.d2.d;
-import c.a.q0.z.a.b;
+import c.a.r0.a.d2.d;
+import c.a.r0.z.a.b;
 import com.baidu.fsg.face.base.b.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -68,7 +68,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);
-            q = this.this$0.q(c.f34980g);
+            q = this.this$0.q(c.f35136g);
             m = this.this$0.m();
             builder.addPathHandler(q, m);
             q2 = this.this$0.q("internal_files");

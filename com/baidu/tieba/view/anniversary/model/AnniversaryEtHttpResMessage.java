@@ -1,6 +1,6 @@
 package com.baidu.tieba.view.anniversary.model;
 
-import c.a.s0.m4.i.d.b;
+import c.a.t0.n4.i.d.b;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

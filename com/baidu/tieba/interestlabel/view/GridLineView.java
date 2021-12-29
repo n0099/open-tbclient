@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
@@ -20,10 +20,10 @@ public class GridLineView extends BdGridView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f46942e;
+    public Paint f47162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f46943f;
+    public int f47163f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GridLineView(Context context) {
@@ -50,11 +50,11 @@ public class GridLineView extends BdGridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             Paint paint = new Paint();
-            this.f46942e = paint;
+            this.f47162e = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f46942e.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f46942e.setStrokeWidth(1.0f);
-            this.f46943f = m.f(context, R.dimen.ds26);
+            this.f47162e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f47162e.setStrokeWidth(1.0f);
+            this.f47163f = n.f(context, R.dimen.ds26);
         }
     }
 
@@ -79,11 +79,11 @@ public class GridLineView extends BdGridView {
                 int top = childAt.getTop();
                 for (int i5 = 1; i5 <= i4; i5++) {
                     float f2 = top + (height * i5);
-                    canvas.drawLine(0.0f, f2, width, f2, this.f46942e);
+                    canvas.drawLine(0.0f, f2, width, f2, this.f47162e);
                     for (int i6 = 1; i6 < numColumns; i6++) {
                         float f3 = width2 * i6;
-                        int i7 = this.f46943f;
-                        canvas.drawLine(f3, ((i5 - 1) * height) + top + i7, f3, i2 - i7, this.f46942e);
+                        int i7 = this.f47163f;
+                        canvas.drawLine(f3, ((i5 - 1) * height) + top + i7, f3, i2 - i7, this.f47162e);
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class GridLineView extends BdGridView {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f46942e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f47162e.setColor(SkinManager.getColor(R.color.CAM_X0204));
         }
     }
 

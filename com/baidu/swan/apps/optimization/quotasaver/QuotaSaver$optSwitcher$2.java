@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import c.a.q0.a.g1.j.f.b;
+import c.a.r0.a.g1.j.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,13 +14,13 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\t\n\u0000\n\u0002\b\u0003*\u0001\u0001\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "com/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1", "invoke", "()Lcom/baidu/swan/apps/optimization/quotasaver/QuotaSaver$optSwitcher$2$1;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<a> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$optSwitcher$2 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             }
         }
 
-        @Override // c.a.q0.a.g1.j.f.b
+        @Override // c.a.r0.a.g1.j.f.b
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -52,28 +52,28 @@ public final class QuotaSaver$optSwitcher$2 extends Lambda implements Function0<
             return invokeV.intValue;
         }
 
-        @Override // c.a.q0.a.g1.j.f.b
+        @Override // c.a.r0.a.g1.j.f.b
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.g() && QuotaSaver.p.j() : invokeV.booleanValue;
         }
 
-        @Override // c.a.q0.a.g1.j.f.b
+        @Override // c.a.r0.a.g1.j.f.b
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.h() : invokeV.booleanValue;
         }
 
-        @Override // c.a.q0.a.g1.j.f.b
+        @Override // c.a.r0.a.g1.j.f.b
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuotaSaver.p.b() && QuotaSaver.p.i() : invokeV.booleanValue;
         }
 
-        @Override // c.a.q0.a.g1.j.f.b
+        @Override // c.a.r0.a.g1.j.f.b
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

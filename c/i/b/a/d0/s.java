@@ -16,10 +16,10 @@ public final class s {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Format[] f29993b;
+    public final Format[] f30071b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29994c;
+    public int f30072c;
 
     public s(Format... formatArr) {
         Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public final class s {
             }
         }
         c.i.b.a.i0.a.f(formatArr.length > 0);
-        this.f29993b = formatArr;
+        this.f30071b = formatArr;
         this.a = formatArr.length;
     }
 
     public Format a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f29993b[i2] : (Format) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f30071b[i2] : (Format) invokeI.objValue;
     }
 
     public int b(Format format) {
@@ -55,7 +55,7 @@ public final class s {
         }
         int i2 = 0;
         while (true) {
-            Format[] formatArr = this.f29993b;
+            Format[] formatArr = this.f30071b;
             if (i2 >= formatArr.length) {
                 return -1;
             }
@@ -77,7 +77,7 @@ public final class s {
                 return false;
             }
             s sVar = (s) obj;
-            return this.a == sVar.a && Arrays.equals(this.f29993b, sVar.f29993b);
+            return this.a == sVar.a && Arrays.equals(this.f30071b, sVar.f30071b);
         }
         return invokeL.booleanValue;
     }
@@ -86,10 +86,10 @@ public final class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f29994c == 0) {
-                this.f29994c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f29993b);
+            if (this.f30072c == 0) {
+                this.f30072c = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.f30071b);
             }
-            return this.f29994c;
+            return this.f30072c;
         }
         return invokeV.intValue;
     }

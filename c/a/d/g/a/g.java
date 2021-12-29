@@ -49,7 +49,7 @@ public class g extends j {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2712e;
+            Matrix matrix = this.f3140e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
@@ -60,17 +60,17 @@ public class g extends j {
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2721b.g(canvas, this.y, this.f2713f, this.f2709b);
+                dVar.f3149b.g(canvas, this.y, this.f3141f, this.f3137b);
             } else if (dVar.d()) {
                 if (this.u) {
-                    v(canvas, dVar.f2721b.p());
+                    v(canvas, dVar.f3149b.p());
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2721b.g(canvas, this.y, this.f2713f, this.f2709b);
+                dVar.f3149b.g(canvas, this.y, this.f3141f, this.f3137b);
             } else {
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2721b.g(canvas, this.y, this.f2713f, this.f2709b);
+                dVar.f3149b.g(canvas, this.y, this.f3141f, this.f3137b);
             }
         }
     }
@@ -79,11 +79,11 @@ public class g extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
             this.y.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.x.set(0, 0, (int) this.f2713f.width(), (int) this.f2713f.height());
+            this.x.set(0, 0, (int) this.f3141f.width(), (int) this.f3141f.height());
             canvas.save();
             canvas.drawARGB(0, 0, 0, 0);
             canvas.drawPath(this.r, this.v);
-            canvas.drawBitmap(bitmap, this.y, this.f2713f, this.w);
+            canvas.drawBitmap(bitmap, this.y, this.f3141f, this.w);
             canvas.restore();
         }
     }

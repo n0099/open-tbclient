@@ -35,7 +35,7 @@ public class VDeviceAPI {
     public static PowerManager.WakeLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f37189b;
+    public static BroadcastReceiver f37345b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -387,8 +387,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f37189b = new a();
-            b.a().registerReceiver(f37189b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f37345b = new a();
+            b.a().registerReceiver(f37345b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -422,10 +422,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f37189b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f37345b == null) {
             return;
         }
-        b.a().unregisterReceiver(f37189b);
-        f37189b = null;
+        b.a().unregisterReceiver(f37345b);
+        f37345b = null;
     }
 }

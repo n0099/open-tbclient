@@ -3,7 +3,7 @@ package com.baidu.tieba.memberCenter.index;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import c.a.r0.p0.d;
+import c.a.s0.q0.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class MembercenterActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

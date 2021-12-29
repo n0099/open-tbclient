@@ -31,35 +31,35 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33716b = "JsJavaBridge";
+    public static final String f33872b = "JsJavaBridge";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33717c = "BdWallet:";
+    public static final String f33873c = "BdWallet:";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33718d;
+    public static final String f33874d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33719e = 0;
+    public static final int f33875e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f33720f = 101;
+    public static final int f33876f = 101;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f33721g = 102;
+    public static final int f33877g = 102;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f33722h = 100;
+    public static final int f33878h = 100;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33723i = "Local";
+    public static final String f33879i = "Local";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final HashMap<String, Object> f33724j;
+    public final HashMap<String, Object> f33880j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final HashMap<String, Set<String>> f33725k;
+    public final HashMap<String, Set<String>> f33881k;
     public boolean l;
     public String m;
     public final Map<String, String> n;
@@ -78,7 +78,7 @@ public class b {
             }
         }
         a = ApollonConstants.DEBUG & false;
-        f33718d = f33717c.toLowerCase();
+        f33874d = f33873c.toLowerCase();
     }
 
     public b() {
@@ -94,8 +94,8 @@ public class b {
                 return;
             }
         }
-        this.f33724j = new HashMap<>();
-        this.f33725k = new HashMap<>();
+        this.f33880j = new HashMap<>();
+        this.f33881k = new HashMap<>();
         this.l = false;
         this.n = new HashMap();
     }
@@ -109,7 +109,7 @@ public class b {
             if (obj == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f33724j.put(str, obj);
+            this.f33880j.put(str, obj);
             this.m = null;
         }
     }
@@ -125,7 +125,7 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f33724j.clear();
+            this.f33880j.clear();
             this.m = null;
         }
     }
@@ -157,9 +157,9 @@ public class b {
             StringBuilder sb = new StringBuilder();
             sb.append("javascript:");
             sb.append("(function JsAddJavascriptInterface_(){");
-            for (String str : this.f33724j.keySet()) {
+            for (String str : this.f33880j.keySet()) {
                 try {
-                    a(sb, this.f33724j.get(str), str);
+                    a(sb, this.f33880j.get(str), str);
                 } catch (JSONException unused) {
                     boolean z = a;
                 }
@@ -187,7 +187,7 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f33724j.remove(str);
+            this.f33880j.remove(str);
             this.m = null;
             if (a) {
                 String str2 = "removeJavascriptInterface from map: " + str;
@@ -224,10 +224,10 @@ public class b {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            if (str2.startsWith(f33717c)) {
+            if (str2.startsWith(f33873c)) {
                 substring = str2.substring(9);
                 z = true;
-            } else if (!str2.startsWith(f33717c.toLowerCase())) {
+            } else if (!str2.startsWith(f33873c.toLowerCase())) {
                 return false;
             } else {
                 substring = str2.substring(9);
@@ -252,7 +252,7 @@ public class b {
                         }
                     }
                     sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                    LogUtil.i(f33716b, "call: " + sb.toString());
+                    LogUtil.i(f33872b, "call: " + sb.toString());
                 }
                 if (javaBridgeObject != null) {
                     return a(jsPromptResult, z, javaBridgeObject);
@@ -275,7 +275,7 @@ public class b {
         Set<String> set;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.f33725k) == null || hashMap.size() < 1 || (set = this.f33725k.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || (hashMap = this.f33881k) == null || hashMap.size() < 1 || (set = this.f33881k.get(str)) == null) {
                 return false;
             }
             return set.contains(str2);
@@ -302,7 +302,7 @@ public class b {
                 HashSet hashSet = new HashSet();
                 for (Method method : methods) {
                     String name = method.getName();
-                    if (!name.endsWith(f33723i) && !c(name) && !hashSet.contains(name)) {
+                    if (!name.endsWith(f33879i) && !c(name) && !hashSet.contains(name)) {
                         hashSet.add(name);
                         sb.append(name);
                         sb.append(":function(){");
@@ -310,7 +310,7 @@ public class b {
                             sb.append("return ");
                         }
                         sb.append("prompt('");
-                        sb.append(f33718d);
+                        sb.append(f33874d);
                         sb.append("'+");
                         sb.append("JSON.stringify({");
                         sb.append("obj");
@@ -328,7 +328,7 @@ public class b {
                         sb.append("},");
                     }
                 }
-                this.f33725k.put(str, hashSet);
+                this.f33881k.put(str, hashSet);
                 int length = sb.length() - 1;
                 if (sb.charAt(length) == ',') {
                     sb.deleteCharAt(length);
@@ -359,7 +359,7 @@ public class b {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{jsPromptResult, Boolean.valueOf(z), javaBridgeObject})) == null) {
-            Object obj = this.f33724j.get(javaBridgeObject.obj);
+            Object obj = this.f33880j.get(javaBridgeObject.obj);
             if (obj == null) {
                 if (a) {
                     String str = "not exist js interface:" + javaBridgeObject.obj;

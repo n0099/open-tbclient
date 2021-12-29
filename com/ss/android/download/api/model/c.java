@@ -1,14 +1,7 @@
 package com.ss.android.download.api.model;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.download.api.constant.BaseConstants;
 import com.ss.android.downloadlib.addownload.j;
 import java.util.Iterator;
@@ -17,8 +10,6 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -58,8 +49,6 @@ public class c {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -67,9 +56,6 @@ public class c {
 
         /* renamed from: c  reason: collision with root package name */
         public String f61689c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public boolean f61690d;
 
         /* renamed from: e  reason: collision with root package name */
         public long f61691e;
@@ -94,246 +80,148 @@ public class c {
         public int l;
         public Object m;
         public String n;
-        public boolean o;
         public String p;
         public JSONObject q;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f61690d = false;
-            this.o = false;
-        }
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f61690d = false;
+        public boolean o = false;
 
         public a a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-                this.o = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
+            this.o = z;
+            return this;
         }
 
         public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.f61689c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61689c = str;
+            return this;
         }
 
         public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f61692f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61692f = str;
+            return this;
         }
 
         public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-                this.n = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.n = str;
+            return this;
         }
 
         public a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f61688b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61688b = str;
+            return this;
         }
 
         public a b(long j2) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-                this.f61693g = j2;
-                return this;
-            }
-            return (a) invokeJ.objValue;
+            this.f61693g = j2;
+            return this;
         }
 
         public a a(long j2) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.f61691e = j2;
-                return this;
-            }
-            return (a) invokeJ.objValue;
+            this.f61691e = j2;
+            return this;
         }
 
         public a b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-                this.f61690d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
+            this.f61690d = z;
+            return this;
         }
 
         public a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
-                this.f61694h = jSONObject;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61694h = jSONObject;
+            return this;
         }
 
         public a b(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
-                this.f61695i = jSONObject;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61695i = jSONObject;
+            return this;
         }
 
         public a a(List<String> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-                this.f61697k = list;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61697k = list;
+            return this;
         }
 
         public a a(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.l = i2;
-                return this;
-            }
-            return (a) invokeI.objValue;
+            this.l = i2;
+            return this;
         }
 
         public a a(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-                this.m = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.m = obj;
+            return this;
         }
 
         public c a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    this.a = BaseConstants.CATEGORY_UMENG;
-                }
-                JSONObject jSONObject = new JSONObject();
-                if (this.f61694h == null) {
-                    this.f61694h = new JSONObject();
-                }
-                try {
-                    if (this.f61696j != null && !this.f61696j.isEmpty()) {
-                        for (Map.Entry<String, Object> entry : this.f61696j.entrySet()) {
-                            if (!this.f61694h.has(entry.getKey())) {
-                                this.f61694h.putOpt(entry.getKey(), entry.getValue());
-                            }
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = BaseConstants.CATEGORY_UMENG;
+            }
+            JSONObject jSONObject = new JSONObject();
+            if (this.f61694h == null) {
+                this.f61694h = new JSONObject();
+            }
+            try {
+                if (this.f61696j != null && !this.f61696j.isEmpty()) {
+                    for (Map.Entry<String, Object> entry : this.f61696j.entrySet()) {
+                        if (!this.f61694h.has(entry.getKey())) {
+                            this.f61694h.putOpt(entry.getKey(), entry.getValue());
                         }
                     }
-                    if (this.o) {
-                        this.p = this.f61689c;
-                        JSONObject jSONObject2 = new JSONObject();
-                        this.q = jSONObject2;
-                        if (this.f61690d) {
-                            jSONObject2.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f61694h.toString());
-                        } else {
-                            Iterator<String> keys = this.f61694h.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.q.put(next, this.f61694h.get(next));
-                            }
-                        }
-                        this.q.put("category", this.a);
-                        this.q.put("tag", this.f61688b);
-                        this.q.put("value", this.f61691e);
-                        this.q.put("ext_value", this.f61693g);
-                        if (!TextUtils.isEmpty(this.n)) {
-                            this.q.put(TiebaStatic.Params.REFER, this.n);
-                        }
-                        if (this.f61695i != null) {
-                            this.q = com.ss.android.download.api.c.b.a(this.f61695i, this.q);
-                        }
-                        if (this.f61690d) {
-                            if (!this.q.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f61692f)) {
-                                this.q.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f61692f);
-                            }
-                            this.q.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
-                        }
-                    }
+                }
+                if (this.o) {
+                    this.p = this.f61689c;
+                    JSONObject jSONObject2 = new JSONObject();
+                    this.q = jSONObject2;
                     if (this.f61690d) {
-                        jSONObject.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f61694h.toString());
-                        if (!jSONObject.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f61692f)) {
-                            jSONObject.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f61692f);
-                        }
-                        jSONObject.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
+                        jSONObject2.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f61694h.toString());
                     } else {
-                        jSONObject.put("extra", this.f61694h);
+                        Iterator<String> keys = this.f61694h.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            this.q.put(next, this.f61694h.get(next));
+                        }
                     }
+                    this.q.put("category", this.a);
+                    this.q.put("tag", this.f61688b);
+                    this.q.put("value", this.f61691e);
+                    this.q.put("ext_value", this.f61693g);
                     if (!TextUtils.isEmpty(this.n)) {
-                        jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
+                        this.q.put(TiebaStatic.Params.REFER, this.n);
                     }
                     if (this.f61695i != null) {
-                        jSONObject = com.ss.android.download.api.c.b.a(this.f61695i, jSONObject);
+                        this.q = com.ss.android.download.api.c.b.a(this.f61695i, this.q);
                     }
-                    this.f61694h = jSONObject;
-                } catch (Exception e2) {
-                    j.s().a(e2, "DownloadEventModel build");
+                    if (this.f61690d) {
+                        if (!this.q.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f61692f)) {
+                            this.q.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f61692f);
+                        }
+                        this.q.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
+                    }
                 }
-                return new c(this);
+                if (this.f61690d) {
+                    jSONObject.put(BaseConstants.EVENT_LABEL_AD_EXTRA_DATA, this.f61694h.toString());
+                    if (!jSONObject.has(BaseConstants.EVENT_LABEL_LOG_EXTRA) && !TextUtils.isEmpty(this.f61692f)) {
+                        jSONObject.put(BaseConstants.EVENT_LABEL_LOG_EXTRA, this.f61692f);
+                    }
+                    jSONObject.put(BaseConstants.EVENT_LABEL_IS_AD_EVENT, "1");
+                } else {
+                    jSONObject.put("extra", this.f61694h);
+                }
+                if (!TextUtils.isEmpty(this.n)) {
+                    jSONObject.putOpt(TiebaStatic.Params.REFER, this.n);
+                }
+                if (this.f61695i != null) {
+                    jSONObject = com.ss.android.download.api.c.b.a(this.f61695i, jSONObject);
+                }
+                this.f61694h = jSONObject;
+            } catch (Exception e2) {
+                j.s().a(e2, "DownloadEventModel build");
             }
-            return (c) invokeV.objValue;
+            return new c(this);
         }
     }
 
     public c(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = aVar.a;
         this.f61678b = aVar.f61688b;
         this.f61679c = aVar.f61689c;
@@ -353,135 +241,100 @@ public class c {
     }
 
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return this.a;
     }
 
     public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61678b : (String) invokeV.objValue;
+        return this.f61678b;
     }
 
     public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61679c : (String) invokeV.objValue;
+        return this.f61679c;
     }
 
     public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f61680d : invokeV.booleanValue;
+        return this.f61680d;
     }
 
     public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f61681e : invokeV.longValue;
+        return this.f61681e;
     }
 
     public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f61682f : (String) invokeV.objValue;
+        return this.f61682f;
     }
 
     public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61683g : invokeV.longValue;
+        return this.f61683g;
     }
 
     public JSONObject h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f61684h : (JSONObject) invokeV.objValue;
+        return this.f61684h;
     }
 
     public JSONObject i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f61685i : (JSONObject) invokeV.objValue;
+        return this.f61685i;
     }
 
     public List<String> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f61686j : (List) invokeV.objValue;
+        return this.f61686j;
     }
 
     public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f61687k : invokeV.intValue;
+        return this.f61687k;
     }
 
     public Object l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.objValue;
+        return this.l;
     }
 
     public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : invokeV.booleanValue;
+        return this.n;
     }
 
     public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.o : (String) invokeV.objValue;
+        return this.o;
     }
 
     public JSONObject o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.p : (JSONObject) invokeV.objValue;
+        return this.p;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("category: ");
-            sb.append(this.a);
-            sb.append("\ttag: ");
-            sb.append(this.f61678b);
-            sb.append("\tlabel: ");
-            sb.append(this.f61679c);
-            sb.append("\nisAd: ");
-            sb.append(this.f61680d);
-            sb.append("\tadId: ");
-            sb.append(this.f61681e);
-            sb.append("\tlogExtra: ");
-            sb.append(this.f61682f);
-            sb.append("\textValue: ");
-            sb.append(this.f61683g);
-            sb.append("\nextJson: ");
-            sb.append(this.f61684h);
-            sb.append("\nparamsJson: ");
-            sb.append(this.f61685i);
-            sb.append("\nclickTrackUrl: ");
-            List<String> list = this.f61686j;
-            sb.append(list != null ? list.toString() : "");
-            sb.append("\teventSource: ");
-            sb.append(this.f61687k);
-            sb.append("\textraObject: ");
-            Object obj = this.l;
-            sb.append(obj != null ? obj.toString() : "");
-            sb.append("\nisV3: ");
-            sb.append(this.n);
-            sb.append("\tV3EventName: ");
-            sb.append(this.o);
-            sb.append("\tV3EventParams: ");
-            JSONObject jSONObject = this.p;
-            sb.append(jSONObject != null ? jSONObject.toString() : "");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        StringBuilder sb = new StringBuilder();
+        sb.append("category: ");
+        sb.append(this.a);
+        sb.append("\ttag: ");
+        sb.append(this.f61678b);
+        sb.append("\tlabel: ");
+        sb.append(this.f61679c);
+        sb.append("\nisAd: ");
+        sb.append(this.f61680d);
+        sb.append("\tadId: ");
+        sb.append(this.f61681e);
+        sb.append("\tlogExtra: ");
+        sb.append(this.f61682f);
+        sb.append("\textValue: ");
+        sb.append(this.f61683g);
+        sb.append("\nextJson: ");
+        sb.append(this.f61684h);
+        sb.append("\nparamsJson: ");
+        sb.append(this.f61685i);
+        sb.append("\nclickTrackUrl: ");
+        List<String> list = this.f61686j;
+        sb.append(list != null ? list.toString() : "");
+        sb.append("\teventSource: ");
+        sb.append(this.f61687k);
+        sb.append("\textraObject: ");
+        Object obj = this.l;
+        sb.append(obj != null ? obj.toString() : "");
+        sb.append("\nisV3: ");
+        sb.append(this.n);
+        sb.append("\tV3EventName: ");
+        sb.append(this.o);
+        sb.append("\tV3EventParams: ");
+        JSONObject jSONObject = this.p;
+        sb.append(jSONObject != null ? jSONObject.toString() : "");
+        return sb.toString();
     }
 }

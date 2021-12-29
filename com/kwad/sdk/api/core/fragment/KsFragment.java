@@ -23,16 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.collection.SimpleArrayMap;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.a;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 import com.kwad.sdk.api.core.lifecycle.KsLifecycle;
@@ -43,191 +34,108 @@ import java.io.PrintWriter;
 @Keep
 /* loaded from: classes3.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
-    public static /* synthetic */ Interceptable $ic;
-    public static final SimpleArrayMap<String, Class<?>> sClassMap;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     public Fragment mBase;
     public KsFragmentManager mChildFragmentManager;
     public KsFragmentManager mFragmentManager;
     public KsLifecycle mLifeCycle;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(754010564, "Lcom/kwad/sdk/api/core/fragment/KsFragment;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(754010564, "Lcom/kwad/sdk/api/core/fragment/KsFragment;");
-                return;
-            }
-        }
-        sClassMap = new SimpleArrayMap<>();
-    }
-
     @KsAdSdkDynamicApi
     @Keep
     public KsFragment() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         this.mBase = new ResFragment(this);
     }
 
     @Keep
     public KsFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fragment};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.mBase = fragment;
     }
 
     public static KsFragment instantiate(Context context, String str, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, str, bundle)) == null) {
-            try {
-                Class<?> cls = sClassMap.get(str);
-                if (cls == null) {
-                    cls = context.getClassLoader().loadClass(str);
-                    sClassMap.put(str, cls);
-                }
-                KsFragment ksFragment = (KsFragment) cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-                if (bundle != null) {
-                    bundle.setClassLoader(ksFragment.getClass().getClassLoader());
-                    ksFragment.setArguments(bundle);
-                }
-                return ksFragment;
-            } catch (Exception e2) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
+        try {
+            Class<?> cls = sClassMap.get(str);
+            if (cls == null) {
+                cls = context.getClassLoader().loadClass(str);
+                sClassMap.put(str, cls);
             }
+            KsFragment ksFragment = (KsFragment) cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            if (bundle != null) {
+                bundle.setClassLoader(ksFragment.getClass().getClassLoader());
+                ksFragment.setArguments(bundle);
+            }
+            return ksFragment;
+        } catch (Exception e2) {
+            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
         }
-        return (KsFragment) invokeLLL.objValue;
     }
 
     private boolean isAllFragmentIsHidden(Fragment fragment) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fragment)) == null) {
-            Fragment parentFragment = fragment.getParentFragment();
-            boolean isHidden = fragment.isHidden();
-            return parentFragment == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment);
-        }
-        return invokeL.booleanValue;
+        Fragment parentFragment = fragment.getParentFragment();
+        boolean isHidden = fragment.isHidden();
+        return parentFragment == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment);
     }
 
     private boolean isKsAdParentFragment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            Fragment parentFragment = this.mBase.getParentFragment();
-            return parentFragment != null && (parentFragment instanceof IDelegateFragment);
-        }
-        return invokeV.booleanValue;
+        Fragment parentFragment = this.mBase.getParentFragment();
+        return parentFragment != null && (parentFragment instanceof IDelegateFragment);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.mBase.dump(str, fileDescriptor, printWriter, strArr);
-        }
+        this.mBase.dump(str, fileDescriptor, printWriter, strArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Fragment fragment = this.mBase;
-            if (fragment instanceof IDelegateFragment) {
-                return ((IDelegateFragment) fragment).getActivity2();
-            }
-            throw new RuntimeException(this.mBase + " must be DelegateFragment or DelegateDialogFragment");
+        Fragment fragment = this.mBase;
+        if (fragment instanceof IDelegateFragment) {
+            return ((IDelegateFragment) fragment).getActivity2();
         }
-        return (Activity) invokeV.objValue;
+        throw new RuntimeException(this.mBase + " must be DelegateFragment or DelegateDialogFragment");
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean getAllowEnterTransitionOverlap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBase.getAllowEnterTransitionOverlap() : invokeV.booleanValue;
+        return this.mBase.getAllowEnterTransitionOverlap();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean getAllowReturnTransitionOverlap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mBase.getAllowReturnTransitionOverlap() : invokeV.booleanValue;
+        return this.mBase.getAllowReturnTransitionOverlap();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final Bundle getArguments() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Bundle arguments = this.mBase.getArguments();
-            if (arguments != null) {
-                arguments.setClassLoader(Loader.get().getRealClassLoader());
-            }
-            return arguments;
+        Bundle arguments = this.mBase.getArguments();
+        if (arguments != null) {
+            arguments.setClassLoader(Loader.get().getRealClassLoader());
         }
-        return (Bundle) invokeV.objValue;
+        return arguments;
     }
 
     @Keep
     public final Fragment getBase() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBase : (Fragment) invokeV.objValue;
+        return this.mBase;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public KsFragmentManager getChildFragmentManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.mChildFragmentManager == null) {
-                this.mChildFragmentManager = new KsFragmentManager(this.mBase.getChildFragmentManager());
-            }
-            return this.mChildFragmentManager;
+        if (this.mChildFragmentManager == null) {
+            this.mChildFragmentManager = new KsFragmentManager(this.mBase.getChildFragmentManager());
         }
-        return (KsFragmentManager) invokeV.objValue;
+        return this.mChildFragmentManager;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -235,9 +143,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mBase.getContext() : (Context) invokeV.objValue;
+        return this.mBase.getContext();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -245,9 +151,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public Object getEnterTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mBase.getEnterTransition() : invokeV.objValue;
+        return this.mBase.getEnterTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -255,42 +159,31 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Object getExitTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mBase.getExitTransition() : invokeV.objValue;
+        return this.mBase.getExitTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public KsFragmentManager getFragmentManager() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.mFragmentManager == null) {
-                this.mFragmentManager = new KsFragmentManager(this.mBase.getFragmentManager());
-            }
-            return this.mFragmentManager;
+        if (this.mFragmentManager == null) {
+            this.mFragmentManager = new KsFragmentManager(this.mBase.getFragmentManager());
         }
-        return (KsFragmentManager) invokeV.objValue;
+        return this.mFragmentManager;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final Object getHost() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.mBase.getHost() : invokeV.objValue;
+        return this.mBase.getHost();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final int getId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mBase.getId() : invokeV.intValue;
+        return this.mBase.getId();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -299,52 +192,38 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @SuppressLint({"RestrictedApi"})
     public final LayoutInflater getLayoutInflater(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bundle)) == null) ? this.mBase.getLayoutInflater(bundle) : (LayoutInflater) invokeL.objValue;
+        return this.mBase.getLayoutInflater(bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public KsLifecycle getLifecycle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.mLifeCycle == null) {
-                this.mLifeCycle = new KsLifecycle(this.mBase.getLifecycle());
-            }
-            return this.mLifeCycle;
+        if (this.mLifeCycle == null) {
+            this.mLifeCycle = new KsLifecycle(this.mBase.getLifecycle());
         }
-        return (KsLifecycle) invokeV.objValue;
+        return this.mLifeCycle;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final KsFragment getParentFragment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            Fragment parentFragment = this.mBase.getParentFragment();
-            if (parentFragment instanceof IDelegateFragment) {
-                return ((IDelegateFragment) parentFragment).getBase();
-            }
-            if (parentFragment == null) {
-                return null;
-            }
-            throw new RuntimeException(parentFragment + " is not a DelegateFragment or DelegateDialogFragment");
+        Fragment parentFragment = this.mBase.getParentFragment();
+        if (parentFragment instanceof IDelegateFragment) {
+            return ((IDelegateFragment) parentFragment).getBase();
         }
-        return (KsFragment) invokeV.objValue;
+        if (parentFragment == null) {
+            return null;
+        }
+        throw new RuntimeException(parentFragment + " is not a DelegateFragment or DelegateDialogFragment");
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final Object getReenterTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mBase.getReenterTransition() : invokeV.objValue;
+        return this.mBase.getReenterTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -353,24 +232,17 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (a.f57545c.booleanValue()) {
-                throw new RuntimeException("please use getContext().getResources()");
-            }
-            return this.mBase.getContext().getResources();
+        if (a.f57545c.booleanValue()) {
+            throw new RuntimeException("please use getContext().getResources()");
         }
-        return (Resources) invokeV.objValue;
+        return this.mBase.getContext().getResources();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean getRetainInstance() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.mBase.getRetainInstance() : invokeV.booleanValue;
+        return this.mBase.getRetainInstance();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -378,9 +250,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Object getReturnTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mBase.getReturnTransition() : invokeV.objValue;
+        return this.mBase.getReturnTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -388,9 +258,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Object getSharedElementEnterTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mBase.getSharedElementEnterTransition() : invokeV.objValue;
+        return this.mBase.getSharedElementEnterTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -398,9 +266,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final Object getSharedElementReturnTransition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mBase.getSharedElementReturnTransition() : invokeV.objValue;
+        return this.mBase.getSharedElementReturnTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -409,9 +275,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final String getString(@StringRes int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
+        return getResources().getString(i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -420,9 +284,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final String getString(@StringRes int i2, Object... objArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
+        return getResources().getString(i2, objArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -430,18 +292,14 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final String getTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mBase.getTag() : (String) invokeV.objValue;
+        return this.mBase.getTag();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final int getTargetRequestCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mBase.getTargetRequestCode() : invokeV.intValue;
+        return this.mBase.getTargetRequestCode();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -450,18 +308,14 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final CharSequence getText(@StringRes int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? getResources().getText(i2) : (CharSequence) invokeI.objValue;
+        return getResources().getText(i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean getUserVisibleHint() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mBase.getUserVisibleHint() : invokeV.booleanValue;
+        return this.mBase.getUserVisibleHint();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -469,9 +323,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.mBase.getView() : (View) invokeV.objValue;
+        return this.mBase.getView();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -479,61 +331,46 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @SuppressLint({"RestrictedApi"})
     public final boolean hasOptionsMenu() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.mBase.hasOptionsMenu() : invokeV.booleanValue;
+        return this.mBase.hasOptionsMenu();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isAdded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.mBase.isAdded() : invokeV.booleanValue;
+        return this.mBase.isAdded();
     }
 
     public boolean isAllFragmentIsHidden() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            if (isKsAdParentFragment()) {
-                KsFragment parentFragment = getParentFragment();
-                return parentFragment == null ? isHidden() : isHidden() || parentFragment.isAllFragmentIsHidden();
-            }
-            Fragment fragment = this.mBase;
-            Fragment parentFragment2 = fragment.getParentFragment();
-            boolean isHidden = fragment.isHidden();
-            return parentFragment2 == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment2);
+        if (isKsAdParentFragment()) {
+            KsFragment parentFragment = getParentFragment();
+            return parentFragment == null ? isHidden() : isHidden() || parentFragment.isAllFragmentIsHidden();
         }
-        return invokeV.booleanValue;
+        Fragment fragment = this.mBase;
+        Fragment parentFragment2 = fragment.getParentFragment();
+        boolean isHidden = fragment.isHidden();
+        return parentFragment2 == null ? isHidden : isHidden || isAllFragmentIsHidden(parentFragment2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isDetached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.mBase.isDetached() : invokeV.booleanValue;
+        return this.mBase.isDetached();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isHidden() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mBase.isHidden() : invokeV.booleanValue;
+        return this.mBase.isHidden();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isInLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.mBase.isInLayout() : invokeV.booleanValue;
+        return this.mBase.isInLayout();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -541,43 +378,33 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @SuppressLint({"RestrictedApi"})
     public final boolean isMenuVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.mBase.isMenuVisible() : invokeV.booleanValue;
+        return this.mBase.isMenuVisible();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isRemoving() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mBase.isRemoving() : invokeV.booleanValue;
+        return this.mBase.isRemoving();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     public final boolean isResumed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.mBase.isResumed() : invokeV.booleanValue;
+        return this.mBase.isResumed();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isStateSaved() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.mBase.isStateSaved() : invokeV.booleanValue;
+        return this.mBase.isStateSaved();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.mBase.isVisible() : invokeV.booleanValue;
+        return this.mBase.isVisible();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -671,9 +498,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public LayoutInflater onGetLayoutInflater(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, bundle)) == null) ? this.mBase.onGetLayoutInflater(bundle) : (LayoutInflater) invokeL.objValue;
+        return this.mBase.onGetLayoutInflater(bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -765,254 +590,177 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     public final void postponeEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
-            this.mBase.postponeEnterTransition();
-        }
+        this.mBase.postponeEnterTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void registerForContextMenu(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, view) == null) {
-            this.mBase.registerForContextMenu(view);
-        }
+        this.mBase.registerForContextMenu(view);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void requestPermissions(@NonNull String[] strArr, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048653, this, strArr, i2) == null) {
-            this.mBase.requestPermissions(strArr, i2);
-        }
+        this.mBase.requestPermissions(strArr, i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setAllowEnterTransitionOverlap(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048654, this, z) == null) {
-            this.mBase.setAllowEnterTransitionOverlap(z);
-        }
+        this.mBase.setAllowEnterTransitionOverlap(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setAllowReturnTransitionOverlap(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048655, this, z) == null) {
-            this.mBase.setAllowReturnTransitionOverlap(z);
-        }
+        this.mBase.setAllowReturnTransitionOverlap(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setArguments(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048656, this, bundle) == null) {
-            this.mBase.setArguments(bundle);
-        }
+        this.mBase.setArguments(bundle);
     }
 
     @Keep
     public void setBase(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048657, this, fragment) == null) {
-            this.mBase = fragment;
-        }
+        this.mBase = fragment;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setEnterTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, obj) == null) {
-            this.mBase.setEnterTransition(obj);
-        }
+        this.mBase.setEnterTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setExitTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048659, this, obj) == null) {
-            this.mBase.setExitTransition(obj);
-        }
+        this.mBase.setExitTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setHasOptionsMenu(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048660, this, z) == null) {
-            this.mBase.setHasOptionsMenu(z);
-        }
+        this.mBase.setHasOptionsMenu(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     public void setInitialSavedState(@Nullable KsSavedState ksSavedState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, ksSavedState) == null) {
-            this.mBase.setInitialSavedState(ksSavedState.getBase());
-        }
+        this.mBase.setInitialSavedState(ksSavedState.getBase());
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setMenuVisibility(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048662, this, z) == null) {
-            this.mBase.setMenuVisibility(z);
-        }
+        this.mBase.setMenuVisibility(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setReenterTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, obj) == null) {
-            this.mBase.setReenterTransition(obj);
-        }
+        this.mBase.setReenterTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setRetainInstance(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048664, this, z) == null) {
-            this.mBase.setRetainInstance(z);
-        }
+        this.mBase.setRetainInstance(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setReturnTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048665, this, obj) == null) {
-            this.mBase.setReturnTransition(obj);
-        }
+        this.mBase.setReturnTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setSharedElementEnterTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048666, this, obj) == null) {
-            this.mBase.setSharedElementEnterTransition(obj);
-        }
+        this.mBase.setSharedElementEnterTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void setSharedElementReturnTransition(@Nullable Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048667, this, obj) == null) {
-            this.mBase.setSharedElementReturnTransition(obj);
-        }
+        this.mBase.setSharedElementReturnTransition(obj);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public void setUserVisibleHint(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048668, this, z) == null) {
-            this.mBase.setUserVisibleHint(z);
-        }
+        this.mBase.setUserVisibleHint(z);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final boolean shouldShowRequestPermissionRationale(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, str)) == null) ? this.mBase.shouldShowRequestPermissionRationale(str) : invokeL.booleanValue;
+        return this.mBase.shouldShowRequestPermissionRationale(str);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startActivity(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048670, this, intent) == null) {
-            this.mBase.startActivity(intent);
-        }
+        this.mBase.startActivity(intent);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startActivity(Intent intent, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048671, this, intent, bundle) == null) {
-            this.mBase.startActivity(intent, bundle);
-        }
+        this.mBase.startActivity(intent, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startActivityForResult(Intent intent, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048672, this, intent, i2) == null) {
-            this.mBase.startActivityForResult(intent, i2);
-        }
+        this.mBase.startActivityForResult(intent, i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startActivityForResult(Intent intent, int i2, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048673, this, intent, i2, bundle) == null) {
-            this.mBase.startActivityForResult(intent, i2, bundle);
-        }
+        this.mBase.startActivityForResult(intent, i2, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startIntentSenderForResult(IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048674, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            this.mBase.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
-        }
+        this.mBase.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void startPostponedEnterTransition() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048675, this) == null) {
-            this.mBase.startPostponedEnterTransition();
-        }
+        this.mBase.startPostponedEnterTransition();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
     public final void unregisterForContextMenu(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048676, this, view) == null) {
-            this.mBase.unregisterForContextMenu(view);
-        }
+        this.mBase.unregisterForContextMenu(view);
     }
 }

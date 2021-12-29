@@ -22,8 +22,8 @@ public class b extends d {
                 return;
             }
         }
-        this.f36919c = 6;
-        this.f36918b = "indoorlayer";
-        this.f36920d = 100;
+        this.f37075c = 6;
+        this.f37074b = "indoorlayer";
+        this.f37076d = 100;
     }
 }

@@ -16,13 +16,13 @@ public final class c {
     public static final ByteString a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28602b;
+    public static final String[] f28676b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f28603c;
+    public static final String[] f28677c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String[] f28604d;
+    public static final String[] f28678d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,29 +39,29 @@ public final class c {
             }
         }
         a = ByteString.encodeUtf8("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n");
-        f28602b = new String[]{"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
-        f28603c = new String[64];
-        f28604d = new String[256];
+        f28676b = new String[]{"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
+        f28677c = new String[64];
+        f28678d = new String[256];
         int i2 = 0;
         int i3 = 0;
         while (true) {
-            String[] strArr = f28604d;
+            String[] strArr = f28678d;
             if (i3 >= strArr.length) {
                 break;
             }
             strArr[i3] = c.d.b.e0.e.q("%8s", Integer.toBinaryString(i3)).replace(' ', '0');
             i3++;
         }
-        String[] strArr2 = f28603c;
+        String[] strArr2 = f28677c;
         strArr2[0] = "";
         strArr2[1] = "END_STREAM";
         int[] iArr = {1};
         strArr2[8] = "PADDED";
         for (int i4 = 0; i4 < 1; i4++) {
             int i5 = iArr[i4];
-            f28603c[i5 | 8] = f28603c[i5] + "|PADDED";
+            f28677c[i5 | 8] = f28677c[i5] + "|PADDED";
         }
-        String[] strArr3 = f28603c;
+        String[] strArr3 = f28677c;
         strArr3[4] = "END_HEADERS";
         strArr3[32] = "PRIORITY";
         strArr3[36] = "END_HEADERS|PRIORITY";
@@ -70,19 +70,19 @@ public final class c {
             int i7 = iArr2[i6];
             for (int i8 = 0; i8 < 1; i8++) {
                 int i9 = iArr[i8];
-                String[] strArr4 = f28603c;
+                String[] strArr4 = f28677c;
                 int i10 = i9 | i7;
-                strArr4[i10] = f28603c[i9] + '|' + f28603c[i7];
-                f28603c[i10 | 8] = f28603c[i9] + '|' + f28603c[i7] + "|PADDED";
+                strArr4[i10] = f28677c[i9] + '|' + f28677c[i7];
+                f28677c[i10 | 8] = f28677c[i9] + '|' + f28677c[i7] + "|PADDED";
             }
         }
         while (true) {
-            String[] strArr5 = f28603c;
+            String[] strArr5 = f28677c;
             if (i2 >= strArr5.length) {
                 return;
             }
             if (strArr5[i2] == null) {
-                strArr5[i2] = f28604d[i2];
+                strArr5[i2] = f28678d[i2];
             }
             i2++;
         }
@@ -111,17 +111,17 @@ public final class c {
             }
             if (b2 != 2 && b2 != 3) {
                 if (b2 == 4 || b2 == 6) {
-                    return b3 == 1 ? "ACK" : f28604d[b3];
+                    return b3 == 1 ? "ACK" : f28678d[b3];
                 } else if (b2 != 7 && b2 != 8) {
-                    String[] strArr = f28603c;
-                    String str = b3 < strArr.length ? strArr[b3] : f28604d[b3];
+                    String[] strArr = f28677c;
+                    String str = b3 < strArr.length ? strArr[b3] : f28678d[b3];
                     if (b2 != 5 || (b3 & 4) == 0) {
                         return (b2 != 0 || (b3 & 32) == 0) ? str : str.replace("PRIORITY", "COMPRESSED");
                     }
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }
             }
-            return f28604d[b3];
+            return f28678d[b3];
         }
         return (String) invokeCommon.objValue;
     }
@@ -130,7 +130,7 @@ public final class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            String[] strArr = f28602b;
+            String[] strArr = f28676b;
             String q = b2 < strArr.length ? strArr[b2] : c.d.b.e0.e.q("0x%02x", Byte.valueOf(b2));
             String a2 = a(b2, b3);
             Object[] objArr = new Object[5];

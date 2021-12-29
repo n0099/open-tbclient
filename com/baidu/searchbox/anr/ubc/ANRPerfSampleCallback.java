@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -59,6 +60,9 @@ public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallb
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             if (uBCManager != null) {
                 String uploadType = uBCManager.getUploadType(UBC_ANR_ID);
+                if (AppConfig.isDebug()) {
+                    String str = "getSampleFlag uploadType " + uploadType;
+                }
                 if (TextUtils.equals(ACTIVE_ANR_UPLOAD_TYPE, uploadType)) {
                     if (!UbcANRRegister.sEnable) {
                         QuickPersistConfig.getInstance().putBoolean(UbcANRRegister.KEY_ANR_ACTIVE_UPLOAD, true);

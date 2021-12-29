@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.helper.e;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.util.g;
+import com.bytedance.pangle.util.f;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -90,7 +90,7 @@ public final class a {
                             ZeusLogger.e(ZeusLogger.TAG_INSTALL, "execCmd consumeInputStream failed : ".concat(String.valueOf(e2)));
                             return;
                         } finally {
-                            g.a(bufferedReader);
+                            f.a(bufferedReader);
                         }
                     }
                 }

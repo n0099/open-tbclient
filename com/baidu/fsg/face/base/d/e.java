@@ -24,22 +24,22 @@ public class e {
     public static final int a = 480;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f35024b = 480;
+    public static final int f35180b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f35025c = 192;
+    public static final int f35181c = 192;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f35026d = 728;
+    public static final int f35182d = 728;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f35027e = 750;
+    public static final int f35183e = 750;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f35028f = 1335;
+    public static final int f35184f = 1335;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35029g = "LivenessFaceUtil";
+    public static final String f35185g = "LivenessFaceUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
     public e() {
@@ -97,7 +97,7 @@ public class e {
     public static boolean b(b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bVar)) == null) ? (bVar == null || bVar.a == null || bVar.f35019b == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bVar)) == null) ? (bVar == null || bVar.a == null || bVar.f35175b == null) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean c(int[] iArr, b bVar) {
@@ -143,36 +143,36 @@ public class e {
             Rect rect = new Rect();
             if (b(bVar)) {
                 int i2 = bVar.a.left;
-                Rect rect2 = bVar.f35019b;
+                Rect rect2 = bVar.f35175b;
                 int i3 = rect2.left;
                 if (i2 - i3 < 0) {
                     rect.left = 0;
                 } else {
-                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f35021d);
+                    rect.left = (int) (((i2 - i3) / rect2.width()) * bVar.f35177d);
                 }
                 int i4 = bVar.a.top;
-                Rect rect3 = bVar.f35019b;
+                Rect rect3 = bVar.f35175b;
                 int i5 = rect3.top;
                 if (i4 > i5) {
                     rect.top = 0;
                 } else {
-                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f35020c);
+                    rect.top = (int) (((i5 - i4) / rect3.height()) * bVar.f35176c);
                 }
                 int i6 = bVar.a.right;
-                Rect rect4 = bVar.f35019b;
+                Rect rect4 = bVar.f35175b;
                 int i7 = rect4.right;
                 if (i6 > i7) {
-                    rect.right = bVar.f35021d;
+                    rect.right = bVar.f35177d;
                 } else {
-                    rect.right = bVar.f35021d - ((int) (((i7 - i6) / rect4.width()) * bVar.f35021d));
+                    rect.right = bVar.f35177d - ((int) (((i7 - i6) / rect4.width()) * bVar.f35177d));
                 }
                 int i8 = bVar.a.bottom;
-                Rect rect5 = bVar.f35019b;
+                Rect rect5 = bVar.f35175b;
                 int i9 = rect5.bottom;
                 if (i8 > i9) {
-                    rect.bottom = bVar.f35020c;
+                    rect.bottom = bVar.f35176c;
                 } else {
-                    rect.bottom = bVar.f35020c - ((int) (((i9 - i8) / rect5.height()) * bVar.f35020c));
+                    rect.bottom = bVar.f35176c - ((int) (((i9 - i8) / rect5.height()) * bVar.f35176c));
                 }
                 return rect;
             }

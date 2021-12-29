@@ -9,17 +9,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import c.a.d.f.m.b;
-import c.a.d.f.p.m;
-import c.a.r0.s.r.d2;
-import c.a.s0.s2.g;
-import c.a.s0.s2.h;
-import c.a.s0.s2.i;
-import c.a.s0.s2.j;
-import c.a.s0.s2.r.f;
-import c.a.s0.s2.u.f.e;
-import c.a.s0.s2.u.f.h1.a;
-import c.a.s0.s2.u.f.r0;
-import c.a.s0.s2.u.f.s;
+import c.a.d.f.p.n;
+import c.a.s0.s.q.d2;
+import c.a.t0.s2.g;
+import c.a.t0.s2.h;
+import c.a.t0.s2.i;
+import c.a.t0.s2.j;
+import c.a.t0.s2.r.f;
+import c.a.t0.s2.u.f.e;
+import c.a.t0.s2.u.f.h1.a;
+import c.a.t0.s2.u.f.r0;
+import c.a.t0.s2.u.f.s;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -27,6 +27,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.AppletsCellView;
+import com.baidu.tbadk.core.view.NovelInfoCardView;
 import com.baidu.tbadk.core.view.ThreadForumEnterButtonContainer;
 import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -44,19 +45,24 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f48033b;
+    public View f48254b;
     public AppletsCellView mAppletsCellView;
     public View mBottomDivider;
+    public View mContentReadMoreMaskView;
     public ThreadForumEnterButtonContainer mForumEnterButtonContainer;
     public TbImageView mGameBanner;
     public TbImageView mHeadMask;
     public LinearLayout mLinkContainer;
     public a mManagerSelectView;
-    public c.a.s0.s2.u.f.e1.a mOriginalThreadView;
+    public NovelInfoCardView mNovelInfoCardView;
+    public c.a.t0.s2.u.f.e1.a mOriginalThreadView;
     public FrameLayout mOrignalThreadRootView;
     public PbBusinessPromotionContainer mPbBusinessPromotionContainer;
     public ThreadSkinView mPbItemSkinView;
     public LinearLayout mPbListContent;
+    public View mReadMoreButton;
+    public TextView mReadMoreButtonText;
+    public ImageView mReadMoreIcon;
     public int mSkinType;
     public TextView mTailContent;
     public s mViewStubController;
@@ -93,10 +99,10 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         Matrix matrix = new Matrix();
         matrix.postTranslate(0.0f, -r0.g());
         this.a.setImageMatrix(matrix);
-        this.f48033b = view.findViewById(i.blank_view_above_rich_text);
+        this.f48254b = view.findViewById(i.blank_view_above_rich_text);
         this.richText = (TbRichTextView) view.findViewById(i.richText);
         this.pbItemViewRoot = view;
-        int k2 = (((m.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
+        int k2 = (((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight();
         e eVar = new e(this.richText.getLayoutStrategy());
         eVar.G = k2;
         this.richText.setLayoutStrategy(eVar);
@@ -114,6 +120,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.mPbListContent = (LinearLayout) view.findViewById(i.pb_list_content);
         this.mTailContent = (TextView) view.findViewById(i.pb_item_tail_content);
         this.mAppletsCellView = (AppletsCellView) view.findViewById(i.card_pb_page_first_floor_thread_share);
+        this.mNovelInfoCardView = (NovelInfoCardView) view.findViewById(i.card_pb_page_first_floor_novel_card);
+        this.mContentReadMoreMaskView = view.findViewById(i.content_mask_gradual_view);
+        this.mReadMoreButton = view.findViewById(i.read_more_pay_btn);
+        this.mReadMoreIcon = (ImageView) view.findViewById(i.read_more_pay_btn_icon);
+        this.mReadMoreButtonText = (TextView) view.findViewById(i.read_more_pay_btn_text);
+        this.mReadMoreButton.setClickable(true);
         this.mLinkContainer = (LinearLayout) view.findViewById(i.pb_link_container_layout);
         this.mVoteTailTv = (TextView) view.findViewById(i.pb_tail_text);
         ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view.findViewById(i.pb_fourm_name_container);
@@ -131,14 +143,14 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showBlankViewAboveRichText(boolean z, int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f48033b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (view = this.f48254b) == null) {
             return;
         }
         if (z) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             layoutParams.height = i2;
-            this.f48033b.setLayoutParams(layoutParams);
-            this.f48033b.setVisibility(0);
+            this.f48254b.setLayoutParams(layoutParams);
+            this.f48254b.setVisibility(0);
             return;
         }
         view.setVisibility(8);
@@ -166,7 +178,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         if (fVar.O() != null) {
             d2Var.D4(fVar.O().d0);
         }
-        if (fVar.f22529i) {
+        if (fVar.f23041i) {
             this.mForumEnterButtonContainer.setVisibility(8);
             this.mPbBusinessPromotionContainer.bindForumData(d2Var, fVar.h(), fVar.r0());
             return;
@@ -177,7 +189,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public void showThreadTypeStampBottomPart(f fVar, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (fVar != null && fVar.f22530j) {
+            if (fVar != null && fVar.f23042j) {
                 this.a.setImageResource(h.pic_frs_headlines_n);
                 this.a.setVisibility(0);
             } else if (z && z2) {

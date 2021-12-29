@@ -129,7 +129,7 @@ public class JsonTransHelper {
             builder.plan_id = Integer.valueOf(jSONObject.optInt("plan_id"));
             builder.user_id = jSONObject.optString("user_id");
             builder.price = jSONObject.optString("price");
-            builder.verify = jSONObject.optString(SmsLoginView.f.f39317j);
+            builder.verify = jSONObject.optString(SmsLoginView.f.f39473j);
             builder.ext_info = jSONObject.optString("ext_info");
             ArrayList arrayList = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("goods_info");
@@ -182,7 +182,7 @@ public class JsonTransHelper {
             builder.video_info = parseVideoInfoFromJson(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
             builder.tag_name = jSONObject.optString("tag_name");
             builder.button_url = jSONObject.optString("button_url");
-            builder.ad_source = jSONObject.optString("ad_source");
+            builder.ad_source = jSONObject.optString(TiebaStatic.Params.T_PLUS_AD_SOURCE);
             builder.tag_name_url = jSONObject.optString("tag_name_url");
             builder.tag_name_wh = jSONObject.optString("tag_name_wh");
             builder.brand_icon = jSONObject.optString("brand_icon");
@@ -370,7 +370,7 @@ public class JsonTransHelper {
                 jSONObject.put("plan_id", app.plan_id);
                 jSONObject.put("user_id", app.user_id);
                 jSONObject.put("price", app.price);
-                jSONObject.put(SmsLoginView.f.f39317j, app.verify);
+                jSONObject.put(SmsLoginView.f.f39473j, app.verify);
                 jSONObject.put("ext_info", app.ext_info);
                 JSONArray jSONArray = new JSONArray();
                 for (GoodsInfo goodsInfo : app.goods_info) {
@@ -423,7 +423,7 @@ public class JsonTransHelper {
                 jSONObject.put(WriteActivityConfig.VIDEO_INFO, toVideoInfoJson(goodsInfo.video_info));
                 jSONObject.put("tag_name", goodsInfo.tag_name);
                 jSONObject.put("button_url", goodsInfo.button_url);
-                jSONObject.put("ad_source", goodsInfo.ad_source);
+                jSONObject.put(TiebaStatic.Params.T_PLUS_AD_SOURCE, goodsInfo.ad_source);
                 jSONObject.put("tag_name_url", goodsInfo.tag_name_url);
                 jSONObject.put("tag_name_wh", goodsInfo.tag_name_wh);
                 jSONObject.put("brand_icon", goodsInfo.brand_icon);

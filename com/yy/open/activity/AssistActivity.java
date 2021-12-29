@@ -54,7 +54,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63957e;
+        public final /* synthetic */ AssistActivity f63952e;
 
         public a(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63957e = assistActivity;
+            this.f63952e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f63957e;
+                AssistActivity assistActivity = this.f63952e;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
@@ -90,7 +90,7 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63958e;
+        public final /* synthetic */ AssistActivity f63953e;
 
         public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -107,14 +107,14 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63958e = assistActivity;
+            this.f63953e = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f63958e.finish();
+                this.f63953e.finish();
             }
         }
     }
@@ -192,7 +192,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(c.q.b.f.d.g(false))) {
+                if (str.startsWith(c.r.b.f.d.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -235,7 +235,7 @@ public final class AssistActivity extends Activity {
                         e2.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(c.q.b.f.d.g(true))) {
+                } else if (str.startsWith(c.r.b.f.d.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -376,13 +376,13 @@ public final class AssistActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f63959e;
+        public int f63954e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f63960f;
+        public Paint f63955f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f63961g;
+        public final /* synthetic */ AssistActivity f63956g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -402,12 +402,12 @@ public final class AssistActivity extends Activity {
                     return;
                 }
             }
-            this.f63961g = assistActivity;
+            this.f63956g = assistActivity;
             Paint paint = new Paint();
-            this.f63960f = paint;
+            this.f63955f = paint;
             paint.setColor(-731575);
-            this.f63960f.setAntiAlias(true);
-            this.f63960f.setStyle(Paint.Style.FILL);
+            this.f63955f.setAntiAlias(true);
+            this.f63955f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -418,7 +418,7 @@ public final class AssistActivity extends Activity {
                 } else if (i2 < 0) {
                     i2 = 0;
                 }
-                this.f63959e = i2;
+                this.f63954e = i2;
                 invalidate();
             }
         }
@@ -428,7 +428,7 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f63959e / 100.0f) * getWidth(), getHeight(), this.f63960f);
+                canvas.drawRect(0.0f, 0.0f, (this.f63954e / 100.0f) * getWidth(), getHeight(), this.f63955f);
                 super.onDraw(canvas);
             }
         }
@@ -522,7 +522,7 @@ public final class AssistActivity extends Activity {
             this.mFrameLayout.addView(this.mProgressView);
             this.mFrameLayout.addView(this.mTextView);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(c.q.b.c.ic_back);
+            imageView.setImageResource(c.r.b.c.ic_back);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);

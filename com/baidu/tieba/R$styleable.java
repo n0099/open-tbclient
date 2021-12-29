@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class R$styleable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AbsHListView;
@@ -705,11 +705,6 @@ public final class R$styleable {
     public static final int[] CustomRefreshLayout;
     public static final int CustomRefreshLayout_refreshLayout = 0;
     public static final int CustomRefreshLayout_refreshViewWidth = 1;
-    public static final int[] DatePicker;
-    public static final int DatePicker_picker_select_textColor = 0;
-    public static final int DatePicker_picker_split = 1;
-    public static final int DatePicker_picker_split_height = 2;
-    public static final int DatePicker_picker_text_color = 3;
     public static final int[] DefaultTimeBar;
     public static final int DefaultTimeBar_ad_marker_color = 0;
     public static final int DefaultTimeBar_ad_marker_width = 1;
@@ -754,6 +749,19 @@ public final class R$styleable {
     public static final int DrawerArrowToggle_thickness = 7;
     public static final int[] DrawerLayout;
     public static final int DrawerLayout_elevation = 0;
+    public static final int[] EllipsizeTagTitleView;
+    public static final int EllipsizeTagTitleView_tag_title_ellipsize_text = 0;
+    public static final int EllipsizeTagTitleView_tag_title_line_space = 1;
+    public static final int EllipsizeTagTitleView_tag_title_max_line = 2;
+    public static final int EllipsizeTagTitleView_tag_title_tag_color = 3;
+    public static final int EllipsizeTagTitleView_tag_title_tag_corner_radius = 4;
+    public static final int EllipsizeTagTitleView_tag_title_tag_margin = 5;
+    public static final int EllipsizeTagTitleView_tag_title_tag_padding_horizontal = 6;
+    public static final int EllipsizeTagTitleView_tag_title_tag_padding_vertical = 7;
+    public static final int EllipsizeTagTitleView_tag_title_tag_stroke_width = 8;
+    public static final int EllipsizeTagTitleView_tag_title_text_color = 9;
+    public static final int EllipsizeTagTitleView_tag_title_text_size = 10;
+    public static final int EllipsizeTagTitleView_tag_title_text_style = 11;
     public static final int[] EmotionButton;
     public static final int EmotionButton_ebTextSize = 0;
     public static final int EmotionButton_text = 1;
@@ -2035,9 +2043,6 @@ public final class R$styleable {
     public static final int TopBar_rightText = 5;
     public static final int TopBar_titleDrawable = 6;
     public static final int TopBar_titleText = 7;
-    public static final int[] TriangleViewStyle;
-    public static final int TriangleViewStyle_shapeArrow = 0;
-    public static final int TriangleViewStyle_triangleColor = 1;
     public static final int[] VerticalTranslateLayout;
     public static final int VerticalTranslateLayout_bottomHeight = 0;
     public static final int VerticalTranslateLayout_bottomOffset = 1;
@@ -2142,24 +2147,6 @@ public final class R$styleable {
     public static final int View_visibility = 69;
     public static final int[] Voice_play_type;
     public static final int Voice_play_type_play_type = 0;
-    public static final int[] WheelFullDatePickerStyle;
-    public static final int WheelFullDatePickerStyle_addZeroIfSmallThanTen = 0;
-    public static final int WheelFullDatePickerStyle_canSetUpFutureTime = 1;
-    public static final int WheelFullDatePickerStyle_canSetUpPastTime = 2;
-    public static final int WheelFullDatePickerStyle_setCurrentTimeVisible = 3;
-    public static final int WheelFullDatePickerStyle_showDateLastString = 4;
-    public static final int WheelFullDatePickerStyle_showTaiwanYear = 5;
-    public static final int[] WheelSinglePickerStyle;
-    public static final int WheelSinglePickerStyle_singleTextSize = 0;
-    public static final int WheelSinglePickerStyle_visibleLine = 1;
-    public static final int[] WheelTimerStyle;
-    public static final int WheelTimerStyle_timeMode = 0;
-    public static final int[] WheelTwoDimensionPickerStyle;
-    public static final int WheelTwoDimensionPickerStyle_alwaysShowTwoWheel = 0;
-    public static final int WheelTwoDimensionPickerStyle_isCurrentSelectVisible = 1;
-    public static final int WheelTwoDimensionPickerStyle_leftWheelVisibleLine = 2;
-    public static final int WheelTwoDimensionPickerStyle_rightWheelVisibleLine = 3;
-    public static final int WheelTwoDimensionPickerStyle_wheelTwoDimensionTextSize = 4;
     public static final int[] XGridLayout;
     public static final int XGridLayout_gridHorizontalSpace = 0;
     public static final int XGridLayout_gridIsSquare = 1;
@@ -2500,11 +2487,11 @@ public final class R$styleable {
         CoverSelectLayout = new int[]{R.attr.clipBorderWidth, R.attr.horizontal, R.attr.vertivalPadding};
         CustomProgressBar = new int[]{R.attr.mpb_background_color, R.attr.mpb_fill_color, R.attr.mpb_flat, R.attr.mpb_percent};
         CustomRefreshLayout = new int[]{R.attr.refreshLayout, R.attr.refreshViewWidth};
-        DatePicker = new int[]{R.attr.picker_select_textColor, R.attr.picker_split, R.attr.picker_split_height, R.attr.picker_text_color};
         DefaultTimeBar = new int[]{R.attr.ad_marker_color, R.attr.ad_marker_width, R.attr.bar_height, R.attr.buffered_color, R.attr.played_ad_marker_color, R.attr.played_color, R.attr.scrubber_color, R.attr.scrubber_disabled_size, R.attr.scrubber_dragged_size, R.attr.scrubber_drawable, R.attr.scrubber_enabled_size, R.attr.touch_target_height, R.attr.unplayed_color};
         DragSort = new int[]{R.attr.click_remove_id, R.attr.collapsed_height, R.attr.drag_enabled, R.attr.drag_handle_id, R.attr.drag_scroll_start, R.attr.drop_animation_duration, R.attr.fling_handle_id, R.attr.float_alpha, R.attr.float_background_color, R.attr.max_drag_scroll_speed, R.attr.remove_animation_duration, R.attr.remove_enabled, R.attr.slide_shuffle_speed, R.attr.sort_enabled, R.attr.tb_drag_remove_mode, R.attr.tb_drag_start_mode, R.attr.track_drag_sort, R.attr.use_default_controller};
         DrawerArrowToggle = new int[]{R.attr.arrowHeadLength, R.attr.arrowShaftLength, R.attr.barLength, R.attr.color, R.attr.drawableSize, R.attr.gapBetweenBars, R.attr.spinBars, R.attr.thickness};
         DrawerLayout = new int[]{R.attr.elevation};
+        EllipsizeTagTitleView = new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style};
         EmotionButton = new int[]{R.attr.ebTextSize, R.attr.text};
         EntelechyPullUpRefreshView = new int[]{R.attr.tb_pull_show_top_line, R.attr.tb_pull_up_icon};
         ExpandListView = new int[]{R.attr.beforeExpandHeight, R.attr.expandDistance};
@@ -2653,7 +2640,6 @@ public final class R$styleable {
         Toolbar = new int[]{16842927, 16843072, R.attr.buttonGravity, R.attr.collapseContentDescription, R.attr.collapseIcon, R.attr.contentInsetEnd, R.attr.contentInsetEndWithActions, R.attr.contentInsetLeft, R.attr.contentInsetRight, R.attr.contentInsetStart, R.attr.contentInsetStartWithNavigation, R.attr.logo, R.attr.logoDescription, R.attr.maxButtonHeight, R.attr.menu, R.attr.navigationContentDescription, R.attr.navigationIcon, R.attr.popupTheme, R.attr.subtitle, R.attr.subtitleTextAppearance, R.attr.subtitleTextColor, R.attr.title, R.attr.titleMargin, R.attr.titleMarginBottom, R.attr.titleMarginEnd, R.attr.titleMarginStart, R.attr.titleMarginTop, R.attr.titleMargins, R.attr.titleTextAppearance, R.attr.titleTextColor};
         Tooltip = new int[]{16842804, 16842965, 16842998, 16843071, 16843072, 16843087, R.attr.backgroundTint};
         TopBar = new int[]{R.attr.color_dark, R.attr.left, R.attr.leftText, R.attr.mid, R.attr.right, R.attr.rightText, R.attr.titleDrawable, R.attr.titleText};
-        TriangleViewStyle = new int[]{R.attr.shapeArrow, R.attr.triangleColor};
         VerticalTranslateLayout = new int[]{R.attr.bottomHeight, R.attr.bottomOffset, R.attr.tapBack, R.attr.topHeight, R.attr.topOffset, R.attr.transBackground, R.attr.transTrack};
         VideoClipLayout = new int[]{R.attr.videoClipType};
         View = new int[]{16842752, 16842970, R.attr.accessibilityFocusable, R.attr.alpha, R.attr.clickable, R.attr.contentDescription, R.attr.drawingCacheQuality, R.attr.duplicateParentState, R.attr.fadeScrollbars, R.attr.fadingEdge, R.attr.fadingEdgeLength, R.attr.filterTouchesWhenObscured, R.attr.fitsSystemWindows, R.attr.focusable, R.attr.focusableInTouchMode, R.attr.hapticFeedbackEnabled, R.attr.id, R.attr.importantForAccessibility, R.attr.isScrollContainer, R.attr.keepScreenOn, R.attr.layerType, R.attr.layoutDirection, R.attr.longClickable, R.attr.minHeight, R.attr.minWidth, R.attr.nextFocusDown, R.attr.nextFocusForward, R.attr.nextFocusLeft, R.attr.nextFocusRight, R.attr.nextFocusUp, R.attr.onClick, R.attr.overScrollMode, R.attr.padding, R.attr.paddingBottom, R.attr.paddingEnd, R.attr.paddingLeft, R.attr.paddingRight, R.attr.paddingStart, R.attr.paddingTop, R.attr.requiresFadingEdge, R.attr.rotation, R.attr.rotationX, R.attr.rotationY, R.attr.saveEnabled, R.attr.scaleX, R.attr.scaleY, R.attr.scrollX, R.attr.scrollY, R.attr.scrollbarAlwaysDrawHorizontalTrack, R.attr.scrollbarAlwaysDrawVerticalTrack, R.attr.scrollbarDefaultDelayBeforeFade, R.attr.scrollbarFadeDuration, R.attr.scrollbarSize, R.attr.scrollbarStyle, R.attr.scrollbarThumbHorizontal, R.attr.scrollbarThumbVertical, R.attr.scrollbarTrackHorizontal, R.attr.scrollbarTrackVertical, R.attr.scrollbars, R.attr.soundEffectsEnabled, R.attr.tag, R.attr.textAlignment, R.attr.textDirection, R.attr.theme, R.attr.transformPivotX, R.attr.transformPivotY, R.attr.translationX, R.attr.translationY, R.attr.verticalScrollbarPosition, R.attr.visibility};
@@ -2662,10 +2648,6 @@ public final class R$styleable {
         ViewPager2 = new int[]{16842948};
         ViewStubCompat = new int[]{16842960, 16842994, 16842995};
         Voice_play_type = new int[]{R.attr.play_type};
-        WheelFullDatePickerStyle = new int[]{R.attr.addZeroIfSmallThanTen, R.attr.canSetUpFutureTime, R.attr.canSetUpPastTime, R.attr.setCurrentTimeVisible, R.attr.showDateLastString, R.attr.showTaiwanYear};
-        WheelSinglePickerStyle = new int[]{R.attr.singleTextSize, R.attr.visibleLine};
-        WheelTimerStyle = new int[]{R.attr.timeMode};
-        WheelTwoDimensionPickerStyle = new int[]{R.attr.alwaysShowTwoWheel, R.attr.isCurrentSelectVisible, R.attr.leftWheelVisibleLine, R.attr.rightWheelVisibleLine, R.attr.wheelTwoDimensionTextSize};
         XGridLayout = new int[]{R.attr.gridHorizontalSpace, R.attr.gridIsSquare, R.attr.gridMaxItem, R.attr.gridSpan, R.attr.gridVerticalSpace};
         ad_progress = new int[]{R.attr.ad_btn_foreground_end, R.attr.ad_btn_foreground_start, R.attr.ad_btn_max, R.attr.ad_btn_progress, R.attr.ad_btn_radius, R.attr.ad_btn_text, R.attr.ad_btn_textBold, R.attr.ad_btn_textColor, R.attr.ad_btn_textSize};
         bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.bdvideoplayer_progressGravity, R.attr.bdvideoplayer_progressTextColor, R.attr.bdvideoplayer_progressTextMode, R.attr.bdvideoplayer_progressTextSize};

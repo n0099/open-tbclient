@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
-import c.a.s0.o1.h.j.i;
+import c.a.t0.o1.h.j.i;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

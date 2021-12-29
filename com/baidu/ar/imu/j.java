@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class j extends Observable implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;

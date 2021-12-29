@@ -69,7 +69,7 @@ import java.net.URLDecoder;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AuthAgent extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FORCE_QR_LOGIN = "KEY_FORCE_QR_LOGIN";
@@ -89,7 +89,7 @@ public class AuthAgent extends BaseApi {
     /* renamed from: e  reason: collision with root package name */
     public WeakReference<Activity> f62719e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -503,7 +503,7 @@ public class AuthAgent extends BaseApi {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -521,7 +521,7 @@ public class AuthAgent extends BaseApi {
         /* renamed from: e  reason: collision with root package name */
         public final String f62727e;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public abstract class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

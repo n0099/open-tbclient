@@ -1,18 +1,13 @@
 package com.bytedance.pangle.download;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.plugin.PluginProvider;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
@@ -20,14 +15,14 @@ public final class c implements Runnable {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final h f55106b;
+    public final g f55110b;
 
-    public c(h hVar) {
+    public c(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hVar};
+            Object[] objArr = {gVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -38,72 +33,67 @@ public final class c implements Runnable {
             }
         }
         this.a = false;
-        this.f55106b = hVar;
+        this.f55110b = gVar;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00b4 A[Catch: Exception -> 0x00bf, all -> 0x00cd, TryCatch #0 {Exception -> 0x00bf, blocks: (B:23:0x0036, B:25:0x0049, B:27:0x004f, B:28:0x006f, B:30:0x0075, B:49:0x00b4, B:50:0x00b7, B:33:0x007f, B:35:0x0083, B:36:0x008c, B:38:0x0094, B:39:0x0099, B:41:0x009d, B:43:0x00a7, B:44:0x00ac, B:51:0x00ba), top: B:65:0x0036, outer: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x00b7 A[SYNTHETIC] */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final synchronized void run() {
         List<PluginDownloadBean> providePluginConfig;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                if (this.a && h.a().f55129d) {
+                if (this.a && g.a().f55132d) {
                     return;
                 }
-                if (System.currentTimeMillis() - this.f55106b.a < 300000) {
+                if (System.currentTimeMillis() - this.f55110b.a < 300000) {
                     return;
                 }
                 if (d.a(Zeus.getAppApplication())) {
                     for (int i2 = 0; i2 < 2; i2++) {
                         try {
-                        } catch (Exception e2) {
-                            ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "Request plugin config failed!!!", e2);
-                        }
-                        if (!com.bytedance.pangle.a.a.booleanValue()) {
                             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "Skip! useInternalNetworkImpl = false!");
-                            PluginProvider pluginProvider = com.bytedance.pangle.i.a().f55184b.getPluginProvider();
+                            PluginProvider pluginProvider = com.bytedance.pangle.g.a().f55178b.getPluginProvider();
                             if (pluginProvider != null && (providePluginConfig = pluginProvider.providePluginConfig()) != null) {
-                                this.f55106b.a = System.currentTimeMillis();
+                                this.f55110b.a = System.currentTimeMillis();
                                 ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "handlePlugins, pluginSize = " + providePluginConfig.size());
                                 for (int i3 = 0; i3 < providePluginConfig.size(); i3++) {
                                     PluginDownloadBean pluginDownloadBean = providePluginConfig.get(i3);
-                                    if (!h.a(pluginDownloadBean)) {
-                                        providePluginConfig.remove(pluginDownloadBean);
+                                    if (pluginDownloadBean != null) {
+                                        if (pluginDownloadBean.isOffline) {
+                                            g.a(pluginDownloadBean);
+                                            Zeus.markOfflineFlag(pluginDownloadBean.mPackageName);
+                                        } else {
+                                            if (Zeus.hasOfflineFlag(pluginDownloadBean.mPackageName)) {
+                                                Zeus.clearOfflineFlag(pluginDownloadBean.mPackageName);
+                                            }
+                                            if (pluginDownloadBean.isRevert) {
+                                                if (pluginDownloadBean.mVersionCode < Zeus.getInstalledPluginVersion(pluginDownloadBean.mPackageName)) {
+                                                    Zeus.unInstallPlugin(pluginDownloadBean.mPackageName);
+                                                }
+                                                if (pluginDownloadBean.mVersionCode == 0) {
+                                                }
+                                            }
+                                            z = true;
+                                            if (z) {
+                                                providePluginConfig.remove(pluginDownloadBean);
+                                            }
+                                        }
+                                    }
+                                    z = false;
+                                    if (z) {
                                     }
                                 }
-                                h.a(providePluginConfig);
+                                g.a(providePluginConfig);
                             }
                             return;
-                        }
-                        d a = d.a();
-                        String a2 = e.a();
-                        JSONObject jSONObject = new JSONObject();
-                        JSONArray b2 = e.b();
-                        if (b2 == null) {
-                            b2 = new JSONArray();
-                        }
-                        jSONObject.put("plugin", b2);
-                        jSONObject.put("auto_request", true);
-                        String a3 = a.a(a2, jSONObject.toString(), AbstractBceClient.DEFAULT_CONTENT_TYPE);
-                        if (TextUtils.isEmpty(a3)) {
-                            ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "Request plugin failed! response is empty!");
-                        } else {
-                            ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "response：".concat(String.valueOf(a3)));
-                            JSONObject jSONObject2 = new JSONObject(a3);
-                            JSONObject optJSONObject = jSONObject2.getJSONObject("data").optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-                            if (optJSONObject != null) {
-                                this.f55106b.a(optJSONObject.optLong("auto_request_interval", 1800L));
-                            }
-                            JSONArray optJSONArray = jSONObject2.getJSONObject("data").optJSONArray("plugin");
-                            if (optJSONArray != null) {
-                                this.f55106b.a = System.currentTimeMillis();
-                                h hVar = this.f55106b;
-                                ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "handlePlugins, pluginSize = " + optJSONArray.length());
-                                if (optJSONArray.length() >= 0) {
-                                    h.a(hVar.a(optJSONArray));
-                                }
-                            }
-                            return;
+                        } catch (Exception e2) {
+                            ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "Request plugin config failed!!!", e2);
                         }
                     }
                 }

@@ -35,8 +35,8 @@ public class c extends i {
             }
             G(z);
             boolean z2 = !z;
+            H(z2);
             K(z2);
-            O(z2);
         }
     }
 
@@ -44,11 +44,11 @@ public class c extends i {
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            K(n().V());
+            H(n().V());
         }
     }
 
-    public void O(boolean z) {
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             n().w0(z);

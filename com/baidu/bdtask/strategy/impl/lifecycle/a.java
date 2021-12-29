@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b&\u0018\u0000B\u001b\u0012\u0012\u0010'\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020&0%¢\u0006\u0004\b)\u0010*J\u000f\u0010\u0002\u001a\u00020\u0001H\u0004¢\u0006\u0004\b\u0002\u0010\u0003J\u0017\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\t\u001a\u00020\u00062\u0006\u0010\u0005\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\t\u0010\bJ\u000f\u0010\u000b\u001a\u00020\nH\u0004¢\u0006\u0004\b\u000b\u0010\fJ\u0019\u0010\u000e\u001a\u0004\u0018\u00010\r2\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b\u000e\u0010\u000fJ\u0017\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0017\u001a\u00020\u00162\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b\u0017\u0010\u0018J\u0017\u0010\u0019\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u0019\u0010\u001aJ\u0017\u0010\u001b\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u001b\u0010\u001aJ\u0017\u0010\u001c\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u001c\u0010\u001aJ\u0017\u0010\u001d\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u001d\u0010\u001aJ\u0017\u0010\u001e\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u001e\u0010\u001aJ!\u0010\"\u001a\u00020\u00012\u0006\u0010 \u001a\u00020\u001f2\b\b\u0002\u0010!\u001a\u00020\u001fH\u0002¢\u0006\u0004\b\"\u0010#J\u0017\u0010$\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u0004H\u0004¢\u0006\u0004\b$\u0010\u001aR\"\u0010'\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020&0%8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b'\u0010(¨\u0006+"}, d2 = {"Lcom/baidu/bdtask/strategy/impl/lifecycle/BaseLifecycleStrategy;", "", "activeNextTask", "()V", "Lcom/baidu/bdtask/ctrl/SubTaskState;", "subState", "", "finishAborted", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Z", "finishGuideShowAborted", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "getAppState", "()Lcom/baidu/bdtask/ctrl/BDPTaskState;", "Lcom/baidu/bdtask/framework/redux/Action;", "getCurAction", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Lcom/baidu/bdtask/framework/redux/Action;", "Lcom/baidu/bdtask/model/guide/TaskGuideData;", "getGuide", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Lcom/baidu/bdtask/model/guide/TaskGuideData;", "Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "getStatus", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Lcom/baidu/bdtask/ctrl/model/TaskStatus;", "Lcom/baidu/bdtask/model/info/TaskInfo;", "getTaskInfo", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)Lcom/baidu/bdtask/model/info/TaskInfo;", "onFinished", "(Lcom/baidu/bdtask/ctrl/SubTaskState;)V", "onPassiveInterrupted", "onRegistered", "onRunning", "onUnRegistered", "", "actionId", "duplicateId", "requestTaskComplete", "(Ljava/lang/String;Ljava/lang/String;)V", "showFinishGuide", "Lcom/baidu/bdtask/framework/redux/Store;", "Lcom/baidu/bdtask/ctrl/DefaultTaskAction;", "store", "Lcom/baidu/bdtask/framework/redux/Store;", "<init>", "(Lcom/baidu/bdtask/framework/redux/Store;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,9 +103,9 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, subTaskState) == null) {
             if (!d(subTaskState).isEmpty()) {
-                com.baidu.bdtask.component.a.c(com.baidu.bdtask.component.a.f33863b.a(), d(subTaskState).getUiType(), d(subTaskState).getUi(), subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), null, 16, null);
+                com.baidu.bdtask.component.a.c(com.baidu.bdtask.component.a.f34019b.a(), d(subTaskState).getUiType(), d(subTaskState).getUi(), subTaskState.getTaskInfo(), subTaskState.getTaskStatus(), null, 16, null);
             }
-            c.a.j.k.e.a.a.f3639c.i(subTaskState);
+            c.a.j.k.e.a.a.f4067c.i(subTaskState);
         }
     }
 
@@ -116,7 +116,7 @@ public abstract class a {
             if (f(subTaskState).isCompleted()) {
                 c(b(subTaskState).getActionId(), f(subTaskState).getTaskStatusRuntime().getCurDuplicateId());
             }
-            c.a.j.k.e.a.a.f3639c.k(subTaskState);
+            c.a.j.k.e.a.a.f4067c.k(subTaskState);
         }
     }
 
@@ -124,7 +124,7 @@ public abstract class a {
     public void j(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f3639c.m(subTaskState);
+            c.a.j.k.e.a.a.f4067c.m(subTaskState);
         }
     }
 
@@ -132,7 +132,7 @@ public abstract class a {
     public void k(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f3639c.n(subTaskState);
+            c.a.j.k.e.a.a.f4067c.n(subTaskState);
         }
     }
 
@@ -140,7 +140,7 @@ public abstract class a {
     public void l(SubTaskState subTaskState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, subTaskState) == null) {
-            c.a.j.k.e.a.a.f3639c.o(subTaskState);
+            c.a.j.k.e.a.a.f4067c.o(subTaskState);
             a().h(b(subTaskState));
             a().l(b(subTaskState));
             e();
@@ -173,7 +173,7 @@ public abstract class a {
             if (response.isEmpty() || o(subTaskState)) {
                 return;
             }
-            com.baidu.bdtask.component.a a = com.baidu.bdtask.component.a.f33863b.a();
+            com.baidu.bdtask.component.a a = com.baidu.bdtask.component.a.f34019b.a();
             int uiType = response.getUiType();
             TaskUIData ui = response.getUi();
             TaskInfo taskInfo = subTaskState.getTaskInfo();

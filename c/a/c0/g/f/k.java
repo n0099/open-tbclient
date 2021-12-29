@@ -35,13 +35,13 @@ public class k {
         public final /* synthetic */ RelativeLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.g.d.a f1560b;
+        public final /* synthetic */ c.a.c0.g.d.a f1987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Context f1561c;
+        public final /* synthetic */ Context f1988c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1562d;
+        public final /* synthetic */ String f1989d;
 
         public a(RelativeLayout relativeLayout, c.a.c0.g.d.a aVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public class k {
                 }
             }
             this.a = relativeLayout;
-            this.f1560b = aVar;
-            this.f1561c = context;
-            this.f1562d = str;
+            this.f1987b = aVar;
+            this.f1988c = context;
+            this.f1989d = str;
         }
 
         @Override // c.a.c0.r.p.a
@@ -82,15 +82,15 @@ public class k {
             }
             int i3 = gVar.a;
             if (i3 == 1) {
-                k.d(this.a, this.f1560b).o();
+                k.d(this.a, this.f1987b).o();
             } else if (i3 != 2 && i3 != 3) {
-                c.a.c0.b0.b.a().b(this.f1561c, c.a.c0.c0.g.nad_download_lp_forbid_tip);
-            } else if ((this.f1561c instanceof Activity) && (pVar = gVar.f1545b) != null) {
-                k.g(this.f1560b, pVar);
-                k.d(this.a, this.f1560b).x(gVar, (Activity) this.f1561c);
+                c.a.c0.b0.b.a().b(this.f1988c, c.a.c0.c0.g.nad_download_lp_forbid_tip);
+            } else if ((this.f1988c instanceof Activity) && (pVar = gVar.f1972b) != null) {
+                k.g(this.f1987b, pVar);
+                k.d(this.a, this.f1987b).x(gVar, (Activity) this.f1988c);
             }
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.r(ClogBuilder.LogType.FREE_SHOW).m(this.f1560b.n.a).p(ClogBuilder.Page.DOWNLOAD_RECTIFY).h(String.valueOf(gVar.a)).i(this.f1562d);
+            clogBuilder.r(ClogBuilder.LogType.FREE_SHOW).m(this.f1987b.n.a).p(ClogBuilder.Page.DOWNLOAD_RECTIFY).h(String.valueOf(gVar.a)).i(this.f1989d);
             c.a.c0.x.a.b(clogBuilder);
         }
 
@@ -118,16 +118,16 @@ public class k {
                 return query;
             }
             c.a.c0.g.d.a aVar = new c.a.c0.g.d.a();
-            aVar.f1517g = b2.optString("url", "");
+            aVar.f1944g = b2.optString("url", "");
             aVar.g(optString);
-            aVar.o.f1522b = b2.optString(Constant.KEY_BUSINESS);
-            aVar.o.f1523c = b2.optString("content_type");
-            aVar.o.f1524d = b2.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
-            aVar.o.f1526f = b2.optInt("close_v_dl");
+            aVar.o.f1949b = b2.optString(Constant.KEY_BUSINESS);
+            aVar.o.f1950c = b2.optString("content_type");
+            aVar.o.f1951d = b2.optLong(BreakpointSQLiteKey.CONTENT_LENGTH);
+            aVar.o.f1953f = b2.optInt("close_v_dl");
             aVar.n.a = b2.optString("log_ext");
-            aVar.n.f1542j = b2.optString(LegoListActivityConfig.AD_ID);
-            aVar.n.f1539g = b2.optString("app_icon");
-            aVar.n.f1540h = b2.optString("app_name");
+            aVar.n.f1969j = b2.optString(LegoListActivityConfig.AD_ID);
+            aVar.n.f1966g = b2.optString("app_icon");
+            aVar.n.f1967h = b2.optString("app_name");
             return aVar;
         }
         return (c.a.c0.g.d.a) invokeL.objValue;
@@ -153,7 +153,7 @@ public class k {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("ext", aVar.n.a);
             linkedHashMap.put("charge_url", str);
-            linkedHashMap.put("apk_url", aVar.f1517g);
+            linkedHashMap.put("apk_url", aVar.f1944g);
             new c.a.c0.g.d.f().b(linkedHashMap, new a(relativeLayout, aVar, context, str));
         }
     }
@@ -172,7 +172,7 @@ public class k {
             String optString = c.a.c0.u.b.b(str).optString("lp_url", "");
             c cVar = (c) c.a.c0.u.c.b(a, c2.d());
             if (cVar != null && !cVar.w()) {
-                if (z && c2.f1513c != AdDownloadStatus.DOWNLOADING) {
+                if (z && c2.f1940c != AdDownloadStatus.DOWNLOADING) {
                     cVar.o();
                 }
                 return true;
@@ -186,12 +186,12 @@ public class k {
     public static void g(@NonNull c.a.c0.g.d.a aVar, @NonNull p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, aVar, pVar) == null) {
-            String str = pVar.f1837j;
-            aVar.f1517g = str;
+            String str = pVar.f2264j;
+            aVar.f1944g = str;
             aVar.g(str);
             c.a.c0.g.d.d dVar = aVar.n;
-            dVar.f1539g = pVar.f1829b;
-            dVar.f1540h = pVar.f1830c;
+            dVar.f1966g = pVar.f2256b;
+            dVar.f1967h = pVar.f2257c;
         }
     }
 }

@@ -24,34 +24,34 @@ public final class b {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f39665b;
+        public static final a f39821b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f39666c;
+        public static final a f39822c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f39667d;
+        public static final a f39823d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f39668e;
+        public static final a f39824e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final a f39669f;
+        public static final a f39825f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final a f39670g;
+        public static final a f39826g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final a f39671h;
+        public static final a f39827h;
 
         /* renamed from: i  reason: collision with root package name */
-        public static final a f39672i;
+        public static final a f39828i;
 
         /* renamed from: j  reason: collision with root package name */
-        public static final a f39673j;
+        public static final a f39829j;
 
         /* renamed from: k  reason: collision with root package name */
-        public static final a f39674k;
+        public static final a f39830k;
         public static final a l;
         public static final /* synthetic */ a[] o;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,19 +72,19 @@ public final class b {
                 }
             }
             a = new a("UNSUPPORT", 0, -1, "unsupport");
-            f39665b = new a("HUA_WEI", 1, 0, "HUAWEI");
-            f39666c = new a("XIAOMI", 2, 1, "Xiaomi");
-            f39667d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-            f39668e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-            f39669f = new a("MOTO", 5, 4, "motorola");
-            f39670g = new a("LENOVO", 6, 5, "lenovo");
-            f39671h = new a("ASUS", 7, 6, "asus");
-            f39672i = new a(g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
-            f39673j = new a("MEIZU", 9, 8, "meizu");
-            f39674k = new a("ALPS", 10, 9, "alps");
+            f39821b = new a("HUA_WEI", 1, 0, "HUAWEI");
+            f39822c = new a("XIAOMI", 2, 1, "Xiaomi");
+            f39823d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+            f39824e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+            f39825f = new a("MOTO", 5, 4, "motorola");
+            f39826g = new a("LENOVO", 6, 5, "lenovo");
+            f39827h = new a("ASUS", 7, 6, "asus");
+            f39828i = new a(g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
+            f39829j = new a("MEIZU", 9, 8, "meizu");
+            f39830k = new a("ALPS", 10, 9, "alps");
             a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
             l = aVar;
-            o = new a[]{a, f39665b, f39666c, f39667d, f39668e, f39669f, f39670g, f39671h, f39672i, f39673j, f39674k, aVar};
+            o = new a[]{a, f39821b, f39822c, f39823d, f39824e, f39825f, f39826g, f39827h, f39828i, f39829j, f39830k, aVar};
         }
 
         public a(String str, int i2, int i3, String str2) {

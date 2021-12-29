@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.j;
-import c.a.d.f.p.m;
-import c.a.r0.s.r.x0;
-import c.a.s0.k.c;
+import c.a.d.f.p.n;
+import c.a.s0.s.q.x0;
+import c.a.t0.k.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -35,25 +35,25 @@ public class NEGFeedBackView extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f42989e;
+    public Context f43177e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f42990f;
+    public long f43178f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42991g;
+    public int f43179g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42992h;
+    public int f43180h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f42993i;
+    public int f43181i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f42994j;
+    public int f43182j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f42995k;
+    public int f43183k;
     public c l;
     public View.OnClickListener m;
 
@@ -63,7 +63,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NEGFeedBackView f42996e;
+        public final /* synthetic */ NEGFeedBackView f43184e;
 
         public a(NEGFeedBackView nEGFeedBackView) {
             Interceptable interceptable = $ic;
@@ -80,21 +80,21 @@ public class NEGFeedBackView extends AppCompatImageView {
                     return;
                 }
             }
-            this.f42996e = nEGFeedBackView;
+            this.f43184e = nEGFeedBackView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(this.f42996e.getContext()), null)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(j.a(this.f43184e.getContext()), null)) {
                 return;
             }
-            this.f42996e.dismissPopupWindow();
+            this.f43184e.dismissPopupWindow();
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f42996e.f42990f > 500) {
-                this.f42996e.i(view);
+            if (currentTimeMillis - this.f43184e.f43178f > 500) {
+                this.f43184e.i(view);
             }
-            this.f42996e.f42990f = currentTimeMillis;
+            this.f43184e.f43178f = currentTimeMillis;
         }
     }
 
@@ -125,11 +125,11 @@ public class NEGFeedBackView extends AppCompatImageView {
                 return;
             }
         }
-        this.f42990f = 0L;
-        this.f42994j = R.drawable.icon_pure_card_more22;
-        this.f42995k = R.color.CAM_X0111;
+        this.f43178f = 0L;
+        this.f43182j = R.drawable.icon_pure_card_more22;
+        this.f43183k = R.color.CAM_X0111;
         this.m = new a(this);
-        this.f42989e = tbPageContext.getPageActivity();
+        this.f43177e = tbPageContext.getPageActivity();
         h(tbPageContext);
     }
 
@@ -153,7 +153,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void attachToViewUpperRightConnerFromFrsLive(ViewGroup viewGroup, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2, i3) == null) {
-            int f2 = m.f(this.f42989e, R.dimen.tbds24);
+            int f2 = n.f(this.f43177e, R.dimen.tbds24);
             setPadding(i3, 0, i3, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i2);
@@ -196,7 +196,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f42994j, SkinManager.getColor(this.f42995k), WebPManager.ResourceStateType.NORMAL_PRESS));
+            setImageDrawable(WebPManager.getPureDrawable(this.f43182j, SkinManager.getColor(this.f43183k), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -213,9 +213,9 @@ public class NEGFeedBackView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             int i2 = R.drawable.icon_pure_card_more22;
-            this.f42994j = i2;
+            this.f43182j = i2;
             int i3 = R.color.CAM_X0111;
-            this.f42995k = i3;
+            this.f43183k = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -284,24 +284,24 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void setLeftPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f42991g = i2;
-            setPadding(i2, this.f42993i, this.f42992h, 0);
+            this.f43179g = i2;
+            setPadding(i2, this.f43181i, this.f43180h, 0);
         }
     }
 
     public void setRightPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f42992h = i2;
-            setPadding(this.f42991g, this.f42993i, i2, 0);
+            this.f43180h = i2;
+            setPadding(this.f43179g, this.f43181i, i2, 0);
         }
     }
 
     public void setTopPadding(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.f42993i = i2;
-            setPadding(this.f42991g, i2, this.f42992h, 0);
+            this.f43181i = i2;
+            setPadding(this.f43179g, i2, this.f43180h, 0);
         }
     }
 
@@ -315,8 +315,8 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void setWebPResId(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
-            this.f42994j = i2;
-            this.f42995k = i3;
+            this.f43182j = i2;
+            this.f43183k = i3;
             setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
@@ -347,11 +347,11 @@ public class NEGFeedBackView extends AppCompatImageView {
                 return;
             }
         }
-        this.f42990f = 0L;
-        this.f42994j = R.drawable.icon_pure_card_more22;
-        this.f42995k = R.color.CAM_X0111;
+        this.f43178f = 0L;
+        this.f43182j = R.drawable.icon_pure_card_more22;
+        this.f43183k = R.color.CAM_X0111;
         this.m = new a(this);
-        this.f42989e = tbPageContext.getPageActivity();
+        this.f43177e = tbPageContext.getPageActivity();
         h(tbPageContext);
     }
 

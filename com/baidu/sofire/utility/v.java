@@ -37,11 +37,11 @@ public final class v {
         c.a(context, ".ffnpp", !z ? 1 : 0);
         if (context != null) {
             com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
-            a2.f39611d.putBoolean("s_a_pl", z);
+            a2.f39767d.putBoolean("s_a_pl", z);
             if (Build.VERSION.SDK_INT >= 9) {
-                a2.f39611d.apply();
+                a2.f39767d.apply();
             } else {
-                a2.f39611d.commit();
+                a2.f39767d.commit();
             }
         }
     }
@@ -58,7 +58,7 @@ public final class v {
             if (a2 == 1 && (i2 = a) != -1) {
                 return i2 == 1;
             }
-            boolean z = com.baidu.sofire.h.a.a(context).f39610c.getBoolean("s_a_pl", false);
+            boolean z = com.baidu.sofire.h.a.a(context).f39766c.getBoolean("s_a_pl", false);
             boolean z2 = !c.b(context, ".ffnpp");
             if (z && !z2 && a2 == 1) {
                 c.a(context, ".ffnpp", 0);

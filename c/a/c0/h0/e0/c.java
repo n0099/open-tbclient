@@ -26,7 +26,7 @@ public class c {
     public final NadExpressNaBaseView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f1713b;
+    public final Context f2140b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -76,7 +76,7 @@ public class c {
             }
         }
         this.a = nadExpressNaBaseView;
-        this.f1713b = nadExpressNaBaseView.getContext();
+        this.f2140b = nadExpressNaBaseView.getContext();
     }
 
     public final boolean a(AdBaseModel adBaseModel, int i2) {
@@ -84,15 +84,15 @@ public class c {
         AdOperator adOperator;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, adBaseModel, i2)) == null) {
-            if (adBaseModel == null || (adOperator = adBaseModel.f38065f) == null) {
+            if (adBaseModel == null || (adOperator = adBaseModel.f38221f) == null) {
                 return false;
             }
             int i3 = a.a[adOperator.a.ordinal()];
             if (i3 != 1) {
                 return i3 == 2 && i2 == 2;
             }
-            p pVar = adBaseModel.f38066g;
-            return (pVar == null || !pVar.f1838k) ? i2 == 1 : i2 == 3;
+            p pVar = adBaseModel.f38222g;
+            return (pVar == null || !pVar.f2265k) ? i2 == 1 : i2 == 3;
         }
         return invokeLI.booleanValue;
     }
@@ -111,27 +111,27 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
             b operateBar = this.a.getOperateBar();
-            if (b.d(adBaseModel) && (adOperator = adBaseModel.f38065f) != null) {
+            if (b.d(adBaseModel) && (adOperator = adBaseModel.f38221f) != null) {
                 if (operateBar == null || !a(adBaseModel, operateBar.a)) {
                     RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(c.a.c0.b.e.nad_feed_ad_operate_view);
                     relativeLayout.removeAllViews();
                     AdOperator.TYPE type = adOperator.a;
                     if (type == AdOperator.TYPE.DOWNLOAD) {
-                        c.a.c0.p.c cVar = adBaseModel.f38068i;
-                        if (cVar == null || !cVar.f1788d) {
+                        c.a.c0.p.c cVar = adBaseModel.f38224i;
+                        if (cVar == null || !cVar.f2215d) {
                             return null;
                         }
-                        p pVar = adBaseModel.f38066g;
-                        if (pVar != null && pVar.f1838k) {
-                            View inflate = LayoutInflater.from(this.f1713b).inflate(g.nad_operate_app_info_view, (ViewGroup) relativeLayout, true);
+                        p pVar = adBaseModel.f38222g;
+                        if (pVar != null && pVar.f2265k) {
+                            View inflate = LayoutInflater.from(this.f2140b).inflate(g.nad_operate_app_info_view, (ViewGroup) relativeLayout, true);
                             b(inflate.findViewById(c.a.c0.b.e.nad_feed_ad_operate_progress_button), 6.0f);
                             return new d(3, inflate);
                         }
-                        View inflate2 = LayoutInflater.from(this.f1713b).inflate(g.nad_operate_download, (ViewGroup) relativeLayout, true);
+                        View inflate2 = LayoutInflater.from(this.f2140b).inflate(g.nad_operate_download, (ViewGroup) relativeLayout, true);
                         b(inflate2.findViewById(c.a.c0.b.e.nad_feed_ad_operate_progress_button), 6.0f);
                         return new f(1, inflate2);
                     } else if (type == AdOperator.TYPE.CHECK) {
-                        View inflate3 = LayoutInflater.from(this.f1713b).inflate(g.nad_operate_command, (ViewGroup) relativeLayout, true);
+                        View inflate3 = LayoutInflater.from(this.f2140b).inflate(g.nad_operate_command, (ViewGroup) relativeLayout, true);
                         b(inflate3.findViewById(c.a.c0.b.e.nad_feed_ad_operate_command_button), 6.0f);
                         return new e(2, inflate3);
                     } else {

@@ -101,9 +101,9 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) && i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                c.a.s0.j3.j0.a.e().j(String.valueOf(longitude));
-                c.a.s0.j3.j0.a.e().i(String.valueOf(latitude));
-                c.a.s0.j3.j0.a.e().k(System.currentTimeMillis());
+                c.a.t0.j3.j0.a.e().j(String.valueOf(longitude));
+                c.a.t0.j3.j0.a.e().i(String.valueOf(latitude));
+                c.a.t0.j3.j0.a.e().k(System.currentTimeMillis());
                 if (this.a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.z(1, longitude, latitude);
                     this.a.mModel.A();

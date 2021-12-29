@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -67,13 +66,11 @@ public class CommandService extends Service {
                 return 2;
             }
             String action = intent.getAction();
-            m.a("CommandService#onStartCommand#action = " + action, this);
             try {
             } catch (RuntimeException e2) {
                 new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
             }
             if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action)) {
-                m.a("push_passthrough: receive click action", getApplicationContext());
                 new b.a(this).a("0").b(intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null).a(System.currentTimeMillis()).b(601011L).a();
                 stopSelf();
                 return 2;

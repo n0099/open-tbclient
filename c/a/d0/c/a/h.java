@@ -16,10 +16,10 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f3009b;
+    public static h f3437b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public c.a.j0.a.b.c<IWebViewDataDirectoryManager> a;
+    public c.a.k0.a.b.c<IWebViewDataDirectoryManager> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class h {
                 return;
             }
         }
-        f3009b = new h();
+        f3437b = new h();
     }
 
     public h() {
@@ -56,13 +56,13 @@ public class h {
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3009b : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3437b : (h) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.j0.a.b.a b2 = c.a.j0.a.b.a.b();
+            c.a.k0.a.b.a b2 = c.a.k0.a.b.a.b();
             this.a = b2;
             b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
         }

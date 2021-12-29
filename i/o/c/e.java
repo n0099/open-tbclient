@@ -23,10 +23,10 @@ public final class e extends i.g {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final i.u.a f64409e;
+        public final i.u.a f64404e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f64410f;
+        public final /* synthetic */ e f64405f;
 
         public a(e eVar) {
             Interceptable interceptable = $ic;
@@ -43,8 +43,8 @@ public final class e extends i.g {
                     return;
                 }
             }
-            this.f64410f = eVar;
-            this.f64409e = new i.u.a();
+            this.f64405f = eVar;
+            this.f64404e = new i.u.a();
         }
 
         @Override // i.g.a
@@ -62,21 +62,21 @@ public final class e extends i.g {
         public k c(i.n.a aVar, long j2, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) ? b(new i(aVar, this, this.f64410f.now() + timeUnit.toMillis(j2))) : (k) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) ? b(new i(aVar, this, this.f64405f.now() + timeUnit.toMillis(j2))) : (k) invokeCommon.objValue;
         }
 
         @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64409e.isUnsubscribed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64404e.isUnsubscribed() : invokeV.booleanValue;
         }
 
         @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f64409e.unsubscribe();
+                this.f64404e.unsubscribe();
             }
         }
     }

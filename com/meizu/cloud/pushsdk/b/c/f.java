@@ -50,26 +50,26 @@ public class f {
         public static final /* synthetic */ int[] a;
 
         static {
-            int[] iArr = new int[a.EnumC2144a.values().length];
+            int[] iArr = new int[a.EnumC2151a.values().length];
             a = iArr;
             try {
-                iArr[a.EnumC2144a.SUCCESS.ordinal()] = 1;
+                iArr[a.EnumC2151a.SUCCESS.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[a.EnumC2144a.INVALID_HOST.ordinal()] = 2;
+                a[a.EnumC2151a.INVALID_HOST.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[a.EnumC2144a.UNSUPPORTED_SCHEME.ordinal()] = 3;
+                a[a.EnumC2151a.UNSUPPORTED_SCHEME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[a.EnumC2144a.MISSING_SCHEME.ordinal()] = 4;
+                a[a.EnumC2151a.MISSING_SCHEME.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[a.EnumC2144a.INVALID_PORT.ordinal()] = 5;
+                a[a.EnumC2151a.INVALID_PORT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -102,7 +102,7 @@ public class f {
 
         /* renamed from: com.meizu.cloud.pushsdk.b.c.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public enum EnumC2144a {
+        public enum EnumC2151a {
             SUCCESS,
             MISSING_SCHEME,
             UNSUPPORTED_SCHEME,
@@ -469,7 +469,7 @@ public class f {
             return i2 != -1 ? i2 : f.a(this.a);
         }
 
-        public EnumC2144a a(f fVar, String str) {
+        public EnumC2151a a(f fVar, String str) {
             int a;
             int i2;
             int a2 = m.a(str, 0, str.length());
@@ -479,13 +479,13 @@ public class f {
                     this.a = "https";
                     a2 += 6;
                 } else if (!str.regionMatches(true, a2, UrlSchemaHelper.SCHEMA_TYPE_HTTP, 0, 5)) {
-                    return EnumC2144a.UNSUPPORTED_SCHEME;
+                    return EnumC2151a.UNSUPPORTED_SCHEME;
                 } else {
                     this.a = "http";
                     a2 += 5;
                 }
             } else if (fVar == null) {
-                return EnumC2144a.MISSING_SCHEME;
+                return EnumC2151a.MISSING_SCHEME;
             } else {
                 this.a = fVar.f60833b;
             }
@@ -532,13 +532,13 @@ public class f {
                     int g2 = g(str, i4, a);
                     this.f60845e = g2;
                     if (g2 == -1) {
-                        return EnumC2144a.INVALID_PORT;
+                        return EnumC2151a.INVALID_PORT;
                     }
                 } else {
                     this.f60845e = f.a(this.a);
                 }
                 if (this.f60844d == null) {
-                    return EnumC2144a.INVALID_HOST;
+                    return EnumC2151a.INVALID_HOST;
                 }
                 a2 = a;
             } else {
@@ -562,7 +562,7 @@ public class f {
             if (a5 < b2 && str.charAt(a5) == '#') {
                 this.f60848h = f.a(str, 1 + a5, b2, "", true, false, false, false);
             }
-            return EnumC2144a.SUCCESS;
+            return EnumC2151a.SUCCESS;
         }
 
         public a a(String str) {
@@ -813,7 +813,7 @@ public class f {
             }
             sb.append(str);
             if (str2 != null) {
-                sb.append(com.alipay.sdk.encrypt.a.f31721h);
+                sb.append(com.alipay.sdk.encrypt.a.f31864h);
                 sb.append(str2);
             }
         }
@@ -821,7 +821,7 @@ public class f {
 
     public static f c(String str) {
         a aVar = new a();
-        if (aVar.a((f) null, str) == a.EnumC2144a.SUCCESS) {
+        if (aVar.a((f) null, str) == a.EnumC2151a.SUCCESS) {
             return aVar.b();
         }
         return null;

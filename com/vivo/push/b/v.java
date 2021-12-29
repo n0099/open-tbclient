@@ -1,22 +1,19 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public final class v extends u {
+public abstract class v extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
+    public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f63028b;
+    public long f63031b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i2) {
@@ -36,46 +33,37 @@ public final class v extends u {
                 return;
             }
         }
-        this.a = null;
-        this.f63028b = null;
     }
 
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final void c(com.vivo.push.a aVar) {
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
-            aVar.a("content", this.a);
-            aVar.a(GameCodeGetResponseMsg.PARAM_ERROR_MSG, this.f63028b);
+            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
+            aVar.a("notify_id", this.f63031b);
         }
     }
 
-    public final ArrayList<String> d() {
-        InterceptResult invokeV;
+    @Override // com.vivo.push.b.s, com.vivo.push.o
+    public void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public final List<String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f63028b : (List) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnSetTagsCommand" : (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
-            this.a = aVar.b("content");
-            this.f63028b = aVar.b(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+            this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
+            this.f63031b = aVar.b("notify_id", -1L);
         }
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63031b : invokeV.longValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

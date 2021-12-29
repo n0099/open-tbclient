@@ -22,10 +22,10 @@ public abstract class c0 implements Closeable {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f28442e;
+        public final /* synthetic */ long f28516e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ BufferedSource f28443f;
+        public final /* synthetic */ BufferedSource f28517f;
 
         public a(v vVar, long j2, BufferedSource bufferedSource) {
             Interceptable interceptable = $ic;
@@ -42,22 +42,22 @@ public abstract class c0 implements Closeable {
                     return;
                 }
             }
-            this.f28442e = j2;
-            this.f28443f = bufferedSource;
+            this.f28516e = j2;
+            this.f28517f = bufferedSource;
         }
 
         @Override // c.d.b.c0
         public long c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28442e : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28516e : invokeV.longValue;
         }
 
         @Override // c.d.b.c0
         public BufferedSource f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28443f : (BufferedSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28517f : (BufferedSource) invokeV.objValue;
         }
     }
 

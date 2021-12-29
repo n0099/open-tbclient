@@ -10,11 +10,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b;
-import c.a.g0.p.f;
-import c.a.g0.r.g;
-import c.a.g0.r.h;
-import c.a.g0.r.k;
+import c.a.h0.b;
+import c.a.h0.p.f;
+import c.a.h0.r.g;
+import c.a.h0.r.h;
+import c.a.h0.r.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 /* loaded from: classes10.dex */
-public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.s.f.a {
+public class PolyActivity extends Activity implements ChannelListView.m, c.a.h0.s.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_WIDGET_REQUEST_CODE = 100;
     public static final String CHOSEN_CHANNEL_KEY = "chosenChannel";
@@ -51,11 +51,11 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
     public static Activity invokerActivity;
     public static boolean isCashing;
     public static b.c listener;
-    public static c.a.g0.s.g.c wechatSignAutoRenew;
+    public static c.a.h0.s.g.c wechatSignAutoRenew;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle arguments;
     public ChannelListView mChannelListView;
-    public c.a.g0.s.a mLaunchPaymentParamsCache;
+    public c.a.h0.s.a mLaunchPaymentParamsCache;
 
     /* loaded from: classes10.dex */
     public class a extends CommonDialog.e {
@@ -65,12 +65,12 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
 
         /* renamed from: com.baidu.poly.widget.PolyActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public class C1817a implements CommonDialog.f {
+        public class C1824a implements CommonDialog.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1817a(a aVar) {
+            public C1824a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
         public CommonDialog.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1817a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1824a(this) : (CommonDialog.f) invokeV.objValue;
         }
     }
 
@@ -214,10 +214,10 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
     public class c extends CommonDialog.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.g0.s.a a;
+        public final /* synthetic */ c.a.h0.s.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PolyActivity f38936b;
+        public final /* synthetic */ PolyActivity f39092b;
 
         /* loaded from: classes10.dex */
         public class a implements CommonDialog.f {
@@ -248,13 +248,13 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     c cVar = this.a;
-                    cVar.f38936b.jumpToPassAuthWidget(cVar.a);
+                    cVar.f39092b.jumpToPassAuthWidget(cVar.a);
                     dialog.dismiss();
                 }
             }
         }
 
-        public c(PolyActivity polyActivity, c.a.g0.s.a aVar) {
+        public c(PolyActivity polyActivity, c.a.h0.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -269,7 +269,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
                     return;
                 }
             }
-            this.f38936b = polyActivity;
+            this.f39092b = polyActivity;
             this.a = aVar;
         }
 
@@ -499,7 +499,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
             return;
         }
         if (listener != null) {
-            String a2 = c.a.g0.r.e.a(2, null, MSG_REPEAT_PAY);
+            String a2 = c.a.h0.r.e.a(2, null, MSG_REPEAT_PAY);
             listener.a(2, a2);
             f.j(2, a2, "0");
         }
@@ -507,7 +507,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpToPassAuthWidget(c.a.g0.s.a aVar) {
+    public void jumpToPassAuthWidget(c.a.h0.s.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, aVar) == null) {
             Intent a2 = g.a(this);
@@ -606,7 +606,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
                 return;
             }
             if (i3 == -1) {
-                c.a.g0.s.b.h().i(this, intent.getExtras(), this.mChannelListView, true);
+                c.a.h0.s.b.h().i(this, intent.getExtras(), this.mChannelListView, true);
                 return;
             }
             ChannelListView channelListView2 = this.mChannelListView;
@@ -703,7 +703,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
             this.mChannelListView.setResultListener(listener);
             this.mChannelListView.setCloseListener(this);
             this.mChannelListView.setChannelAuth(channelAuth);
-            c.a.g0.s.d dVar = new c.a.g0.s.d(new c.a.g0.s.c(this, channelPay), this);
+            c.a.h0.s.d dVar = new c.a.h0.s.d(new c.a.h0.s.c(this, channelPay), this);
             dVar.s(wechatSignAutoRenew);
             this.mChannelListView.setWalletList(dVar);
             String string = this.arguments.getString(CHOSEN_CHANNEL_KEY);
@@ -711,7 +711,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
             String string3 = this.arguments.getString(TRADE_TYPE);
             h.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
             if (TextUtils.equals(string2, NONE_PANEL_TYPE) && TextUtils.equals(string3, DIRECT_PAY_TRADE_TYPE)) {
-                c.a.g0.r.d.e(this.arguments);
+                c.a.h0.r.d.e(this.arguments);
                 this.mChannelListView.directPay(k.b(this, this.arguments), string);
             } else if (TextUtils.equals(string2, NONE_PANEL_TYPE) && !TextUtils.isEmpty(string)) {
                 this.mChannelListView.startFastPay(k.b(this, this.arguments), string);
@@ -736,7 +736,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
         a2.show();
     }
 
-    @Override // c.a.g0.s.f.a
+    @Override // c.a.h0.s.f.a
     public void showBlockDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -750,9 +750,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
         }
     }
 
-    @Override // c.a.g0.s.f.a
-    public void showNeedAuthDialog(c.a.g0.s.a aVar) {
-        c.a.g0.l.c cVar;
+    @Override // c.a.h0.s.f.a
+    public void showNeedAuthDialog(c.a.h0.s.a aVar) {
+        c.a.h0.l.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) || this.mChannelListView == null || aVar == null || (cVar = aVar.a) == null) {
             return;
@@ -773,7 +773,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
         }
     }
 
-    public static void startPay(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, c.a.g0.s.g.c cVar, b.c cVar2, Bundle bundle) {
+    public static void startPay(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, c.a.h0.s.g.c cVar, b.c cVar2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, iChannelPay, iChannelAuth, cVar, cVar2, bundle}) == null) {
             wechatSignAutoRenew = cVar;
@@ -788,7 +788,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.g0.
             if (context instanceof Activity) {
                 invokerActivity = (Activity) context;
             }
-            c.a.g0.n.a.a().c((Activity) context);
+            c.a.h0.n.a.a().c((Activity) context);
             startPay(context, iChannelPay, cVar, bundle);
         }
     }

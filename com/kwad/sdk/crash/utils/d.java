@@ -3,60 +3,37 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class d {
-    public static /* synthetic */ Interceptable $ic;
     public static Context a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     @WorkerThread
     public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long b2 = b(a);
-            a(a, 1 + b2);
-            return b2;
-        }
-        return invokeV.longValue;
+        long b2 = b(a);
+        a(a, 1 + b2);
+        return b2;
     }
 
     public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            a = context;
-        }
+        a = context;
     }
 
     @WorkerThread
     public static boolean a(Context context, long j2) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, context, j2)) == null) {
-            if (context != null) {
-                SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
-                edit.putLong("crashseq", j2);
-                return edit.commit();
-            }
-            return false;
+        if (context != null) {
+            SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
+            edit.putLong("crashseq", j2);
+            return edit.commit();
         }
-        return invokeLJ.booleanValue;
+        return false;
     }
 
     @WorkerThread
     public static long b(Context context) {
-        InterceptResult invokeL;
         SharedPreferences sharedPreferences;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) == null) {
-                return 0L;
-            }
-            return sharedPreferences.getLong("crashseq", 1L);
+        if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) == null) {
+            return 0L;
         }
-        return invokeL.longValue;
+        return sharedPreferences.getLong("crashseq", 1L);
     }
 }

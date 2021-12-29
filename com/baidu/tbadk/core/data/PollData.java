@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.r.p;
+import c.a.s0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +107,7 @@ public class PollData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // c.a.r0.s.r.p
+    @Override // c.a.s0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {

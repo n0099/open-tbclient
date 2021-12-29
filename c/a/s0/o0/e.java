@@ -1,829 +1,207 @@
 package c.a.s0.o0;
 
-import android.content.BroadcastReceiver;
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
-import com.baidu.tieba.dnsproxy.DnsProxyStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
-    public static e m;
-    public static final Random n;
-    public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<String> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f20567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f20568c;
+    public static e f13269c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public Map<String, List<DnsProxyResponseData.DnsProxyIpData>> f20569d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BroadcastReceiver f20570e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f20571f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f20572g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Handler f20573h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HandlerThread f20574i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Runnable f20575j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public long f20576k;
-    public c.a.s0.o0.c l;
-
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20577e;
-
-        public a(e eVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20577e = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(DnsProxyResponseData.DnsProxyIpData dnsProxyIpData, DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dnsProxyIpData, dnsProxyIpData2)) == null) {
-                if (dnsProxyIpData == null && dnsProxyIpData2 == null) {
-                    return 0;
-                }
-                if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
-                    if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                        return c.a.s0.o0.i.d.m().l(this.f20577e, dnsProxyIpData.getIp()) - c.a.s0.o0.i.d.m().l(this.f20577e, dnsProxyIpData2.getIp()) >= 0.0f ? 1 : -1;
-                    }
-                    return -1;
-                }
-                return 1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Comparator<DnsProxyResponseData.DnsProxyIpData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f20578e;
-
-        public b(e eVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20578e = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(DnsProxyResponseData.DnsProxyIpData dnsProxyIpData, DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dnsProxyIpData, dnsProxyIpData2)) == null) {
-                if (dnsProxyIpData == null && dnsProxyIpData2 == null) {
-                    return 0;
-                }
-                if (dnsProxyIpData != null || dnsProxyIpData2 == null) {
-                    if (dnsProxyIpData == null || dnsProxyIpData2 != null) {
-                        return c.a.s0.o0.i.d.m().k(this.f20578e, dnsProxyIpData.getIp()) - c.a.s0.o0.i.d.m().k(this.f20578e, dnsProxyIpData2.getIp()) >= 0.0f ? -1 : 1;
-                    }
-                    return 1;
-                }
-                return -1;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e this$0;
-
-        public c(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = eVar;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && "com.baidu.tieba.dnsproxy.dnsproxydata".equals(intent.getAction())) {
-                try {
-                    Bundle extras = intent.getExtras();
-                    if (extras == null) {
-                        return;
-                    }
-                    ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-                    for (String str : extras.keySet()) {
-                        JSONArray jSONArray = new JSONArray(extras.getString(str));
-                        int length = jSONArray.length();
-                        ArrayList arrayList = new ArrayList();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            DnsProxyResponseData.DnsProxyIpData dnsProxyIpData = (DnsProxyResponseData.DnsProxyIpData) OrmObject.objectWithJson(jSONArray.getJSONObject(i2), DnsProxyResponseData.DnsProxyIpData.class);
-                            if (dnsProxyIpData != null) {
-                                arrayList.add(dnsProxyIpData);
-                            }
-                        }
-                        concurrentHashMap.put(str, arrayList);
-                    }
-                    if (concurrentHashMap.size() > 0) {
-                        this.this$0.f20568c.clear();
-                        this.this$0.f20568c.putAll(concurrentHashMap);
-                        this.this$0.l(true);
-                    }
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    c.a.s0.o0.d.c().a("dpm_broadcast", th.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(e eVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && c.a.d.f.p.k.z()) {
-                c.a.s0.o0.i.d.m().r();
-                this.a.k();
-            }
-        }
-    }
-
-    /* renamed from: c.a.s0.o0.e$e  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C1242e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1242e(e eVar, int i2) {
-            super(i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.a.d.f.m.e.a().removeCallbacks(this.a.f20575j);
-                    DnsProxyStatic.h();
-                    DnsProxyStatic.g();
-                    c.a.s0.o0.i.c.h().k();
-                    return;
-                }
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Runnable f20579e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20580f;
-
-        public f(e eVar, Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, runnable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20580f = eVar;
-            this.f20579e = runnable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20580f.o(this.f20579e);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20581e;
-
-        public g(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20581e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20581e.k();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class h extends c.a.s0.o0.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public h(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-                super.onPostExecute(hashMap);
-                this.a.f20569d.clear();
-                if (hashMap != null) {
-                    this.a.f20569d.putAll(hashMap);
-                    this.a.l(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class i implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f20582e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f20583f;
-
-        public i(e eVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20583f = eVar;
-            this.f20582e = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20583f.g(this.f20582e);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class j extends c.a.s0.o0.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ e f20584b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public j(e eVar, boolean z) {
-            super(z);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20584b = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-                super.onPostExecute(hashMap);
-                this.f20584b.l = null;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onProgressUpdate(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>... hashMapArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMapArr) == null) {
-                super.onProgressUpdate(hashMapArr);
-                if (hashMapArr != null && hashMapArr.length > 0) {
-                    if (hashMapArr[0] != null) {
-                        e(hashMapArr[0]);
-                    } else if (this.a) {
-                        this.f20584b.l = null;
-                        this.f20584b.g(false);
-                    }
-                } else if (this.a) {
-                    this.f20584b.l = null;
-                    this.f20584b.g(false);
-                }
-            }
-        }
-
-        public final void e(HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-                this.f20584b.f20568c.clear();
-                if (hashMap != null) {
-                    this.f20584b.f20568c.putAll(hashMap);
-                    this.f20584b.l(true);
-                    if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                        Intent intent = new Intent();
-                        intent.setAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-                        for (Map.Entry<String, List<DnsProxyResponseData.DnsProxyIpData>> entry : hashMap.entrySet()) {
-                            JSONArray jSONArray = new JSONArray();
-                            for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : entry.getValue()) {
-                                try {
-                                    jSONArray.put(OrmObject.jsonWithObject(dnsProxyIpData));
-                                } catch (Throwable th) {
-                                    BdLog.detailException(th);
-                                }
-                            }
-                            intent.putExtra(entry.getKey(), jSONArray.toString());
-                        }
-                        intent.setPackage(TbadkCoreApplication.getInst().getContext().getPackageName());
-                        c.a.d.f.m.f.a(TbadkCoreApplication.getInst().getContext(), intent);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class k implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ e f20585e;
-
-        public k(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f20585e = eVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20585e.k();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-760038760, "Lc/a/s0/o0/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-760038760, "Lc/a/s0/o0/e;");
-                return;
-            }
-        }
-        n = new Random();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public List<String> f13270b;
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet<>();
-        this.f20567b = new ConcurrentHashMap();
-        this.f20568c = new ConcurrentHashMap();
-        this.f20569d = new ConcurrentHashMap();
-        this.f20570e = new c(this);
-        this.f20571f = new d(this, 2000994);
-        this.f20572g = new C1242e(this, 2001011);
-        this.f20573h = null;
-        this.f20574i = new HandlerThread(e.class.getName());
-        this.f20575j = new g(this);
-        this.f20576k = 0L;
-        this.l = null;
-        this.f20574i.start();
+        this.a = i(c.a.s0.s.g0.b.j().p("key_need_add_source_stat_list", ""));
+        this.f13270b = i("c12897,c12896,c12895,c12894,c12893,c12892,c12891,c12890,c13274,c12905,c12003,c13271,c12899,c11244,c11032,c12904,c13273,c13433,c10295,c12320,c12835,c10297,c13136,c12910,c10734,c10735,common_click,c10730,c10731,c11439,c10705,c13147,c13388,c13389,c10756,c10296,c10755,c13407,c13406,c12590,c10751,c12888,c12889,consume_33,c11824,c11823,consume_34,c12902,c12898,consume_24,c12887,c12909,c12908,c12942,c12901,c12900,c12903,c13008,c13146,common_exp,c12907,c12906,c10750,consume_3,c11887,c11438,c10704,c10484,c10709,c10708,c12386,c12384");
     }
 
-    public static final e i() {
+    public static void b(Context context, StatisticItem statisticItem, c.a.s0.q0.d dVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, context, statisticItem, dVar) == null) || dVar == null || statisticItem == null || TextUtils.isEmpty(statisticItem.getKey())) {
+            return;
+        }
+        c k2 = dVar.k();
+        if (k2 == null || k2.f()) {
+            k2 = TbPageExtraHelper.k(context);
+        }
+        if (k2 != null && !k2.f()) {
+            c(statisticItem, k2);
+        }
+        TbPageExtraHelper.s(statisticItem.toString());
+    }
+
+    public static void c(StatisticItem statisticItem, c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, statisticItem, cVar) == null) || statisticItem == null || cVar == null || TextUtils.isEmpty(statisticItem.getKey())) {
+            return;
+        }
+        String a = cVar.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String a2 = d.a(cVar.d(), a, 6);
+        if (TextUtils.isEmpty(a2) || statisticItem.hasParam("page_source")) {
+            return;
+        }
+        statisticItem.param("page_source", a2);
+    }
+
+    public static e f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (m == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (f13269c == null) {
                 synchronized (e.class) {
-                    if (m == null) {
-                        m = new e();
+                    if (f13269c == null) {
+                        f13269c = new e();
                     }
                 }
             }
-            return m;
+            return f13269c;
         }
         return (e) invokeV.objValue;
     }
 
-    public void f() {
+    public final void a(StatisticItem statisticItem) {
+        Activity currentActivity;
+        c k2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            c.a.s0.o0.i.d.m().j();
-            c.a.d.f.m.e.a().removeCallbacks(this.f20575j);
-            MessageManager.getInstance().unRegisterListener(this.f20571f);
-            MessageManager.getInstance().unRegisterListener(this.f20572g);
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f20570e);
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z || TbadkCoreApplication.getInst().isMainProcess(false)) {
-                if (!m.B()) {
-                    c.a.d.f.m.e.a().post(new i(this, z));
-                } else if (this.l == null && System.currentTimeMillis() - this.f20576k >= 5000) {
-                    if (!z) {
-                        this.f20576k = System.currentTimeMillis();
-                    }
-                    j jVar = new j(this, z);
-                    this.l = jVar;
-                    jVar.execute(new HashSet(this.a));
-                }
-            }
-        }
-    }
-
-    public String h(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            if (!TextUtils.isEmpty(str) && this.a.contains(str)) {
-                String m2 = m(str, this.f20567b, z);
-                return !TextUtils.isEmpty(m2) ? m2 : m(str, this.f20568c, z);
-            }
-            return null;
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new h(this).execute(new HashSet(this.a));
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j();
-            c.a.d.f.m.e.a().removeCallbacks(this.f20575j);
-            c.a.d.f.m.e.a().postDelayed(this.f20575j, 300000L);
-        }
-    }
-
-    public final void l(boolean z) {
-        Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map;
-        Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                map = this.f20568c;
-                map2 = this.f20569d;
-            } else {
-                map = this.f20569d;
-                map2 = this.f20568c;
-            }
-            for (String str : map.keySet()) {
-                List<DnsProxyResponseData.DnsProxyIpData> list = map.get(str);
-                List<DnsProxyResponseData.DnsProxyIpData> list2 = map2.get(str);
-                HashSet<String> hashSet = new HashSet();
-                HashSet hashSet2 = new HashSet();
-                if (list != null) {
-                    for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                        if (dnsProxyIpData != null && c.a.s0.o0.h.a(dnsProxyIpData.getIp())) {
-                            hashSet2.add(dnsProxyIpData.getIp());
-                        }
-                    }
-                }
-                if (list2 != null) {
-                    for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2 : list2) {
-                        if (dnsProxyIpData2 != null && c.a.s0.o0.h.a(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
-                            hashSet.add(dnsProxyIpData2.getIp());
-                        }
-                    }
-                }
-                ArrayList arrayList = new ArrayList(hashSet.size());
-                for (String str2 : hashSet) {
-                    DnsProxyResponseData.DnsProxyIpData dnsProxyIpData3 = new DnsProxyResponseData.DnsProxyIpData();
-                    dnsProxyIpData3.setIp(str2);
-                    arrayList.add(dnsProxyIpData3);
-                }
-                this.f20567b.put(str, arrayList);
-            }
-        }
-    }
-
-    public final String m(String str, Map<String, List<DnsProxyResponseData.DnsProxyIpData>> map, boolean z) {
-        InterceptResult invokeLLZ;
-        List<DnsProxyResponseData.DnsProxyIpData> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048582, this, str, map, z)) == null) {
-            if (!TextUtils.isEmpty(str) && map != null && (list = map.get(str)) != null && list.size() > 0) {
-                if (list.size() == 1) {
-                    String ip = list.get(0).getIp();
-                    if (n.nextFloat() < c.a.s0.o0.i.d.m().k("c.tieba.baidu.com", ip)) {
-                        return ip;
-                    }
-                } else {
-                    if (z) {
-                        Collections.sort(list, new a(this, str));
-                    } else {
-                        Collections.sort(list, new b(this, str));
-                    }
-                    for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                        if (dnsProxyIpData != null && c.a.s0.o0.h.a(dnsProxyIpData.getIp())) {
-                            String ip2 = dnsProxyIpData.getIp();
-                            if (n.nextFloat() < c.a.s0.o0.i.d.m().k("c.tieba.baidu.com", ip2)) {
-                                return ip2;
-                            }
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.add("c.tieba.baidu.com");
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                MessageManager.getInstance().unRegisterListener(this.f20571f);
-                MessageManager.getInstance().registerListener(this.f20571f);
-            }
-            MessageManager.getInstance().unRegisterListener(this.f20572g);
-            MessageManager.getInstance().registerListener(this.f20572g);
-            c.a.s0.o0.i.d.m().t();
-            c.a.d.f.m.e.a().post(new k(this));
-            g(true);
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                return;
-            }
-            TbadkCoreApplication.getInst().unregisterReceiver(this.f20570e);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.tieba.dnsproxy.dnsproxydata");
-            TbadkCoreApplication.getInst().registerReceiver(this.f20570e, intentFilter);
-        }
-    }
-
-    public void o(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) || runnable == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (k2 = TbPageExtraHelper.k(currentActivity)) == null) {
             return;
         }
-        Handler handler = this.f20573h;
-        if (handler == null) {
-            if (this.f20574i.getLooper() != null) {
-                Handler handler2 = new Handler(this.f20574i.getLooper());
-                this.f20573h = handler2;
-                handler2.post(runnable);
+        String a = k2.a();
+        if (!TextUtils.isEmpty(a) && !statisticItem.hasParam("page_key")) {
+            statisticItem.param("page_key", a);
+        }
+        String b2 = k2.b();
+        if (!TextUtils.isEmpty(b2) && !statisticItem.hasParam("page_tag")) {
+            statisticItem.param("page_tag", b2);
+        }
+        ArrayList<String> d2 = k2.d();
+        String a2 = d.a(d2, a, 6);
+        if (statisticItem.getKey().equals("common_exp") && statisticItem.hasParam("common_exp_source_pb_comment") && d2.size() == 0 && (currentActivity instanceof c.a.s0.q0.a)) {
+            List<String> currentPageSourceKeyList = ((c.a.s0.q0.a) currentActivity).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList instanceof ArrayList) {
+                a2 = d.a((ArrayList) currentPageSourceKeyList, a, 6);
+                statisticItem.delete("common_exp_source_pb_comment");
             }
-            c.a.d.f.m.e.a().postDelayed(new f(this, runnable), 100L);
+        }
+        if (!TextUtils.isEmpty(a2) && !statisticItem.hasParam("page_source")) {
+            statisticItem.param("page_source", a2);
+        }
+        TbPageExtraHelper.s(statisticItem.toString());
+    }
+
+    public final <T> List<T> d(T[] tArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr)) == null) {
+            if (tArr == null || tArr.length == 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList(tArr.length);
+            for (T t : tArr) {
+                if (t != null && !TextUtils.isEmpty(t.toString())) {
+                    arrayList.add(t);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void e(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, statisticItem) == null) || statisticItem == null || statisticItem.hasParam("page_source")) {
             return;
         }
-        handler.post(runnable);
+        if (h(statisticItem.getKey()) || g(statisticItem.getKey())) {
+            a(statisticItem);
+        }
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.f13270b) && !m.isEmpty(str)) {
+                for (String str2 : this.f13270b) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.a) && !m.isEmpty(str)) {
+                for (String str2 : this.a) {
+                    if (str.equals(str2)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final List<String> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (m.isEmpty(str)) {
+                return null;
+            }
+            return d(str.split(","));
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = i(str);
+            if (str == null) {
+                str = "";
+            }
+            c.a.s0.s.g0.b.j().x("key_need_add_source_stat_list", str);
+        }
     }
 }

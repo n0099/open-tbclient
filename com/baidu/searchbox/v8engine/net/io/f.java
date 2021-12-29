@@ -13,7 +13,7 @@ public final class f {
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f39467b;
+    public static long f39623b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -37,9 +37,9 @@ public final class f {
             synchronized (f.class) {
                 if (a != null) {
                     e eVar = a;
-                    a = eVar.f39465f;
-                    eVar.f39465f = null;
-                    f39467b -= 8192;
+                    a = eVar.f39621f;
+                    eVar.f39621f = null;
+                    f39623b -= 8192;
                     return eVar;
                 }
                 return new e();
@@ -51,18 +51,18 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f39465f == null && eVar.f39466g == null) {
-                if (eVar.f39463d) {
+            if (eVar.f39621f == null && eVar.f39622g == null) {
+                if (eVar.f39619d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f39467b + 8192 > 65536) {
+                    if (f39623b + 8192 > 65536) {
                         return;
                     }
-                    f39467b += 8192;
-                    eVar.f39465f = a;
-                    eVar.f39462c = 0;
-                    eVar.f39461b = 0;
+                    f39623b += 8192;
+                    eVar.f39621f = a;
+                    eVar.f39618c = 0;
+                    eVar.f39617b = 0;
                     a = eVar;
                     return;
                 }

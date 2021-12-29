@@ -4,14 +4,6 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
 import com.kwad.sdk.core.imageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.kwad.sdk.core.imageloader.cache.disc.impl.ext.LruDiskCache;
@@ -40,194 +32,101 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public class DefaultConfigurationFactory {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public static final AtomicInteger poolNumber;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ThreadGroup group;
+        public static final AtomicInteger poolNumber = new AtomicInteger(1);
         public final String namePrefix;
-        public final AtomicInteger threadNumber;
         public final int threadPriority;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(670004595, "Lcom/kwad/sdk/core/imageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(670004595, "Lcom/kwad/sdk/core/imageloader/core/DefaultConfigurationFactory$DefaultThreadFactory;");
-                    return;
-                }
-            }
-            poolNumber = new AtomicInteger(1);
-        }
+        public final AtomicInteger threadNumber = new AtomicInteger(1);
+        public final ThreadGroup group = Thread.currentThread().getThreadGroup();
 
         public DefaultThreadFactory(int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.threadNumber = new AtomicInteger(1);
             this.threadPriority = i2;
-            this.group = Thread.currentThread().getThreadGroup();
             this.namePrefix = str + poolNumber.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.group;
-                Thread thread = new Thread(threadGroup, runnable, this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
-                if (thread.isDaemon()) {
-                    thread.setDaemon(false);
-                }
-                thread.setPriority(this.threadPriority);
-                return thread;
+            ThreadGroup threadGroup = this.group;
+            Thread thread = new Thread(threadGroup, runnable, this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
             }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    public DefaultConfigurationFactory() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            thread.setPriority(this.threadPriority);
+            return thread;
         }
     }
 
     public static BitmapDisplayer createBitmapDisplayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new SimpleBitmapDisplayer() : (BitmapDisplayer) invokeV.objValue;
+        return new SimpleBitmapDisplayer();
     }
 
     public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j2, int i2, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, fileNameGenerator, Long.valueOf(j2), Integer.valueOf(i2), str})) == null) {
-            File createReserveDiskCacheDir = createReserveDiskCacheDir(context, str);
-            if (j2 > 0 || i2 > 0) {
-                try {
-                    return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j2, i2);
-                } catch (IOException e2) {
-                    L.e(e2);
-                }
+        File createReserveDiskCacheDir = createReserveDiskCacheDir(context, str);
+        if (j2 > 0 || i2 > 0) {
+            try {
+                return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j2, i2);
+            } catch (IOException e2) {
+                L.e(e2);
             }
-            return new UnlimitedDiskCache(new File(str), createReserveDiskCacheDir, fileNameGenerator);
         }
-        return (DiskCache) invokeCommon.objValue;
+        return new UnlimitedDiskCache(new File(str), createReserveDiskCacheDir, fileNameGenerator);
     }
 
     public static Executor createExecutor(int i2, int i3, QueueProcessingType queueProcessingType) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i2, i3, queueProcessingType)) == null) {
-            return new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i3, "uil-pool-"));
-        }
-        return (Executor) invokeIIL.objValue;
+        return new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i3, "uil-pool-"));
     }
 
     public static FileNameGenerator createFileNameGenerator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new HashCodeFileNameGenerator() : (FileNameGenerator) invokeV.objValue;
+        return new HashCodeFileNameGenerator();
     }
 
     public static ImageDecoder createImageDecoder(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? new BaseImageDecoder(z) : (ImageDecoder) invokeZ.objValue;
+        return new BaseImageDecoder(z);
     }
 
     public static ImageDownloader createImageDownloader(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) ? new BaseImageDownloader(context) : (ImageDownloader) invokeL.objValue;
+        return new BaseImageDownloader(context);
     }
 
     public static MemoryCache createMemoryCache(Context context, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i2)) == null) {
-            if (i2 == 0) {
-                ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-                int memoryClass = activityManager.getMemoryClass();
-                if (hasHoneycomb() && isLargeHeap(context)) {
-                    memoryClass = getLargeMemoryClass(activityManager);
-                }
-                i2 = (memoryClass * 1048576) / 8;
+        if (i2 == 0) {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            int memoryClass = activityManager.getMemoryClass();
+            if (hasHoneycomb() && isLargeHeap(context)) {
+                memoryClass = getLargeMemoryClass(activityManager);
             }
-            return new LruMemoryCache(i2);
+            i2 = (memoryClass * 1048576) / 8;
         }
-        return (MemoryCache) invokeLI.objValue;
+        return new LruMemoryCache(i2);
     }
 
     public static File createReserveDiskCacheDir(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
-            File file = new File(str);
-            File file2 = new File(file, StorageUtils.INDIVIDUAL_DIR_NAME);
-            return (file2.exists() || file2.mkdir()) ? file2 : file;
-        }
-        return (File) invokeLL.objValue;
+        File file = new File(str);
+        File file2 = new File(file, StorageUtils.INDIVIDUAL_DIR_NAME);
+        return (file2.exists() || file2.mkdir()) ? file2 : file;
     }
 
     public static Executor createTaskDistributor() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-")) : (Executor) invokeV.objValue;
+        return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
     }
 
     public static ThreadFactory createThreadFactory(int i2, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, str)) == null) ? new DefaultThreadFactory(i2, str) : (ThreadFactory) invokeIL.objValue;
+        return new DefaultThreadFactory(i2, str);
     }
 
     @TargetApi(11)
     public static int getLargeMemoryClass(ActivityManager activityManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, activityManager)) == null) ? activityManager.getLargeMemoryClass() : invokeL.intValue;
+        return activityManager.getLargeMemoryClass();
     }
 
     public static boolean hasHoneycomb() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? Build.VERSION.SDK_INT >= 11 : invokeV.booleanValue;
+        return Build.VERSION.SDK_INT >= 11;
     }
 
     @TargetApi(11)
     public static boolean isLargeHeap(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) ? (context.getApplicationInfo().flags & 1048576) != 0 : invokeL.booleanValue;
+        return (context.getApplicationInfo().flags & 1048576) != 0;
     }
 }

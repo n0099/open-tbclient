@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.r.d2;
-import c.a.r0.s.r.x0;
+import c.a.s0.s.q.d2;
+import c.a.s0.s.q.x0;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class FeedTabCardStatisticHelper {
             if (d2Var == null) {
                 return null;
             }
-            if (d2Var.getType() == d2.E3) {
+            if (d2Var.getType() == d2.G3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_ENTER_FORUM_CLICK, d2Var, str);
                 baseThreadStatisticLog.param("obj_type", 1);
                 if (d2Var.L() != null) {
@@ -129,7 +129,7 @@ public class FeedTabCardStatisticHelper {
             if (d2Var == null) {
                 return null;
             }
-            if (d2Var.getType() == d2.E3) {
+            if (d2Var.getType() == d2.G3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_POTRAIT_CLICK, d2Var, str);
                 if (d2Var.L() != null) {
                     baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
@@ -158,7 +158,7 @@ public class FeedTabCardStatisticHelper {
             if (d2Var == null) {
                 return null;
             }
-            if (d2Var.getType() == d2.E3) {
+            if (d2Var.getType() == d2.G3) {
                 baseThreadStatisticLog = getBaseThreadStatisticLog(KEY_TAB_FEED_VIDEO_THREAD_TITLE_CLICK, d2Var, str);
                 if (d2Var.L() != null) {
                     baseThreadStatisticLog.param(TiebaStatic.Params.OBJ_PARAM6, d2Var.L().oriUgcVid);
@@ -226,7 +226,7 @@ public class FeedTabCardStatisticHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, d2Var)) == null) {
-            if (d2Var.getType() == d2.r3 || d2Var.R1()) {
+            if (d2Var.getType() == d2.t3 || d2Var.R1()) {
                 return 2;
             }
             return (d2Var.P1() || d2Var.S1()) ? 3 : 1;

@@ -18,10 +18,10 @@ public class f<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f33531b;
+    public final Class<T> f33687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbstractHttpMessageConverter<?> f33532c;
+    public final AbstractHttpMessageConverter<?> f33688c;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class f<T> {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (abstractHttpMessageConverter != null) {
-            this.f33531b = cls;
-            this.f33532c = abstractHttpMessageConverter;
+            this.f33687b = cls;
+            this.f33688c = abstractHttpMessageConverter;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -82,7 +82,7 @@ public class f<T> {
                 if (eVar.d().i() == null) {
                     Log.isLoggable(a, 3);
                 }
-                return (T) this.f33532c.a(this.f33531b, eVar);
+                return (T) this.f33688c.a(this.f33687b, eVar);
             }
             return null;
         }
@@ -92,6 +92,6 @@ public class f<T> {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33532c.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33688c.a() : (String) invokeV.objValue;
     }
 }

@@ -1,12 +1,12 @@
 package com.vivo.push;
 
 import android.content.Intent;
-import com.vivo.push.c.ab;
+import com.vivo.push.c.z;
 /* loaded from: classes4.dex */
 public interface IPushClientFactory {
-    ab createReceiveTask(y yVar);
+    z createReceiveTask(o oVar);
 
-    y createReceiverCommand(Intent intent);
+    o createReceiverCommand(Intent intent);
 
-    v createTask(y yVar);
+    l createTask(o oVar);
 }

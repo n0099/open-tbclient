@@ -18,7 +18,7 @@ public class c {
     public static Log.ISdkLogCallback a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31777b = "alipaysdk";
+    public static final String f31920b = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {

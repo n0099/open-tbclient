@@ -11,7 +11,7 @@ public interface e {
     public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f1581b = new a();
+    public static final e f2008b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements e {

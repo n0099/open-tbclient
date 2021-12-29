@@ -19,7 +19,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2146b;
+    public String f2573b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class c extends a {
                 return;
             }
         }
-        this.f2146b = null;
+        this.f2573b = null;
     }
 
     public final void d(StringBuilder sb, String str, String str2) {
@@ -44,7 +44,7 @@ public class c extends a {
                 sb.append(Typography.amp);
             }
             sb.append(str);
-            sb.append(com.alipay.sdk.encrypt.a.f31721h);
+            sb.append(com.alipay.sdk.encrypt.a.f31864h);
             sb.append(str2);
         }
     }
@@ -65,7 +65,7 @@ public class c extends a {
             d(sb, "cuid", a.b());
             d(sb, "net_type", String.valueOf(new n().c()));
             String sb2 = sb.toString();
-            this.f2146b = sb2;
+            this.f2573b = sb2;
             return !TextUtils.isEmpty(sb2);
         }
         return invokeV.booleanValue;
@@ -76,7 +76,7 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.f2146b)) {
+            if (TextUtils.isEmpty(this.f2573b)) {
                 return e();
             }
             return true;
@@ -90,16 +90,16 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.f2146b)) {
+            if (TextUtils.isEmpty(this.f2573b)) {
                 e();
             }
-            if (this.a.toString().contains(this.f2146b)) {
+            if (this.a.toString().contains(this.f2573b)) {
                 return this.a.toString();
             }
             if (this.a.length() > 0) {
                 this.a.append(Typography.amp);
             }
-            this.a.append(this.f2146b);
+            this.a.append(this.f2573b);
             return this.a.toString();
         }
         return (String) invokeV.objValue;

@@ -1,15 +1,22 @@
 package com.baidu.searchbox.ruka.ubc;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
+import com.baidu.searchbox.aperf.param.dye.DyeConfigManager;
+import com.baidu.searchbox.aperf.param.dye.IDyeConfig;
+import com.baidu.searchbox.aperf.param.launch.ILaunchType;
+import com.baidu.searchbox.aperf.param.launch.LaunchTypeManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.searchbox.devicescore.IDeviceScore;
 import com.baidu.searchbox.looper.impl.LooperBlock;
 import com.baidu.searchbox.looper.ioc.ILooperRegister;
 import com.baidu.searchbox.ruka.Ruka;
+import com.baidu.searchbox.ruka.basic.RukaTrackUIUtil;
 import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -104,6 +111,24 @@ public class UBCLooperRegister extends ILooperRegister {
                 if (cPUInfo != null) {
                     jSONObject.put("cpu", cPUInfo);
                 }
+                jSONObject.put("root", CommonUtils.getRootedInfo());
+                jSONObject.put("emulator", CommonUtils.getEmulator());
+                jSONObject.put("inStorage", CommonUtils.getInStorage());
+                jSONObject.put("exStorage", CommonUtils.getExStorage());
+                jSONObject.put("heap", CommonUtils.getHeapInfo());
+                jSONObject.put("sysMem", CommonUtils.getSysMem());
+                jSONObject.put("isLowMemory", CommonUtils.isLowMemory());
+                jSONObject.put("VSSRSS", CommonUtils.getVSSRSS());
+                jSONObject.put("PSS", CommonUtils.getPSS());
+                jSONObject.put("procBit", CommonUtils.getProcessBit());
+                jSONObject.put("ROM", CommonUtils.getROM());
+                if (Ruka.getLineMappingMode() >= 0) {
+                    jSONObject.put(Constant.KEY_LINEMAPPING, Ruka.getLineMappingMode());
+                }
+                IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
+                if (iDeviceScore != null) {
+                    jSONObject.put("devicescore", String.valueOf(iDeviceScore.getFinalScore(context)));
+                }
                 Object network = CommonUtils.getNetwork();
                 if (network != null) {
                     jSONObject.put("network", network);
@@ -111,6 +136,14 @@ public class UBCLooperRegister extends ILooperRegister {
                 Object packageName = CommonUtils.getPackageName();
                 if (packageName != null) {
                     jSONObject.put("packagename", packageName);
+                }
+                IDyeConfig dyeConfig = DyeConfigManager.getDyeConfig();
+                if (dyeConfig != null && !TextUtils.isEmpty(dyeConfig.getDyeConfig())) {
+                    jSONObject.put(Constant.KEY_CONFIG_ID, dyeConfig.getDyeConfig());
+                }
+                ILaunchType launchType = LaunchTypeManager.getLaunchType();
+                if (launchType != null) {
+                    jSONObject.put(Constant.KEY_LAUNCH_TYPE, launchType.getLaunchType());
                 }
                 jSONObject.put("launchTime", String.valueOf(Ruka.getProcessLaunchTime()));
                 jSONObject.put("logid", looperBlock.getLogID());
@@ -144,7 +177,7 @@ public class UBCLooperRegister extends ILooperRegister {
                         TrackUI trackUI = trackUIs.get(size);
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("time", trackUI.getTimeStamp());
-                        jSONObject2.put("page", trackUI.toStringPage());
+                        jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));
                         jSONObject2.put("event", trackUI.getEvent());
                         jSONArray.put(jSONObject2);
                         int i3 = i2 + 1;

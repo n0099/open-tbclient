@@ -26,25 +26,25 @@ public final class LineLoadingView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38106e;
+    public int f38262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38107f;
+    public int f38263f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38108g;
+    public int f38264g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38109h;
+    public int f38265h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f38110i;
+    public int f38266i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f38111j;
+    public int f38267j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f38112k;
+    public String f38268k;
     public Paint l;
     public boolean m;
     public final a n;
@@ -56,7 +56,7 @@ public final class LineLoadingView extends View {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LineLoadingView f38113e;
+        public final /* synthetic */ LineLoadingView f38269e;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(LineLoadingView lineLoadingView) {
@@ -74,17 +74,17 @@ public final class LineLoadingView extends View {
                     return;
                 }
             }
-            this.f38113e = lineLoadingView;
+            this.f38269e = lineLoadingView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38113e.m) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f38269e.m) {
                 return;
             }
-            this.f38113e.invalidate();
-            this.f38113e.post(this);
+            this.f38269e.invalidate();
+            this.f38269e.post(this);
         }
     }
 
@@ -108,15 +108,15 @@ public final class LineLoadingView extends View {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f38112k = "#D3D3D3";
+        this.f38268k = "#D3D3D3";
         this.l = new Paint();
         this.m = true;
         this.n = new a(this);
-        this.f38106e = f.c.e(context);
-        this.f38107f = f.c.a(context, 1.5f);
+        this.f38262e = f.c.e(context);
+        this.f38263f = f.c.a(context, 1.5f);
         int a2 = f.c.a(context, 100.0f);
-        this.f38111j = a2;
-        this.f38110i = a2;
+        this.f38267j = a2;
+        this.f38266i = a2;
         this.l.setStyle(Paint.Style.FILL_AND_STROKE);
         this.l.setAntiAlias(true);
     }
@@ -159,7 +159,7 @@ public final class LineLoadingView extends View {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int parseColor = Color.parseColor(this.f38112k);
+            int parseColor = Color.parseColor(this.f38268k);
             if (str == null || str.length() == 0) {
                 return parseColor;
             }
@@ -179,9 +179,9 @@ public final class LineLoadingView extends View {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             if (mode != Integer.MIN_VALUE) {
-                return mode != 0 ? mode != 1073741824 ? z ? this.f38106e : this.f38107f : size : z ? this.f38106e : this.f38107f;
+                return mode != 0 ? mode != 1073741824 ? z ? this.f38262e : this.f38263f : size : z ? this.f38262e : this.f38263f;
             }
-            return Math.min(z ? this.f38106e : this.f38107f, size);
+            return Math.min(z ? this.f38262e : this.f38263f, size);
         }
         return invokeCommon.intValue;
     }
@@ -197,24 +197,24 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            int i2 = this.f38110i;
-            if (i2 < this.f38108g) {
-                this.f38110i = i2 + 30;
+            int i2 = this.f38266i;
+            if (i2 < this.f38264g) {
+                this.f38266i = i2 + 30;
             } else {
-                this.f38110i = this.f38111j;
+                this.f38266i = this.f38267j;
             }
-            int i3 = 255 - ((this.f38110i * 255) / this.f38108g);
+            int i3 = 255 - ((this.f38266i * 255) / this.f38264g);
             int i4 = i3 <= 255 ? i3 : 255;
             String hexString = Integer.toHexString(i4 >= 30 ? i4 : 30);
             Intrinsics.checkNotNullExpressionValue(hexString, "Integer.toHexString(currentColorValue)");
-            String str = this.f38112k;
+            String str = this.f38268k;
             int length = str.length();
             if (str != null) {
                 String substring = str.substring(1, length);
                 Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 this.l.setColor(a('#' + hexString + substring));
                 if (canvas != null) {
-                    canvas.drawLine(d(this.f38108g) - d(this.f38110i), d(this.f38107f), d(this.f38108g) + d(this.f38110i), d(this.f38107f), this.l);
+                    canvas.drawLine(d(this.f38264g) - d(this.f38266i), d(this.f38263f), d(this.f38264g) + d(this.f38266i), d(this.f38263f), this.l);
                     return;
                 }
                 return;
@@ -237,8 +237,8 @@ public final class LineLoadingView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f38108g = i2;
-            this.f38109h = i3;
+            this.f38264g = i2;
+            this.f38265h = i3;
             this.l.setStrokeWidth(i3);
         }
     }

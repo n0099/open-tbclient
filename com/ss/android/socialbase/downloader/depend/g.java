@@ -6,150 +6,93 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public interface g extends IInterface {
     Uri a(String str, String str2) throws RemoteException;
 
     /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static class C2182a implements g {
-            public static /* synthetic */ Interceptable $ic;
+        public static class C2189a implements g {
             public static g a;
-            public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
             public IBinder f62278b;
 
-            public C2182a(IBinder iBinder) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {iBinder};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
+            public C2189a(IBinder iBinder) {
                 this.f62278b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
             public Uri a(String str, String str2) throws RemoteException {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
-                        obtain.writeString(str);
-                        obtain.writeString(str2);
-                        if (!this.f62278b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                            return a.a().a(str, str2);
-                        }
-                        obtain2.readException();
-                        return obtain2.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(obtain2) : null;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    if (!this.f62278b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().a(str, str2);
                     }
+                    obtain2.readException();
+                    return obtain2.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(obtain2) : null;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
-                return (Uri) invokeLL.objValue;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f62278b : (IBinder) invokeV.objValue;
+                return this.f62278b;
             }
         }
 
         public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
         }
 
         public static g a(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
-                if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
-                    return (g) queryLocalInterface;
-                }
-                return new C2182a(iBinder);
+            if (iBinder == null) {
+                return null;
             }
-            return (g) invokeL.objValue;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
+            if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
+                return (g) queryLocalInterface;
+            }
+            return new C2189a(iBinder);
         }
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
+            return this;
         }
 
         @Override // android.os.Binder
         public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 != 1) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
-                    }
-                    parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
-                    return true;
+            if (i2 != 1) {
+                if (i2 != 1598968902) {
+                    return super.onTransact(i2, parcel, parcel2, i3);
                 }
-                parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
-                Uri a = a(parcel.readString(), parcel.readString());
-                parcel2.writeNoException();
-                if (a != null) {
-                    parcel2.writeInt(1);
-                    a.writeToParcel(parcel2, 1);
-                } else {
-                    parcel2.writeInt(0);
-                }
+                parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                 return true;
             }
-            return invokeCommon.booleanValue;
+            parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
+            Uri a = a(parcel.readString(), parcel.readString());
+            parcel2.writeNoException();
+            if (a != null) {
+                parcel2.writeInt(1);
+                a.writeToParcel(parcel2, 1);
+            } else {
+                parcel2.writeInt(0);
+            }
+            return true;
         }
 
         public static g a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C2182a.a : (g) invokeV.objValue;
+            return C2189a.a;
         }
     }
 }

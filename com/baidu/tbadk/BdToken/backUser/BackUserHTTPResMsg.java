@@ -1,6 +1,6 @@
 package com.baidu.tbadk.BdToken.backUser;
 
-import c.a.r0.a.c0.a;
+import c.a.s0.a.c0.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

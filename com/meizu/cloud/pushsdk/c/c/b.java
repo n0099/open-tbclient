@@ -33,7 +33,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public int l;
 
     /* loaded from: classes3.dex */
-    public static abstract class a<T extends a<T>> extends a.AbstractC2145a<T> {
+    public static abstract class a<T extends a<T>> extends a.AbstractC2152a<T> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -112,14 +112,14 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2146b extends a<C2146b> {
-        public C2146b() {
+    public static class C2153b extends a<C2153b> {
+        public C2153b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2145a
+        @Override // com.meizu.cloud.pushsdk.c.c.a.AbstractC2152a
         /* renamed from: c */
-        public C2146b a() {
+        public C2153b a() {
             return this;
         }
     }
@@ -138,7 +138,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     public static a<?> d() {
-        return new C2146b();
+        return new C2153b();
     }
 
     public c e() {

@@ -2,14 +2,6 @@ package com.kwad.sdk.crash.b;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.crash.e;
 import com.kwad.sdk.crash.utils.g;
 import java.io.File;
@@ -21,18 +13,16 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 public abstract class b {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final String a = UUID.randomUUID().toString();
 
     /* renamed from: b  reason: collision with root package name */
     public static File f58735b;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
     public e f58736c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicInteger f58737d;
+    public AtomicInteger f58737d = new AtomicInteger();
 
     /* renamed from: e  reason: collision with root package name */
     public File f58738e;
@@ -52,108 +42,43 @@ public abstract class b {
     /* renamed from: j  reason: collision with root package name */
     public com.kwad.sdk.crash.report.c f58743j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1106889879, "Lcom/kwad/sdk/crash/b/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1106889879, "Lcom/kwad/sdk/crash/b/b;");
-                return;
-            }
-        }
-        a = UUID.randomUUID().toString();
-    }
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f58737d = new AtomicInteger();
-    }
-
     public static void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            f58735b = file;
-            if (file.exists()) {
-                return;
-            }
-            f58735b.mkdirs();
+        f58735b = file;
+        if (file.exists()) {
+            return;
         }
+        f58735b.mkdirs();
     }
 
     public final com.kwad.sdk.crash.report.c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f58743j : (com.kwad.sdk.crash.report.c) invokeV.objValue;
+        return this.f58743j;
     }
 
     public void a(File file, e eVar, com.kwad.sdk.crash.report.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file, eVar, cVar) == null) {
-            this.f58738e = file;
-            if (!file.exists()) {
-                this.f58738e.mkdirs();
-            }
-            File file2 = this.f58738e;
-            this.f58739f = new File(file2, a + "-" + this.f58737d + ".dump");
-            File file3 = this.f58738e;
-            this.f58740g = new File(file3, a + "-" + this.f58737d + ".log");
-            File file4 = this.f58738e;
-            this.f58741h = new File(file4, a + "-" + this.f58737d + ".jtrace");
-            this.f58736c = eVar;
-            this.f58743j = cVar;
+        this.f58738e = file;
+        if (!file.exists()) {
+            this.f58738e.mkdirs();
         }
+        File file2 = this.f58738e;
+        this.f58739f = new File(file2, a + "-" + this.f58737d + ".dump");
+        File file3 = this.f58738e;
+        this.f58740g = new File(file3, a + "-" + this.f58737d + ".log");
+        File file4 = this.f58738e;
+        this.f58741h = new File(file4, a + "-" + this.f58737d + ".jtrace");
+        this.f58736c = eVar;
+        this.f58743j = cVar;
     }
 
     public abstract void a(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch);
 
     public void b() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (listFiles = this.f58738e.listFiles(new FileFilter(this) { // from class: com.kwad.sdk.crash.b.b.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        File[] listFiles = this.f58738e.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.b.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
-                InterceptResult invokeL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) ? file.getName().endsWith(".dump") : invokeL.booleanValue;
+                return file.getName().endsWith(".dump");
             }
-        })) == null || listFiles.length <= 2) {
+        });
+        if (listFiles == null || listFiles.length <= 2) {
             return;
         }
         CountDownLatch countDownLatch = new CountDownLatch(listFiles.length);
@@ -166,9 +91,8 @@ public abstract class b {
     }
 
     public void b(File file) {
-        File file2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, file) == null) || (file2 = f58735b) == null) {
+        File file2 = f58735b;
+        if (file2 == null) {
             return;
         }
         if (!file2.exists()) {

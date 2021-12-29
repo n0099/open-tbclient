@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.httpNet;
 
 import android.net.Proxy;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,8 +34,8 @@ public class NetWorkUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                if (k.z()) {
-                    if (k.H()) {
+                if (l.z()) {
+                    if (l.H()) {
                         return "3";
                     }
                     String defaultHost = Proxy.getDefaultHost();

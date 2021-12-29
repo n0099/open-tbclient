@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import c.a.d.f.f.a;
-import c.a.r0.b.d;
+import c.a.s0.b.d;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.debugtool.annotation.Modify;

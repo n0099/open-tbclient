@@ -1,8 +1,8 @@
 package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
-import c.a.d.f.p.k;
-import c.a.r0.s.g0.b;
+import c.a.d.f.p.l;
+import c.a.s0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,7 +100,7 @@ public class PreLoadVideoSwitchManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (VideoPreLoadSwitch.isOn()) {
-                return !this.isWifi || k.H();
+                return !this.isWifi || l.H();
             }
             VideoPreLoadLog.log("PreLoadVideoSwitchManager isOpen switch close ");
             return false;

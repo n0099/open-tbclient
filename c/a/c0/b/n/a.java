@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class a extends c.a.j0.b.b.a<c.a.c0.m.b> {
+public class a extends c.a.k0.b.b.a<c.a.c0.m.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.c0.b.n.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0022a implements c.a.c0.m.b {
+    public class C0043a implements c.a.c0.m.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0022a(a aVar) {
+        public C0043a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,11 +67,11 @@ public class a extends c.a.j0.b.b.a<c.a.c0.m.b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.j0.b.b.a
+    @Override // c.a.k0.b.b.a
     /* renamed from: a */
     public c.a.c0.m.b createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0022a(this) : (c.a.c0.m.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0043a(this) : (c.a.c0.m.b) invokeV.objValue;
     }
 }

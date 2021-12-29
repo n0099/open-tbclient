@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.r0.e.c;
-import c.a.s0.s2.u.f.h1.d;
+import c.a.d.f.p.n;
+import c.a.s0.e.c;
+import c.a.t0.s2.u.f.h1.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -119,7 +119,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.headPhoto = (HeadImageView) view.findViewById(R.id.photo);
         this.pendantHeadPhoto = (HeadPendantView) view.findViewById(R.id.pendant_photo);
         this.mHeadMaskViewStub = (ViewStub) view.findViewById(R.id.viewstub_headimage_mask);
-        this.headPhoto.setRadius(m.f(view.getContext(), R.dimen.ds30));
+        this.headPhoto.setRadius(n.f(view.getContext(), R.dimen.ds30));
         this.pendantHeadPhoto.setHasPendantStyle();
         if (this.pendantHeadPhoto.getHeadView() != null) {
             this.pendantHeadPhoto.getHeadView().setIsRound(true);
@@ -155,7 +155,7 @@ public class PbAdBaseViewHolder extends TypeAdapter.ViewHolder {
         this.mGameBanner = (TbImageView) view.findViewById(R.id.game_activity_banner);
         this.mActBtn = (TextView) view.findViewById(R.id.action_button);
         this.mActImg = (TbImageView) view.findViewById(R.id.game_activity_banner);
-        int min = Math.min(((((m.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
+        int min = Math.min(((((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
         this.richText.getLayoutStrategy().q(min);
         this.richText.getLayoutStrategy().p((int) (min * 1.618f));
         this.richText.setTextSize(TbConfig.getContentSize());

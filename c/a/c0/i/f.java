@@ -19,16 +19,16 @@ public class f {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1773b;
+    public boolean f2200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1774c;
+    public int f2201c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BroadcastReceiver f1775d;
+    public BroadcastReceiver f2202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f1776e;
+    public c f2203e;
 
     /* loaded from: classes.dex */
     public class a implements j {
@@ -38,12 +38,12 @@ public class f {
 
         /* renamed from: c.a.c0.i.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0057a extends BroadcastReceiver {
+        public class C0078a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0057a(a aVar) {
+            public C0078a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class f {
                         c.a.c0.e.a.b().unregisterReceiver(this);
                     } catch (Exception unused) {
                     }
-                    this.this$1.a.f1775d = null;
+                    this.this$1.a.f2202d = null;
                 }
             }
         }
@@ -96,15 +96,15 @@ public class f {
         @Override // c.a.c0.i.j
         public void a(ADConfigError aDConfigError) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) || this.a.f1776e == null || this.a.f1776e.i() || aDConfigError == null || TextUtils.isEmpty(aDConfigError.reason)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aDConfigError) == null) || this.a.f2203e == null || this.a.f2203e.i() || aDConfigError == null || TextUtils.isEmpty(aDConfigError.reason)) {
                 return;
             }
             if (!NetUtil.a(c.a.c0.e.a.b())) {
-                if (this.a.f1775d == null) {
+                if (this.a.f2202d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.f1775d = new C0057a(this);
-                    c.a.c0.e.a.b().registerReceiver(this.a.f1775d, intentFilter);
+                    this.a.f2202d = new C0078a(this);
+                    c.a.c0.e.a.b().registerReceiver(this.a.f2202d, intentFilter);
                     return;
                 }
                 return;
@@ -129,14 +129,14 @@ public class f {
             }
         }
         this.a = i2;
-        this.f1774c = i3;
-        this.f1773b = z;
+        this.f2201c = i3;
+        this.f2200b = z;
     }
 
     public void d() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f1776e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cVar = this.f2203e) == null) {
             return;
         }
         cVar.l(null);
@@ -145,10 +145,10 @@ public class f {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c cVar = new c(this.a, this.f1773b, this.f1774c);
-            this.f1776e = cVar;
+            c cVar = new c(this.a, this.f2200b, this.f2201c);
+            this.f2203e = cVar;
             cVar.l(new a(this));
-            c.a.c0.a0.b.c(this.f1776e, "adc_async_request", 0);
+            c.a.c0.a0.b.c(this.f2203e, "adc_async_request", 0);
         }
     }
 }

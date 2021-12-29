@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.s0.d1.f1;
+import c.a.t0.d1.f1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;

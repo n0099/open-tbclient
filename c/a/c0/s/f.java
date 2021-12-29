@@ -91,12 +91,12 @@ public abstract class f extends v {
             H1(bdVideoSeries);
             if (bdVideoSeries.getSelectedVideo() != null) {
                 C1(bdVideoSeries);
-                G1(this.a.f2058b);
-                boolean z3 = b0() && E().d(this, this.f1957b);
+                G1(this.a.f2485b);
+                boolean z3 = b0() && E().d(this, this.f2384b);
                 if (!z3 || D() <= 0) {
                     v1(false, bdVideoSeries);
                 }
-                c.a.c0.s.v0.s.r(this.I.getNid(), this.a.f2058b);
+                c.a.c0.s.v0.s.r(this.I.getNid(), this.a.f2485b);
                 v0(bdVideoSeries.isPlayLoop());
                 if (z) {
                     x0(bdVideoSeries.getPlayConf());
@@ -105,7 +105,7 @@ public abstract class f extends v {
                     r0(bdVideoSeries.getClarityList().getClarityInfoStr());
                 }
                 F1(false);
-                String str = this.a.f2058b;
+                String str = this.a.f2485b;
                 if (z && !z3) {
                     z2 = true;
                 }
@@ -121,18 +121,18 @@ public abstract class f extends v {
             if (selectedVideo != null) {
                 String localSavePath = selectedVideo.getLocalSavePath();
                 if (c.a.c0.s.v0.g.a(localSavePath)) {
-                    this.a.f2058b = localSavePath;
+                    this.a.f2485b = localSavePath;
                 }
-                this.a.f2059c = selectedVideo.getTitle();
+                this.a.f2486c = selectedVideo.getTitle();
                 this.a.a = selectedVideo.getSourceUrl();
             }
             ClarityUrlList clarityList = bdVideoSeries.getClarityList();
             if (clarityList != null && clarityList.size() > 0) {
-                this.a.f2058b = clarityList.getDefaultUrl();
+                this.a.f2485b = clarityList.getDefaultUrl();
             } else if (selectedVideo != null) {
-                this.a.f2058b = selectedVideo.getPlayUrl();
+                this.a.f2485b = selectedVideo.getPlayUrl();
             }
-            this.a.f2061e = bdVideoSeries.getDuration();
+            this.a.f2488e = bdVideoSeries.getDuration();
             if (s1()) {
                 return;
             }
@@ -160,10 +160,10 @@ public abstract class f extends v {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && BdNetUtils.c()) {
             String a = c.a.c0.e0.a.c.a().a(str);
-            if (TextUtils.isEmpty(a) || TextUtils.equals(a, this.a.f2058b)) {
+            if (TextUtils.isEmpty(a) || TextUtils.equals(a, this.a.f2485b)) {
                 return;
             }
-            this.a.f2058b = a;
+            this.a.f2485b = a;
             t0(true);
         }
     }
@@ -199,7 +199,7 @@ public abstract class f extends v {
     @Override // c.a.c0.s.e
     public void K0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.a.f2058b)) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.a.f2485b)) {
             return;
         }
         if (BdNetUtils.e()) {
@@ -288,19 +288,19 @@ public abstract class f extends v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bdVideoSeries) == null) {
             try {
-                this.a.f2060d = 0;
-                this.a.f2061e = 0;
+                this.a.f2487d = 0;
+                this.a.f2488e = 0;
                 if (bdVideoSeries.getSelectedVideo() != null) {
                     if (!TextUtils.isEmpty(bdVideoSeries.getSelectedVideo().getCurrentLength())) {
-                        this.a.f2060d = c.a.c0.s.v0.d.c(bdVideoSeries.getSelectedVideo().getCurrentLength());
+                        this.a.f2487d = c.a.c0.s.v0.d.c(bdVideoSeries.getSelectedVideo().getCurrentLength());
                     }
                     if (!TextUtils.isEmpty(bdVideoSeries.getSelectedVideo().getTotalLength())) {
-                        this.a.f2061e = c.a.c0.s.v0.d.c(bdVideoSeries.getSelectedVideo().getTotalLength());
+                        this.a.f2488e = c.a.c0.s.v0.d.c(bdVideoSeries.getSelectedVideo().getTotalLength());
                     }
                 }
-                if (this.a.f2061e < 0 || this.a.f2060d < 0 || this.a.f2060d > this.a.f2061e) {
-                    this.a.f2061e = 0;
-                    this.a.f2060d = 0;
+                if (this.a.f2488e < 0 || this.a.f2487d < 0 || this.a.f2487d > this.a.f2488e) {
+                    this.a.f2488e = 0;
+                    this.a.f2487d = 0;
                 }
             } catch (Exception e2) {
                 c.a.c0.s.v0.h.f("applyPosition(" + System.identityHashCode(bdVideoSeries) + SmallTailInfo.EMOTION_SUFFIX, e2);

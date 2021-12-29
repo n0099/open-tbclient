@@ -31,7 +31,7 @@ import java.util.Enumeration;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UnzipUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] PNG_END_CODE;

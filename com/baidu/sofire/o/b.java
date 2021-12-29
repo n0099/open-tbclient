@@ -16,7 +16,7 @@ public final class b implements com.baidu.sofire.k.b {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f39664b;
+    public a f39820b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -38,26 +38,26 @@ public final class b implements com.baidu.sofire.k.b {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, cVar) == null) {
             this.a = context;
             a aVar = new a();
-            this.f39664b = aVar;
-            aVar.f39660c = null;
-            aVar.f39661d = null;
-            aVar.f39662e = null;
+            this.f39820b = aVar;
+            aVar.f39816c = null;
+            aVar.f39817d = null;
+            aVar.f39818e = null;
             try {
                 Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                aVar.f39659b = cls;
+                aVar.f39815b = cls;
                 aVar.a = cls.newInstance();
             } catch (Exception unused) {
             }
             try {
-                aVar.f39660c = aVar.f39659b.getMethod("getOAID", Context.class);
+                aVar.f39816c = aVar.f39815b.getMethod("getOAID", Context.class);
             } catch (Exception unused2) {
             }
             try {
-                aVar.f39661d = aVar.f39659b.getMethod("getVAID", Context.class);
+                aVar.f39817d = aVar.f39815b.getMethod("getVAID", Context.class);
             } catch (Exception unused3) {
             }
             try {
-                aVar.f39662e = aVar.f39659b.getMethod("getAAID", Context.class);
+                aVar.f39818e = aVar.f39815b.getMethod("getAAID", Context.class);
             } catch (Exception unused4) {
             }
         }
@@ -68,12 +68,12 @@ public final class b implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            a aVar = this.f39664b;
+            a aVar = this.f39820b;
             Context context = this.a;
-            if (TextUtils.isEmpty(aVar.f39663f)) {
-                aVar.f39663f = aVar.a(context, aVar.f39660c);
+            if (TextUtils.isEmpty(aVar.f39819f)) {
+                aVar.f39819f = aVar.a(context, aVar.f39816c);
             }
-            return aVar.f39663f;
+            return aVar.f39819f;
         }
         return (String) invokeV.objValue;
     }

@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,10 +19,10 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f50828e;
+    public a f51076e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f50829f;
+    public Rect f51077f;
 
     /* loaded from: classes12.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.f50829f = new Rect();
+        this.f51077f = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -57,14 +57,14 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
             int size = View.MeasureSpec.getSize(i3);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f50829f);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f50829f.top) - size;
-            if (this.f50828e != null) {
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f51077f);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f51077f.top) - size;
+            if (this.f51076e != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= m.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= n.d(activity, 48.0f) + 128) {
                     z = false;
                 }
-                this.f50828e.a(z);
+                this.f51076e.a(z);
             }
             super.onMeasure(i2, i3);
         }
@@ -73,7 +73,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public void setOnSoftKeyBoardShownListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f50828e = aVar;
+            this.f51076e = aVar;
         }
     }
 }

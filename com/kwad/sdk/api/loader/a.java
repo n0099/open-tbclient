@@ -1,25 +1,15 @@
 package com.kwad.sdk.api.loader;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.api.loader.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2064a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static class C2071a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -37,23 +27,8 @@ public class a {
         /* renamed from: f  reason: collision with root package name */
         public transient File f57573f;
 
-        public C2064a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if (jSONObject == null) {
                 return;
             }
             this.a = jSONObject.optInt("dynamicType");
@@ -64,60 +39,37 @@ public class a {
         }
 
         public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == 1 : invokeV.booleanValue;
+            return this.a == 1;
         }
 
         public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a == -1 : invokeV.booleanValue;
+            return this.a == -1;
         }
     }
 
     /* loaded from: classes3.dex */
     public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
         public String f57574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public C2064a f57575c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        public C2071a f57575c;
 
         public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            if (jSONObject == null) {
                 return;
             }
             this.a = jSONObject.optLong("result");
             this.f57574b = jSONObject.optString("errorMsg");
-            C2064a c2064a = new C2064a();
-            this.f57575c = c2064a;
-            c2064a.a(jSONObject.optJSONObject("data"));
+            C2071a c2071a = new C2071a();
+            this.f57575c = c2071a;
+            c2071a.a(jSONObject.optJSONObject("data"));
         }
 
         public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == 1 && this.f57575c != null : invokeV.booleanValue;
+            return this.a == 1 && this.f57575c != null;
         }
     }
 }

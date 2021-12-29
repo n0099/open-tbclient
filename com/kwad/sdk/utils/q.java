@@ -3,10 +3,6 @@ package com.kwad.sdk.utils;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedInputStream;
 import java.io.Closeable;
 import java.io.File;
@@ -22,28 +18,15 @@ import java.io.Writer;
 import java.nio.charset.Charset;
 /* loaded from: classes3.dex */
 public class q {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static int a(Reader reader, Writer writer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, reader, writer)) == null) {
-            long b2 = b(reader, writer);
-            if (b2 > 2147483647L) {
-                return -1;
-            }
-            return (int) b2;
+        long b2 = b(reader, writer);
+        if (b2 > 2147483647L) {
+            return -1;
         }
-        return invokeLL.intValue;
+        return (int) b2;
     }
 
     public static long a(Reader reader, Writer writer, char[] cArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65537, null, reader, writer, cArr)) != null) {
-            return invokeLLL.longValue;
-        }
         long j2 = 0;
         while (true) {
             int read = reader.read(cArr);
@@ -56,42 +39,27 @@ public class q {
     }
 
     public static FileInputStream a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file.exists() && !file.isDirectory() && file.canRead()) {
-                return new FileInputStream(file);
-            }
-            return null;
+        if (file.exists() && !file.isDirectory() && file.canRead()) {
+            return new FileInputStream(file);
         }
-        return (FileInputStream) invokeL.objValue;
+        return null;
     }
 
     @Nullable
     public static FileOutputStream a(File file, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, file, z)) == null) {
-            if (!file.exists()) {
-                File parentFile = file.getParentFile();
-                if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
-                    return null;
-                }
-            } else if (file.isDirectory() || !file.canWrite()) {
+        if (!file.exists()) {
+            File parentFile = file.getParentFile();
+            if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
                 return null;
             }
-            return new FileOutputStream(file, z);
+        } else if (file.isDirectory() || !file.canWrite()) {
+            return null;
         }
-        return (FileOutputStream) invokeLZ.objValue;
+        return new FileOutputStream(file, z);
     }
 
     @Nullable
     public static String a(File file, Charset charset) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, charset)) != null) {
-            return (String) invokeLL.objValue;
-        }
         FileInputStream fileInputStream = null;
         try {
             FileInputStream a = a(file);
@@ -116,54 +84,36 @@ public class q {
 
     @Nullable
     public static String a(InputStream inputStream, Charset charset) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, inputStream, charset)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            StringWriter stringWriter = new StringWriter();
-            a(inputStream, stringWriter, charset);
-            return stringWriter.toString();
+        if (inputStream == null) {
+            return null;
         }
-        return (String) invokeLL.objValue;
+        StringWriter stringWriter = new StringWriter();
+        a(inputStream, stringWriter, charset);
+        return stringWriter.toString();
     }
 
     public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new String(com.kwad.sdk.core.a.c.a().a(o.a(b(new File(str)))));
-            }
-            return null;
+        if (Build.VERSION.SDK_INT >= 19) {
+            return new String(com.kwad.sdk.core.a.c.a().a(o.a(b(new File(str)))));
         }
-        return (String) invokeL.objValue;
+        return null;
     }
 
     public static Charset a(Charset charset) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, charset)) == null) ? charset == null ? Charset.defaultCharset() : charset : (Charset) invokeL.objValue;
+        return charset == null ? Charset.defaultCharset() : charset;
     }
 
     public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception unused) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception unused) {
+            }
         }
     }
 
     public static void a(File file, String str, Charset charset, boolean z) {
         FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65545, null, new Object[]{file, str, charset, Boolean.valueOf(z)}) != null) {
-            return;
-        }
         try {
             fileOutputStream = a(file, z);
             if (fileOutputStream != null) {
@@ -183,102 +133,81 @@ public class q {
     }
 
     public static void a(InputStream inputStream, Writer writer, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, inputStream, writer, charset) == null) {
-            a(new InputStreamReader(inputStream, a(charset)), writer);
-        }
+        a(new InputStreamReader(inputStream, a(charset)), writer);
     }
 
     public static void a(String str, OutputStream outputStream, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, outputStream, charset) == null) || outputStream == null || str == null) {
+        if (outputStream == null || str == null) {
             return;
         }
         outputStream.write(str.getBytes(a(charset)));
     }
 
     public static long b(Reader reader, Writer writer) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, reader, writer)) == null) ? a(reader, writer, new char[4096]) : invokeLL.longValue;
+        return a(reader, writer, new char[4096]);
     }
 
     public static InputStream b(String str) {
-        InterceptResult invokeL;
         FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (file.exists() && !file.isDirectory()) {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (Exception unused) {
-                    b((Closeable) null);
-                    fileInputStream = null;
-                }
-                if (fileInputStream == null) {
-                    return null;
-                }
-                return new BufferedInputStream(fileInputStream);
-            }
+        if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return (InputStream) invokeL.objValue;
+        File file = new File(str);
+        if (file.exists() && !file.isDirectory()) {
+            try {
+                fileInputStream = new FileInputStream(file);
+            } catch (Exception unused) {
+                b((Closeable) null);
+                fileInputStream = null;
+            }
+            if (fileInputStream == null) {
+                return null;
+            }
+            return new BufferedInputStream(fileInputStream);
+        }
+        return null;
     }
 
     public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
         }
     }
 
     public static byte[] b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, file)) == null) {
-            byte[] bArr = new byte[(int) file.length()];
-            FileInputStream fileInputStream = null;
+        byte[] bArr = new byte[(int) file.length()];
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
-                FileInputStream fileInputStream2 = new FileInputStream(file);
+                fileInputStream2.read(bArr);
+                com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream2);
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = fileInputStream2;
                 try {
-                    fileInputStream2.read(bArr);
-                    com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream2);
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream = fileInputStream2;
-                    try {
-                        com.kwad.sdk.core.d.a.a(th);
-                        return bArr;
-                    } finally {
-                        com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream);
-                    }
+                    com.kwad.sdk.core.d.a.a(th);
+                    return bArr;
+                } finally {
+                    com.kwad.sdk.crash.utils.b.a((InputStream) fileInputStream);
                 }
-            } catch (Throwable th2) {
-                th = th2;
             }
-            return bArr;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return (byte[]) invokeL.objValue;
+        return bArr;
     }
 
     public static void c(File file) {
         File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, file) == null) {
-            if (!file.isFile() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    c(file2);
-                }
+        if (!file.isFile() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                c(file2);
             }
-            file.delete();
         }
+        file.delete();
     }
 }

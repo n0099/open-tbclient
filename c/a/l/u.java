@@ -10,7 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.l.w0.a;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -32,13 +32,13 @@ public class u extends c implements q, p<d2> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public final RelativeLayout f3890i;
+    public final RelativeLayout f4305i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final LinearLayout f3891j;
+    public final LinearLayout f4306j;
 
     /* renamed from: k  reason: collision with root package name */
-    public View f3892k;
+    public View f4307k;
     public View l;
     public View m;
     public ImageView n;
@@ -91,7 +91,7 @@ public class u extends c implements q, p<d2> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ u f3893e;
+        public final /* synthetic */ u f4308e;
 
         public b(u uVar) {
             Interceptable interceptable = $ic;
@@ -108,29 +108,29 @@ public class u extends c implements q, p<d2> {
                     return;
                 }
             }
-            this.f3893e = uVar;
+            this.f4308e = uVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f3893e.n == null || this.f3893e.p == null || this.f3893e.o == null || this.f3893e.p.F2() || !this.f3893e.r) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4308e.n == null || this.f4308e.p == null || this.f4308e.o == null || this.f4308e.p.F2() || !this.f4308e.r) {
                 return;
             }
-            if (this.f3893e.p.m2() || !c.a.s0.d1.b.f().i()) {
-                if (this.f3893e.p.n2() || !c.a.s0.d1.a.h().j()) {
-                    c.a.s0.d1.b.f().l(this.f3893e.p);
-                    this.f3893e.p.k4(false);
-                    c.a.s0.d1.a.h().l(this.f3893e.p);
-                    this.f3893e.p.l4(false);
-                } else if (c.a.s0.d1.a.h().a(this.f3893e.p)) {
-                    this.f3893e.p.l4(true);
+            if (this.f4308e.p.m2() || !c.a.t0.d1.b.f().i()) {
+                if (this.f4308e.p.n2() || !c.a.t0.d1.a.h().j()) {
+                    c.a.t0.d1.b.f().l(this.f4308e.p);
+                    this.f4308e.p.k4(false);
+                    c.a.t0.d1.a.h().l(this.f4308e.p);
+                    this.f4308e.p.l4(false);
+                } else if (c.a.t0.d1.a.h().a(this.f4308e.p)) {
+                    this.f4308e.p.l4(true);
                 }
-            } else if (c.a.s0.d1.b.f().a(this.f3893e.p)) {
-                this.f3893e.p.k4(true);
+            } else if (c.a.t0.d1.b.f().a(this.f4308e.p)) {
+                this.f4308e.p.k4(true);
             }
-            this.f3893e.q();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.f3893e.p));
+            this.f4308e.q();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921402, this.f4308e.p));
         }
     }
 
@@ -153,19 +153,19 @@ public class u extends c implements q, p<d2> {
         this.r = true;
         this.s = new a(this, 2921402);
         View inflate = LayoutInflater.from(context).inflate(R.layout.multi_del_decor_layout, (ViewGroup) null);
-        this.f3892k = inflate;
+        this.f4307k = inflate;
         this.l = inflate.findViewById(R.id.multi_del_mask_top_view);
-        this.f3891j = (LinearLayout) this.f3892k.findViewById(R.id.multi_del_bottom_layout);
+        this.f4306j = (LinearLayout) this.f4307k.findViewById(R.id.multi_del_bottom_layout);
         this.l.setAlpha(0.5f);
-        View findViewById = this.f3892k.findViewById(R.id.multi_del_mask_bottom_view);
+        View findViewById = this.f4307k.findViewById(R.id.multi_del_mask_bottom_view);
         this.m = findViewById;
         findViewById.setAlpha(0.5f);
-        this.n = (ImageView) this.f3892k.findViewById(R.id.manage_select_img);
-        this.f3890i = (RelativeLayout) this.f3892k.findViewById(R.id.multi_del_bottom_root);
-        this.o = (TextView) this.f3892k.findViewById(R.id.manage_select_txt);
-        f(this.f3892k);
-        this.f3892k.setFocusable(true);
-        this.f3892k.setOnClickListener(new b(this));
+        this.n = (ImageView) this.f4307k.findViewById(R.id.manage_select_img);
+        this.f4305i = (RelativeLayout) this.f4307k.findViewById(R.id.multi_del_bottom_root);
+        this.o = (TextView) this.f4307k.findViewById(R.id.manage_select_txt);
+        f(this.f4307k);
+        this.f4307k.setFocusable(true);
+        this.f4307k.setOnClickListener(new b(this));
         g(-1);
         if (context instanceof BaseActivity) {
             ((BaseActivity) context).registerListener(this.s);
@@ -195,14 +195,14 @@ public class u extends c implements q, p<d2> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
             this.p = d2Var;
-            this.r = d2Var.getType() != d2.W3 && (d2Var == null || d2Var.J() == null || !d2Var.J().isForumBusinessAccount() || d2Var.isSelf()) && d2Var != null && (!d2Var.C2() || d2Var.isSelf());
-            if (!c.a.s0.d1.b.f().i() && !c.a.s0.d1.a.h().j()) {
-                this.f3809h.o(new a.C0165a(4, Boolean.TRUE));
-                this.f3892k.setVisibility(8);
+            this.r = d2Var.getType() != d2.Y3 && (d2Var == null || d2Var.J() == null || !d2Var.J().isForumBusinessAccount() || d2Var.isSelf()) && d2Var != null && (!d2Var.C2() || d2Var.isSelf());
+            if (!c.a.t0.d1.b.f().i() && !c.a.t0.d1.a.h().j()) {
+                this.f4224h.o(new a.C0186a(4, Boolean.TRUE));
+                this.f4307k.setVisibility(8);
                 return;
             }
-            this.f3892k.setVisibility(0);
-            this.f3809h.o(new a.C0165a(4, Boolean.FALSE));
+            this.f4307k.setVisibility(0);
+            this.f4224h.o(new a.C0186a(4, Boolean.FALSE));
             q();
         }
     }
@@ -216,15 +216,15 @@ public class u extends c implements q, p<d2> {
             } else {
                 WebPManager.setPureDrawable(this.n, R.drawable.icon_pure_frs_chosen_22, R.color.CAM_X0304, null);
             }
-            c.a.r0.s.v.c d2 = c.a.r0.s.v.c.d(this.l);
+            c.a.s0.s.u.c d2 = c.a.s0.s.u.c.d(this.l);
             d2.n(R.string.J_X06);
             d2.m(this.q ? 2 : 1);
             d2.f(R.color.CAM_X0201);
-            c.a.r0.s.v.c d3 = c.a.r0.s.v.c.d(this.m);
+            c.a.s0.s.u.c d3 = c.a.s0.s.u.c.d(this.m);
             d3.n(R.string.J_X06);
             d3.m(2);
             d3.f(R.color.CAM_X0201);
-            c.a.r0.s.v.c.d(this.o).A(R.string.F_X01);
+            c.a.s0.s.u.c.d(this.o).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.o, (this.p.m2() || this.p.n2()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
@@ -246,7 +246,7 @@ public class u extends c implements q, p<d2> {
         this.l.setVisibility((d2Var.m2() || this.p.n2() || !this.r) ? 0 : 4);
         this.m.setVisibility((this.p.m2() || this.p.n2()) ? 0 : 0);
         if (this.q) {
-            this.f3890i.setVisibility(0);
+            this.f4305i.setVisibility(0);
             if (this.r) {
                 this.n.setVisibility(0);
                 this.o.setVisibility(0);
@@ -262,7 +262,7 @@ public class u extends c implements q, p<d2> {
             this.o.setVisibility(8);
             return;
         }
-        this.f3890i.setVisibility(8);
+        this.f4305i.setVisibility(8);
         this.n.setVisibility(8);
         this.o.setVisibility(8);
     }
@@ -276,9 +276,9 @@ public class u extends c implements q, p<d2> {
     public void s(int i2, m0 m0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, m0Var) == null) {
-            this.f3891j.setWeightSum(i2);
-            if (this.f3891j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ((ViewGroup.MarginLayoutParams) this.f3891j.getLayoutParams()).setMargins(m0Var.f3862f, m0Var.f3860d, m0Var.f3863g, m0Var.f3861e);
+            this.f4306j.setWeightSum(i2);
+            if (this.f4306j.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ((ViewGroup.MarginLayoutParams) this.f4306j.getLayoutParams()).setMargins(m0Var.f4277f, m0Var.f4275d, m0Var.f4278g, m0Var.f4276e);
             }
         }
     }

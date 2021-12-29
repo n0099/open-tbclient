@@ -25,35 +25,35 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile a f14140c = null;
+    public static volatile a f12319c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f14141d = 1;
+    public static int f12320d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final OkHttpClient a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f14142b;
+    public Context f12321b;
 
     /* renamed from: c.a.s.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class RunnableC0875a implements Runnable {
+    public class RunnableC0808a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b f14143e;
+        public final /* synthetic */ b f12322e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ byte[] f14144f;
+        public final /* synthetic */ byte[] f12323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c f14145g;
+        public final /* synthetic */ c f12324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ a f14146h;
+        public final /* synthetic */ a f12325h;
 
-        public RunnableC0875a(a aVar, b bVar, byte[] bArr, c cVar) {
+        public RunnableC0808a(a aVar, b bVar, byte[] bArr, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,17 +68,17 @@ public class a {
                     return;
                 }
             }
-            this.f14146h = aVar;
-            this.f14143e = bVar;
-            this.f14144f = bArr;
-            this.f14145g = cVar;
+            this.f12325h = aVar;
+            this.f12322e = bVar;
+            this.f12323f = bArr;
+            this.f12324g = cVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14146h.e(this.f14143e.b(), this.f14143e.a(), this.f14144f, this.f14143e.d(), this.f14143e.c(), this.f14145g);
+                this.f12325h.e(this.f12322e.b(), this.f12322e.a(), this.f12323f, this.f12322e.d(), this.f12322e.c(), this.f12324g);
             }
         }
     }
@@ -114,21 +114,21 @@ public class a {
             }
         }
         this.a = new OkHttpClient.Builder().connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).build();
-        this.f14142b = context;
+        this.f12321b = context;
     }
 
     public static a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f14140c == null) {
+            if (f12319c == null) {
                 synchronized (a.class) {
-                    if (f14140c == null) {
-                        f14140c = new a(context);
+                    if (f12319c == null) {
+                        f12319c = new a(context);
                     }
                 }
             }
-            return f14140c;
+            return f12319c;
         }
         return (a) invokeL.objValue;
     }
@@ -167,7 +167,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
                 try {
-                    defaultUserAgent = WebSettings.getDefaultUserAgent(this.f14142b);
+                    defaultUserAgent = WebSettings.getDefaultUserAgent(this.f12321b);
                 } catch (Exception unused) {
                 }
                 StringBuffer stringBuffer = new StringBuffer();
@@ -214,7 +214,7 @@ public class a {
             } catch (Exception e2) {
                 e2.printStackTrace();
                 if (cVar != null) {
-                    cVar.b(f14141d, "Http Unknown exception".getBytes());
+                    cVar.b(f12320d, "Http Unknown exception".getBytes());
                 }
             }
         }

@@ -14,7 +14,7 @@ public final class e {
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f3456b;
+    public final long f3884b;
 
     public e(float f2, long j2) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class e {
             }
         }
         this.a = f2;
-        this.f3456b = j2;
+        this.f3884b = j2;
     }
 
     public final float a() {
@@ -44,7 +44,7 @@ public final class e {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3456b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3884b : invokeV.longValue;
     }
 
     public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public final class e {
                 if (obj instanceof e) {
                     e eVar = (e) obj;
                     if (Float.compare(this.a, eVar.a) == 0) {
-                        if (this.f3456b == eVar.f3456b) {
+                        if (this.f3884b == eVar.f3884b) {
                         }
                     }
                 }
@@ -70,7 +70,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.f3456b;
+            long j2 = this.f3884b;
             return (Float.floatToIntBits(this.a) * 31) + ((int) (j2 ^ (j2 >>> 32)));
         }
         return invokeV.intValue;
@@ -80,7 +80,7 @@ public final class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.f3456b + SmallTailInfo.EMOTION_SUFFIX;
+            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.f3884b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

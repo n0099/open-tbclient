@@ -1,42 +1,30 @@
 package c.a.r0.w;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.BdTopToast;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import java.io.File;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b extends SharedPreferences, SharedPreferences.Editor {
+    Set<String> a();
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
-        }
-        new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_fail)).show((ViewGroup) currentActivity.findViewById(16908290));
-    }
+    boolean b();
 
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
-        }
-        new BdTopToast(currentActivity, 2000).setIcon(false).setContent(currentActivity.getString(R.string.item_download_no_net)).show((ViewGroup) currentActivity.findViewById(16908290));
-    }
+    long c();
 
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
-        }
-        new BdTopToast(currentActivity, 2000).setIcon(true).setContent(currentActivity.getString(R.string.item_download_success)).show((ViewGroup) currentActivity.findViewById(16908290));
-    }
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    Map<String, ?> getAll();
+
+    @NonNull
+    File getFile();
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
 }

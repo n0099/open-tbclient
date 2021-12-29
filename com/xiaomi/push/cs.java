@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.gesture.GestureAR;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkManager1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,13 +58,13 @@ public class cs {
     public static boolean f204a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, co> f63350b;
+    public static Map<String, co> f63345b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63351c;
+    public static String f63346c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f63352d;
+    public static String f63347d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -115,7 +114,7 @@ public class cs {
                 return;
             }
         }
-        f63350b = new HashMap();
+        f63345b = new HashMap();
         f204a = false;
     }
 
@@ -164,8 +163,8 @@ public class cs {
         this.f207a = bVar;
         this.f206a = crVar == null ? new ct(this) : crVar;
         this.f208a = str;
-        f63351c = str2 == null ? context.getPackageName() : str2;
-        f63352d = str3 == null ? f() : str3;
+        f63346c = str2 == null ? context.getPackageName() : str2;
+        f63347d = str3 == null ? f() : str3;
     }
 
     public static synchronized cs a() {
@@ -251,12 +250,12 @@ public class cs {
                     }
                 }
             }
-            boolean isEmpty = f63350b.isEmpty();
-            synchronized (f63350b) {
-                for (Object obj : f63350b.values().toArray()) {
+            boolean isEmpty = f63345b.isEmpty();
+            synchronized (f63345b) {
+                for (Object obj : f63345b.values().toArray()) {
                     co coVar = (co) obj;
                     if (!coVar.b()) {
-                        f63350b.remove(coVar.f199b);
+                        f63345b.remove(coVar.f199b);
                         isEmpty = true;
                     }
                 }
@@ -269,7 +268,7 @@ public class cs {
                 arrayList2.add(null);
             }
             try {
-                String str2 = bg.e(a) ? "wifi" : DeepLinkManager1.AD_WAP;
+                String str2 = bg.e(a) ? "wifi" : "wap";
                 String a2 = a(arrayList, str2, this.f208a, isEmpty);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject3 = new JSONObject(a2);
@@ -306,11 +305,11 @@ public class cs {
                                 }
                                 jSONObject = jSONObject5;
                                 arrayList2.set(i3, coVar2);
-                                coVar2.f63346g = string5;
-                                coVar2.f63342c = string;
-                                coVar2.f63344e = string3;
-                                coVar2.f63345f = string4;
-                                coVar2.f63343d = string2;
+                                coVar2.f63341g = string5;
+                                coVar2.f63337c = string;
+                                coVar2.f63339e = string3;
+                                coVar2.f63340f = string4;
+                                coVar2.f63338d = string2;
                                 if (jSONObject4.has("stat-percent")) {
                                     coVar2.a(jSONObject4.getDouble("stat-percent"));
                                 }
@@ -343,9 +342,9 @@ public class cs {
                                             coVar3.a(new cx(string7, optJSONArray2.length() - i5));
                                         }
                                     }
-                                    synchronized (f63350b) {
+                                    synchronized (f63345b) {
                                         if (this.f206a.a(next)) {
-                                            f63350b.put(next, coVar3);
+                                            f63345b.put(next, coVar3);
                                         }
                                     }
                                 }
@@ -401,13 +400,13 @@ public class cs {
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            co coVar = f63350b.get(str);
-            synchronized (f63350b) {
+            co coVar = f63345b.get(str);
+            synchronized (f63345b) {
                 if (coVar == null) {
                     co coVar2 = new co(str);
                     coVar2.a(604800000L);
                     coVar2.m273a(str2);
-                    f63350b.put(str, coVar2);
+                    f63345b.put(str, coVar2);
                 } else {
                     coVar.m273a(str2);
                 }
@@ -466,7 +465,7 @@ public class cs {
             ArrayList<String> arrayList2 = new ArrayList<>();
             ArrayList<bf> arrayList3 = new ArrayList();
             arrayList3.add(new bd("type", str));
-            if (str.equals(DeepLinkManager1.AD_WAP)) {
+            if (str.equals("wap")) {
                 arrayList3.add(new bd("conpt", a(bg.m224a(a))));
             }
             if (z) {
@@ -479,8 +478,8 @@ public class cs {
             String format = String.format(Locale.US, "https://%1$s/gslb/?ver=4.0", b());
             if (c2 == null) {
                 arrayList2.add(format);
-                synchronized (f63350b) {
-                    co coVar = f63350b.get("resolver.msg.xiaomi.net");
+                synchronized (f63345b) {
+                    co coVar = f63345b.get("resolver.msg.xiaomi.net");
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -528,7 +527,7 @@ public class cs {
                 }
                 jSONObject.put("data", jSONArray);
                 JSONArray jSONArray2 = new JSONArray();
-                for (co coVar : f63350b.values()) {
+                for (co coVar : f63345b.values()) {
                     jSONArray2.put(coVar.m272a());
                 }
                 jSONObject.put(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, jSONArray2);
@@ -657,7 +656,7 @@ public class cs {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     co a3 = new co("").a(optJSONArray2.getJSONObject(i3));
-                    f63350b.put(a3.f199b, a3);
+                    f63345b.put(a3.f199b, a3);
                 }
             }
         }

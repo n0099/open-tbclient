@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.r0.s.r.d2;
-import c.a.s0.k0.h;
-import c.a.s0.z0.a.j.c;
+import c.a.d.f.p.m;
+import c.a.s0.s.q.d2;
+import c.a.t0.k0.h;
+import c.a.t0.z0.a.j.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -202,9 +202,10 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
     /* JADX WARN: Removed duplicated region for block: B:29:0x00cc  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x0158  */
     /* JADX WARN: Removed duplicated region for block: B:45:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x01a0  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x01a8  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01ad  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0186  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01b2  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01ba  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01bf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -261,8 +262,8 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             } else {
                 format = MessageFormat.format(string, str4, o);
             }
-            String cutString = l.cutString(str4, 100);
-            String cutString2 = l.cutString(format, 100);
+            String cutString = m.cutString(str4, 100);
+            String cutString2 = m.cutString(format, 100);
             ShareItem shareItem = new ShareItem();
             shareItem.r = cutString;
             shareItem.s = cutString2;
@@ -278,12 +279,15 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
                 }
                 shareItem.D = o;
             }
+            if (d2Var.G1() != null) {
+                shareItem.U = d2Var.G1().room_id.longValue();
+            }
             shareItem.t = str7;
             shareItem.q = str6;
             shareItem.J = str3;
             shareItem.p = str2;
             shareItem.K = str6;
-            shareItem.f42071f = true;
+            shareItem.f42237f = true;
             shareItem.o = 6;
             shareItem.E = 8;
             shareItem.M = stateThreadType;
@@ -295,12 +299,12 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
             if (d2Var.G2()) {
                 z = false;
             }
-            shareItem.j0 = z;
+            shareItem.m0 = z;
             if (z) {
-                shareItem.i0 = d2Var.b1();
+                shareItem.k0 = d2Var.b1();
             }
             shareItem.T = OriginalThreadInfo.ShareInfo.generateShareInfo(d2Var);
-            shareItem.U = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
+            shareItem.W = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
             bundle.putInt("obj_param1", shareItem.F);
@@ -324,20 +328,22 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         if (!d2Var.G2()) {
         }
         format = MessageFormat.format(string3, str4, o);
-        String cutString3 = l.cutString(str4, 100);
-        String cutString22 = l.cutString(format, 100);
+        String cutString3 = m.cutString(str4, 100);
+        String cutString22 = m.cutString(format, 100);
         ShareItem shareItem2 = new ShareItem();
         shareItem2.r = cutString3;
         shareItem2.s = cutString22;
         int stateThreadType2 = getStateThreadType(d2Var);
         if (!d2Var.G2()) {
         }
+        if (d2Var.G1() != null) {
+        }
         shareItem2.t = str7;
         shareItem2.q = str6;
         shareItem2.J = str3;
         shareItem2.p = str2;
         shareItem2.K = str6;
-        shareItem2.f42071f = true;
+        shareItem2.f42237f = true;
         shareItem2.o = 6;
         shareItem2.E = 8;
         shareItem2.M = stateThreadType2;
@@ -347,11 +353,11 @@ public class TiebaSharePlugin implements FlutterPlugin, TiebaShareAuto.HostTieba
         }
         if (d2Var.G2()) {
         }
-        shareItem2.j0 = z;
+        shareItem2.m0 = z;
         if (z) {
         }
         shareItem2.T = OriginalThreadInfo.ShareInfo.generateShareInfo(d2Var);
-        shareItem2.U = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
+        shareItem2.W = ShareItem.ForwardInfo.generateForwardInfo(d2Var);
         TbadkCoreApplication.getInst().setShareItem(shareItem2);
         Bundle bundle2 = new Bundle();
         bundle2.putInt("obj_param1", shareItem2.F);

@@ -23,7 +23,7 @@ public class c implements k {
     public final AdInteractionView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public k.a f1704b;
+    public k.a f2131b;
 
     /* loaded from: classes.dex */
     public class a implements AdInteractionView.b {
@@ -52,10 +52,10 @@ public class c implements k {
         @Override // com.baidu.nadcore.widget.view.AdInteractionView.b
         public void onClick(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f1704b == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f2131b == null) {
                 return;
             }
-            this.a.f1704b.onClick(i2);
+            this.a.f2131b.onClick(i2);
         }
     }
 
@@ -102,7 +102,7 @@ public class c implements k {
         eVar = eVar == null ? new c.a.c0.p.e() : eVar;
         this.a.setInteractionConfig(eVar);
         if (viewGroup.getContext() instanceof Activity) {
-            e((Activity) viewGroup.getContext(), eVar.f1793f);
+            e((Activity) viewGroup.getContext(), eVar.f2220f);
         }
         this.a.setInteractionClickListener(new a(this));
     }
@@ -119,11 +119,11 @@ public class c implements k {
     public void b(@NonNull AdBaseModel adBaseModel) {
         c.a.c0.p.f fVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (fVar = adBaseModel.f38070k) == null || fVar.f1795c == null || fVar.a == null || fVar.f1794b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (fVar = adBaseModel.f38226k) == null || fVar.f2222c == null || fVar.a == null || fVar.f2221b == null) {
             return;
         }
         this.a.setTag(adBaseModel);
-        f(adBaseModel.f38070k.a.f1797b == 1, adBaseModel.f38070k.a.a);
+        f(adBaseModel.f38226k.a.f2224b == 1, adBaseModel.f38226k.a.a);
         this.a.setClickPraiseListener(new b(this));
         this.a.initAvatar(adBaseModel);
     }

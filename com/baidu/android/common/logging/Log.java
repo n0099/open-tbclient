@@ -4,7 +4,6 @@ import android.os.Environment;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +109,7 @@ public final class Log {
                         if (readLine2 == null) {
                             break;
                         } else if (readLine2.startsWith("Name:")) {
-                            int indexOf = readLine2.indexOf(TrackUI.SEPERATOR);
+                            int indexOf = readLine2.indexOf("\t");
                             if (indexOf >= 0) {
                                 str3 = readLine2.substring(indexOf + 1);
                             }

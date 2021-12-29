@@ -20,7 +20,7 @@ public class TMNTokenClient {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f31572b;
+    public Context f31715b;
 
     /* loaded from: classes9.dex */
     public interface InitResultListener {
@@ -57,11 +57,11 @@ public class TMNTokenClient {
                 return;
             }
         }
-        this.f31572b = null;
+        this.f31715b = null;
         if (context == null) {
             throw new IllegalArgumentException("TMNTokenClient initialization error: context is null.");
         }
-        this.f31572b = context;
+        this.f31715b = context;
     }
 
     public static TMNTokenClient getInstance(Context context) {
@@ -90,7 +90,7 @@ public class TMNTokenClient {
                 initResultListener.onResult("", 3);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f31677g, UtdidWrapper.getUtdid(this.f31572b));
+            hashMap.put(b.f31820g, UtdidWrapper.getUtdid(this.f31715b));
             hashMap.put("tid", "");
             hashMap.put("userId", "");
             hashMap.put("appName", str);
@@ -104,13 +104,13 @@ public class TMNTokenClient {
                 public final /* synthetic */ Map a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ InitResultListener f31573b;
+                public final /* synthetic */ InitResultListener f31716b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f31574c;
+                public final /* synthetic */ String f31717c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ TMNTokenClient f31575d;
+                public final /* synthetic */ TMNTokenClient f31718d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -127,18 +127,18 @@ public class TMNTokenClient {
                             return;
                         }
                     }
-                    this.f31575d = this;
+                    this.f31718d = this;
                     this.a = hashMap;
-                    this.f31573b = initResultListener;
-                    this.f31574c = str;
+                    this.f31716b = initResultListener;
+                    this.f31717c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        int a2 = new com.alipay.apmobilesecuritysdk.a.a(this.f31575d.f31572b).a(this.a);
-                        InitResultListener initResultListener2 = this.f31573b;
+                        int a2 = new com.alipay.apmobilesecuritysdk.a.a(this.f31718d.f31715b).a(this.a);
+                        InitResultListener initResultListener2 = this.f31716b;
                         if (initResultListener2 == null) {
                             return;
                         }
@@ -146,7 +146,7 @@ public class TMNTokenClient {
                             initResultListener2.onResult("", a2);
                             return;
                         }
-                        this.f31573b.onResult(com.alipay.apmobilesecuritysdk.a.a.a(this.f31575d.f31572b, this.f31574c), 0);
+                        this.f31716b.onResult(com.alipay.apmobilesecuritysdk.a.a.a(this.f31718d.f31715b, this.f31717c), 0);
                     }
                 }
             });

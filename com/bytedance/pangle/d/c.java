@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.util.g;
+import com.bytedance.pangle.util.f;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,16 +25,16 @@ public final class c implements Closeable {
     public final FileInputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f55071b;
+    public a f55075b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b[] f55072c;
+    public b[] f55076c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C2013c[] f55073d;
+    public C2021c[] f55077d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, C2013c> f55074e;
+    public final Map<String, C2021c> f55078e;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -43,34 +43,34 @@ public final class c implements Closeable {
         public final byte[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final short f55075b;
+        public final short f55079b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final short f55076c;
+        public final short f55080c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f55077d;
+        public final int f55081d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f55078e;
+        public final long f55082e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f55079f;
+        public final long f55083f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f55080g;
+        public final long f55084g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f55081h;
+        public final int f55085h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final short f55082i;
+        public final short f55086i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final short f55083j;
+        public final short f55087j;
 
         /* renamed from: k  reason: collision with root package name */
-        public final short f55084k;
+        public final short f55088k;
         public final short l;
         public final short m;
         public final short n;
@@ -106,27 +106,27 @@ public final class c implements Closeable {
                 ByteBuffer allocate = ByteBuffer.allocate(this.a[4] == 1 ? 36 : 48);
                 allocate.order(this.a[5] == 1 ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN);
                 c.b(fileChannel, allocate, "failed to read rest part of ehdr.");
-                this.f55075b = allocate.getShort();
-                this.f55076c = allocate.getShort();
+                this.f55079b = allocate.getShort();
+                this.f55080c = allocate.getShort();
                 int i4 = allocate.getInt();
-                this.f55077d = i4;
-                c.a(i4, 1, "bad elf version: " + this.f55077d);
+                this.f55081d = i4;
+                c.a(i4, 1, "bad elf version: " + this.f55081d);
                 byte b4 = this.a[4];
                 if (b4 == 1) {
-                    this.f55078e = allocate.getInt();
-                    this.f55079f = allocate.getInt();
-                    this.f55080g = allocate.getInt();
+                    this.f55082e = allocate.getInt();
+                    this.f55083f = allocate.getInt();
+                    this.f55084g = allocate.getInt();
                 } else if (b4 == 2) {
-                    this.f55078e = allocate.getLong();
-                    this.f55079f = allocate.getLong();
-                    this.f55080g = allocate.getLong();
+                    this.f55082e = allocate.getLong();
+                    this.f55083f = allocate.getLong();
+                    this.f55084g = allocate.getLong();
                 } else {
                     throw new IOException("Unexpected elf class: " + ((int) this.a[4]));
                 }
-                this.f55081h = allocate.getInt();
-                this.f55082i = allocate.getShort();
-                this.f55083j = allocate.getShort();
-                this.f55084k = allocate.getShort();
+                this.f55085h = allocate.getInt();
+                this.f55086i = allocate.getShort();
+                this.f55087j = allocate.getShort();
+                this.f55088k = allocate.getShort();
                 this.l = allocate.getShort();
                 this.m = allocate.getShort();
                 this.n = allocate.getShort();
@@ -143,25 +143,25 @@ public final class c implements Closeable {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f55085b;
+        public final int f55089b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f55086c;
+        public final long f55090c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f55087d;
+        public final long f55091d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f55088e;
+        public final long f55092e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f55089f;
+        public final long f55093f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final long f55090g;
+        public final long f55094g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f55091h;
+        public final long f55095h;
 
         public /* synthetic */ b(ByteBuffer byteBuffer, int i2, byte b2) {
             this(byteBuffer, i2);
@@ -184,22 +184,22 @@ public final class c implements Closeable {
             }
             if (i2 == 1) {
                 this.a = byteBuffer.getInt();
-                this.f55086c = byteBuffer.getInt();
-                this.f55087d = byteBuffer.getInt();
-                this.f55088e = byteBuffer.getInt();
-                this.f55089f = byteBuffer.getInt();
-                this.f55090g = byteBuffer.getInt();
-                this.f55085b = byteBuffer.getInt();
-                this.f55091h = byteBuffer.getInt();
+                this.f55090c = byteBuffer.getInt();
+                this.f55091d = byteBuffer.getInt();
+                this.f55092e = byteBuffer.getInt();
+                this.f55093f = byteBuffer.getInt();
+                this.f55094g = byteBuffer.getInt();
+                this.f55089b = byteBuffer.getInt();
+                this.f55095h = byteBuffer.getInt();
             } else if (i2 == 2) {
                 this.a = byteBuffer.getInt();
-                this.f55085b = byteBuffer.getInt();
-                this.f55086c = byteBuffer.getLong();
-                this.f55087d = byteBuffer.getLong();
-                this.f55088e = byteBuffer.getLong();
-                this.f55089f = byteBuffer.getLong();
-                this.f55090g = byteBuffer.getLong();
-                this.f55091h = byteBuffer.getLong();
+                this.f55089b = byteBuffer.getInt();
+                this.f55090c = byteBuffer.getLong();
+                this.f55091d = byteBuffer.getLong();
+                this.f55092e = byteBuffer.getLong();
+                this.f55093f = byteBuffer.getLong();
+                this.f55094g = byteBuffer.getLong();
+                this.f55095h = byteBuffer.getLong();
             } else {
                 throw new IOException("Unexpected elf class: ".concat(String.valueOf(i2)));
             }
@@ -208,46 +208,46 @@ public final class c implements Closeable {
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2013c {
+    public static class C2021c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f55092b;
+        public final int f55096b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f55093c;
+        public final long f55097c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f55094d;
+        public final long f55098d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final long f55095e;
+        public final long f55099e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f55096f;
+        public final long f55100f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f55097g;
+        public final int f55101g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final int f55098h;
+        public final int f55102h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final long f55099i;
+        public final long f55103i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final long f55100j;
+        public final long f55104j;
 
         /* renamed from: k  reason: collision with root package name */
-        public String f55101k;
+        public String f55105k;
 
-        public /* synthetic */ C2013c(ByteBuffer byteBuffer, int i2, byte b2) {
+        public /* synthetic */ C2021c(ByteBuffer byteBuffer, int i2, byte b2) {
             this(byteBuffer, i2);
         }
 
-        public C2013c(ByteBuffer byteBuffer, int i2) {
+        public C2021c(ByteBuffer byteBuffer, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,36 +264,36 @@ public final class c implements Closeable {
             }
             if (i2 == 1) {
                 this.a = byteBuffer.getInt();
-                this.f55092b = byteBuffer.getInt();
-                this.f55093c = byteBuffer.getInt();
-                this.f55094d = byteBuffer.getInt();
-                this.f55095e = byteBuffer.getInt();
-                this.f55096f = byteBuffer.getInt();
-                this.f55097g = byteBuffer.getInt();
-                this.f55098h = byteBuffer.getInt();
-                this.f55099i = byteBuffer.getInt();
-                this.f55100j = byteBuffer.getInt();
+                this.f55096b = byteBuffer.getInt();
+                this.f55097c = byteBuffer.getInt();
+                this.f55098d = byteBuffer.getInt();
+                this.f55099e = byteBuffer.getInt();
+                this.f55100f = byteBuffer.getInt();
+                this.f55101g = byteBuffer.getInt();
+                this.f55102h = byteBuffer.getInt();
+                this.f55103i = byteBuffer.getInt();
+                this.f55104j = byteBuffer.getInt();
             } else if (i2 == 2) {
                 this.a = byteBuffer.getInt();
-                this.f55092b = byteBuffer.getInt();
-                this.f55093c = byteBuffer.getLong();
-                this.f55094d = byteBuffer.getLong();
-                this.f55095e = byteBuffer.getLong();
-                this.f55096f = byteBuffer.getLong();
-                this.f55097g = byteBuffer.getInt();
-                this.f55098h = byteBuffer.getInt();
-                this.f55099i = byteBuffer.getLong();
-                this.f55100j = byteBuffer.getLong();
+                this.f55096b = byteBuffer.getInt();
+                this.f55097c = byteBuffer.getLong();
+                this.f55098d = byteBuffer.getLong();
+                this.f55099e = byteBuffer.getLong();
+                this.f55100f = byteBuffer.getLong();
+                this.f55101g = byteBuffer.getInt();
+                this.f55102h = byteBuffer.getInt();
+                this.f55103i = byteBuffer.getLong();
+                this.f55104j = byteBuffer.getLong();
             } else {
                 throw new IOException("Unexpected elf class: ".concat(String.valueOf(i2)));
             }
-            this.f55101k = null;
+            this.f55105k = null;
         }
     }
 
     public c(File file) {
-        C2013c[] c2013cArr;
-        C2013c[] c2013cArr2;
+        C2021c[] c2021cArr;
+        C2021c[] c2021cArr2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,47 +308,47 @@ public final class c implements Closeable {
                 return;
             }
         }
-        this.f55071b = null;
-        this.f55072c = null;
-        this.f55073d = null;
-        this.f55074e = new HashMap();
+        this.f55075b = null;
+        this.f55076c = null;
+        this.f55077d = null;
+        this.f55078e = new HashMap();
         FileInputStream fileInputStream = new FileInputStream(file);
         this.a = fileInputStream;
         FileChannel channel = fileInputStream.getChannel();
-        this.f55071b = new a(channel, (byte) 0);
+        this.f55075b = new a(channel, (byte) 0);
         ByteBuffer allocate = ByteBuffer.allocate(128);
-        allocate.limit(this.f55071b.f55083j);
-        allocate.order(this.f55071b.a[5] == 1 ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN);
-        channel.position(this.f55071b.f55079f);
-        this.f55072c = new b[this.f55071b.f55084k];
-        for (int i4 = 0; i4 < this.f55072c.length; i4++) {
+        allocate.limit(this.f55075b.f55087j);
+        allocate.order(this.f55075b.a[5] == 1 ? ByteOrder.LITTLE_ENDIAN : ByteOrder.BIG_ENDIAN);
+        channel.position(this.f55075b.f55083f);
+        this.f55076c = new b[this.f55075b.f55088k];
+        for (int i4 = 0; i4 < this.f55076c.length; i4++) {
             b(channel, allocate, "failed to read phdr.");
-            this.f55072c[i4] = new b(allocate, this.f55071b.a[4], (byte) 0);
+            this.f55076c[i4] = new b(allocate, this.f55075b.a[4], (byte) 0);
         }
-        channel.position(this.f55071b.f55080g);
-        allocate.limit(this.f55071b.l);
-        this.f55073d = new C2013c[this.f55071b.m];
+        channel.position(this.f55075b.f55084g);
+        allocate.limit(this.f55075b.l);
+        this.f55077d = new C2021c[this.f55075b.m];
         int i5 = 0;
         while (true) {
-            c2013cArr = this.f55073d;
-            if (i5 >= c2013cArr.length) {
+            c2021cArr = this.f55077d;
+            if (i5 >= c2021cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.f55073d[i5] = new C2013c(allocate, this.f55071b.a[4], (byte) 0);
+            this.f55077d[i5] = new C2021c(allocate, this.f55075b.a[4], (byte) 0);
             i5++;
         }
-        short s = this.f55071b.n;
+        short s = this.f55075b.n;
         if (s > 0) {
-            C2013c c2013c = c2013cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c2013c.f55096f);
-            this.a.getChannel().position(c2013c.f55095e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c2013c.f55101k);
-            for (C2013c c2013c2 : this.f55073d) {
-                allocate2.position(c2013c2.a);
+            C2021c c2021c = c2021cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c2021c.f55100f);
+            this.a.getChannel().position(c2021c.f55099e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c2021c.f55105k);
+            for (C2021c c2021c2 : this.f55077d) {
+                allocate2.position(c2021c2.a);
                 String a2 = a(allocate2);
-                c2013c2.f55101k = a2;
-                this.f55074e.put(a2, c2013c2);
+                c2021c2.f55105k = a2;
+                this.f55078e.put(a2, c2021c2);
             }
         }
     }
@@ -371,9 +371,9 @@ public final class c implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.close();
-            this.f55074e.clear();
-            this.f55072c = null;
-            this.f55073d = null;
+            this.f55078e.clear();
+            this.f55076c = null;
+            this.f55077d = null;
         }
     }
 
@@ -382,13 +382,13 @@ public final class c implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
             try {
-                g.a(new c(file));
+                f.a(new c(file));
                 return true;
             } catch (IOException unused) {
-                g.a(null);
+                f.a(null);
                 return false;
             } catch (Throwable th) {
-                g.a(null);
+                f.a(null);
                 throw th;
             }
         }

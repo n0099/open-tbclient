@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44150e;
+    public int f44337e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AutoLineWrapLayout(Context context) {
@@ -43,7 +43,7 @@ public class AutoLineWrapLayout extends ViewGroup {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f44150e = m.f(getContext(), R.dimen.ds20);
+            this.f44337e = n.f(getContext(), R.dimen.ds20);
         }
     }
 
@@ -59,8 +59,8 @@ public class AutoLineWrapLayout extends ViewGroup {
                 View childAt = getChildAt(i6);
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
-                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f44150e + measuredWidth;
-                int i9 = this.f44150e;
+                i7 = i6 == 0 ? i7 + measuredWidth : i7 + this.f44337e + measuredWidth;
+                int i9 = this.f44337e;
                 int i10 = ((measuredHeight + i9) * i8) + i9 + measuredHeight + i3;
                 if (i7 > i4) {
                     i7 = measuredWidth + i2;

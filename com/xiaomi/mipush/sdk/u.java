@@ -60,7 +60,7 @@ public class u {
         public boolean f101a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f63288b;
+        public String f63283b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f102b;
@@ -83,7 +83,7 @@ public class u {
             this.a = str;
             this.f101a = z;
             this.f102b = z2;
-            this.f63288b = str2;
+            this.f63283b = str2;
         }
     }
 
@@ -300,7 +300,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f101a;
                         boolean z2 = bVar.f102b;
-                        String str = bVar.f63288b;
+                        String str = bVar.f63283b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

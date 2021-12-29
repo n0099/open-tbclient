@@ -43,19 +43,19 @@ public final class f implements ServiceConnection {
             try {
                 a a = b.a(iBinder);
                 if (a != null) {
-                    this.a.f63906b = a;
+                    this.a.f63901b = a;
                 }
-                countDownLatch3 = this.a.f63908d;
+                countDownLatch3 = this.a.f63903d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.a.f63908d;
+                countDownLatch = this.a.f63903d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.a.f63908d;
+            countDownLatch2 = this.a.f63903d;
             countDownLatch2.countDown();
         }
     }
@@ -64,7 +64,7 @@ public final class f implements ServiceConnection {
     public final void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.f63906b = null;
+            this.a.f63901b = null;
         }
     }
 }

@@ -19,7 +19,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f36712b;
+    public int f36868b;
 
     static {
         InterceptResult invokeClinit;
@@ -67,7 +67,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
             }
         }
         this.a = parcel.readString();
-        this.f36712b = parcel.readInt();
+        this.f36868b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -89,7 +89,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public void setType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f36712b = i2;
+            this.f36868b = i2;
         }
     }
 
@@ -105,7 +105,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
             parcel.writeString(this.a);
-            parcel.writeInt(this.f36712b);
+            parcel.writeInt(this.f36868b);
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.s0.f2.c.b;
-import c.a.s0.f2.c.k.c;
+import c.a.t0.f2.c.b;
+import c.a.t0.f2.c.k.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -18,7 +18,7 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Object f47451b;
+    public Object f47672b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicListViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -53,13 +53,13 @@ public class BasicListViewHolder extends TypeAdapter.ViewHolder {
     public Object getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47451b : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47672b : invokeV.objValue;
     }
 
     public void setTag(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.f47451b = obj;
+            this.f47672b = obj;
         }
     }
 }

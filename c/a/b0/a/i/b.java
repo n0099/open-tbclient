@@ -21,21 +21,21 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile b f1211f;
+    public static volatile b f1604f;
     public transient /* synthetic */ FieldHolder $fh;
     public Long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Long f1212b;
+    public Long f1605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f1213c;
+    public RandomAccessFile f1606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RandomAccessFile f1214d;
+    public RandomAccessFile f1607d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1215e;
+    public String f1608e;
 
     static {
         InterceptResult invokeClinit;
@@ -70,14 +70,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1211f == null) {
+            if (f1604f == null) {
                 synchronized (b.class) {
-                    if (f1211f == null) {
-                        f1211f = new b();
+                    if (f1604f == null) {
+                        f1604f = new b();
                     }
                 }
             }
-            return f1211f;
+            return f1604f;
         }
         return (b) invokeV.objValue;
     }
@@ -108,7 +108,7 @@ public class b {
             return invokeV.doubleValue;
         }
         if (Build.VERSION.SDK_INT >= 26) {
-            String c2 = c(this.f1215e);
+            String c2 = c(this.f1608e);
             if (!TextUtils.isEmpty(c2)) {
                 try {
                     doubleValue = Double.valueOf(c2).doubleValue();
@@ -326,31 +326,31 @@ public class b {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (this.f1213c != null && this.f1214d != null) {
-                this.f1213c.seek(0L);
-                this.f1214d.seek(0L);
-                String readLine = this.f1213c.readLine();
-                String readLine2 = this.f1214d.readLine();
+            if (this.f1606c != null && this.f1607d != null) {
+                this.f1606c.seek(0L);
+                this.f1607d.seek(0L);
+                String readLine = this.f1606c.readLine();
+                String readLine2 = this.f1607d.readLine();
                 String[] split = readLine.split(" ");
                 String[] split2 = readLine2.split(" ");
                 parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
                 parseLong2 = Long.parseLong(split2[13]) + Long.parseLong(split2[14]);
-                if (this.a != null && this.f1212b == null) {
+                if (this.a != null && this.f1605b == null) {
                     this.a = Long.valueOf(parseLong);
-                    this.f1212b = Long.valueOf(parseLong2);
+                    this.f1605b = Long.valueOf(parseLong2);
                     return 0.0d;
                 }
-                if (this.a != null && this.f1212b != null) {
-                    d2 = ((parseLong2 - this.f1212b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
+                if (this.a != null && this.f1605b != null) {
+                    d2 = ((parseLong2 - this.f1605b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
                 }
                 this.a = Long.valueOf(parseLong);
-                this.f1212b = Long.valueOf(parseLong2);
+                this.f1605b = Long.valueOf(parseLong2);
                 return d2;
             }
-            this.f1213c = new RandomAccessFile("/proc/stat", "r");
-            this.f1214d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
-            String readLine3 = this.f1213c.readLine();
-            String readLine22 = this.f1214d.readLine();
+            this.f1606c = new RandomAccessFile("/proc/stat", "r");
+            this.f1607d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
+            String readLine3 = this.f1606c.readLine();
+            String readLine22 = this.f1607d.readLine();
             String[] split3 = readLine3.split(" ");
             String[] split22 = readLine22.split(" ");
             parseLong = Long.parseLong(split3[2]) + Long.parseLong(split3[3]) + Long.parseLong(split3[4]) + Long.parseLong(split3[5]) + Long.parseLong(split3[6]) + Long.parseLong(split3[7]) + Long.parseLong(split3[8]);
@@ -358,10 +358,10 @@ public class b {
             if (this.a != null) {
             }
             if (this.a != null) {
-                d2 = ((parseLong2 - this.f1212b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
+                d2 = ((parseLong2 - this.f1605b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
             }
             this.a = Long.valueOf(parseLong);
-            this.f1212b = Long.valueOf(parseLong2);
+            this.f1605b = Long.valueOf(parseLong2);
             return d2;
         }
         return invokeV.doubleValue;

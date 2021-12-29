@@ -16,10 +16,10 @@ public class fm implements Cloneable {
     public static String a = "wcc-ml-test10.bj";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f63470b;
+    public static final String f63465b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63471c;
+    public static String f63466c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,13 +35,13 @@ public class fm implements Cloneable {
     public boolean f414b;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63472d;
+    public String f63467d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63473e;
+    public String f63468e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63474f;
+    public String f63469f;
 
     static {
         InterceptResult invokeClinit;
@@ -56,8 +56,8 @@ public class fm implements Cloneable {
                 return;
             }
         }
-        f63470b = ae.a;
-        f63471c = null;
+        f63465b = ae.a;
+        f63466c = null;
     }
 
     public fm(Map<String, Integer> map, int i2, String str, fp fpVar) {
@@ -84,8 +84,8 @@ public class fm implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = f63471c;
-            return str != null ? str : ab.m191a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f63470b : "app.chat.xiaomi.net";
+            String str = f63466c;
+            return str != null ? str : ab.m191a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? f63465b : "app.chat.xiaomi.net";
         }
         return (String) invokeV.objValue;
     }
@@ -93,7 +93,7 @@ public class fm implements Cloneable {
     public static final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            f63471c = str;
+            f63466c = str;
         }
     }
 
@@ -101,7 +101,7 @@ public class fm implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(InputDeviceCompat.SOURCE_TRACKBALL, this, map, i2, str, fpVar) == null) {
             this.f411a = i2;
-            this.f63472d = str;
+            this.f63467d = str;
             this.f412a = fpVar;
         }
     }
@@ -140,13 +140,13 @@ public class fm implements Cloneable {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63474f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63469f : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f63474f = str;
+            this.f63469f = str;
         }
     }
 
@@ -154,10 +154,10 @@ public class fm implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f63473e == null) {
-                this.f63473e = a();
+            if (this.f63468e == null) {
+                this.f63468e = a();
             }
-            return this.f63473e;
+            return this.f63468e;
         }
         return (String) invokeV.objValue;
     }
@@ -165,7 +165,7 @@ public class fm implements Cloneable {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f63473e = str;
+            this.f63468e = str;
         }
     }
 }

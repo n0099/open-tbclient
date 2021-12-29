@@ -1,9 +1,9 @@
 package com.baidu.tieba.h5power;
 
-import c.a.d.f.p.l;
-import c.a.s0.v3.n0.d.a;
-import c.a.s0.v3.n0.d.c;
-import c.a.s0.v3.n0.d.e;
+import c.a.d.f.p.m;
+import c.a.t0.w3.n0.d.a;
+import c.a.t0.w3.n0.d.c;
+import c.a.t0.w3.n0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class UegTbJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // c.a.s0.v3.n0.d.a
+    @Override // c.a.t0.w3.n0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -83,18 +83,28 @@ public class UegTbJsBridge_Proxy extends a {
                     cVar.w(bindingMobileNumber.e());
                 }
                 cVar.y(0);
+            } else if (b2.equals("host/recordNovelInfo")) {
+                cVar.r(true);
+                c recordNovelInfo = this.mJsBridge.recordNovelInfo(e2.optString("bookProgress"), e2.optString("gid"), e2.optString("lastReadChapterId"), e2.optString("lastReadChapterIndex"), e2.optString("lastReadChapterName"));
+                if (recordNovelInfo != null) {
+                    cVar.x(recordNovelInfo.f());
+                    cVar.t(recordNovelInfo.b());
+                    cVar.o(recordNovelInfo.a());
+                    cVar.w(recordNovelInfo.e());
+                }
+                cVar.y(0);
             }
             return cVar;
         }
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.s0.v3.n0.d.a
+    @Override // c.a.t0.w3.n0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
-            if (l.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+            if (m.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();

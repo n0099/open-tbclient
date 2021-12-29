@@ -6,28 +6,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.c;
-import c.a.q0.a.d;
-import c.a.q0.a.f;
-import c.a.q0.a.g;
-import c.a.q0.a.h;
-import c.a.q0.a.u1.n.a;
+import c.a.r0.a.c;
+import c.a.r0.a.d;
+import c.a.r0.a.f;
+import c.a.r0.a.g;
+import c.a.r0.a.h;
+import c.a.r0.a.u1.n.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class FooterLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public LoadingAnimView f40316i;
+    public LoadingAnimView f40472i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f40317j;
+    public TextView f40473j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FooterLoadingLayout(Context context) {
@@ -53,9 +53,9 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40316i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
+            this.f40472i = (LoadingAnimView) findViewById(f.pull_to_load_footer_progressbar);
             TextView textView = (TextView) findViewById(f.pull_to_load_footer_hint_textview);
-            this.f40317j = textView;
+            this.f40473j = textView;
             textView.setTextColor(getResources().getColor(c.aiapps_picture_loading_text_color));
             setState(ILoadingLayout$State.RESET);
         }
@@ -91,8 +91,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onNoMoreData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f40317j.setVisibility(0);
-            this.f40317j.setText(h.aiapps_pull_to_refresh_header_no_more_msg);
+            this.f40473j.setVisibility(0);
+            this.f40473j.setText(h.aiapps_pull_to_refresh_header_no_more_msg);
         }
     }
 
@@ -100,8 +100,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onPullToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f40317j.setVisibility(0);
-            this.f40317j.setText(h.aiapps_pull_to_refresh_header_hint_normal);
+            this.f40473j.setVisibility(0);
+            this.f40473j.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
 
@@ -109,10 +109,10 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40316i.setVisibility(0);
-            this.f40316i.startAnim();
-            this.f40317j.setVisibility(0);
-            this.f40317j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+            this.f40472i.setVisibility(0);
+            this.f40472i.startAnim();
+            this.f40473j.setVisibility(0);
+            this.f40473j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
 
@@ -120,8 +120,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40317j.setVisibility(0);
-            this.f40317j.setText(h.aiapps_pull_to_refresh_header_hint_ready);
+            this.f40473j.setVisibility(0);
+            this.f40473j.setText(h.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
 
@@ -129,7 +129,7 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f40317j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+            this.f40473j.setText(h.aiapps_pull_to_refresh_header_hint_loading);
         }
     }
 
@@ -137,9 +137,9 @@ public class FooterLoadingLayout extends LoadingLayout {
     public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f40316i.setVisibility(8);
-            this.f40316i.stopAnim();
-            this.f40317j.setVisibility(4);
+            this.f40472i.setVisibility(8);
+            this.f40472i.stopAnim();
+            this.f40473j.setVisibility(4);
             super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }

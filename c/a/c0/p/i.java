@@ -17,11 +17,11 @@ public final class i {
     @JvmField
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1798b;
+    public long f2225b;
     @JvmField
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1799c;
+    public long f2226c;
 
     static {
         InterceptResult invokeClinit;

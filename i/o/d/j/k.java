@@ -13,7 +13,7 @@ public abstract class k<E> extends m<E> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final long f64490k;
+    public static final long f64485k;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long consumerIndex;
 
@@ -30,7 +30,7 @@ public abstract class k<E> extends m<E> {
                 return;
             }
         }
-        f64490k = f0.a(k.class, "consumerIndex");
+        f64485k = f0.a(k.class, "consumerIndex");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,7 +56,7 @@ public abstract class k<E> extends m<E> {
     public final boolean j(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f0.a.c(this, f64490k, j2, j3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? f0.a.c(this, f64485k, j2, j3) : invokeCommon.booleanValue;
     }
 
     public final long k() {

@@ -3,8 +3,8 @@ package com.fun.ad.sdk.internal.api.utils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.g.h;
-import c.g.i0;
 import c.g.o0;
+import c.g.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,9 +19,9 @@ import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
-    public static final i0 a;
+    public static final o0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o0 mAdIdent;
+    public final u0 mAdIdent;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +36,7 @@ public class AdReporter {
                 return;
             }
         }
-        a = i0.a();
+        a = o0.a();
     }
 
     public AdReporter() {
@@ -52,27 +52,27 @@ public class AdReporter {
                 return;
             }
         }
-        this.mAdIdent = new o0();
+        this.mAdIdent = new u0();
     }
 
-    public static void adEvent(o0 o0Var, Object obj, Object... objArr) {
+    public static void adEvent(u0 u0Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, o0Var, obj, objArr) == null) {
-            report("ad", o0Var, obj, false, objArr);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, u0Var, obj, objArr) == null) {
+            report("ad", u0Var, obj, false, objArr);
         }
     }
 
-    public static void adEvent(boolean z, o0 o0Var, Object obj, Object... objArr) {
+    public static void adEvent(boolean z, u0 u0Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), o0Var, obj, objArr}) == null) {
-            report("ad", o0Var, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), u0Var, obj, objArr}) == null) {
+            report("ad", u0Var, obj, z, objArr);
         }
     }
 
-    public static void report(String str, o0 o0Var, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, u0 u0Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, o0Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, o0Var.a, o0Var.f29271b, o0Var.f29273d, o0Var.f29274e, o0Var.f29272c, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, u0Var, obj, Boolean.valueOf(z), objArr}) == null) {
+            report(str, u0Var.a, u0Var.f29352b, u0Var.f29354d, u0Var.f29355e, u0Var.f29353c, obj, z, objArr);
         }
     }
 
@@ -180,16 +180,16 @@ public class AdReporter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, funAdSlot, pid) == null) {
             int a2 = h.a(funAdSlot.getSid(), pid);
-            o0 o0Var = this.mAdIdent;
+            u0 u0Var = this.mAdIdent;
             String sid = funAdSlot.getSid();
             long currentTimeMillis = System.currentTimeMillis();
             String str = pid.pid;
             String str2 = pid.type;
-            o0Var.a = sid;
-            o0Var.f29271b = a2;
-            o0Var.f29272c = currentTimeMillis;
-            o0Var.f29273d = str;
-            o0Var.f29274e = str2;
+            u0Var.a = sid;
+            u0Var.f29352b = a2;
+            u0Var.f29353c = currentTimeMillis;
+            u0Var.f29354d = str;
+            u0Var.f29355e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }

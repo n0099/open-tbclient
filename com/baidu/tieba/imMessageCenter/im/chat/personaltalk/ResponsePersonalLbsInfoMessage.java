@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import c.a.r0.t.f.b;
+import c.a.s0.t.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
 import c.a.d.f.m.b;
-import c.a.r0.w0.a;
-import c.a.s0.f2.c.k.o;
+import c.a.s0.x0.a;
+import c.a.t0.f2.c.k.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,22 +28,22 @@ public class PrivilegeItemView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47436e;
+    public Context f47657e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47437f;
+    public View f47658f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47438g;
+    public TbImageView f47659g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PrivilegeTextView f47439h;
+    public PrivilegeTextView f47660h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47440i;
+    public TextView f47661i;
 
     /* renamed from: j  reason: collision with root package name */
-    public o f47441j;
+    public o f47662j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context) {
@@ -63,31 +63,31 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47436e = context;
+        this.f47657e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47436e).inflate(R.layout.index_privilege_item, this);
-            this.f47437f = inflate;
-            this.f47438g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
-            this.f47439h = (PrivilegeTextView) this.f47437f.findViewById(R.id.privilege_name);
-            this.f47440i = (TextView) this.f47437f.findViewById(R.id.privilege_desc);
+            View inflate = LayoutInflater.from(this.f47657e).inflate(R.layout.index_privilege_item, this);
+            this.f47658f = inflate;
+            this.f47659g = (TbImageView) inflate.findViewById(R.id.privilege_icon);
+            this.f47660h = (PrivilegeTextView) this.f47658f.findViewById(R.id.privilege_name);
+            this.f47661i = (TextView) this.f47658f.findViewById(R.id.privilege_desc);
         }
     }
 
     public PrivilegeTextView getPrivilegeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47439h : (PrivilegeTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47660h : (PrivilegeTextView) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.a((TbPageContext) j.a(this.f47436e), this.f47437f);
+            a.a((TbPageContext) j.a(this.f47657e), this.f47658f);
         }
     }
 
@@ -97,24 +97,24 @@ public class PrivilegeItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.f47441j = oVar;
-        this.f47438g.setIsRound(false);
+        this.f47662j = oVar;
+        this.f47659g.setIsRound(false);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.f47438g.setDefaultBgResource(R.color.img_bg_color);
+            this.f47659g.setDefaultBgResource(R.color.img_bg_color);
         } else {
-            this.f47438g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
+            this.f47659g.setDefaultBgResource(SkinManager.getColor(R.color.CAM_X0204));
         }
-        this.f47438g.startLoad(oVar.b(), 10, false);
-        this.f47440i.setText(oVar.a());
-        this.f47439h.setText(oVar.f());
-        if (TbadkCoreApplication.isLogin() && this.f47441j.d() > 0) {
-            if (b.g(oVar.g(), 0L) > b.g(c.a.r0.s.g0.b.j().p("member_center_item_red_tip_" + this.f47441j.d() + TbadkCoreApplication.getCurrentAccount(), "0"), 0L)) {
-                if (this.f47441j.h() == 1) {
+        this.f47659g.startLoad(oVar.b(), 10, false);
+        this.f47661i.setText(oVar.a());
+        this.f47660h.setText(oVar.f());
+        if (TbadkCoreApplication.isLogin() && this.f47662j.d() > 0) {
+            if (b.g(oVar.g(), 0L) > b.g(c.a.s0.s.g0.b.j().p("member_center_item_red_tip_" + this.f47662j.d() + TbadkCoreApplication.getCurrentAccount(), "0"), 0L)) {
+                if (this.f47662j.h() == 1) {
                     bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_news_down_bar_one);
                     if (bitmapDrawable != null) {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                     }
-                } else if (this.f47441j.h() == 2) {
+                } else if (this.f47662j.h() == 2) {
                     bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_new_privilege);
                     if (bitmapDrawable != null) {
                         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
@@ -123,16 +123,16 @@ public class PrivilegeItemView extends RelativeLayout {
                     bitmapDrawable = null;
                 }
                 if (bitmapDrawable != null) {
-                    this.f47439h.setCompoundDrawables(null, null, bitmapDrawable, null);
-                    this.f47439h.setCompoundDrawablePadding(10);
+                    this.f47660h.setCompoundDrawables(null, null, bitmapDrawable, null);
+                    this.f47660h.setCompoundDrawablePadding(10);
                     return;
                 }
                 return;
             }
-            this.f47439h.setCompoundDrawables(null, null, null, null);
+            this.f47660h.setCompoundDrawables(null, null, null, null);
             return;
         }
-        this.f47439h.setCompoundDrawables(null, null, null, null);
+        this.f47660h.setCompoundDrawables(null, null, null, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -154,7 +154,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47436e = context;
+        this.f47657e = context;
         a();
     }
 
@@ -177,7 +177,7 @@ public class PrivilegeItemView extends RelativeLayout {
                 return;
             }
         }
-        this.f47436e = context;
+        this.f47657e = context;
         a();
     }
 }

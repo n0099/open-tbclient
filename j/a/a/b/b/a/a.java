@@ -23,34 +23,34 @@ public final class a {
     public Activity a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayType f64622b;
+    public PayType f64617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f64623c;
+    public long f64618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f64624d;
+    public String f64619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ProductInfo f64625e;
+    public ProductInfo f64620e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f64626f;
+    public int f64621f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f64627g;
+    public int f64622g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IMiddlePayService.SubscriptType f64628h;
+    public IMiddlePayService.SubscriptType f64623h;
 
     /* renamed from: i  reason: collision with root package name */
-    public IMiddlePayService.ChargeSource f64629i;
+    public IMiddlePayService.ChargeSource f64624i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f64630j;
+    public String f64625j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Map<String, Object> f64631k;
+    public Map<String, Object> f64626k;
     public IPayCallback<String> l;
     public IToken m;
     public AppCustomExpand n;
@@ -70,11 +70,11 @@ public final class a {
                 return;
             }
         }
-        this.f64622b = PayType.ALI_PAY;
-        this.f64624d = "";
-        this.f64628h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
-        this.f64629i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
-        this.f64630j = "";
+        this.f64617b = PayType.ALI_PAY;
+        this.f64619d = "";
+        this.f64623h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
+        this.f64624i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
+        this.f64625j = "";
     }
 
     public final void A(String str) {
@@ -87,14 +87,14 @@ public final class a {
     public final void B(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.f64623c = j2;
+            this.f64618c = j2;
         }
     }
 
     public final void C(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f64626f = i2;
+            this.f64621f = i2;
         }
     }
 
@@ -113,26 +113,26 @@ public final class a {
     public final IMiddlePayService.ChargeSource c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64629i : (IMiddlePayService.ChargeSource) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64624i : (IMiddlePayService.ChargeSource) invokeV.objValue;
     }
 
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64627g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f64622g : invokeV.intValue;
     }
 
     public final Map<String, Object> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64631k : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64626k : (Map) invokeV.objValue;
     }
 
     public final ProductInfo f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ProductInfo productInfo = this.f64625e;
+            ProductInfo productInfo = this.f64620e;
             if (productInfo == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("info");
             }
@@ -163,25 +163,25 @@ public final class a {
     public final PayType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f64622b : (PayType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f64617b : (PayType) invokeV.objValue;
     }
 
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64630j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f64625j : (String) invokeV.objValue;
     }
 
     public final IMiddlePayService.SubscriptType j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f64628h : (IMiddlePayService.SubscriptType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f64623h : (IMiddlePayService.SubscriptType) invokeV.objValue;
     }
 
     public final String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f64624d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f64619d : (String) invokeV.objValue;
     }
 
     public final IToken l() {
@@ -199,13 +199,13 @@ public final class a {
     public final long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f64623c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f64618c : invokeV.longValue;
     }
 
     public final int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f64626f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f64621f : invokeV.intValue;
     }
 
     public final void p(Activity activity) {
@@ -232,21 +232,21 @@ public final class a {
     public final void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f64627g = i2;
+            this.f64622g = i2;
         }
     }
 
     public final void t(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, map) == null) {
-            this.f64631k = map;
+            this.f64626k = map;
         }
     }
 
     public final void u(ProductInfo productInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, productInfo) == null) {
-            this.f64625e = productInfo;
+            this.f64620e = productInfo;
         }
     }
 
@@ -260,21 +260,21 @@ public final class a {
     public final void w(PayType payType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, payType) == null) {
-            this.f64622b = payType;
+            this.f64617b = payType;
         }
     }
 
     public final void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f64630j = str;
+            this.f64625j = str;
         }
     }
 
     public final void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.f64624d = str;
+            this.f64619d = str;
         }
     }
 

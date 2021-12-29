@@ -32,19 +32,19 @@ public final class g {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29219b;
+    public int f29294b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29220c;
+    public int f29295c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<Ssp> f29221d;
+    public final Set<Ssp> f29296d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Set<l> f29222e;
+    public final Set<l> f29297e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Set<j> f29223f;
+    public final Set<j> f29298f;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -59,9 +59,9 @@ public final class g {
                 return;
             }
         }
-        this.f29221d = new HashSet();
-        this.f29222e = new HashSet();
-        this.f29223f = new HashSet();
+        this.f29296d = new HashSet();
+        this.f29297e = new HashSet();
+        this.f29298f = new HashSet();
     }
 
     public final void a() {
@@ -69,10 +69,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long j2 = this.a;
-            int i2 = this.f29219b;
-            int i3 = this.f29220c;
-            c cVar = new c(this.f29221d, this.f29222e, this.f29223f);
-            Object obj = v.a;
+            int i2 = this.f29294b;
+            int i3 = this.f29295c;
+            c cVar = new c(this.f29296d, this.f29297e, this.f29298f);
+            Object obj = a0.a;
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
@@ -86,7 +86,7 @@ public final class g {
             Object[] objArr = new Object[1];
             objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
             LogPrinter.v("sspsUTF len:%d", objArr);
-            v.f29305b.edit().putLong("key_config_v", j2).putInt("key_config_interval", i2).putInt("key_V", i3).putString("key_adcfg", encodeToString).apply();
+            a0.f29051b.edit().putLong("key_config_v", j2).putInt("key_config_interval", i2).putInt("key_V", i3).putString("key_adcfg", encodeToString).apply();
         }
     }
 
@@ -108,9 +108,9 @@ public final class g {
             } catch (JSONException e2) {
                 LogPrinter.e(e2);
             }
-            this.f29221d.clear();
-            this.f29222e.clear();
-            this.f29223f.clear();
+            this.f29296d.clear();
+            this.f29297e.clear();
+            this.f29298f.clear();
             return false;
         }
         return invokeL.booleanValue;
@@ -124,8 +124,8 @@ public final class g {
             JSONObject jSONObject = new JSONObject(str);
             JSONObject jSONObject2 = jSONObject.getJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.f29219b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.f29220c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
+            this.f29294b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.f29295c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
             JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
             JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
             HashMap hashMap = new HashMap();
@@ -134,17 +134,17 @@ public final class g {
                 for (Ssp.Pid pid : ssp.pids) {
                     hashMap.put(Long.valueOf(pid.id), pid);
                 }
-                this.f29221d.add(ssp);
+                this.f29296d.add(ssp);
             }
             JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
             for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                this.f29222e.add(new l(jSONArray2.getJSONObject(i3), hashMap));
+                this.f29297e.add(new l(jSONArray2.getJSONObject(i3), hashMap));
             }
-            if (this.f29220c < 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
+            if (this.f29295c < 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
                 return;
             }
             for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                this.f29223f.add(new j(optJSONArray.getJSONObject(i4), hashMap));
+                this.f29298f.add(new j(optJSONArray.getJSONObject(i4), hashMap));
             }
         }
     }
@@ -156,7 +156,7 @@ public final class g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashSet hashSet = new HashSet();
             HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.f29221d) {
+            for (Ssp ssp : this.f29296d) {
                 if (hashSet.contains(ssp.type)) {
                     LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
                     return false;
@@ -171,15 +171,15 @@ public final class g {
                 }
             }
             HashSet hashSet3 = new HashSet();
-            for (l lVar : this.f29222e) {
+            for (l lVar : this.f29297e) {
                 if (hashSet3.contains(lVar.a)) {
                     LogPrinter.e("Duplicate sid(%s) found in SlotId", lVar.a);
                     return false;
                 }
                 hashSet3.add(lVar.a);
-                for (l.b bVar : lVar.f29258e) {
+                for (l.b bVar : lVar.f29316e) {
                     HashSet hashSet4 = new HashSet();
-                    for (l.a aVar : bVar.f29262b) {
+                    for (l.a aVar : bVar.f29320b) {
                         if (!hashSet2.contains(Long.valueOf(aVar.a))) {
                             LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(aVar.a));
                             return false;
@@ -192,15 +192,15 @@ public final class g {
                     }
                 }
             }
-            if (this.f29220c == 2) {
-                for (j jVar : this.f29223f) {
+            if (this.f29295c == 2) {
+                for (j jVar : this.f29298f) {
                     if (hashSet3.contains(jVar.a)) {
                         LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", jVar.a);
                         return false;
                     }
                     hashSet3.add(jVar.a);
-                    for (j.b bVar2 : jVar.f29241b) {
-                        for (j.a aVar2 : bVar2.f29245b) {
+                    for (j.b bVar2 : jVar.f29307b) {
+                        for (j.a aVar2 : bVar2.f29311b) {
                             if (!hashSet2.contains(Long.valueOf(aVar2.a))) {
                                 LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar2.a));
                                 return false;

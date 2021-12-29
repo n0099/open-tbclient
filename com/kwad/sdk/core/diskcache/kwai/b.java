@@ -1,11 +1,5 @@
 package com.kwad.sdk.core.diskcache.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -15,8 +9,6 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* loaded from: classes3.dex */
 public class b implements Closeable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -32,20 +24,6 @@ public class b implements Closeable {
     public int f57890e;
 
     public b(InputStream inputStream, int i2, Charset charset) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i2), charset};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         if (inputStream == null || charset == null) {
             throw null;
         }
@@ -60,148 +38,88 @@ public class b implements Closeable {
         this.f57888c = new byte[i2];
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(InputStream inputStream, Charset charset) {
         this(inputStream, 8192, charset);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, charset};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (Charset) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            InputStream inputStream = this.a;
-            byte[] bArr = this.f57888c;
-            int read = inputStream.read(bArr, 0, bArr.length);
-            if (read == -1) {
-                throw new EOFException();
-            }
-            this.f57889d = 0;
-            this.f57890e = read;
+        InputStream inputStream = this.a;
+        byte[] bArr = this.f57888c;
+        int read = inputStream.read(bArr, 0, bArr.length);
+        if (read == -1) {
+            throw new EOFException();
         }
+        this.f57889d = 0;
+        this.f57890e = read;
     }
 
     public String a() {
-        InterceptResult invokeV;
         int i2;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.a) {
-                if (this.f57888c != null) {
-                    if (this.f57889d >= this.f57890e) {
-                        c();
-                    }
-                    for (int i4 = this.f57889d; i4 != this.f57890e; i4++) {
-                        if (this.f57888c[i4] == 10) {
-                            if (i4 != this.f57889d) {
-                                i3 = i4 - 1;
-                                if (this.f57888c[i3] == 13) {
-                                    String str = new String(this.f57888c, this.f57889d, i3 - this.f57889d, this.f57887b.name());
-                                    this.f57889d = i4 + 1;
-                                    return str;
-                                }
-                            }
-                            i3 = i4;
-                            String str2 = new String(this.f57888c, this.f57889d, i3 - this.f57889d, this.f57887b.name());
-                            this.f57889d = i4 + 1;
-                            return str2;
-                        }
-                    }
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(this, (this.f57890e - this.f57889d) + 80) { // from class: com.kwad.sdk.core.diskcache.kwai.b.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ b a;
-
-                        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        {
-                            super(r8);
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(r8)};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i5 = newInitContext.flag;
-                                if ((i5 & 1) != 0) {
-                                    int i6 = i5 & 2;
-                                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.a = this;
-                        }
-
-                        @Override // java.io.ByteArrayOutputStream
-                        public String toString() {
-                            InterceptResult invokeV2;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                                int i5 = ((ByteArrayOutputStream) this).count;
-                                try {
-                                    return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, this.a.f57887b.name());
-                                } catch (UnsupportedEncodingException e2) {
-                                    throw new AssertionError(e2);
-                                }
-                            }
-                            return (String) invokeV2.objValue;
-                        }
-                    };
-                    loop1: while (true) {
-                        byteArrayOutputStream.write(this.f57888c, this.f57889d, this.f57890e - this.f57889d);
-                        this.f57890e = -1;
-                        c();
-                        i2 = this.f57889d;
-                        while (i2 != this.f57890e) {
-                            if (this.f57888c[i2] == 10) {
-                                break loop1;
-                            }
-                            i2++;
-                        }
-                    }
-                    if (i2 != this.f57889d) {
-                        byteArrayOutputStream.write(this.f57888c, this.f57889d, i2 - this.f57889d);
-                    }
-                    this.f57889d = i2 + 1;
-                    return byteArrayOutputStream.toString();
+        synchronized (this.a) {
+            if (this.f57888c != null) {
+                if (this.f57889d >= this.f57890e) {
+                    c();
                 }
-                throw new IOException("LineReader is closed");
+                for (int i4 = this.f57889d; i4 != this.f57890e; i4++) {
+                    if (this.f57888c[i4] == 10) {
+                        if (i4 != this.f57889d) {
+                            i3 = i4 - 1;
+                            if (this.f57888c[i3] == 13) {
+                                String str = new String(this.f57888c, this.f57889d, i3 - this.f57889d, this.f57887b.name());
+                                this.f57889d = i4 + 1;
+                                return str;
+                            }
+                        }
+                        i3 = i4;
+                        String str2 = new String(this.f57888c, this.f57889d, i3 - this.f57889d, this.f57887b.name());
+                        this.f57889d = i4 + 1;
+                        return str2;
+                    }
+                }
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.f57890e - this.f57889d) + 80) { // from class: com.kwad.sdk.core.diskcache.kwai.b.1
+                    @Override // java.io.ByteArrayOutputStream
+                    public String toString() {
+                        int i5 = ((ByteArrayOutputStream) this).count;
+                        try {
+                            return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, b.this.f57887b.name());
+                        } catch (UnsupportedEncodingException e2) {
+                            throw new AssertionError(e2);
+                        }
+                    }
+                };
+                loop1: while (true) {
+                    byteArrayOutputStream.write(this.f57888c, this.f57889d, this.f57890e - this.f57889d);
+                    this.f57890e = -1;
+                    c();
+                    i2 = this.f57889d;
+                    while (i2 != this.f57890e) {
+                        if (this.f57888c[i2] == 10) {
+                            break loop1;
+                        }
+                        i2++;
+                    }
+                }
+                if (i2 != this.f57889d) {
+                    byteArrayOutputStream.write(this.f57888c, this.f57889d, i2 - this.f57889d);
+                }
+                this.f57889d = i2 + 1;
+                return byteArrayOutputStream.toString();
             }
+            throw new IOException("LineReader is closed");
         }
-        return (String) invokeV.objValue;
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57890e == -1 : invokeV.booleanValue;
+        return this.f57890e == -1;
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this.a) {
-                if (this.f57888c != null) {
-                    this.f57888c = null;
-                    this.a.close();
-                }
+        synchronized (this.a) {
+            if (this.f57888c != null) {
+                this.f57888c = null;
+                this.a.close();
             }
         }
     }

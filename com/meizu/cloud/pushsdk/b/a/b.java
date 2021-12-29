@@ -161,7 +161,7 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2143b<T extends C2143b> {
+    public static class C2150b<T extends C2150b> {
 
         /* renamed from: b  reason: collision with root package name */
         public int f60783b;
@@ -196,7 +196,7 @@ public class b<T extends b> {
         /* renamed from: k  reason: collision with root package name */
         public HashMap<String, String> f60792k = new HashMap<>();
 
-        public C2143b(String str) {
+        public C2150b(String str) {
             this.f60783b = 0;
             this.f60784c = str;
             this.f60783b = 0;
@@ -367,7 +367,7 @@ public class b<T extends b> {
         this.K = aVar.f60782k;
     }
 
-    public b(C2143b c2143b) {
+    public b(C2150b c2150b) {
         this.f60770i = new HashMap<>();
         this.f60771j = new HashMap<>();
         this.f60772k = new HashMap<>();
@@ -386,19 +386,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.f60765d = 0;
-        this.f60763b = c2143b.f60783b;
-        this.f60764c = c2143b.a;
-        this.f60766e = c2143b.f60784c;
-        this.f60768g = c2143b.f60785d;
-        this.f60770i = c2143b.f60790i;
-        this.F = c2143b.f60786e;
-        this.H = c2143b.f60788g;
-        this.G = c2143b.f60787f;
-        this.I = c2143b.f60789h;
-        this.m = c2143b.f60791j;
-        this.n = c2143b.f60792k;
-        this.J = c2143b.l;
-        this.K = c2143b.m;
+        this.f60763b = c2150b.f60783b;
+        this.f60764c = c2150b.a;
+        this.f60766e = c2150b.f60784c;
+        this.f60768g = c2150b.f60785d;
+        this.f60770i = c2150b.f60790i;
+        this.F = c2150b.f60786e;
+        this.H = c2150b.f60788g;
+        this.G = c2150b.f60787f;
+        this.I = c2150b.f60789h;
+        this.m = c2150b.f60791j;
+        this.n = c2150b.f60792k;
+        this.J = c2150b.l;
+        this.K = c2150b.m;
     }
 
     public b(c cVar) {

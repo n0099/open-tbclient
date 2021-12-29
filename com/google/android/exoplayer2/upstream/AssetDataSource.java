@@ -97,9 +97,9 @@ public final class AssetDataSource implements e {
                 }
                 InputStream open = this.a.open(path, 1);
                 this.f56487d = open;
-                if (open.skip(gVar.f30511d) >= gVar.f30511d) {
-                    if (gVar.f30512e != -1) {
-                        this.f56488e = gVar.f30512e;
+                if (open.skip(gVar.f30589d) >= gVar.f30589d) {
+                    if (gVar.f30590e != -1) {
+                        this.f56488e = gVar.f30590e;
                     } else {
                         long available = this.f56487d.available();
                         this.f56488e = available;

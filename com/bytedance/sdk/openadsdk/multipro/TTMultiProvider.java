@@ -4,111 +4,56 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.ITTProvider;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
 /* loaded from: classes2.dex */
 public class TTMultiProvider extends ContentProvider {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public TTMultiProvider() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     private ITTProvider a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TTAdSdk.getAdManager() != null) {
-                return (ITTProvider) TTAdSdk.getAdManager().getExtra(ITTProvider.class, null);
-            }
-            return null;
+        if (TTAdSdk.getAdManager() != null) {
+            return (ITTProvider) TTAdSdk.getAdManager().getExtra(ITTProvider.class, null);
         }
-        return (ITTProvider) invokeV.objValue;
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            if (a() != null) {
-                return a().delete(uri, str, strArr);
-            }
-            return 0;
+        if (a() != null) {
+            return a().delete(uri, str, strArr);
         }
-        return invokeLLL.intValue;
+        return 0;
     }
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) ? a() != null ? a().getType(uri) : "" : (String) invokeL.objValue;
+        return a() != null ? a().getType(uri) : "";
     }
 
     @Override // android.content.ContentProvider
     public Uri insert(Uri uri, ContentValues contentValues) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
-            if (a() != null) {
-                return a().insert(uri, contentValues);
-            }
-            return null;
+        if (a() != null) {
+            return a().insert(uri, contentValues);
         }
-        return (Uri) invokeLL.objValue;
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
-            if (a() != null) {
-                return a().query(uri, strArr, str, strArr2, str2);
-            }
-            return null;
+        if (a() != null) {
+            return a().query(uri, strArr, str, strArr2, str2);
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
-            if (a() != null) {
-                return a().update(uri, contentValues, str, strArr);
-            }
-            return 0;
+        if (a() != null) {
+            return a().update(uri, contentValues, str, strArr);
         }
-        return invokeLLLL.intValue;
+        return 0;
     }
 }

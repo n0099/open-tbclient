@@ -16,11 +16,11 @@ public abstract class a {
 
     /* renamed from: c.a.c0.e0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0027a extends a {
+    public static class C0048a extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0027a() {
+        public C0048a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -65,7 +65,7 @@ public abstract class a {
                 return;
             }
         }
-        a = new C0027a();
+        a = new C0048a();
     }
 
     public a() {

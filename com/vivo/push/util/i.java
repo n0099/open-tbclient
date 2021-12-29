@@ -2,29 +2,21 @@ package com.vivo.push.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
+import android.graphics.Color;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.model.InsideNotificationItem;
 /* loaded from: classes4.dex */
-public final class i implements BaseNotifyDataAdapter {
+public final class i implements BaseNotifyLayoutAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63124b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f63125c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f63126d;
+    public String f63132b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -40,116 +32,74 @@ public final class i implements BaseNotifyDataAdapter {
         }
     }
 
-    private int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            while (!TextUtils.isEmpty(str)) {
-                Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.f63124b);
-                if (identifier > 0) {
-                    return identifier;
-                }
-                str = str.substring(0, str.length() - 1);
-            }
-            return this.a.getIdentifier("vivo_push_notifyicon", "drawable", this.f63124b);
-        }
-        return invokeL.intValue;
-    }
-
-    private int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            while (!TextUtils.isEmpty(str)) {
-                Resources resources = this.a;
-                int identifier = resources.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.f63124b);
-                if (identifier > 0) {
-                    return identifier;
-                }
-                str = str.substring(0, str.length() - 1);
-            }
-            return this.a.getIdentifier("vivo_push_icon", "drawable", this.f63124b);
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getDefaultNotifyIcon() {
+    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
+    public final int getNotificationLayout() {
         InterceptResult invokeV;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.f63126d;
-            while (true) {
-                if (Build.VERSION.SDK_INT < 26) {
-                    break;
-                } else if (TextUtils.isEmpty(str)) {
-                    p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
-                    break;
-                } else {
-                    String str2 = "vivo_push_ard" + str + "_notifyicon";
-                    i2 = this.a.getIdentifier(str2, "drawable", this.f63124b);
-                    if (i2 > 0) {
-                        p.d("DefaultNotifyDataAdapter", "get notify icon : " + str2);
-                        break;
-                    }
-                    p.d("DefaultNotifyDataAdapter", "get notify error icon : " + str2);
-                    str = str.substring(0, str.length() + (-1));
-                }
-            }
-            i2 = -1;
-            return i2 != -1 ? i2 : a(this.f63125c);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", "layout", this.f63132b) : invokeV.intValue;
     }
 
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getDefaultSmallIconId() {
+    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
+    public final int getSuitIconId() {
         InterceptResult invokeV;
-        int i2;
+        Resources resources;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f63126d;
-            while (true) {
-                if (Build.VERSION.SDK_INT < 26) {
-                    break;
-                } else if (TextUtils.isEmpty(str)) {
-                    p.d("DefaultNotifyDataAdapter", "systemVersion is not suit ");
-                    break;
-                } else {
-                    String str2 = "vivo_push_ard" + str + "_icon";
-                    i2 = this.a.getIdentifier(str2, "drawable", this.f63124b);
-                    if (i2 > 0) {
-                        p.d("DefaultNotifyDataAdapter", "get small icon : " + str2);
-                        break;
-                    }
-                    p.d("DefaultNotifyDataAdapter", "get small error icon : " + str2);
-                    str = str.substring(0, str.length() + (-1));
-                }
+            if (j.f63138g) {
+                resources = this.a;
+                str = this.f63132b;
+                str2 = "notify_icon_rom30";
+            } else if (j.f63137f) {
+                resources = this.a;
+                str = this.f63132b;
+                str2 = "notify_icon_rom20";
+            } else {
+                resources = this.a;
+                str = this.f63132b;
+                str2 = "notify_icon";
             }
-            i2 = -1;
-            return i2 != -1 ? i2 : b(this.f63125c);
+            return resources.getIdentifier(str2, "id", str);
         }
         return invokeV.intValue;
     }
 
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
-    public final int getNotifyMode(InsideNotificationItem insideNotificationItem) {
-        InterceptResult invokeL;
+    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
+    public final int getTitleColor() {
+        int i2;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, insideNotificationItem)) == null) ? Build.VERSION.SDK_INT >= 21 ? 2 : 1 : invokeL.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                i2 = ((Integer) aa.a("com.android.internal.R$color", "vivo_notification_title_text_color")).intValue();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                i2 = 0;
+            }
+            if (i2 > 0) {
+                return this.a.getColor(i2);
+            }
+            if (j.f63138g) {
+                return -1;
+            }
+            if (j.f63137f) {
+                if (j.f63138g) {
+                    return Color.parseColor("#ff999999");
+                }
+                return -1;
+            }
+            return -16777216;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.vivo.push.util.BaseNotifyDataAdapter
+    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f63124b = context.getPackageName();
+            this.f63132b = context.getPackageName();
             this.a = context.getResources();
-            this.f63125c = k.a();
-            String str = Build.VERSION.RELEASE;
-            this.f63126d = TextUtils.isEmpty(str) ? null : str.replace(".", "");
         }
     }
 }

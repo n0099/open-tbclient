@@ -3,8 +3,8 @@ package com.baidu.tieba.videoplay.model;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.d.a.f;
-import c.a.r0.j0.f.b;
-import c.a.r0.s.r.d2;
+import c.a.s0.j0.f.b;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -26,30 +26,30 @@ public class VideoPersonalModel extends BdBaseModel {
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoRecommentPlayActivityConfig.PersonalPageParams f50631e;
+    public VideoRecommentPlayActivityConfig.PersonalPageParams f50879e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public b f50632f;
+    public b f50880f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.j0.f.a f50633g;
+    public c.a.s0.j0.f.a f50881g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.r0.j0.f.b f50634h;
+    public c.a.s0.j0.f.b f50882h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public UserItemData f50635i;
+    public UserItemData f50883i;
     @NonNull
 
     /* renamed from: j  reason: collision with root package name */
-    public List<Map<String, Object>> f50636j;
+    public List<Map<String, Object>> f50884j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f50637k;
+    public int f50885k;
     public boolean l;
 
     /* loaded from: classes12.dex */
@@ -59,7 +59,7 @@ public class VideoPersonalModel extends BdBaseModel {
         public final /* synthetic */ VideoRecommentPlayActivityConfig.PersonalPageParams a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VideoPersonalModel f50638b;
+        public final /* synthetic */ VideoPersonalModel f50886b;
 
         public a(VideoPersonalModel videoPersonalModel, VideoRecommentPlayActivityConfig.PersonalPageParams personalPageParams) {
             Interceptable interceptable = $ic;
@@ -76,38 +76,38 @@ public class VideoPersonalModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f50638b = videoPersonalModel;
+            this.f50886b = videoPersonalModel;
             this.a = personalPageParams;
         }
 
-        @Override // c.a.r0.j0.f.b.a
+        @Override // c.a.s0.j0.f.b.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f50638b.l = false;
+                this.f50886b.l = false;
             }
         }
 
-        @Override // c.a.r0.j0.f.b.a
+        @Override // c.a.s0.j0.f.b.a
         public void b(@NonNull List<d2> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f50638b.f50632f == null || list.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f50886b.f50880f == null || list.isEmpty()) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
             for (d2 d2Var : list) {
                 VideoItemData videoItemData = new VideoItemData();
                 videoItemData.buildWithThreadData(d2Var);
-                if (this.f50638b.f50635i != null) {
-                    videoItemData.author_info = this.f50638b.f50635i;
+                if (this.f50886b.f50883i != null) {
+                    videoItemData.author_info = this.f50886b.f50883i;
                 }
                 arrayList.add(videoItemData);
             }
             if (map != null) {
-                this.f50638b.f50636j.add(map);
+                this.f50886b.f50884j.add(map);
             }
-            this.a.setCurrentPn(this.f50638b.f50637k);
-            this.f50638b.f50632f.a(arrayList);
+            this.a.setCurrentPn(this.f50886b.f50885k);
+            this.f50886b.f50880f.a(arrayList);
         }
     }
 
@@ -134,12 +134,12 @@ public class VideoPersonalModel extends BdBaseModel {
                 return;
             }
         }
-        this.f50633g = (c.a.r0.j0.f.a) c.a.r0.j0.b.c(c.a.r0.j0.f.a.f12682b);
-        this.f50636j = new ArrayList();
+        this.f50881g = (c.a.s0.j0.f.a) c.a.s0.j0.b.c(c.a.s0.j0.f.a.f13140b);
+        this.f50884j = new ArrayList();
         this.l = false;
-        this.f50631e = personalPageParams;
-        c.a.r0.j0.f.b a2 = this.f50633g.a(tbPageContext);
-        this.f50634h = a2;
+        this.f50879e = personalPageParams;
+        c.a.s0.j0.f.b a2 = this.f50881g.a(tbPageContext);
+        this.f50882h = a2;
         a2.a(new a(this, personalPageParams));
     }
 
@@ -147,7 +147,7 @@ public class VideoPersonalModel extends BdBaseModel {
     public List<Map<String, Object>> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50636j : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50884j : (List) invokeV.objValue;
     }
 
     public void C(@NonNull Long l, @NonNull UserItemData userItemData) {
@@ -155,16 +155,16 @@ public class VideoPersonalModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, userItemData) == null) || this.l) {
             return;
         }
-        this.f50635i = userItemData;
-        this.f50637k = this.f50631e.getCurrentPn() + 1;
+        this.f50883i = userItemData;
+        this.f50885k = this.f50879e.getCurrentPn() + 1;
         this.l = true;
-        this.f50634h.b(this.f50631e.getPersonalPageUid(), null, Integer.valueOf(this.f50631e.getWorkTabId()), 40, 0, Integer.valueOf(!this.f50631e.isVideoTab()), l, Integer.valueOf(this.f50637k));
+        this.f50882h.b(this.f50879e.getPersonalPageUid(), null, Integer.valueOf(this.f50879e.getWorkTabId()), 40, 0, Integer.valueOf(!this.f50879e.isVideoTab()), l, Integer.valueOf(this.f50885k));
     }
 
     public void D(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f50632f = bVar;
+            this.f50880f = bVar;
         }
     }
 
@@ -191,7 +191,7 @@ public class VideoPersonalModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f50634h.a(null);
+            this.f50882h.a(null);
         }
     }
 }

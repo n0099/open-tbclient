@@ -24,12 +24,12 @@ public abstract class a {
 
     /* renamed from: c.a.d.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0079a implements b.a {
+    public class C0100a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0079a(a aVar) {
+        public C0100a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public abstract class a {
         this.mDefaultType = 0;
         this.mOffType = 1;
         this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new C0079a(this);
+        this.mSwitchListener = new C0100a(this);
         initData();
         addToManager();
     }

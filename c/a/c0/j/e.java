@@ -25,5 +25,7 @@ public interface e {
         }
     }
 
+    float getLaunchSpeedScore();
+
     float getStaticDeviceScore();
 }

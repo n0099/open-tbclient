@@ -4,37 +4,17 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
     public static volatile c f61962b;
-    public transient /* synthetic */ FieldHolder $fh;
     public SQLiteDatabase a;
 
     public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         try {
             this.a = new b(j.getContext()).getWritableDatabase();
         } catch (Throwable th) {
@@ -43,37 +23,27 @@ public class c {
     }
 
     public static c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f61962b == null) {
-                synchronized (c.class) {
-                    if (f61962b == null) {
-                        f61962b = new c();
-                    }
+        if (f61962b == null) {
+            synchronized (c.class) {
+                if (f61962b == null) {
+                    f61962b = new c();
                 }
             }
-            return f61962b;
         }
-        return (c) invokeV.objValue;
+        return f61962b;
     }
 
     public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 1 : invokeV.booleanValue;
+        return com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 1;
     }
 
     public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 2 : invokeV.booleanValue;
+        return com.ss.android.socialbase.downloader.g.a.c().a("click_event_switch", 0) == 2;
     }
 
     private void c(long j2, String str) {
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65538, this, j2, str) == null) || (sQLiteDatabase = this.a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
+        SQLiteDatabase sQLiteDatabase = this.a;
+        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {
@@ -89,48 +59,42 @@ public class c {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     public boolean b(long j2, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, str)) == null) {
-            SQLiteDatabase sQLiteDatabase = this.a;
-            if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Cursor cursor = null;
+        SQLiteDatabase sQLiteDatabase = this.a;
+        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        Cursor cursor = null;
+        try {
             try {
-                try {
-                    String optString = new JSONObject(str).optString("req_id");
-                    if (TextUtils.isEmpty(optString)) {
-                        return false;
-                    }
-                    cursor = this.a.query("click_event", b.a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString}, null, null, null, null);
-                    boolean z = cursor.getCount() > 0;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return z;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    if (cursor != null) {
-                        cursor.close();
-                    }
+                String optString = new JSONObject(str).optString("req_id");
+                if (TextUtils.isEmpty(optString)) {
                     return false;
                 }
-            } catch (Throwable th) {
+                cursor = this.a.query("click_event", b.a, "time > ? AND ad_id = ? AND req_id = ?", new String[]{String.valueOf(System.currentTimeMillis() - 1209600000), String.valueOf(j2), optString}, null, null, null, null);
+                boolean z = cursor.getCount() > 0;
                 if (cursor != null) {
                     cursor.close();
                 }
-                throw th;
+                return z;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                if (cursor != null) {
+                    cursor.close();
+                }
+                return false;
             }
+        } catch (Throwable th) {
+            if (cursor != null) {
+                cursor.close();
+            }
+            throw th;
         }
-        return invokeJL.booleanValue;
     }
 
     public void a(long j2, String str) {
-        SQLiteDatabase sQLiteDatabase;
         String optString;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j2, str) == null) || (sQLiteDatabase = this.a) == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
+        SQLiteDatabase sQLiteDatabase = this.a;
+        if (sQLiteDatabase == null || !sQLiteDatabase.isOpen() || j2 <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         try {

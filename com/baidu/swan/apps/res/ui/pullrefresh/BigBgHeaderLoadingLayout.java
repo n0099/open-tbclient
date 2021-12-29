@@ -13,29 +13,29 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.d;
-import c.a.q0.a.f;
-import c.a.q0.a.g;
-import c.a.q0.a.h;
+import c.a.r0.a.d;
+import c.a.r0.a.f;
+import c.a.r0.a.g;
+import c.a.r0.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f40307i;
+    public RelativeLayout f40463i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f40308j;
+    public ImageView f40464j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ProgressBar f40309k;
+    public ProgressBar f40465k;
     public TextView l;
     public TextView m;
     public TextView n;
@@ -67,10 +67,10 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40307i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.f40308j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+            this.f40463i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f40464j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
-            this.f40309k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
+            this.f40465k = (ProgressBar) findViewById(f.pull_to_refresh_header_progressbar);
             this.m = (TextView) findViewById(f.pull_to_refresh_header_time);
             this.n = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
             this.q = (ImageView) findViewById(f.pull_to_refresh_header_background);
@@ -97,7 +97,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RelativeLayout relativeLayout = this.f40307i;
+            RelativeLayout relativeLayout = this.f40463i;
             if (relativeLayout != null) {
                 return relativeLayout.getHeight();
             }
@@ -136,8 +136,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (ILoadingLayout$State.RELEASE_TO_REFRESH == getPreState()) {
-                this.f40308j.clearAnimation();
-                this.f40308j.startAnimation(this.p);
+                this.f40464j.clearAnimation();
+                this.f40464j.startAnimation(this.p);
             }
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
@@ -147,9 +147,9 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onRefreshing() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f40308j.clearAnimation();
-            this.f40308j.setVisibility(4);
-            this.f40309k.setVisibility(0);
+            this.f40464j.clearAnimation();
+            this.f40464j.setVisibility(4);
+            this.f40465k.setVisibility(0);
             this.l.setText(h.aiapps_pull_to_refresh_header_updateing);
         }
     }
@@ -158,8 +158,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onReleaseToRefresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f40308j.clearAnimation();
-            this.f40308j.startAnimation(this.o);
+            this.f40464j.clearAnimation();
+            this.f40464j.startAnimation(this.o);
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_ready);
         }
     }
@@ -168,7 +168,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f40308j.clearAnimation();
+            this.f40464j.clearAnimation();
             this.l.setText(h.aiapps_pull_to_refresh_header_hint_normal);
         }
     }
@@ -177,8 +177,8 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            this.f40308j.setVisibility(0);
-            this.f40309k.setVisibility(4);
+            this.f40464j.setVisibility(0);
+            this.f40465k.setVisibility(4);
             super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }

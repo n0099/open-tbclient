@@ -40,12 +40,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C2151a implements NetworkCallBack {
+    public class C2158a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C2151a(a aVar, PM pm) {
+        public C2158a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,7 +209,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2151a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2158a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -217,7 +217,7 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2151a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2158a(this, pm));
         }
     }
 

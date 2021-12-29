@@ -8,9 +8,9 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.g;
-import c.a.d.f.p.n;
-import c.a.d.f.p.r;
+import c.a.d.f.p.h;
+import c.a.d.f.p.o;
+import c.a.d.f.p.t;
 import c.a.d.i.k.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
@@ -106,10 +106,10 @@ public final class Util {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32120b;
+        public String f32262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f32121c;
+        public int f32263c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -125,8 +125,8 @@ public final class Util {
                 }
             }
             this.a = false;
-            this.f32120b = null;
-            this.f32121c = 0;
+            this.f32262b = null;
+            this.f32263c = 0;
         }
     }
 
@@ -161,7 +161,7 @@ public final class Util {
             a aVar = new a();
             if (inputStream != null && file != null) {
                 if (file.exists()) {
-                    g.n(file);
+                    h.n(file);
                 }
                 FileOutputStream fileOutputStream2 = null;
                 try {
@@ -189,7 +189,7 @@ public final class Util {
                     e = e3;
                     fileOutputStream2 = fileOutputStream;
                     aVar.a = false;
-                    aVar.f32120b = e.toString();
+                    aVar.f32262b = e.toString();
                     c.a.d.f.m.a.d(fileOutputStream2);
                     return aVar;
                 } catch (Throwable th2) {
@@ -201,7 +201,7 @@ public final class Util {
                 c.a.d.f.m.a.d(fileOutputStream2);
                 return aVar;
             }
-            aVar.f32120b = "illegal_param";
+            aVar.f32262b = "illegal_param";
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -503,13 +503,13 @@ public final class Util {
                         }
                         messageDigest.update(bArr2, 0, read);
                     }
-                    str = r.a(messageDigest.digest());
+                    str = t.a(messageDigest.digest());
                 } catch (Exception e2) {
                     BdLog.e(e2.toString());
                 }
                 return str;
             } finally {
-                n.e(inputStream);
+                o.e(inputStream);
             }
         }
         return (String) invokeLL.objValue;

@@ -27,9 +27,9 @@ import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
-import c.a.d.f.p.m;
-import c.a.r0.s.v.a;
-import c.a.s0.v3.c;
+import c.a.d.f.p.n;
+import c.a.s0.s.u.a;
+import c.a.t0.w3.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -679,7 +679,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            c.a.r0.s.c0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            c.a.s0.s.b0.a.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i2);
                 if (StringUtils.isNull(resourceName)) {
@@ -874,8 +874,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (c.a.r0.s.g0.b.j().g("key_is_dark_mode_notify_shown", false)) {
-                boolean g2 = c.a.r0.s.g0.b.j().g("key_is_follow_system_mode", false);
+            } else if (c.a.s0.s.g0.b.j().g("key_is_dark_mode_notify_shown", false)) {
+                boolean g2 = c.a.s0.s.g0.b.j().g("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b2);
                 }
@@ -887,8 +887,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i2);
             } else {
-                c.a.r0.s.g0.b.j().t("key_is_dark_mode_notify_shown", true);
-                c.a.r0.s.g0.b.j().t("key_is_follow_system_mode", true);
+                c.a.s0.s.g0.b.j().t("key_is_dark_mode_notify_shown", true);
+                c.a.s0.s.g0.b.j().t("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -967,7 +967,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            m.L(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
+            n.L(BdBaseApplication.getInst().getApp(), R.string.theme_skin_apk_error);
         } catch (Throwable th) {
             BdLog.e(th);
         }

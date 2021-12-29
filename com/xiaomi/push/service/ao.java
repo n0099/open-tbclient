@@ -42,7 +42,7 @@ public class ao {
     public String f901a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63819b;
+    public String f63814b;
 
     static {
         InterceptResult invokeClinit;
@@ -464,10 +464,10 @@ public class ao {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (TextUtils.isEmpty(this.f63819b)) {
-                this.f63819b = b("default");
+            if (TextUtils.isEmpty(this.f63814b)) {
+                this.f63814b = b("default");
             }
-            return this.f63819b;
+            return this.f63814b;
         }
         return (String) invokeV.objValue;
     }

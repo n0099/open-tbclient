@@ -208,7 +208,7 @@ public final class o {
     public static boolean a(Signature[] signatureArr, Signature[] signatureArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.c.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.c.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, signatureArr, signatureArr2)) == null) ? signatureArr.length == signatureArr2.length && com.bytedance.pangle.util.b.a((Object[]) signatureArr, (Object[]) signatureArr2) && com.bytedance.pangle.util.b.a((Object[]) signatureArr2, (Object[]) signatureArr) : invokeLL.booleanValue;
     }
 
     public static Signature a(CertificateFactory certificateFactory, Signature signature) {

@@ -29,34 +29,34 @@ public class PassBiometricUtil {
     public static final String a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f38626b = 480;
+    public static final int f38782b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38627c = 480;
+    public static final int f38783c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f38628d = 192;
+    public static final int f38784d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f38629e = 480;
+    public static final int f38785e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f38630f = 620;
+    public static final int f38786f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f38631g = 250;
+    public static final int f38787g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38632h = 250;
+    public static final int f38788h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38633i = 728;
+    public static final int f38789i = 728;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38634j = 194;
+    public static final int f38790j = 194;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38635k = 750;
+    public static final int f38791k = 750;
     public static final int l = 1335;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -7,19 +7,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class n {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void a(Context context, View view) {
         InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view) == null) || context == null || view == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+        if (context == null || view == null || Build.VERSION.SDK_INT >= 29 || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
@@ -44,8 +37,7 @@ public class n {
     }
 
     public static void a(Context context, Window window) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, window) == null) || window == null) {
+        if (window == null) {
             return;
         }
         View decorView = window.getDecorView();
@@ -54,47 +46,41 @@ public class n {
     }
 
     public static synchronized void a(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, view) == null) {
-            synchronized (n.class) {
-                if (view == null) {
-                    return;
+        synchronized (n.class) {
+            if (view == null) {
+                return;
+            }
+            if (view instanceof WebView) {
+                try {
+                    ((WebView) view).destroy();
+                } catch (Throwable unused) {
                 }
-                if (view instanceof WebView) {
-                    try {
-                        ((WebView) view).destroy();
-                    } catch (Throwable unused) {
-                    }
-                } else if (view instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        a(viewGroup.getChildAt(i2));
-                    }
+            } else if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    a(viewGroup.getChildAt(i2));
                 }
             }
         }
     }
 
     public static void a(com.kwad.sdk.h.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, aVar) == null) || aVar == null) {
+        if (aVar == null) {
             return;
         }
         a(aVar.getActivity(), aVar.getWindow());
     }
 
     public static void a(com.kwad.sdk.h.b bVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bVar) == null) || bVar == null) {
+        if (bVar == null) {
             return;
         }
         a(bVar.getActivity(), bVar.getWindow());
     }
 
     public static void a(com.kwad.sdk.h.d dVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, dVar) == null) || dVar == null) {
+        if (dVar == null) {
             return;
         }
         View view = dVar.getView();

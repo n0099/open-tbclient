@@ -26,11 +26,11 @@ public class CooperService implements ICooperService {
     public static CooperService a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f37839c;
+    public static boolean f37995c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public HeadObject f37840b;
+    public HeadObject f37996b;
 
     static {
         InterceptResult invokeClinit;
@@ -60,7 +60,7 @@ public class CooperService implements ICooperService {
                 return;
             }
         }
-        this.f37840b = new HeadObject();
+        this.f37996b = new HeadObject();
     }
 
     private String a(Context context) {
@@ -68,18 +68,18 @@ public class CooperService implements ICooperService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
             try {
-                if (this.f37840b.m == null || this.f37840b.m.equals("")) {
+                if (this.f37996b.m == null || this.f37996b.m.equals("")) {
                     boolean f2 = q.a().f(context);
                     if (f2) {
-                        this.f37840b.m = q.a().e(context);
+                        this.f37996b.m = q.a().e(context);
                     }
-                    if (!f2 || this.f37840b.m == null || this.f37840b.m.equals("")) {
-                        this.f37840b.m = w.a(context, "BaiduMobAd_CHANNEL");
+                    if (!f2 || this.f37996b.m == null || this.f37996b.m.equals("")) {
+                        this.f37996b.m = w.a(context, "BaiduMobAd_CHANNEL");
                     }
                 }
             } catch (Exception unused) {
             }
-            return this.f37840b.m;
+            return this.f37996b.m;
         }
         return (String) invokeL.objValue;
     }
@@ -140,11 +140,11 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            HeadObject headObject = this.f37840b;
-            if (headObject.f37869f == null) {
-                headObject.f37869f = w.a(context, "BaiduMobAd_STAT_ID");
+            HeadObject headObject = this.f37996b;
+            if (headObject.f38025f == null) {
+                headObject.f38025f = w.a(context, "BaiduMobAd_STAT_ID");
             }
-            return this.f37840b.f37869f;
+            return this.f37996b.f38025f;
         }
         return (String) invokeL.objValue;
     }
@@ -154,11 +154,11 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            HeadObject headObject = this.f37840b;
-            if (headObject.f37871h == -1) {
-                headObject.f37871h = w.f(context);
+            HeadObject headObject = this.f37996b;
+            if (headObject.f38027h == -1) {
+                headObject.f38027h = w.f(context);
             }
-            return this.f37840b.f37871h;
+            return this.f37996b.f38027h;
         }
         return invokeL.intValue;
     }
@@ -168,10 +168,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.f37872i)) {
-                this.f37840b.f37872i = w.g(context);
+            if (TextUtils.isEmpty(this.f37996b.f38028i)) {
+                this.f37996b.f38028i = w.g(context);
             }
-            return this.f37840b.f37872i;
+            return this.f37996b.f38028i;
         }
         return (String) invokeL.objValue;
     }
@@ -182,20 +182,20 @@ public class CooperService implements ICooperService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, z)) == null) {
             q.a().b(context, "");
-            String str = this.f37840b.f37870g;
+            String str = this.f37996b.f38026g;
             if (str == null || "".equalsIgnoreCase(str)) {
                 try {
-                    this.f37840b.f37870g = x.a(context);
-                    this.f37840b.f37870g = Pattern.compile("\\s*|\t|\r|\n").matcher(this.f37840b.f37870g).replaceAll("");
-                    this.f37840b.f37870g = getSecretValue(this.f37840b.f37870g);
+                    this.f37996b.f38026g = x.a(context);
+                    this.f37996b.f38026g = Pattern.compile("\\s*|\t|\r|\n").matcher(this.f37996b.f38026g).replaceAll("");
+                    this.f37996b.f38026g = getSecretValue(this.f37996b.f38026g);
                 } catch (Exception unused) {
                 }
             }
             if (z) {
-                return this.f37840b.f37870g;
+                return this.f37996b.f38026g;
             }
             try {
-                String str2 = this.f37840b.f37870g;
+                String str2 = this.f37996b.f38026g;
                 if (TextUtils.isEmpty(str2)) {
                     return null;
                 }
@@ -218,17 +218,17 @@ public class CooperService implements ICooperService {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, telephonyManager, context)) == null) {
-            if (!TextUtils.isEmpty(this.f37840b.f37873j)) {
-                return this.f37840b.f37873j;
+            if (!TextUtils.isEmpty(this.f37996b.f38029j)) {
+                return this.f37996b.f38029j;
             }
             if (q.a().g(context)) {
-                this.f37840b.f37873j = getMacIdForTv(context);
-                return this.f37840b.f37873j;
+                this.f37996b.f38029j = getMacIdForTv(context);
+                return this.f37996b.f38029j;
             }
-            this.f37840b.f37873j = "02:00:00:00:00:00".replace(":", "");
-            HeadObject headObject = this.f37840b;
-            headObject.f37873j = getSecretValue(headObject.f37873j);
-            return this.f37840b.f37873j;
+            this.f37996b.f38029j = "02:00:00:00:00:00".replace(":", "");
+            HeadObject headObject = this.f37996b;
+            headObject.f38029j = getSecretValue(headObject.f38029j);
+            return this.f37996b.f38029j;
         }
         return (String) invokeLL.objValue;
     }
@@ -236,7 +236,7 @@ public class CooperService implements ICooperService {
     public HeadObject getHeadObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37840b : (HeadObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37996b : (HeadObject) invokeV.objValue;
     }
 
     public JSONObject getHeaderExt(Context context) {
@@ -273,10 +273,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.s)) {
-                this.f37840b.s = w.i(context);
+            if (TextUtils.isEmpty(this.f37996b.s)) {
+                this.f37996b.s = w.i(context);
             }
-            return this.f37840b.s;
+            return this.f37996b.s;
         }
         return (String) invokeL.objValue;
     }
@@ -298,22 +298,22 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
-            if (f37839c) {
-                if (!TextUtils.isEmpty(this.f37840b.u)) {
-                    return this.f37840b.u;
+            if (f37995c) {
+                if (!TextUtils.isEmpty(this.f37996b.u)) {
+                    return this.f37996b.u;
                 }
                 String h2 = q.a().h(context);
                 if (!TextUtils.isEmpty(h2)) {
-                    this.f37840b.u = h2;
+                    this.f37996b.u = h2;
                     return h2;
                 }
                 String h3 = w.h(2, context);
                 if (!TextUtils.isEmpty(h3)) {
-                    this.f37840b.u = h3;
+                    this.f37996b.u = h3;
                     q.a().d(context, h3);
-                    return this.f37840b.u;
+                    return this.f37996b.u;
                 }
-                this.f37840b.u = "";
+                this.f37996b.u = "";
                 return "";
             }
             return "";
@@ -325,10 +325,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.p)) {
-                this.f37840b.p = android.os.Build.MANUFACTURER;
+            if (TextUtils.isEmpty(this.f37996b.p)) {
+                this.f37996b.p = android.os.Build.MANUFACTURER;
             }
-            return this.f37840b.p;
+            return this.f37996b.p;
         }
         return (String) invokeV.objValue;
     }
@@ -337,10 +337,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.f37867d)) {
-                this.f37840b.f37867d = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(this.f37996b.f38023d)) {
+                this.f37996b.f38023d = Build.VERSION.RELEASE;
             }
-            return this.f37840b.f37867d;
+            return this.f37996b.f38023d;
         }
         return (String) invokeV.objValue;
     }
@@ -350,10 +350,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.f37866c)) {
-                this.f37840b.f37866c = Integer.toString(Build.VERSION.SDK_INT);
+            if (TextUtils.isEmpty(this.f37996b.f38022c)) {
+                this.f37996b.f38022c = Integer.toString(Build.VERSION.SDK_INT);
             }
-            return this.f37840b.f37866c;
+            return this.f37996b.f38022c;
         }
         return (String) invokeV.objValue;
     }
@@ -363,10 +363,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, telephonyManager)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.n)) {
-                this.f37840b.n = telephonyManager.getNetworkOperator();
+            if (TextUtils.isEmpty(this.f37996b.n)) {
+                this.f37996b.n = telephonyManager.getNetworkOperator();
             }
-            return this.f37840b.n;
+            return this.f37996b.n;
         }
         return (String) invokeL.objValue;
     }
@@ -376,10 +376,10 @@ public class CooperService implements ICooperService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (TextUtils.isEmpty(this.f37840b.o)) {
-                this.f37840b.o = android.os.Build.MODEL;
+            if (TextUtils.isEmpty(this.f37996b.o)) {
+                this.f37996b.o = android.os.Build.MODEL;
             }
-            return this.f37840b.o;
+            return this.f37996b.o;
         }
         return (String) invokeV.objValue;
     }
@@ -439,7 +439,7 @@ public class CooperService implements ICooperService {
     public void installHeader(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, context, jSONObject) == null) {
-            this.f37840b.installHeader(context, jSONObject);
+            this.f37996b.installHeader(context, jSONObject);
         }
     }
 
@@ -456,7 +456,7 @@ public class CooperService implements ICooperService {
     public void resetHeadSign() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            this.f37840b.A = instance().getUUID();
+            this.f37996b.A = instance().getUUID();
         }
     }
 
@@ -465,14 +465,14 @@ public class CooperService implements ICooperService {
         if (!(interceptable == null || interceptable.invokeLL(1048609, this, context, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f37840b.f37872i = str;
+        this.f37996b.f38028i = str;
     }
 
     public void setAuthorizedState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            f37839c = z;
-            this.f37840b.setAuthorizedState(z);
+            f37995c = z;
+            this.f37996b.setAuthorizedState(z);
         }
     }
 
@@ -484,7 +484,7 @@ public class CooperService implements ICooperService {
             if (extraInfo != null) {
                 jSONObject = extraInfo.dumpToJson();
             }
-            this.f37840b.setHeaderExt(jSONObject);
+            this.f37996b.setHeaderExt(jSONObject);
             q.a().e(context, jSONObject.toString());
             if (extraInfo != null) {
                 str = "Set global ExtraInfo: " + jSONObject;
@@ -518,7 +518,7 @@ public class CooperService implements ICooperService {
                 }
             } catch (Exception unused) {
             }
-            this.f37840b.setPushInfo(pushId);
+            this.f37996b.setPushInfo(pushId);
             q.a().f(context, pushId.toString());
             if (str3 != null) {
                 str4 = "Set platform:" + str2 + " pushId: " + str3;
@@ -532,7 +532,7 @@ public class CooperService implements ICooperService {
     public void setStartType(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
-            this.f37840b.setStartType(z);
+            this.f37996b.setStartType(z);
         }
     }
 
@@ -546,7 +546,7 @@ public class CooperService implements ICooperService {
                 str = str.substring(0, 256);
             }
             q.a().g(context, str);
-            this.f37840b.setUserId(str);
+            this.f37996b.setUserId(str);
             h.c().a("Set user id " + str);
         }
     }
@@ -565,7 +565,7 @@ public class CooperService implements ICooperService {
             }
             if (map == null) {
                 q.a().j(context, "");
-                this.f37840b.setUserProperty("");
+                this.f37996b.setUserProperty("");
             } else if (map.size() > 100) {
                 h.c().c("[WARNING] setUserProperty failed,map size can not over 100 !");
             } else {
@@ -588,7 +588,7 @@ public class CooperService implements ICooperService {
                 z = true;
                 if (z) {
                     q.a().j(context, jSONObject.toString());
-                    this.f37840b.setUserProperty(jSONObject.toString());
+                    this.f37996b.setUserProperty(jSONObject.toString());
                 }
             }
         }

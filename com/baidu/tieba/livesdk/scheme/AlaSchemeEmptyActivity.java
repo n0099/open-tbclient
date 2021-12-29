@@ -2,7 +2,7 @@ package com.baidu.tieba.livesdk.scheme;
 
 import android.net.Uri;
 import android.os.Bundle;
-import c.a.r0.a.g;
+import c.a.s0.a.g;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;

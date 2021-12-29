@@ -41,25 +41,25 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final GLSurfaceView20 f27796e;
+    public final GLSurfaceView20 f27870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27797f;
+    public int f27871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27798g;
+    public int f27872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.b.b.l.a.a f27799h;
+    public c.b.b.l.a.a f27873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.b.b.n.c f27800i;
+    public c.b.b.n.c f27874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public c.b.b.n.d f27801j;
+    public c.b.b.n.d f27875j;
 
     /* renamed from: k  reason: collision with root package name */
-    public GLVersion f27802k;
+    public GLVersion f27876k;
     public String l;
     public long m;
     public float n;
@@ -82,7 +82,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f27803e;
+        public final /* synthetic */ k f27877e;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -99,14 +99,14 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
                     return;
                 }
             }
-            this.f27803e = kVar;
+            this.f27877e = kVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27803e.t) {
-                this.f27803e.onDrawFrame(null);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f27877e.t) {
+                this.f27877e.onDrawFrame(null);
             }
         }
     }
@@ -180,7 +180,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.l == null) {
-                this.l = c.b.b.f.f27698e.o(7939);
+                this.l = c.b.b.f.f27772e.o(7939);
             }
             return this.l.contains(str);
         }
@@ -191,14 +191,14 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27801j != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27875j != null : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.Graphics
     public void c() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gLSurfaceView20 = this.f27796e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gLSurfaceView20 = this.f27870e) == null) {
             return;
         }
         gLSurfaceView20.requestRender();
@@ -224,7 +224,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            this.f27799h.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            this.f27873h.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
             return new b(this, displayMetrics.widthPixels, displayMetrics.heightPixels, 0, 0);
         }
         return (Graphics.a) invokeV.objValue;
@@ -255,12 +255,12 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Mesh.g(this.f27799h);
-            Texture.t(this.f27799h);
-            Cubemap.t(this.f27799h);
-            c.b.b.n.g.s(this.f27799h);
-            c.b.b.n.m.i.g(this.f27799h);
-            c.b.b.n.m.c.i(this.f27799h);
+            Mesh.g(this.f27873h);
+            Texture.t(this.f27873h);
+            Cubemap.t(this.f27873h);
+            c.b.b.n.g.s(this.f27873h);
+            c.b.b.n.m.i.g(this.f27873h);
+            c.b.b.n.m.c.i(this.f27873h);
             o();
         }
     }
@@ -276,7 +276,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
                     gLSurfaceView20.setEGLConfigChooser(l);
                 } else {
                     c.b.b.l.a.b bVar = this.w;
-                    gLSurfaceView20.setEGLConfigChooser(bVar.a, bVar.f27773b, bVar.f27774c, bVar.f27775d, bVar.f27776e, bVar.f27777f);
+                    gLSurfaceView20.setEGLConfigChooser(bVar.a, bVar.f27847b, bVar.f27848c, bVar.f27849d, bVar.f27850e, bVar.f27851f);
                 }
                 gLSurfaceView20.setRenderer(this);
                 return gLSurfaceView20;
@@ -314,7 +314,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             c.b.b.l.a.b bVar = this.w;
-            return new c.b.b.l.a.b0.b(bVar.a, bVar.f27773b, bVar.f27774c, bVar.f27775d, bVar.f27776e, bVar.f27777f, bVar.f27778g);
+            return new c.b.b.l.a.b0.b(bVar.a, bVar.f27847b, bVar.f27848c, bVar.f27849d, bVar.f27850e, bVar.f27851f, bVar.f27852g);
         }
         return (GLSurfaceView.EGLConfigChooser) invokeV.objValue;
     }
@@ -322,7 +322,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public View m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f27796e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f27870e : (View) invokeV.objValue;
     }
 
     public void n(EGLConfig eGLConfig) {
@@ -399,57 +399,57 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
                 }
             }
             if (z4) {
-                g0<c.b.b.h> lifecycleListeners = this.f27799h.getLifecycleListeners();
+                g0<c.b.b.h> lifecycleListeners = this.f27873h.getLifecycleListeners();
                 synchronized (lifecycleListeners) {
                     c.b.b.h[] o = lifecycleListeners.o();
-                    int i2 = lifecycleListeners.f28143f;
+                    int i2 = lifecycleListeners.f28217f;
                     for (int i3 = 0; i3 < i2; i3++) {
                         o[i3].resume();
                     }
                     lifecycleListeners.p();
                 }
-                this.f27799h.getApplicationListener().resume();
+                this.f27873h.getApplicationListener().resume();
                 c.b.b.f.a.log("AndroidGraphics", "resumed");
             }
             if (z) {
-                synchronized (this.f27799h.getRunnables()) {
-                    this.f27799h.getExecutedRunnables().clear();
-                    this.f27799h.getExecutedRunnables().b(this.f27799h.getRunnables());
-                    this.f27799h.getRunnables().clear();
+                synchronized (this.f27873h.getRunnables()) {
+                    this.f27873h.getExecutedRunnables().clear();
+                    this.f27873h.getExecutedRunnables().b(this.f27873h.getRunnables());
+                    this.f27873h.getRunnables().clear();
                 }
-                for (int i4 = 0; i4 < this.f27799h.getExecutedRunnables().f28143f; i4++) {
+                for (int i4 = 0; i4 < this.f27873h.getExecutedRunnables().f28217f; i4++) {
                     try {
-                        this.f27799h.getExecutedRunnables().get(i4).run();
+                        this.f27873h.getExecutedRunnables().get(i4).run();
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }
                 }
-                this.f27799h.getInput().m();
+                this.f27873h.getInput().m();
                 this.p++;
-                this.f27799h.getApplicationListener().render();
+                this.f27873h.getApplicationListener().render();
             }
             if (z2) {
-                g0<c.b.b.h> lifecycleListeners2 = this.f27799h.getLifecycleListeners();
+                g0<c.b.b.h> lifecycleListeners2 = this.f27873h.getLifecycleListeners();
                 synchronized (lifecycleListeners2) {
                     c.b.b.h[] o2 = lifecycleListeners2.o();
-                    int i5 = lifecycleListeners2.f28143f;
+                    int i5 = lifecycleListeners2.f28217f;
                     for (int i6 = 0; i6 < i5; i6++) {
                         o2[i6].pause();
                     }
                 }
-                this.f27799h.getApplicationListener().pause();
+                this.f27873h.getApplicationListener().pause();
                 c.b.b.f.a.log("AndroidGraphics", "paused");
             }
             if (z3) {
-                g0<c.b.b.h> lifecycleListeners3 = this.f27799h.getLifecycleListeners();
+                g0<c.b.b.h> lifecycleListeners3 = this.f27873h.getLifecycleListeners();
                 synchronized (lifecycleListeners3) {
                     c.b.b.h[] o3 = lifecycleListeners3.o();
-                    int i7 = lifecycleListeners3.f28143f;
+                    int i7 = lifecycleListeners3.f28217f;
                     for (int i8 = 0; i8 < i7; i8++) {
                         o3[i8].dispose();
                     }
                 }
-                this.f27799h.getApplicationListener().dispose();
+                this.f27873h.getApplicationListener().dispose();
                 c.b.b.f.a.log("AndroidGraphics", "destroyed");
             }
             if (nanoTime - this.o > 1000000000) {
@@ -464,19 +464,19 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048593, this, gl10, i2, i3) == null) {
-            this.f27797f = i2;
-            this.f27798g = i3;
+            this.f27871f = i2;
+            this.f27872g = i3;
             w();
             x();
-            gl10.glViewport(0, 0, this.f27797f, this.f27798g);
+            gl10.glViewport(0, 0, this.f27871f, this.f27872g);
             if (!this.r) {
-                this.f27799h.getApplicationListener().create();
+                this.f27873h.getApplicationListener().create();
                 this.r = true;
                 synchronized (this) {
                     this.s = true;
                 }
             }
-            this.f27799h.getApplicationListener().a(i2, i3);
+            this.f27873h.getApplicationListener().a(i2, i3);
         }
     }
 
@@ -489,25 +489,25 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
             n(eGLConfig);
             w();
             x();
-            Mesh.n(this.f27799h);
-            Texture.y(this.f27799h);
-            Cubemap.w(this.f27799h);
-            c.b.b.n.g.t(this.f27799h);
-            c.b.b.n.m.i.n(this.f27799h);
-            c.b.b.n.m.c.n(this.f27799h);
+            Mesh.n(this.f27873h);
+            Texture.y(this.f27873h);
+            Cubemap.w(this.f27873h);
+            c.b.b.n.g.t(this.f27873h);
+            c.b.b.n.m.i.n(this.f27873h);
+            c.b.b.n.m.c.n(this.f27873h);
             o();
-            Display defaultDisplay = this.f27799h.getWindowManager().getDefaultDisplay();
-            this.f27797f = defaultDisplay.getWidth();
-            this.f27798g = defaultDisplay.getHeight();
+            Display defaultDisplay = this.f27873h.getWindowManager().getDefaultDisplay();
+            this.f27871f = defaultDisplay.getWidth();
+            this.f27872g = defaultDisplay.getHeight();
             this.m = System.nanoTime();
-            gl10.glViewport(0, 0, this.f27797f, this.f27798g);
+            gl10.glViewport(0, 0, this.f27871f, this.f27872g);
         }
     }
 
     public void p() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (gLSurfaceView20 = this.f27796e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (gLSurfaceView20 = this.f27870e) == null) {
             return;
         }
         gLSurfaceView20.onPause();
@@ -516,7 +516,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public void q() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (gLSurfaceView20 = this.f27796e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (gLSurfaceView20 = this.f27870e) == null) {
             return;
         }
         gLSurfaceView20.onResume();
@@ -529,7 +529,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
                 if (this.s) {
                     this.s = false;
                     this.t = true;
-                    this.f27796e.queueEvent(new a(this));
+                    this.f27870e.queueEvent(new a(this));
                     while (this.t) {
                         try {
                             this.z.wait(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
@@ -549,7 +549,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.f27796e.setPreserveEGLContextOnPause(true);
+            this.f27870e.setPreserveEGLContextOnPause(true);
         }
     }
 
@@ -566,40 +566,40 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v1 */
-    /* JADX WARN: Type inference failed for: r5v2, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r5v2, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r5v3 */
     public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.f27796e == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || this.f27870e == null) {
             return;
         }
         ?? r5 = (A || z) ? 1 : 0;
         this.x = r5;
-        this.f27796e.setRenderMode(r5);
+        this.f27870e.setRenderMode(r5);
     }
 
     public void v(GL10 gl10) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, gl10) == null) {
             GLVersion gLVersion = new GLVersion(Application.ApplicationType.Android, gl10.glGetString(7938), gl10.glGetString(7936), gl10.glGetString(7937));
-            this.f27802k = gLVersion;
+            this.f27876k = gLVersion;
             if (this.w.u && gLVersion.b() > 2) {
-                if (this.f27801j != null) {
+                if (this.f27875j != null) {
                     return;
                 }
                 j jVar = new j();
-                this.f27801j = jVar;
-                this.f27800i = jVar;
-                c.b.b.f.f27698e = jVar;
-                c.b.b.f.f27699f = jVar;
-                c.b.b.f.f27700g = jVar;
-            } else if (this.f27800i != null) {
+                this.f27875j = jVar;
+                this.f27874i = jVar;
+                c.b.b.f.f27772e = jVar;
+                c.b.b.f.f27773f = jVar;
+                c.b.b.f.f27774g = jVar;
+            } else if (this.f27874i != null) {
                 return;
             } else {
                 i iVar = new i();
-                this.f27800i = iVar;
-                c.b.b.f.f27698e = iVar;
-                c.b.b.f.f27699f = iVar;
+                this.f27874i = iVar;
+                c.b.b.f.f27772e = iVar;
+                c.b.b.f.f27773f = iVar;
             }
             Application application = c.b.b.f.a;
             application.log("AndroidGraphics", "OGL renderer: " + gl10.glGetString(7937));
@@ -615,7 +615,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            this.f27799h.getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
+            this.f27873h.getWindowManager().getDefaultDisplay().getMetrics(new DisplayMetrics());
         }
     }
 
@@ -625,7 +625,7 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
             return;
         }
         try {
-            DisplayCutout displayCutout = this.f27799h.getApplicationWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+            DisplayCutout displayCutout = this.f27873h.getApplicationWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
             if (displayCutout != null) {
                 displayCutout.getSafeInsetRight();
                 displayCutout.getSafeInsetBottom();
@@ -666,12 +666,12 @@ public class k extends c.b.b.a implements GLSurfaceView.Renderer {
         this.y = new int[1];
         this.z = new Object();
         this.w = bVar;
-        this.f27799h = aVar;
-        this.f27796e = i(aVar, cVar);
+        this.f27873h = aVar;
+        this.f27870e = i(aVar, cVar);
         s();
         if (z) {
-            this.f27796e.setFocusable(true);
-            this.f27796e.setFocusableInTouchMode(true);
+            this.f27870e.setFocusable(true);
+            this.f27870e.setFocusableInTouchMode(true);
         }
     }
 }

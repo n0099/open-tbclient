@@ -1,85 +1,61 @@
 package com.vivo.push.c;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
-import java.security.PublicKey;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class ab extends com.vivo.push.v {
+public final class ab implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f63032b;
+    public final /* synthetic */ List f63033b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ab(com.vivo.push.y yVar) {
-        super(yVar);
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ List f63034c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f63035d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ aa f63036e;
+
+    public ab(aa aaVar, int i2, List list, List list2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yVar};
+            Object[] objArr = {aaVar, Integer.valueOf(i2), list, list2, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((com.vivo.push.y) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.f63036e = aaVar;
+        this.a = i2;
+        this.f63033b = list;
+        this.f63034c = list2;
+        this.f63035d = str;
     }
 
-    public final void a(PushMessageCallback pushMessageCallback) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f63032b = pushMessageCallback;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            aa aaVar = this.f63036e;
+            PushMessageCallback pushMessageCallback = ((z) aaVar).f63061b;
+            context = aaVar.a;
+            pushMessageCallback.onSetTags(context, this.a, this.f63033b, this.f63034c, this.f63035d);
         }
-    }
-
-    public final boolean a(PublicKey publicKey, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, publicKey, str, str2)) == null) {
-            if (!com.vivo.push.p.a().d()) {
-                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify is not support , vertify is ignore");
-                return true;
-            } else if (publicKey == null) {
-                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify key is null");
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "contentTag is null");
-                return false;
-            } else if (!TextUtils.isEmpty(str2)) {
-                try {
-                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", str.hashCode() + " = " + str2);
-                    if (com.vivo.push.util.t.a(str.getBytes("UTF-8"), publicKey, Base64.decode(str2, 2))) {
-                        com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
-                        return true;
-                    }
-                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    Context context = this.a;
-                    com.vivo.push.util.p.c(context, "vertify fail srcDigest is " + str);
-                    return false;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify exception");
-                    return false;
-                }
-            } else {
-                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is null");
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
     }
 }

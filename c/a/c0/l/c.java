@@ -1,6 +1,6 @@
 package c.a.c0.l;
 
-import c.a.j0.a.b.d;
+import c.a.k0.a.b.d;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class c {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.j0.a.b.b b2 = c.a.j0.a.b.b.b();
+            c.a.k0.a.b.b b2 = c.a.k0.a.b.b.b();
             this.a = b2;
             b2.a(new b());
         }

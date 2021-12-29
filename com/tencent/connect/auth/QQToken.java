@@ -17,7 +17,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.open.web.security.JniInterface;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QQToken {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_QQ = 2;

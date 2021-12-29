@@ -23,32 +23,32 @@ public class d {
     public URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1879b;
+    public String f2306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Headers.a f1880c;
+    public Headers.a f2307c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public c f1881d;
+    public c f2308d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Object f1882e;
+    public Object f2309e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1883f;
+    public int f2310f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1884g;
+    public int f2311g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1885h;
+    public int f2312h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a.c0.r.q.b f1886i;
+    public c.a.c0.r.q.b f2313i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1887j;
+    public boolean f2314j;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -63,21 +63,21 @@ public class d {
                 return;
             }
         }
-        this.f1887j = true;
-        this.f1879b = "GET";
-        this.f1880c = new Headers.a();
+        this.f2314j = true;
+        this.f2306b = "GET";
+        this.f2307c = new Headers.a();
         new Headers.a();
-        this.f1883f = 30000;
-        this.f1884g = 30000;
-        this.f1885h = 30000;
-        this.f1886i = h.a().a(true);
+        this.f2310f = 30000;
+        this.f2311g = 30000;
+        this.f2312h = 30000;
+        this.f2313i = h.a().a(true);
     }
 
     public d a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            this.f1880c.a(str, str2);
+            this.f2307c.a(str, str2);
             return this;
         }
         return (d) invokeLL.objValue;
@@ -88,11 +88,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             RequestError requestError = this.a == null ? new RequestError("url is null") : null;
-            if (this.f1881d != null && !c.a.c0.r.r.a.a(this.f1879b)) {
-                requestError = new RequestError("method " + this.f1879b + " must not have a request body.");
+            if (this.f2308d != null && !c.a.c0.r.r.a.a(this.f2306b)) {
+                requestError = new RequestError("method " + this.f2306b + " must not have a request body.");
             }
-            if (this.f1881d == null && c.a.c0.r.r.a.b(this.f1879b)) {
-                return new RequestError("method " + this.f1879b + " must have a request body.");
+            if (this.f2308d == null && c.a.c0.r.r.a.b(this.f2306b)) {
+                return new RequestError("method " + this.f2306b + " must have a request body.");
             }
             return requestError;
         }
@@ -113,7 +113,7 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            this.f1880c.e(str, str2);
+            this.f2307c.e(str, str2);
             return this;
         }
         return (d) invokeLL.objValue;
@@ -133,8 +133,8 @@ public class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cVar)) == null) {
-            this.f1879b = str;
-            this.f1881d = cVar;
+            this.f2306b = str;
+            this.f2308d = cVar;
             return this;
         }
         return (d) invokeLL.objValue;
@@ -154,7 +154,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.f1883f = i2;
+            this.f2310f = i2;
             return this;
         }
         return (d) invokeI.objValue;
@@ -164,7 +164,7 @@ public class d {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            this.f1887j = z;
+            this.f2314j = z;
             return this;
         }
         return (d) invokeZ.objValue;
@@ -174,7 +174,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.f1884g = i2;
+            this.f2311g = i2;
             return this;
         }
         return (d) invokeI.objValue;
@@ -184,7 +184,7 @@ public class d {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            this.f1885h = i2;
+            this.f2312h = i2;
             return this;
         }
         return (d) invokeI.objValue;
@@ -227,6 +227,6 @@ public class d {
     public d delete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? delete(c.f1873h) : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? delete(c.f2300h) : (d) invokeV.objValue;
     }
 }

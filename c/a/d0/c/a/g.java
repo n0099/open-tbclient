@@ -16,10 +16,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f3008b;
+    public static g f3436b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public c.a.j0.a.b.c<IThreadManager> a;
+    public c.a.k0.a.b.c<IThreadManager> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class g {
                 return;
             }
         }
-        f3008b = new g();
+        f3436b = new g();
     }
 
     public g() {
@@ -56,7 +56,7 @@ public class g {
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3008b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3436b : (g) invokeV.objValue;
     }
 
     public IThreadManager b() {
@@ -68,7 +68,7 @@ public class g {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.j0.a.b.a b2 = c.a.j0.a.b.a.b();
+            c.a.k0.a.b.a b2 = c.a.k0.a.b.a.b();
             this.a = b2;
             b2.a(new IThreadManager_ThreadManager_Provider());
         }

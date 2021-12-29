@@ -3,8 +3,8 @@ package com.baidu.tieba.faceshop.emotioncenter.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.d.m.e.a;
-import c.a.s0.y0.x.c.b;
+import c.a.d.n.e.a;
+import c.a.t0.y0.x.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,7 +55,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f26111e);
+            emotionHorizontalView.setData(bVar.f26592e);
         }
     }
 
@@ -82,9 +82,9 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: g0 */
-    public EmotionGridViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: Z */
+    public EmotionGridViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
@@ -97,9 +97,9 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public View S(int i2, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, emotionGridViewHolder})) == null) {

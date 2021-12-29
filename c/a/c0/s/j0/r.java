@@ -25,7 +25,7 @@ public class r extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public AdImageView f2020i;
+    public AdImageView f2447i;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -33,7 +33,7 @@ public class r extends j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ r f2021e;
+        public final /* synthetic */ r f2448e;
 
         public a(r rVar) {
             Interceptable interceptable = $ic;
@@ -50,14 +50,14 @@ public class r extends j {
                     return;
                 }
             }
-            this.f2021e = rVar;
+            this.f2448e = rVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f2021e.u().l();
+                this.f2448e.u().l();
             }
         }
     }
@@ -81,11 +81,11 @@ public class r extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
-            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.f1987g).inflate(c.a.c0.h0.s.nad_bd_layer_poster_layout, x()).findViewById(c.a.c0.h0.r.image_poster);
-            this.f2020i = adImageView;
+            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.f2414g).inflate(c.a.c0.h0.s.nad_bd_layer_poster_layout, x()).findViewById(c.a.c0.h0.r.image_poster);
+            this.f2447i = adImageView;
             adImageView.setVisibility(8);
-            if (this.f2020i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                ((FrameLayout.LayoutParams) this.f2020i.getLayoutParams()).gravity = 17;
+            if (this.f2447i.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+                ((FrameLayout.LayoutParams) this.f2447i.getLayoutParams()).gravity = 17;
             }
         }
     }
@@ -103,7 +103,7 @@ public class r extends j {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void O(boolean z) {
+    public final void K(boolean z) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
@@ -111,52 +111,52 @@ public class r extends j {
         }
         int i3 = -1;
         if (z) {
-            if (f.c.c(this.f1987g) < f.c.e(this.f1987g)) {
-                i3 = (f.c.c(this.f1987g) * 16) / 9;
+            if (f.c.c(this.f2414g) < f.c.e(this.f2414g)) {
+                i3 = (f.c.c(this.f2414g) * 16) / 9;
             } else {
-                i2 = (f.c.e(this.f1987g) * 9) / 16;
-                if (this.f2020i.getLayoutParams() == null) {
-                    this.f2020i.getLayoutParams().width = i3;
-                    this.f2020i.getLayoutParams().height = i2;
+                i2 = (f.c.e(this.f2414g) * 9) / 16;
+                if (this.f2447i.getLayoutParams() == null) {
+                    this.f2447i.getLayoutParams().width = i3;
+                    this.f2447i.getLayoutParams().height = i2;
                     return;
                 }
                 return;
             }
         }
         i2 = -1;
-        if (this.f2020i.getLayoutParams() == null) {
+        if (this.f2447i.getLayoutParams() == null) {
         }
     }
 
-    public final void Q() {
+    public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             c.a.c0.s.v0.h.a("hidePoster()");
-            this.f2020i.setVisibility(8);
+            this.f2447i.setVisibility(8);
         }
     }
 
-    public final void S() {
+    public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c.a.c0.s.v0.h.a("loadPoster()");
             BdVideoSeries o1 = u().o1();
             String poster = o1 != null ? o1.getPoster() : "";
             if (TextUtils.isEmpty(poster)) {
-                this.f2020i.setVisibility(8);
+                this.f2447i.setVisibility(8);
                 return;
             }
-            this.f2020i.preloadImage(poster);
-            O(u().V0());
-            this.f2020i.setOnClickListener(new a(this));
+            this.f2447i.preloadImage(poster);
+            K(u().V0());
+            this.f2447i.setOnClickListener(new a(this));
         }
     }
 
-    public final void T() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             c.a.c0.s.v0.h.a("showPoster()");
-            this.f2020i.setVisibility(0);
+            this.f2447i.setVisibility(0);
         }
     }
 
@@ -203,13 +203,13 @@ public class r extends j {
             if (c2 == 0) {
                 int g2 = pVar.g(1);
                 if (g2 == 904 || g2 == 956) {
-                    Q();
+                    L();
                 }
             } else if (c2 == 1 || c2 == 2) {
-                S();
+                M();
             } else if (c2 != 3) {
             } else {
-                this.f2020i.displayImage("");
+                this.f2447i.displayImage("");
             }
         }
     }
@@ -236,9 +236,9 @@ public class r extends j {
         if (interceptable == null || interceptable.invokeLL(1048585, this, playerStatus, playerStatus2) == null) {
             super.h(playerStatus, playerStatus2);
             if (playerStatus == PlayerStatus.PLAYING) {
-                Q();
+                L();
             } else if (playerStatus == PlayerStatus.PREPARING) {
-                T();
+                N();
             }
         }
     }
@@ -284,14 +284,14 @@ public class r extends j {
                     break;
             }
             if (c2 == 0) {
-                T();
+                N();
             } else if (c2 == 1) {
-                Q();
+                L();
             } else if (c2 == 2) {
-                O(true);
+                K(true);
             } else if (c2 != 3) {
             } else {
-                O(false);
+                K(false);
             }
         }
     }
@@ -301,7 +301,7 @@ public class r extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLayerRelease();
-            this.f2020i.displayImage("");
+            this.f2447i.displayImage("");
         }
     }
 }

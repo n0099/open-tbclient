@@ -1,8 +1,8 @@
 package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
-import c.a.d.f.p.k;
-import c.a.r0.s.g0.b;
+import c.a.d.f.p.l;
+import c.a.s0.s.g0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.s0.m3.e.a privacyMarkView;
+    public c.a.t0.m3.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
     /* loaded from: classes12.dex */
@@ -73,7 +73,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
                     this.a.privacyMarkView.l();
                 }
-                if (httpResponsedMessage.getError() != -1 && k.z()) {
+                if (httpResponsedMessage.getError() != -1 && l.z()) {
                     this.a.showToast(R.string.privacy_setting_failed);
                 } else {
                     this.a.showToast(R.string.neterror);
@@ -120,7 +120,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            c.a.s0.m3.e.a aVar = new c.a.s0.m3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.t0.m3.e.a aVar = new c.a.t0.m3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
             setContentView(aVar.h());
             registerListener(this.setPrivateHttpListener);

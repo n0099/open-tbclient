@@ -37,7 +37,7 @@ public abstract class a implements IBeanResponseCallback {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NewBindCardMainActivity f53793b;
+    public NewBindCardMainActivity f53796b;
 
     public a(NewBindCardMainActivity newBindCardMainActivity) {
         Interceptable interceptable = $ic;
@@ -54,7 +54,7 @@ public abstract class a implements IBeanResponseCallback {
                 return;
             }
         }
-        this.f53793b = newBindCardMainActivity;
+        this.f53796b = newBindCardMainActivity;
     }
 
     private Handler l() {
@@ -62,7 +62,7 @@ public abstract class a implements IBeanResponseCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (this.a == null) {
-                this.a = new Handler(this.f53793b.getMainLooper());
+                this.a = new Handler(this.f53796b.getMainLooper());
             }
             return this.a;
         }
@@ -102,14 +102,14 @@ public abstract class a implements IBeanResponseCallback {
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (i2 == 1) {
-            color = ResUtils.getColor(this.f53793b, "wallet_cashdesk_new_bind_card_2222");
-            dimension = ResUtils.getDimension(this.f53793b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
+            color = ResUtils.getColor(this.f53796b, "wallet_cashdesk_new_bind_card_2222");
+            dimension = ResUtils.getDimension(this.f53796b, "wallet_cashdesk_new_bind_card_hasfocus_line_size");
         } else if (i2 == 2) {
-            color = ResUtils.getColor(this.f53793b, "wallet_cashdesk_new_bind_card_5050");
-            dimension = ResUtils.getDimension(this.f53793b, "wallet_cashdesk_new_bind_card_line_error_size");
+            color = ResUtils.getColor(this.f53796b, "wallet_cashdesk_new_bind_card_5050");
+            dimension = ResUtils.getDimension(this.f53796b, "wallet_cashdesk_new_bind_card_line_error_size");
         } else {
-            color = ResUtils.getColor(this.f53793b, "wallet_cashdesk_new_bind_card_E0EA");
-            dimension = ResUtils.getDimension(this.f53793b, "wallet_cashdesk_new_bind_card_line_size");
+            color = ResUtils.getColor(this.f53796b, "wallet_cashdesk_new_bind_card_E0EA");
+            dimension = ResUtils.getDimension(this.f53796b, "wallet_cashdesk_new_bind_card_line_size");
         }
         int i3 = (int) dimension;
         view.setBackgroundColor(color);
@@ -144,7 +144,7 @@ public abstract class a implements IBeanResponseCallback {
             return;
         }
         imageView.setImageResource(R.drawable.wallet_cashdesk_new_bind_card_tip_icon);
-        imageView.setOnClickListener(this.f53793b);
+        imageView.setOnClickListener(this.f53796b);
     }
 
     public abstract void d();
@@ -167,7 +167,7 @@ public abstract class a implements IBeanResponseCallback {
                 handler.removeCallbacksAndMessages(null);
                 this.a = null;
             }
-            this.f53793b = null;
+            this.f53796b = null;
         }
     }
 
@@ -187,13 +187,13 @@ public abstract class a implements IBeanResponseCallback {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f53797b;
+                public final /* synthetic */ int f53800b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53798c;
+                public final /* synthetic */ String f53801c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f53799d;
+                public final /* synthetic */ a f53802d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -210,17 +210,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f53799d = this;
+                    this.f53802d = this;
                     this.a = i2;
-                    this.f53797b = i3;
-                    this.f53798c = str;
+                    this.f53800b = i3;
+                    this.f53801c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f53799d.a(this.a, this.f53797b, this.f53798c);
+                        this.f53802d.a(this.a, this.f53800b, this.f53801c);
                     }
                 }
             });
@@ -237,13 +237,13 @@ public abstract class a implements IBeanResponseCallback {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f53794b;
+                public final /* synthetic */ Object f53797b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f53795c;
+                public final /* synthetic */ String f53798c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f53796d;
+                public final /* synthetic */ a f53799d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -260,17 +260,17 @@ public abstract class a implements IBeanResponseCallback {
                             return;
                         }
                     }
-                    this.f53796d = this;
+                    this.f53799d = this;
                     this.a = i2;
-                    this.f53794b = obj;
-                    this.f53795c = str;
+                    this.f53797b = obj;
+                    this.f53798c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f53796d.a(this.a, this.f53794b, this.f53795c);
+                        this.f53799d.a(this.a, this.f53797b, this.f53798c);
                     }
                 }
             });
@@ -289,7 +289,7 @@ public abstract class a implements IBeanResponseCallback {
             public final /* synthetic */ SafeKeyBoardEditText a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f53800b;
+            public final /* synthetic */ a f53803b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -306,7 +306,7 @@ public abstract class a implements IBeanResponseCallback {
                         return;
                     }
                 }
-                this.f53800b = this;
+                this.f53803b = this;
                 this.a = safeKeyBoardEditText;
             }
 

@@ -14,7 +14,7 @@ public class b0 extends m {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f54957i;
+    public Context f54960i;
 
     public b0(Context context) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class b0 extends m {
                 return;
             }
         }
-        this.f54957i = context;
+        this.f54960i = context;
     }
 
     @Override // com.bun.miitmdid.m
@@ -42,7 +42,7 @@ public class b0 extends m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             g gVar = new g();
-            this.f54957i = a(this.f54957i);
+            this.f54960i = a(this.f54960i);
             try {
                 cls = Class.forName("android.app.ZteDeviceIdentifyManager");
             } catch (Exception e2) {
@@ -55,15 +55,15 @@ public class b0 extends m {
                 Constructor<?> declaredConstructor = cls.getDeclaredConstructor(Context.class);
                 if (declaredConstructor != null) {
                     declaredConstructor.setAccessible(true);
-                    obj = declaredConstructor.newInstance(this.f54957i);
+                    obj = declaredConstructor.newInstance(this.f54960i);
                     if (obj != null) {
                         Class<?> cls2 = cls;
                         Object obj2 = obj;
                         gVar.e(new h(cls2, obj2, "isSupported", null, null));
                         gVar.d(null);
-                        gVar.b(new h(cls2, obj2, "getOAID", new Class[]{Context.class}, new Object[]{this.f54957i}));
-                        gVar.c(new h(cls2, obj2, "getVAID", new Class[]{Context.class}, new Object[]{this.f54957i}));
-                        gVar.a(new h(cls2, obj2, "getAAID", new Class[]{Context.class}, new Object[]{this.f54957i}));
+                        gVar.b(new h(cls2, obj2, "getOAID", new Class[]{Context.class}, new Object[]{this.f54960i}));
+                        gVar.c(new h(cls2, obj2, "getVAID", new Class[]{Context.class}, new Object[]{this.f54960i}));
+                        gVar.a(new h(cls2, obj2, "getAAID", new Class[]{Context.class}, new Object[]{this.f54960i}));
                         return gVar;
                     }
                     throw new RuntimeException("get ZteDeviceIdentifyManager object failed");
@@ -88,13 +88,13 @@ public class b0 extends m {
             getAAID();
             if (this.a == null) {
                 e0.d("ZteNewProvider", "doStart: callback Listener is null");
-            } else if (this.f55006g && (str = this.f55003d) != null && !str.isEmpty()) {
+            } else if (this.f55009g && (str = this.f55006d) != null && !str.isEmpty()) {
                 e0.c("ZteNewProvider", "new interface success");
-                a(this.f55003d, this.f55004e, this.f55005f, this.f55006g, this.f55007h);
+                a(this.f55006d, this.f55007e, this.f55008f, this.f55009g, this.f55010h);
             } else {
-                this.f54957i = a(this.f54957i);
+                this.f54960i = a(this.f54960i);
                 e0.c("ZteNewProvider", "try to call old interface");
-                new c0(this.f54957i).doStartInThreadPool(this.a);
+                new c0(this.f54960i).doStartInThreadPool(this.a);
             }
         }
     }

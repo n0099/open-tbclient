@@ -14,12 +14,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.b.d;
-import c.a.r0.s.v.c;
-import c.a.s0.e1.a;
-import c.a.s0.f1.b;
-import c.a.s0.f1.f.a;
-import c.a.s0.v3.j0.o;
+import c.a.s0.b.d;
+import c.a.s0.s.u.c;
+import c.a.t0.e1.a;
+import c.a.t0.f1.b;
+import c.a.t0.f1.f.a;
+import c.a.t0.w3.j0.o;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -54,7 +54,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public View dividerView;
 
     /* renamed from: e  reason: collision with root package name */
-    public FunAdButton f45446e;
+    public FunAdButton f45633e;
     public ViewGroup funAdContainer;
     public ViewGroup mediaContainer;
     public FunAdNativePicView mediaImageView;
@@ -87,8 +87,8 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, funNativeAd, oVar) == null) {
             ChannelNativeAds channelNativeAds = funNativeAd.getChannelNativeAds();
-            this.f45446e.setTag(oVar);
-            a aVar = new a(this.f45446e, oVar);
+            this.f45633e.setTag(oVar);
+            a aVar = new a(this.f45633e, oVar);
             if (channelNativeAds != null) {
                 Object obj = channelNativeAds.ksNative;
                 if (obj instanceof KsNativeAd) {
@@ -158,7 +158,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return c.a.s0.e1.a.b("pb", d.N() ? "1" : "0");
+            return c.a.t0.e1.a.b("pb", d.P() ? "1" : "0");
         }
         return (a.g) invokeV.objValue;
     }
@@ -182,7 +182,7 @@ public class FunAdNativePbView extends FunAbsAdView {
     public void hideShowByType(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            if (bdUniqueId != AdvertAppInfo.J4 && bdUniqueId != AdvertAppInfo.K4) {
+            if (bdUniqueId != AdvertAppInfo.L4 && bdUniqueId != AdvertAppInfo.M4) {
                 this.pbFeedBackView.setVisibility(0);
             } else {
                 this.pbFeedBackView.setVisibility(8);
@@ -286,7 +286,7 @@ public class FunAdNativePbView extends FunAbsAdView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.adButton.setVisibility(0);
-            this.f45446e = this.adButton;
+            this.f45633e = this.adButton;
         }
     }
 

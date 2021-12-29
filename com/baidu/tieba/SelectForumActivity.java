@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
-import c.a.d.f.p.m;
-import c.a.s0.f;
-import c.a.s0.p;
-import c.a.s0.q;
+import c.a.d.f.p.n;
+import c.a.t0.f;
+import c.a.t0.p;
+import c.a.t0.q;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class SelectForumActivity extends SuspendedActivity {
     public ArrayList<SelectForumData> mSelectedForums;
     public f selectForumView;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class SelectForumActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.activity_select_forum_error);
                 }
-                m.M(this.a, str);
+                n.M(this.a, str);
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class c implements q.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // c.a.s0.q.f
+        @Override // c.a.t0.q.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -181,7 +181,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.r0.x0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.s0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -194,7 +194,7 @@ public class SelectForumActivity extends SuspendedActivity {
             }
             return this.selectForumView;
         }
-        return (c.a.r0.x0.a) invokeLL.objValue;
+        return (c.a.s0.y0.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

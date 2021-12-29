@@ -6,10 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,14 +17,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:126:0x0148 */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x006e, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:116:0x0144 */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x006a, code lost:
         r13 = r1.getInputStream(r2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0072, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x006e, code lost:
         r4 = r1;
         r5 = r2;
         r1 = null;
@@ -44,7 +37,6 @@ public class e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static PackageInfo a(@NonNull File file) {
-        InterceptResult invokeL;
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipFile zipFile;
@@ -57,10 +49,6 @@ public class e {
         ZipInputStream zipInputStream4;
         int b2;
         long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
-            return (PackageInfo) invokeL.objValue;
-        }
         a aVar = null;
         aVar = null;
         String str = null;
@@ -250,52 +238,39 @@ public class e {
     }
 
     public static String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? (i2 >>> 24) == 1 ? "android:" : "" : (String) invokeI.objValue;
+        return (i2 >>> 24) == 1 ? "android:" : "";
     }
 
     public static PackageInfo b(@NonNull Context context, @NonNull File file, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, file, i2)) == null) {
-            PackageManager packageManager = context.getPackageManager();
-            if (packageManager == null) {
-                a("unzip_getpackagearchiveinfo", "packageManager == null");
-                return null;
-            }
-            try {
-                return packageManager.getPackageArchiveInfo(file.getPath(), i2);
-            } catch (Throwable th) {
-                a("unzip_getpackagearchiveinfo", "pm.getPackageArchiveInfo failed: " + th.getMessage());
-                return null;
-            }
+        PackageManager packageManager = context.getPackageManager();
+        if (packageManager == null) {
+            a("unzip_getpackagearchiveinfo", "packageManager == null");
+            return null;
         }
-        return (PackageInfo) invokeLLI.objValue;
+        try {
+            return packageManager.getPackageArchiveInfo(file.getPath(), i2);
+        } catch (Throwable th) {
+            a("unzip_getpackagearchiveinfo", "pm.getPackageArchiveInfo failed: " + th.getMessage());
+            return null;
+        }
     }
 
     public static PackageInfo a(@NonNull Context context, @NonNull File file, int i2) {
-        InterceptResult invokeLLI;
         int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, file, i2)) == null) {
-            if (com.ss.android.socialbase.downloader.i.a.a(268435456) && (i3 = Build.VERSION.SDK_INT) >= 21 && i3 < 26) {
-                try {
-                    return a(file);
-                } catch (Throwable th) {
-                    a("getPackageInfo::unzip_getpackagearchiveinfo", th.getMessage());
-                    return b(context, file, i2);
-                }
+        if (com.ss.android.socialbase.downloader.i.a.a(268435456) && (i3 = Build.VERSION.SDK_INT) >= 21 && i3 < 26) {
+            try {
+                return a(file);
+            } catch (Throwable th) {
+                a("getPackageInfo::unzip_getpackagearchiveinfo", th.getMessage());
+                return b(context, file, i2);
             }
-            return b(context, file, i2);
         }
-        return (PackageInfo) invokeLLI.objValue;
+        return b(context, file, i2);
     }
 
     public static void a(@NonNull String str, @NonNull String str2) {
-        com.ss.android.socialbase.downloader.d.b g2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (g2 = com.ss.android.socialbase.downloader.downloader.c.g()) == null) {
+        com.ss.android.socialbase.downloader.d.b g2 = com.ss.android.socialbase.downloader.downloader.c.g();
+        if (g2 == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -307,36 +282,26 @@ public class e {
     }
 
     public static String a(a aVar, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar, i2)) == null) {
-            int b2 = aVar.b(i2);
-            int c2 = aVar.c(i2);
-            if (b2 == 3) {
-                return aVar.d(i2);
-            }
-            return b2 == 2 ? String.format("?%s%08X", a(c2), Integer.valueOf(c2)) : (b2 < 16 || b2 > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c2), Integer.valueOf(b2)) : String.valueOf(c2);
+        int b2 = aVar.b(i2);
+        int c2 = aVar.c(i2);
+        if (b2 == 3) {
+            return aVar.d(i2);
         }
-        return (String) invokeLI.objValue;
+        return b2 == 2 ? String.format("?%s%08X", a(c2), Integer.valueOf(c2)) : (b2 < 16 || b2 > 31) ? String.format("<0x%X, type 0x%02X>", Integer.valueOf(c2), Integer.valueOf(b2)) : String.valueOf(c2);
     }
 
     public static String a(Context context, PackageInfo packageInfo, String str) {
-        InterceptResult invokeLLL;
         ApplicationInfo applicationInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, context, packageInfo, str)) == null) {
-            if (packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null) {
-                return null;
-            }
-            applicationInfo.sourceDir = str;
-            applicationInfo.publicSourceDir = str;
-            try {
-                return applicationInfo.loadLabel(context.getPackageManager()).toString();
-            } catch (OutOfMemoryError e2) {
-                a("getPackageInfo::fail_load_label", e2.getMessage());
-                return null;
-            }
+        if (packageInfo == null || (applicationInfo = packageInfo.applicationInfo) == null) {
+            return null;
         }
-        return (String) invokeLLL.objValue;
+        applicationInfo.sourceDir = str;
+        applicationInfo.publicSourceDir = str;
+        try {
+            return applicationInfo.loadLabel(context.getPackageManager()).toString();
+        } catch (OutOfMemoryError e2) {
+            a("getPackageInfo::fail_load_label", e2.getMessage());
+            return null;
+        }
     }
 }

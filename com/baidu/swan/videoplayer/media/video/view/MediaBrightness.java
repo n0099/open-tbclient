@@ -11,11 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.q0.a.r2.d.b.a;
-import c.a.q0.y.d;
-import c.a.q0.y.e;
-import c.a.q0.y.f;
-import c.a.q0.y.g;
+import c.a.r0.a.r2.d.b.a;
+import c.a.r0.y.d;
+import c.a.r0.y.e;
+import c.a.r0.y.f;
+import c.a.r0.y.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,22 +28,22 @@ public final class MediaBrightness extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f41237e;
+    public View f41393e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f41238f;
+    public ImageView f41394f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41239g;
+    public TextView f41395g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41240h;
+    public int f41396h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f41241i;
+    public int f41397i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f41242j;
+    public float f41398j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaBrightness(@NonNull Context context) {
@@ -69,7 +69,7 @@ public final class MediaBrightness extends FrameLayout {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41242j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41398j : invokeV.floatValue;
     }
 
     public float b() {
@@ -85,29 +85,29 @@ public final class MediaBrightness extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(g.swanapp_video_slide_vertical, (ViewGroup) this, true);
-            this.f41237e = inflate;
-            this.f41238f = (ImageView) inflate.findViewById(f.icon_video_slide_vertical);
-            this.f41239g = (TextView) this.f41237e.findViewById(f.label_video_slide_vertical);
+            this.f41393e = inflate;
+            this.f41394f = (ImageView) inflate.findViewById(f.icon_video_slide_vertical);
+            this.f41395g = (TextView) this.f41393e.findViewById(f.label_video_slide_vertical);
             int dimensionPixelSize = getResources().getDimensionPixelSize(d.swanapp_video_brightness_width);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.f41237e.setBackgroundResource(e.swanapp_video_icon_background);
-            this.f41237e.setLayoutParams(layoutParams);
+            this.f41393e.setBackgroundResource(e.swanapp_video_icon_background);
+            this.f41393e.setLayoutParams(layoutParams);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f41242j = a.c().a((Activity) getContext());
+            this.f41398j = a.c().a((Activity) getContext());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f41238f.setImageResource(this.f41241i);
-            this.f41239g.setText(String.format("%d%%", Integer.valueOf(this.f41240h)));
+            this.f41394f.setImageResource(this.f41397i);
+            this.f41395g.setText(String.format("%d%%", Integer.valueOf(this.f41396h)));
             setVisibility(0);
         }
     }
@@ -127,7 +127,7 @@ public final class MediaBrightness extends FrameLayout {
     public void g(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f41241i = i2;
+            this.f41397i = i2;
         }
     }
 
@@ -139,7 +139,7 @@ public final class MediaBrightness extends FrameLayout {
             } else if (i2 > 100) {
                 i2 = 100;
             }
-            this.f41240h = i2;
+            this.f41396h = i2;
         }
     }
 

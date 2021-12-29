@@ -15,7 +15,7 @@ public abstract class b<V> extends FutureTask<V> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f26930e;
+    public BdAsyncTask<?, ?, ?> f27371e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
@@ -35,8 +35,8 @@ public abstract class b<V> extends FutureTask<V> {
                 return;
             }
         }
-        this.f26930e = null;
-        this.f26930e = bdAsyncTask;
+        this.f27371e = null;
+        this.f27371e = bdAsyncTask;
     }
 
     public abstract void a();
@@ -44,6 +44,6 @@ public abstract class b<V> extends FutureTask<V> {
     public BdAsyncTask<?, ?, ?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26930e : (BdAsyncTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27371e : (BdAsyncTask) invokeV.objValue;
     }
 }

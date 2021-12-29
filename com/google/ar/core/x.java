@@ -55,7 +55,7 @@ public final class x extends com.google.a.b.a.a.a.e {
         int i2 = bundle.getInt("error.code", -100);
         int i3 = bundle.getInt("install.status", 0);
         if (i3 == 4) {
-            this.f56553b.f30900f.a(p.f56551c);
+            this.f56553b.f30978f.a(p.f56551c);
         } else if (i2 != 0) {
             StringBuilder sb = new StringBuilder(51);
             sb.append("requestInstall = ");
@@ -63,30 +63,30 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(", launching fullscreen.");
             sb.toString();
             q qVar = this.f56553b;
-            l lVar = qVar.f30901g;
-            l.n(qVar.f30899e, qVar.f30900f);
+            l lVar = qVar.f30979g;
+            l.n(qVar.f30977e, qVar.f30978f);
         } else if (bundle.containsKey("resolution.intent")) {
             q qVar2 = this.f56553b;
-            l lVar2 = qVar2.f30901g;
-            l.b(qVar2.f30899e, bundle, qVar2.f30900f);
+            l lVar2 = qVar2.f30979g;
+            l.b(qVar2.f30977e, bundle, qVar2.f30978f);
         } else if (i3 != 10) {
             switch (i3) {
                 case 1:
                 case 2:
                 case 3:
-                    this.f56553b.f30900f.a(p.a);
+                    this.f56553b.f30978f.a(p.a);
                     return;
                 case 4:
-                    this.f56553b.f30900f.a(p.f56551c);
+                    this.f56553b.f30978f.a(p.f56551c);
                     return;
                 case 5:
-                    this.f56553b.f30900f.b(new FatalException("Unexpected FAILED install status without error."));
+                    this.f56553b.f30978f.b(new FatalException("Unexpected FAILED install status without error."));
                     return;
                 case 6:
-                    this.f56553b.f30900f.a(p.f56550b);
+                    this.f56553b.f30978f.a(p.f56550b);
                     return;
                 default:
-                    m mVar = this.f56553b.f30900f;
+                    m mVar = this.f56553b.f30978f;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i3);
@@ -94,7 +94,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                     return;
             }
         } else {
-            this.f56553b.f30900f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
+            this.f56553b.f30978f.b(new FatalException("Unexpected REQUIRES_UI_INTENT install status without an intent."));
         }
     }
 

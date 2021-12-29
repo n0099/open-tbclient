@@ -22,34 +22,34 @@ public abstract class az {
     public static String a = "1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63834b = "2";
+    public static String f63829b = "2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f63835c = "3";
+    public static String f63830c = "3";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f63836d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String f63831d = "com.xiaomi.push.OPEN_CHANNEL";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f63837e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f63832e = "com.xiaomi.push.SEND_MESSAGE";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f63838f = "com.xiaomi.push.SEND_IQ";
+    public static String f63833f = "com.xiaomi.push.SEND_IQ";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f63839g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String f63834g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f63840h = "com.xiaomi.push.SEND_PRES";
+    public static String f63835h = "com.xiaomi.push.SEND_PRES";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f63841i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String f63836i = "com.xiaomi.push.CLOSE_CHANNEL";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f63842j = "com.xiaomi.push.FORCE_RECONN";
+    public static String f63837j = "com.xiaomi.push.FORCE_RECONN";
 
     /* renamed from: k  reason: collision with root package name */
-    public static String f63843k = "com.xiaomi.push.RESET_CONN";
+    public static String f63838k = "com.xiaomi.push.RESET_CONN";
     public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
     public static String m = "com.xiaomi.push.SEND_STATS";
     public static String n = "com.xiaomi.push.CHANGE_HOST";

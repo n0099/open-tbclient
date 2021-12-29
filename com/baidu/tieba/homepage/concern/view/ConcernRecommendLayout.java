@@ -12,13 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.m;
-import c.a.d.m.e.j;
-import c.a.d.m.e.l;
+import c.a.d.f.p.n;
+import c.a.d.n.e.j;
+import c.a.d.n.e.l;
 import c.a.l.q;
-import c.a.r0.b.d;
-import c.a.r0.n.f;
-import c.a.r0.s.r.v1;
+import c.a.s0.b.d;
+import c.a.s0.n.f;
+import c.a.s0.s.q.v1;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -42,25 +42,25 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f45629e;
+    public final Context f45816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f45630f;
+    public int f45817f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45631g;
+    public TextView f45818g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecyclerView f45632h;
+    public RecyclerView f45819h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ConcernRecommendListAdapter f45633i;
+    public ConcernRecommendListAdapter f45820i;
 
     /* renamed from: j  reason: collision with root package name */
-    public l f45634j;
+    public l f45821j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f45635k;
+    public int f45822k;
     public CustomMessageListener l;
 
     /* loaded from: classes12.dex */
@@ -96,12 +96,12 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    if (this.a.f45634j == null) {
-                        this.a.f45634j = new l(new j());
+                    if (this.a.f45821j == null) {
+                        this.a.f45821j = new l(new j());
                     }
-                    this.a.f45634j.q(this.a.f45632h, 1);
-                } else if (this.a.f45634j != null) {
-                    this.a.f45634j.w();
+                    this.a.f45821j.q(this.a.f45819h, 1);
+                } else if (this.a.f45821j != null) {
+                    this.a.f45821j.w();
                 }
             }
         }
@@ -134,29 +134,29 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             LayoutInflater.from(getContext()).inflate(R.layout.concern_recommend_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f45631g = (TextView) findViewById(R.id.title);
-            this.f45632h = (RecyclerView) findViewById(R.id.thread_card_list);
-            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.f45629e);
-            this.f45633i = concernRecommendListAdapter;
-            this.f45632h.setAdapter(concernRecommendListAdapter);
-            this.f45632h.setClipChildren(false);
+            this.f45818g = (TextView) findViewById(R.id.title);
+            this.f45819h = (RecyclerView) findViewById(R.id.thread_card_list);
+            ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.f45816e);
+            this.f45820i = concernRecommendListAdapter;
+            this.f45819h.setAdapter(concernRecommendListAdapter);
+            this.f45819h.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
                 l lVar = new l(new j());
-                this.f45634j = lVar;
-                lVar.q(this.f45632h, 1);
+                this.f45821j = lVar;
+                lVar.q(this.f45819h, 1);
             }
-            int f2 = m.f(this.f45629e, R.dimen.tbds21);
-            int f3 = m.f(this.f45629e, R.dimen.tbds44);
-            this.f45632h.setLayoutManager(new LinearLayoutManager(this.f45629e, 0, false));
-            this.f45632h.setItemAnimator(new DefaultItemAnimator());
-            this.f45632h.addItemDecoration(new SpaceItemDecoration(f3, f2, f3));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45632h.getLayoutParams();
-            if (d.v0()) {
-                layoutParams.bottomMargin = m.f(this.f45629e, R.dimen.tbds39);
+            int f2 = n.f(this.f45816e, R.dimen.tbds21);
+            int f3 = n.f(this.f45816e, R.dimen.tbds44);
+            this.f45819h.setLayoutManager(new LinearLayoutManager(this.f45816e, 0, false));
+            this.f45819h.setItemAnimator(new DefaultItemAnimator());
+            this.f45819h.addItemDecoration(new SpaceItemDecoration(f3, f2, f3));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f45819h.getLayoutParams();
+            if (d.w0()) {
+                layoutParams.bottomMargin = n.f(this.f45816e, R.dimen.tbds39);
             } else {
-                layoutParams.bottomMargin = m.f(this.f45629e, R.dimen.tbds22);
+                layoutParams.bottomMargin = n.f(this.f45816e, R.dimen.tbds22);
             }
-            this.f45632h.setLayoutParams(layoutParams);
+            this.f45819h.setLayoutParams(layoutParams);
         }
     }
 
@@ -164,11 +164,11 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            if (i2 != this.f45630f) {
-                SkinManager.setViewTextColor(this.f45631g, this.f45635k);
-                this.f45633i.onChangeSkinType(i2);
+            if (i2 != this.f45817f) {
+                SkinManager.setViewTextColor(this.f45818g, this.f45822k);
+                this.f45820i.onChangeSkinType(i2);
             }
-            this.f45630f = i2;
+            this.f45817f = i2;
         }
     }
 
@@ -188,41 +188,41 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(v1Var.f13448e) && v1Var.f13449f != 0) {
-                this.f45631g.setTextSize(0, m.f(this.f45629e, R.dimen.tbds37));
-                this.f45631g.setText(v1Var.f13448e);
-                this.f45631g.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f45635k = v1Var.f13449f;
+            if (!TextUtils.isEmpty(v1Var.f13824e) && v1Var.f13825f != 0) {
+                this.f45818g.setTextSize(0, n.f(this.f45816e, R.dimen.tbds37));
+                this.f45818g.setText(v1Var.f13824e);
+                this.f45818g.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f45822k = v1Var.f13825f;
             } else {
-                this.f45631g.setTextSize(0, m.f(this.f45629e, R.dimen.tbds37));
-                this.f45631g.setText(R.string.concern_recommend_title);
-                this.f45631g.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f45635k = R.color.CAM_X0105;
+                this.f45818g.setTextSize(0, n.f(this.f45816e, R.dimen.tbds37));
+                this.f45818g.setText(R.string.concern_recommend_title);
+                this.f45818g.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f45822k = R.color.CAM_X0105;
             }
-            this.f45633i.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            this.f45633i.setData(v1Var.g());
-            this.f45633i.notifyDataSetChanged();
+            this.f45820i.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f45820i.setData(v1Var.g());
+            this.f45820i.notifyDataSetChanged();
         }
     }
 
     public void setHasBorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f45633i.setHasBorder(z);
+            this.f45820i.setHasBorder(z);
         }
     }
 
     public void setOnItemCoverListener(f<MetaData> fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.f45633i.setOnItemCoverListener(fVar);
+            this.f45820i.setOnItemCoverListener(fVar);
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
-            this.f45633i.setPageContext(tbPageContext);
+            this.f45820i.setPageContext(tbPageContext);
         }
     }
 
@@ -231,7 +231,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
             this.l.setTag(bdUniqueId);
             MessageManager.getInstance().registerListener(this.l);
-            this.f45633i.setPageUniqueId(bdUniqueId);
+            this.f45820i.setPageUniqueId(bdUniqueId);
         }
     }
 
@@ -254,10 +254,10 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
                 return;
             }
         }
-        this.f45630f = 3;
-        this.f45635k = R.color.CAM_X0108;
+        this.f45817f = 3;
+        this.f45822k = R.color.CAM_X0108;
         this.l = new a(this, 2156674);
-        this.f45629e = context;
+        this.f45816e = context;
         d();
     }
 }

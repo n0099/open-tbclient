@@ -138,10 +138,10 @@ public abstract class ApollonBean<T> {
                 public final /* synthetic */ Class a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Class f33295b;
+                public final /* synthetic */ Class f33451b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ApollonBean f33296c;
+                public final /* synthetic */ ApollonBean f33452c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -158,9 +158,9 @@ public abstract class ApollonBean<T> {
                             return;
                         }
                     }
-                    this.f33296c = this;
+                    this.f33452c = this;
                     this.a = cls;
-                    this.f33295b = cls2;
+                    this.f33451b = cls2;
                 }
 
                 @Override // java.lang.Runnable
@@ -169,13 +169,13 @@ public abstract class ApollonBean<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             try {
-                                this.f33296c.prepareRestTemplate();
-                                this.f33296c.executeAndHandleResponse(this.a, this.f33295b);
+                                this.f33452c.prepareRestTemplate();
+                                this.f33452c.executeAndHandleResponse(this.a, this.f33451b);
                             } catch (Exception e2) {
-                                this.f33296c.handleCommonErrors(e2);
+                                this.f33452c.handleCommonErrors(e2);
                             }
                         } finally {
-                            this.f33296c.mRspCallback = null;
+                            this.f33452c.mRspCallback = null;
                         }
                     }
                 }

@@ -16,7 +16,7 @@ public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f38060b = new a();
+    public static final IDownloadViewCreator f38216b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes10.dex */

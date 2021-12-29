@@ -17,7 +17,7 @@ public final class c implements com.baidu.sofire.k.b {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39650b;
+    public String f39806b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class c implements com.baidu.sofire.k.b {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            bVar.f39645b.bindService(intent, bVar.f39647d, 1);
+            bVar.f39801b.bindService(intent, bVar.f39803d, 1);
         }
     }
 
@@ -53,13 +53,13 @@ public final class c implements com.baidu.sofire.k.b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.f39650b)) {
+            if (TextUtils.isEmpty(this.f39806b)) {
                 b bVar = this.a;
                 String a = bVar.a == null ? "" : bVar.a("OUID");
-                this.f39650b = a;
+                this.f39806b = a;
                 return a;
             }
-            return this.f39650b;
+            return this.f39806b;
         }
         return (String) invokeV.objValue;
     }

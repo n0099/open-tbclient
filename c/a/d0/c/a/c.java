@@ -16,10 +16,10 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f3004b;
+    public static c f3432b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public c.a.j0.a.b.c<IPackageGetter> a;
+    public c.a.k0.a.b.c<IPackageGetter> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class c {
                 return;
             }
         }
-        f3004b = new c();
+        f3432b = new c();
     }
 
     public c() {
@@ -56,7 +56,7 @@ public class c {
     public static c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3004b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3432b : (c) invokeV.objValue;
     }
 
     public IPackageGetter b() {
@@ -68,7 +68,7 @@ public class c {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.j0.a.b.a b2 = c.a.j0.a.b.a.b();
+            c.a.k0.a.b.a b2 = c.a.k0.a.b.a.b();
             this.a = b2;
             b2.a(new IPackageGetter_PackageGetter_Provider());
         }

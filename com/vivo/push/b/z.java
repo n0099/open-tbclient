@@ -6,74 +6,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class z extends com.vivo.push.y {
+public final class z extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ArrayList<String> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z() {
-        super(2011);
+    public z(boolean z, String str, ArrayList<String> arrayList) {
+        super(z ? 2004 : 2005, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), str, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = arrayList;
     }
 
-    public final void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.a = i2;
-        }
-    }
-
-    @Override // com.vivo.push.y
+    @Override // com.vivo.push.b.c, com.vivo.push.o
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            super.c(aVar);
+            aVar.a("tags", (Serializable) this.a);
+        }
+    }
+
+    @Override // com.vivo.push.b.c, com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.a);
+            super.d(aVar);
+            this.a = aVar.c("tags");
         }
     }
 
-    @Override // com.vivo.push.y
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    @Override // com.vivo.push.y
+    @Override // com.vivo.push.b.c, com.vivo.push.o
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "PushModeCommand" : (String) invokeV.objValue;
-    }
-
-    @Override // com.vivo.push.y
-    public final void d(com.vivo.push.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "TagCommand" : (String) invokeV.objValue;
     }
 }

@@ -362,9 +362,9 @@ public class FlutterFragmentActivity extends FragmentActivity implements SplashS
             try {
                 Bundle metaData = getMetaData();
                 String string = metaData != null ? metaData.getString(FlutterActivityLaunchConfigs.DART_ENTRYPOINT_META_DATA_KEY) : null;
-                return string != null ? string : FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                return string != null ? string : "main";
             } catch (PackageManager.NameNotFoundException unused) {
-                return FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                return "main";
             }
         }
         return (String) invokeV.objValue;

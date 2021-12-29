@@ -18,19 +18,19 @@ public final class d extends TagPayloadReader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f29410b;
+    public final l f29488b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final l f29411c;
+    public final l f29489c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f29412d;
+    public int f29490d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f29413e;
+    public boolean f29491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f29414f;
+    public int f29492f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(m mVar) {
@@ -50,8 +50,8 @@ public final class d extends TagPayloadReader {
                 return;
             }
         }
-        this.f29410b = new l(j.a);
-        this.f29411c = new l(4);
+        this.f29488b = new l(j.a);
+        this.f29489c = new l(4);
     }
 
     @Override // com.google.android.exoplayer2.extractor.flv.TagPayloadReader
@@ -63,7 +63,7 @@ public final class d extends TagPayloadReader {
             int i2 = (x >> 4) & 15;
             int i3 = x & 15;
             if (i3 == 7) {
-                this.f29414f = i2;
+                this.f29492f = i2;
                 return i2 != 5;
             }
             throw new TagPayloadReader.UnsupportedFormatException("Video format not supported: " + i3);
@@ -77,30 +77,30 @@ public final class d extends TagPayloadReader {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar, j2) == null) {
             int x = lVar.x();
             long j3 = j2 + (lVar.j() * 1000);
-            if (x == 0 && !this.f29413e) {
+            if (x == 0 && !this.f29491e) {
                 l lVar2 = new l(new byte[lVar.a()]);
                 lVar.g(lVar2.a, 0, lVar.a());
                 c.i.b.a.j0.a b2 = c.i.b.a.j0.a.b(lVar2);
-                this.f29412d = b2.f30652b;
-                this.a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f30653c, b2.f30654d, -1.0f, b2.a, -1, b2.f30655e, null));
-                this.f29413e = true;
-            } else if (x == 1 && this.f29413e) {
-                byte[] bArr = this.f29411c.a;
+                this.f29490d = b2.f30730b;
+                this.a.b(Format.createVideoSampleFormat(null, "video/avc", null, -1, -1, b2.f30731c, b2.f30732d, -1.0f, b2.a, -1, b2.f30733e, null));
+                this.f29491e = true;
+            } else if (x == 1 && this.f29491e) {
+                byte[] bArr = this.f29489c.a;
                 bArr[0] = 0;
                 bArr[1] = 0;
                 bArr[2] = 0;
-                int i2 = 4 - this.f29412d;
+                int i2 = 4 - this.f29490d;
                 int i3 = 0;
                 while (lVar.a() > 0) {
-                    lVar.g(this.f29411c.a, i2, this.f29412d);
-                    this.f29411c.J(0);
-                    int B = this.f29411c.B();
-                    this.f29410b.J(0);
-                    this.a.a(this.f29410b, 4);
+                    lVar.g(this.f29489c.a, i2, this.f29490d);
+                    this.f29489c.J(0);
+                    int B = this.f29489c.B();
+                    this.f29488b.J(0);
+                    this.a.a(this.f29488b, 4);
                     this.a.a(lVar, B);
                     i3 = i3 + 4 + B;
                 }
-                this.a.c(j3, this.f29414f == 1 ? 1 : 0, i3, 0, null);
+                this.a.c(j3, this.f29492f == 1 ? 1 : 0, i3, 0, null);
             }
         }
     }

@@ -14,10 +14,10 @@ public final /* synthetic */ class a implements d.a {
     }
 
     @Override // c.g.d.a
-    public final void a(i iVar) {
+    public final void a(k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            h.d(iVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, kVar) == null) {
+            h.d(kVar);
         }
     }
 }

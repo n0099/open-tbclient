@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DbHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "pms.db";
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DbHelper(Context context) {
-        super(context, DB_NAME, (SQLiteDatabase.CursorFactory) null, 3);
+        super(context, DB_NAME, (SQLiteDatabase.CursorFactory) null, 4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -37,9 +37,20 @@ public class DbHelper extends SQLiteOpenHelper {
         }
     }
 
-    private void alterAddDependencies(SQLiteDatabase sQLiteDatabase) {
+    private void alterAddAbi(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE package_info ADD COLUMN " + PackageTable.ABI + " TEXT;");
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    private void alterAddDependencies(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("ALTER TABLE ");
             sb.append("package_info");
@@ -80,8 +91,8 @@ public class DbHelper extends SQLiteOpenHelper {
     private String getCreateDBSql() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            return "CREATE TABLE package_info(_id INTEGER PRIMARY KEY,channel_id TEXT NOT NULL,package_name TEXT NOT NULL,name TEXT NOT NULL,version LONG,update_version LONG," + PackageTable.MIN_HOST_VERSION + " TEXT," + PackageTable.MAX_HOST_VERSION + " TEXT,download_url TEXT,type INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT,size TEXT," + PackageTable.DOWNLOAD_OPTION + " INTEGER DEFAULT 0,wifi INTEGER DEFAULT 0," + PackageTable.IS_SILENCE + " INTEGER DEFAULT 0," + PackageTable.DISABLE + " INTEGER DEFAULT 0,sign TEXT," + PackageTable.EXTRA_FROM_SERVER + " TEXT," + PackageTable.EXTRA_FROM_LOCAL + " TEXT," + PackageTable.FILE_PATH + " TEXT," + PackageTable.TOTAL_SIZE + " LONG," + PackageTable.CURRENT_SIZE + " LONG,create_time LONG,update_time LONG," + PackageTable.UPDATE_SIGN + " TEXT," + PackageTable.IS_MAIN_ENTRANCE + " INTEGER DEFAULT 1," + PackageTable.DEPENDENCY_PACKAGE + " TEXT );";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            return "CREATE TABLE package_info(_id INTEGER PRIMARY KEY,channel_id TEXT NOT NULL,package_name TEXT NOT NULL,name TEXT NOT NULL,version LONG,update_version LONG," + PackageTable.MIN_HOST_VERSION + " TEXT," + PackageTable.MAX_HOST_VERSION + " TEXT,download_url TEXT,type INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT,size TEXT," + PackageTable.DOWNLOAD_OPTION + " INTEGER DEFAULT 0,wifi INTEGER DEFAULT 0," + PackageTable.IS_SILENCE + " INTEGER DEFAULT 0," + PackageTable.DISABLE + " INTEGER DEFAULT 0,sign TEXT," + PackageTable.EXTRA_FROM_SERVER + " TEXT," + PackageTable.EXTRA_FROM_LOCAL + " TEXT," + PackageTable.FILE_PATH + " TEXT," + PackageTable.TOTAL_SIZE + " LONG," + PackageTable.CURRENT_SIZE + " LONG,create_time LONG,update_time LONG," + PackageTable.UPDATE_SIGN + " TEXT," + PackageTable.IS_MAIN_ENTRANCE + " INTEGER DEFAULT 1," + PackageTable.DEPENDENCY_PACKAGE + " TEXT," + PackageTable.ABI + " TEXT );";
         }
         return (String) invokeV.objValue;
     }
@@ -100,9 +111,13 @@ public class DbHelper extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
             if (i2 == 1) {
                 alterAddDependencies(sQLiteDatabase);
-            } else if (i2 != 2) {
-            } else {
+                alterAddAbi(sQLiteDatabase);
+            } else if (i2 == 2) {
                 alterAddDependencies(sQLiteDatabase);
+                alterAddAbi(sQLiteDatabase);
+            } else if (i2 != 3) {
+            } else {
+                alterAddAbi(sQLiteDatabase);
             }
         }
     }

@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.s0.n4.g;
-import c.a.s0.n4.h;
+import c.a.t0.o4.g;
+import c.a.t0.o4.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f51431e;
+    public AlbumCompressProgressView f51680e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f51432f;
+    public TextView f51681f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -49,8 +49,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(h.dailog_album_video_compress, this);
-            this.f51431e = (AlbumCompressProgressView) findViewById(g.view_compress_progress);
-            this.f51432f = (TextView) findViewById(g.txt_compress_progress);
+            this.f51680e = (AlbumCompressProgressView) findViewById(g.view_compress_progress);
+            this.f51681f = (TextView) findViewById(g.txt_compress_progress);
         }
     }
 
@@ -65,8 +65,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f51431e.setProgress(i2);
-        TextView textView = this.f51432f;
+        this.f51680e.setProgress(i2);
+        TextView textView = this.f51681f;
         textView.setText(i2 + "%");
     }
 

@@ -29,16 +29,16 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d f38114e;
+    public d f38270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f38115f;
+    public e f38271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f38116g;
+    public View.OnClickListener f38272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c f38117h;
+    public c f38273h;
     public AdImageView mAvatarView;
     public TextView mCheckBtn;
     public AdImageView mCoverImageView;
@@ -54,7 +54,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseTailFrameView f38118e;
+        public final /* synthetic */ AdBaseTailFrameView f38274e;
 
         public a(AdBaseTailFrameView adBaseTailFrameView) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     return;
                 }
             }
-            this.f38118e = adBaseTailFrameView;
+            this.f38274e = adBaseTailFrameView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38118e.mDownloadPresenter.o();
+                this.f38274e.mDownloadPresenter.o();
             }
         }
     }
@@ -89,13 +89,13 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f38119e;
+        public final /* synthetic */ boolean f38275e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ n f38120f;
+        public final /* synthetic */ n f38276f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AdBaseTailFrameView f38121g;
+        public final /* synthetic */ AdBaseTailFrameView f38277g;
 
         public b(AdBaseTailFrameView adBaseTailFrameView, boolean z, n nVar) {
             Interceptable interceptable = $ic;
@@ -112,24 +112,24 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     return;
                 }
             }
-            this.f38121g = adBaseTailFrameView;
-            this.f38119e = z;
-            this.f38120f = nVar;
+            this.f38277g = adBaseTailFrameView;
+            this.f38275e = z;
+            this.f38276f = nVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                Object tag = this.f38121g.getTag();
+                Object tag = this.f38277g.getTag();
                 if (tag instanceof n) {
                     n nVar = (n) tag;
-                    if (!this.f38119e) {
-                        this.f38121g.c(this.f38120f, view);
+                    if (!this.f38275e) {
+                        this.f38277g.c(this.f38276f, view);
                     } else if (!nVar.p) {
-                        this.f38121g.c(this.f38120f, view);
+                        this.f38277g.c(this.f38276f, view);
                     } else {
-                        this.f38121g.mDownloadBtn.performClick();
+                        this.f38277g.mDownloadBtn.performClick();
                     }
                 }
             }
@@ -177,9 +177,9 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) || nVar == null) {
             return;
         }
-        e eVar = this.f38115f;
+        e eVar = this.f38271f;
         if (eVar == null) {
-            c.a.c0.x.b.a.a(nVar.f1819k);
+            c.a.c0.x.b.a.a(nVar.f2246k);
         } else {
             eVar.a();
         }
@@ -188,12 +188,12 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public final void c(n nVar, View view) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, view) == null) || TextUtils.isEmpty(nVar.f1811c)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar, view) == null) || TextUtils.isEmpty(nVar.f2238c)) {
             return;
         }
-        String str2 = nVar.f1811c;
-        if (c.a.c0.b.e.ad_video_tail_frame_check_btn_txt == view.getId() && !TextUtils.isEmpty(nVar.f1812d) && !"__BTN_SCHEME__".equals(nVar.f1812d)) {
-            str2 = nVar.f1812d;
+        String str2 = nVar.f2238c;
+        if (c.a.c0.b.e.ad_video_tail_frame_check_btn_txt == view.getId() && !TextUtils.isEmpty(nVar.f2239d) && !"__BTN_SCHEME__".equals(nVar.f2239d)) {
+            str2 = nVar.f2239d;
         }
         c.a.c0.d.c.c(str2, getContext());
         int id = view.getId();
@@ -209,7 +209,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         e(ClogBuilder.LogType.CLICK.type, str, nVar);
         b(nVar);
         f(view);
-        c cVar = this.f38117h;
+        c cVar = this.f38273h;
         if (cVar != null) {
             cVar.a();
         }
@@ -220,7 +220,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar) == null) || nVar == null) {
             return;
         }
-        d dVar = this.f38114e;
+        d dVar = this.f38270e;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.r(ClogBuilder.LogType.FREE_SHOW).p(ClogBuilder.Page.AD_TAIL).m(nVar.l);
@@ -235,7 +235,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, nVar) == null) || nVar == null) {
             return;
         }
-        d dVar = this.f38114e;
+        d dVar = this.f38270e;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.s(str).p(ClogBuilder.Page.AD_TAIL).g(str2).m(nVar.l);
@@ -248,7 +248,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public final void f(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (onClickListener = this.f38116g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (onClickListener = this.f38272g) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -289,28 +289,28 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public void setAdTailCloseListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f38117h = cVar;
+            this.f38273h = cVar;
         }
     }
 
     public void setAlsHandler(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
-            this.f38114e = dVar;
+            this.f38270e = dVar;
         }
     }
 
     public void setOnChargeHandler(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) {
-            this.f38115f = eVar;
+            this.f38271f = eVar;
         }
     }
 
     public void setOnJumpHandler(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f38116g = onClickListener;
+            this.f38272g = onClickListener;
         }
     }
 
@@ -320,12 +320,12 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, nVar)) == null) {
             if (nVar != null && nVar.b()) {
                 setVisibility(0);
-                if (!TextUtils.isEmpty(nVar.f1818j)) {
-                    this.mCoverImageView.setImageURI(Uri.parse(nVar.f1818j));
+                if (!TextUtils.isEmpty(nVar.f2245j)) {
+                    this.mCoverImageView.setImageURI(Uri.parse(nVar.f2245j));
                 }
-                if (!TextUtils.isEmpty(nVar.f1810b)) {
+                if (!TextUtils.isEmpty(nVar.f2237b)) {
                     this.mAvatarView.setVisibility(0);
-                    this.mAvatarView.displayImage(nVar.f1810b);
+                    this.mAvatarView.displayImage(nVar.f2237b);
                 } else {
                     this.mAvatarView.setVisibility(8);
                 }
@@ -339,15 +339,15 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                 if (a2) {
                     this.mCheckBtn.setVisibility(8);
                     c.a.c0.p.c cVar = nVar.m;
-                    if (cVar != null && cVar.f1788d) {
+                    if (cVar != null && cVar.f2215d) {
                         this.mDownloadBtn.setVisibility(0);
-                        if (!TextUtils.isEmpty(nVar.f1813e)) {
-                            this.mDownloadBtn.setText(nVar.f1813e);
+                        if (!TextUtils.isEmpty(nVar.f2240e)) {
+                            this.mDownloadBtn.setText(nVar.f2240e);
                         } else {
                             this.mDownloadBtn.setText(getResources().getString(h.nad_button_download));
                         }
-                        c.a.c0.g.d.a c2 = c.a.c0.g.d.a.c(nVar.m, nVar.l, nVar.f1812d);
-                        c2.f1515e = TextUtils.isEmpty(c2.f1514d);
+                        c.a.c0.g.d.a c2 = c.a.c0.g.d.a.c(nVar.m, nVar.l, nVar.f2239d);
+                        c2.f1942e = TextUtils.isEmpty(c2.f1941d);
                         this.mDownloadPresenter = new c.a.c0.g.f.d(c2, this.mDownloadBtn);
                         this.mDownloadBtn.setOnClickListener(new a(this));
                     } else {
@@ -360,8 +360,8 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     }
                     this.mDownloadBtn.setVisibility(8);
                     this.mCheckBtn.setVisibility(0);
-                    if (!TextUtils.isEmpty(nVar.f1813e)) {
-                        this.mCheckBtn.setText(nVar.f1813e);
+                    if (!TextUtils.isEmpty(nVar.f2240e)) {
+                        this.mCheckBtn.setText(nVar.f2240e);
                     } else {
                         this.mCheckBtn.setText(getResources().getText(h.nad_ad_video_check_btn_txt));
                     }

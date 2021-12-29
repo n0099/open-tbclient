@@ -16,34 +16,34 @@ public class DrawerArgs {
     public float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32072b;
+    public boolean f32214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32073c;
+    public boolean f32215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f32074d;
+    public int f32216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f32075e;
+    public int f32217e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SkinType f32076f;
+    public SkinType f32218f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32077g;
+    public boolean f32219g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32078h;
+    public boolean f32220h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f32079i;
+    public boolean f32221i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f32080j;
+    public int f32222j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f32081k;
+    public float f32223k;
     public Matrix l;
     public int m;
     public boolean n;
@@ -125,11 +125,11 @@ public class DrawerArgs {
             }
         }
         this.a = new float[8];
-        this.f32076f = SkinType.DAY;
-        this.f32078h = false;
-        this.f32079i = true;
-        this.f32080j = b.a;
-        this.f32081k = 1.0f;
+        this.f32218f = SkinType.DAY;
+        this.f32220h = false;
+        this.f32221i = true;
+        this.f32222j = b.a;
+        this.f32223k = 1.0f;
         this.o = false;
     }
 }

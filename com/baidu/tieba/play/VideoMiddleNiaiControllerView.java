@@ -26,8 +26,8 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public static final int VERTICLE_CENTER_HEIGHT;
     public static final int VERTICLE_CENTER_PADDING_BOTTOM;
     public transient /* synthetic */ FieldHolder $fh;
-    public View p;
-    public LinearVideoLoadingSeekBar q;
+    public View o;
+    public LinearVideoLoadingSeekBar p;
 
     static {
         InterceptResult invokeClinit;
@@ -72,10 +72,10 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.p.getLayoutParams().height = VERTICLE_CENTER_HEIGHT;
+            this.o.getLayoutParams().height = VERTICLE_CENTER_HEIGHT;
             SeekBar seekBar = this.mProgress;
             seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), VERTICLE_CENTER_PADDING_BOTTOM);
-            this.p.requestLayout();
+            this.o.requestLayout();
         }
     }
 
@@ -85,9 +85,9 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             View inflate = View.inflate(context, R.layout.video_middle_naivi_controller, null);
-            this.p = inflate;
-            this.q = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
-            return this.p;
+            this.o = inflate;
+            this.p = (LinearVideoLoadingSeekBar) inflate.findViewById(R.id.pb_video_controller_seekBar);
+            return this.o;
         }
         return (View) invokeL.objValue;
     }
@@ -95,26 +95,26 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public SeekBar getSeekBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q : (SeekBar) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.p : (SeekBar) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.p.getLayoutParams().height = BOTTOM_HEIGHT;
+            this.o.getLayoutParams().height = BOTTOM_HEIGHT;
             SeekBar seekBar = this.mProgress;
             seekBar.setPadding(seekBar.getPaddingLeft(), EIGHT_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), this.mProgress.getPaddingBottom());
-            this.p.requestLayout();
+            this.o.requestLayout();
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.p.getLayoutParams().height = BOTTOM_HEIGHT;
+            this.o.getLayoutParams().height = BOTTOM_HEIGHT;
             SeekBar seekBar = this.mProgress;
             seekBar.setPadding(seekBar.getPaddingLeft(), THREE_WIDTH_PADDING_TOP, this.mProgress.getPaddingRight(), 0);
-            this.p.requestLayout();
+            this.o.requestLayout();
         }
     }
 
@@ -157,7 +157,7 @@ public class VideoMiddleNiaiControllerView extends VideoControllerView {
     public void setLoading(boolean z) {
         LinearVideoLoadingSeekBar linearVideoLoadingSeekBar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (linearVideoLoadingSeekBar = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (linearVideoLoadingSeekBar = this.p) == null) {
             return;
         }
         linearVideoLoadingSeekBar.setLoading(z);

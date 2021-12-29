@@ -19,7 +19,7 @@ public class BankCardErrorMsgView extends LinearLayout {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f54472b;
+    public TextView f54475b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BankCardErrorMsgView(Context context) {
@@ -47,7 +47,7 @@ public class BankCardErrorMsgView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(ResUtils.layout(context, "wallet_cashdesk_bindcard_errormsg_view"), this);
             this.a = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_name"));
-            this.f54472b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
+            this.f54475b = (TextView) inflate.findViewById(ResUtils.id(context, "wallet_bindcard_errormsg_tip_value"));
         }
     }
 
@@ -58,8 +58,8 @@ public class BankCardErrorMsgView extends LinearLayout {
             TextUtils.isEmpty(charSequence);
             textView.setVisibility(8);
             this.a.setText(charSequence);
-            this.f54472b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
-            this.f54472b.setText(charSequence2);
+            this.f54475b.setVisibility(TextUtils.isEmpty(charSequence2) ? 4 : 0);
+            this.f54475b.setText(charSequence2);
         }
     }
 

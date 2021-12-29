@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import c.a.r0.s.i0.n.b;
-import c.a.r0.s.v.c;
+import c.a.s0.s.i0.n.b;
+import c.a.s0.s.u.c;
 import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,13 +26,13 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
     public final BDImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final EMTextView f48211b;
+    public final EMTextView f48432b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final TBSpecificationBtn f48212c;
+    public final TBSpecificationBtn f48433c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f48213d;
+    public View.OnClickListener f48434d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbVideoDetailBrowseModeEmotionHolder(View view) {
@@ -58,43 +58,43 @@ public final class PbVideoDetailBrowseModeEmotionHolder extends TypeAdapter.View
         this.a = (BDImageView) findViewById;
         View findViewById2 = getView().findViewById(R.id.description_text);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "getView().findViewById(R.id.description_text)");
-        this.f48211b = (EMTextView) findViewById2;
+        this.f48432b = (EMTextView) findViewById2;
         View findViewById3 = getView().findViewById(R.id.agree_btn);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "getView().findViewById(R.id.agree_btn)");
-        this.f48212c = (TBSpecificationBtn) findViewById3;
+        this.f48433c = (TBSpecificationBtn) findViewById3;
         SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-        this.f48211b.setText(R.string.pb_video_detail_browse_mode_description);
-        c.d(this.f48211b).v(R.color.CAM_X0107);
+        this.f48432b.setText(R.string.pb_video_detail_browse_mode_description);
+        c.d(this.f48432b).v(R.color.CAM_X0107);
         b bVar = new b();
         bVar.p(R.color.CAM_X0303, R.color.CAM_X0101);
-        this.f48212c.setConfig(bVar);
-        this.f48212c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
-        this.f48212c.setTextSize(R.dimen.T_X07);
+        this.f48433c.setConfig(bVar);
+        this.f48433c.setText(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_browse_mode_agree_btn));
+        this.f48433c.setTextSize(R.dimen.T_X07);
     }
 
     public final View.OnClickListener getOnAgreeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48213d : (View.OnClickListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f48434d : (View.OnClickListener) invokeV.objValue;
     }
 
     public final void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setImageResource(this.a, R.drawable.new_pic_emotion_01);
-            c.d(this.f48211b).v(R.color.CAM_X0107);
-            this.f48212c.changeSkinType();
+            c.d(this.f48432b).v(R.color.CAM_X0107);
+            this.f48433c.changeSkinType();
         }
     }
 
     public final void setOnAgreeListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f48213d = onClickListener;
+            this.f48434d = onClickListener;
             if (onClickListener == null) {
                 return;
             }
-            this.f48212c.setOnClickListener(onClickListener);
+            this.f48433c.setOnClickListener(onClickListener);
         }
     }
 }

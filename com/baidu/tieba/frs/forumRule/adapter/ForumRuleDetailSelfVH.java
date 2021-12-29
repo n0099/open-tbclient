@@ -7,12 +7,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.s.v.c;
-import c.a.s0.d1.c1;
-import c.a.s0.d1.d1;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.i1;
+import c.a.d.f.p.n;
+import c.a.s0.s.u.c;
+import c.a.t0.d1.c1;
+import c.a.t0.d1.d1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.i1;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -40,7 +40,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f44765b;
+    public final int f44952b;
     public TextView mBjhAuthorAuth;
     public EMTextView mCheckStatus;
     public TBSpecificationBtn mEditStatusBtn;
@@ -71,7 +71,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f44765b = m.f(TbadkCoreApplication.getInst(), d1.tbds6);
+        this.f44952b = n.f(TbadkCoreApplication.getInst(), d1.tbds6);
         this.a = view;
         initView(view);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -186,9 +186,9 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if ("manager".equals(str) || PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(str)) {
-                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f44765b);
+                DrawableSelector radius = DrawableSelector.make().setShape(0).radius(this.f44952b);
                 int i2 = c1.CAM_X0303;
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f44765b).defaultColor("#4D000000").build()});
+                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{radius.gradientLinear(DrawableSelector.TL_BR, i2, i2).build(), DrawableSelector.make().setShape(0).radius(this.f44952b).defaultColor("#4D000000").build()});
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     if (layerDrawable.getDrawable(1) != null) {
                         layerDrawable.getDrawable(1).setAlpha(255);

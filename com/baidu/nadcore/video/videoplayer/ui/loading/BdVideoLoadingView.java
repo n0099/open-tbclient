@@ -17,10 +17,10 @@ public class BdVideoLoadingView extends ImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.e0.a.e.a.a f38235e;
+    public c.a.c0.e0.a.e.a.a f38391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f38236f;
+    public a f38392f;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -60,20 +60,20 @@ public class BdVideoLoadingView extends ImageView {
     public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38235e.isRunning() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38391e.isRunning() : invokeV.booleanValue;
     }
 
     public void removeLoadingAnimListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38236f = null;
+            this.f38392f = null;
         }
     }
 
     public void setLoadingAnimListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f38236f = aVar;
+            this.f38392f = aVar;
         }
     }
 
@@ -81,7 +81,7 @@ public class BdVideoLoadingView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             c.a.c0.e0.a.e.a.a aVar = new c.a.c0.e0.a.e.a.a(cVar);
-            this.f38235e = aVar;
+            this.f38391e = aVar;
             setImageDrawable(aVar);
         }
     }
@@ -89,11 +89,11 @@ public class BdVideoLoadingView extends ImageView {
     public void startAnimation() {
         c.a.c0.e0.a.e.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f38235e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (aVar = this.f38391e) == null) {
             return;
         }
         aVar.start();
-        a aVar2 = this.f38236f;
+        a aVar2 = this.f38392f;
         if (aVar2 != null) {
             aVar2.a();
         }
@@ -102,11 +102,11 @@ public class BdVideoLoadingView extends ImageView {
     public void stopAnimation() {
         c.a.c0.e0.a.e.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f38235e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f38391e) == null) {
             return;
         }
         aVar.stop();
-        a aVar2 = this.f38236f;
+        a aVar2 = this.f38392f;
         if (aVar2 != null) {
             aVar2.b();
         }

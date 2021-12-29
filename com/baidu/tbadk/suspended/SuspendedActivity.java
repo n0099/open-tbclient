@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -24,6 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class SuspendedActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean forceFinishWithoutAnim;
     public TextView mCancel;
     public LinearLayout mContentView;
     public NavigationBar mNavigationBar;
@@ -31,7 +32,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public NoNetworkView.b mNetListener;
     public NoNetworkView mNoNetView;
     public SusPendedView mRootView;
-    public c.a.r0.x0.a mSuspendedContentView;
+    public c.a.s0.y0.b mSuspendedContentView;
     public TranView mTranView;
 
     /* loaded from: classes11.dex */
@@ -40,7 +41,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SuspendedActivity f42413e;
+        public final /* synthetic */ SuspendedActivity f42594e;
 
         public a(SuspendedActivity suspendedActivity) {
             Interceptable interceptable = $ic;
@@ -57,14 +58,14 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f42413e = suspendedActivity;
+            this.f42594e = suspendedActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
         public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
-                this.f42413e.requestData();
+                this.f42594e.requestData();
             }
         }
     }
@@ -75,7 +76,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SuspendedActivity f42414e;
+        public final /* synthetic */ SuspendedActivity f42595e;
 
         public b(SuspendedActivity suspendedActivity) {
             Interceptable interceptable = $ic;
@@ -92,14 +93,14 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f42414e = suspendedActivity;
+            this.f42595e = suspendedActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f42414e.close();
+                this.f42595e.close();
             }
         }
     }
@@ -140,7 +141,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.content_view);
             this.mContentView = linearLayout;
-            c.a.r0.x0.a suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
+            c.a.s0.y0.b suspendedContentView = getSuspendedContentView(linearLayout, this.mNavigationBar);
             this.mSuspendedContentView = suspendedContentView;
             if (suspendedContentView != null) {
                 this.mRootView.setContentViewTop(suspendedContentView);
@@ -153,10 +154,10 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.mNavigationBar = navigationBar;
-            navigationBar.mCenterText.setTextSize(0, m.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            navigationBar.mCenterText.setTextSize(0, n.f(getPageContext().getPageActivity(), R.dimen.tbds44));
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new b(this));
             this.mCancel = addTextButton;
-            addTextButton.setTextSize(0, m.f(getPageContext().getPageActivity(), R.dimen.tbds44));
+            addTextButton.setTextSize(0, n.f(getPageContext().getPageActivity(), R.dimen.tbds44));
             this.mNavigationBar.setIsCorner(true);
             this.mNavigationBar.setStatusBarVisibility(8);
             this.mNavigationBar.hideBottomLine();
@@ -187,8 +188,8 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.r0.x0.a aVar = this.mSuspendedContentView;
-            if (aVar == null || aVar.isOnViewCancel()) {
+            c.a.s0.y0.b bVar = this.mSuspendedContentView;
+            if (bVar == null || bVar.isOnViewCancel()) {
                 if (this.mTranView != null) {
                     this.mRootView.onFinish();
                 } else {
@@ -218,9 +219,13 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.x0.a aVar = this.mSuspendedContentView;
-            if (aVar != null) {
-                Intent resultIntent = aVar.getResultIntent();
+            if (this.forceFinishWithoutAnim) {
+                super.finish();
+                return;
+            }
+            c.a.s0.y0.b bVar = this.mSuspendedContentView;
+            if (bVar != null) {
+                Intent resultIntent = bVar.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -236,12 +241,12 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         }
     }
 
-    public abstract c.a.r0.x0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
+    public abstract c.a.s0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar);
 
     public int getTranViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? n.f(TbadkCoreApplication.getInst(), R.dimen.tbds153) : invokeV.intValue;
     }
 
     public View.OnClickListener getTranViewOnClickListener() {
@@ -263,9 +268,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.mContentView, R.color.CAM_X0201);
             SkinManager.setViewTextColor(this.mCancel, R.color.CAM_X0105);
-            c.a.r0.x0.a aVar = this.mSuspendedContentView;
-            if (aVar != null) {
-                aVar.onViewChangeSkinType(i2);
+            c.a.s0.y0.b bVar = this.mSuspendedContentView;
+            if (bVar != null) {
+                bVar.onViewChangeSkinType(i2);
             }
         }
     }
@@ -302,5 +307,12 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             return;
         }
         susPendedView.setCanDragClose(z);
+    }
+
+    public void setForceFinishWithoutAnim(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.forceFinishWithoutAnim = z;
+        }
     }
 }

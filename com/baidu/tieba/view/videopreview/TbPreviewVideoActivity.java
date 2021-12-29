@@ -39,7 +39,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f51063e;
+        public final /* synthetic */ TbPreviewVideoActivity f51312e;
 
         public a(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -56,17 +56,17 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f51063e = tbPreviewVideoActivity;
+            this.f51312e = tbPreviewVideoActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51063e.videoView == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51312e.videoView == null) {
                 return;
             }
-            this.f51063e.videoView.stopPlayback();
-            this.f51063e.closeActivity();
+            this.f51312e.videoView.stopPlayback();
+            this.f51312e.closeActivity();
         }
     }
 
@@ -76,7 +76,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f51064e;
+        public final /* synthetic */ TbPreviewVideoActivity f51313e;
 
         public b(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -93,16 +93,16 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f51064e = tbPreviewVideoActivity;
+            this.f51313e = tbPreviewVideoActivity;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f51064e.videoView.start();
-                this.f51064e.videoViewController.initCurTimeAndDuration(0, this.f51064e.videoView.getDuration());
-                this.f51064e.videoViewController.showProgress();
+                this.f51313e.videoView.start();
+                this.f51313e.videoViewController.initCurTimeAndDuration(0, this.f51313e.videoView.getDuration());
+                this.f51313e.videoViewController.showProgress();
             }
         }
     }
@@ -113,7 +113,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPreviewVideoActivity f51065e;
+        public final /* synthetic */ TbPreviewVideoActivity f51314e;
 
         public c(TbPreviewVideoActivity tbPreviewVideoActivity) {
             Interceptable interceptable = $ic;
@@ -130,15 +130,15 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
                     return;
                 }
             }
-            this.f51065e = tbPreviewVideoActivity;
+            this.f51314e = tbPreviewVideoActivity;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f51065e.videoView.start();
-                this.f51065e.videoViewController.showProgress();
+                this.f51314e.videoView.start();
+                this.f51314e.videoViewController.showProgress();
             }
         }
     }

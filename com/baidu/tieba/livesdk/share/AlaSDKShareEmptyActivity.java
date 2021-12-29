@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a2.d;
-import c.a.s0.a2.g;
+import c.a.d.f.p.n;
+import c.a.t0.a2.d;
+import c.a.t0.a2.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,9 +18,13 @@ import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.R;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,9 +42,11 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public String mLinkUrl;
     public String mLiveExtInfo;
     public String mLiveId;
-    public c.a.s0.a2.l.a.a mSelectBarController;
+    public c.a.t0.a2.l.a.a mSelectBarController;
     public ShareItem mShareItem;
     public String mTitle;
+    public long mVoiceRoomId;
+    public String mVoiceRoomShareType;
     public String mYyAnchorBdUid;
 
     /* loaded from: classes12.dex */
@@ -48,7 +55,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSDKShareEmptyActivity f47241e;
+        public final /* synthetic */ AlaSDKShareEmptyActivity f47461e;
 
         public a(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -65,16 +72,16 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     return;
                 }
             }
-            this.f47241e = alaSDKShareEmptyActivity;
+            this.f47461e = alaSDKShareEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                if (this.f47241e.mShareItem == null || !this.f47241e.mShareItem.d()) {
+                if (this.f47461e.mShareItem == null || !this.f47461e.mShareItem.d()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921550, 3));
-                    this.f47241e.finish();
+                    this.f47461e.finish();
                 }
             }
         }
@@ -86,7 +93,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaSDKShareEmptyActivity f47242e;
+        public final /* synthetic */ AlaSDKShareEmptyActivity f47462e;
 
         public b(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -103,14 +110,56 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                     return;
                 }
             }
-            this.f47242e = alaSDKShareEmptyActivity;
+            this.f47462e = alaSDKShareEmptyActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47242e.shareInBar();
+                this.f47462e.shareInBar();
+            }
+        }
+    }
+
+    /* loaded from: classes12.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ AlaSDKShareEmptyActivity f47463e;
+
+        public c(AlaSDKShareEmptyActivity alaSDKShareEmptyActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alaSDKShareEmptyActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f47463e = alaSDKShareEmptyActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f47463e.shareByCopyLink();
+                if (this.f47463e.mShareItem != null) {
+                    StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
+                    statisticItem.addParam("obj_type", this.f47463e.mShareItem.V);
+                    statisticItem.addParam(TiebaStatic.Params.TIEBA_PARAMS, "copylink");
+                    statisticItem.addParam("room_id", this.f47463e.mShareItem.U);
+                    statisticItem.eventStat();
+                }
             }
         }
     }
@@ -135,7 +184,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     private ShareItem dealShareEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             ShareItem shareItem = new ShareItem();
             shareItem.r = this.mTitle;
             shareItem.s = this.mContent;
@@ -148,8 +197,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             }
             shareItem.t = this.mLinkUrl;
             shareItem.q = this.mLiveId;
-            shareItem.o0 = this.mLiveExtInfo;
+            shareItem.r0 = this.mLiveExtInfo;
             shareItem.z = this.mYyAnchorBdUid;
+            shareItem.U = this.mVoiceRoomId;
+            shareItem.V = this.mVoiceRoomShareType;
             return shareItem;
         }
         return (ShareItem) invokeV.objValue;
@@ -158,17 +209,28 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     private void sendChannelShareReq() {
         ShareItem shareItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (shareItem = this.mShareItem) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (shareItem = this.mShareItem) == null) {
             return;
         }
         MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.mChannel, shareItem, true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void shareInBar() {
-        c.a.s0.a2.l.a.a aVar;
+    public void shareByCopyLink() {
+        ShareItem shareItem;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (aVar = this.mSelectBarController) != null) {
+        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (shareItem = this.mShareItem) == null) {
+            return;
+        }
+        c.a.d.f.p.c.a(shareItem.t);
+        n.M(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void shareInBar() {
+        c.a.t0.a2.l.a.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (aVar = this.mSelectBarController) != null) {
             if (ListUtils.isEmpty(aVar.b())) {
                 this.mSelectBarController.c();
             }
@@ -179,7 +241,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     private void showSharePanel() {
         ShareItem shareItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, this) == null) || (shareItem = this.mShareItem) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || (shareItem = this.mShareItem) == null) {
             return;
         }
         shareItem.j(false);
@@ -188,11 +250,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         shareDialogConfig.setIsSupportNightMode(false);
         shareDialogConfig.setIsLandscape(false);
         shareDialogConfig.setOnDismissListener(new a(this));
-        if (!TextUtils.isEmpty(this.mLiveId) || !TextUtils.isEmpty(this.mYyAnchorBdUid)) {
+        if (TextUtils.isEmpty(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) {
+            if (this.mVoiceRoomId > 0) {
+                shareDialogConfig.addOutsideTextView(g.share_copy, d.icon_pure_share_copy40, new c(this));
+                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE_PANEL);
+                statisticItem.addParam("room_id", this.mVoiceRoomId);
+                statisticItem.addParam("obj_type", this.mVoiceRoomShareType);
+                statisticItem.eventStat();
+            }
+        } else {
             shareDialogConfig.addOutsideTextView(g.ala_share_to_tieba_frs_title, d.icon_pure_ala_share_morebar40_svg, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        c.a.s0.a2.l.a.a aVar = this.mSelectBarController;
+        c.a.t0.a2.l.a.a aVar = this.mSelectBarController;
         if (aVar != null) {
             aVar.c();
         }
@@ -216,7 +286,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.mSelectBarController = new c.a.s0.a2.l.a.a(getPageContext());
+            this.mSelectBarController = new c.a.t0.a2.l.a.a(getPageContext());
             if (bundle != null) {
                 this.mTitle = bundle.getString("title");
                 this.mContent = bundle.getString("content");
@@ -225,6 +295,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 this.mChannel = bundle.getInt("channel");
                 this.mAction = bundle.getInt("action");
                 this.mLiveId = bundle.getString("liveid");
+                this.mVoiceRoomId = bundle.getLong("room_id");
+                this.mVoiceRoomShareType = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
                 this.mLiveExtInfo = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
                 this.mYyAnchorBdUid = bundle.getString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
             } else if (getIntent() == null) {
@@ -238,6 +310,8 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 this.mChannel = getIntent().getIntExtra("channel", 0);
                 this.mAction = getIntent().getIntExtra("action", 0);
                 this.mLiveId = getIntent().getStringExtra("liveid");
+                this.mVoiceRoomId = getIntent().getLongExtra("room_id", 0L);
+                this.mVoiceRoomShareType = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
                 this.mLiveExtInfo = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
                 this.mYyAnchorBdUid = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
             }
@@ -258,7 +332,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            c.a.s0.a2.l.a.a aVar = this.mSelectBarController;
+            c.a.t0.a2.l.a.a aVar = this.mSelectBarController;
             if (aVar != null) {
                 aVar.d();
             }

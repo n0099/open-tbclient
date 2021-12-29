@@ -17,14 +17,14 @@ public class a implements h, Runnable {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ConcurrentLinkedQueue<j.b<?>> f1653e;
+    public final ConcurrentLinkedQueue<j.b<?>> f2080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f1654f;
+    public final AtomicBoolean f2081f;
 
     /* renamed from: c.a.c0.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0052a {
+    public static class C0073a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,22 +59,22 @@ public class a implements h, Runnable {
                 return;
             }
         }
-        this.f1653e = new ConcurrentLinkedQueue<>();
-        this.f1654f = new AtomicBoolean(false);
+        this.f2080e = new ConcurrentLinkedQueue<>();
+        this.f2081f = new AtomicBoolean(false);
     }
 
     public static h b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0052a.a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0073a.a : (h) invokeV.objValue;
     }
 
     @Override // c.a.c0.h.h
     public <T extends f> void a(k kVar, i<T> iVar, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, kVar, iVar, t) == null) {
-            this.f1653e.offer(new j.b<>(kVar, iVar, t));
-            if (this.f1654f.compareAndSet(false, true)) {
+            this.f2080e.offer(new j.b<>(kVar, iVar, t));
+            if (this.f2081f.compareAndSet(false, true)) {
                 c.a.c0.a0.b.c(this, "AsyncDeliver", 3);
             }
         }
@@ -87,11 +87,11 @@ public class a implements h, Runnable {
             return;
         }
         while (true) {
-            j.b<?> poll = this.f1653e.poll();
+            j.b<?> poll = this.f2080e.poll();
             if (poll != null) {
-                poll.a.onEvent(poll.f1660b);
+                poll.a.onEvent(poll.f2087b);
             } else {
-                this.f1654f.set(false);
+                this.f2081f.set(false);
                 return;
             }
         }

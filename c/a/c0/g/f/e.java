@@ -17,7 +17,7 @@ public class e extends Handler {
     public final c.a.c0.g.d.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f1559b;
+    public float f1986b;
 
     public e(@NonNull c.a.c0.g.d.a aVar) {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class e extends Handler {
                 return;
             }
         }
-        this.f1559b = -1.0f;
+        this.f1986b = -1.0f;
         this.a = aVar;
     }
 
@@ -42,11 +42,11 @@ public class e extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c();
-            long j2 = this.a.o.f1524d;
+            long j2 = this.a.o.f1951d;
             if (j2 <= 0) {
                 return;
             }
-            this.f1559b = (((float) j2) * 0.595f) / 768000.0f;
+            this.f1986b = (((float) j2) * 0.595f) / 768000.0f;
             Message message = new Message();
             message.what = 1;
             sendMessage(message);
@@ -58,7 +58,7 @@ public class e extends Handler {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Message message = new Message();
             message.what = 1;
-            sendMessageDelayed(message, (this.f1559b / 59.500004f) * 1000.0f);
+            sendMessageDelayed(message, (this.f1986b / 59.500004f) * 1000.0f);
         }
     }
 
@@ -79,19 +79,19 @@ public class e extends Handler {
                 return;
             }
             c.a.c0.g.d.a aVar = this.a;
-            if (aVar.o.f1526f == 1) {
+            if (aVar.o.f1953f == 1) {
                 return;
             }
-            if (aVar.f1513c != AdDownloadStatus.DOWNLOADING) {
+            if (aVar.f1940c != AdDownloadStatus.DOWNLOADING) {
                 c();
                 return;
             }
-            float f2 = aVar.f1520j;
+            float f2 = aVar.f1947j;
             if (f2 >= 0.595f) {
                 c();
                 return;
             }
-            aVar.f1520j = Math.max(aVar.f1519i, f2) + 0.01f;
+            aVar.f1947j = Math.max(aVar.f1946i, f2) + 0.01f;
             c.a.c0.g.a.a.b().d(AdDownloadAction.PROGRESS_UPDATE, this.a);
             b();
         }

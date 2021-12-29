@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.framwork.core.sdkmonitor.SDKMonitor;
 import com.bytedance.framwork.core.sdkmonitor.SDKMonitorUtils;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.util.j;
+import com.bytedance.pangle.util.i;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONException;
@@ -64,7 +64,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, str2, str3) == null) {
             synchronized (d.class) {
-                j.a().execute(new Runnable() { // from class: com.bytedance.pangle.helper.d.2
+                i.a().execute(new Runnable() { // from class: com.bytedance.pangle.helper.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,7 +99,7 @@ public final class d {
                     jSONObject.putOpt("device_id", str3);
                     jSONObject.putOpt("host_aid", str);
                     jSONObject.putOpt("channel", str2);
-                    jSONObject.putOpt("sdk_version", "0.0.1-beta.53-bugfix.13-pangle");
+                    jSONObject.putOpt("sdk_version", "0.0.1-beta.53-bugfix.19-pangle");
                     if (context != null) {
                         jSONObject.putOpt("package_name", context.getPackageName());
                         StringBuilder sb = new StringBuilder();

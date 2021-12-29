@@ -10,9 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class ParseUtils {
@@ -173,6 +175,8 @@ public class ParseUtils {
                     packageInfo.maxHostVersion = optJSONObject2.optString("maxv");
                     packageInfo.maxHostVersion = optJSONObject2.optString("maxv");
                     packageInfo.sign = optJSONObject2.optString("sign");
+                    packageInfo.patchMD5 = optJSONObject2.optString("patch_md5");
+                    packageInfo.patchUrl = optJSONObject2.optString("patch_url");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("pkg_control");
                 if (optJSONObject3 != null) {
@@ -180,10 +184,26 @@ public class ParseUtils {
                     packageInfo.isSilence = optJSONObject3.optInt("issilence");
                     packageInfo.disable = optJSONObject3.optInt(PackageTable.DISABLE);
                     packageInfo.isSilentUpgrade = optJSONObject3.optInt("silentupgrade", 1);
+                    String optString = optJSONObject3.optString("cdn_key");
+                    String optString2 = optJSONObject3.optString("cdn_value");
+                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                        try {
+                            packageInfo.netWorkStrategy = URLEncoder.encode(optString, "UTF-8") + "=" + URLEncoder.encode(optString2, "UTF-8");
+                        } catch (Exception unused) {
+                        }
+                    }
                 }
                 JSONObject optJSONObject4 = optJSONObject.optJSONObject("pkg_ext");
                 if (optJSONObject4 != null) {
-                    packageInfo.extraServer = optJSONObject4.toString();
+                    String jSONObject2 = optJSONObject4.toString();
+                    packageInfo.extraServer = jSONObject2;
+                    if (jSONObject2 != null) {
+                        try {
+                            packageInfo.abi = new JSONObject(packageInfo.extraServer).optString(PackageTable.ABI);
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
                 }
                 JSONObject optJSONObject5 = jSONObject.optJSONObject("dependencies");
                 if (optJSONObject5 != null) {

@@ -83,43 +83,17 @@ public final class a {
     public final int b(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i2)) == null) {
             Bundle bundle = this.a;
             return bundle == null ? i2 : bundle.getInt(str, i2);
         }
         return invokeLI.intValue;
     }
 
-    public final Serializable c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            Bundle bundle = this.a;
-            if (bundle == null) {
-                return null;
-            }
-            return bundle.getSerializable(str);
-        }
-        return (Serializable) invokeL.objValue;
-    }
-
-    public final boolean d(String str) {
+    public final ArrayList<String> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Bundle bundle = this.a;
-            if (bundle == null) {
-                return false;
-            }
-            return bundle.getBoolean(str, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final ArrayList<String> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             Bundle bundle = this.a;
             if (bundle == null) {
                 return null;
@@ -129,10 +103,49 @@ public final class a {
         return (ArrayList) invokeL.objValue;
     }
 
+    public final Serializable d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return null;
+            }
+            return bundle.getSerializable(str);
+        }
+        return (Serializable) invokeL.objValue;
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return false;
+            }
+            return bundle.getBoolean(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            Bundle bundle = this.a;
+            if (bundle == null) {
+                return null;
+            }
+            return bundle.getByteArray(str);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
     public final long b(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j2)) == null) {
             Bundle bundle = this.a;
             return bundle == null ? j2 : bundle.getLong(str, j2);
         }
@@ -142,7 +155,7 @@ public final class a {
     public final Bundle b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : (Bundle) invokeV.objValue;
     }
 
     public final void a(String str, int i2) {
@@ -172,6 +185,16 @@ public final class a {
                 this.a = new Bundle();
             }
             this.a.putString(str, str2);
+        }
+    }
+
+    public final void a(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bArr) == null) {
+            if (this.a == null) {
+                this.a = new Bundle();
+            }
+            this.a.putByteArray(str, bArr);
         }
     }
 

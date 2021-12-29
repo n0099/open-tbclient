@@ -15,30 +15,30 @@ public class MarqueeTextView extends TextView implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f52696i = 2000;
+    public static final int f52699i = 2000;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52697b;
+    public boolean f52700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52698c;
+    public int f52701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52699d;
+    public int f52702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f52700e;
+    public int f52703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f52701f;
+    public int f52704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f52702g;
+    public int f52705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f52703h;
+    public boolean f52706h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MarqueeTextView(Context context) {
@@ -58,11 +58,11 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f52697b = true;
-        this.f52700e = 0;
-        this.f52701f = 2;
-        this.f52702g = 10;
-        this.f52703h = false;
+        this.f52700b = true;
+        this.f52703e = 0;
+        this.f52704f = 2;
+        this.f52705g = 10;
+        this.f52706h = false;
     }
 
     private int getTextWidth() {
@@ -70,7 +70,7 @@ public class MarqueeTextView extends TextView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int measureText = (int) getPaint().measureText(getText().toString());
-            this.f52698c = measureText;
+            this.f52701c = measureText;
             return measureText;
         }
         return invokeV.intValue;
@@ -81,17 +81,17 @@ public class MarqueeTextView extends TextView implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f52703h) {
+            if (this.f52706h) {
                 int width = getWidth();
-                this.f52699d = width;
+                this.f52702d = width;
                 if (width > getTextWidth()) {
-                    this.f52697b = true;
+                    this.f52700b = true;
                     return;
                 }
                 int scrollX = getScrollX();
-                this.f52700e = scrollX;
+                this.f52703e = scrollX;
                 this.a = scrollX;
-                this.f52703h = false;
+                this.f52706h = false;
             }
         }
     }
@@ -100,14 +100,14 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-            this.f52697b = true;
+            this.f52700b = true;
             removeCallbacks(this);
-            int i5 = this.f52700e;
+            int i5 = this.f52703e;
             this.a = i5;
             scrollTo(i5, 0);
             super.onTextChanged(charSequence, i2, i3, i4);
-            this.f52703h = true;
-            this.f52697b = false;
+            this.f52706h = true;
+            this.f52700b = false;
             postDelayed(this, 2000L);
         }
     }
@@ -116,20 +116,20 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.a + this.f52701f;
+            int i2 = this.a + this.f52704f;
             this.a = i2;
             scrollTo(i2, 0);
-            if (this.f52697b) {
+            if (this.f52700b) {
                 return;
             }
-            if (getScrollX() >= this.f52698c - this.f52699d) {
-                scrollTo(this.f52700e, 0);
-                this.a = this.f52700e;
+            if (getScrollX() >= this.f52701c - this.f52702d) {
+                scrollTo(this.f52703e, 0);
+                this.a = this.f52703e;
                 postDelayed(this, 2000L);
-            } else if (getScrollX() >= (this.f52698c - this.f52699d) - this.f52701f) {
+            } else if (getScrollX() >= (this.f52701c - this.f52702d) - this.f52704f) {
                 postDelayed(this, 2000L);
             } else {
-                postDelayed(this, this.f52702g);
+                postDelayed(this, this.f52705g);
             }
         }
     }
@@ -137,7 +137,7 @@ public class MarqueeTextView extends TextView implements Runnable {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f52697b = true;
+            this.f52700b = true;
         }
     }
 
@@ -160,11 +160,11 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f52697b = true;
-        this.f52700e = 0;
-        this.f52701f = 2;
-        this.f52702g = 10;
-        this.f52703h = false;
+        this.f52700b = true;
+        this.f52703e = 0;
+        this.f52704f = 2;
+        this.f52705g = 10;
+        this.f52706h = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -186,10 +186,10 @@ public class MarqueeTextView extends TextView implements Runnable {
                 return;
             }
         }
-        this.f52697b = true;
-        this.f52700e = 0;
-        this.f52701f = 2;
-        this.f52702g = 10;
-        this.f52703h = false;
+        this.f52700b = true;
+        this.f52703e = 0;
+        this.f52704f = 2;
+        this.f52705g = 10;
+        this.f52706h = false;
     }
 }

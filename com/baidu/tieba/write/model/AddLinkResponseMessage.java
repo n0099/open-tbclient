@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.model;
 
-import c.a.s0.n4.v.a;
+import c.a.t0.o4.v.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR = -1;
@@ -58,26 +58,26 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject == null) {
                 return;
             }
-            this.addLinkResponseData.f20521b = optJSONObject.optString("link_url");
-            this.addLinkResponseData.f20522c = optJSONObject.optString("link_url_code");
+            this.addLinkResponseData.f21892b = optJSONObject.optString("link_url");
+            this.addLinkResponseData.f21893c = optJSONObject.optString("link_url_code");
             JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-            this.addLinkResponseData.f20523d = jSONObject2.optInt("link_type");
-            this.addLinkResponseData.f20524e = jSONObject2.optString("link_title");
-            this.addLinkResponseData.f20525f = jSONObject2.optString("link_abstract");
-            this.addLinkResponseData.f20526g = jSONObject2.optString("link_head_pic");
-            this.addLinkResponseData.f20527h = jSONObject2.optString("link_head_small_pic");
-            this.addLinkResponseData.f20528i = jSONObject2.optString("link_head_big_pic");
-            this.addLinkResponseData.f20529j = jSONObject2.optString("video_url");
+            this.addLinkResponseData.f21894d = jSONObject2.optInt("link_type");
+            this.addLinkResponseData.f21895e = jSONObject2.optString("link_title");
+            this.addLinkResponseData.f21896f = jSONObject2.optString("link_abstract");
+            this.addLinkResponseData.f21897g = jSONObject2.optString("link_head_pic");
+            this.addLinkResponseData.f21898h = jSONObject2.optString("link_head_small_pic");
+            this.addLinkResponseData.f21899i = jSONObject2.optString("link_head_big_pic");
+            this.addLinkResponseData.f21900j = jSONObject2.optString("video_url");
             this.addLinkResponseData.l = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
             this.addLinkResponseData.m = jSONObject2.optString("video_format");
             this.addLinkResponseData.n = jSONObject2.optInt("video_from", 0);
             this.addLinkResponseData.p = jSONObject2.optInt("video_height", 0);
             this.addLinkResponseData.o = jSONObject2.optInt("video_width", 0);
-            this.addLinkResponseData.f20530k = jSONObject2.optLong("video_size", 0L);
+            this.addLinkResponseData.f21901k = jSONObject2.optLong("video_size", 0L);
             this.addLinkResponseData.t = jSONObject2.optInt("thumbnail_height", 0);
             this.addLinkResponseData.s = jSONObject2.optInt("thumbnail_width", 0);
             this.addLinkResponseData.r = jSONObject2.optInt("thumbnail_pid", 0);

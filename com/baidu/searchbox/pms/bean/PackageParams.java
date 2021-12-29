@@ -1,7 +1,10 @@
 package com.baidu.searchbox.pms.bean;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
@@ -9,6 +12,7 @@ public class PackageParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String packageName;
+    public String updateMd5;
     public long updateVersion;
     public long version;
 
@@ -27,6 +31,26 @@ public class PackageParams {
         }
         this.version = -1L;
         this.updateVersion = -1L;
+        this.updateMd5 = "";
+    }
+
+    public String getUpdateParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.updateVersion > -1 && !TextUtils.isEmpty(this.updateMd5)) {
+                return this.updateVersion + "|" + this.updateMd5;
+            }
+            return String.valueOf(this.updateVersion);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void setUpdateMd5(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.updateMd5 = str;
+        }
     }
 
     public PackageParams(String str) {
@@ -46,6 +70,7 @@ public class PackageParams {
         }
         this.version = -1L;
         this.updateVersion = -1L;
+        this.updateMd5 = "";
         this.packageName = str;
     }
 
@@ -66,6 +91,7 @@ public class PackageParams {
         }
         this.version = -1L;
         this.updateVersion = -1L;
+        this.updateMd5 = "";
         this.packageName = str;
         this.version = j2;
         this.updateVersion = j3;

@@ -16,16 +16,16 @@ public class b {
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f1577b;
+    public static i f2004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.c0.f0.a f1578c;
+    public static c.a.c0.f0.a f2005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static k f1579d;
+    public static k f2006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f1580e;
+    public static j f2007e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public class b {
                         a = (e) ServiceManager.getService(e.a);
                     }
                     if (a == null) {
-                        a = e.f1581b;
+                        a = e.f2008b;
                     }
                 }
             }
@@ -80,17 +80,17 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f1578c == null) {
+            if (f2005c == null) {
                 synchronized (b.class) {
-                    if (f1578c == null) {
-                        f1578c = (c.a.c0.f0.a) ServiceManager.getService(c.a.c0.f0.a.a);
+                    if (f2005c == null) {
+                        f2005c = (c.a.c0.f0.a) ServiceManager.getService(c.a.c0.f0.a.a);
                     }
-                    if (f1578c == null) {
-                        f1578c = c.a.c0.f0.a.f1498b;
+                    if (f2005c == null) {
+                        f2005c = c.a.c0.f0.a.f1925b;
                     }
                 }
             }
-            return f1578c;
+            return f2005c;
         }
         return (c.a.c0.f0.a) invokeV.objValue;
     }
@@ -123,17 +123,17 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (f1580e == null) {
+            if (f2007e == null) {
                 synchronized (b.class) {
-                    if (f1580e == null) {
-                        f1580e = (j) ServiceManager.getService(j.a);
+                    if (f2007e == null) {
+                        f2007e = (j) ServiceManager.getService(j.a);
                     }
-                    if (f1580e == null) {
-                        f1580e = j.f1584b;
+                    if (f2007e == null) {
+                        f2007e = j.f2011b;
                     }
                 }
             }
-            return f1580e;
+            return f2007e;
         }
         return (j) invokeV.objValue;
     }
@@ -148,17 +148,17 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f1577b == null) {
+            if (f2004b == null) {
                 synchronized (b.class) {
-                    if (f1577b == null) {
-                        f1577b = (i) ServiceManager.getService(i.a);
+                    if (f2004b == null) {
+                        f2004b = (i) ServiceManager.getService(i.a);
                     }
-                    if (f1577b == null) {
-                        f1577b = i.f1582b;
+                    if (f2004b == null) {
+                        f2004b = i.f2009b;
                     }
                 }
             }
-            return f1577b;
+            return f2004b;
         }
         return (i) invokeV.objValue;
     }
@@ -173,17 +173,17 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (f1579d == null) {
+            if (f2006d == null) {
                 synchronized (b.class) {
-                    if (f1579d == null) {
-                        f1579d = (k) ServiceManager.getService(k.a);
+                    if (f2006d == null) {
+                        f2006d = (k) ServiceManager.getService(k.a);
                     }
-                    if (f1579d == null) {
-                        f1579d = k.f1585b;
+                    if (f2006d == null) {
+                        f2006d = k.f2012b;
                     }
                 }
             }
-            return f1579d;
+            return f2006d;
         }
         return (k) invokeV.objValue;
     }

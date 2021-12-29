@@ -15,10 +15,10 @@ public final class a implements b.a {
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f29446b;
+    public final int f29524b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final long f29447c;
+    public final long f29525c;
 
     public a(long j2, int i2, long j3) {
         Interceptable interceptable = $ic;
@@ -36,15 +36,15 @@ public final class a implements b.a {
             }
         }
         this.a = j2;
-        this.f29446b = i2;
-        this.f29447c = j3 == -1 ? -9223372036854775807L : g(j3);
+        this.f29524b = i2;
+        this.f29525c = j3 == -1 ? -9223372036854775807L : g(j3);
     }
 
     @Override // c.i.b.a.a0.l
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29447c != -9223372036854775807L : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29525c != -9223372036854775807L : invokeV.booleanValue;
     }
 
     @Override // c.i.b.a.a0.l
@@ -52,11 +52,11 @@ public final class a implements b.a {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            long j3 = this.f29447c;
+            long j3 = this.f29525c;
             if (j3 == -9223372036854775807L) {
                 return 0L;
             }
-            return this.a + ((v.l(j2, 0L, j3) * this.f29446b) / 8000000);
+            return this.a + ((v.l(j2, 0L, j3) * this.f29524b) / 8000000);
         }
         return invokeJ.longValue;
     }
@@ -65,13 +65,13 @@ public final class a implements b.a {
     public long g(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ((Math.max(0L, j2 - this.a) * 1000000) * 8) / this.f29446b : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ((Math.max(0L, j2 - this.a) * 1000000) * 8) / this.f29524b : invokeJ.longValue;
     }
 
     @Override // c.i.b.a.a0.l
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29447c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29525c : invokeV.longValue;
     }
 }

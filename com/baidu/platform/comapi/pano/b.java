@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.InterfaceC1816a a;
+    public final /* synthetic */ a.InterfaceC1823a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f38848b;
+    public final /* synthetic */ a f39004b;
 
-    public b(a aVar, a.InterfaceC1816a interfaceC1816a) {
+    public b(a aVar, a.InterfaceC1823a interfaceC1823a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC1816a};
+            Object[] objArr = {aVar, interfaceC1823a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -31,8 +31,8 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f38848b = aVar;
-        this.a = interfaceC1816a;
+        this.f39004b = aVar;
+        this.a = interfaceC1823a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
@@ -48,9 +48,9 @@ public class b extends HttpClient.ProtoResultCallback {
         c a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC1816a interfaceC1816a = this.a;
-            a = this.f38848b.a(str);
-            interfaceC1816a.a((a.InterfaceC1816a) a);
+            a.InterfaceC1823a interfaceC1823a = this.a;
+            a = this.f39004b.a(str);
+            interfaceC1823a.a((a.InterfaceC1823a) a);
         }
     }
 }

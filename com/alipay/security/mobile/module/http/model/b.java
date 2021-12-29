@@ -39,30 +39,30 @@ public class b {
                 return null;
             }
             cVar.a = dataReportResult.success;
-            cVar.f31876b = dataReportResult.resultCode;
+            cVar.f32019b = dataReportResult.resultCode;
             Map<String, String> map = dataReportResult.resultData;
             if (map != null) {
-                cVar.f31877c = map.get("apdid");
-                cVar.f31878d = map.get("apdidToken");
-                cVar.f31881g = map.get("dynamicKey");
-                cVar.f31882h = map.get("timeInterval");
-                cVar.f31883i = map.get("webrtcUrl");
-                cVar.f31884j = "";
+                cVar.f32020c = map.get("apdid");
+                cVar.f32021d = map.get("apdidToken");
+                cVar.f32024g = map.get("dynamicKey");
+                cVar.f32025h = map.get("timeInterval");
+                cVar.f32026i = map.get("webrtcUrl");
+                cVar.f32027j = "";
                 String str = map.get("drmSwitch");
                 if (com.alipay.security.mobile.module.a.a.b(str)) {
                     if (str.length() > 0) {
                         StringBuilder sb = new StringBuilder();
                         sb.append(str.charAt(0));
-                        cVar.f31879e = sb.toString();
+                        cVar.f32022e = sb.toString();
                     }
                     if (str.length() >= 3) {
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append(str.charAt(2));
-                        cVar.f31880f = sb2.toString();
+                        cVar.f32023f = sb2.toString();
                     }
                 }
                 if (map.containsKey("apse_degrade")) {
-                    cVar.f31885k = map.get("apse_degrade");
+                    cVar.f32028k = map.get("apse_degrade");
                 }
             }
             return cVar;
@@ -79,15 +79,15 @@ public class b {
                 return null;
             }
             dataReportRequest.os = dVar.a;
-            dataReportRequest.rpcVersion = dVar.f31894j;
+            dataReportRequest.rpcVersion = dVar.f32037j;
             dataReportRequest.bizType = "1";
             HashMap hashMap = new HashMap();
             dataReportRequest.bizData = hashMap;
-            hashMap.put("apdid", dVar.f31886b);
-            dataReportRequest.bizData.put("apdidToken", dVar.f31887c);
-            dataReportRequest.bizData.put("umidToken", dVar.f31888d);
-            dataReportRequest.bizData.put("dynamicKey", dVar.f31889e);
-            dataReportRequest.deviceData = dVar.f31890f;
+            hashMap.put("apdid", dVar.f32029b);
+            dataReportRequest.bizData.put("apdidToken", dVar.f32030c);
+            dataReportRequest.bizData.put("umidToken", dVar.f32031d);
+            dataReportRequest.bizData.put("dynamicKey", dVar.f32032e);
+            dataReportRequest.deviceData = dVar.f32033f;
             return dataReportRequest;
         }
         return (DataReportRequest) invokeL.objValue;

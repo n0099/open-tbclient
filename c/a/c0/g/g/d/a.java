@@ -33,23 +33,23 @@ public class a implements IAdDownloader {
 
     /* renamed from: c.a.c0.g.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0039a extends DownloadSpeedListener {
+    public static class C0060a extends DownloadSpeedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f1563e;
+        public long f1990e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f1564f;
+        public String f1991f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f1565g;
+        public long f1992g;
 
         /* renamed from: h  reason: collision with root package name */
-        public c f1566h;
+        public c f1993h;
 
-        public C0039a(c cVar) {
+        public C0060a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,7 +64,7 @@ public class a implements IAdDownloader {
                     return;
                 }
             }
-            this.f1566h = cVar;
+            this.f1993h = cVar;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
@@ -95,9 +95,9 @@ public class a implements IAdDownloader {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4SpeedModel}) == null) {
                 long totalLength = breakpointInfo.getTotalLength();
-                this.f1563e = totalLength;
-                this.f1564f = Util.humanReadableBytes(totalLength, true);
-                this.f1566h.c(this.f1563e, downloadTask.getFile());
+                this.f1990e = totalLength;
+                this.f1991f = Util.humanReadableBytes(totalLength, true);
+                this.f1993h.c(this.f1990e, downloadTask.getFile());
             }
         }
 
@@ -105,9 +105,9 @@ public class a implements IAdDownloader {
         public void progress(@NonNull DownloadTask downloadTask, long j2, @NonNull SpeedCalculator speedCalculator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Long.valueOf(j2), speedCalculator}) == null) {
-                String str = (Util.humanReadableBytes(j2, true) + "/" + this.f1564f) + "(" + speedCalculator.speed() + SmallTailInfo.EMOTION_SUFFIX;
-                this.f1565g = j2;
-                this.f1566h.a(downloadTask.getId(), j2, this.f1563e);
+                String str = (Util.humanReadableBytes(j2, true) + "/" + this.f1991f) + "(" + speedCalculator.speed() + SmallTailInfo.EMOTION_SUFFIX;
+                this.f1992g = j2;
+                this.f1993h.a(downloadTask.getId(), j2, this.f1990e);
             }
         }
 
@@ -124,13 +124,13 @@ public class a implements IAdDownloader {
             if (interceptable == null || interceptable.invokeLLLL(1048582, this, downloadTask, endCause, exc, speedCalculator) == null) {
                 downloadTask.removeTag();
                 if (endCause == EndCause.COMPLETED) {
-                    this.f1566h.b(downloadTask.getId());
+                    this.f1993h.b(downloadTask.getId());
                 } else if (endCause == EndCause.CANCELED) {
-                    this.f1566h.d(downloadTask.getId(), (int) ((this.f1565g / this.f1563e) * 100.0d));
+                    this.f1993h.d(downloadTask.getId(), (int) ((this.f1992g / this.f1990e) * 100.0d));
                 } else if (endCause == EndCause.ERROR) {
-                    this.f1566h.onError();
+                    this.f1993h.onError();
                 } else {
-                    this.f1566h.onError();
+                    this.f1993h.onError();
                 }
             }
         }
@@ -166,11 +166,11 @@ public class a implements IAdDownloader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, cVar)) == null) {
             DownloadTask build = new DownloadTask.Builder(str, c.a.c0.g.i.c.a(c.a.c0.e.a.b())).setPassIfAlreadyCompleted(false).build();
-            C0039a c0039a = new C0039a(cVar);
+            C0060a c0060a = new C0060a(cVar);
             if (build.getTag() != null) {
                 build.cancel();
             }
-            build.enqueue(c0039a);
+            build.enqueue(c0060a);
             build.setTag("mark-task-started");
             c.a.c0.u.c.e(this.a, Integer.valueOf(build.getId()), build);
             return build.getId();
@@ -195,7 +195,7 @@ public class a implements IAdDownloader {
             DownloadTask downloadTask = (DownloadTask) c.a.c0.u.c.b(this.a, Integer.valueOf(i2));
             if (downloadTask != null && StatusUtil.getStatus(downloadTask) == StatusUtil.Status.IDLE) {
                 downloadTask.setTag("mark-task-started");
-                downloadTask.enqueue(new C0039a(cVar));
+                downloadTask.enqueue(new C0060a(cVar));
                 return;
             }
             a(str, cVar);

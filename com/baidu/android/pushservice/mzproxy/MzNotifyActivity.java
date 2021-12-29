@@ -7,7 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.f;
+import com.baidu.android.pushservice.e;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,16 +24,16 @@ public class MzNotifyActivity extends Activity {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33235b;
+    public String f33387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33236c;
+    public String f33388c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33237d;
+    public String f33389d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f33238e;
+    public String f33390e;
 
     public MzNotifyActivity() {
         Interceptable interceptable = $ic;
@@ -86,34 +86,34 @@ public class MzNotifyActivity extends Activity {
                                 this.a = jSONObject2.getString("Msgid");
                             }
                             if (!jSONObject2.isNull("msgBody")) {
-                                this.f33236c = jSONObject2.getString("msgBody");
+                                this.f33388c = jSONObject2.getString("msgBody");
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f33236c)) {
-                            JSONObject jSONObject3 = new JSONObject(this.f33236c);
+                        if (!TextUtils.isEmpty(this.f33388c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f33388c);
                             if (!jSONObject3.isNull("custom_content")) {
-                                this.f33237d = jSONObject3.getString("custom_content");
+                                this.f33389d = jSONObject3.getString("custom_content");
                             }
                             if (!jSONObject3.isNull("pkg_content")) {
-                                this.f33238e = jSONObject3.getString("pkg_content");
+                                this.f33390e = jSONObject3.getString("pkg_content");
                             }
                             if (!jSONObject3.isNull("mzpri_signinfo")) {
-                                this.f33235b = jSONObject3.getString("mzpri_signinfo");
+                                this.f33387b = jSONObject3.getString("mzpri_signinfo");
                             }
                         }
                     }
-                    if (f.a(this, this.f33235b, (this.a + this.f33237d).replaceAll("\\\\", ""))) {
-                        if (TextUtils.isEmpty(this.f33238e)) {
+                    if (e.a(this, this.f33387b, (this.a + this.f33389d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f33390e)) {
                             parseUri = new Intent();
                             parseUri.setClassName(getPackageName(), a(this, getPackageName()));
                             parseUri.setFlags(268435456);
                         } else {
-                            parseUri = Intent.parseUri(this.f33238e, 0);
+                            parseUri = Intent.parseUri(this.f33390e, 0);
                             parseUri.setPackage(getPackageName());
                             parseUri.addFlags(268435456);
                         }
-                        if (!TextUtils.isEmpty(this.f33237d)) {
-                            JSONObject jSONObject4 = new JSONObject(this.f33237d);
+                        if (!TextUtils.isEmpty(this.f33389d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f33389d);
                             Iterator<String> keys = jSONObject4.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();

@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.v3.a;
+import c.a.t0.w3.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionParser;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionName;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCallback;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +43,7 @@ public class DeepLinkAction {
     public static void callbackFailed(DeepLinkCallback deepLinkCallback, int i2, String str, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65537, null, deepLinkCallback, i2, str, deepLinkResponse) == null) {
-            SchemeActionParser.printLog("callback onFailed-->errNo=" + i2 + ",errMsg =" + str);
+            SchemeActionHelper.printLog("callback onFailed-->errNo=" + i2 + ",errMsg =" + str);
             if (deepLinkCallback != null) {
                 deepLinkCallback.onFailed(i2, str, deepLinkResponse);
             }
@@ -51,7 +53,7 @@ public class DeepLinkAction {
     public static void callbackSuccess(DeepLinkCallback deepLinkCallback, String str, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, deepLinkCallback, str, deepLinkResponse) == null) {
-            SchemeActionParser.printLog("callback onSuccess-->" + str + " open");
+            SchemeActionHelper.printLog("callback onSuccess-->" + str + " open");
             if (deepLinkCallback != null) {
                 deepLinkCallback.onSuccess(str, deepLinkResponse);
             }
@@ -61,17 +63,17 @@ public class DeepLinkAction {
     public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, context, str, str2, str3, str4)) == null) ? dealDeepLink(context, new DeepLinkItem(str, str2, str3, str4), new DeepLinkCallback.DeepLinkResponse(), (DeepLinkCallback) null, (Bundle) null) : (DeepLinkCallback.DeepLinkResponse) invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, context, str, str2, str3, str4)) == null) ? dealDeepLink(context, new DeepLinkItem(str, str2, str3, str4), (Bundle) null, new DeepLinkCallback.DeepLinkResponse(), (DeepLinkCallback) null) : (DeepLinkCallback.DeepLinkResponse) invokeLLLLL.objValue;
     }
 
     public static boolean isTieBaDeepLink(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return SchemeActionParser.isSchemeAction(str, "tiebaapp://router/deeplink");
+            return SchemeActionHelper.isSchemeAction(str, SchemeActionName.SCHEME_ACTION_DEEPLINK);
         }
         return invokeL.booleanValue;
     }
@@ -79,7 +81,7 @@ public class DeepLinkAction {
     public static boolean openApp(Context context, String str, String str2, Bundle bundle, boolean z, OpenAppCallback openAppCallback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, str, str2, bundle, Boolean.valueOf(z), openAppCallback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{context, str, str2, bundle, Boolean.valueOf(z), openAppCallback})) == null) {
             if (bundle != null) {
                 try {
                     if (bundle.getBoolean("need_scheme_blacklist", false) && UrlSchemaJumpHelper.isHitBlackList(str)) {
@@ -109,7 +111,7 @@ public class DeepLinkAction {
         InterceptResult invokeLLL;
         TbPageContext<?> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
             String[] strArr = {str};
             UrlManager urlManager = UrlManager.getInstance();
             if (urlManager == null || (a = a.a(context)) == null) {
@@ -127,8 +129,8 @@ public class DeepLinkAction {
     public static DeepLinkCallback.DeepLinkResponse processResponseMessage(DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, deepLinkResponse)) == null) {
-            SchemeActionParser.printLog("returnDeepLinkResponse-->" + deepLinkResponse.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, deepLinkResponse)) == null) {
+            SchemeActionHelper.printLog("returnDeepLinkResponse-->" + deepLinkResponse.toString());
             return deepLinkResponse;
         }
         return (DeepLinkCallback.DeepLinkResponse) invokeL.objValue;
@@ -137,11 +139,12 @@ public class DeepLinkAction {
     public static boolean tryOpenApp(Context context, String str, String str2, Bundle bundle, DeepLinkCallback deepLinkCallback, boolean z, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
             if (TextUtils.isEmpty(str)) {
                 deepLinkResponse.onFailed("app", -4);
                 return false;
-            } else if (openApp(context, str, str2, bundle, z, new OpenAppCallback(deepLinkResponse) { // from class: com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkAction.1
+            }
+            OpenAppCallback openAppCallback = new OpenAppCallback(deepLinkResponse) { // from class: com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkAction.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DeepLinkCallback.DeepLinkResponse val$msg;
@@ -171,33 +174,36 @@ public class DeepLinkAction {
                         this.val$msg.onFailed("app", i2);
                     }
                 }
-            })) {
-                SchemeActionParser.printLog("app open success-->" + str);
+            };
+            SchemeActionHelper.printLog("app tryOpenApp-->" + str);
+            if (openApp(context, str, str2, bundle, z, openAppCallback)) {
                 deepLinkResponse.onSucceed("app");
                 callbackSuccess(deepLinkCallback, "app", deepLinkResponse);
                 return true;
-            } else {
-                return false;
             }
+            return false;
         }
         return invokeCommon.booleanValue;
     }
 
     public static boolean tryOpenInnerLink(Context context, String str, DeepLinkCallback deepLinkCallback, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeLLLL;
-        int dealOneLinkWithOutJumpWebView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, context, str, deepLinkCallback, deepLinkResponse)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, context, str, deepLinkCallback, deepLinkResponse)) == null) {
             if (TextUtils.isEmpty(str)) {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
             TbPageContext<?> a = a.a(context);
-            if (a != null && ((dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str})) == 0 || dealOneLinkWithOutJumpWebView == 1)) {
-                SchemeActionParser.printLog("inner open success-->" + str);
-                deepLinkResponse.onSucceed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER);
-                callbackSuccess(deepLinkCallback, DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, deepLinkResponse);
-                return true;
+            if (a != null) {
+                int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str});
+                SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);
+                if (dealOneLinkWithOutJumpWebView == 0 || dealOneLinkWithOutJumpWebView == 1) {
+                    SchemeActionHelper.printLog("inner open success-->" + str);
+                    deepLinkResponse.onSucceed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER);
+                    callbackSuccess(deepLinkCallback, DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, deepLinkResponse);
+                    return true;
+                }
             }
             deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, DeepLinkCode.ERROR_LINK_NOT_MATCH);
             return false;
@@ -208,7 +214,7 @@ public class DeepLinkAction {
     public static boolean tryOpenMarket(Context context, String str, String str2, Bundle bundle, DeepLinkCallback deepLinkCallback, boolean z, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, str, str2, bundle, deepLinkCallback, Boolean.valueOf(z), deepLinkResponse})) == null) {
             if (TextUtils.isEmpty(str)) {
                 deepLinkResponse.onFailed("market", -5);
                 return false;
@@ -243,7 +249,6 @@ public class DeepLinkAction {
                     }
                 }
             })) {
-                SchemeActionParser.printLog("market open success-->" + str);
                 deepLinkResponse.onSucceed("market");
                 callbackSuccess(deepLinkCallback, "market", deepLinkResponse);
                 return true;
@@ -257,21 +262,21 @@ public class DeepLinkAction {
     public static boolean tryOpenWebUrl(Context context, String str, Bundle bundle, DeepLinkCallback deepLinkCallback, DeepLinkCallback.DeepLinkResponse deepLinkResponse) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65551, null, context, str, bundle, deepLinkCallback, deepLinkResponse)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65552, null, context, str, bundle, deepLinkCallback, deepLinkResponse)) == null) {
             if (TextUtils.isEmpty(str)) {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB, -6);
                 callbackFailed(deepLinkCallback, -6, "Uri web url is empty", deepLinkResponse);
                 return false;
-            } else if (openWebUrl(context, str, bundle)) {
-                SchemeActionParser.printLog("web open success-->" + str);
+            }
+            SchemeActionHelper.printLog("web tryOpenWebUrl-->" + str);
+            if (openWebUrl(context, str, bundle)) {
                 deepLinkResponse.onSucceed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
                 callbackSuccess(deepLinkCallback, DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB, deepLinkResponse);
                 return true;
-            } else {
-                deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB, -7);
-                callbackFailed(deepLinkCallback, -7, "Uri web url open failed", deepLinkResponse);
-                return false;
             }
+            deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB, -7);
+            callbackFailed(deepLinkCallback, -7, "Uri web url open failed", deepLinkResponse);
+            return false;
         }
         return invokeLLLLL.booleanValue;
     }
@@ -279,32 +284,36 @@ public class DeepLinkAction {
     public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) ? dealDeepLink(context, str, null) : (DeepLinkCallback.DeepLinkResponse) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) ? dealDeepLink(context, new UriBuilder(str), null, null) : (DeepLinkCallback.DeepLinkResponse) invokeLL.objValue;
     }
 
-    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, String str, Bundle bundle) {
+    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, UriBuilder uriBuilder) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, uriBuilder)) == null) ? dealDeepLink(context, uriBuilder, null, null) : (DeepLinkCallback.DeepLinkResponse) invokeLL.objValue;
+    }
+
+    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, UriBuilder uriBuilder, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, context, str, bundle)) == null) ? dealDeepLink(context, str, null, bundle) : (DeepLinkCallback.DeepLinkResponse) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, uriBuilder, bundle)) == null) ? dealDeepLink(context, uriBuilder, bundle, null) : (DeepLinkCallback.DeepLinkResponse) invokeLLL.objValue;
     }
 
-    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, String str, DeepLinkCallback deepLinkCallback, Bundle bundle) {
+    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, UriBuilder uriBuilder, Bundle bundle, DeepLinkCallback deepLinkCallback) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, deepLinkCallback, bundle)) == null) {
-            SchemeActionParser.printLog("deepLink=" + str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, uriBuilder, bundle, deepLinkCallback)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("deepLink=");
+            sb.append(uriBuilder != null ? uriBuilder.getUriString() : "");
+            SchemeActionHelper.printLog(sb.toString());
             DeepLinkCallback.DeepLinkResponse deepLinkResponse = new DeepLinkCallback.DeepLinkResponse();
-            if (str == null) {
+            if (uriBuilder == null) {
                 callbackFailed(deepLinkCallback, -1, "DeepLink is empty.", deepLinkResponse);
                 return processResponseMessage(deepLinkResponse);
-            } else if (!isTieBaDeepLink(str)) {
-                callbackFailed(deepLinkCallback, -2, "Uri is invalid.", deepLinkResponse);
-                return processResponseMessage(deepLinkResponse);
+            } else if (uriBuilder.getUri() != null && uriBuilder.isValidated()) {
+                return dealDeepLink(context, new DeepLinkItem(uriBuilder), bundle, deepLinkResponse, deepLinkCallback);
             } else {
-                UriBuilder uriBuilder = new UriBuilder(str);
-                if (uriBuilder.getUri() != null && uriBuilder.isValidated()) {
-                    return dealDeepLink(context, new DeepLinkItem(uriBuilder), deepLinkResponse, deepLinkCallback, bundle);
-                }
                 callbackFailed(deepLinkCallback, -2, "Uri is invalid.", deepLinkResponse);
                 return processResponseMessage(deepLinkResponse);
             }
@@ -312,10 +321,10 @@ public class DeepLinkAction {
         return (DeepLinkCallback.DeepLinkResponse) invokeLLLL.objValue;
     }
 
-    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, DeepLinkItem deepLinkItem, DeepLinkCallback.DeepLinkResponse deepLinkResponse, DeepLinkCallback deepLinkCallback, Bundle bundle) {
+    public static DeepLinkCallback.DeepLinkResponse dealDeepLink(Context context, DeepLinkItem deepLinkItem, Bundle bundle, DeepLinkCallback.DeepLinkResponse deepLinkResponse, DeepLinkCallback deepLinkCallback) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, context, deepLinkItem, deepLinkResponse, deepLinkCallback, bundle)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, context, deepLinkItem, bundle, deepLinkResponse, deepLinkCallback)) == null) {
             if (deepLinkResponse == null) {
                 deepLinkResponse = new DeepLinkCallback.DeepLinkResponse();
             }

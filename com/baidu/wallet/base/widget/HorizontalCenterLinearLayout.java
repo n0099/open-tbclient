@@ -15,13 +15,13 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
     public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52672b;
+    public int f52675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52673c;
+    public int f52676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f52674d;
+    public boolean f52677d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HorizontalCenterLinearLayout(Context context) {
@@ -104,12 +104,12 @@ public class HorizontalCenterLinearLayout extends LinearLayout {
                 i2 = abs;
                 abs = 0;
             }
-            if (!this.f52674d) {
-                this.f52672b = getPaddingLeft();
-                this.f52673c = getPaddingRight();
-                this.f52674d = true;
+            if (!this.f52677d) {
+                this.f52675b = getPaddingLeft();
+                this.f52676c = getPaddingRight();
+                this.f52677d = true;
             }
-            setPadding(this.f52672b + i2, getPaddingTop(), this.f52673c + abs, getPaddingBottom());
+            setPadding(this.f52675b + i2, getPaddingTop(), this.f52676c + abs, getPaddingBottom());
         }
     }
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.personExtra;
 
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.w2.c;
-import c.a.s0.y2.g;
+import c.a.t0.w2.c;
+import c.a.t0.y2.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;

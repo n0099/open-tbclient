@@ -13,25 +13,25 @@ public class o {
     public final HashMap<AdBaseModel.STYLE, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1820b;
+    public boolean f2247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1821c;
+    public int f2248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f1822d;
+    public a f2249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f1823e;
+    public float f2250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1824f;
+    public boolean f2251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1825g;
+    public String f2252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f1826h;
+    public boolean f2253h;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -40,10 +40,10 @@ public class o {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1827b;
+        public String f2254b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1828c;
+        public String f2255c;
     }
 
     public abstract int a(AdBaseModel.STYLE style);

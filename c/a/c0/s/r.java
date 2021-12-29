@@ -18,10 +18,10 @@ public class r implements p {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final f f2102b;
+    public final f f2529b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i f2103c;
+    public i f2530c;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -56,118 +56,118 @@ public class r implements p {
         @Override // c.a.c0.s.z.h
         public void a(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.a(i2);
+            this.a.f2530c.a(i2);
         }
 
         @Override // c.a.c0.s.z.h
         public void onBufferEnd() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onBufferEnd();
+            this.a.f2530c.onBufferEnd();
         }
 
         @Override // c.a.c0.s.z.h
         public void onBufferStart() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onBufferStart();
+            this.a.f2530c.onBufferStart();
         }
 
         @Override // c.a.c0.s.z.h
         public void onEnd(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onEnd(i2);
+            this.a.f2530c.onEnd(i2);
         }
 
         @Override // c.a.c0.s.z.h
         public void onError(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, str) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onError(i2, i3, str);
+            this.a.f2530c.onError(i2, i3, str);
         }
 
         @Override // c.a.c0.s.z.h
         public void onInfo(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onInfo(i2, i3);
+            this.a.f2530c.onInfo(i2, i3);
         }
 
         @Override // c.a.c0.s.z.h
         public void onPause() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onPause();
+            this.a.f2530c.onPause();
         }
 
         @Override // c.a.c0.s.z.h
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onPrepared();
+            this.a.f2530c.onPrepared();
         }
 
         @Override // c.a.c0.s.z.h
         public void onResume() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onResume();
+            this.a.f2530c.onResume();
         }
 
         @Override // c.a.c0.s.z.h
         public void onSeekEnd() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onSeekEnd();
+            this.a.f2530c.onSeekEnd();
         }
 
         @Override // c.a.c0.s.z.h
         public void onStart() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onStart();
+            this.a.f2530c.onStart();
         }
 
         @Override // c.a.c0.s.z.h
         public void onUpdateProgress(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIII(1048587, this, i2, i3, i4) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeIII(1048587, this, i2, i3, i4) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onUpdateProgress(i2, i3, i4);
+            this.a.f2530c.onUpdateProgress(i2, i3, i4);
         }
 
         @Override // c.a.c0.s.z.h
         public void onVideoSizeChanged(int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || this.a.f2103c == null) {
+            if (!(interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) || this.a.f2530c == null) {
                 return;
             }
-            this.a.f2103c.onVideoSizeChanged(i2, i3);
+            this.a.f2530c.onVideoSizeChanged(i2, i3);
         }
 
         public /* synthetic */ b(r rVar, a aVar) {
@@ -190,7 +190,7 @@ public class r implements p {
                 return;
             }
         }
-        this.f2102b = fVar;
+        this.f2529b = fVar;
         fVar.y0(new b(this, null));
     }
 
@@ -198,7 +198,7 @@ public class r implements p {
     public void a(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            this.f2103c = iVar;
+            this.f2530c = iVar;
         }
     }
 
@@ -206,7 +206,7 @@ public class r implements p {
     public void attachToContainer(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
-            this.f2102b.f(viewGroup);
+            this.f2529b.f(viewGroup);
         }
     }
 
@@ -214,19 +214,19 @@ public class r implements p {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2102b.D() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2529b.D() : invokeV.intValue;
     }
 
     @Override // c.a.c0.s.p
     public void c(@NonNull c.a.c0.p.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, lVar) == null) {
-            BdVideoSeries c2 = c.a.c0.e0.a.d.a.c(lVar.f1809d);
-            IVideoUpdateStrategy n1 = this.f2102b.n1();
+            BdVideoSeries c2 = c.a.c0.e0.a.d.a.c(lVar.f2236d);
+            IVideoUpdateStrategy n1 = this.f2529b.n1();
             if (c2 != null) {
-                c2.setVideoAd(f(lVar.f1808c));
+                c2.setVideoAd(f(lVar.f2235c));
                 c2.setStartPosition(n1.f() ? 0 : -1);
-                this.f2102b.A1(c2);
+                this.f2529b.A1(c2);
             } else if (d.f()) {
                 throw new IllegalArgumentException("Invalid video info");
             }
@@ -237,7 +237,7 @@ public class r implements p {
     public void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iVideoUpdateStrategy) == null) {
-            this.f2102b.z1(iVideoUpdateStrategy);
+            this.f2529b.z1(iVideoUpdateStrategy);
         }
     }
 
@@ -260,21 +260,21 @@ public class r implements p {
     public boolean isPause() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2102b.W() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2529b.W() : invokeV.booleanValue;
     }
 
     @Override // c.a.c0.s.h
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2102b.Y() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f2529b.Y() : invokeV.booleanValue;
     }
 
     @Override // c.a.c0.s.m
     public void mute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f2102b.c0(z);
+            this.f2529b.c0(z);
         }
     }
 
@@ -282,7 +282,7 @@ public class r implements p {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f2102b.e0();
+            this.f2529b.e0();
         }
     }
 
@@ -290,7 +290,7 @@ public class r implements p {
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f2102b.g0();
+            this.f2529b.g0();
         }
     }
 
@@ -298,7 +298,7 @@ public class r implements p {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f2102b.l0();
+            this.f2529b.l0();
         }
     }
 
@@ -306,7 +306,7 @@ public class r implements p {
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f2102b.K0();
+            this.f2529b.K0();
         }
     }
 
@@ -314,7 +314,7 @@ public class r implements p {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f2102b.L0();
+            this.f2529b.L0();
         }
     }
 }

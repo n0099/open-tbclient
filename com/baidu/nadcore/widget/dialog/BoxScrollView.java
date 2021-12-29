@@ -17,7 +17,7 @@ public class BoxScrollView extends ScrollView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38367e;
+    public int f38523e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BoxScrollView(Context context) {
@@ -37,7 +37,7 @@ public class BoxScrollView extends ScrollView {
                 return;
             }
         }
-        this.f38367e = -1;
+        this.f38523e = -1;
     }
 
     private int getLimitHeight() {
@@ -68,7 +68,7 @@ public class BoxScrollView extends ScrollView {
             super.onMeasure(i2, i3);
             int size = View.MeasureSpec.getSize(i3);
             int size2 = View.MeasureSpec.getSize(i2);
-            int i4 = this.f38367e;
+            int i4 = this.f38523e;
             if (i4 > 0) {
                 size = Math.min(size, i4);
             }
@@ -91,7 +91,7 @@ public class BoxScrollView extends ScrollView {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f38367e = i2;
+            this.f38523e = i2;
         }
     }
 
@@ -114,7 +114,7 @@ public class BoxScrollView extends ScrollView {
                 return;
             }
         }
-        this.f38367e = -1;
+        this.f38523e = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +136,6 @@ public class BoxScrollView extends ScrollView {
                 return;
             }
         }
-        this.f38367e = -1;
+        this.f38523e = -1;
     }
 }

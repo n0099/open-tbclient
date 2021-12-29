@@ -19,7 +19,7 @@ public class b {
     public static Map<String, c.a.x.b.d.c.f> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f27005b;
+    public static List<String> f27446b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class b {
             }
         }
         a = new HashMap();
-        f27005b = new ArrayList();
+        f27446b = new ArrayList();
     }
 
     public static void a(List<String> list) {
@@ -68,7 +68,7 @@ public class b {
                     c.a.x.b.d.c.f value = entry.getValue();
                     if (value != null && (a2 = value.a()) != null) {
                         jSONArray.put(a2);
-                        f27005b.add(key);
+                        f27446b.add(key);
                     }
                 }
             }
@@ -91,12 +91,12 @@ public class b {
         }
         fVar.a = str;
         if (z2) {
-            fVar.f26977c = 1;
-            fVar.f26979e = System.currentTimeMillis() / 1000;
+            fVar.f27418c = 1;
+            fVar.f27420e = System.currentTimeMillis() / 1000;
         }
         if (z) {
-            fVar.f26976b = 1;
-            fVar.f26978d = System.currentTimeMillis() / 1000;
+            fVar.f27417b = 1;
+            fVar.f27419d = System.currentTimeMillis() / 1000;
         }
     }
 }

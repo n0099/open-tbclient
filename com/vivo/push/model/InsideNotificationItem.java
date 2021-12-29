@@ -12,6 +12,7 @@ public class InsideNotificationItem extends UPSNotificationMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mAppType;
+    public int mInnerPriority;
     public boolean mIsShowBigPicOnMobileNet;
     public int mMessageType;
     public String mReactPackage;
@@ -37,61 +38,74 @@ public class InsideNotificationItem extends UPSNotificationMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mAppType : invokeV.intValue;
     }
 
+    public int getInnerPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mInnerPriority : invokeV.intValue;
+    }
+
     public int getMessageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMessageType : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMessageType : invokeV.intValue;
     }
 
     public String getReactPackage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mReactPackage : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mReactPackage : (String) invokeV.objValue;
     }
 
     public String getSuitReactVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSuitReactVersion : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSuitReactVersion : (String) invokeV.objValue;
     }
 
     public boolean isShowBigPicOnMobileNet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsShowBigPicOnMobileNet : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsShowBigPicOnMobileNet : invokeV.booleanValue;
     }
 
     public void setAppType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             this.mAppType = i2;
+        }
+    }
+
+    public void setInnerPriority(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            this.mInnerPriority = i2;
         }
     }
 
     public void setIsShowBigPicOnMobileNet(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.mIsShowBigPicOnMobileNet = z;
         }
     }
 
     public void setMessageType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.mMessageType = i2;
         }
     }
 
     public void setReactPackage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.mReactPackage = str;
         }
     }
 
     public void setSuitReactVersion(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.mSuitReactVersion = str;
         }
     }

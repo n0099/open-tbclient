@@ -21,10 +21,10 @@ public final class f {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f30790b;
+    public static final int[] f30868b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f30791c;
+    public static final int[] f30869c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,8 +41,8 @@ public final class f {
             }
         }
         a = new int[]{1, 2, 2, 2, 2, 3, 3, 4, 4, 5, 6, 6, 6, 7, 8, 8};
-        f30790b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, w0.X3, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
-        f30791c = new int[]{64, 112, 128, 192, w0.Q, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
+        f30868b = new int[]{-1, 8000, 16000, 32000, -1, -1, 11025, 22050, 44100, -1, -1, w0.X3, 24000, MediaEncodeParams.AUDIO_SAMPLE_RATE, -1, -1};
+        f30869c = new int[]{64, 112, 128, 192, w0.Q, 256, 384, FileUtils.S_IRWXU, 512, 640, 768, 896, 1024, MP3TrackImpl.SAMPLES_PER_FRAME, 1280, PureJavaCrc32C.T8_6_start, 1920, 2048, 2304, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 2688, 2816, 2823, 2944, 3072, 3840, 4096, 6144, 7680};
     }
 
     public static int a(byte[] bArr) {
@@ -74,9 +74,9 @@ public final class f {
             c.i.b.a.i0.k kVar = new c.i.b.a.i0.k(bArr);
             kVar.n(60);
             int i2 = a[kVar.g(6)];
-            int i3 = f30790b[kVar.g(4)];
+            int i3 = f30868b[kVar.g(4)];
             int g2 = kVar.g(5);
-            int[] iArr = f30791c;
+            int[] iArr = f30869c;
             int i4 = g2 >= iArr.length ? -1 : (iArr[g2] * 1000) / 2;
             kVar.n(10);
             return Format.createAudioSampleFormat(str, "audio/vnd.dts", null, i4, -1, i2 + (kVar.g(2) > 0 ? 1 : 0), i3, null, drmInitData, 0, str2);

@@ -13,41 +13,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class o implements j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a.C0776a f11731b;
+        public a.C0241a f5018b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f11732c;
+        public boolean f5019c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f11733d;
+        public boolean f5020d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f11734e;
+        public boolean f5021e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f11735f;
+        public long f5022f;
 
         /* renamed from: g  reason: collision with root package name */
-        public JSONObject f11736g;
+        public JSONObject f5023g;
 
         /* renamed from: h  reason: collision with root package name */
-        public JSONObject f11737h;
+        public JSONObject f5024h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f11738i;
+        public long f5025i;
 
         public a(o oVar, Context context) {
             Interceptable interceptable = $ic;
@@ -67,13 +67,13 @@ public class o implements j {
             if (context == null) {
                 throw new NullPointerException("context should not be null");
             }
-            this.f11731b = new c.a.r.h.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
+            this.f5018b = new c.a.r.h.d.a(context.getApplicationContext()).d().f("cloud").f("cstore");
         }
 
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.f11736g = jSONObject;
+                this.f5023g = jSONObject;
                 h();
             }
         }
@@ -101,7 +101,7 @@ public class o implements j {
         public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                this.f11737h = jSONObject;
+                this.f5024h = jSONObject;
             }
         }
 
@@ -110,11 +110,11 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 synchronized (this) {
-                    JSONObject jSONObject = this.f11736g;
+                    JSONObject jSONObject = this.f5023g;
                     if (jSONObject == null) {
                         return true;
                     }
-                    JSONObject jSONObject2 = this.f11737h;
+                    JSONObject jSONObject2 = this.f5024h;
                     if (jSONObject2 != null) {
                         return b(jSONObject, jSONObject2);
                     }
@@ -128,7 +128,7 @@ public class o implements j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                JSONObject jSONObject = this.f11736g;
+                JSONObject jSONObject = this.f5023g;
                 if (jSONObject == null) {
                     return 0L;
                 }
@@ -140,7 +140,7 @@ public class o implements j {
         public final boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f11738i) / 1000 > this.f11735f : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.f5025i) / 1000 > this.f5022f : invokeV.booleanValue;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
@@ -158,8 +158,8 @@ public class o implements j {
                     l();
                     boolean i2 = c.a.r.b.f(this.a).i();
                     boolean z = false;
-                    if (this.f11732c && i2) {
-                        if (this.f11736g == null) {
+                    if (this.f5019c && i2) {
+                        if (this.f5023g == null) {
                             return true;
                         }
                         if (!f()) {
@@ -178,7 +178,7 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 try {
-                    this.f11731b.i("cs.dat", this.f11736g.toString(), true);
+                    this.f5018b.i("cs.dat", this.f5023g.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -191,11 +191,11 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 synchronized (this) {
-                    if (this.f11733d) {
-                        this.f11733d = !j();
+                    if (this.f5020d) {
+                        this.f5020d = !j();
                     }
-                    if (this.f11734e) {
-                        this.f11734e = !k();
+                    if (this.f5021e) {
+                        this.f5021e = !k();
                     }
                 }
             }
@@ -207,8 +207,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("isOn", this.f11732c);
-                    this.f11731b.i("ci.dat", jSONObject.toString(), true);
+                    jSONObject.put("isOn", this.f5019c);
+                    this.f5018b.i("ci.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -223,8 +223,8 @@ public class o implements j {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("TIME_OUT", this.f11735f);
-                    this.f11731b.i("ct.dat", jSONObject.toString(), true);
+                    jSONObject.put("TIME_OUT", this.f5022f);
+                    this.f5018b.i("ct.dat", jSONObject.toString(), true);
                     return true;
                 } catch (Exception unused) {
                     return false;
@@ -246,10 +246,10 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
                 try {
-                    this.f11736g = n.a(this.f11731b.g("cs.dat", true));
-                    this.f11738i = e();
+                    this.f5023g = n.a(this.f5018b.g("cs.dat", true));
+                    this.f5025i = e();
                 } catch (Exception unused) {
-                    this.f11738i = 0L;
+                    this.f5025i = 0L;
                 }
             }
         }
@@ -258,14 +258,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
                 try {
-                    JSONObject a = n.a(this.f11731b.g("ci.dat", true));
+                    JSONObject a = n.a(this.f5018b.g("ci.dat", true));
                     if (a == null) {
-                        this.f11732c = true;
+                        this.f5019c = true;
                     } else {
-                        this.f11732c = a.optBoolean("isOn", true);
+                        this.f5019c = a.optBoolean("isOn", true);
                     }
                 } catch (Exception unused) {
-                    this.f11732c = true;
+                    this.f5019c = true;
                 }
             }
         }
@@ -274,14 +274,14 @@ public class o implements j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
                 try {
-                    JSONObject a = n.a(this.f11731b.g("ct.dat", true));
+                    JSONObject a = n.a(this.f5018b.g("ct.dat", true));
                     if (a == null) {
-                        this.f11735f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                        this.f5022f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                     } else {
-                        this.f11735f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                        this.f5022f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
                     }
                 } catch (Exception unused) {
-                    this.f11735f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    this.f5022f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
                 }
             }
         }

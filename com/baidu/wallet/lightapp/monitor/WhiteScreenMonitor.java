@@ -54,28 +54,28 @@ public class WhiteScreenMonitor {
     public WhiteScreenConfig a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f53671b;
+    public List<a> f53674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f53672c;
+    public ThreadPoolExecutor f53675c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f53673d;
+    public Handler f53676d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f53674e;
+    public boolean f53677e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53675f;
+    public String f53678f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f53676g;
+    public Context f53679g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Map<String, c> f53677h;
+    public final Map<String, c> f53680h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Map<String, b> f53678i;
+    public final Map<String, b> f53681i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes13.dex */
@@ -146,10 +146,10 @@ public class WhiteScreenMonitor {
         public Bitmap a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f53688b;
+        public boolean f53691b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Bitmap f53689c;
+        public Bitmap f53692c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -165,8 +165,8 @@ public class WhiteScreenMonitor {
                 }
             }
             this.a = null;
-            this.f53688b = false;
-            this.f53689c = null;
+            this.f53691b = false;
+            this.f53692c = null;
         }
     }
 
@@ -177,19 +177,19 @@ public class WhiteScreenMonitor {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f53690b;
+        public String f53693b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f53691c;
+        public String f53694c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f53692d;
+        public String f53695d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f53693e;
+        public String f53696e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f53694f;
+        public String f53697f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -219,7 +219,7 @@ public class WhiteScreenMonitor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f53691c = str;
+                this.f53694c = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -229,7 +229,7 @@ public class WhiteScreenMonitor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f53692d = str;
+                this.f53695d = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -239,7 +239,7 @@ public class WhiteScreenMonitor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.f53693e = str;
+                this.f53696e = str;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -249,8 +249,8 @@ public class WhiteScreenMonitor {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                this.f53690b = str;
-                this.f53694f = Uri.parse(str).getHost();
+                this.f53693b = str;
+                this.f53697f = Uri.parse(str).getHost();
                 return this;
             }
             return (b) invokeL.objValue;
@@ -264,16 +264,16 @@ public class WhiteScreenMonitor {
         public final Object a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53695b;
+        public int f53698b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53696c;
+        public int f53699c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f53697d;
+        public final int f53700d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final double f53698e;
+        public final double f53701e;
 
         public c(int i2, int i3, double d2) {
             Interceptable interceptable = $ic;
@@ -290,9 +290,9 @@ public class WhiteScreenMonitor {
                     return;
                 }
             }
-            this.f53695b = i2;
-            this.f53697d = i3;
-            this.f53698e = Math.max(d2, 0.0d);
+            this.f53698b = i2;
+            this.f53700d = i3;
+            this.f53701e = Math.max(d2, 0.0d);
             this.a = this;
         }
 
@@ -302,7 +302,7 @@ public class WhiteScreenMonitor {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this.a) {
-                    z = this.f53696c <= this.f53697d;
+                    z = this.f53699c <= this.f53700d;
                 }
                 return z;
             }
@@ -315,7 +315,7 @@ public class WhiteScreenMonitor {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this.a) {
-                    i2 = this.f53695b;
+                    i2 = this.f53698b;
                 }
                 return i2;
             }
@@ -327,10 +327,10 @@ public class WhiteScreenMonitor {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 synchronized (this.a) {
-                    this.f53696c++;
-                    this.f53695b = (int) (this.f53695b * this.f53698e);
+                    this.f53699c++;
+                    this.f53698b = (int) (this.f53698b * this.f53701e);
                 }
-                LogUtil.d("WhiteScreenMonitor", "Retry, count: " + this.f53696c + ", delay: " + this.f53695b + ", hasAttemptRemaining: " + a());
+                LogUtil.d("WhiteScreenMonitor", "Retry, count: " + this.f53699c + ", delay: " + this.f53698b + ", hasAttemptRemaining: " + a());
                 return a();
             }
             return invokeV.booleanValue;
@@ -373,34 +373,34 @@ public class WhiteScreenMonitor {
                 return;
             }
         }
-        this.f53671b = new CopyOnWriteArrayList();
-        this.f53673d = new Handler(Looper.getMainLooper());
-        this.f53677h = new ConcurrentHashMap();
-        this.f53678i = new ConcurrentHashMap();
+        this.f53674b = new CopyOnWriteArrayList();
+        this.f53676d = new Handler(Looper.getMainLooper());
+        this.f53680h = new ConcurrentHashMap();
+        this.f53681i = new ConcurrentHashMap();
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Map<String, b> map = this.f53678i;
+            Map<String, b> map = this.f53681i;
             if (map != null) {
                 for (Map.Entry<String, b> entry : map.entrySet()) {
-                    if (entry.getValue().a && !TextUtils.isEmpty(entry.getValue().f53692d)) {
+                    if (entry.getValue().a && !TextUtils.isEmpty(entry.getValue().f53695d)) {
                         a(entry.getKey());
                     }
                 }
             }
-            Map<String, c> map2 = this.f53677h;
+            Map<String, c> map2 = this.f53680h;
             if (map2 != null) {
-                this.f53673d.removeCallbacksAndMessages(map2);
-                this.f53677h.clear();
+                this.f53676d.removeCallbacksAndMessages(map2);
+                this.f53680h.clear();
             }
-            List<a> list = this.f53671b;
+            List<a> list = this.f53674b;
             if (list != null) {
                 for (a aVar : list) {
                     a(aVar.a);
                 }
-                this.f53671b.clear();
+                this.f53674b.clear();
             }
         }
     }
@@ -413,15 +413,15 @@ public class WhiteScreenMonitor {
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, this, context) == null) || this.f53674e) {
+        if (!(interceptable == null || interceptable.invokeL(65547, this, context) == null) || this.f53677e) {
             return;
         }
         File externalFilesDir = context.getExternalFilesDir("");
-        this.f53676g = DxmApplicationContextImpl.getApplicationContext(context);
+        this.f53679g = DxmApplicationContextImpl.getApplicationContext(context);
         if (externalFilesDir != null) {
-            this.f53675f = externalFilesDir.getAbsolutePath();
+            this.f53678f = externalFilesDir.getAbsolutePath();
         } else {
-            this.f53675f = context.getFilesDir().getAbsolutePath();
+            this.f53678f = context.getFilesDir().getAbsolutePath();
         }
         String whiteScreenConfig = SdkInitResponse.getInstance().getWhiteScreenConfig(context);
         if (!TextUtils.isEmpty(whiteScreenConfig)) {
@@ -437,7 +437,7 @@ public class WhiteScreenMonitor {
         }
         WhiteScreenConfig whiteScreenConfig3 = this.a;
         if (!whiteScreenConfig3.wsc_enable && !whiteScreenConfig3.wsc_view_enable) {
-            this.f53674e = true;
+            this.f53677e = true;
             return;
         }
         ThreadFactory threadFactory = new ThreadFactory(this) { // from class: com.baidu.wallet.lightapp.monitor.WhiteScreenMonitor.1
@@ -446,7 +446,7 @@ public class WhiteScreenMonitor {
             public AtomicInteger a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ WhiteScreenMonitor f53679b;
+            public final /* synthetic */ WhiteScreenMonitor f53682b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -463,7 +463,7 @@ public class WhiteScreenMonitor {
                         return;
                     }
                 }
-                this.f53679b = this;
+                this.f53682b = this;
                 this.a = new AtomicInteger(1);
             }
 
@@ -479,9 +479,9 @@ public class WhiteScreenMonitor {
         };
         WhiteScreenConfig whiteScreenConfig4 = this.a;
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(whiteScreenConfig4.wsc_core_task, whiteScreenConfig4.wsc_max_task, whiteScreenConfig4.wsc_alive_time, TimeUnit.SECONDS, new SynchronousQueue(), threadFactory, new ThreadPoolExecutor.DiscardPolicy());
-        this.f53672c = threadPoolExecutor;
+        this.f53675c = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(true);
-        this.f53674e = true;
+        this.f53677e = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -499,28 +499,28 @@ public class WhiteScreenMonitor {
         LogUtil.d("WhiteScreenMonitor", "START DETECT, " + pageStates + StringUtil.ARRAY_ELEMENT_SEPARATOR + clearQuery);
         try {
             a a2 = a(webView);
-            this.f53672c.execute(new Runnable(this, a2.f53689c, currentTimeMillis, webView, pageStates, clearQuery, a2) { // from class: com.baidu.wallet.lightapp.monitor.WhiteScreenMonitor.3
+            this.f53675c.execute(new Runnable(this, a2.f53692c, currentTimeMillis, webView, pageStates, clearQuery, a2) { // from class: com.baidu.wallet.lightapp.monitor.WhiteScreenMonitor.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f53682b;
+                public final /* synthetic */ long f53685b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ WebView f53683c;
+                public final /* synthetic */ WebView f53686c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ PageStates f53684d;
+                public final /* synthetic */ PageStates f53687d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f53685e;
+                public final /* synthetic */ String f53688e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ a f53686f;
+                public final /* synthetic */ a f53689f;
 
                 /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ WhiteScreenMonitor f53687g;
+                public final /* synthetic */ WhiteScreenMonitor f53690g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -537,34 +537,34 @@ public class WhiteScreenMonitor {
                             return;
                         }
                     }
-                    this.f53687g = this;
+                    this.f53690g = this;
                     this.a = r7;
-                    this.f53682b = currentTimeMillis;
-                    this.f53683c = webView;
-                    this.f53684d = pageStates;
-                    this.f53685e = clearQuery;
-                    this.f53686f = a2;
+                    this.f53685b = currentTimeMillis;
+                    this.f53686c = webView;
+                    this.f53687d = pageStates;
+                    this.f53688e = clearQuery;
+                    this.f53689f = a2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        WhiteScreenMonitor whiteScreenMonitor = this.f53687g;
+                        WhiteScreenMonitor whiteScreenMonitor = this.f53690g;
                         ArrayList a3 = whiteScreenMonitor.a(whiteScreenMonitor.a.wsc_area_detect, 4, 0);
-                        boolean a4 = this.f53687g.a(this.a, a3);
-                        String str = "" + (System.currentTimeMillis() - this.f53682b);
+                        boolean a4 = this.f53690g.a(this.a, a3);
+                        String str = "" + (System.currentTimeMillis() - this.f53685b);
                         b bVar = new b();
-                        bVar.a(this.f53685e).a(a4).b(this.f53684d.name()).c(this.f53687g.a(a3)).d(str);
-                        this.f53687g.f53678i.put(this.f53685e, bVar);
+                        bVar.a(this.f53688e).a(a4).b(this.f53687d.name()).c(this.f53690g.a(a3)).d(str);
+                        this.f53690g.f53681i.put(this.f53688e, bVar);
                         if (!a4) {
-                            this.f53687g.b(this.f53685e);
+                            this.f53690g.b(this.f53688e);
                         } else {
-                            this.f53687g.a(true, this.f53685e, this.f53683c, this.f53684d);
+                            this.f53690g.a(true, this.f53688e, this.f53686c, this.f53687d);
                         }
-                        this.f53687g.a(this.f53686f);
-                        this.f53687g.a(this.a);
-                        LogUtil.d("WhiteScreenMonitor", "WhiteScreen:" + this.f53685e + " " + a4 + " " + this.f53684d + " " + this.f53687g.a(a3));
+                        this.f53690g.a(this.f53689f);
+                        this.f53690g.a(this.a);
+                        LogUtil.d("WhiteScreenMonitor", "WhiteScreen:" + this.f53688e + " " + a4 + " " + this.f53687d + " " + this.f53690g.a(a3));
                         StringBuilder sb = new StringBuilder();
                         sb.append("TIME COST:");
                         sb.append(str);
@@ -581,7 +581,7 @@ public class WhiteScreenMonitor {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, str) == null) {
-            this.f53677h.remove(str);
+            this.f53680h.remove(str);
         }
     }
 
@@ -646,7 +646,7 @@ public class WhiteScreenMonitor {
         if (this.a.wsc_enable) {
             String clearQuery = URLUtil.clearQuery(url);
             a(pageStates, clearQuery);
-            this.f53673d.removeCallbacksAndMessages(this.f53677h);
+            this.f53676d.removeCallbacksAndMessages(this.f53680h);
             a(false, clearQuery, webView, pageStates);
         }
     }
@@ -665,7 +665,7 @@ public class WhiteScreenMonitor {
                 WhiteScreenConfig.Policy policy3 = this.a.resumePolicy;
                 cVar = new c(policy3.initialDelayMs, policy3.maxNumRetries, policy3.backoffMultiplier);
             }
-            this.f53677h.put(str, cVar);
+            this.f53680h.put(str, cVar);
         }
     }
 
@@ -674,25 +674,25 @@ public class WhiteScreenMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Boolean.valueOf(z), str, webView, pageStates}) == null) {
             LogUtil.d("WhiteScreenMonitor", "queuedDetectTask, " + str + ", retrying: " + z + ", states: " + pageStates);
-            c cVar = this.f53677h.get(str);
+            c cVar = this.f53680h.get(str);
             if (cVar == null) {
                 return;
             }
             if (z && !cVar.c()) {
                 a(str);
-                this.f53677h.remove(str);
+                this.f53680h.remove(str);
                 return;
             }
-            this.f53673d.postAtTime(new Runnable(this, webView, pageStates) { // from class: com.baidu.wallet.lightapp.monitor.WhiteScreenMonitor.2
+            this.f53676d.postAtTime(new Runnable(this, webView, pageStates) { // from class: com.baidu.wallet.lightapp.monitor.WhiteScreenMonitor.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebView a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PageStates f53680b;
+                public final /* synthetic */ PageStates f53683b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ WhiteScreenMonitor f53681c;
+                public final /* synthetic */ WhiteScreenMonitor f53684c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -709,19 +709,19 @@ public class WhiteScreenMonitor {
                             return;
                         }
                     }
-                    this.f53681c = this;
+                    this.f53684c = this;
                     this.a = webView;
-                    this.f53680b = pageStates;
+                    this.f53683b = pageStates;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f53681c.b(this.a, this.f53680b);
+                        this.f53684c.b(this.a, this.f53683b);
                     }
                 }
-            }, this.f53677h, SystemClock.uptimeMillis() + cVar.b());
+            }, this.f53680h, SystemClock.uptimeMillis() + cVar.b());
         }
     }
 
@@ -729,24 +729,24 @@ public class WhiteScreenMonitor {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, str) == null) {
-            b bVar = this.f53678i.get(str);
-            c cVar = this.f53677h.get(str);
+            b bVar = this.f53681i.get(str);
+            c cVar = this.f53680h.get(str);
             if (bVar != null && (z = bVar.a) && cVar != null) {
-                List asList = Arrays.asList(bVar.f53690b, String.valueOf(z), bVar.f53691c, bVar.f53692d, bVar.f53693e, bVar.f53694f, String.valueOf(cVar.a()));
+                List asList = Arrays.asList(bVar.f53693b, String.valueOf(z), bVar.f53694c, bVar.f53695d, bVar.f53696e, bVar.f53697f, String.valueOf(cVar.a()));
                 LogUtil.d("WhiteScreenMonitor", "reportResult, " + str + ", hasAttemptRemaining: " + cVar.a());
                 DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, asList);
                 HashMap hashMap = new HashMap(asList.size());
-                hashMap.put("pageUrl", bVar.f53690b);
-                hashMap.put("tag", bVar.f53691c);
-                hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, bVar.f53692d);
-                hashMap.put("timeCost", bVar.f53693e);
-                hashMap.put("host", bVar.f53694f);
+                hashMap.put("pageUrl", bVar.f53693b);
+                hashMap.put("tag", bVar.f53694c);
+                hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, bVar.f53695d);
+                hashMap.put("timeCost", bVar.f53696e);
+                hashMap.put("host", bVar.f53697f);
                 hashMap.put("hasAttemptRemaining", String.valueOf(cVar.a()));
-                Tracker.send(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, hashMap, this.f53676g);
-                this.f53678i.remove(str);
+                Tracker.send(LightAppStatEvent.LIGHT_APP_WHITE_SCREEN, hashMap, this.f53679g);
+                this.f53681i.remove(str);
                 return;
             }
-            this.f53678i.remove(str);
+            this.f53681i.remove(str);
         }
     }
 
@@ -798,7 +798,7 @@ public class WhiteScreenMonitor {
             a a2 = a(width, height);
             webView.draw(new Canvas(a2.a));
             int a3 = a(width, height, 96, 96);
-            a2.f53689c = ThumbnailUtils.extractThumbnail(a2.a, width / a3, height / a3);
+            a2.f53692c = ThumbnailUtils.extractThumbnail(a2.a, width / a3, height / a3);
             LogUtil.d("WhiteScreenMonitor", "captureWebView:" + (System.currentTimeMillis() - currentTimeMillis));
             return a2;
         }
@@ -888,27 +888,27 @@ public class WhiteScreenMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
             synchronized (this) {
-                if (this.f53671b != null && this.f53671b.size() > 0) {
-                    for (a aVar : this.f53671b) {
-                        if (aVar.a != null && !aVar.a.isRecycled() && !aVar.f53688b && aVar.a.getWidth() == i2 && aVar.a.getHeight() == i3) {
-                            aVar.f53688b = true;
+                if (this.f53674b != null && this.f53674b.size() > 0) {
+                    for (a aVar : this.f53674b) {
+                        if (aVar.a != null && !aVar.a.isRecycled() && !aVar.f53691b && aVar.a.getWidth() == i2 && aVar.a.getHeight() == i3) {
+                            aVar.f53691b = true;
                             LogUtil.d("WhiteScreenMonitor", "Bitmap Recycled");
                             return aVar;
                         }
                     }
                 }
-                if (this.f53671b.size() < this.a.wsc_core_cache) {
+                if (this.f53674b.size() < this.a.wsc_core_cache) {
                     a aVar2 = new a();
                     aVar2.a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
-                    aVar2.f53688b = true;
-                    this.f53671b.add(aVar2);
+                    aVar2.f53691b = true;
+                    this.f53674b.add(aVar2);
                     LogUtil.d("WhiteScreenMonitor", "Bitmap created");
                     return aVar2;
                 }
                 LogUtil.d("WhiteScreenMonitor", "Bitmap new");
                 a aVar3 = new a();
                 aVar3.a = Bitmap.createBitmap(i2, i3, Bitmap.Config.RGB_565);
-                aVar3.f53688b = true;
+                aVar3.f53691b = true;
                 return aVar3;
             }
         }
@@ -920,10 +920,10 @@ public class WhiteScreenMonitor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, aVar) == null) {
             synchronized (this) {
-                if (this.f53671b != null && this.f53671b.size() > 0) {
-                    for (a aVar2 : this.f53671b) {
-                        if (aVar2.a == aVar.a && !aVar2.a.isRecycled() && aVar2.f53688b) {
-                            aVar2.f53688b = false;
+                if (this.f53674b != null && this.f53674b.size() > 0) {
+                    for (a aVar2 : this.f53674b) {
+                        if (aVar2.a == aVar.a && !aVar2.a.isRecycled() && aVar2.f53691b) {
+                            aVar2.f53691b = false;
                             LogUtil.d("WhiteScreenMonitor", "Bitmap Released");
                             return;
                         }

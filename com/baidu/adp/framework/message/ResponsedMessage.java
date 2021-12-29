@@ -121,7 +121,7 @@ public abstract class ResponsedMessage<T> {
 
     public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f2195c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f2622c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }

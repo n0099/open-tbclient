@@ -85,39 +85,51 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
         return invokeLL.booleanValue;
     }
 
+    public void onNotificationMessageClicked(Context context, UPSNotificationMessage uPSNotificationMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, uPSNotificationMessage) == null) {
+        }
+    }
+
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final void onPublish(Context context, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048583, this, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, i2, str) == null) {
             super.onPublish(context, i2, str);
+        }
+    }
+
+    public void onReceiveRegId(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, str) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final void onSetAlias(Context context, int i2, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final void onSetTags(Context context, int i2, List<String> list, List<String> list2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i2), list, list2, str}) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, context, unvarnishedMessage) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, unvarnishedMessage) == null) {
         }
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
     public final void onUnBind(Context context, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, context, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048589, this, context, i2, str) == null) {
             super.onUnBind(context, i2, str);
         }
     }

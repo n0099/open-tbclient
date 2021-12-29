@@ -15,7 +15,7 @@ public class FunNativeAdListenerHelper<K, V> {
     public final HashMap<K, FunNativeAdListenerHelper<K, V>.ListenerHolder> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ReporterPidLoader<K> f56295b;
+    public final ReporterPidLoader<K> f56294b;
 
     /* loaded from: classes3.dex */
     public class ListenerHolder {
@@ -24,25 +24,25 @@ public class FunNativeAdListenerHelper<K, V> {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final V f56296b;
+        public final V f56295b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Ssp.Pid f56297c;
+        public final Ssp.Pid f56296c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f56298d;
+        public boolean f56297d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f56299e;
+        public boolean f56298e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f56300f;
+        public boolean f56299f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FunAdInteractionListener f56301g;
+        public FunAdInteractionListener f56300g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ FunNativeAdListenerHelper f56302h;
+        public final /* synthetic */ FunNativeAdListenerHelper f56301h;
 
         public ListenerHolder(FunNativeAdListenerHelper funNativeAdListenerHelper, String str, Ssp.Pid pid, V v) {
             Interceptable interceptable = $ic;
@@ -59,10 +59,10 @@ public class FunNativeAdListenerHelper<K, V> {
                     return;
                 }
             }
-            this.f56302h = funNativeAdListenerHelper;
+            this.f56301h = funNativeAdListenerHelper;
             this.a = str;
-            this.f56296b = v;
-            this.f56297c = pid;
+            this.f56295b = v;
+            this.f56296c = pid;
         }
     }
 
@@ -82,7 +82,7 @@ public class FunNativeAdListenerHelper<K, V> {
             }
         }
         this.a = new HashMap<>();
-        this.f56295b = reporterPidLoader;
+        this.f56294b = reporterPidLoader;
     }
 
     public final void destroy(K k2) {
@@ -102,12 +102,12 @@ public class FunNativeAdListenerHelper<K, V> {
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.f56302h.f56295b.onAdClicked(listenerHolder.f56300f);
-                listenerHolder.f56300f = true;
-                FunAdInteractionListener funAdInteractionListener = listenerHolder.f56301g;
+                listenerHolder.f56301h.f56294b.onAdClicked(listenerHolder.f56299f);
+                listenerHolder.f56299f = true;
+                FunAdInteractionListener funAdInteractionListener = listenerHolder.f56300g;
                 if (funAdInteractionListener != null) {
                     String str = listenerHolder.a;
-                    Ssp.Pid pid = listenerHolder.f56297c;
+                    Ssp.Pid pid = listenerHolder.f56296c;
                     funAdInteractionListener.onAdClicked(str, pid.ssp.type, pid.pid);
                 }
             }
@@ -122,12 +122,12 @@ public class FunNativeAdListenerHelper<K, V> {
                 if (listenerHolder == null) {
                     return;
                 }
-                listenerHolder.f56302h.f56295b.onAdShow(k2, listenerHolder.f56299e);
-                listenerHolder.f56299e = true;
-                FunAdInteractionListener funAdInteractionListener = listenerHolder.f56301g;
+                listenerHolder.f56301h.f56294b.onAdShow(k2, listenerHolder.f56298e);
+                listenerHolder.f56298e = true;
+                FunAdInteractionListener funAdInteractionListener = listenerHolder.f56300g;
                 if (funAdInteractionListener != null) {
                     String str = listenerHolder.a;
-                    Ssp.Pid pid = listenerHolder.f56297c;
+                    Ssp.Pid pid = listenerHolder.f56296c;
                     funAdInteractionListener.onAdShow(str, pid.ssp.type, pid.pid);
                 }
             }
@@ -143,9 +143,9 @@ public class FunNativeAdListenerHelper<K, V> {
                     listenerHolder = new ListenerHolder(this, str, pid, v);
                     this.a.put(k2, listenerHolder);
                 }
-                listenerHolder.f56302h.f56295b.onShowStart(listenerHolder.f56298d);
-                listenerHolder.f56298d = true;
-                listenerHolder.f56301g = funAdInteractionListener;
+                listenerHolder.f56301h.f56294b.onShowStart(listenerHolder.f56297d);
+                listenerHolder.f56297d = true;
+                listenerHolder.f56300g = funAdInteractionListener;
             }
         }
     }

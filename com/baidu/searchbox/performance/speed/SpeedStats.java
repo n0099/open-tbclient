@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.e.a;
-import c.a.r0.s.g0.b;
+import c.a.s0.s.g0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -21,6 +21,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -275,7 +276,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0091 -> B:39:0x0094). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0092 -> B:40:0x0095). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -290,11 +291,11 @@ public class SpeedStats {
                                     file.createNewFile();
                                 }
                                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (IOException e2) {
+                                e = e2;
                             }
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (Throwable th) {
+                            th = th;
                         }
                     } catch (IOException e3) {
                         e3.printStackTrace();
@@ -667,7 +668,9 @@ public class SpeedStats {
                             sb.append("onBaseActivityCreate******有效统计一次*******isFirstEnterMainActivity=");
                             sb.append(!this.mHasMainActivityLaunched);
                             sb.toString();
-                            this.mSpeedStatsManager.setStatsFlag(true);
+                            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                                this.mSpeedStatsManager.setStatsFlag(true);
+                            }
                             if (this.mHasMainActivityLaunched) {
                                 this.mStartMainActivityType = 6;
                             } else {

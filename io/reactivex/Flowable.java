@@ -1658,7 +1658,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> observeOn(Scheduler scheduler) {
@@ -2104,7 +2104,7 @@ public abstract class Flowable<T> implements Publisher<T> {
 
     public abstract void subscribeActual(Subscriber<? super T> subscriber);
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
     public final Flowable<T> subscribeOn(@NonNull Scheduler scheduler) {
@@ -2468,7 +2468,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048908, this)) == null) ? toSortedList(Functions.naturalComparator()) : (Single) invokeV.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
     public final Flowable<T> unsubscribeOn(Scheduler scheduler) {
@@ -2566,7 +2566,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLII.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public static Flowable<Long> interval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
@@ -2580,7 +2580,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public static Flowable<Long> intervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
@@ -2668,7 +2668,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65642, null, publisher, i2)) == null) ? fromPublisher(publisher).switchMapDelayError(Functions.identity(), i2) : (Flowable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public static Flowable<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3003,7 +3003,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048724, this, function, z)) == null) ? (Flowable<GroupedFlowable<K, T>>) groupBy(function, Functions.identity(), z, bufferSize()) : (Flowable) invokeLZ.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> observeOn(Scheduler scheduler, boolean z) {
@@ -3166,7 +3166,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048850, this, function, i2)) == null) ? switchMap0(function, i2, true) : (Flowable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> throttleFirst(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3180,7 +3180,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> throttleLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3189,7 +3189,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048876, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? sample(j2, timeUnit, scheduler) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> throttleWithTimeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3573,7 +3573,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> observeOn(Scheduler scheduler, boolean z, int i2) {
@@ -3637,7 +3637,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Single) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3682,7 +3682,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048834, this, consumer, consumer2)) == null) ? subscribe(consumer, consumer2, Functions.EMPTY_ACTION, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
     @Experimental
@@ -3865,7 +3865,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         }
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> debounce(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3888,7 +3888,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j2, timeUnit, Schedulers.computation(), z) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -3975,7 +3975,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(1048794, this, j2)) == null) ? retry(j2, Functions.alwaysTrue()) : (Flowable) invokeJ.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> skip(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4015,7 +4015,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048835, this, consumer, consumer2, action)) == null) ? subscribe(consumer, consumer2, action, FlowableInternalHelper.RequestMax.INSTANCE) : (Disposable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
     public final Flowable<T> take(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4210,7 +4210,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4399,7 +4399,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, iterable)) == null) ? concatEager(iterable, bufferSize(), bufferSize()) : (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public static <T> Flowable<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4425,7 +4425,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public static Flowable<Long> interval(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4491,7 +4491,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
@@ -4531,7 +4531,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (ConnectableFlowable) invokeI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
@@ -4545,7 +4545,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
     public final Flowable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4554,7 +4554,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048820, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? skipLast(j2, timeUnit, scheduler, false, bufferSize()) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4672,7 +4672,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048779, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) ? replay(function, i2, j2, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
     public final Flowable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
@@ -4681,7 +4681,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048821, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? skipLast(j2, timeUnit, scheduler, z, bufferSize()) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
@@ -4699,7 +4699,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, Publisher<? extends T> publisher) {
@@ -4745,7 +4745,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public static <T> Flowable<T> fromFuture(Future<? extends T> future, Scheduler scheduler) {
@@ -4792,7 +4792,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4817,7 +4817,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048797, this, predicate)) == null) ? retry(Long.MAX_VALUE, predicate) : (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.UNBOUNDED_IN)
     @CheckReturnValue
     public final Flowable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
@@ -4850,7 +4850,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Single) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4929,7 +4929,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<List<T>> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4979,7 +4979,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.PASS_THROUGH)
     @CheckReturnValue
     public final Flowable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -4988,7 +4988,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048884, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout0(j2, timeUnit, null, scheduler) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, int i2) {
@@ -5058,7 +5058,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final <U extends Collection<? super T>> Flowable<U> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable) {
@@ -5348,7 +5348,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j2, timeUnit)) == null) ? buffer(j2, timeUnit, Schedulers.computation(), Integer.MAX_VALUE) : (Flowable) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, int i2, Scheduler scheduler) {
@@ -5363,7 +5363,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLIL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -5436,7 +5436,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         }
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
@@ -5454,7 +5454,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048919, this, j2, timeUnit)) == null) ? window(j2, timeUnit, Schedulers.computation(), Long.MAX_VALUE, false) : (Flowable) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
@@ -5463,7 +5463,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? (Flowable<List<T>>) buffer(j2, timeUnit, scheduler, i2, ArrayListSupplier.asCallable(), false) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final Flowable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
@@ -5481,7 +5481,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048920, this, new Object[]{Long.valueOf(j2), timeUnit, Long.valueOf(j3)})) == null) ? window(j2, timeUnit, Schedulers.computation(), j3, false) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final <U extends Collection<? super T>> Flowable<U> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, Callable<U> callable, boolean z) {
@@ -5536,7 +5536,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -5561,7 +5561,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3) {
@@ -5593,7 +5593,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048782, this, new Object[]{function, Long.valueOf(j2), timeUnit})) == null) ? replay(function, j2, timeUnit, Schedulers.computation()) : (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z) {
@@ -5629,7 +5629,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048695, this, function, biFunction)) == null) ? flatMap(function, biFunction, false, bufferSize(), bufferSize()) : (Flowable) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -5644,7 +5644,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<Flowable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z, int i2) {
@@ -5676,7 +5676,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeLLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.ERROR)
     @CheckReturnValue
     public final Flowable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -5774,7 +5774,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final <R> Flowable<R> replay(Function<? super Flowable<T>, ? extends Publisher<R>> function, Scheduler scheduler) {
@@ -5974,7 +5974,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final ConnectableFlowable<T> replay(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -6075,7 +6075,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (Flowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final ConnectableFlowable<T> replay(int i2, Scheduler scheduler) {
@@ -6116,7 +6116,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048790, this, j2, timeUnit)) == null) ? replay(j2, timeUnit, Schedulers.computation()) : (ConnectableFlowable) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final ConnectableFlowable<T> replay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
@@ -6130,7 +6130,7 @@ public abstract class Flowable<T> implements Publisher<T> {
         return (ConnectableFlowable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
     public final ConnectableFlowable<T> replay(Scheduler scheduler) {

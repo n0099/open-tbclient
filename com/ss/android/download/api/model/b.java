@@ -4,17 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -36,7 +27,7 @@ public class b {
     public Drawable f61665g;
 
     /* renamed from: h  reason: collision with root package name */
-    public InterfaceC2155b f61666h;
+    public InterfaceC2162b f61666h;
 
     /* renamed from: i  reason: collision with root package name */
     public View f61667i;
@@ -44,17 +35,8 @@ public class b {
     /* renamed from: j  reason: collision with root package name */
     public int f61668j;
 
-    /* renamed from: com.ss.android.download.api.model.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
     /* loaded from: classes3.dex */
     public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
         /* renamed from: b  reason: collision with root package name */
@@ -82,116 +64,60 @@ public class b {
         public Drawable f61676i;
 
         /* renamed from: j  reason: collision with root package name */
-        public InterfaceC2155b f61677j;
+        public InterfaceC2162b f61677j;
 
         public a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.f61670c = context;
         }
 
         public a a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.f61671d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61671d = str;
+            return this;
         }
 
         public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.f61672e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61672e = str;
+            return this;
         }
 
         public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-                this.f61673f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61673f = str;
+            return this;
         }
 
         public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                this.f61674g = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61674g = str;
+            return this;
         }
 
         public a a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.f61675h = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
+            this.f61675h = z;
+            return this;
         }
 
         public a a(Drawable drawable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable)) == null) {
-                this.f61676i = drawable;
-                return this;
-            }
-            return (a) invokeL.objValue;
+            this.f61676i = drawable;
+            return this;
         }
 
-        public a a(InterfaceC2155b interfaceC2155b) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC2155b)) == null) {
-                this.f61677j = interfaceC2155b;
-                return this;
-            }
-            return (a) invokeL.objValue;
+        public a a(InterfaceC2162b interfaceC2162b) {
+            this.f61677j = interfaceC2162b;
+            return this;
         }
 
         public a a(int i2) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f61669b = i2;
-                return this;
-            }
-            return (a) invokeI.objValue;
+            this.f61669b = i2;
+            return this;
         }
 
         public b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new b(this, null) : (b) invokeV.objValue;
+            return new b(this);
         }
     }
 
     /* renamed from: com.ss.android.download.api.model.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC2155b {
+    public interface InterfaceC2162b {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -199,25 +125,7 @@ public class b {
         void c(DialogInterface dialogInterface);
     }
 
-    public /* synthetic */ b(a aVar, AnonymousClass1 anonymousClass1) {
-        this(aVar);
-    }
-
     public b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f61664f = true;
         this.a = aVar.f61670c;
         this.f61660b = aVar.f61671d;

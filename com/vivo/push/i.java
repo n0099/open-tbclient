@@ -4,25 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppTagManager;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
-public final class i implements Runnable {
+public final class i implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ArrayList a;
+    public final /* synthetic */ e a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f63073b;
-
-    public i(LocalAliasTagsManager localAliasTagsManager, ArrayList arrayList) {
+    public i(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager, arrayList};
+            Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -32,24 +25,26 @@ public final class i implements Runnable {
                 return;
             }
         }
-        this.f63073b = localAliasTagsManager;
-        this.a = arrayList;
+        this.a = eVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        ISubscribeAppTagManager iSubscribeAppTagManager;
+    @Override // com.vivo.push.IPushActionListener
+    public final void onStateChanged(int i2) {
+        com.vivo.push.util.b bVar;
+        com.vivo.push.util.b bVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashSet hashSet = new HashSet();
-            Iterator it = this.a.iterator();
-            while (it.hasNext()) {
-                hashSet.add((String) it.next());
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (i2 == 0) {
+                this.a.f63077k = "";
+                bVar2 = this.a.f63076j;
+                bVar2.a("APP_TOKEN", "");
+                this.a.m();
+                this.a.f63076j.b("APP_TAGS");
+                return;
             }
-            iSubscribeAppTagManager = this.f63073b.mSubscribeAppTagManager;
-            if (iSubscribeAppTagManager.delTags(hashSet)) {
-                p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
-            }
+            this.a.f63077k = null;
+            bVar = this.a.f63076j;
+            bVar.b("APP_TOKEN");
         }
     }
 }

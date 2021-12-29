@@ -1,12 +1,5 @@
 package com.ss.android.downloadad.api.a;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
@@ -21,8 +14,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public long A;
     public long B;
     public long C;
@@ -104,18 +95,6 @@ public class b implements a {
     public int z;
 
     public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f61706h = 1;
         this.t = true;
         this.x = false;
@@ -135,974 +114,621 @@ public class b implements a {
     }
 
     public synchronized void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.z++;
-            }
-        }
+        this.z++;
     }
 
     public long B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.A;
-            return j2 == 0 ? this.u : j2;
-        }
-        return invokeV.longValue;
+        long j2 = this.A;
+        return j2 == 0 ? this.u : j2;
     }
 
     public long C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.B : invokeV.longValue;
+        return this.B;
     }
 
     public int D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.D : invokeV.intValue;
+        return this.D;
     }
 
     public int E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.E : invokeV.intValue;
+        return this.E;
     }
 
     public String F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.F : (String) invokeV.objValue;
+        return this.F;
     }
 
     public int G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f61706h : invokeV.intValue;
+        return this.f61706h;
     }
 
     public long H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.u : invokeV.longValue;
+        return this.u;
     }
 
     public int I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.p : invokeV.intValue;
+        return this.p;
     }
 
     public String J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.q : (String) invokeV.objValue;
+        return this.q;
     }
 
     public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.P : invokeV.intValue;
+        return this.P;
     }
 
     public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.x : invokeV.booleanValue;
+        return this.x;
     }
 
     public long M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.Z : invokeV.longValue;
+        return this.Z;
     }
 
     public String N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.r : (String) invokeV.objValue;
+        return this.r;
     }
 
     public int O() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.n : invokeV.intValue;
+        return this.n;
     }
 
     public String P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.V : (String) invokeV.objValue;
+        return this.V;
     }
 
     public boolean Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.X : invokeV.booleanValue;
+        return this.X;
     }
 
     public boolean R() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.O : invokeV.booleanValue;
+        return this.O;
     }
 
     public boolean S() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.Y : invokeV.booleanValue;
+        return this.Y;
     }
 
     public long T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.R : invokeV.longValue;
+        return this.R;
     }
 
     public long U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.S : invokeV.longValue;
+        return this.S;
     }
 
     public boolean V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.G : invokeV.booleanValue;
+        return this.G;
     }
 
     public String W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.H : (String) invokeV.objValue;
+        return this.H;
     }
 
     public boolean X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.I : invokeV.booleanValue;
+        return this.I;
     }
 
     public boolean Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.aa : invokeV.booleanValue;
+        return this.aa;
     }
 
     public boolean Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.ab : invokeV.booleanValue;
+        return this.ab;
     }
 
     public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.y = i2;
-        }
+        this.y = i2;
     }
 
     public boolean aa() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.ad : invokeV.booleanValue;
+        return this.ad;
     }
 
     public boolean ab() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.ac : invokeV.booleanValue;
+        return this.ac;
     }
 
     public boolean ac() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.ae : invokeV.booleanValue;
+        return this.ae;
     }
 
     public boolean ad() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.af : invokeV.booleanValue;
+        return this.af;
     }
 
     public JSONObject ae() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("mId", this.f61703e);
-                jSONObject.put("mExtValue", this.f61704f);
-                jSONObject.put("mLogExtra", this.f61705g);
-                jSONObject.put("mDownloadStatus", this.f61706h);
-                jSONObject.put("mPackageName", this.f61707i);
-                jSONObject.put("mIsAd", this.t);
-                jSONObject.put("mTimeStamp", this.u);
-                jSONObject.put("mExtras", this.v);
-                jSONObject.put("mVersionCode", this.p);
-                jSONObject.put("mVersionName", this.q);
-                jSONObject.put("mDownloadId", this.w);
-                jSONObject.put("mIsV3Event", this.N);
-                jSONObject.put("mScene", this.P);
-                jSONObject.put("mEventTag", this.L);
-                jSONObject.put("mEventRefer", this.M);
-                jSONObject.put("mDownloadUrl", this.f61708j);
-                jSONObject.put("mEnableBackDialog", this.x);
-                jSONObject.put("hasSendInstallFinish", this.f61701c.get());
-                jSONObject.put("hasSendDownloadFailedFinally", this.f61702d.get());
-                jSONObject.put("mLastFailedErrCode", this.E);
-                jSONObject.put("mLastFailedErrMsg", this.F);
-                jSONObject.put("mOpenUrl", this.f61709k);
-                jSONObject.put("mLinkMode", this.n);
-                jSONObject.put("mDownloadMode", this.o);
-                jSONObject.put("mModelType", this.m);
-                jSONObject.put("mAppName", this.r);
-                jSONObject.put("mAppIcon", this.s);
-                jSONObject.put("mDownloadFailedTimes", this.y);
-                jSONObject.put("mRecentDownloadResumeTime", this.A == 0 ? this.u : this.A);
-                jSONObject.put("mClickPauseTimes", this.z);
-                jSONObject.put("mJumpInstallTime", this.B);
-                jSONObject.put("mCancelInstallTime", this.C);
-                jSONObject.put("mLastFailedResumeCount", this.D);
-                jSONObject.put("mIsUpdateDownload", this.G);
-                jSONObject.put("mOriginMimeType", this.H);
-                jSONObject.put("mIsPatchApplyHandled", this.I);
-                jSONObject.put("downloadFinishReason", this.V);
-                jSONObject.put("clickDownloadTime", this.R);
-                jSONObject.put("clickDownloadSize", this.S);
-                jSONObject.put("installAfterCleanSpace", this.O);
-                jSONObject.put("funnelType", this.Q);
-                jSONObject.put("webUrl", this.l);
-                jSONObject.put("enableShowComplianceDialog", this.T);
-                jSONObject.put("isAutoDownloadOnCardShow", this.U);
-                int i2 = 1;
-                jSONObject.put("enable_new_activity", this.J ? 1 : 0);
-                jSONObject.put("enable_pause", this.K ? 1 : 0);
-                jSONObject.put("enable_ah", this.a ? 1 : 0);
-                if (!this.f61700b) {
-                    i2 = 0;
-                }
-                jSONObject.put("enable_am", i2);
-            } catch (Exception e2) {
-                j.s().a(e2, "NativeDownloadModel toJson");
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("mId", this.f61703e);
+            jSONObject.put("mExtValue", this.f61704f);
+            jSONObject.put("mLogExtra", this.f61705g);
+            jSONObject.put("mDownloadStatus", this.f61706h);
+            jSONObject.put("mPackageName", this.f61707i);
+            jSONObject.put("mIsAd", this.t);
+            jSONObject.put("mTimeStamp", this.u);
+            jSONObject.put("mExtras", this.v);
+            jSONObject.put("mVersionCode", this.p);
+            jSONObject.put("mVersionName", this.q);
+            jSONObject.put("mDownloadId", this.w);
+            jSONObject.put("mIsV3Event", this.N);
+            jSONObject.put("mScene", this.P);
+            jSONObject.put("mEventTag", this.L);
+            jSONObject.put("mEventRefer", this.M);
+            jSONObject.put("mDownloadUrl", this.f61708j);
+            jSONObject.put("mEnableBackDialog", this.x);
+            jSONObject.put("hasSendInstallFinish", this.f61701c.get());
+            jSONObject.put("hasSendDownloadFailedFinally", this.f61702d.get());
+            jSONObject.put("mLastFailedErrCode", this.E);
+            jSONObject.put("mLastFailedErrMsg", this.F);
+            jSONObject.put("mOpenUrl", this.f61709k);
+            jSONObject.put("mLinkMode", this.n);
+            jSONObject.put("mDownloadMode", this.o);
+            jSONObject.put("mModelType", this.m);
+            jSONObject.put("mAppName", this.r);
+            jSONObject.put("mAppIcon", this.s);
+            jSONObject.put("mDownloadFailedTimes", this.y);
+            jSONObject.put("mRecentDownloadResumeTime", this.A == 0 ? this.u : this.A);
+            jSONObject.put("mClickPauseTimes", this.z);
+            jSONObject.put("mJumpInstallTime", this.B);
+            jSONObject.put("mCancelInstallTime", this.C);
+            jSONObject.put("mLastFailedResumeCount", this.D);
+            jSONObject.put("mIsUpdateDownload", this.G);
+            jSONObject.put("mOriginMimeType", this.H);
+            jSONObject.put("mIsPatchApplyHandled", this.I);
+            jSONObject.put("downloadFinishReason", this.V);
+            jSONObject.put("clickDownloadTime", this.R);
+            jSONObject.put("clickDownloadSize", this.S);
+            jSONObject.put("installAfterCleanSpace", this.O);
+            jSONObject.put("funnelType", this.Q);
+            jSONObject.put("webUrl", this.l);
+            jSONObject.put("enableShowComplianceDialog", this.T);
+            jSONObject.put("isAutoDownloadOnCardShow", this.U);
+            int i2 = 1;
+            jSONObject.put("enable_new_activity", this.J ? 1 : 0);
+            jSONObject.put("enable_pause", this.K ? 1 : 0);
+            jSONObject.put("enable_ah", this.a ? 1 : 0);
+            if (!this.f61700b) {
+                i2 = 0;
             }
-            return jSONObject;
+            jSONObject.put("enable_am", i2);
+        } catch (Exception e2) {
+            j.s().a(e2, "NativeDownloadModel toJson");
         }
-        return (JSONObject) invokeV.objValue;
+        return jSONObject;
     }
 
     public AdDownloadModel af() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? new AdDownloadModel.Builder().setAdId(this.f61703e).setExtraValue(this.f61704f).setLogExtra(this.f61705g).setPackageName(this.f61707i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.f61708j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.f61709k, this.l, null)).build() : (AdDownloadModel) invokeV.objValue;
+        return new AdDownloadModel.Builder().setAdId(this.f61703e).setExtraValue(this.f61704f).setLogExtra(this.f61705g).setPackageName(this.f61707i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.f61708j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.f61709k, this.l, null)).build();
     }
 
     public AdDownloadEventConfig ag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? new AdDownloadEventConfig.Builder().setClickButtonTag(this.L).setRefer(this.M).setIsEnableV3Event(this.N).build() : (AdDownloadEventConfig) invokeV.objValue;
+        return new AdDownloadEventConfig.Builder().setClickButtonTag(this.L).setRefer(this.M).setIsEnableV3Event(this.N).build();
     }
 
     public AdDownloadController ah() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f61700b).build() : (AdDownloadController) invokeV.objValue;
+        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f61700b).build();
     }
 
     public void b(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.z = i2;
-        }
+        this.z = i2;
     }
 
     public void c(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.C = j2;
-        }
+        this.C = j2;
     }
 
     public void d(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            this.E = i2;
-        }
+        this.E = i2;
     }
 
     public void e(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
-            this.f61704f = j2;
-        }
+        this.f61704f = j2;
     }
 
     public void f(long j2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048638, this, j2) == null) || j2 <= 0) {
-            return;
+        if (j2 > 0) {
+            this.u = j2;
         }
-        this.u = j2;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.v : (JSONObject) invokeV.objValue;
+        return this.v;
     }
 
     public void h(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
-            this.P = i2;
-        }
+        this.P = i2;
     }
 
     public void i(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
-            this.Q = i2;
-        }
+        this.Q = i2;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) ? this.L : (String) invokeV.objValue;
+        return this.L;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
+        return null;
     }
 
     public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048662, this, str) == null) {
-            this.s = str;
-        }
+        this.s = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f61704f : invokeV.longValue;
+        return this.f61704f;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) ? this.N : invokeV.booleanValue;
+        return this.N;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public List<String> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
+        return null;
     }
 
     public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
-            this.ae = z;
-        }
+        this.ae = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public Object o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
-            return null;
-        }
-        return invokeV.objValue;
+        return null;
     }
 
     public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048674, this, z) == null) {
-            this.af = z;
-        }
+        this.af = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
+        return null;
     }
 
     public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048676, this, z) == null) {
-            this.T = z;
-        }
+        this.T = z;
     }
 
     public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048677, this, z) == null) {
-            this.U = z;
-        }
+        this.U = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
+        return null;
     }
 
     public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048680, this, z) == null) {
-            this.J = z;
-        }
+        this.J = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) ? this.w : invokeV.intValue;
+        return this.w;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
+        return -1;
     }
 
     public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048684, this, z) == null) {
-            this.a = z;
-        }
+        this.a = z;
     }
 
     public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048686, this, z) == null) {
-            this.f61700b = z;
-        }
+        this.f61700b = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadEventConfig v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) ? ag() : (DownloadEventConfig) invokeV.objValue;
+        return ag();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadController w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) ? ah() : (DownloadController) invokeV.objValue;
+        return ah();
     }
 
     public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) ? this.y : invokeV.intValue;
+        return this.y;
     }
 
     public synchronized void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048690, this) == null) {
-            synchronized (this) {
-                this.y++;
-            }
-        }
+        this.y++;
     }
 
     public int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) ? this.z : invokeV.intValue;
+        return this.z;
     }
 
     public void a(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.A = j2;
-        }
+        this.A = j2;
     }
 
     public void b(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) {
-            this.B = j2;
-        }
+        this.B = j2;
     }
 
     public void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.D = i2;
-        }
+        this.D = i2;
     }
 
     public void d(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
-            this.f61703e = j2;
-        }
+        this.f61703e = j2;
     }
 
     public void e(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.f61706h = i2;
-        }
+        this.f61706h = i2;
     }
 
     public void f(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.p = i2;
-        }
+        this.p = i2;
     }
 
     public void g(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
-            this.w = i2;
-        }
+        this.w = i2;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) ? this.Q : invokeV.intValue;
+        return this.Q;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) ? this.M : (String) invokeV.objValue;
+        return this.M;
     }
 
     public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
-            this.r = str;
-        }
+        this.r = str;
     }
 
     public void k(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            this.o = i2;
-        }
+        this.o = i2;
     }
 
     public void l(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048665, this, i2) == null) {
-            this.m = i2;
-        }
+        this.m = i2;
     }
 
     public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
-            this.H = str;
-        }
+        this.H = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) ? this.J : invokeV.booleanValue;
+        return this.J;
     }
 
     public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048682, this, z) == null) {
-            this.K = z;
-        }
+        this.K = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadModel u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) ? af() : (DownloadModel) invokeV.objValue;
+        return af();
     }
 
     public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.F = str;
-        }
+        this.F = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f61703e : invokeV.longValue;
+        return this.f61703e;
     }
 
     public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, str) == null) {
-            this.f61705g = str;
-        }
+        this.f61705g = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.f61705g : (String) invokeV.objValue;
+        return this.f61705g;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.f61707i : (String) invokeV.objValue;
+        return this.f61707i;
     }
 
     public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, str) == null) {
-            this.L = str;
-        }
+        this.L = str;
     }
 
     public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048644, this, str) == null) {
-            this.M = str;
-        }
+        this.M = str;
     }
 
     public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
-            this.f61708j = str;
-        }
+        this.f61708j = str;
     }
 
     public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
-            this.f61709k = str;
-        }
+        this.f61709k = str;
     }
 
     public void j(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
-            this.n = i2;
-        }
+        this.n = i2;
     }
 
     public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048663, this, z) == null) {
-            this.ab = z;
-        }
+        this.ab = z;
     }
 
     public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048666, this, str) == null) {
-            this.V = str;
-        }
+        this.V = str;
     }
 
     public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048669, this, z) == null) {
-            this.ac = z;
-        }
+        this.ac = z;
     }
 
     public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.t = z;
-        }
+        this.t = z;
     }
 
     public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
-            this.f61707i = str;
-        }
+        this.f61707i = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.t : invokeV.booleanValue;
+        return this.t;
     }
 
     public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            this.q = str;
-        }
+        this.q = str;
     }
 
     public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
-            this.l = str;
-        }
+        this.l = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.f61709k : (String) invokeV.objValue;
+        return this.f61709k;
     }
 
     public void g(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
-            this.Z = j2;
-        }
+        this.Z = j2;
     }
 
     public void h(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048648, this, j2) == null) {
-            this.R = j2;
-        }
+        this.R = j2;
     }
 
     public void i(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048653, this, j2) == null) {
-            this.S = j2;
-        }
+        this.S = j2;
     }
 
     public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048659, this, z) == null) {
-            this.aa = z;
-        }
+        this.aa = z;
     }
 
     public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048667, this, z) == null) {
-            this.ad = z;
-        }
+        this.ad = z;
     }
 
     public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, jSONObject) == null) {
-            this.v = jSONObject;
-        }
+        this.v = jSONObject;
     }
 
     public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
-            this.N = z;
-        }
+        this.N = z;
     }
 
     public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.x = z;
-        }
+        this.x = z;
     }
 
     public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048630, this, z) == null) {
-            this.W = z;
-        }
+        this.W = z;
     }
 
     public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
-            this.X = z;
-        }
+        this.X = z;
     }
 
     public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
-            this.O = z;
-        }
+        this.O = z;
     }
 
     public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048645, this, z) == null) {
-            this.Y = z;
-        }
+        this.Y = z;
     }
 
     public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048650, this, z) == null) {
-            this.G = z;
-        }
+        this.G = z;
     }
 
     public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048655, this, z) == null) {
-            this.I = z;
-        }
+        this.I = z;
     }
 
     public static b b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            b bVar = new b();
-            try {
-                bVar.d(com.ss.android.download.api.c.b.a(jSONObject, "mId"));
-                bVar.e(com.ss.android.download.api.c.b.a(jSONObject, "mExtValue"));
-                bVar.c(jSONObject.optString("mLogExtra"));
-                bVar.e(jSONObject.optInt("mDownloadStatus"));
-                bVar.b(jSONObject.optString("mPackageName"));
-                boolean z = true;
-                bVar.a(jSONObject.optBoolean("mIsAd", true));
-                bVar.f(com.ss.android.download.api.c.b.a(jSONObject, "mTimeStamp"));
-                bVar.f(jSONObject.optInt("mVersionCode"));
-                bVar.d(jSONObject.optString("mVersionName"));
-                bVar.g(jSONObject.optInt("mDownloadId"));
-                bVar.b(jSONObject.optBoolean("mIsV3Event"));
-                bVar.h(jSONObject.optInt("mScene"));
-                bVar.f(jSONObject.optString("mEventTag"));
-                bVar.g(jSONObject.optString("mEventRefer"));
-                bVar.h(jSONObject.optString("mDownloadUrl"));
-                bVar.c(jSONObject.optBoolean("mEnableBackDialog"));
-                bVar.f61701c.set(jSONObject.optBoolean("hasSendInstallFinish"));
-                bVar.f61702d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
-                bVar.d(jSONObject.optInt("mLastFailedErrCode"));
-                bVar.a(jSONObject.optString("mLastFailedErrMsg"));
-                bVar.i(jSONObject.optString("mOpenUrl"));
-                bVar.j(jSONObject.optInt("mLinkMode"));
-                bVar.k(jSONObject.optInt("mDownloadMode"));
-                bVar.l(jSONObject.optInt("mModelType"));
-                bVar.j(jSONObject.optString("mAppName"));
-                bVar.k(jSONObject.optString("mAppIcon"));
-                bVar.a(jSONObject.optInt("mDownloadFailedTimes", 0));
-                bVar.a(com.ss.android.download.api.c.b.a(jSONObject, "mRecentDownloadResumeTime"));
-                bVar.b(jSONObject.optInt("mClickPauseTimes"));
-                bVar.b(com.ss.android.download.api.c.b.a(jSONObject, "mJumpInstallTime"));
-                bVar.c(com.ss.android.download.api.c.b.a(jSONObject, "mCancelInstallTime"));
-                bVar.c(jSONObject.optInt("mLastFailedResumeCount"));
-                bVar.l(jSONObject.optString("downloadFinishReason"));
-                bVar.i(jSONObject.optLong("clickDownloadSize"));
-                bVar.h(jSONObject.optLong("clickDownloadTime"));
-                bVar.h(jSONObject.optBoolean("mIsUpdateDownload"));
-                bVar.m(jSONObject.optString("mOriginMimeType"));
-                bVar.i(jSONObject.optBoolean("mIsPatchApplyHandled"));
-                bVar.f(jSONObject.optBoolean("installAfterCleanSpace"));
-                bVar.i(jSONObject.optInt("funnelType", 1));
-                bVar.e(jSONObject.optString("webUrl"));
-                bVar.p(jSONObject.optBoolean("enableShowComplianceDialog", true));
-                bVar.q(jSONObject.optBoolean("isAutoDownloadOnCardShow"));
-                bVar.r(jSONObject.optInt("enable_new_activity", 1) == 1);
-                bVar.s(jSONObject.optInt("enable_pause", 1) == 1);
-                bVar.t(jSONObject.optInt("enable_ah", 1) == 1);
-                if (jSONObject.optInt("enable_am", 1) != 1) {
-                    z = false;
-                }
-                bVar.u(z);
-                bVar.a(jSONObject.optJSONObject("mExtras"));
-            } catch (Exception e2) {
-                j.s().a(e2, "NativeDownloadModel fromJson");
-            }
-            return bVar;
+        if (jSONObject == null) {
+            return null;
         }
-        return (b) invokeL.objValue;
+        b bVar = new b();
+        try {
+            bVar.d(com.ss.android.download.api.c.b.a(jSONObject, "mId"));
+            bVar.e(com.ss.android.download.api.c.b.a(jSONObject, "mExtValue"));
+            bVar.c(jSONObject.optString("mLogExtra"));
+            bVar.e(jSONObject.optInt("mDownloadStatus"));
+            bVar.b(jSONObject.optString("mPackageName"));
+            boolean z = true;
+            bVar.a(jSONObject.optBoolean("mIsAd", true));
+            bVar.f(com.ss.android.download.api.c.b.a(jSONObject, "mTimeStamp"));
+            bVar.f(jSONObject.optInt("mVersionCode"));
+            bVar.d(jSONObject.optString("mVersionName"));
+            bVar.g(jSONObject.optInt("mDownloadId"));
+            bVar.b(jSONObject.optBoolean("mIsV3Event"));
+            bVar.h(jSONObject.optInt("mScene"));
+            bVar.f(jSONObject.optString("mEventTag"));
+            bVar.g(jSONObject.optString("mEventRefer"));
+            bVar.h(jSONObject.optString("mDownloadUrl"));
+            bVar.c(jSONObject.optBoolean("mEnableBackDialog"));
+            bVar.f61701c.set(jSONObject.optBoolean("hasSendInstallFinish"));
+            bVar.f61702d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
+            bVar.d(jSONObject.optInt("mLastFailedErrCode"));
+            bVar.a(jSONObject.optString("mLastFailedErrMsg"));
+            bVar.i(jSONObject.optString("mOpenUrl"));
+            bVar.j(jSONObject.optInt("mLinkMode"));
+            bVar.k(jSONObject.optInt("mDownloadMode"));
+            bVar.l(jSONObject.optInt("mModelType"));
+            bVar.j(jSONObject.optString("mAppName"));
+            bVar.k(jSONObject.optString("mAppIcon"));
+            bVar.a(jSONObject.optInt("mDownloadFailedTimes", 0));
+            bVar.a(com.ss.android.download.api.c.b.a(jSONObject, "mRecentDownloadResumeTime"));
+            bVar.b(jSONObject.optInt("mClickPauseTimes"));
+            bVar.b(com.ss.android.download.api.c.b.a(jSONObject, "mJumpInstallTime"));
+            bVar.c(com.ss.android.download.api.c.b.a(jSONObject, "mCancelInstallTime"));
+            bVar.c(jSONObject.optInt("mLastFailedResumeCount"));
+            bVar.l(jSONObject.optString("downloadFinishReason"));
+            bVar.i(jSONObject.optLong("clickDownloadSize"));
+            bVar.h(jSONObject.optLong("clickDownloadTime"));
+            bVar.h(jSONObject.optBoolean("mIsUpdateDownload"));
+            bVar.m(jSONObject.optString("mOriginMimeType"));
+            bVar.i(jSONObject.optBoolean("mIsPatchApplyHandled"));
+            bVar.f(jSONObject.optBoolean("installAfterCleanSpace"));
+            bVar.i(jSONObject.optInt("funnelType", 1));
+            bVar.e(jSONObject.optString("webUrl"));
+            bVar.p(jSONObject.optBoolean("enableShowComplianceDialog", true));
+            bVar.q(jSONObject.optBoolean("isAutoDownloadOnCardShow"));
+            bVar.r(jSONObject.optInt("enable_new_activity", 1) == 1);
+            bVar.s(jSONObject.optInt("enable_pause", 1) == 1);
+            bVar.t(jSONObject.optInt("enable_ah", 1) == 1);
+            if (jSONObject.optInt("enable_am", 1) != 1) {
+                z = false;
+            }
+            bVar.u(z);
+            bVar.a(jSONObject.optJSONObject("mExtras"));
+        } catch (Exception e2) {
+            j.s().a(e2, "NativeDownloadModel fromJson");
+        }
+        return bVar;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f61708j : (String) invokeV.objValue;
+        return this.f61708j;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
         this(downloadModel, downloadEventConfig, downloadController, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadModel, downloadEventConfig, downloadController};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((DownloadModel) objArr2[0], (DownloadEventConfig) objArr2[1], (DownloadController) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     public b(DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadModel, downloadEventConfig, downloadController, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.f61706h = 1;
         this.t = true;
         this.x = false;

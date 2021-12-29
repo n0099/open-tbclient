@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.r0.d1.b0;
-import c.a.r0.d1.g;
-import c.a.s0.j3.l0.b;
-import c.a.s0.o1.c.d;
+import c.a.s0.e1.b0;
+import c.a.s0.e1.g;
+import c.a.t0.j3.l0.b;
+import c.a.t0.o1.c.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             g gVar = this.adInfo;
             if (gVar != null && !isEmpty) {
-                str = gVar.f12200b;
+                str = gVar.f12663b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,9 +81,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.r0.s.g0.b.j().l(c.a.r0.s.g0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.s0.s.g0.b.j().l(c.a.s0.s.g0.b.n("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(c.a.r0.b.d.j() ? c.a.r0.s.g0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(c.a.s0.b.d.j() ? c.a.s0.s.g0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
                     b0.a(builder, true);
                 }

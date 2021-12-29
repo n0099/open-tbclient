@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance;
 
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.c2.f;
+import c.a.t0.c2.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -93,7 +93,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009002, c.a.s0.v3.p0.a.k());
+                return new CustomResponsedMessage<>(2009002, c.a.t0.w3.p0.a.k());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -126,7 +126,7 @@ public class SquareSearchActivityStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2009001, c.a.s0.v3.p0.a.m());
+                return new CustomResponsedMessage<>(2009001, c.a.t0.w3.p0.a.m());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -221,10 +221,10 @@ public class SquareSearchActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2015003, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        c.a.s0.v3.f0.a.b(2001190, f.class);
-        c.a.s0.v3.f0.a.b(2001191, c.a.s0.c2.e.class);
+        c.a.t0.w3.f0.a.b(2001190, f.class);
+        c.a.t0.w3.f0.a.b(2001191, c.a.t0.c2.e.class);
         e();
-        c.a.s0.v3.f0.a.f(303116, HotForumSocketResponseMessage.class, false);
+        c.a.t0.w3.f0.a.f(303116, HotForumSocketResponseMessage.class, false);
         f();
         b();
         a();
@@ -279,7 +279,7 @@ public class SquareSearchActivityStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, c.a.s0.v3.f0.a.a(TbConfig.GET_HOT_FORUM_URL, 303116));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, c.a.t0.w3.f0.a.a(TbConfig.GET_HOT_FORUM_URL, 303116));
             tbHttpMessageTask.setResponsedClass(HotForumHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -288,13 +288,13 @@ public class SquareSearchActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            c.a.r0.z0.b bVar = new c.a.r0.z0.b(309438);
+            c.a.s0.a1.b bVar = new c.a.s0.a1.b(309438);
             bVar.setResponsedClass(SearchListSocketResMessage.class);
             bVar.g(true);
             bVar.h(false);
             bVar.f(SocketMessageTask.DupLicateMode.NONE);
             MessageManager.getInstance().registerTask(bVar);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, c.a.s0.v3.f0.a.a("c/s/searchSug", 309438));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SEARCH_LIST, c.a.t0.w3.f0.a.a("c/s/searchSug", 309438));
             tbHttpMessageTask.setResponsedClass(SearchListHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

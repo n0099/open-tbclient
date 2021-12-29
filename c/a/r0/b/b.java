@@ -1,176 +1,96 @@
 package c.a.r0.b;
 
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class b {
-    public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static b f12032b;
+public final class b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771984;
+    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771985;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771986;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771987;
+    public static final int aiapps_accelerate_quad = 2130771988;
+    public static final int aiapps_action_sheet_enter = 2130771989;
+    public static final int aiapps_action_sheet_exit = 2130771990;
+    public static final int aiapps_big_pic_toast_enter = 2130771991;
+    public static final int aiapps_big_pic_toast_exit = 2130771992;
+    public static final int aiapps_brower_menu_close = 2130771993;
+    public static final int aiapps_brower_menu_open = 2130771994;
+    public static final int aiapps_highlight_toast_show = 2130771995;
+    public static final int aiapps_highlight_toast_show_d20 = 2130771996;
+    public static final int aiapps_hold = 2130771997;
+    public static final int aiapps_loading_progress = 2130771998;
+    public static final int aiapps_pop_window_dismiss_anim = 2130771999;
+    public static final int aiapps_pop_window_show_anim = 2130772000;
+    public static final int aiapps_rotate_progressbar = 2130772001;
+    public static final int aiapps_slide_in_from_bottom = 2130772002;
+    public static final int aiapps_slide_in_from_right = 2130772003;
+    public static final int aiapps_slide_out_to_bottom = 2130772004;
+    public static final int aiapps_slide_out_to_bottom_zadjustment_top = 2130772005;
+    public static final int aiapps_slide_out_to_right = 2130772006;
+    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772007;
+    public static final int aiapps_toast_enter = 2130772008;
+    public static final int aiapps_toast_exit = 2130772009;
+    public static final int aiapps_update_loading_progressbar_anim = 2130772010;
+    public static final int aiapps_wx_pay_loading_anim = 2130772011;
+    public static final int bd_loading_progress = 2130772031;
+    public static final int btn_checkbox_to_checked_box_inner_merged_animation = 2130772036;
+    public static final int btn_checkbox_to_checked_box_outer_merged_animation = 2130772037;
+    public static final int btn_checkbox_to_checked_icon_null_animation = 2130772038;
+    public static final int btn_checkbox_to_unchecked_box_inner_merged_animation = 2130772039;
+    public static final int btn_checkbox_to_unchecked_check_path_merged_animation = 2130772041;
+    public static final int btn_checkbox_to_unchecked_icon_null_animation = 2130772042;
+    public static final int btn_radio_to_off_mtrl_dot_group_animation = 2130772043;
+    public static final int btn_radio_to_off_mtrl_ring_outer_animation = 2130772044;
+    public static final int btn_radio_to_off_mtrl_ring_outer_path_animation = 2130772045;
+    public static final int btn_radio_to_on_mtrl_dot_group_animation = 2130772046;
+    public static final int btn_radio_to_on_mtrl_ring_outer_animation = 2130772047;
+    public static final int btn_radio_to_on_mtrl_ring_outer_path_animation = 2130772048;
+    public static final int loading_rotate = 2130772132;
+    public static final int login_get_mobile_act_enter = 2130772133;
+    public static final int login_get_mobile_act_exit = 2130772134;
+    public static final int ng_game_ad_close = 2130772155;
+    public static final int ng_game_ad_open = 2130772156;
+    public static final int pass_liveness_tip_warning = 2130772202;
+    public static final int poly_sdk_common_dialog_fragment_in = 2130772211;
+    public static final int poly_sdk_common_dialog_fragment_out = 2130772212;
+    public static final int popupwindow_grow_fade_in = 2130772217;
+    public static final int popupwindow_grow_fade_in_from_bottom = 2130772218;
+    public static final int popupwindow_shrink_fade_out = 2130772219;
+    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772220;
+    public static final int sapi_sdk_hold = 2130772257;
+    public static final int sapi_sdk_push_bottom_in = 2130772258;
+    public static final int sapi_sdk_push_bottom_out = 2130772259;
+    public static final int sapi_sdk_slide_left_in = 2130772260;
+    public static final int sapi_sdk_slide_left_out = 2130772261;
+    public static final int sapi_sdk_slide_right_in = 2130772262;
+    public static final int sapi_sdk_slide_right_out = 2130772263;
+    public static final int sapi_sdk_speech_dialog_enter = 2130772264;
+    public static final int sapi_sdk_speech_dialog_exit = 2130772265;
+    public static final int slide_in_bottom = 2130772278;
+    public static final int slide_left_2_right = 2130772279;
+    public static final int slide_out_bottom = 2130772280;
+    public static final int slide_right_2_left = 2130772281;
+    public static final int swanapp_album_checkshake = 2130772294;
+    public static final int swanapp_album_floating_layer_in_animation = 2130772295;
+    public static final int swanapp_album_floating_layer_out_animation = 2130772296;
+    public static final int swanapp_album_preview_enter = 2130772297;
+    public static final int swanapp_album_preview_img_enter = 2130772298;
+    public static final int swanapp_album_preview_img_exit = 2130772299;
+    public static final int swanapp_album_rotate_loading = 2130772300;
+    public static final int swanapp_album_slide_bottom_in = 2130772301;
+    public static final int swanapp_album_slide_bottom_out = 2130772302;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, a> a;
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-        HashMap<String, a> d2 = d();
-        this.a.clear();
-        this.a.putAll(d2);
-    }
-
-    public static b e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f12032b == null) {
-                synchronized (b.class) {
-                    if (f12032b == null) {
-                        f12032b = new b();
-                    }
-                }
-            }
-            return f12032b;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static SharedPreferences g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences(f(), 0) : (SharedPreferences) invokeV.objValue;
-    }
-
-    public static boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? "a".equalsIgnoreCase(e().b(str, "")) : invokeL.booleanValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                synchronized (this.a) {
-                    this.a.clear();
-                }
-                SharedPreferences.Editor edit = g().edit();
-                edit.clear();
-                if (Build.VERSION.SDK_INT >= 9) {
-                    edit.apply();
-                } else {
-                    edit.commit();
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            a c2 = c(str);
-            return (c2 == null || TextUtils.isEmpty(c2.a)) ? str2 : c2.a;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public synchronized a c(String str) {
-        InterceptResult invokeL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                aVar = this.a.get(str);
-            }
-            return aVar;
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public final HashMap<String, a> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap<String, a> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(g().getString("pref_key_abtest_switchs", "[]"));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    if (jSONObject != null) {
-                        String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
-                    }
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void i(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
-            try {
-                if (jSONArray == null) {
-                    a();
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    if (jSONObject != null) {
-                        String optString = jSONObject.optString("name");
-                        hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
-                    }
-                }
-                synchronized (this.a) {
-                    this.a.clear();
-                    this.a.putAll(hashMap);
-                }
-                EditorHelper.putString(g(), "pref_key_abtest_switchs", jSONArray.toString());
-                c.a.r0.s.g0.b.j().v("perf_start_open", h("performance_start_small_flow") ? 1 : 0);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
 }

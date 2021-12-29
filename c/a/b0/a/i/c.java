@@ -13,34 +13,34 @@ public class c {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1216b;
+    public long f1609b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1217c;
+    public long f1610c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1218d;
+    public long f1611d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1219e;
+    public long f1612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f1220f;
+    public long f1613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f1221g;
+    public long f1614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f1222h;
+    public long f1615h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f1223i;
+    public long f1616i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f1224j;
+    public long f1617j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f1225k;
+    public String f1618k;
     public String l;
     public boolean m;
     public StringBuilder n;
@@ -60,10 +60,10 @@ public class c {
                 return;
             }
         }
-        this.f1220f = 1000L;
+        this.f1613f = 1000L;
         this.m = false;
         this.n = new StringBuilder();
-        this.f1225k = str;
+        this.f1618k = str;
         this.l = str2;
         e();
     }
@@ -77,13 +77,13 @@ public class c {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.f1222h;
-            this.f1223i = currentTimeMillis;
-            this.f1224j = this.f1221g;
-            this.f1222h = 0L;
-            this.f1221g = 0L;
+            long currentTimeMillis = System.currentTimeMillis() - this.f1615h;
+            this.f1616i = currentTimeMillis;
+            this.f1617j = this.f1614g;
+            this.f1615h = 0L;
+            this.f1614g = 0L;
             if (this.m) {
-                a(this.f1225k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.f1224j)));
+                a(this.f1618k, String.format("%s, PeriodTime: %d, Times: %d", this.l, Long.valueOf(currentTimeMillis), Long.valueOf(this.f1617j)));
             }
         }
     }
@@ -92,9 +92,9 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.f1218d), Long.valueOf(this.f1219e), Long.valueOf(this.f1217c), Long.valueOf(this.f1216b), Float.valueOf(((float) this.f1218d) / ((float) this.f1219e)));
+            String format = String.format("%s, Total: %d, Times: %d, Min: %d, Max: %d, Average：%f", this.l, Long.valueOf(this.f1611d), Long.valueOf(this.f1612e), Long.valueOf(this.f1610c), Long.valueOf(this.f1609b), Float.valueOf(((float) this.f1611d) / ((float) this.f1612e)));
             if (this.m) {
-                a(this.f1225k, format);
+                a(this.f1618k, format);
             }
             return format;
         }
@@ -109,12 +109,12 @@ public class c {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis() - this.a;
-            this.f1218d += currentTimeMillis;
-            this.f1219e++;
-            if (currentTimeMillis > this.f1216b) {
-                this.f1216b = currentTimeMillis;
-            } else if (currentTimeMillis < this.f1217c) {
-                this.f1217c = currentTimeMillis;
+            this.f1611d += currentTimeMillis;
+            this.f1612e++;
+            if (currentTimeMillis > this.f1609b) {
+                this.f1609b = currentTimeMillis;
+            } else if (currentTimeMillis < this.f1610c) {
+                this.f1610c = currentTimeMillis;
             }
             if (this.m) {
                 if (this.n.length() > 0) {
@@ -126,17 +126,17 @@ public class c {
                     this.n.append('.');
                 }
                 this.n.append(currentTimeMillis);
-                a(this.f1225k, this.n.toString());
+                a(this.f1618k, this.n.toString());
             }
-            this.f1221g++;
-            if (this.f1220f > 0 && System.currentTimeMillis() - this.f1222h > this.f1220f) {
+            this.f1614g++;
+            if (this.f1613f > 0 && System.currentTimeMillis() - this.f1615h > this.f1613f) {
                 b();
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             this.a = currentTimeMillis2;
-            if (this.f1222h == 0) {
-                this.f1222h = currentTimeMillis2;
-                this.f1221g = 0L;
+            if (this.f1615h == 0) {
+                this.f1615h = currentTimeMillis2;
+                this.f1614g = 0L;
             }
         }
     }
@@ -145,17 +145,17 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = 0L;
-            this.f1218d = 0L;
-            this.f1219e = 0L;
-            this.f1216b = Long.MIN_VALUE;
-            this.f1217c = Long.MAX_VALUE;
+            this.f1611d = 0L;
+            this.f1612e = 0L;
+            this.f1609b = Long.MIN_VALUE;
+            this.f1610c = Long.MAX_VALUE;
         }
     }
 
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f1220f = j2;
+            this.f1613f = j2;
         }
     }
 }

@@ -17,12 +17,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void e(byte[] bArr);
     }

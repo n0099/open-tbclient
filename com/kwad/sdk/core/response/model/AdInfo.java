@@ -2,12 +2,6 @@ package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
@@ -16,72 +10,52 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8738827282880419389L;
-    public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public AdAggregateInfo adAggregateInfo;
-    @NonNull
-    public AdBaseInfo adBaseInfo;
-    @NonNull
-    public AdConversionInfo adConversionInfo;
-    @NonNull
-    public AdInsertScreenInfo adInsertScreenInfo;
-    @NonNull
-    public AdMaterialInfo adMaterialInfo;
-    public AdMatrixInfo adMatrixInfo;
-    public AdPreloadInfo adPreloadInfo;
-    @NonNull
-    public AdProductInfo adProductInfo;
-    @NonNull
-    public AdRewardInfo adRewardInfo;
-    public AdSplashInfo adSplashInfo;
-    @NonNull
-    public AdStyleInfo adStyleInfo;
-    public AdStyleInfo adStyleInfo2;
-    @NonNull
-    public List<AdTrackInfo> adTrackInfoList;
-    @NonNull
-    public AdvertiserInfo advertiserInfo;
     public String downloadFilePath;
     public String downloadId;
-    @NonNull
-    public DownloadSafeInfo downloadSafeInfo;
     public int ocpcActionType;
     public int progress;
     public long soFarBytes;
-    public int status;
     public long totalBytes;
+    @NonNull
+    public AdBaseInfo adBaseInfo = new AdBaseInfo();
+    @NonNull
+    public AdvertiserInfo advertiserInfo = new AdvertiserInfo();
+    @NonNull
+    public AdConversionInfo adConversionInfo = new AdConversionInfo();
+    @NonNull
+    public AdMaterialInfo adMaterialInfo = new AdMaterialInfo();
+    @NonNull
+    public List<AdTrackInfo> adTrackInfoList = new ArrayList();
+    @NonNull
+    public DownloadSafeInfo downloadSafeInfo = new DownloadSafeInfo();
+    public int status = 0;
+    public AdPreloadInfo adPreloadInfo = new AdPreloadInfo();
+    public AdSplashInfo adSplashInfo = new AdSplashInfo();
+    @NonNull
+    public AdStyleInfo adStyleInfo = new AdStyleInfo();
+    public AdStyleInfo adStyleInfo2 = new AdStyleInfo();
+    @NonNull
+    public AdAggregateInfo adAggregateInfo = new AdAggregateInfo();
+    @NonNull
+    public AdRewardInfo adRewardInfo = new AdRewardInfo();
+    @NonNull
+    public AdInsertScreenInfo adInsertScreenInfo = new AdInsertScreenInfo();
+    @NonNull
+    public AdProductInfo adProductInfo = new AdProductInfo();
+    public AdMatrixInfo adMatrixInfo = new AdMatrixInfo();
 
     /* loaded from: classes3.dex */
     public static class AdAggregateInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6627768757836702989L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int aggregateAdType;
         public String hotTagUrl;
         public String upperTab;
-
-        public AdAggregateInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdBaseInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1615884096720946547L;
-        public transient /* synthetic */ FieldHolder $fh;
         public String adActionBarColor;
         public String adActionDescription;
         public int adAttributeType;
@@ -113,7 +87,7 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int ecpm;
         public int enableSkipAd;
         public String installAppLabel;
-        public ABParams mABParams;
+        public ABParams mABParams = new ABParams();
         public String openAppLabel;
         public long packageSize;
         @Nullable
@@ -124,29 +98,11 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public int taskType;
         public String videoPlayedNS;
         public long viewCount;
-
-        public AdBaseInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mABParams = new ABParams();
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdConversionInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1623240707193173136L;
-        public transient /* synthetic */ FieldHolder $fh;
         public String appDownloadUrl;
         public String callbackUrl;
         public String callbackUrlInfo;
@@ -158,58 +114,24 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String playableUrl;
         public int retryH5TimeStep;
         public int supportThirdDownload;
-
-        public AdConversionInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdInsertScreenInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int autoCloseTime;
-
-        public AdInsertScreenInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdMaterialInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8841259738296866924L;
-        public transient /* synthetic */ FieldHolder $fh;
         @NonNull
-        public List<MaterialFeature> materialFeatureList;
+        public List<MaterialFeature> materialFeatureList = new ArrayList();
         public int materialType;
         public boolean videoVoice;
 
         /* loaded from: classes3.dex */
         public static class MaterialFeature extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-            public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1118440558210936255L;
-            public transient /* synthetic */ FieldHolder $fh;
             public String blurBackgroundUrl;
             public long commentCount;
             public String coverUrl;
@@ -227,139 +149,61 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
             public String webpCoverUrl;
             public int width;
 
-            public MaterialFeature() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
             @Override // com.kwad.sdk.core.response.kwai.a
             public void afterParseJson(@Nullable JSONObject jSONObject) {
                 JSONObject optJSONObject;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                    super.afterParseJson(jSONObject);
-                    if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("materialSize")) == null) {
-                        return;
-                    }
-                    this.width = optJSONObject.optInt("width");
-                    this.height = optJSONObject.optInt("height");
+                super.afterParseJson(jSONObject);
+                if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("materialSize")) == null) {
+                    return;
                 }
+                this.width = optJSONObject.optInt("width");
+                this.height = optJSONObject.optInt("height");
             }
 
             @Override // com.kwad.sdk.core.response.kwai.a
             public void afterToJson(JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                    super.afterToJson(jSONObject);
-                    if (jSONObject == null) {
-                        return;
-                    }
-                    JSONObject jSONObject2 = new JSONObject();
-                    t.a(jSONObject2, "width", this.width);
-                    t.a(jSONObject2, "height", this.height);
-                    t.a(jSONObject, "materialSize", jSONObject2);
-                }
-            }
-        }
-
-        public AdMaterialInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                super.afterToJson(jSONObject);
+                if (jSONObject == null) {
                     return;
                 }
+                JSONObject jSONObject2 = new JSONObject();
+                t.a(jSONObject2, "width", this.width);
+                t.a(jSONObject2, "height", this.height);
+                t.a(jSONObject, "materialSize", jSONObject2);
             }
-            this.materialFeatureList = new ArrayList();
         }
     }
 
     /* loaded from: classes3.dex */
     public static class AdPreloadInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1208206464894428350L;
-        public transient /* synthetic */ FieldHolder $fh;
         public String preloadId;
         public String preloadTips;
         public int preloadType;
         public int validityPeriod;
 
-        public AdPreloadInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
         public boolean equals(@Nullable Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? (obj instanceof AdPreloadInfo) && ((AdPreloadInfo) obj).preloadId.equals(this.preloadId) : invokeL.booleanValue;
+            return (obj instanceof AdPreloadInfo) && ((AdPreloadInfo) obj).preloadId.equals(this.preloadId);
         }
 
         public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = this.preloadId;
-                return str != null ? str.hashCode() : super.hashCode();
-            }
-            return invokeV.intValue;
+            String str = this.preloadId;
+            return str != null ? str.hashCode() : super.hashCode();
         }
     }
 
     /* loaded from: classes3.dex */
     public static class AdRewardInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6571091401675622830L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int rewardTime;
         public int showLandingPage;
         public int skipShowTime;
-
-        public AdRewardInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdSplashInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 6666286195277235837L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int countdownShow;
-        public int fullScreenClickSwitch;
         public int imageDisplaySecond;
         public int logoPosition;
         public int mute;
@@ -367,56 +211,21 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String skipTips;
         public String speakerIconUrl;
         public String speakerMuteIconUrl;
-        public int splashCloseButtonNewStyleSwitch;
-        public int splashShowClickButtonSwitch;
-
-        public AdSplashInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.fullScreenClickSwitch = 0;
-            this.splashCloseButtonNewStyleSwitch = 0;
-            this.splashShowClickButtonSwitch = 1;
-        }
+        public int fullScreenClickSwitch = 0;
+        public int splashCloseButtonNewStyleSwitch = 0;
+        public int splashShowClickButtonSwitch = 1;
     }
 
     /* loaded from: classes3.dex */
     public static class AdTrackInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1185757456598461137L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int type;
         public List<String> urls;
-
-        public AdTrackInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class AdvertiserInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1779108296418044788L;
-        public transient /* synthetic */ FieldHolder $fh;
         public String adAuthorText;
         public String authorIconGuide;
         public String brief;
@@ -427,189 +236,58 @@ public class AdInfo extends com.kwad.sdk.core.response.kwai.a implements Seriali
         public String userGender;
         public long userId;
         public String userName;
-
-        public AdvertiserInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class ComplianceInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6420581965656630668L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int actionBarType;
         public int describeBarType;
         public int materialJumpType;
         public int titleBarTextSwitch;
-
-        public ComplianceInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class DownloadSafeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1575212648797728242L;
-        public transient /* synthetic */ FieldHolder $fh;
         public String appPermissionInfoUrl;
         public String appPrivacyUrl;
         public String autoDownloadUrl;
         public ComplianceInfo complianceInfo;
-        public boolean downloadPauseEnable;
         public String permissionInfo;
         public boolean secWindowPopNoWifiSwitch;
         public boolean secWindowPopSwitch;
-        public boolean webPageTipbarSwitch;
         public String webPageTipbarText;
         public String windowPopUrl;
-
-        public DownloadSafeInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.downloadPauseEnable = false;
-            this.webPageTipbarSwitch = false;
-        }
+        public boolean downloadPauseEnable = false;
+        public boolean webPageTipbarSwitch = false;
     }
 
     /* loaded from: classes3.dex */
     public static class H5Config extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6055740830695990438L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int apiAdTag;
         public int apiBreathLamp;
         public int apiMisTouch;
         public String tagTip;
-
-        public H5Config() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class MaterialSize extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4007237406277888273L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int height;
         public int width;
-
-        public MaterialSize() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
     public static class PlayableStyleInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
-        public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5205269652522127614L;
-        public transient /* synthetic */ FieldHolder $fh;
         public int playableOrientation;
-
-        public PlayableStyleInfo() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public AdInfo() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.adBaseInfo = new AdBaseInfo();
-        this.advertiserInfo = new AdvertiserInfo();
-        this.adConversionInfo = new AdConversionInfo();
-        this.adMaterialInfo = new AdMaterialInfo();
-        this.adTrackInfoList = new ArrayList();
-        this.downloadSafeInfo = new DownloadSafeInfo();
-        this.status = 0;
-        this.adPreloadInfo = new AdPreloadInfo();
-        this.adSplashInfo = new AdSplashInfo();
-        this.adStyleInfo = new AdStyleInfo();
-        this.adStyleInfo2 = new AdStyleInfo();
-        this.adAggregateInfo = new AdAggregateInfo();
-        this.adRewardInfo = new AdRewardInfo();
-        this.adInsertScreenInfo = new AdInsertScreenInfo();
-        this.adProductInfo = new AdProductInfo();
-        this.adMatrixInfo = new AdMatrixInfo();
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterParseJson(@Nullable JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.afterParseJson(jSONObject);
-            this.downloadId = aa.a(this.adConversionInfo.appDownloadUrl);
-        }
+        super.afterParseJson(jSONObject);
+        this.downloadId = aa.a(this.adConversionInfo.appDownloadUrl);
     }
 }

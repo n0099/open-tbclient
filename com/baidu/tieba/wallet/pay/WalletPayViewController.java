@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,7 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WalletPayViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEF_CHANNEL_TITLE = "NaN";
@@ -72,7 +72,7 @@ public class WalletPayViewController {
     public View mTopSpaceView;
     public TextView mUnfoldTv;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class ChannelItemViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +195,7 @@ public class WalletPayViewController {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface ClickCallback {
         void doFinish();
 
@@ -446,7 +446,7 @@ public class WalletPayViewController {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (!k.z()) {
+                        if (!l.z()) {
                             this.this$0.mActivity.showToast(R.string.tb_shake_no_network);
                         } else if (StringUtils.isNull(this.this$0.mChosenChannel) || WalletPayViewController.DEF_CHANNEL_TITLE.equals(this.this$0.mChosenChannel)) {
                             this.this$0.mActivity.showToast(R.string.pay_choose_one_channel_tip);
@@ -466,7 +466,7 @@ public class WalletPayViewController {
             });
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.mRootView.findViewById(R.id.pay_channel_pay_anim_view);
             this.mPayAnimView = tBLottieAnimationView;
-            tBLottieAnimationView.setAnimation("wallet_pay_anim.json");
+            tBLottieAnimationView.setAnimation("sdk_wallet_pay_anim.json");
             this.mPayAnimView.loop(true);
             onChangeSkinType();
         }

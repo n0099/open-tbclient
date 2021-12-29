@@ -12,34 +12,34 @@ public class a {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f1315b;
+    public static boolean f1742b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f1316c;
+    public static long f1743c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f1317d;
+    public static int f1744d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f1318e;
+    public static int f1745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f1319f;
+    public static int f1746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f1320g;
+    public static int f1747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static int f1321h;
+    public static int f1748h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f1322i;
+    public static int f1749i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static double f1323j;
+    public static double f1750j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static double f1324k;
+    public static double f1751k;
     public static double l;
     public static long m;
     public static long n;
@@ -66,16 +66,16 @@ public class a {
             }
         }
         a = new int[]{0, 1, 2, 3};
-        f1315b = true;
-        f1316c = 2000L;
-        f1317d = 2;
-        f1318e = 2;
-        f1319f = 6;
-        f1320g = 4;
-        f1321h = 6;
-        f1322i = 30;
-        f1323j = 10.0d;
-        f1324k = 30.0d;
+        f1742b = true;
+        f1743c = 2000L;
+        f1744d = 2;
+        f1745e = 2;
+        f1746f = 6;
+        f1747g = 4;
+        f1748h = 6;
+        f1749i = 30;
+        f1750j = 10.0d;
+        f1751k = 30.0d;
         l = 2.0d;
         m = 500L;
         n = 3000L;

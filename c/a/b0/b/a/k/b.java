@@ -37,7 +37,7 @@ public class b {
             mediaAEffect.duration = j2;
             mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
             mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = c.f1306b;
+            mediaAEffect.shaderConfigKey = c.f1699b;
             ArrayList arrayList = new ArrayList();
             mediaAEffect.mediaOneAEffects = arrayList;
             arrayList.add(a(j2));

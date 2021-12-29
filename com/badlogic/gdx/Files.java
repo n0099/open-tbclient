@@ -41,7 +41,7 @@ public interface Files {
             Internal = new FileType("Internal", 1);
             External = new FileType("External", 2);
             Absolute = new FileType("Absolute", 3);
-            FileType fileType = new FileType(b.f33723i, 4);
+            FileType fileType = new FileType(b.f33879i, 4);
             Local = fileType;
             $VALUES = new FileType[]{Classpath, Internal, External, Absolute, fileType};
         }

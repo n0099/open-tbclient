@@ -16,7 +16,7 @@ public interface d {
         public final long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f2152b;
+        public final int f2579b;
 
         public a(long j2, int i2) {
             Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public interface d {
                 }
             }
             this.a = j2;
-            this.f2152b = i2;
+            this.f2579b = i2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.f2152b + ExtendedMessageFormat.END_FE;
+                return "Res{rowId=" + this.a + ", updateCount=" + this.f2579b + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

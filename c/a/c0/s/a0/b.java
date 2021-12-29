@@ -25,13 +25,13 @@ public class b extends c.a.c0.s.j0.b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public LinearLayout f1888i;
+    public LinearLayout f2315i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f1889j;
+    public TextView f2316j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f1890k;
+    public TextView f2317k;
     public TextView l;
 
     /* loaded from: classes.dex */
@@ -85,32 +85,32 @@ public class b extends c.a.c0.s.j0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.B();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.f1987g, s.nad_layer_debug_info_layout, null);
-            this.f1888i = linearLayout;
-            this.f1889j = (TextView) linearLayout.findViewById(r.text_version_code);
-            this.f1890k = (TextView) this.f1888i.findViewById(r.text_status);
-            this.l = (TextView) this.f1888i.findViewById(r.text_pcdn_status);
-            this.f1890k.setText(PlayerStatus.IDLE.name());
+            LinearLayout linearLayout = (LinearLayout) View.inflate(this.f2414g, s.nad_layer_debug_info_layout, null);
+            this.f2315i = linearLayout;
+            this.f2316j = (TextView) linearLayout.findViewById(r.text_version_code);
+            this.f2317k = (TextView) this.f2315i.findViewById(r.text_status);
+            this.l = (TextView) this.f2315i.findViewById(r.text_pcdn_status);
+            this.f2317k.setText(PlayerStatus.IDLE.name());
         }
     }
 
-    public final boolean M() {
+    public final boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h.h().d(u().B(), u().L()) : invokeV.booleanValue;
     }
 
-    public final void O() {
+    public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l.setBackgroundColor(SupportMenu.CATEGORY_MASK);
         }
     }
 
-    public final void Q() {
+    public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.l.setBackgroundColor(M() ? -16711936 : SupportMenu.CATEGORY_MASK);
+            this.l.setBackgroundColor(J() ? -16711936 : SupportMenu.CATEGORY_MASK);
         }
     }
 
@@ -118,7 +118,7 @@ public class b extends c.a.c0.s.j0.b {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1888i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2315i : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.j
@@ -134,13 +134,13 @@ public class b extends c.a.c0.s.j0.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
             super.h(playerStatus, playerStatus2);
-            this.f1890k.setText(playerStatus.name());
+            this.f2317k.setText(playerStatus.name());
             int i2 = a.a[playerStatus.ordinal()];
             if (i2 == 1) {
-                Q();
+                L();
             } else if (i2 != 2) {
             } else {
-                O();
+                K();
             }
         }
     }

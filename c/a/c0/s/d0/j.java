@@ -18,7 +18,7 @@ public class j implements d {
     public final v a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f1955b;
+    public ViewGroup f2382b;
 
     public j(@NonNull v vVar) {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class j implements d {
     public void switchToFullStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1955b = this.a.n();
+            this.f2382b = this.a.n();
             this.a.Y0(true);
             Activity activity = this.a.getActivity();
             if (a()) {
@@ -75,14 +75,14 @@ public class j implements d {
     @Override // c.a.c0.s.d0.d
     public void switchToNormalStyle() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f1955b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f2382b == null) {
             return;
         }
-        this.f1955b = this.a.n();
+        this.f2382b = this.a.n();
         this.a.Y0(false);
         c.a.c0.s.v0.a.b(this.a.getActivity());
         c.a.c0.s.v0.j.k(this.a.v());
         c.a.c0.s.v0.j.j(this.a.n());
-        c.a.c0.s.v0.j.c(this.a.v(), this.f1955b);
+        c.a.c0.s.v0.j.c(this.a.v(), this.f2382b);
     }
 }

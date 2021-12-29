@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.i;
+import com.bytedance.pangle.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -187,10 +187,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f55184b.getLogger() == null) {
+            if (sDebug || g.a().f55178b.getLogger() == null) {
                 return;
             }
-            i.a().f55184b.getLogger().i(str, prefixTraceInfo);
+            g.a().f55178b.getLogger().i(str, prefixTraceInfo);
         }
     }
 
@@ -198,10 +198,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f55184b.getLogger() == null) {
+            if (sDebug || g.a().f55178b.getLogger() == null) {
                 return;
             }
-            i.a().f55184b.getLogger().v(str, prefixTraceInfo);
+            g.a().f55178b.getLogger().v(str, prefixTraceInfo);
         }
     }
 
@@ -209,10 +209,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f55184b.getLogger() == null) {
+            if (sDebug || g.a().f55178b.getLogger() == null) {
                 return;
             }
-            i.a().f55184b.getLogger().w(str, prefixTraceInfo);
+            g.a().f55178b.getLogger().w(str, prefixTraceInfo);
         }
     }
 
@@ -231,8 +231,8 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, th) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (!sDebug && i.a().f55184b.getLogger() != null) {
-                i.a().f55184b.getLogger().e(str, prefixTraceInfo, th);
+            if (!sDebug && g.a().f55178b.getLogger() != null) {
+                g.a().f55178b.getLogger().e(str, prefixTraceInfo, th);
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
@@ -248,7 +248,7 @@ public class ZeusLogger {
                     }
                     jSONObject2.putOpt("message", d.a(prefixTraceInfo));
                     jSONObject2.putOpt("throwable", d.a(th));
-                    d.a(com.bytedance.pangle.b.b.f55049i, jSONObject, null, jSONObject2);
+                    d.a(com.bytedance.pangle.b.b.f55052i, jSONObject, null, jSONObject2);
                 }
             }
             jSONObject.putOpt("log_tag", "other");
@@ -256,7 +256,7 @@ public class ZeusLogger {
             }
             jSONObject2.putOpt("message", d.a(prefixTraceInfo));
             jSONObject2.putOpt("throwable", d.a(th));
-            d.a(com.bytedance.pangle.b.b.f55049i, jSONObject, null, jSONObject2);
+            d.a(com.bytedance.pangle.b.b.f55052i, jSONObject, null, jSONObject2);
         }
     }
 
@@ -264,10 +264,10 @@ public class ZeusLogger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, th) == null) {
             String prefixTraceInfo = prefixTraceInfo(str2);
-            if (sDebug || i.a().f55184b.getLogger() == null) {
+            if (sDebug || g.a().f55178b.getLogger() == null) {
                 return;
             }
-            i.a().f55184b.getLogger().w(str, prefixTraceInfo, th);
+            g.a().f55178b.getLogger().w(str, prefixTraceInfo, th);
         }
     }
 }

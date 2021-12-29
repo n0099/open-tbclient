@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
+import com.bytedance.pangle.g;
 import com.bytedance.pangle.helper.PluginDirHelper;
-import com.bytedance.pangle.i;
 import com.bytedance.pangle.log.ZeusLogger;
+import com.bytedance.pangle.util.e;
 import com.bytedance.pangle.util.f;
-import com.bytedance.pangle.util.g;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileNotFoundException;
@@ -81,7 +81,7 @@ public final class d implements Runnable {
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir find : ".concat(String.valueOf(file2)));
                             return false;
                         } else {
-                            f.a(file2);
+                            e.a(file2);
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusScanRunnable installPluginDir deleted : ".concat(String.valueOf(file2)));
                             return false;
                         }
@@ -89,7 +89,7 @@ public final class d implements Runnable {
                     return invokeL.booleanValue;
                 }
             });
-            if (file.equals(this.a) || (pluginProvider = i.a().f55184b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
+            if (file.equals(this.a) || (pluginProvider = g.a().f55178b.getPluginProvider()) == null || (provideBuiltInPlugin = pluginProvider.provideBuiltInPlugin()) == null) {
                 return;
             }
             PluginManager.getInstance().asyncInstall(provideBuiltInPlugin);
@@ -108,7 +108,7 @@ public final class d implements Runnable {
                         String concat = "plugins/".concat(String.valueOf(str));
                         File file = new File(downloadDir, str);
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusScanRunnable releaseCopyFile " + concat + " --> " + file.getAbsolutePath());
-                        g.a(Zeus.getAppApplication().getAssets().open(concat), new FileOutputStream(file), 0L);
+                        f.a(Zeus.getAppApplication().getAssets().open(concat), new FileOutputStream(file), 0L);
                     }
                 }
             } catch (FileNotFoundException e2) {

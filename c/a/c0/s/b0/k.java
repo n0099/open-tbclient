@@ -20,16 +20,16 @@ public class k extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f1905f;
+    public View f2332f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f1906g;
+    public View f2333g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f1907h;
+    public View f2334h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f1908i;
+    public boolean f2335i;
 
     public k() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class k extends g {
                 return;
             }
         }
-        this.f1908i = true;
+        this.f2335i = true;
     }
 
     @Override // c.a.c0.s.b0.a
@@ -52,9 +52,9 @@ public class k extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(s.nad_bd_layer_control_bg, (ViewGroup) null);
-            this.f1905f = inflate;
-            this.f1906g = inflate.findViewById(r.full_top_shadow);
-            this.f1907h = this.f1905f.findViewById(r.full_bottom_shadow);
+            this.f2332f = inflate;
+            this.f2333g = inflate.findViewById(r.full_top_shadow);
+            this.f2334h = this.f2332f.findViewById(r.full_bottom_shadow);
         }
     }
 
@@ -63,7 +63,7 @@ public class k extends g {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1905f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2332f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,9 +107,9 @@ public class k extends g {
                     break;
             }
             if (c2 == 0) {
-                this.f1905f.setVisibility(0);
+                this.f2332f.setVisibility(0);
             } else if (c2 == 1 || c2 == 2 || c2 == 3) {
-                this.f1905f.setVisibility(8);
+                this.f2332f.setVisibility(8);
             }
         }
     }
@@ -119,16 +119,16 @@ public class k extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z) {
-                if (this.f1908i) {
-                    this.f1905f.setVisibility(0);
-                    this.f1906g.setVisibility(0);
-                    this.f1907h.setVisibility(0);
+                if (this.f2335i) {
+                    this.f2332f.setVisibility(0);
+                    this.f2333g.setVisibility(0);
+                    this.f2334h.setVisibility(0);
                     return;
                 }
-                this.f1905f.setVisibility(8);
+                this.f2332f.setVisibility(8);
                 return;
             }
-            this.f1905f.setVisibility(8);
+            this.f2332f.setVisibility(8);
         }
     }
 }

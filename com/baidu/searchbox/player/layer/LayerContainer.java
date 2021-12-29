@@ -167,24 +167,19 @@ public class LayerContainer extends FrameLayout {
     }
 
     @PublicMethod
-    public boolean addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
-        InterceptResult invokeLL;
+    public void addLayer(@NonNull AbsLayer absLayer, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer, layoutParams)) == null) {
-            if (this.mLayers.contains(absLayer)) {
-                return false;
-            }
-            absLayer.setLayerContainer(this);
-            absLayer.initLayer();
-            absLayer.attachMessenger(getBindPlayer().getMessenger());
-            this.mLayers.add(absLayer);
-            if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
-                return false;
-            }
-            addView(absLayer.getContentView(), layoutParams);
-            return true;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absLayer, layoutParams) == null) || this.mLayers.contains(absLayer)) {
+            return;
         }
-        return invokeLL.booleanValue;
+        absLayer.setLayerContainer(this);
+        absLayer.initLayer();
+        absLayer.attachMessenger(getBindPlayer().getMessenger());
+        this.mLayers.add(absLayer);
+        if (absLayer.getContentView() == null || absLayer.getContentView() == this) {
+            return;
+        }
+        addView(absLayer.getContentView(), layoutParams);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -252,9 +247,6 @@ public class LayerContainer extends FrameLayout {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048582, this, absLayer, z) == null) {
-            if (absLayer instanceof BaseKernelLayer) {
-                this.mPlayer.onKernelLayerPreDetach();
-            }
             this.mLayers.remove(absLayer);
             absLayer.onLayerDetach();
             if (absLayer.getContentView() != null && (viewGroup = (ViewGroup) absLayer.getContentView().getParent()) != null) {

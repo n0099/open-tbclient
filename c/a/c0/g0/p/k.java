@@ -12,7 +12,7 @@ public interface k {
     public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f1585b = new a();
+    public static final k f2012b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements k {

@@ -1,25 +1,68 @@
 package com.vivo.push;
 
+import android.content.Context;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.p;
 /* loaded from: classes4.dex */
-public final class q implements IPushActionListener {
+public abstract class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ p.a a;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ p f63099b;
+    public Handler f63103b;
 
-    public q(p pVar, p.a aVar) {
+    /* renamed from: c  reason: collision with root package name */
+    public final Object f63104c;
+
+    /* loaded from: classes4.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q qVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qVar;
+        }
+
+        @Override // android.os.Handler
+        public final void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                this.a.b(message);
+            }
+        }
+    }
+
+    public q() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,28 +72,32 @@ public final class q implements IPushActionListener {
                 return;
             }
         }
-        this.f63099b = pVar;
-        this.a = aVar;
+        this.f63104c = new Object();
+        HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
+        handlerThread.start();
+        this.f63103b = new a(this, handlerThread.getLooper());
     }
 
-    @Override // com.vivo.push.IPushActionListener
-    public final void onStateChanged(int i2) {
-        com.vivo.push.util.a aVar;
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (i2 == 0) {
-                Object[] b2 = this.a.b();
-                if (b2 != null && b2.length != 0) {
-                    this.f63099b.a((String) this.a.b()[0]);
-                    return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public abstract void b(Message message);
+
+    public final void a(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+            synchronized (this.f63104c) {
+                if (this.f63103b == null) {
+                    String simpleName = getClass().getSimpleName();
+                    com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
-                    return;
+                    this.f63103b.sendMessage(message);
                 }
             }
-            this.f63099b.l = null;
-            aVar = this.f63099b.f63094k;
-            aVar.c("APP_TOKEN");
         }
     }
 }

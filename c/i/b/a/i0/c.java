@@ -18,10 +18,10 @@ public final class c {
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f30576b;
+    public static final int[] f30654b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f30577c;
+    public static final int[] f30655c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,8 +38,8 @@ public final class c {
             }
         }
         a = new byte[]{0, 0, 0, 1};
-        f30576b = new int[]{96000, 88200, 64000, MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, w0.X3, 11025, 8000, 7350};
-        f30577c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
+        f30654b = new int[]{96000, 88200, 64000, MediaEncodeParams.AUDIO_SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, w0.X3, 11025, 8000, 7350};
+        f30655c = new int[]{0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
     }
 
     public static byte[] a(int i2, int i3, int i4) {
@@ -56,7 +56,7 @@ public final class c {
             int i5 = 0;
             int i6 = -1;
             while (true) {
-                int[] iArr = f30576b;
+                int[] iArr = f30654b;
                 if (i5 >= iArr.length) {
                     break;
                 }
@@ -67,7 +67,7 @@ public final class c {
             }
             int i7 = -1;
             while (true) {
-                int[] iArr2 = f30577c;
+                int[] iArr2 = f30655c;
                 if (i4 >= iArr2.length) {
                     break;
                 }
@@ -132,7 +132,7 @@ public final class c {
                 return kVar.g(24);
             }
             a.a(g2 < 13);
-            return f30576b[g2];
+            return f30654b[g2];
         }
         return invokeL.intValue;
     }
@@ -200,7 +200,7 @@ public final class c {
                         }
                 }
             }
-            int i2 = f30577c[g2];
+            int i2 = f30655c[g2];
             a.a(i2 != -1);
             return Pair.create(Integer.valueOf(f2), Integer.valueOf(i2));
         }

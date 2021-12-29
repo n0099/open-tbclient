@@ -1,7 +1,7 @@
 package c.a.r.g.a;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public interface h {
     String a(Context context) throws NullPointerException;
 }

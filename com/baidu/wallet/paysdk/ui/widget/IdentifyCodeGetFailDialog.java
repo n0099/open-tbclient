@@ -198,7 +198,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdentifyCodeGetFailDialog f54510b;
+                public final /* synthetic */ IdentifyCodeGetFailDialog f54513b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -215,7 +215,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                             return;
                         }
                     }
-                    this.f54510b = this;
+                    this.f54513b = this;
                     this.a = r7;
                 }
 
@@ -225,7 +225,7 @@ public class IdentifyCodeGetFailDialog extends PromptDialog {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         StatHelper.statServiceEvent(PayStatServiceEvent.SMS_INFO_KEFU);
                         try {
-                            this.f54510b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.a)));
+                            this.f54513b.mContext.startActivity(new Intent("android.intent.action.DIAL", Uri.parse("tel:" + this.a)));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }

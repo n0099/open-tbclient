@@ -16,7 +16,7 @@ public abstract class d<T> implements k<T> {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f2304b;
+    public final e f2731b;
 
     public d(e eVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public abstract class d<T> implements k<T> {
                 return;
             }
         }
-        this.f2304b = eVar;
+        this.f2731b = eVar;
         this.a = z;
     }
 
@@ -46,7 +46,7 @@ public abstract class d<T> implements k<T> {
             if (k2 == null) {
                 return null;
             }
-            return k2.f2307b;
+            return k2.f2734b;
         }
         return (T) invokeLL.objValue;
     }
@@ -55,7 +55,7 @@ public abstract class d<T> implements k<T> {
     public e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2304b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2731b : (e) invokeV.objValue;
     }
 
     @Override // c.a.d.f.d.k
@@ -77,9 +77,9 @@ public abstract class d<T> implements k<T> {
             }
             l.b<T> bVar = new l.b<>();
             bVar.a = str2;
-            bVar.f2322b = k2.f2307b;
-            long j2 = k2.f2311f;
-            bVar.f2323c = k2.f2309d;
+            bVar.f2749b = k2.f2734b;
+            long j2 = k2.f2738f;
+            bVar.f2750c = k2.f2736d;
             return bVar;
         }
         return (l.b) invokeLL.objValue;
@@ -91,11 +91,11 @@ public abstract class d<T> implements k<T> {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j2)}) == null) {
             g<T> gVar = new g<>();
             gVar.a = h(str, str2);
-            gVar.f2308c = str;
-            gVar.f2311f = j2;
-            gVar.f2307b = t;
-            gVar.f2310e = System.currentTimeMillis();
-            gVar.f2309d = System.currentTimeMillis();
+            gVar.f2735c = str;
+            gVar.f2738f = j2;
+            gVar.f2734b = t;
+            gVar.f2737e = System.currentTimeMillis();
+            gVar.f2736d = System.currentTimeMillis();
             j(gVar);
         }
     }
@@ -125,13 +125,13 @@ public abstract class d<T> implements k<T> {
             if (i2 == null) {
                 BdLog.isDebugMode();
                 return null;
-            } else if (i2.f2311f < System.currentTimeMillis()) {
+            } else if (i2.f2738f < System.currentTimeMillis()) {
                 m(h2);
                 BdLog.isDebugMode();
                 return null;
             } else {
-                if (this.f2304b.a()) {
-                    i2.f2310e = System.currentTimeMillis();
+                if (this.f2731b.a()) {
+                    i2.f2737e = System.currentTimeMillis();
                     j(i2);
                 }
                 BdLog.isDebugMode();

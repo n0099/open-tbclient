@@ -53,7 +53,7 @@ public class m implements h {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return c.a.d.f.p.d.e(String.valueOf(this.a), 0);
+                                                    return c.a.d.f.p.e.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;

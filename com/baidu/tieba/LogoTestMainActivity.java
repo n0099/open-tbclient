@@ -20,7 +20,7 @@ public class LogoTestMainActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LogoTestMainActivity f42981e;
+        public final /* synthetic */ LogoTestMainActivity f43169e;
 
         public a(LogoTestMainActivity logoTestMainActivity) {
             Interceptable interceptable = $ic;
@@ -37,14 +37,14 @@ public class LogoTestMainActivity extends Activity {
                     return;
                 }
             }
-            this.f42981e = logoTestMainActivity;
+            this.f43169e = logoTestMainActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.s0.e1.a.i().w(this.f42981e)) {
-                this.f42981e.overridePendingTransition(0, 0);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.t0.e1.a.i().w(this.f43169e)) {
+                this.f43169e.overridePendingTransition(0, 0);
             }
         }
     }

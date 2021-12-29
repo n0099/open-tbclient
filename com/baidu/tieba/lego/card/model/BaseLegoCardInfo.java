@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a;
+import c.a.t0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -240,7 +240,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.statistics : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.d.m.e.n
+    @Override // com.baidu.tieba.lego.card.model.ICardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

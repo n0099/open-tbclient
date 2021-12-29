@@ -239,7 +239,7 @@ public class m0 {
         return (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0097, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0096, code lost:
         if (r4 == null) goto L36;
      */
     /*

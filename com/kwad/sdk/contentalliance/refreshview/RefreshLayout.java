@@ -9,26 +9,15 @@ import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class RefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public float A;
     public float B;
     public View C;
@@ -100,23 +89,9 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     /* renamed from: com.kwad.sdk.contentalliance.refreshview.RefreshLayout$2  reason: invalid class name */
     /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass2 {
-        public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(487301137, "Lcom/kwad/sdk/contentalliance/refreshview/RefreshLayout$2;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(487301137, "Lcom/kwad/sdk/contentalliance/refreshview/RefreshLayout$2;");
-                    return;
-                }
-            }
             int[] iArr = new int[RefreshStyle.values().length];
             a = iArr;
             try {
@@ -130,66 +105,11 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
         }
     }
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
-    public static final class RefreshStyle {
-        public static final /* synthetic */ RefreshStyle[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final RefreshStyle FLOAT;
-        public static final RefreshStyle NORMAL;
-        public static final RefreshStyle PINNED;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-763203459, "Lcom/kwad/sdk/contentalliance/refreshview/RefreshLayout$RefreshStyle;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-763203459, "Lcom/kwad/sdk/contentalliance/refreshview/RefreshLayout$RefreshStyle;");
-                    return;
-                }
-            }
-            NORMAL = new RefreshStyle("NORMAL", 0);
-            PINNED = new RefreshStyle("PINNED", 1);
-            RefreshStyle refreshStyle = new RefreshStyle("FLOAT", 2);
-            FLOAT = refreshStyle;
-            $VALUES = new RefreshStyle[]{NORMAL, PINNED, refreshStyle};
-        }
-
-        public RefreshStyle(String str, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static RefreshStyle valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (RefreshStyle) Enum.valueOf(RefreshStyle.class, str) : (RefreshStyle) invokeL.objValue;
-        }
-
-        public static RefreshStyle[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RefreshStyle[]) $VALUES.clone() : (RefreshStyle[]) invokeV.objValue;
-        }
+    public enum RefreshStyle {
+        NORMAL,
+        PINNED,
+        FLOAT
     }
 
     /* loaded from: classes3.dex */
@@ -211,108 +131,93 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     private float a(MotionEvent motionEvent, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, this, motionEvent, i2)) == null) {
-            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
-            if (findPointerIndex < 0) {
-                return -1.0f;
-            }
-            return MotionEventCompat.getY(motionEvent, findPointerIndex);
+        int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
+        if (findPointerIndex < 0) {
+            return -1.0f;
         }
-        return invokeLI.floatValue;
+        return MotionEventCompat.getY(motionEvent, findPointerIndex);
     }
 
     private void a(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65537, this, f2) == null) {
-            float f3 = f2 - this.v;
-            if (this.f57787k && (f3 > this.u || this.a > 0.0f)) {
+        float f3 = f2 - this.v;
+        if (this.f57787k && (f3 > this.u || this.a > 0.0f)) {
+            this.m = true;
+            this.x = this.v + this.u;
+        } else if (this.m) {
+        } else {
+            int i2 = this.u;
+            if (f3 > i2) {
+                this.x = this.v + i2;
                 this.m = true;
-                this.x = this.v + this.u;
-            } else if (this.m) {
-            } else {
-                int i2 = this.u;
-                if (f3 > i2) {
-                    this.x = this.v + i2;
-                    this.m = true;
-                }
             }
         }
     }
 
     private void a(float f2, boolean z) {
         float f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
-            this.y = f2;
-            c cVar = this.L;
-            int i2 = 0;
-            if (cVar == null || !cVar.a(f2, false)) {
-                if (this.f57787k) {
-                    f3 = this.f57778b;
-                    if (f2 <= f3) {
-                        f3 = f2;
-                    }
-                    if (f3 < 0.0f) {
-                        f3 = 0.0f;
-                    }
-                } else {
-                    f3 = AnonymousClass2.a[this.G.ordinal()] != 1 ? this.I.a(f2, this.f57778b) : this.z + this.I.a(f2, this.f57778b);
+        this.y = f2;
+        c cVar = this.L;
+        int i2 = 0;
+        if (cVar == null || !cVar.a(f2, false)) {
+            if (this.f57787k) {
+                f3 = this.f57778b;
+                if (f2 <= f3) {
+                    f3 = f2;
                 }
-                float f4 = this.f57778b;
-                if (!this.f57787k) {
-                    if (f3 > f4 && !this.l) {
-                        this.l = true;
-                        this.f57780d.c();
-                        b bVar = this.M;
-                        if (bVar != null) {
-                            bVar.a();
-                        }
-                        if (this.N != null) {
-                            while (i2 < this.N.size()) {
-                                this.N.get(i2).a();
-                                i2++;
-                            }
-                        }
-                    } else if (f3 <= f4 && this.l) {
-                        this.l = false;
-                        this.f57780d.d();
-                        b bVar2 = this.M;
-                        if (bVar2 != null) {
-                            bVar2.b();
-                        }
-                        if (this.N != null) {
-                            while (i2 < this.N.size()) {
-                                this.N.get(i2).b();
-                                i2++;
-                            }
-                        }
-                    }
+                if (f3 < 0.0f) {
+                    f3 = 0.0f;
                 }
-                com.kwad.sdk.core.d.a.c("RefreshLayout", f2 + " -- " + f4 + " -- " + f3 + " -- " + this.a + " -- " + this.f57778b);
-                a((int) (f3 - this.a), z);
+            } else {
+                f3 = AnonymousClass2.a[this.G.ordinal()] != 1 ? this.I.a(f2, this.f57778b) : this.z + this.I.a(f2, this.f57778b);
             }
+            float f4 = this.f57778b;
+            if (!this.f57787k) {
+                if (f3 > f4 && !this.l) {
+                    this.l = true;
+                    this.f57780d.c();
+                    b bVar = this.M;
+                    if (bVar != null) {
+                        bVar.a();
+                    }
+                    if (this.N != null) {
+                        while (i2 < this.N.size()) {
+                            this.N.get(i2).a();
+                            i2++;
+                        }
+                    }
+                } else if (f3 <= f4 && this.l) {
+                    this.l = false;
+                    this.f57780d.d();
+                    b bVar2 = this.M;
+                    if (bVar2 != null) {
+                        bVar2.b();
+                    }
+                    if (this.N != null) {
+                        while (i2 < this.N.size()) {
+                            this.N.get(i2).b();
+                            i2++;
+                        }
+                    }
+                }
+            }
+            com.kwad.sdk.core.d.a.c("RefreshLayout", f2 + " -- " + f4 + " -- " + f3 + " -- " + this.a + " -- " + this.f57778b);
+            a((int) (f3 - this.a), z);
         }
     }
 
     private void a(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f57779c.getLayoutParams();
-            this.f57779c.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
-        }
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f57779c.getLayoutParams();
+        this.f57779c.measure(marginLayoutParams.width == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin, marginLayoutParams.width), marginLayoutParams.height == -1 ? View.MeasureSpec.makeMeasureSpec(Math.max(0, (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - marginLayoutParams.topMargin) - marginLayoutParams.bottomMargin), 1073741824) : ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin, marginLayoutParams.height));
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0099  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00d2  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00ce  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(int i2, boolean z) {
         View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.H == null) {
+        if (this.H == null) {
             return;
         }
         int i3 = AnonymousClass2.a[this.G.ordinal()];
@@ -387,198 +292,132 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     private void a(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, motionEvent) == null) {
-            int pointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-            this.q = pointerId;
-            this.x = a(motionEvent, pointerId) - this.y;
-            com.kwad.sdk.core.d.a.c("RefreshLayout", " onDown " + this.x);
-        }
+        int pointerId = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
+        this.q = pointerId;
+        this.x = a(motionEvent, pointerId) - this.y;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", " onDown " + this.x);
     }
 
     private void a(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f57787k == z) {
-            return;
-        }
-        this.n = z2;
-        this.f57787k = z;
-        if (z) {
-            b((int) this.a, this.K);
-            return;
-        }
-        this.f57780d.b();
-        postDelayed(new Runnable(this) { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ RefreshLayout a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = this;
+        if (this.f57787k != z) {
+            this.n = z2;
+            this.f57787k = z;
+            if (z) {
+                b((int) this.a, this.K);
+                return;
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    RefreshLayout refreshLayout = this.a;
+            this.f57780d.b();
+            postDelayed(new Runnable() { // from class: com.kwad.sdk.contentalliance.refreshview.RefreshLayout.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    RefreshLayout refreshLayout = RefreshLayout.this;
                     refreshLayout.a((int) refreshLayout.a, refreshLayout.f57781e);
                 }
-            }
-        }, this.f57780d.e());
+            }, this.f57780d.e());
+        }
     }
 
     private boolean a(View view) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, view)) == null) {
-            if (view == null) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT < 14 && (view instanceof AbsListView)) {
-                AbsListView absListView = (AbsListView) view;
-                if (absListView.getChildCount() > 0) {
-                    return absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop();
-                }
-                return false;
-            }
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
-                int childCount = viewGroup.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    if (a(viewGroup.getChildAt(i2))) {
-                        return true;
-                    }
-                }
-            }
-            return ViewCompat.canScrollVertically(view, -1);
+        if (view == null) {
+            return false;
         }
-        return invokeL.booleanValue;
+        if (Build.VERSION.SDK_INT < 14 && (view instanceof AbsListView)) {
+            AbsListView absListView = (AbsListView) view;
+            if (absListView.getChildCount() > 0) {
+                return absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop();
+            }
+            return false;
+        }
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            int childCount = viewGroup.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                if (a(viewGroup.getChildAt(i2))) {
+                    return true;
+                }
+            }
+        }
+        return ViewCompat.canScrollVertically(view, -1);
     }
 
     private int b(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) {
-            com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- refreshing " + f2);
-            if (AnonymousClass2.a[this.G.ordinal()] == 1) {
-                f2 -= this.z;
-            }
-            return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2 - this.f57778b) / this.f57778b)) * this.s);
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- refreshing " + f2);
+        if (AnonymousClass2.a[this.G.ordinal()] == 1) {
+            f2 -= this.z;
         }
-        return invokeF.intValue;
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2 - this.f57778b) / this.f57778b)) * this.s);
     }
 
     private int b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? AnonymousClass2.a[this.G.ordinal()] != 1 ? i2 + ((int) this.a) : i2 : invokeI.intValue;
+        return AnonymousClass2.a[this.G.ordinal()] != 1 ? i2 + ((int) this.a) : i2;
     }
 
     private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            c();
-            this.y = 0.0f;
-            this.B = 0.0f;
-            this.f57780d.a();
-            this.f57779c.setVisibility(8);
-            this.f57787k = false;
-            this.f57786j = false;
-            com.kwad.sdk.core.d.a.c("RefreshLayout", "reset");
-        }
+        c();
+        this.y = 0.0f;
+        this.B = 0.0f;
+        this.f57780d.a();
+        this.f57779c.setVisibility(8);
+        this.f57787k = false;
+        this.f57786j = false;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "reset");
     }
 
     private void b(int i2, Animation.AnimationListener animationListener) {
         float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65547, this, i2, animationListener) == null) {
-            clearAnimation();
-            if (b(i2) <= 0) {
-                animationListener.onAnimationStart(null);
-                animationListener.onAnimationEnd(null);
-                return;
-            }
-            this.t = i2;
-            this.S.reset();
-            this.S.setDuration(b(f2));
-            this.S.setInterpolator(this.P);
-            if (animationListener != null) {
-                this.S.setAnimationListener(animationListener);
-            }
-            startAnimation(this.S);
+        clearAnimation();
+        if (b(i2) <= 0) {
+            animationListener.onAnimationStart(null);
+            animationListener.onAnimationEnd(null);
+            return;
         }
+        this.t = i2;
+        this.S.reset();
+        this.S.setDuration(b(f2));
+        this.S.setInterpolator(this.P);
+        if (animationListener != null) {
+            this.S.setAnimationListener(animationListener);
+        }
+        startAnimation(this.S);
     }
 
     private void b(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, this, motionEvent) == null) {
-            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.q) {
-                this.q = MotionEventCompat.getPointerId(motionEvent, actionIndex == 0 ? 1 : 0);
-            }
-            this.x = a(motionEvent, this.q) - this.y;
-            com.kwad.sdk.core.d.a.c("RefreshLayout", " onUp " + this.x);
+        int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
+        if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.q) {
+            this.q = MotionEventCompat.getPointerId(motionEvent, actionIndex == 0 ? 1 : 0);
         }
+        this.x = a(motionEvent, this.q) - this.y;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", " onUp " + this.x);
     }
 
     private int c(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65549, this, f2)) == null) {
-            com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- start " + f2);
-            if (f2 < this.z) {
-                return 0;
-            }
-            if (AnonymousClass2.a[this.G.ordinal()] == 1) {
-                f2 -= this.z;
-            }
-            return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2) / this.f57778b)) * this.r);
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "from -- start " + f2);
+        if (f2 < this.z) {
+            return 0;
         }
-        return invokeF.intValue;
+        if (AnonymousClass2.a[this.G.ordinal()] == 1) {
+            f2 -= this.z;
+        }
+        return (int) (Math.max(0.0f, Math.min(1.0f, Math.abs(f2) / this.f57778b)) * this.r);
     }
 
     private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            setTargetOrRefreshViewOffsetY((int) ((AnonymousClass2.a[this.G.ordinal()] != 1 ? 0.0f : this.z) - this.a));
-        }
+        setTargetOrRefreshViewOffsetY((int) ((AnonymousClass2.a[this.G.ordinal()] != 1 ? 0.0f : this.z) - this.a));
     }
 
     private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.H.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-        }
+        this.H.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
     }
 
     private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            this.w = 0.0f;
-            this.m = false;
-            this.o = false;
-            this.q = -1;
-        }
+        this.w = 0.0f;
+        this.m = false;
+        this.o = false;
+        this.q = -1;
     }
 
     private void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || this.f57787k || this.f57786j) {
+        if (this.f57787k || this.f57786j) {
             return;
         }
         c cVar = this.L;
@@ -593,26 +432,18 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     private void g() {
-        View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (view = this.C) == null) {
-            return;
+        View view = this.C;
+        if (view != null) {
+            view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
         }
-        view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
     }
 
     private int getTargetOrRefreshViewTop() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
-            return (AnonymousClass2.a[this.G.ordinal()] != 1 ? this.H : this.f57779c).getTop();
-        }
-        return invokeV.intValue;
+        return (AnonymousClass2.a[this.G.ordinal()] != 1 ? this.H : this.f57779c).getTop();
     }
 
     private void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65556, this) == null) || i()) {
+        if (i()) {
             return;
         }
         for (int i2 = 0; i2 < getChildCount(); i2++) {
@@ -625,165 +456,118 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     private boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                if (this.H == getChildAt(i2)) {
-                    return true;
-                }
+        for (int i2 = 0; i2 < getChildCount(); i2++) {
+            if (this.H == getChildAt(i2)) {
+                return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return false;
     }
 
     public int a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            int i3 = AnonymousClass2.a[this.G.ordinal()];
-            return (i3 == 1 || i3 != 2) ? i2 + ((int) this.a) : i2;
-        }
-        return invokeI.intValue;
+        int i3 = AnonymousClass2.a[this.G.ordinal()];
+        return (i3 == 1 || i3 != 2) ? i2 + ((int) this.a) : i2;
     }
 
     public void a(int i2, Animation.AnimationListener animationListener) {
         float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, animationListener) == null) {
-            clearAnimation();
-            if (c(i2) <= 0) {
-                animationListener.onAnimationStart(null);
-                animationListener.onAnimationEnd(null);
-                return;
-            }
-            this.t = i2;
-            this.T.reset();
-            this.T.setDuration(c(f2));
-            this.T.setInterpolator(this.O);
-            if (animationListener != null) {
-                this.T.setAnimationListener(animationListener);
-            }
-            startAnimation(this.T);
+        clearAnimation();
+        if (c(i2) <= 0) {
+            animationListener.onAnimationStart(null);
+            animationListener.onAnimationEnd(null);
+            return;
         }
+        this.t = i2;
+        this.T.reset();
+        this.T.setDuration(c(f2));
+        this.T.setInterpolator(this.O);
+        if (animationListener != null) {
+            this.T.setAnimationListener(animationListener);
+        }
+        startAnimation(this.T);
     }
 
     public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.Q && ((float) getTargetOrRefreshViewOffset()) > this.f57778b : invokeV.booleanValue;
+        return !this.Q && ((float) getTargetOrRefreshViewOffset()) > this.f57778b;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.f57782f.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return this.f57782f.dispatchNestedFling(f2, f3, z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f57782f.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return this.f57782f.dispatchNestedPreFling(f2, f3);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.f57782f.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return this.f57782f.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.f57782f.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return this.f57782f.dispatchNestedScroll(i2, i3, i4, i5, iArr);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
         int actionMasked;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (this.U && ((actionMasked = MotionEventCompat.getActionMasked(motionEvent)) == 1 || actionMasked == 3)) {
-                onStopNestedScroll(this);
-            }
-            com.kwad.sdk.core.d.a.c("RefreshLayout", "dispatch " + this.o + " isRefreshing" + this.f57787k);
-            return super.dispatchTouchEvent(motionEvent);
+        if (this.U && ((actionMasked = MotionEventCompat.getActionMasked(motionEvent)) == 1 || actionMasked == 3)) {
+            onStopNestedScroll(this);
         }
-        return invokeL.booleanValue;
+        com.kwad.sdk.core.d.a.c("RefreshLayout", "dispatch " + this.o + " isRefreshing" + this.f57787k);
+        return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f57783g.getNestedScrollAxes() : invokeV.intValue;
+        return this.f57783g.getNestedScrollAxes();
     }
 
     public float getRefreshTargetOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f57778b : invokeV.floatValue;
+        return this.f57778b;
     }
 
     @Nullable
     public View getStateView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.C : (View) invokeV.objValue;
+        return this.C;
     }
 
     public int getTargetOrRefreshViewOffset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (AnonymousClass2.a[this.G.ordinal()] != 1) {
-                View view = this.H;
-                if (view == null) {
-                    return 0;
-                }
-                return view.getTop();
+        if (AnonymousClass2.a[this.G.ordinal()] != 1) {
+            View view = this.H;
+            if (view == null) {
+                return 0;
             }
-            return (int) (this.f57779c.getTop() - this.z);
+            return view.getTop();
         }
-        return invokeV.intValue;
+        return (int) (this.f57779c.getTop() - this.z);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f57782f.hasNestedScrollingParent() : invokeV.booleanValue;
+        return this.f57782f.hasNestedScrollingParent();
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f57782f.isNestedScrollingEnabled() : invokeV.booleanValue;
+        return this.f57782f.isNestedScrollingEnabled();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            b();
-            this.J = null;
-            clearAnimation();
-            super.onDetachedFromWindow();
-        }
+        b();
+        this.J = null;
+        clearAnimation();
+        super.onDetachedFromWindow();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || getChildCount() == 0) {
+        if (getChildCount() == 0) {
             return;
         }
         h();
@@ -812,280 +596,226 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            h();
-            if (this.H == null) {
+        super.onMeasure(i2, i3);
+        h();
+        if (this.H == null) {
+            return;
+        }
+        d();
+        g();
+        a(i2, i3);
+        if (!this.F && !this.E) {
+            int i4 = AnonymousClass2.a[this.G.ordinal()];
+            if (i4 == 1) {
+                float f2 = -this.f57779c.getMeasuredHeight();
+                this.z = f2;
+                this.a = f2;
+            } else if (i4 != 2) {
+                this.a = 0.0f;
+                this.z = -this.f57779c.getMeasuredHeight();
+            } else {
+                this.z = 0.0f;
+                this.a = 0.0f;
+            }
+        }
+        if (!this.F && !this.D && this.f57778b < this.f57779c.getMeasuredHeight()) {
+            this.f57778b = this.f57779c.getMeasuredHeight();
+        }
+        this.F = true;
+        this.p = -1;
+        for (int i5 = 0; i5 < getChildCount(); i5++) {
+            if (getChildAt(i5) == this.f57779c) {
+                this.p = i5;
                 return;
-            }
-            d();
-            g();
-            a(i2, i3);
-            if (!this.F && !this.E) {
-                int i4 = AnonymousClass2.a[this.G.ordinal()];
-                if (i4 == 1) {
-                    float f2 = -this.f57779c.getMeasuredHeight();
-                    this.z = f2;
-                    this.a = f2;
-                } else if (i4 != 2) {
-                    this.a = 0.0f;
-                    this.z = -this.f57779c.getMeasuredHeight();
-                } else {
-                    this.z = 0.0f;
-                    this.a = 0.0f;
-                }
-            }
-            if (!this.F && !this.D && this.f57778b < this.f57779c.getMeasuredHeight()) {
-                this.f57778b = this.f57779c.getMeasuredHeight();
-            }
-            this.F = true;
-            this.p = -1;
-            for (int i5 = 0; i5 < getChildCount(); i5++) {
-                if (getChildAt(i5) == this.f57779c) {
-                    this.p = i5;
-                    return;
-                }
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onStopNestedScroll(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, view) == null) {
-            this.f57783g.onStopNestedScroll(view);
-            this.f57785i = false;
-            if (this.f57784h > 0.0f) {
-                f();
-                this.f57784h = 0.0f;
-            }
-            stopNestedScroll();
+        this.f57783g.onStopNestedScroll(view);
+        this.f57785i = false;
+        if (this.f57784h > 0.0f) {
+            f();
+            this.f57784h = 0.0f;
         }
+        stopNestedScroll();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
         float f2;
         StringBuilder sb;
         float f3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
-            h();
-            if (this.H == null) {
+        h();
+        if (this.H == null) {
+            return false;
+        }
+        if (AnonymousClass2.a[this.G.ordinal()] != 1) {
+            if (!isEnabled() || (a(this.H) && !this.o)) {
                 return false;
             }
-            if (AnonymousClass2.a[this.G.ordinal()] != 1) {
-                if (!isEnabled() || (a(this.H) && !this.o)) {
-                    return false;
-                }
-            } else if (!isEnabled() || a(this.H) || this.f57785i) {
-                return false;
-            }
-            if (this.G == RefreshStyle.FLOAT && (a(this.H) || this.f57785i)) {
-                return false;
-            }
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        int i2 = this.q;
-                        if (i2 == -1) {
-                            return false;
-                        }
-                        float a2 = a(motionEvent, i2);
-                        if (a2 == -1.0f) {
-                            return false;
-                        }
-                        if (this.f57786j) {
-                            f2 = getTargetOrRefreshViewTop();
-                            this.x = a2;
-                            this.w = f2;
-                            sb = new StringBuilder();
-                            sb.append("animatetostart overscrolly ");
-                            sb.append(f2);
-                            sb.append(" -- ");
-                            f3 = this.x;
-                        } else {
-                            f2 = (a2 - this.x) + this.w;
-                            sb = new StringBuilder();
-                            sb.append("overscrolly ");
-                            sb.append(f2);
-                            sb.append(" --");
-                            sb.append(this.x);
-                            sb.append(" -- ");
-                            f3 = this.w;
-                        }
-                        sb.append(f3);
-                        com.kwad.sdk.core.d.a.c("RefreshLayout", sb.toString());
-                        if (this.f57787k) {
-                            if (f2 > 0.0f) {
-                                if (f2 > 0.0f && f2 < this.f57778b && this.o) {
-                                    motionEvent = MotionEvent.obtain(motionEvent);
-                                    motionEvent.setAction(3);
-                                    this.o = false;
-                                }
-                                com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
-                                a(f2, true);
-                            } else if (!this.o) {
+        } else if (!isEnabled() || a(this.H) || this.f57785i) {
+            return false;
+        }
+        if (this.G == RefreshStyle.FLOAT && (a(this.H) || this.f57785i)) {
+            return false;
+        }
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    int i2 = this.q;
+                    if (i2 == -1) {
+                        return false;
+                    }
+                    float a2 = a(motionEvent, i2);
+                    if (a2 == -1.0f) {
+                        return false;
+                    }
+                    if (this.f57786j) {
+                        f2 = getTargetOrRefreshViewTop();
+                        this.x = a2;
+                        this.w = f2;
+                        sb = new StringBuilder();
+                        sb.append("animatetostart overscrolly ");
+                        sb.append(f2);
+                        sb.append(" -- ");
+                        f3 = this.x;
+                    } else {
+                        f2 = (a2 - this.x) + this.w;
+                        sb = new StringBuilder();
+                        sb.append("overscrolly ");
+                        sb.append(f2);
+                        sb.append(" --");
+                        sb.append(this.x);
+                        sb.append(" -- ");
+                        f3 = this.w;
+                    }
+                    sb.append(f3);
+                    com.kwad.sdk.core.d.a.c("RefreshLayout", sb.toString());
+                    if (this.f57787k) {
+                        if (f2 > 0.0f) {
+                            if (f2 > 0.0f && f2 < this.f57778b && this.o) {
                                 motionEvent = MotionEvent.obtain(motionEvent);
-                                motionEvent.setAction(0);
-                                this.o = true;
+                                motionEvent.setAction(3);
+                                this.o = false;
                             }
-                            this.H.dispatchTouchEvent(motionEvent);
                             com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
                             a(f2, true);
-                        } else if (!this.m) {
-                            com.kwad.sdk.core.d.a.c("RefreshLayout", "is not Being Dragged, init drag status");
-                            a(a2);
-                        } else if (f2 <= 0.0f) {
-                            com.kwad.sdk.core.d.a.c("RefreshLayout", "is Being Dragged, but over scroll Y < 0");
-                            return false;
-                        } else {
-                            a(f2, true);
-                            com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner not refreshing -- " + this.w + " -- " + (a2 - this.x));
+                        } else if (!this.o) {
+                            motionEvent = MotionEvent.obtain(motionEvent);
+                            motionEvent.setAction(0);
+                            this.o = true;
                         }
-                    } else if (action != 3) {
-                        if (action == 5) {
-                            a(motionEvent);
-                        } else if (action == 6) {
-                            b(motionEvent);
-                        }
-                    }
-                }
-                int i3 = this.q;
-                if (i3 == -1 || a(motionEvent, i3) == -1.0f) {
-                    e();
-                    return false;
-                } else if (!this.f57787k && !this.f57786j) {
-                    e();
-                    f();
-                    return false;
-                } else {
-                    if (this.o) {
                         this.H.dispatchTouchEvent(motionEvent);
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner refreshing -- " + this.w + " -- " + (a2 - this.x));
+                        a(f2, true);
+                    } else if (!this.m) {
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "is not Being Dragged, init drag status");
+                        a(a2);
+                    } else if (f2 <= 0.0f) {
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "is Being Dragged, but over scroll Y < 0");
+                        return false;
+                    } else {
+                        a(f2, true);
+                        com.kwad.sdk.core.d.a.c("RefreshLayout", "moveSpinner not refreshing -- " + this.w + " -- " + (a2 - this.x));
                     }
-                    e();
-                    return false;
+                } else if (action != 3) {
+                    if (action == 5) {
+                        a(motionEvent);
+                    } else if (action == 6) {
+                        b(motionEvent);
+                    }
                 }
             }
-            this.q = MotionEventCompat.getPointerId(motionEvent, 0);
-            this.m = false;
-            return true;
+            int i3 = this.q;
+            if (i3 == -1 || a(motionEvent, i3) == -1.0f) {
+                e();
+                return false;
+            } else if (!this.f57787k && !this.f57786j) {
+                e();
+                f();
+                return false;
+            } else {
+                if (this.o) {
+                    this.H.dispatchTouchEvent(motionEvent);
+                }
+                e();
+                return false;
+            }
         }
-        return invokeL.booleanValue;
+        this.q = MotionEventCompat.getPointerId(motionEvent, 0);
+        this.m = false;
+        return true;
     }
 
     public void setAnimateToRefreshDuration(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.s = i2;
-        }
+        this.s = i2;
     }
 
     public void setAnimateToRefreshInterpolator(Interpolator interpolator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, interpolator) == null) {
-            this.P = interpolator;
-        }
+        this.P = interpolator;
     }
 
     public void setAnimateToStartDuration(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.r = i2;
-        }
+        this.r = i2;
     }
 
     public void setAnimateToStartInterpolator(Interpolator interpolator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, interpolator) == null) {
-            this.O = interpolator;
-        }
+        this.O = interpolator;
     }
 
     public void setDragDistanceConverter(@NonNull com.kwad.sdk.contentalliance.refreshview.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, aVar) == null) {
-            if (aVar == null) {
-                throw new NullPointerException("the dragDistanceConverter can't be null");
-            }
-            this.I = aVar;
+        if (aVar == null) {
+            throw new NullPointerException("the dragDistanceConverter can't be null");
         }
+        this.I = aVar;
     }
 
     public void setIsStopNestScrollWhenUpOrCancel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.U = z;
-        }
+        this.U = z;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f57782f.setNestedScrollingEnabled(z);
-        }
+        this.f57782f.setNestedScrollingEnabled(z);
     }
 
     public void setOnRefreshListener(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, aVar) == null) {
-            this.J = aVar;
-        }
+        this.J = aVar;
     }
 
     public void setOnRefreshStatusListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, bVar) == null) {
-            this.M = bVar;
-        }
+        this.M = bVar;
     }
 
     public void setOnScrollInterceptor(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, cVar) == null) {
-            this.L = cVar;
-        }
+        this.L = cVar;
     }
 
     public void setOnlySupportPull(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            this.Q = z;
-        }
+        this.Q = z;
     }
 
     public void setRefreshInitialOffset(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
-            this.z = f2;
-            this.E = true;
-            requestLayout();
-        }
+        this.z = f2;
+        this.E = true;
+        requestLayout();
     }
 
     public void setRefreshStyle(@NonNull RefreshStyle refreshStyle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, refreshStyle) == null) {
-            this.G = refreshStyle;
-        }
+        this.G = refreshStyle;
     }
 
     public void setRefreshTargetOffset(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048608, this, f2) == null) {
-            this.f57778b = f2;
-            this.D = true;
-            requestLayout();
-        }
+        this.f57778b = f2;
+        this.D = true;
+        requestLayout();
     }
 
     public void setRefreshing(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || this.f57787k == z) {
+        if (this.f57787k == z) {
             return;
         }
         if (!z) {
@@ -1103,32 +833,21 @@ public abstract class RefreshLayout extends ViewGroup implements NestedScrolling
     }
 
     public void setShowRefreshView(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048610, this, z) == null) {
-            setOnlySupportPull(!z);
-            this.R = z;
-        }
+        setOnlySupportPull(!z);
+        this.R = z;
     }
 
     public void setTargetOrRefreshViewOffsetY(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            a(i2, false);
-        }
+        a(i2, false);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean startNestedScroll(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) ? this.f57782f.startNestedScroll(i2) : invokeI.booleanValue;
+        return this.f57782f.startNestedScroll(i2);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            this.f57782f.stopNestedScroll();
-        }
+        this.f57782f.stopNestedScroll();
     }
 }

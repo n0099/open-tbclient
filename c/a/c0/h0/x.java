@@ -13,7 +13,7 @@ public class x implements InvocationHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public n f1745e;
+    public n f2172e;
 
     public x(n nVar) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class x implements InvocationHandler {
                 return;
             }
         }
-        this.f1745e = nVar;
+        this.f2172e = nVar;
     }
 
     @Override // java.lang.reflect.InvocationHandler
@@ -38,13 +38,13 @@ public class x implements InvocationHandler {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-            if (this.f1745e != null) {
+            if (this.f2172e != null) {
                 try {
-                    this.f1745e.onTranslucent(((Boolean) objArr[0]).booleanValue());
+                    this.f2172e.onTranslucent(((Boolean) objArr[0]).booleanValue());
                     return null;
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f1745e.onTranslucent(false);
+                    this.f2172e.onTranslucent(false);
                     return null;
                 }
             }

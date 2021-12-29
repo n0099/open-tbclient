@@ -19,23 +19,23 @@ public final class b implements a {
     public static String a = "KWE_NS";
 
     /* renamed from: c  reason: collision with root package name */
-    public static AtomicBoolean f63872c;
+    public static AtomicBoolean f63867c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f63873b;
+    public a f63868b;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f63874d;
+    public CountDownLatch f63869d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.a f63875e;
+    public com.yxcorp.kuaishou.addfp.a.b.a f63870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f63876f;
+    public Context f63871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.android.a.e f63877g;
+    public com.yxcorp.kuaishou.addfp.android.a.e f63872g;
 
     static {
         InterceptResult invokeClinit;
@@ -50,7 +50,7 @@ public final class b implements a {
                 return;
             }
         }
-        f63872c = new AtomicBoolean(false);
+        f63867c = new AtomicBoolean(false);
     }
 
     public b() {
@@ -66,8 +66,8 @@ public final class b implements a {
                 return;
             }
         }
-        this.f63874d = null;
-        this.f63875e = null;
+        this.f63869d = null;
+        this.f63870e = null;
     }
 
     public /* synthetic */ b(byte b2) {
@@ -90,11 +90,11 @@ public final class b implements a {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             d dVar = new d(this);
             try {
-                if (f63872c.compareAndSet(false, true)) {
-                    if (this.f63876f == null) {
-                        this.f63876f = context;
+                if (f63867c.compareAndSet(false, true)) {
+                    if (this.f63871f == null) {
+                        this.f63871f = context;
                     }
-                    this.f63877g = new com.yxcorp.kuaishou.addfp.android.a.e(this.f63876f);
+                    this.f63872g = new com.yxcorp.kuaishou.addfp.android.a.e(this.f63871f);
                     Thread thread = new Thread(new c(this, context, dVar));
                     thread.setName("adsence-dfp");
                     thread.start();
@@ -110,8 +110,8 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, aVar) == null) {
             try {
-                if (this.f63873b != null) {
-                    this.f63873b.a(z, aVar);
+                if (this.f63868b != null) {
+                    this.f63868b.a(z, aVar);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -122,7 +122,7 @@ public final class b implements a {
     public final void b() {
         CountDownLatch countDownLatch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f63874d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (countDownLatch = this.f63869d) == null) {
             return;
         }
         countDownLatch.countDown();
@@ -132,10 +132,10 @@ public final class b implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
-                if (this.f63874d == null || this.f63874d.getCount() <= 0) {
+                if (this.f63869d == null || this.f63869d.getCount() <= 0) {
                     return;
                 }
-                this.f63874d.await(2000L, TimeUnit.MILLISECONDS);
+                this.f63869d.await(2000L, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
                 Thread.currentThread().interrupt();

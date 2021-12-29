@@ -15,10 +15,10 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f55015j;
+    public Context f55018j;
 
     /* renamed from: k  reason: collision with root package name */
-    public OpenDeviceId f55016k;
+    public OpenDeviceId f55019k;
 
     public p(Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
         }
-        this.f55015j = context;
+        this.f55018j = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -49,21 +49,21 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
                 return;
             }
             if (str.equals("Deviceid Service Connected")) {
-                this.f54998f = true;
+                this.f55001f = true;
                 try {
-                    this.f54995c = openDeviceId.getOAID();
-                    this.f54997e = openDeviceId.getAAID();
-                    this.f54996d = openDeviceId.getVAID();
+                    this.f54998c = openDeviceId.getOAID();
+                    this.f55000e = openDeviceId.getAAID();
+                    this.f54999d = openDeviceId.getVAID();
                 } catch (Exception e2) {
                     e0.b("LenovoProvider", "serviceConnected: Exception: " + e2.getMessage());
                 }
-                this.f54999g = false;
-                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                this.f55002g = false;
+                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
             }
             e0.d("LenovoProvider", "serviceConnected error: " + str);
             a();
-            this.f54999g = false;
-            a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+            this.f55002g = false;
+            a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
         }
     }
 
@@ -73,25 +73,25 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (isSync()) {
                 e0.c("LenovoProvider", "doStart: sync, unsupported");
-                this.f54995c = "";
-                this.f54996d = "";
-                this.f54997e = "";
-                this.f54998f = false;
-                this.f54999g = false;
+                this.f54998c = "";
+                this.f54999d = "";
+                this.f55000e = "";
+                this.f55001f = false;
+                this.f55002g = false;
                 a("", "", "", false, false);
                 return;
             }
             e0.c("LenovoProvider", "doStart: async");
-            this.f55016k = new OpenDeviceId();
-            this.f55015j = a(this.f55015j);
+            this.f55019k = new OpenDeviceId();
+            this.f55018j = a(this.f55018j);
             try {
                 c();
-                this.f55016k.init(this.f55015j, this);
+                this.f55019k.init(this.f55018j, this);
                 b();
             } catch (Exception e2) {
                 e0.b("LenovoProvider", "doStart: Exception: " + e2.getMessage());
                 a();
-                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
             }
         }
     }
@@ -107,7 +107,7 @@ public class p extends l implements OpenDeviceId.CallBack<String> {
     public void shutDown() {
         OpenDeviceId openDeviceId;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isSync() || (openDeviceId = this.f55016k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isSync() || (openDeviceId = this.f55019k) == null) {
             return;
         }
         openDeviceId.shutdown();

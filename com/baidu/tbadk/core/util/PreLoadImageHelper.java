@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import c.a.d.f.l.d;
-import c.a.d.f.p.k;
-import c.a.d.m.c.c;
-import c.a.d.m.e.a;
-import c.a.d.m.e.n;
-import c.a.d.m.e.o;
-import c.a.d.m.e.q;
-import c.a.d.m.e.r;
+import c.a.d.f.p.l;
+import c.a.d.n.c.c;
+import c.a.d.n.e.a;
+import c.a.d.n.e.n;
+import c.a.d.n.e.o;
+import c.a.d.n.e.q;
+import c.a.d.n.e.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
@@ -85,7 +85,7 @@ public class PreLoadImageHelper {
         int i5;
         int i6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, qVar, bdUniqueId, i2) == null) || qVar == null || !k.H() || (adapter = qVar.getAdapter()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65539, null, qVar, bdUniqueId, i2) == null) || qVar == null || !l.H() || (adapter = qVar.getAdapter()) == null) {
             return;
         }
         int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);

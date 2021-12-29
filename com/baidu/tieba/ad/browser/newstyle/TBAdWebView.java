@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
-import c.a.s0.a;
+import c.a.t0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class TBAdWebView extends BaseAdWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

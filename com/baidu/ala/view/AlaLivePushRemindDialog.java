@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.g.c;
-import c.a.r0.s.t.a;
-import c.a.r0.t.d.d;
+import c.a.s0.s.s.a;
+import c.a.s0.t.d.d;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -72,13 +72,13 @@ public class AlaLivePushRemindDialog {
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                    d.d().E(300);
-                    d.d().C(true);
-                    d.d().G(true);
-                    d.d().H(true);
-                    d.d().B(true);
+                    d.d().H(300);
+                    d.d().F(true);
+                    d.d().J(true);
                     d.d().K(true);
-                    d.d().D(true);
+                    d.d().E(true);
+                    d.d().N(true);
+                    d.d().G(true);
                     this.this$0.jumpSystemPermissionSetting();
                 }
             }
@@ -144,7 +144,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.r0.s.t.a.e
+                @Override // c.a.s0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
@@ -182,7 +182,7 @@ public class AlaLivePushRemindDialog {
                     this.val$showAttentionSuccessPanel = z;
                 }
 
-                @Override // c.a.r0.s.t.a.e
+                @Override // c.a.s0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

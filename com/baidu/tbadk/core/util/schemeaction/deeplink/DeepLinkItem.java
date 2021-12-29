@@ -3,6 +3,9 @@ package com.baidu.tbadk.core.util.schemeaction.deeplink;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.TbPatternsCompat;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,14 +53,24 @@ public class DeepLinkItem {
         this.isDesignatePkg = false;
     }
 
+    private void checkDesignatePkg() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || TextUtils.isEmpty(this.appUrl)) {
+            return;
+        }
+        if (this.appUrl.startsWith("tiebaapp") || this.appUrl.startsWith("com.baidu.tieba") || this.appUrl.startsWith("tieba") || this.appUrl.startsWith("tiebaclient") || this.appUrl.startsWith(TbPatternsCompat.TB_DOMAIN_NAME) || this.appUrl.startsWith("bdtiebalive")) {
+            this.isDesignatePkg = false;
+        }
+    }
+
     private DeepLinkItem parserBundle(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bundle)) == null) {
             if (bundle == null) {
                 return this;
             }
-            this.appUrl = bundle.getString("appUrl");
+            this.appUrl = bundle.getString(DEEPLINK_APPURL_KEY);
             this.marketUrl = bundle.getString(DEEPLINK_MARKETURL_KEY);
             this.webUrl = bundle.getString("webUrl");
             this.pkgName = bundle.getString("pkgName");
@@ -72,11 +85,11 @@ public class DeepLinkItem {
     private DeepLinkItem parserUri(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri)) == null) {
             if (uri == null) {
                 return this;
             }
-            this.appUrl = uri.getQueryParameter("appUrl");
+            this.appUrl = uri.getQueryParameter(DEEPLINK_APPURL_KEY);
             this.webUrl = uri.getQueryParameter("webUrl");
             this.pkgName = uri.getQueryParameter("pkgName");
             this.marketUrl = uri.getQueryParameter(DEEPLINK_MARKETURL_KEY);
@@ -107,9 +120,10 @@ public class DeepLinkItem {
         if (uriBuilder == null) {
             return;
         }
-        parserBundle(uriBuilder.getParams());
+        parserBundle(uriBuilder.getParamsObject());
         if (TextUtils.isEmpty(this.appUrl) && TextUtils.isEmpty(this.webUrl)) {
             parserUri(uriBuilder.getUri());
         }
+        checkDesignatePkg();
     }
 }

@@ -21,26 +21,26 @@ public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38206h;
+    public static final int f38362h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38207i;
+    public static final int f38363i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38208j;
+    public static final int f38364j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38209k;
+    public static final int f38365k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38210e;
+    public final Context f38366e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Bitmap f38211f;
+    public Bitmap f38367f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f38212g;
+    public Paint f38368g;
 
     static {
         InterceptResult invokeClinit;
@@ -55,10 +55,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        f38206h = b.d(2.0f);
-        f38207i = b.d(2.0f);
-        f38208j = b.d(2.0f);
-        f38209k = b.d(4.0f);
+        f38362h = b.d(2.0f);
+        f38363i = b.d(2.0f);
+        f38364j = b.d(2.0f);
+        f38365k = b.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -79,7 +79,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f38210e = context;
+        this.f38366e = context;
         a();
     }
 
@@ -87,7 +87,7 @@ public class BdVideoBattery extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f38212g = paint;
+            this.f38368g = paint;
             paint.setColor(-1);
         }
     }
@@ -99,15 +99,15 @@ public class BdVideoBattery extends View {
             super.onDraw(canvas);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.f38211f;
+            Bitmap bitmap = this.f38367f;
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
             float f2 = (float) (c.a.c0.s.v0.b.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
-            int i2 = measuredWidth - f38209k;
-            int i3 = f38208j;
-            canvas.drawRect(i3, f38206h, i3 + ((i2 - i3) * f3), measuredHeight - f38207i, this.f38212g);
+            int i2 = measuredWidth - f38365k;
+            int i3 = f38364j;
+            canvas.drawRect(i3, f38362h, i3 + ((i2 - i3) * f3), measuredHeight - f38363i, this.f38368g);
         }
     }
 
@@ -117,14 +117,14 @@ public class BdVideoBattery extends View {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
             View.MeasureSpec.getSize(i2);
             View.MeasureSpec.getSize(i3);
-            setMeasuredDimension(this.f38211f.getWidth(), this.f38211f.getHeight());
+            setMeasuredDimension(this.f38367f.getWidth(), this.f38367f.getHeight());
         }
     }
 
     public void setImage(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38211f = BitmapFactory.decodeResource(this.f38210e.getResources(), i2);
+            this.f38367f = BitmapFactory.decodeResource(this.f38366e.getResources(), i2);
         }
     }
 
@@ -147,7 +147,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f38210e = context;
+        this.f38366e = context;
         a();
     }
 
@@ -170,7 +170,7 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        this.f38210e = context;
+        this.f38366e = context;
         a();
     }
 }

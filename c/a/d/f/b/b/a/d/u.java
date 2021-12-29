@@ -67,7 +67,7 @@ public class u implements h {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return c.a.d.f.p.d.e(this.a, 0);
+                                                    return c.a.d.f.p.e.e(this.a, 0);
                                                 } catch (IOException e3) {
                                                     e3.printStackTrace();
                                                     return null;

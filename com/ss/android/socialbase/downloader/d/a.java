@@ -3,14 +3,10 @@ package com.ss.android.socialbase.downloader.d;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.depend.n;
 import com.ss.android.socialbase.downloader.depend.x;
@@ -29,12 +25,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void a(DownloadTask downloadTask, BaseException baseException, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65544, null, downloadTask, baseException, i2) == null) || downloadTask == null) {
+        if (downloadTask == null) {
             return;
         }
         try {
@@ -61,24 +53,18 @@ public class a {
     }
 
     public static boolean a(int[] iArr, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, iArr, i2)) == null) {
-            if (iArr != null && iArr.length > 0) {
-                for (int i3 : iArr) {
-                    if (i2 == i3) {
-                        return true;
-                    }
+        if (iArr != null && iArr.length > 0) {
+            for (int i3 : iArr) {
+                if (i2 == i3) {
+                    return true;
                 }
             }
-            return false;
         }
-        return invokeLI.booleanValue;
+        return false;
     }
 
     public static void a(x xVar, DownloadInfo downloadInfo, BaseException baseException, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, xVar, downloadInfo, baseException, i2) == null) || xVar == null) {
+        if (xVar == null) {
             return;
         }
         try {
@@ -96,8 +82,7 @@ public class a {
     }
 
     public static void a(b bVar, DownloadInfo downloadInfo, BaseException baseException, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65539, null, bVar, downloadInfo, baseException, i2) == null) || bVar == null || !downloadInfo.isNeedSDKMonitor() || TextUtils.isEmpty(downloadInfo.getMonitorScene())) {
+        if (bVar == null || !downloadInfo.isNeedSDKMonitor() || TextUtils.isEmpty(downloadInfo.getMonitorScene())) {
             return;
         }
         try {
@@ -119,41 +104,32 @@ public class a {
 
     public static void a(int i2, JSONObject jSONObject, DownloadInfo downloadInfo) throws JSONException {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, null, i2, jSONObject, downloadInfo) == null) {
-            if (i2 == -5) {
-                str = "download_uncomplete";
-            } else if (i2 == -4) {
-                str = "download_cancel";
-            } else if (i2 != -3) {
-                str = i2 != -2 ? i2 != 0 ? i2 != 2 ? i2 != 6 ? "" : "download_first_start" : "download_start" : "download_create" : "download_pause";
-            } else {
-                double downloadSpeed = downloadInfo.getDownloadSpeed();
-                if (downloadSpeed >= 0.0d) {
-                    jSONObject.put("download_speed", downloadSpeed);
-                }
-                str = "download_success";
+        if (i2 == -5) {
+            str = "download_uncomplete";
+        } else if (i2 == -4) {
+            str = "download_cancel";
+        } else if (i2 != -3) {
+            str = i2 != -2 ? i2 != 0 ? i2 != 2 ? i2 != 6 ? "" : "download_first_start" : "download_start" : "download_create" : "download_pause";
+        } else {
+            double downloadSpeed = downloadInfo.getDownloadSpeed();
+            if (downloadSpeed >= 0.0d) {
+                jSONObject.put("download_speed", downloadSpeed);
             }
-            jSONObject.put("status", str);
+            str = "download_success";
         }
+        jSONObject.put("status", str);
     }
 
     public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return TextUtils.isDigitsOnly(str) ? String.valueOf(Long.valueOf(str).longValue() % 100) : "";
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return "";
-            }
+        try {
+            return TextUtils.isDigitsOnly(str) ? String.valueOf(Long.valueOf(str).longValue() % 100) : "";
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
         }
-        return (String) invokeL.objValue;
     }
 
     public static JSONObject a(String str, DownloadInfo downloadInfo, BaseException baseException, int i2) {
-        InterceptResult invokeLLLI;
         String str2;
         String str3;
         String str4;
@@ -161,10 +137,6 @@ public class a {
         String str5;
         String str6;
         String str7;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLI = interceptable.invokeLLLI(65537, null, str, downloadInfo, baseException, i2)) != null) {
-            return (JSONObject) invokeLLLI.objValue;
-        }
         JSONObject jSONObject = null;
         try {
             JSONObject jSONObject2 = new JSONObject();
@@ -262,15 +234,15 @@ public class a {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(24:13|(4:70|71|72|(16:74|75|16|(2:51|(1:(2:59|(1:61)(2:62|63)))(1:56))|19|20|(2:24|25)|28|29|30|(1:32)|33|34|(1:46)|37|(2:41|43)(1:40)))|15|16|(0)|51|(1:53)|(0)|19|20|(3:22|24|25)|28|29|30|(0)|33|34|(0)|44|46|37|(0)|41|43) */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0118, code lost:
+    /* JADX WARN: Can't wrap try/catch for region: R(24:11|(4:68|69|70|(16:72|73|14|(2:49|(1:(2:57|(1:59)(2:60|61)))(1:54))|17|18|(2:22|23)|26|27|28|(1:30)|31|32|(1:44)|35|(2:39|41)(1:38)))|13|14|(0)|49|(1:51)|(0)|17|18|(3:20|22|23)|26|27|28|(0)|31|32|(0)|42|44|35|(0)|39|41) */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0114, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0119, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0115, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x005c A[Catch: all -> 0x013e, TRY_LEAVE, TryCatch #3 {all -> 0x013e, blocks: (B:20:0x0033, B:22:0x0037, B:46:0x0083, B:48:0x0099, B:51:0x00ac, B:52:0x00b1, B:54:0x00ed, B:55:0x00fe, B:68:0x0132, B:62:0x0124, B:64:0x012a, B:58:0x0119, B:28:0x004b, B:30:0x0051, B:35:0x005c, B:38:0x0069, B:42:0x006f, B:44:0x007b, B:15:0x0029), top: B:81:0x0029, inners: #0, #1 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x00ed A[Catch: JSONException -> 0x0118, all -> 0x013e, TryCatch #1 {JSONException -> 0x0118, blocks: (B:52:0x00b1, B:54:0x00ed, B:55:0x00fe), top: B:79:0x00b1, outer: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0058 A[Catch: all -> 0x013a, TRY_LEAVE, TryCatch #3 {all -> 0x013a, blocks: (B:18:0x002f, B:20:0x0033, B:44:0x007f, B:46:0x0095, B:49:0x00a8, B:50:0x00ad, B:52:0x00e9, B:53:0x00fa, B:66:0x012e, B:60:0x0120, B:62:0x0126, B:56:0x0115, B:26:0x0047, B:28:0x004d, B:33:0x0058, B:36:0x0065, B:40:0x006b, B:42:0x0077, B:13:0x0025), top: B:76:0x0025, inners: #0, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00e9 A[Catch: JSONException -> 0x0114, all -> 0x013a, TryCatch #0 {JSONException -> 0x0114, blocks: (B:50:0x00ad, B:52:0x00e9, B:53:0x00fa), top: B:72:0x00ad, outer: #3 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -284,8 +256,7 @@ public class a {
         String lastPathSegment;
         JSONObject jSONObject;
         b g2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{gVar, str, str2, Long.valueOf(j2), str3, Integer.valueOf(i2), iOException, downloadInfo}) == null) || downloadInfo == null || (a2 = (a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId())).a("monitor_download_connect", 0)) <= 0 || TextUtils.isEmpty(str)) {
+        if (downloadInfo == null || (a2 = (a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId())).a("monitor_download_connect", 0)) <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         int i3 = -1;
@@ -394,28 +365,22 @@ public class a {
     }
 
     public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, i iVar, boolean z, boolean z2, BaseException baseException, long j2, long j3, boolean z3, long j4, long j5, long j6, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{aVar, downloadInfo, str, iVar, Boolean.valueOf(z), Boolean.valueOf(z2), baseException, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), jSONObject}) == null) {
-            a("download_io", aVar.b("monitor_download_io"), aVar, downloadInfo, str, null, null, iVar, z, z2, baseException, j2, j3, z3, j4, j5, j6, null);
-        }
+        a("download_io", aVar.b("monitor_download_io"), aVar, downloadInfo, str, null, null, iVar, z, z2, baseException, j2, j3, z3, j4, j5, j6, null);
     }
 
     public static void a(com.ss.android.socialbase.downloader.g.a aVar, DownloadInfo downloadInfo, String str, String str2, String str3, boolean z, i iVar, BaseException baseException, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{aVar, downloadInfo, str, str2, str3, Boolean.valueOf(z), iVar, baseException, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            a("segment_io", aVar.b("monitor_segment_io"), aVar, downloadInfo, str, str2, str3, iVar, z, false, baseException, j2, j3, false, -1L, -1L, -1L, null);
-        }
+        a("segment_io", aVar.b("monitor_segment_io"), aVar, downloadInfo, str, str2, str3, iVar, z, false, baseException, j2, j3, false, -1L, -1L, -1L, null);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0074 A[Catch: all -> 0x0192, TryCatch #0 {all -> 0x0192, blocks: (B:9:0x001a, B:11:0x0031, B:28:0x0069, B:30:0x0074, B:34:0x007b, B:36:0x0087, B:37:0x0091, B:41:0x009e, B:43:0x00a2, B:44:0x00a8, B:46:0x00ac, B:49:0x00bf, B:51:0x010c, B:52:0x011d, B:54:0x012f, B:56:0x0138, B:57:0x0153, B:69:0x0186, B:62:0x0172, B:64:0x0178, B:22:0x0051, B:26:0x0062, B:25:0x005e), top: B:77:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00b9  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x010c A[Catch: all -> 0x0192, TryCatch #0 {all -> 0x0192, blocks: (B:9:0x001a, B:11:0x0031, B:28:0x0069, B:30:0x0074, B:34:0x007b, B:36:0x0087, B:37:0x0091, B:41:0x009e, B:43:0x00a2, B:44:0x00a8, B:46:0x00ac, B:49:0x00bf, B:51:0x010c, B:52:0x011d, B:54:0x012f, B:56:0x0138, B:57:0x0153, B:69:0x0186, B:62:0x0172, B:64:0x0178, B:22:0x0051, B:26:0x0062, B:25:0x005e), top: B:77:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x012f A[Catch: all -> 0x0192, TryCatch #0 {all -> 0x0192, blocks: (B:9:0x001a, B:11:0x0031, B:28:0x0069, B:30:0x0074, B:34:0x007b, B:36:0x0087, B:37:0x0091, B:41:0x009e, B:43:0x00a2, B:44:0x00a8, B:46:0x00ac, B:49:0x00bf, B:51:0x010c, B:52:0x011d, B:54:0x012f, B:56:0x0138, B:57:0x0153, B:69:0x0186, B:62:0x0172, B:64:0x0178, B:22:0x0051, B:26:0x0062, B:25:0x005e), top: B:77:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0138 A[Catch: all -> 0x0192, TryCatch #0 {all -> 0x0192, blocks: (B:9:0x001a, B:11:0x0031, B:28:0x0069, B:30:0x0074, B:34:0x007b, B:36:0x0087, B:37:0x0091, B:41:0x009e, B:43:0x00a2, B:44:0x00a8, B:46:0x00ac, B:49:0x00bf, B:51:0x010c, B:52:0x011d, B:54:0x012f, B:56:0x0138, B:57:0x0153, B:69:0x0186, B:62:0x0172, B:64:0x0178, B:22:0x0051, B:26:0x0062, B:25:0x005e), top: B:77:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0178 A[Catch: all -> 0x0192, TryCatch #0 {all -> 0x0192, blocks: (B:9:0x001a, B:11:0x0031, B:28:0x0069, B:30:0x0074, B:34:0x007b, B:36:0x0087, B:37:0x0091, B:41:0x009e, B:43:0x00a2, B:44:0x00a8, B:46:0x00ac, B:49:0x00bf, B:51:0x010c, B:52:0x011d, B:54:0x012f, B:56:0x0138, B:57:0x0153, B:69:0x0186, B:62:0x0172, B:64:0x0178, B:22:0x0051, B:26:0x0062, B:25:0x005e), top: B:77:0x001a }] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x017f  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0184 A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0070 A[Catch: all -> 0x018e, TryCatch #1 {all -> 0x018e, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x0070, B:32:0x0077, B:34:0x0083, B:35:0x008d, B:39:0x009a, B:41:0x009e, B:42:0x00a4, B:44:0x00a8, B:47:0x00bb, B:49:0x0108, B:50:0x0119, B:52:0x012b, B:54:0x0134, B:55:0x014f, B:67:0x0182, B:60:0x016e, B:62:0x0174, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:74:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00b5  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0108 A[Catch: all -> 0x018e, TryCatch #1 {all -> 0x018e, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x0070, B:32:0x0077, B:34:0x0083, B:35:0x008d, B:39:0x009a, B:41:0x009e, B:42:0x00a4, B:44:0x00a8, B:47:0x00bb, B:49:0x0108, B:50:0x0119, B:52:0x012b, B:54:0x0134, B:55:0x014f, B:67:0x0182, B:60:0x016e, B:62:0x0174, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:74:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x012b A[Catch: all -> 0x018e, TryCatch #1 {all -> 0x018e, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x0070, B:32:0x0077, B:34:0x0083, B:35:0x008d, B:39:0x009a, B:41:0x009e, B:42:0x00a4, B:44:0x00a8, B:47:0x00bb, B:49:0x0108, B:50:0x0119, B:52:0x012b, B:54:0x0134, B:55:0x014f, B:67:0x0182, B:60:0x016e, B:62:0x0174, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:74:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0134 A[Catch: all -> 0x018e, TryCatch #1 {all -> 0x018e, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x0070, B:32:0x0077, B:34:0x0083, B:35:0x008d, B:39:0x009a, B:41:0x009e, B:42:0x00a4, B:44:0x00a8, B:47:0x00bb, B:49:0x0108, B:50:0x0119, B:52:0x012b, B:54:0x0134, B:55:0x014f, B:67:0x0182, B:60:0x016e, B:62:0x0174, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:74:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0174 A[Catch: all -> 0x018e, TryCatch #1 {all -> 0x018e, blocks: (B:7:0x0016, B:9:0x002d, B:26:0x0065, B:28:0x0070, B:32:0x0077, B:34:0x0083, B:35:0x008d, B:39:0x009a, B:41:0x009e, B:42:0x00a4, B:44:0x00a8, B:47:0x00bb, B:49:0x0108, B:50:0x0119, B:52:0x012b, B:54:0x0134, B:55:0x014f, B:67:0x0182, B:60:0x016e, B:62:0x0174, B:20:0x004d, B:24:0x005e, B:23:0x005a), top: B:74:0x0016 }] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x017b  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0180 A[ADDED_TO_REGION] */
     /* JADX WARN: Type inference failed for: r17v3 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -431,8 +396,7 @@ public class a {
         b g2;
         String str6;
         int i6;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i2), aVar, downloadInfo, str2, str3, str4, iVar, Boolean.valueOf(z), Boolean.valueOf(z2), baseException, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), jSONObject}) == null) || i2 <= 0 || j3 <= 0) {
+        if (i2 <= 0 || j3 <= 0) {
             return;
         }
         try {
@@ -567,20 +531,17 @@ public class a {
     }
 
     public static void a(DownloadInfo downloadInfo, List<com.ss.android.socialbase.downloader.f.i> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, downloadInfo, list) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("segments", com.ss.android.socialbase.downloader.f.i.a(list));
-                jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
-                jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
-                c P = com.ss.android.socialbase.downloader.downloader.c.P();
-                if (P != null) {
-                    P.a(downloadInfo.getId(), "segments_error", jSONObject);
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("segments", com.ss.android.socialbase.downloader.f.i.a(list));
+            jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
+            jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
+            c P = com.ss.android.socialbase.downloader.downloader.c.P();
+            if (P != null) {
+                P.a(downloadInfo.getId(), "segments_error", jSONObject);
             }
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 }

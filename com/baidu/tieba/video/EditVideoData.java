@@ -1,6 +1,6 @@
 package com.baidu.tieba.video;
 
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -54,7 +54,7 @@ public class EditVideoData extends OrmObject implements Serializable {
 
     public void delete() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || StringHelper.equals(this.originPath, this.finalPath) || l.isEmpty(this.finalPath)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || StringHelper.equals(this.originPath, this.finalPath) || m.isEmpty(this.finalPath)) {
             return;
         }
         FileHelper.deleteFile(new File(this.finalPath));
@@ -63,6 +63,6 @@ public class EditVideoData extends OrmObject implements Serializable {
     public boolean isLegal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (l.isEmpty(this.originPath) || l.isEmpty(this.coverPath)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (m.isEmpty(this.originPath) || m.isEmpty(this.coverPath)) ? false : true : invokeV.booleanValue;
     }
 }

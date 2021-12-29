@@ -16,10 +16,10 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f3007b;
+    public static f f3435b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public c.a.j0.a.b.c<IStatisticManager> a;
+    public c.a.k0.a.b.c<IStatisticManager> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class f {
                 return;
             }
         }
-        f3007b = new f();
+        f3435b = new f();
     }
 
     public f() {
@@ -56,7 +56,7 @@ public class f {
     public static f a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3007b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3435b : (f) invokeV.objValue;
     }
 
     public IStatisticManager b() {
@@ -68,7 +68,7 @@ public class f {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.j0.a.b.a b2 = c.a.j0.a.b.a.b();
+            c.a.k0.a.b.a b2 = c.a.k0.a.b.a.b();
             this.a = b2;
             b2.a(new IStatisticManager_StatisticManager_Provider());
         }

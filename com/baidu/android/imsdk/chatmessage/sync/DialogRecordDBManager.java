@@ -80,7 +80,7 @@ public class DialogRecordDBManager extends DBBase {
                 long j4 = r1.getLong(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID));
                 int i3 = r1.getInt(r1.getColumnIndex("state"));
                 long j5 = r1.getLong(r1.getColumnIndex("update_time"));
-                int i4 = r1.getInt(r1.getColumnIndex("jump"));
+                int i4 = r1.getInt(r1.getColumnIndex(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT));
                 DialogRecord dialogRecord = new DialogRecord();
                 String str = DialogRecordDBManager.TAG;
                 LogUtils.i(str, "parseCursor dialogRecord : " + dialogRecord);
@@ -223,10 +223,10 @@ public class DialogRecordDBManager extends DBBase {
                         contentValues.put("update_time", Long.valueOf(next.getUpdateTime()));
                         contentValues.put(TableDefine.DRColumns.COLUMN_DAILOGUE_MSGID, Long.valueOf(next.getDialogueMsgid()));
                         if (query.getCount() > 0) {
-                            contentValues.put("jump", (Integer) 0);
+                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 0);
                             j2 = sQLiteDatabase.update(TableDefine.DB_TABLE_DIALOG_RECORD, contentValues, "category=? AND contacter=?", strArr);
                         } else {
-                            contentValues.put("jump", (Integer) 1);
+                            contentValues.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, (Integer) 1);
                             contentValues.put("category", Integer.valueOf(next.getCategory()));
                             contentValues.put("contacter", Long.valueOf(next.getContacter()));
                             j2 = sQLiteDatabase.insert(TableDefine.DB_TABLE_DIALOG_RECORD, null, contentValues);

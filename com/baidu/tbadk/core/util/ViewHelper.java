@@ -10,8 +10,8 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.k.a;
-import c.a.d.k.d;
-import c.a.d.k.e;
+import c.a.d.l.d;
+import c.a.d.l.e;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -385,7 +385,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65558, null, context) == null) || context == null) {
             return;
         }
-        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libbd_pass_face_sdk.so"))) {
             RequestParams requestParams = new RequestParams();
             requestParams.setRunType(e.a);
@@ -401,7 +401,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65559, null, context, str, str2) == null) || context == null) {
             return;
         }
-        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -411,7 +411,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65560, null, context) == null) || context == null) {
             return;
         }
-        c.a.r0.s.c0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        c.a.s0.s.b0.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 

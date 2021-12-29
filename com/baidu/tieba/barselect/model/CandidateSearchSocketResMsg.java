@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.s0.c0.b.a;
+import c.a.t0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.Search.SearchResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CandidateSearchSocketResMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

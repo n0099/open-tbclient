@@ -34,7 +34,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64565d;
+        public Disposable f64560d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -71,8 +71,8 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f64565d.dispose();
-                this.f64565d = DisposableHelper.DISPOSED;
+                this.f64560d.dispose();
+                this.f64560d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -102,7 +102,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.f64565d = DisposableHelper.DISPOSED;
+                this.f64560d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -110,8 +110,8 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f64565d, disposable)) {
-                this.f64565d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f64560d, disposable)) {
+                this.f64560d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

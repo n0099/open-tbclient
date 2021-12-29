@@ -40,7 +40,7 @@ public interface g {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, dVar)) == null) {
-                if (str == null || !str.startsWith(c.a.c0.d.f.a.f1434f)) {
+                if (str == null || !str.startsWith(c.a.c0.d.f.a.f1861f)) {
                     return false;
                 }
                 HashMap hashMap = new HashMap();

@@ -1,52 +1,45 @@
 package com.vivo.push.util;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f63121b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f63122c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f63123d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178263, "Lcom/vivo/push/util/e;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static boolean a(Context context, long j2, long j3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            p.d("ClientReportUtil", "report message: " + j2 + ", reportType: " + j3);
+            com.vivo.push.b.x xVar = new com.vivo.push.b.x(j3);
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("messageID", String.valueOf(j2));
+            String b2 = aa.b(context, context.getPackageName());
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("remoteAppId", b2);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(744178263, "Lcom/vivo/push/util/e;");
-                return;
-            }
+            xVar.a(hashMap);
+            com.vivo.push.e.a().a(xVar);
+            return true;
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        a = availableProcessors;
-        f63121b = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f63122c = (a * 2) + 1;
-        f63123d = a("COMMON_THREAD");
+        return invokeCommon.booleanValue;
     }
 
-    public static ExecutorService a(String str) {
-        InterceptResult invokeL;
+    public static boolean a(long j2, HashMap<String, String> hashMap) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(f63121b, f63122c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy()) : (ExecutorService) invokeL.objValue;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j2, hashMap)) == null) {
+            com.vivo.push.b.x xVar = new com.vivo.push.b.x(j2);
+            xVar.a(hashMap);
+            xVar.d();
+            com.vivo.push.e.a().a(xVar);
+            return true;
+        }
+        return invokeJL.booleanValue;
     }
 }

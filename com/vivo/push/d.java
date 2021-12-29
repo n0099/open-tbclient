@@ -1,25 +1,27 @@
 package com.vivo.push;
 
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppAliasManager;
+import com.vivo.push.b.r;
+import com.vivo.push.b.t;
+import com.vivo.push.b.u;
+import com.vivo.push.c.ag;
+import com.vivo.push.c.z;
 /* loaded from: classes4.dex */
-public final class d implements Runnable {
+public final class d implements IPushClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ String a;
+    public ag a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f63069b;
-
-    public d(LocalAliasTagsManager localAliasTagsManager, String str) {
+    public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,19 +31,89 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f63069b = localAliasTagsManager;
-        this.a = str;
+        this.a = new ag();
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        ISubscribeAppAliasManager iSubscribeAppAliasManager;
+    @Override // com.vivo.push.IPushClientFactory
+    public final z createReceiveTask(o oVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iSubscribeAppAliasManager = this.f63069b.mSubscribeAppAliasManager;
-            if (iSubscribeAppAliasManager.setAlias(this.a)) {
-                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.a);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oVar)) == null) ? ag.b(oVar) : (z) invokeL.objValue;
+    }
+
+    @Override // com.vivo.push.IPushClientFactory
+    public final o createReceiverCommand(Intent intent) {
+        InterceptResult invokeL;
+        o uVar;
+        o tVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
+            int intExtra = intent.getIntExtra("command", -1);
+            if (intExtra < 0) {
+                intExtra = intent.getIntExtra("method", -1);
             }
+            if (intExtra == 20) {
+                uVar = new u();
+            } else if (intExtra != 2016) {
+                switch (intExtra) {
+                    case 1:
+                    case 2:
+                        tVar = new t(intExtra);
+                        uVar = tVar;
+                        break;
+                    case 3:
+                        uVar = new com.vivo.push.b.o();
+                        break;
+                    case 4:
+                        uVar = new com.vivo.push.b.q();
+                        break;
+                    case 5:
+                        uVar = new com.vivo.push.b.p();
+                        break;
+                    case 6:
+                        uVar = new r();
+                        break;
+                    case 7:
+                        uVar = new com.vivo.push.b.n();
+                        break;
+                    case 8:
+                        uVar = new com.vivo.push.b.m();
+                        break;
+                    case 9:
+                        uVar = new com.vivo.push.b.k();
+                        break;
+                    case 10:
+                    case 11:
+                        tVar = new com.vivo.push.b.i(intExtra);
+                        uVar = tVar;
+                        break;
+                    case 12:
+                        uVar = new com.vivo.push.b.j();
+                        break;
+                    default:
+                        uVar = null;
+                        break;
+                }
+            } else {
+                uVar = new com.vivo.push.b.l();
+            }
+            if (uVar != null) {
+                a a = a.a(intent);
+                if (a == null) {
+                    com.vivo.push.util.p.b("PushCommand", "bundleWapper is null");
+                } else {
+                    uVar.b(a);
+                }
+            }
+            return uVar;
         }
+        return (o) invokeL.objValue;
+    }
+
+    @Override // com.vivo.push.IPushClientFactory
+    public final l createTask(o oVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar)) == null) ? ag.a(oVar) : (l) invokeL.objValue;
     }
 }

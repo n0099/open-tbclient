@@ -22,7 +22,7 @@ import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

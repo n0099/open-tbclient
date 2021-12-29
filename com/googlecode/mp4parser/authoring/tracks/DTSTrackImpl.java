@@ -2,6 +2,7 @@ package com.googlecode.mp4parser.authoring.tracks;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.anr.impl.ANRMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1351,7 +1352,7 @@ public class DTSTrackImpl extends AbstractTrack {
         if (interceptable != null && (invokeV = interceptable.invokeV(65545, this)) != null) {
             return invokeV.booleanValue;
         }
-        ByteBuffer map = this.dataSource.map(0L, 25000L);
+        ByteBuffer map = this.dataSource.map(0L, ANRMonitor.ANR_TIMEOUT_MS);
         int i2 = map.getInt();
         int i3 = map.getInt();
         if (i2 != 1146377032 || i3 != 1145586770) {

@@ -25,7 +25,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f55710b;
+    public static final Charset f55709b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
                 return;
             }
         }
-        f55710b = Charset.forName("UTF-8");
+        f55709b = Charset.forName("UTF-8");
     }
 
     public GsonHttpMessageConverter() {
@@ -93,7 +93,7 @@ public class GsonHttpMessageConverter extends AbstractHttpMessageConverter<Objec
             if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
                 return Charset.forName(aVar.j());
             }
-            return f55710b;
+            return f55709b;
         }
         return (Charset) invokeL.objValue;
     }

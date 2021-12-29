@@ -32,10 +32,10 @@ public class c {
     public final LruCache<String, c.a.c0.g.f.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, String> f1502b;
+    public final LruCache<String, String> f1929b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LruCache<String, String> f1503c;
+    public final LruCache<String, String> f1930c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -74,8 +74,8 @@ public class c {
             }
         }
         this.a = new LruCache<>(5);
-        this.f1502b = new LruCache<>(5);
-        this.f1503c = new LruCache<>(5);
+        this.f1929b = new LruCache<>(5);
+        this.f1930c = new LruCache<>(5);
     }
 
     public static c k() {
@@ -90,9 +90,9 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, str, str2, str3, str4)) == null) {
             c.a.c0.g.d.a aVar = new c.a.c0.g.d.a();
-            aVar.f1517g = str;
+            aVar.f1944g = str;
             aVar.g(str2);
-            aVar.f1514d = str3;
+            aVar.f1941d = str3;
             TextUtils.isEmpty(str3);
             aVar.n.a = str4;
             aVar.p.a = new JSONObject().toString();
@@ -255,8 +255,8 @@ public class c {
                     c.a.c0.g.f.b l = l(optString4, optString5, optJSONObject.optString("packageName", ""), optJSONObject.optString("ext_info", ""), optString3, optString2);
                     if (l != null) {
                         String w = l.w();
-                        Uri uri = l.v().f1521k;
-                        jSONArray.put(c.a.c0.u.b.b(c.a.c0.g.i.b.a(w, l.v().f1519i + "", uri == null ? "" : uri.toString(), optString5)));
+                        Uri uri = l.v().f1948k;
+                        jSONArray.put(c.a.c0.u.b.b(c.a.c0.g.i.b.a(w, l.v().f1946i + "", uri == null ? "" : uri.toString(), optString5)));
                     }
                 }
             }
@@ -432,7 +432,7 @@ public class c {
             if (l != null) {
                 c.a.c0.g.d.a v = l.v();
                 l.x();
-                if (v != null && (uri = v.f1521k) != null) {
+                if (v != null && (uri = v.f1948k) != null) {
                     optString4 = uri.toString();
                 }
                 hashMap.put("data", c.a.c0.g.i.b.a("0", "0", optString4, optString3));
@@ -470,15 +470,15 @@ public class c {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            if (TextUtils.isEmpty(str2) && this.f1502b.containsValue(str)) {
-                for (String str7 : this.f1502b.keySet()) {
-                    if (TextUtils.equals(this.f1502b.get(str7), str)) {
+            if (TextUtils.isEmpty(str2) && this.f1929b.containsValue(str)) {
+                for (String str7 : this.f1929b.keySet()) {
+                    if (TextUtils.equals(this.f1929b.get(str7), str)) {
                         str2 = str7;
                     }
                 }
             }
-            if (TextUtils.isEmpty(str) && this.f1502b.containsKey(str2)) {
-                str = this.f1502b.get(str2);
+            if (TextUtils.isEmpty(str) && this.f1929b.containsKey(str2)) {
+                str = this.f1929b.get(str2);
             }
             c.a.c0.g.f.b bVar = this.a.get(str2);
             if (bVar == null && !TextUtils.isEmpty(str)) {
@@ -490,21 +490,21 @@ public class c {
                     a2.n = new c.a.c0.g.d.d();
                 }
                 c.a.c0.g.d.b bVar2 = a2.o;
-                bVar2.f1522b = str6;
+                bVar2.f1949b = str6;
                 bVar2.a = str5;
                 if (!TextUtils.isEmpty(str4)) {
                     JSONObject b2 = c.a.c0.u.b.b(str4);
-                    a2.o.f1526f = b2.optInt("close_v_dl");
-                    a2.o.f1522b = b2.optString("source");
-                    a2.n.f1540h = b2.optString("app_name");
-                    a2.n.f1539g = b2.optString("app_icon");
-                    a2.n.f1541i = b2.optString("version");
+                    a2.o.f1953f = b2.optInt("close_v_dl");
+                    a2.o.f1949b = b2.optString("source");
+                    a2.n.f1967h = b2.optString("app_name");
+                    a2.n.f1966g = b2.optString("app_icon");
+                    a2.n.f1968i = b2.optString("version");
                 }
                 bVar = new c.a.c0.g.f.b(a2);
                 this.a.put(str2, bVar);
             }
             if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                this.f1502b.put(str2, str);
+                this.f1929b.put(str2, str);
             }
             return bVar;
         }
@@ -524,7 +524,7 @@ public class c {
         String optString6 = jSONObject.optString(Constant.KEY_BUSINESS, "");
         String optString7 = jSONObject.optString("page", "");
         String optString8 = jSONObject.optString("packageName", "");
-        c.a.c0.u.c.e(this.f1503c, optString4, optString2);
+        c.a.c0.u.c.e(this.f1930c, optString4, optString2);
         HashMap hashMap = new HashMap();
         hashMap.put("callback", optString2);
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {
@@ -553,7 +553,7 @@ public class c {
         String optString6 = jSONObject.optString(Constant.KEY_BUSINESS, "");
         String optString7 = jSONObject.optString("page", "");
         String optString8 = jSONObject.optString("packageName", "");
-        c.a.c0.u.c.g(this.f1503c, optString4);
+        c.a.c0.u.c.g(this.f1930c, optString4);
         HashMap hashMap = new HashMap();
         hashMap.put("callback", optString2);
         if (!TextUtils.isEmpty(optString6) && !TextUtils.isEmpty(optString7)) {

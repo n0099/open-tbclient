@@ -34,10 +34,10 @@ public class BdVideoSeekbarImageView extends View {
     public static final int UI_TEXT_TITLE_FONT_SIZE;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38228j;
+    public static final int f38384j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38229k;
+    public static final int f38385k;
     public static final int l;
     public static final int m;
     public static final int n;
@@ -53,19 +53,19 @@ public class BdVideoSeekbarImageView extends View {
     public String duration;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38230e;
+    public final Context f38386e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38231f;
+    public int f38387f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f38232g;
+    public int f38388g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f38233h;
+    public Bitmap f38389h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f38234i;
+    public boolean f38390i;
     public BdThumbSeekBar mBdVideoSeekBar;
     public Drawable mBg;
     public int mMsgFontSize;
@@ -92,8 +92,8 @@ public class BdVideoSeekbarImageView extends View {
         UI_TEXT_FONT_SIZE = b.a(12.0f);
         UI_TEXT_TITLE_FONT_SIZE = b.d(30.0f);
         UI_IMAGE_TOP_MARGIN = b.a(17.0f);
-        f38228j = b.a(13.0f);
-        f38229k = b.a(2.0f);
+        f38384j = b.a(13.0f);
+        f38385k = b.a(2.0f);
         b.a(9.0f);
         l = b.b(90.0f);
         m = b.b(90.0f);
@@ -146,8 +146,8 @@ public class BdVideoSeekbarImageView extends View {
             this.mTextPaint.setTextSize(UI_TEXT_FONT_SIZE);
             this.mTextPaint.setColor(-7829368);
             this.mRect = new Rect();
-            this.mBg = this.f38230e.getResources().getDrawable(q.nad_videoplayer_play_seekbar_background);
-            BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.f38230e, p);
+            this.mBg = this.f38386e.getResources().getDrawable(q.nad_videoplayer_play_seekbar_background);
+            BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.f38386e, p);
             this.mBdVideoSeekBar = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);
             this.mBdVideoSeekBar.setProgressBackgroundColor(-1);
@@ -189,16 +189,16 @@ public class BdVideoSeekbarImageView extends View {
                 drawable.setBounds(this.mRect);
                 drawable.draw(canvas);
             }
-            if (this.f38233h == null) {
+            if (this.f38389h == null) {
                 this.mPaint.setTextSize(this.mTitleFontSize);
                 canvas.drawText(this.mTextTitle, measuredWidth >> 1, UI_IMAGE_TOP_MARGIN * 2, this.mPaint);
-            } else if (this.f38234i) {
-                canvas.drawBitmap(this.f38233h, (measuredWidth - bitmap.getWidth()) / 2, UI_IMAGE_TOP_MARGIN, this.mPaint);
+            } else if (this.f38390i) {
+                canvas.drawBitmap(this.f38389h, (measuredWidth - bitmap.getWidth()) / 2, UI_IMAGE_TOP_MARGIN, this.mPaint);
             }
-            if (this.f38234i) {
-                i2 = (measuredHeight / 2) + f38228j;
+            if (this.f38390i) {
+                i2 = (measuredHeight / 2) + f38384j;
             } else {
-                i2 = (measuredHeight / 2) - f38229k;
+                i2 = (measuredHeight / 2) - f38385k;
             }
             this.mPaint.setTextSize(this.mMsgFontSize);
             float f2 = i2;
@@ -207,7 +207,7 @@ public class BdVideoSeekbarImageView extends View {
             BdThumbSeekBar bdThumbSeekBar = this.mBdVideoSeekBar;
             if (bdThumbSeekBar != null) {
                 Bitmap viewBitmap = getViewBitmap(bdThumbSeekBar);
-                if (this.f38234i) {
+                if (this.f38390i) {
                     canvas.drawBitmap(viewBitmap, UI_SEEKBAR_MARGIN_LEFT, q, this.mPaint);
                 } else {
                     canvas.drawBitmap(viewBitmap, UI_HALF_SEEKBAR_MARGIN_LEFT, r, this.mPaint);
@@ -220,7 +220,7 @@ public class BdVideoSeekbarImageView extends View {
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            setMeasuredDimension(this.f38231f, this.f38232g);
+            setMeasuredDimension(this.f38387f, this.f38388g);
         }
     }
 
@@ -238,9 +238,9 @@ public class BdVideoSeekbarImageView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.duration.length() < 6) {
-                return this.f38234i ? s : t;
+                return this.f38390i ? s : t;
             }
-            return this.f38234i ? u : v;
+            return this.f38390i ? u : v;
         }
         return invokeV.floatValue;
     }
@@ -248,7 +248,7 @@ public class BdVideoSeekbarImageView extends View {
     public void setBackground(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mBg = this.f38230e.getResources().getDrawable(i2);
+            this.mBg = this.f38386e.getResources().getDrawable(i2);
         }
     }
 
@@ -264,21 +264,21 @@ public class BdVideoSeekbarImageView extends View {
     public void setHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f38232g = i2;
+            this.f38388g = i2;
         }
     }
 
     public void setIcon(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f38233h = BitmapFactory.decodeResource(this.f38230e.getResources(), i2);
+            this.f38389h = BitmapFactory.decodeResource(this.f38386e.getResources(), i2);
         }
     }
 
     public void setIconVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f38234i = z;
+            this.f38390i = z;
         }
     }
 
@@ -324,7 +324,7 @@ public class BdVideoSeekbarImageView extends View {
     public void setWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f38231f = i2;
+            this.f38387f = i2;
         }
     }
 
@@ -347,15 +347,15 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        this.f38231f = l;
-        this.f38232g = m;
+        this.f38387f = l;
+        this.f38388g = m;
         this.mTextTitle = "";
         this.seekPosition = "";
         this.duration = "";
         this.mTitleFontSize = UI_TEXT_TITLE_FONT_SIZE;
         this.mMsgFontSize = UI_TEXT_FONT_SIZE;
-        this.f38234i = true;
-        this.f38230e = context;
+        this.f38390i = true;
+        this.f38386e = context;
         a();
     }
 }

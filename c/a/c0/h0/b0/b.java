@@ -20,19 +20,19 @@ public class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f1670b;
+    public float f2097b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f1671c;
+    public float f2098c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1672d;
+    public boolean f2099d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BubblePosition f1673e;
+    public BubblePosition f2100e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1674f;
+    public boolean f2101f;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -88,10 +88,10 @@ public class b {
             }
         }
         this.a = false;
-        this.f1670b = 0.0f;
-        this.f1672d = true;
-        this.f1673e = BubblePosition.INVALID;
-        this.f1674f = true;
+        this.f2097b = 0.0f;
+        this.f2099d = true;
+        this.f2100e = BubblePosition.INVALID;
+        this.f2101f = true;
     }
 
     public int[] a(c.a.c0.h0.b0.e.a aVar, int[] iArr, BubblePosition bubblePosition) {
@@ -108,11 +108,11 @@ public class b {
             int i2 = iArr[0];
             int i3 = iArr[1];
             int[] iArr2 = new int[2];
-            int measuredWidth = aVar.f1693b.getMeasuredWidth();
-            int measuredHeight = aVar.f1693b.getMeasuredHeight();
+            int measuredWidth = aVar.f2120b.getMeasuredWidth();
+            int measuredHeight = aVar.f2120b.getMeasuredHeight();
             int measuredWidth2 = aVar.a.getMeasuredWidth();
             int measuredHeight2 = aVar.a.getMeasuredHeight();
-            float f2 = this.f1674f ? 0.0f : 15.0f;
+            float f2 = this.f2101f ? 0.0f : 15.0f;
             if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
                 if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
                     int i4 = measuredHeight / 2;
@@ -121,10 +121,10 @@ public class b {
                     } else if (i4 >= measuredHeight2 - i3) {
                         iArr2[1] = (measuredHeight2 - measuredHeight) - f.c.a(context, f2);
                     } else {
-                        iArr2[1] = iArr[1] - (aVar.f1693b.getMeasuredHeight() / 2);
+                        iArr2[1] = iArr[1] - (aVar.f2120b.getMeasuredHeight() / 2);
                     }
                     if (bubblePosition == BubblePosition.LEFT) {
-                        iArr2[0] = iArr[0] - aVar.f1693b.getMeasuredWidth();
+                        iArr2[0] = iArr[0] - aVar.f2120b.getMeasuredWidth();
                     } else {
                         iArr2[0] = iArr[0];
                     }
@@ -136,10 +136,10 @@ public class b {
                 } else if (i5 >= measuredWidth2 - i2) {
                     iArr2[0] = (measuredWidth2 - measuredWidth) - f.c.a(context, f2);
                 } else {
-                    iArr2[0] = iArr[0] - (aVar.f1693b.getMeasuredWidth() / 2);
+                    iArr2[0] = iArr[0] - (aVar.f2120b.getMeasuredWidth() / 2);
                 }
                 if (bubblePosition == BubblePosition.UP) {
-                    iArr2[1] = iArr[1] - aVar.f1693b.getMeasuredHeight();
+                    iArr2[1] = iArr[1] - aVar.f2120b.getMeasuredHeight();
                 } else {
                     iArr2[1] = iArr[1];
                 }
@@ -156,7 +156,7 @@ public class b {
             if (!aVar.i()) {
                 return BubblePosition.INVALID;
             }
-            if (this.f1672d) {
+            if (this.f2099d) {
                 if (n(aVar)) {
                     return BubblePosition.UP;
                 }
@@ -170,8 +170,8 @@ public class b {
                     return BubblePosition.RIGHT;
                 }
                 return BubblePosition.INVALID;
-            } else if (l(aVar, this.f1673e)) {
-                return this.f1673e;
+            } else if (l(aVar, this.f2100e)) {
+                return this.f2100e;
             } else {
                 return BubblePosition.INVALID;
             }
@@ -182,25 +182,25 @@ public class b {
     public final int c(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? (aVar.a.getMeasuredHeight() - g(aVar)[1]) - (aVar.f1694c.getMeasuredHeight() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? (aVar.a.getMeasuredHeight() - g(aVar)[1]) - (aVar.f2121c.getMeasuredHeight() / 2) : invokeL.intValue;
     }
 
     public final int d(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? g(aVar)[0] + (aVar.f1694c.getMeasuredWidth() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? g(aVar)[0] + (aVar.f2121c.getMeasuredWidth() / 2) : invokeL.intValue;
     }
 
     public int e(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar.a.getMeasuredWidth() - g(aVar)[0]) - (aVar.f1694c.getMeasuredWidth() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar.a.getMeasuredWidth() - g(aVar)[0]) - (aVar.f2121c.getMeasuredWidth() / 2) : invokeL.intValue;
     }
 
     public final int f(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? g(aVar)[1] + (aVar.f1694c.getMeasuredHeight() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) ? g(aVar)[1] + (aVar.f2121c.getMeasuredHeight() / 2) : invokeL.intValue;
     }
 
     public final int[] g(c.a.c0.h0.b0.e.a aVar) {
@@ -208,7 +208,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
             int[] iArr = new int[2];
-            aVar.f1694c.getLocationOnScreen(iArr);
+            aVar.f2121c.getLocationOnScreen(iArr);
             int[] iArr2 = new int[2];
             aVar.a.getLocationOnScreen(iArr2);
             return new int[]{iArr[0] - iArr2[0], iArr[1] - iArr2[1]};
@@ -220,7 +220,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            if (this.f1674f) {
+            if (this.f2101f) {
                 return context.getResources().getDimensionPixelSize(p.nad_bubble_radius_d20);
             }
             return context.getResources().getDimensionPixelSize(p.nad_bubble_radius);
@@ -236,36 +236,36 @@ public class b {
                 return new int[]{0, 0};
             }
             int[] iArr = new int[2];
-            aVar.f1694c.getLocationOnScreen(iArr);
+            aVar.f2121c.getLocationOnScreen(iArr);
             int[] iArr2 = new int[2];
             aVar.a.getLocationOnScreen(iArr2);
             int[] iArr3 = new int[2];
             if (bubblePosition == BubblePosition.UP) {
                 iArr3[0] = iArr[0] - iArr2[0];
                 if (!this.a) {
-                    iArr3[0] = iArr3[0] + (aVar.f1694c.getMeasuredWidth() / 2);
+                    iArr3[0] = iArr3[0] + (aVar.f2121c.getMeasuredWidth() / 2);
                 }
-                iArr3[1] = (iArr[1] - iArr2[1]) - f.c.a(aVar.f1694c.getContext(), this.f1670b);
+                iArr3[1] = (iArr[1] - iArr2[1]) - f.c.a(aVar.f2121c.getContext(), this.f2097b);
             } else if (bubblePosition == BubblePosition.DOWN) {
                 iArr3[0] = iArr[0] - iArr2[0];
                 if (!this.a) {
-                    iArr3[0] = iArr3[0] + (aVar.f1694c.getMeasuredWidth() / 2);
+                    iArr3[0] = iArr3[0] + (aVar.f2121c.getMeasuredWidth() / 2);
                 }
-                iArr3[1] = (iArr[1] - iArr2[1]) + aVar.f1694c.getMeasuredHeight() + f.c.a(aVar.f1694c.getContext(), this.f1670b);
+                iArr3[1] = (iArr[1] - iArr2[1]) + aVar.f2121c.getMeasuredHeight() + f.c.a(aVar.f2121c.getContext(), this.f2097b);
             } else if (bubblePosition == BubblePosition.LEFT) {
-                iArr3[0] = ((iArr[0] - iArr2[0]) - (aVar.f1700i.getMeasuredWidth() / 2)) - f.c.a(aVar.f1694c.getContext(), this.f1670b);
-                iArr3[1] = (iArr[1] - iArr2[1]) + (aVar.f1694c.getMeasuredHeight() / 2);
+                iArr3[0] = ((iArr[0] - iArr2[0]) - (aVar.f2127i.getMeasuredWidth() / 2)) - f.c.a(aVar.f2121c.getContext(), this.f2097b);
+                iArr3[1] = (iArr[1] - iArr2[1]) + (aVar.f2121c.getMeasuredHeight() / 2);
             } else if (bubblePosition == BubblePosition.RIGHT) {
-                iArr3[0] = (iArr[0] - iArr2[0]) + aVar.f1694c.getMeasuredWidth() + f.c.a(aVar.f1694c.getContext(), this.f1670b);
-                iArr3[1] = (iArr[1] - iArr2[1]) + (aVar.f1694c.getMeasuredHeight() / 2);
+                iArr3[0] = (iArr[0] - iArr2[0]) + aVar.f2121c.getMeasuredWidth() + f.c.a(aVar.f2121c.getContext(), this.f2097b);
+                iArr3[1] = (iArr[1] - iArr2[1]) + (aVar.f2121c.getMeasuredHeight() / 2);
             }
             int[] a2 = a(aVar, iArr3, bubblePosition);
             if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
                 if (bubblePosition == BubblePosition.LEFT || bubblePosition == BubblePosition.RIGHT) {
-                    aVar.f1698g.setY(((iArr3[1] - a2[1]) - Math.max(aVar.f1701j.getMeasuredHeight() / 2, aVar.f1702k.getMeasuredHeight() / 2)) + this.f1671c);
+                    aVar.f2125g.setY(((iArr3[1] - a2[1]) - Math.max(aVar.f2128j.getMeasuredHeight() / 2, aVar.f2129k.getMeasuredHeight() / 2)) + this.f2098c);
                 }
             } else {
-                aVar.f1698g.setX(((iArr3[0] - a2[0]) - Math.max(aVar.f1700i.getMeasuredWidth() / 2, aVar.f1699h.getMeasuredWidth() / 2)) + this.f1671c);
+                aVar.f2125g.setX(((iArr3[0] - a2[0]) - Math.max(aVar.f2127i.getMeasuredWidth() / 2, aVar.f2126h.getMeasuredWidth() / 2)) + this.f2098c);
             }
             return a2;
         }
@@ -275,13 +275,13 @@ public class b {
     public final boolean j(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, aVar)) == null) ? aVar.f1693b.getMeasuredHeight() + f.c.a(aVar.f1694c.getContext(), this.f1670b) <= (aVar.a.getMeasuredHeight() - aVar.f1694c.getMeasuredHeight()) - g(aVar)[1] && p(aVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, aVar)) == null) ? aVar.f2120b.getMeasuredHeight() + f.c.a(aVar.f2121c.getContext(), this.f2097b) <= (aVar.a.getMeasuredHeight() - aVar.f2121c.getMeasuredHeight()) - g(aVar)[1] && p(aVar) : invokeL.booleanValue;
     }
 
     public final boolean k(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, aVar)) == null) ? aVar.f1693b.getMeasuredWidth() + f.c.a(aVar.f1694c.getContext(), this.f1670b) <= g(aVar)[0] && o(aVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, aVar)) == null) ? aVar.f2120b.getMeasuredWidth() + f.c.a(aVar.f2121c.getContext(), this.f2097b) <= g(aVar)[0] && o(aVar) : invokeL.booleanValue;
     }
 
     public final boolean l(c.a.c0.h0.b0.e.a aVar, BubblePosition bubblePosition) {
@@ -309,21 +309,21 @@ public class b {
     public final boolean m(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, aVar)) == null) ? aVar.f1693b.getMeasuredWidth() + f.c.a(aVar.f1694c.getContext(), this.f1670b) <= (aVar.a.getMeasuredWidth() - aVar.f1694c.getMeasuredWidth()) - g(aVar)[0] && o(aVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, aVar)) == null) ? aVar.f2120b.getMeasuredWidth() + f.c.a(aVar.f2121c.getContext(), this.f2097b) <= (aVar.a.getMeasuredWidth() - aVar.f2121c.getMeasuredWidth()) - g(aVar)[0] && o(aVar) : invokeL.booleanValue;
     }
 
     public final boolean n(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, aVar)) == null) ? aVar.f1693b.getMeasuredHeight() + f.c.a(aVar.f1694c.getContext(), this.f1670b) <= g(aVar)[1] && p(aVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, aVar)) == null) ? aVar.f2120b.getMeasuredHeight() + f.c.a(aVar.f2121c.getContext(), this.f2097b) <= g(aVar)[1] && p(aVar) : invokeL.booleanValue;
     }
 
     public final boolean o(c.a.c0.h0.b0.e.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, aVar)) == null) {
-            float f2 = this.f1674f ? 0.0f : 15.0f;
-            Context context = aVar.f1694c.getContext();
+            float f2 = this.f2101f ? 0.0f : 15.0f;
+            Context context = aVar.f2121c.getContext();
             int a2 = f.c.a(context, f2) + context.getResources().getDimensionPixelSize(p.nad_bubble_radius) + (context.getResources().getDimensionPixelSize(p.nad_bubble_horizontal_arrow_view_height) / 2);
             return a2 <= f(aVar) && a2 <= c(aVar);
         }
@@ -334,8 +334,8 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, aVar)) == null) {
-            float f2 = this.f1674f ? 0.0f : 15.0f;
-            Context context = aVar.f1694c.getContext();
+            float f2 = this.f2101f ? 0.0f : 15.0f;
+            Context context = aVar.f2121c.getContext();
             int a2 = f.c.a(context, f2) + (h(context) / 2) + (context.getResources().getDimensionPixelSize(p.nad_bubble_vertical_arrow_view_width) / 2);
             return a2 <= d(aVar) && a2 <= e(aVar);
         }
@@ -345,7 +345,7 @@ public class b {
     public void q(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f1670b = f2;
+            this.f2097b = f2;
         }
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.sofire.utility;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.RequestInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +28,7 @@ public final class f {
                 bytes = "".getBytes();
             }
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("data", Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(TrackUI.SEPERATOR, "").replace(StringUtils.CR, ""));
+            jSONObject.put("data", Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace("\t", "").replace(StringUtils.CR, ""));
             jSONObject.put("app", "android");
             String encodeToString = Base64.encodeToString(F.getInstance().re(a, q.a(e.b(context)).getBytes()), 0);
             String a2 = q.a(e.b(context));

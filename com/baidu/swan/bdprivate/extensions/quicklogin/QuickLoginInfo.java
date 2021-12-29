@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.k;
+import c.a.r0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -88,7 +88,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(c.a.q0.b.p.d.a aVar) {
+    public static QuickLoginInfo parseQuickLoginInfo(c.a.r0.b.p.d.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {

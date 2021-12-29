@@ -15,7 +15,7 @@ import android.os.Looper;
 import android.os.Message;
 import c.a.d.c.e.c.i;
 import c.a.d.f.m.f;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import c.a.d.f.r.h;
 import c.a.d.f.r.j;
 import c.a.d.f.r.k;
@@ -169,7 +169,7 @@ public class BdSocketLinkService extends BdBaseService {
                     i.d();
                 }
                 BdSocketLinkService.mHandler.removeMessages(1);
-                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i2, null) : false) || i2 == 1 || !m.C()) {
+                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i2, null) : false) || i2 == 1 || !n.C()) {
                     return;
                 }
                 c.a.d.c.e.c.k.d dVar = BdSocketLinkService.reConnStra;
@@ -215,7 +215,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f32020e;
+        public final /* synthetic */ BdSocketLinkService f32162e;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f32020e = bdSocketLinkService;
+            this.f32162e = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -257,7 +257,7 @@ public class BdSocketLinkService extends BdBaseService {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f32021e;
+        public final /* synthetic */ BdSocketLinkService f32163e;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public class BdSocketLinkService extends BdBaseService {
                     return;
                 }
             }
-            this.f32021e = bdSocketLinkService;
+            this.f32163e = bdSocketLinkService;
         }
     }
 

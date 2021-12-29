@@ -1,23 +1,25 @@
 package com.vivo.push;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.LocalAliasTagsManager;
+import com.vivo.push.e;
 /* loaded from: classes4.dex */
 public final class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ j a;
+    public final /* synthetic */ String a;
 
-    public k(j jVar) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ e f63088b;
+
+    public k(e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {eVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -27,18 +29,23 @@ public final class k implements Runnable {
                 return;
             }
         }
-        this.a = jVar;
+        this.f63088b = eVar;
+        this.a = str;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
+        r0 = r4.f63088b.d(r4.a);
+     */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void run() {
-        Context context;
+        e.a d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j jVar = this.a;
-            LocalAliasTagsManager.LocalMessageCallback localMessageCallback = jVar.f63074b;
-            context = jVar.f63075c.mContext;
-            localMessageCallback.onTransmissionMessage(context, this.a.a);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d2 == null) {
+            return;
         }
+        d2.a(1003, new Object[0]);
     }
 }

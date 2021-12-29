@@ -16,6 +16,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface IPCCallback extends IInterface {
 
     /* loaded from: classes4.dex */
+    public static class Default implements IPCCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Default() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (IBinder) invokeV.objValue;
+        }
+
+        @Override // com.vivo.vms.IPCCallback
+        public void call(Bundle bundle) throws RemoteException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IPCCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
@@ -25,6 +62,7 @@ public interface IPCCallback extends IInterface {
         /* loaded from: classes4.dex */
         public static class Proxy implements IPCCallback {
             public static /* synthetic */ Interceptable $ic;
+            public static IPCCallback sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder mRemote;
 
@@ -61,10 +99,13 @@ public interface IPCCallback extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
-                        if (obtain2.readInt() != 0) {
-                            bundle.readFromParcel(obtain2);
+                        if (!this.mRemote.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().call(bundle);
+                        } else {
+                            obtain2.readException();
+                            if (obtain2.readInt() != 0) {
+                                bundle.readFromParcel(obtain2);
+                            }
                         }
                     } finally {
                         obtain2.recycle();
@@ -110,6 +151,25 @@ public interface IPCCallback extends IInterface {
                 return new Proxy(iBinder);
             }
             return (IPCCallback) invokeL.objValue;
+        }
+
+        public static IPCCallback getDefaultImpl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IPCCallback) invokeV.objValue;
+        }
+
+        public static boolean setDefaultImpl(IPCCallback iPCCallback) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iPCCallback)) == null) {
+                if (Proxy.sDefaultImpl != null || iPCCallback == null) {
+                    return false;
+                }
+                Proxy.sDefaultImpl = iPCCallback;
+                return true;
+            }
+            return invokeL.booleanValue;
         }
 
         @Override // android.os.IInterface

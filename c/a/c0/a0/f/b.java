@@ -16,16 +16,16 @@ public class b {
     public volatile c.a.c0.a0.c.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile c.a.c0.a0.c.b f1330b;
+    public volatile c.a.c0.a0.c.b f1757b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile c.a.c0.a0.c.b f1331c;
+    public volatile c.a.c0.a0.c.b f1758c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1332d;
+    public int f1759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f1333e;
+    public long f1760e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class b {
                 return;
             }
         }
-        this.f1332d = 0;
-        this.f1333e = 0L;
+        this.f1759d = 0;
+        this.f1760e = 0L;
     }
 
     public int a() {
@@ -49,19 +49,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             double a = c.f().g().a();
-            if (a >= c.a.c0.a0.a.f1323j && 3 != this.f1332d) {
-                if ((a >= c.a.c0.a0.a.f1324k) || SystemClock.elapsedRealtime() - this.f1333e > c.a.c0.a0.a.m) {
+            if (a >= c.a.c0.a0.a.f1750j && 3 != this.f1759d) {
+                if ((a >= c.a.c0.a0.a.f1751k) || SystemClock.elapsedRealtime() - this.f1760e > c.a.c0.a0.a.m) {
                     g();
-                    this.f1333e = SystemClock.elapsedRealtime();
+                    this.f1760e = SystemClock.elapsedRealtime();
                     c.f().j(c.a.c0.a0.a.m + 10);
                     return 1;
                 }
             }
-            if (this.f1332d == 0 || a >= c.a.c0.a0.a.l || SystemClock.elapsedRealtime() - this.f1333e <= c.a.c0.a0.a.n) {
+            if (this.f1759d == 0 || a >= c.a.c0.a0.a.l || SystemClock.elapsedRealtime() - this.f1760e <= c.a.c0.a0.a.n) {
                 return 0;
             }
             b();
-            this.f1333e = SystemClock.elapsedRealtime();
+            this.f1760e = SystemClock.elapsedRealtime();
             c.f().j(c.a.c0.a0.a.n + 10);
             return -1;
         }
@@ -71,16 +71,16 @@ public class b {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f1332d;
+            int i2 = this.f1759d;
             if (1 == i2) {
                 e().j();
-                this.f1332d = 0;
+                this.f1759d = 0;
             } else if (2 == i2) {
                 f().j();
-                this.f1332d = 1;
+                this.f1759d = 1;
             } else if (3 == i2) {
                 d().j();
-                this.f1332d = 2;
+                this.f1759d = 2;
             }
         }
     }
@@ -89,7 +89,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask)) == null) {
-            int i2 = this.f1332d;
+            int i2 = this.f1759d;
             if (i2 == 0) {
                 return false;
             }
@@ -117,14 +117,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f1331c == null) {
+            if (this.f1758c == null) {
                 synchronized (this) {
-                    if (this.f1331c == null) {
-                        this.f1331c = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1322i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
+                    if (this.f1758c == null) {
+                        this.f1758c = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1749i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
                     }
                 }
             }
-            return this.f1331c;
+            return this.f1758c;
         }
         return (c.a.c0.a0.c.b) invokeV.objValue;
     }
@@ -136,7 +136,7 @@ public class b {
             if (this.a == null) {
                 synchronized (this) {
                     if (this.a == null) {
-                        this.a = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1320g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                        this.a = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1747g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
                     }
                 }
             }
@@ -149,14 +149,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f1330b == null) {
+            if (this.f1757b == null) {
                 synchronized (this) {
-                    if (this.f1330b == null) {
-                        this.f1330b = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1321h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
+                    if (this.f1757b == null) {
+                        this.f1757b = (c.a.c0.a0.c.b) BaseExecutorCell.b(c.a.c0.a0.a.f1748h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
                     }
                 }
             }
-            return this.f1330b;
+            return this.f1757b;
         }
         return (c.a.c0.a0.c.b) invokeV.objValue;
     }
@@ -164,16 +164,16 @@ public class b {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = this.f1332d;
+            int i2 = this.f1759d;
             if (i2 == 0) {
                 e().i();
-                this.f1332d = 1;
+                this.f1759d = 1;
             } else if (1 == i2) {
                 f().i();
-                this.f1332d = 2;
+                this.f1759d = 2;
             } else if (2 == i2) {
                 d().i();
-                this.f1332d = 3;
+                this.f1759d = 3;
             }
         }
     }

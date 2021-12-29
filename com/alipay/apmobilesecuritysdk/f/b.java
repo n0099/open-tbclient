@@ -15,10 +15,10 @@ public final class b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread f31566b;
+    public Thread f31709b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<Runnable> f31567c;
+    public LinkedList<Runnable> f31710c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,8 +49,8 @@ public final class b {
                 return;
             }
         }
-        this.f31566b = null;
-        this.f31567c = new LinkedList<>();
+        this.f31709b = null;
+        this.f31710c = new LinkedList<>();
     }
 
     public static b a() {
@@ -63,10 +63,10 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             synchronized (this) {
-                this.f31567c.add(runnable);
-                if (this.f31566b == null) {
+                this.f31710c.add(runnable);
+                if (this.f31709b == null) {
                     Thread thread = new Thread(new c(this));
-                    this.f31566b = thread;
+                    this.f31709b = thread;
                     thread.start();
                 }
             }

@@ -18,7 +18,7 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ i.e f64506i;
+        public final /* synthetic */ i.e f64501i;
 
         public a(i.e eVar) {
             Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public final class f {
                     return;
                 }
             }
-            this.f64506i = eVar;
+            this.f64501i = eVar;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64506i.onCompleted();
+                this.f64501i.onCompleted();
             }
         }
 
@@ -50,7 +50,7 @@ public final class f {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f64506i.onError(th);
+                this.f64501i.onError(th);
             }
         }
 
@@ -58,7 +58,7 @@ public final class f {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.f64506i.onNext(t);
+                this.f64501i.onNext(t);
             }
         }
     }
@@ -69,7 +69,7 @@ public final class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ j f64507i;
+        public final /* synthetic */ j f64502i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(j jVar, j jVar2) {
@@ -89,14 +89,14 @@ public final class f {
                     return;
                 }
             }
-            this.f64507i = jVar2;
+            this.f64502i = jVar2;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64507i.onCompleted();
+                this.f64502i.onCompleted();
             }
         }
 
@@ -104,7 +104,7 @@ public final class f {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.f64507i.onError(th);
+                this.f64502i.onError(th);
             }
         }
 
@@ -112,7 +112,7 @@ public final class f {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.f64507i.onNext(t);
+                this.f64502i.onNext(t);
             }
         }
     }

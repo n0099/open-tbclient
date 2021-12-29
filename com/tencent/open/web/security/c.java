@@ -11,7 +11,7 @@ import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends a.C2230a {
+public class c extends a.C2237a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public class c extends a.C2230a {
         webView.loadUrl(stringBuffer2);
     }
 
-    @Override // com.tencent.open.a.C2230a
+    @Override // com.tencent.open.a.C2237a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -67,7 +67,7 @@ public class c extends a.C2230a {
         }
     }
 
-    @Override // com.tencent.open.a.C2230a
+    @Override // com.tencent.open.a.C2237a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -75,7 +75,7 @@ public class c extends a.C2230a {
         }
     }
 
-    @Override // com.tencent.open.a.C2230a
+    @Override // com.tencent.open.a.C2237a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {

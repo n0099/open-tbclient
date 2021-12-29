@@ -14,16 +14,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.d.a;
@@ -36,33 +27,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class KSImageLoader {
-    public static /* synthetic */ Interceptable $ic;
     public static DisplayImageOptionsCompat IMGOPTION_ENTRY;
-    public static DisplayImageOptionsCompat IMGOPTION_NORMAL;
+    public static DisplayImageOptionsCompat IMGOPTION_NORMAL = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
     public static DisplayImageOptionsCompat IMGOPTION_TREND;
     public static DisplayImageOptionsCompat IMGOPTION_TUBE;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.core.imageloader.KSImageLoader$1  reason: invalid class name */
     /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-272938882, "Lcom/kwad/sdk/core/imageloader/KSImageLoader$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-272938882, "Lcom/kwad/sdk/core/imageloader/KSImageLoader$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[FailReason.FailType.values().length];
             $SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType = iArr;
             try {
@@ -90,192 +65,123 @@ public class KSImageLoader {
 
     /* loaded from: classes3.dex */
     public static class InnerImageLoadingListener implements ImageLoadingListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         @Nullable
         public AdTemplate adTemplate;
         @Nullable
         public ImageLoadingListener loadingListener;
 
         public InnerImageLoadingListener(@Nullable AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {adTemplate, imageLoadingListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.adTemplate = adTemplate;
             this.loadingListener = imageLoadingListener;
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, decodedResult)) == null) {
-                ImageLoadingListener imageLoadingListener = this.loadingListener;
-                if (imageLoadingListener != null) {
-                    return imageLoadingListener.onDecode(str, inputStream, decodedResult);
-                }
-                return false;
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                return imageLoadingListener.onDecode(str, inputStream, decodedResult);
             }
-            return invokeLLL.booleanValue;
+            return false;
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingCancelled(String str, View view) {
-            ImageLoadingListener imageLoadingListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view) == null) || (imageLoadingListener = this.loadingListener) == null) {
-                return;
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingCancelled(str, view);
             }
-            imageLoadingListener.onLoadingCancelled(str, view);
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingComplete(String str, View view, DecodedResult decodedResult) {
-            ImageLoadingListener imageLoadingListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, view, decodedResult) == null) || (imageLoadingListener = this.loadingListener) == null) {
-                return;
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingComplete(str, view, decodedResult);
             }
-            imageLoadingListener.onLoadingComplete(str, view, decodedResult);
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingFailed(String str, View view, FailReason failReason) {
             String str2;
             String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, view, failReason) == null) {
-                ImageLoadingListener imageLoadingListener = this.loadingListener;
-                if (imageLoadingListener != null) {
-                    imageLoadingListener.onLoadingFailed(str, view, failReason);
-                }
-                if (this.adTemplate != null) {
-                    StringBuilder sb = new StringBuilder("ImageLoader:");
-                    if (failReason != null) {
-                        Throwable cause = failReason.getCause();
-                        if (cause == null || cause.getStackTrace().length <= 0) {
-                            str2 = "";
-                        } else {
-                            str2 = cause.getMessage() + " @ " + cause.getStackTrace()[0].getFileName() + cause.getStackTrace()[0].getClassName() + cause.getStackTrace()[0].getLineNumber();
-                        }
-                        int i2 = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[failReason.getType().ordinal()];
-                        if (i2 == 1) {
-                            str3 = RomUtils.UNKNOWN;
-                        } else if (i2 == 2) {
-                            sb.append("IO_ERROR");
-                            sb.append(str2);
-                        } else if (i2 == 3) {
-                            str3 = "OUT_OF_MEMORY";
-                        } else if (i2 == 4) {
-                            str3 = "NETWORK_DENIED";
-                        } else if (i2 == 5) {
-                            str3 = "DECODING_ERROR";
-                        }
-                        sb.append(str3);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingFailed(str, view, failReason);
+            }
+            if (this.adTemplate != null) {
+                StringBuilder sb = new StringBuilder("ImageLoader:");
+                if (failReason != null) {
+                    Throwable cause = failReason.getCause();
+                    if (cause == null || cause.getStackTrace().length <= 0) {
+                        str2 = "";
+                    } else {
+                        str2 = cause.getMessage() + " @ " + cause.getStackTrace()[0].getFileName() + cause.getStackTrace()[0].getClassName() + cause.getStackTrace()[0].getLineNumber();
                     }
-                    d.a(this.adTemplate, str, sb.toString());
+                    int i2 = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$assist$FailReason$FailType[failReason.getType().ordinal()];
+                    if (i2 == 1) {
+                        str3 = RomUtils.UNKNOWN;
+                    } else if (i2 == 2) {
+                        sb.append("IO_ERROR");
+                        sb.append(str2);
+                    } else if (i2 == 3) {
+                        str3 = "OUT_OF_MEMORY";
+                    } else if (i2 == 4) {
+                        str3 = "NETWORK_DENIED";
+                    } else if (i2 == 5) {
+                        str3 = "DECODING_ERROR";
+                    }
+                    sb.append(str3);
                 }
+                d.a(this.adTemplate, str, sb.toString());
             }
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
         public void onLoadingStarted(String str, View view) {
-            ImageLoadingListener imageLoadingListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, view) == null) || (imageLoadingListener = this.loadingListener) == null) {
-                return;
-            }
-            imageLoadingListener.onLoadingStarted(str, view);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-728774805, "Lcom/kwad/sdk/core/imageloader/KSImageLoader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-728774805, "Lcom/kwad/sdk/core/imageloader/KSImageLoader;");
-                return;
-            }
-        }
-        IMGOPTION_NORMAL = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).build();
-    }
-
-    public KSImageLoader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            ImageLoadingListener imageLoadingListener = this.loadingListener;
+            if (imageLoadingListener != null) {
+                imageLoadingListener.onLoadingStarted(str, view);
             }
         }
     }
 
     public static DisplayImageOptionsCompat IMGOPTION_ENTRY_FS() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? IMGOPTION_ENTRY : (DisplayImageOptionsCompat) invokeV.objValue;
+        return IMGOPTION_ENTRY;
     }
 
     @RequiresApi(api = 17)
     public static Bitmap blur(Context context, Bitmap bitmap, @IntRange(from = 1, to = 25) int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, bitmap, i2)) == null) {
-            Bitmap.Config config = bitmap.getConfig();
-            Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
-            Bitmap copy = config == config2 ? bitmap : bitmap.copy(config2, true);
-            if (copy == null) {
-                copy = bitmap.copy(bitmap.getConfig(), true);
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(copy.getWidth(), copy.getHeight(), copy.getConfig());
-            try {
-                RenderScript create = RenderScript.create(context);
-                Allocation createFromBitmap = Allocation.createFromBitmap(create, createBitmap);
-                ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, createFromBitmap.getElement());
-                create2.setInput(createFromBitmap);
-                create2.setRadius(i2);
-                create2.forEach(createFromBitmap);
-                createFromBitmap.copyTo(createBitmap);
-                create.destroy();
-            } catch (Exception e2) {
-                a.b(e2);
-            }
-            return createBitmap;
+        Bitmap.Config config = bitmap.getConfig();
+        Bitmap.Config config2 = Bitmap.Config.ARGB_8888;
+        Bitmap copy = config == config2 ? bitmap : bitmap.copy(config2, true);
+        if (copy == null) {
+            copy = bitmap.copy(bitmap.getConfig(), true);
         }
-        return (Bitmap) invokeLLI.objValue;
+        Bitmap createBitmap = Bitmap.createBitmap(copy.getWidth(), copy.getHeight(), copy.getConfig());
+        try {
+            RenderScript create = RenderScript.create(context);
+            Allocation createFromBitmap = Allocation.createFromBitmap(create, createBitmap);
+            ScriptIntrinsicBlur create2 = ScriptIntrinsicBlur.create(create, createFromBitmap.getElement());
+            create2.setInput(createFromBitmap);
+            create2.setRadius(i2);
+            create2.forEach(createFromBitmap);
+            createFromBitmap.copyTo(createBitmap);
+            create.destroy();
+        } catch (Exception e2) {
+            a.b(e2);
+        }
+        return createBitmap;
     }
 
     public static void checkInit() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || ImageLoaderProxy.INSTANCE.isInited()) {
+        if (ImageLoaderProxy.INSTANCE.isInited()) {
             return;
         }
         init(KsAdSDKImpl.get().getContext());
     }
 
     public static void init(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, context) == null) || context == null) {
+        if (context == null) {
             return;
         }
         IMGOPTION_ENTRY = new DisplayImageOptionsCompat.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(R.drawable.ksad_loading_entry).showImageForEmptyUri(R.drawable.ksad_loading_entry).showImageOnFail(R.drawable.ksad_loading_entry).build();
@@ -285,8 +191,7 @@ public class KSImageLoader {
     }
 
     public static void loadAppIcon(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65542, null, imageView, str, adTemplate, i2) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
@@ -294,15 +199,11 @@ public class KSImageLoader {
     }
 
     public static void loadAuthorCircleIcon(ImageView imageView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, imageView, str) == null) {
-            loadCircleIcon(imageView, str, imageView.getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon));
-        }
+        loadCircleIcon(imageView, str, imageView.getContext().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon));
     }
 
     public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, imageView, str, drawable) == null) || imageView == null) {
+        if (imageView == null) {
             return;
         }
         checkInit();
@@ -310,8 +211,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIcon(ImageView imageView, String str, Drawable drawable, @ColorInt int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65545, null, imageView, str, drawable, i2) == null) || imageView == null) {
+        if (imageView == null) {
             return;
         }
         checkInit();
@@ -319,8 +219,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIconWithBorder(ImageView imageView, String str, Drawable drawable, Integer num, float f2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{imageView, str, drawable, num, Float.valueOf(f2)}) == null) || imageView == null) {
+        if (imageView == null) {
             return;
         }
         checkInit();
@@ -328,8 +227,7 @@ public class KSImageLoader {
     }
 
     public static void loadCircleIconWithoutStroke(ImageView imageView, String str, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, imageView, str, drawable) == null) || imageView == null) {
+        if (imageView == null) {
             return;
         }
         checkInit();
@@ -337,15 +235,11 @@ public class KSImageLoader {
     }
 
     public static void loadFeeImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, imageView, str, adTemplate) == null) {
-            loadFeeImage(imageView, str, adTemplate, null);
-        }
+        loadFeeImage(imageView, str, adTemplate, null);
     }
 
     public static void loadFeeImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65549, null, imageView, str, adTemplate, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
@@ -353,15 +247,11 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65550, null, imageView, str, adTemplate) == null) {
-            loadImage(imageView, str, adTemplate, IMGOPTION_NORMAL);
-        }
+        loadImage(imageView, str, adTemplate, IMGOPTION_NORMAL);
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65551, null, imageView, str, adTemplate, displayImageOptionsCompat) == null) || imageView == null) {
+        if (imageView == null) {
             return;
         }
         checkInit();
@@ -372,8 +262,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65552, null, imageView, str, adTemplate, displayImageOptionsCompat, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
@@ -384,8 +273,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(ImageView imageView, @Nullable String str, AdTemplate adTemplate, ImageLoadingListener imageLoadingListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65553, null, imageView, str, adTemplate, imageLoadingListener) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
@@ -393,8 +281,7 @@ public class KSImageLoader {
     }
 
     public static void loadImage(String str, AdTemplate adTemplate, DisplayImageOptionsCompat displayImageOptionsCompat, ImageLoadingListener imageLoadingListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65554, null, str, adTemplate, displayImageOptionsCompat, imageLoadingListener) == null) || TextUtils.isEmpty(str) || KsAdSDKImpl.get().getContext() == null) {
+        if (TextUtils.isEmpty(str) || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
         checkInit();
@@ -402,8 +289,7 @@ public class KSImageLoader {
     }
 
     public static void loadWithRadius(ImageView imageView, @Nullable String str, AdTemplate adTemplate, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65555, null, imageView, str, adTemplate, i2) == null) || imageView == null || TextUtils.isEmpty(str)) {
+        if (imageView == null || TextUtils.isEmpty(str)) {
             return;
         }
         checkInit();
@@ -411,25 +297,16 @@ public class KSImageLoader {
     }
 
     public static void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
-            checkInit();
-            ImageLoaderProxy.INSTANCE.pause();
-        }
+        checkInit();
+        ImageLoaderProxy.INSTANCE.pause();
     }
 
     public static void preloadImage(String str, AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, str, adTemplate) == null) {
-            loadImage(str, adTemplate, IMGOPTION_NORMAL, (ImageLoadingListener) null);
-        }
+        loadImage(str, adTemplate, IMGOPTION_NORMAL, (ImageLoadingListener) null);
     }
 
     public static void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            checkInit();
-            ImageLoaderProxy.INSTANCE.resume();
-        }
+        checkInit();
+        ImageLoaderProxy.INSTANCE.resume();
     }
 }

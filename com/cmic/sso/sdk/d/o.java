@@ -133,10 +133,10 @@ public class o {
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f55568b;
+                public final /* synthetic */ Context f55567b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f55569c;
+                public final /* synthetic */ a f55568c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,9 +153,9 @@ public class o {
                             return;
                         }
                     }
-                    this.f55569c = this;
+                    this.f55568c = this;
                     this.a = aVar;
-                    this.f55568b = context;
+                    this.f55567b = context;
                 }
 
                 @Override // java.lang.Thread.UncaughtExceptionHandler
@@ -163,7 +163,7 @@ public class o {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, thread, th) == null) {
                         this.a.a().a.add(th);
-                        AuthnHelper.getInstance(this.f55568b).callBackResult("200025", "发生未知错误", this.a, null);
+                        AuthnHelper.getInstance(this.f55567b).callBackResult("200025", "发生未知错误", this.a, null);
                     }
                 }
             };

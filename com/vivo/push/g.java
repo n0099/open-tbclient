@@ -4,22 +4,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ISubscribeAppAliasManager;
-import com.vivo.push.cache.ISubscribeAppTagManager;
-import com.vivo.push.model.SubscribeAppInfo;
-import java.util.ArrayList;
+import com.vivo.push.e;
 /* loaded from: classes4.dex */
-public final class g implements Runnable {
+public final class g implements IPushActionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ LocalAliasTagsManager a;
+    public final /* synthetic */ e.a a;
 
-    public g(LocalAliasTagsManager localAliasTagsManager) {
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ e f63083b;
+
+    public g(e eVar, e.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {localAliasTagsManager};
+            Object[] objArr = {eVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -29,63 +29,28 @@ public final class g implements Runnable {
                 return;
             }
         }
-        this.a = localAliasTagsManager;
+        this.f63083b = eVar;
+        this.a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        boolean z;
-        ISubscribeAppTagManager iSubscribeAppTagManager;
-        ISubscribeAppTagManager iSubscribeAppTagManager2;
+    @Override // com.vivo.push.IPushActionListener
+    public final void onStateChanged(int i2) {
+        com.vivo.push.util.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iSubscribeAppAliasManager = this.a.mSubscribeAppAliasManager;
-            SubscribeAppInfo retrySubscribeAppInfo = iSubscribeAppAliasManager.getRetrySubscribeAppInfo();
-            boolean z2 = true;
-            if (retrySubscribeAppInfo != null) {
-                try {
-                    Thread.sleep(10000L);
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
-                }
-                if (retrySubscribeAppInfo.getTargetStatus() == 1) {
-                    p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo.getName());
-                } else if (retrySubscribeAppInfo.getTargetStatus() == 2) {
-                    p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo.getName());
-                }
-                z = true;
-            } else {
-                z = false;
-            }
-            iSubscribeAppTagManager = this.a.mSubscribeAppTagManager;
-            ArrayList<String> retrySubscribeAppInfo2 = iSubscribeAppTagManager.getRetrySubscribeAppInfo();
-            if (retrySubscribeAppInfo2 != null && retrySubscribeAppInfo2.size() > 0) {
-                if (z) {
-                    z2 = z;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (i2 == 0) {
+                Object[] b2 = this.a.b();
+                if (b2 != null && b2.length != 0) {
+                    this.f63083b.a((String) this.a.b()[0]);
+                    return;
                 } else {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (InterruptedException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retrySubscribeAppInfo2);
-                z = z2;
-            }
-            iSubscribeAppTagManager2 = this.a.mSubscribeAppTagManager;
-            ArrayList<String> retryUnsubscribeAppInfo = iSubscribeAppTagManager2.getRetryUnsubscribeAppInfo();
-            if (retryUnsubscribeAppInfo == null || retryUnsubscribeAppInfo.size() <= 0) {
-                return;
-            }
-            if (!z) {
-                try {
-                    Thread.sleep(10000L);
-                } catch (InterruptedException e4) {
-                    e4.printStackTrace();
+                    com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
+                    return;
                 }
             }
-            p.a().b(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, retryUnsubscribeAppInfo);
+            this.f63083b.f63077k = null;
+            bVar = this.f63083b.f63076j;
+            bVar.b("APP_TOKEN");
         }
     }
 }

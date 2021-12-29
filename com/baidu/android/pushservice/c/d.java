@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.baidu.android.pushservice.c.c;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,15 +36,15 @@ public class d {
                 i2 = p;
             }
             if (contentResolver != null) {
-                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.f32704c.name()}, null, null, null);
+                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.f32848c.name()}, null, null, null);
                 if (cursor == null) {
-                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.f32704c.name()}, null, null, null);
+                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.f32848c.name()}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
-                        columnIndex = cursor.getColumnIndex(c.g.f32704c.name());
+                        columnIndex = cursor.getColumnIndex(c.g.f32848c.name());
                         p = cursor.getInt(columnIndex);
                     }
                 } else if (cursor.moveToFirst()) {
-                    columnIndex = cursor.getColumnIndex(c.g.f32704c.name());
+                    columnIndex = cursor.getColumnIndex(c.g.f32848c.name());
                     p = cursor.getInt(columnIndex);
                 }
                 i2 = p;

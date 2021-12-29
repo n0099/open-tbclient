@@ -19,11 +19,11 @@ public class RouterManager {
     public static final String a = "MaApplication";
 
     /* renamed from: b  reason: collision with root package name */
-    public static RouterManager f34727b;
+    public static RouterManager f34883b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<ApplicationLogicWrapper> f34728c;
+    public ArrayList<ApplicationLogicWrapper> f34884c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class RouterManager {
                 return;
             }
         }
-        f34727b = new RouterManager();
+        f34883b = new RouterManager();
     }
 
     public RouterManager() {
@@ -54,17 +54,17 @@ public class RouterManager {
                 return;
             }
         }
-        this.f34728c = new ArrayList<>();
+        this.f34884c = new ArrayList<>();
     }
 
     private void a(Context context, HashMap<String, Object> hashMap) {
         ArrayList<ApplicationLogicWrapper> arrayList;
         BaseApplicationLogic baseApplicationLogic;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f34728c) == null || arrayList.size() < 1) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, hashMap) == null) || (arrayList = this.f34884c) == null || arrayList.size() < 1) {
             return;
         }
-        Iterator<ApplicationLogicWrapper> it = this.f34728c.iterator();
+        Iterator<ApplicationLogicWrapper> it = this.f34884c.iterator();
         while (it.hasNext()) {
             ApplicationLogicWrapper next = it.next();
             if (next != null) {
@@ -84,7 +84,7 @@ public class RouterManager {
     public static RouterManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f34727b : (RouterManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f34883b : (RouterManager) invokeV.objValue;
     }
 
     public void init(Context context, HashMap<String, Object> hashMap) {
@@ -108,7 +108,7 @@ public class RouterManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-            ArrayList<ApplicationLogicWrapper> arrayList = this.f34728c;
+            ArrayList<ApplicationLogicWrapper> arrayList = this.f34884c;
             if (arrayList != null) {
                 Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -116,7 +116,7 @@ public class RouterManager {
                         throw new RuntimeException(cls.getName() + " has registered.");
                     }
                 }
-                this.f34728c.add(new ApplicationLogicWrapper(cls));
+                this.f34884c.add(new ApplicationLogicWrapper(cls));
                 return true;
             }
             return false;

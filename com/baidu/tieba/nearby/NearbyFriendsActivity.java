@@ -1,7 +1,7 @@
 package com.baidu.tieba.nearby;
 
 import android.os.Bundle;
-import c.a.s0.l2.e.b;
+import c.a.s0.x.v.d;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,8 +17,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mCompleteInfoListener;
+    public CustomMessageListener mLocalInputListener;
     public NearbyFriendsModel mModel;
-    public c.a.s0.l2.e.a mView;
+    public c.a.t0.l2.d.a mView;
 
     /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
@@ -57,6 +58,49 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
+    /* loaded from: classes12.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NearbyFriendsActivity a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(NearbyFriendsActivity nearbyFriendsActivity, int i2) {
+            super(i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nearbyFriendsActivity, Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nearbyFriendsActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
+            }
+            c.a.s0.x.v.e.a aVar = customResponsedMessage.getData() instanceof c.a.s0.x.v.e.a ? (c.a.s0.x.v.e.a) customResponsedMessage.getData() : null;
+            if (aVar == null || aVar.b() != 1) {
+                return;
+            }
+            NearbyFriendsActivity nearbyFriendsActivity = this.a;
+            new d(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.nearby_root), aVar).j();
+        }
+    }
+
     public NearbyFriendsActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -77,6 +121,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             a aVar = new a(this, 2921651);
             this.mCompleteInfoListener = aVar;
             registerListener(aVar);
+            b bVar = new b(this, 2921654);
+            this.mLocalInputListener = bVar;
+            registerListener(bVar);
         }
     }
 
@@ -95,7 +142,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setContentView(R.layout.activity_nearby_friends);
             initListeners();
-            b bVar = new b(this);
+            c.a.t0.l2.d.b bVar = new c.a.t0.l2.d.b(this);
             this.mView = bVar;
             NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(bVar, getUniqueId());
             this.mModel = nearbyFriendsModel;

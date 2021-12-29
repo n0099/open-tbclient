@@ -14,16 +14,16 @@ public final class t<T> implements h.c<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.c<T> f64324e;
+    public final h.c<T> f64319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f64325f;
+    public final long f64320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TimeUnit f64326g;
+    public final TimeUnit f64321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final i.g f64327h;
+    public final i.g f64322h;
 
     /* loaded from: classes4.dex */
     public static final class a<T> extends i.i<T> implements i.n.a {
@@ -31,22 +31,22 @@ public final class t<T> implements h.c<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public final i.i<? super T> f64328f;
+        public final i.i<? super T> f64323f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final g.a f64329g;
+        public final g.a f64324g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f64330h;
+        public final long f64325h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final TimeUnit f64331i;
+        public final TimeUnit f64326i;
 
         /* renamed from: j  reason: collision with root package name */
-        public T f64332j;
+        public T f64327j;
 
         /* renamed from: k  reason: collision with root package name */
-        public Throwable f64333k;
+        public Throwable f64328k;
 
         public a(i.i<? super T> iVar, g.a aVar, long j2, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
@@ -63,18 +63,18 @@ public final class t<T> implements h.c<T> {
                     return;
                 }
             }
-            this.f64328f = iVar;
-            this.f64329g = aVar;
-            this.f64330h = j2;
-            this.f64331i = timeUnit;
+            this.f64323f = iVar;
+            this.f64324g = aVar;
+            this.f64325h = j2;
+            this.f64326i = timeUnit;
         }
 
         @Override // i.i
         public void b(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.f64333k = th;
-                this.f64329g.c(this, this.f64330h, this.f64331i);
+                this.f64328k = th;
+                this.f64324g.c(this, this.f64325h, this.f64326i);
             }
         }
 
@@ -82,8 +82,8 @@ public final class t<T> implements h.c<T> {
         public void c(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f64332j = t;
-                this.f64329g.c(this, this.f64330h, this.f64331i);
+                this.f64327j = t;
+                this.f64324g.c(this, this.f64325h, this.f64326i);
             }
         }
 
@@ -92,17 +92,17 @@ public final class t<T> implements h.c<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
-                    Throwable th = this.f64333k;
+                    Throwable th = this.f64328k;
                     if (th != null) {
-                        this.f64333k = null;
-                        this.f64328f.b(th);
+                        this.f64328k = null;
+                        this.f64323f.b(th);
                     } else {
-                        T t = this.f64332j;
-                        this.f64332j = null;
-                        this.f64328f.c(t);
+                        T t = this.f64327j;
+                        this.f64327j = null;
+                        this.f64323f.c(t);
                     }
                 } finally {
-                    this.f64329g.unsubscribe();
+                    this.f64324g.unsubscribe();
                 }
             }
         }
@@ -123,10 +123,10 @@ public final class t<T> implements h.c<T> {
                 return;
             }
         }
-        this.f64324e = cVar;
-        this.f64327h = gVar;
-        this.f64325f = j2;
-        this.f64326g = timeUnit;
+        this.f64319e = cVar;
+        this.f64322h = gVar;
+        this.f64320f = j2;
+        this.f64321g = timeUnit;
     }
 
     @Override // i.h.c, i.n.b
@@ -137,11 +137,11 @@ public final class t<T> implements h.c<T> {
     public void call(i.i<? super T> iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iVar) == null) {
-            g.a createWorker = this.f64327h.createWorker();
-            a aVar = new a(iVar, createWorker, this.f64325f, this.f64326g);
+            g.a createWorker = this.f64322h.createWorker();
+            a aVar = new a(iVar, createWorker, this.f64320f, this.f64321g);
             iVar.a(createWorker);
             iVar.a(aVar);
-            this.f64324e.call(aVar);
+            this.f64319e.call(aVar);
         }
     }
 }

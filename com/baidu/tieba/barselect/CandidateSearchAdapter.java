@@ -3,7 +3,7 @@ package com.baidu.tieba.barselect;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.s0.c0.b.a;
+import c.a.t0.c0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

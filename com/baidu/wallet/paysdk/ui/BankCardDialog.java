@@ -38,19 +38,19 @@ public class BankCardDialog extends BaseTipDialog {
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f54232b;
+    public Context f54235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f54233c;
+    public boolean f54236c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<CardDisplayInfo> f54234d;
+    public List<CardDisplayInfo> f54237d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IListItemClickCallback f54235e;
+    public IListItemClickCallback f54238e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f54236f;
+    public boolean f54239f;
 
     /* loaded from: classes13.dex */
     public static class CardDisplayInfo {
@@ -59,16 +59,16 @@ public class BankCardDialog extends BaseTipDialog {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54242b;
+        public String f54245b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54243c;
+        public String f54246c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54244d;
+        public String f54247d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f54245e;
+        public String f54248e;
 
         public CardDisplayInfo(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class BankCardDialog extends BaseTipDialog {
                     return;
                 }
             }
-            this.f54243c = "1";
-            this.f54244d = "";
-            this.f54245e = "";
+            this.f54246c = "1";
+            this.f54247d = "";
+            this.f54248e = "";
             this.a = str;
-            this.f54242b = str2;
-            this.f54243c = str3;
-            this.f54244d = str4;
-            this.f54245e = "";
+            this.f54245b = str2;
+            this.f54246c = str3;
+            this.f54247d = str4;
+            this.f54248e = "";
         }
     }
 
@@ -119,9 +119,9 @@ public class BankCardDialog extends BaseTipDialog {
                 return;
             }
         }
-        this.f54233c = false;
-        this.f54236f = false;
-        this.f54232b = context;
+        this.f54236c = false;
+        this.f54239f = false;
+        this.f54235b = context;
         setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class BankCardDialog extends BaseTipDialog {
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.a.f54236f) {
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) && this.a.f54239f) {
                     PasswordController.getPassWordInstance().clearCheckPwdListener();
                 }
             }
@@ -159,11 +159,11 @@ public class BankCardDialog extends BaseTipDialog {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f54233c) {
+            if (this.f54236c) {
                 return -2;
             }
             for (int i2 = 0; i2 < this.a.getChildCount(); i2++) {
-                ImageButton imageButton = (ImageButton) this.a.getChildAt(i2).findViewById(ResUtils.id(this.f54232b, "bank_card_check_btn"));
+                ImageButton imageButton = (ImageButton) this.a.getChildAt(i2).findViewById(ResUtils.id(this.f54235b, "bank_card_check_btn"));
                 if (imageButton != null && imageButton.isSelected()) {
                     return i2;
                 }
@@ -179,12 +179,12 @@ public class BankCardDialog extends BaseTipDialog {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             if (this.mInflater == null) {
-                this.mInflater = LayoutInflater.from(this.f54232b);
+                this.mInflater = LayoutInflater.from(this.f54235b);
             }
-            setTitleMessage(ResUtils.getString(this.f54232b, "bank_card_dialog_title"));
-            findViewById(ResUtils.id(this.f54232b, "dialog_btns")).setVisibility(8);
-            View inflate = this.mInflater.inflate(ResUtils.layout(this.f54232b, "wallet_base_bank_card_dialog_content_layout"), (ViewGroup) null);
-            this.a = (LinearLayout) inflate.findViewById(ResUtils.id(this.f54232b, "content_layout"));
+            setTitleMessage(ResUtils.getString(this.f54235b, "bank_card_dialog_title"));
+            findViewById(ResUtils.id(this.f54235b, "dialog_btns")).setVisibility(8);
+            View inflate = this.mInflater.inflate(ResUtils.layout(this.f54235b, "wallet_base_bank_card_dialog_content_layout"), (ViewGroup) null);
+            this.a = (LinearLayout) inflate.findViewById(ResUtils.id(this.f54235b, "content_layout"));
             addContentView(inflate);
         }
     }
@@ -192,7 +192,7 @@ public class BankCardDialog extends BaseTipDialog {
     public void setBankList(List<CardDisplayInfo> list, int i2, boolean z, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), str}) == null) {
-            this.f54234d = list;
+            this.f54237d = list;
             a(i2, z, i3, str);
         }
     }
@@ -200,35 +200,35 @@ public class BankCardDialog extends BaseTipDialog {
     public void setOnIListItemClickCallback(IListItemClickCallback iListItemClickCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iListItemClickCallback) == null) {
-            this.f54235e = iListItemClickCallback;
+            this.f54238e = iListItemClickCallback;
         }
     }
 
     private void a(int i2, boolean z, int i3, String str) {
         List<CardDisplayInfo> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), str}) == null) || (list = this.f54234d) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), str}) == null) || (list = this.f54237d) == null || list.size() == 0) {
             return;
         }
         this.a.removeAllViews();
         int i4 = 0;
         while (true) {
-            if (i4 >= this.f54234d.size()) {
+            if (i4 >= this.f54237d.size()) {
                 break;
             }
-            CardDisplayInfo cardDisplayInfo = this.f54234d.get(i4);
-            View inflate = this.mInflater.inflate(ResUtils.layout(this.f54232b, "wallet_base_bank_card_dialog_item"), (ViewGroup) null);
+            CardDisplayInfo cardDisplayInfo = this.f54237d.get(i4);
+            View inflate = this.mInflater.inflate(ResUtils.layout(this.f54235b, "wallet_base_bank_card_dialog_item"), (ViewGroup) null);
             this.a.addView(inflate);
-            TextView textView = (TextView) inflate.findViewById(ResUtils.id(this.f54232b, "card_tip_tv"));
-            ((NetImageView) inflate.findViewById(ResUtils.id(this.f54232b, "wallet_personal_my_bank_card_icon"))).setImageUrl(cardDisplayInfo.a);
-            ((TextView) inflate.findViewById(ResUtils.id(this.f54232b, "card_name_tv"))).setText(cardDisplayInfo.f54242b);
-            if (!"1".equals(cardDisplayInfo.f54243c) && !TextUtils.isEmpty(cardDisplayInfo.f54244d)) {
-                textView.setText(cardDisplayInfo.f54244d);
+            TextView textView = (TextView) inflate.findViewById(ResUtils.id(this.f54235b, "card_tip_tv"));
+            ((NetImageView) inflate.findViewById(ResUtils.id(this.f54235b, "wallet_personal_my_bank_card_icon"))).setImageUrl(cardDisplayInfo.a);
+            ((TextView) inflate.findViewById(ResUtils.id(this.f54235b, "card_name_tv"))).setText(cardDisplayInfo.f54245b);
+            if (!"1".equals(cardDisplayInfo.f54246c) && !TextUtils.isEmpty(cardDisplayInfo.f54247d)) {
+                textView.setText(cardDisplayInfo.f54247d);
                 textView.setVisibility(0);
             } else {
                 textView.setVisibility(8);
             }
-            if (!"1".equals(cardDisplayInfo.f54243c)) {
+            if (!"1".equals(cardDisplayInfo.f54246c)) {
                 r3 = 0.4f;
             }
             ViewHelper.setAlpha(inflate, r3);
@@ -238,7 +238,7 @@ public class BankCardDialog extends BaseTipDialog {
                 public final /* synthetic */ CardDisplayInfo a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDialog f54237b;
+                public final /* synthetic */ BankCardDialog f54240b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -255,7 +255,7 @@ public class BankCardDialog extends BaseTipDialog {
                             return;
                         }
                     }
-                    this.f54237b = this;
+                    this.f54240b = this;
                     this.a = cardDisplayInfo;
                 }
 
@@ -263,19 +263,19 @@ public class BankCardDialog extends BaseTipDialog {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (!"1".equals(this.a.f54243c) && !TextUtils.isEmpty(this.a.f54244d)) {
-                            GlobalUtils.toast(this.f54237b.f54232b, this.a.f54244d);
+                        if (!"1".equals(this.a.f54246c) && !TextUtils.isEmpty(this.a.f54247d)) {
+                            GlobalUtils.toast(this.f54240b.f54235b, this.a.f54247d);
                         }
-                        if (this.f54237b.f54235e != null) {
-                            this.f54237b.f54235e.onChangeSucceed();
-                            this.f54237b.f54235e = null;
+                        if (this.f54240b.f54238e != null) {
+                            this.f54240b.f54238e.onChangeSucceed();
+                            this.f54240b.f54238e = null;
                         }
                     }
                 }
             });
             i4++;
         }
-        View inflate2 = this.mInflater.inflate(ResUtils.layout(this.f54232b, "wallet_balance_bank_card_dialog_add_card_item"), (ViewGroup) null);
+        View inflate2 = this.mInflater.inflate(ResUtils.layout(this.f54235b, "wallet_balance_bank_card_dialog_add_card_item"), (ViewGroup) null);
         this.a.addView(inflate2);
         ViewHelper.setAlpha(inflate2, z ? 1.0f : 0.4f);
         inflate2.setOnClickListener(new View.OnClickListener(this, z, i3, str) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.3
@@ -284,13 +284,13 @@ public class BankCardDialog extends BaseTipDialog {
             public final /* synthetic */ boolean a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f54238b;
+            public final /* synthetic */ int f54241b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f54239c;
+            public final /* synthetic */ String f54242c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ BankCardDialog f54240d;
+            public final /* synthetic */ BankCardDialog f54243d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -307,10 +307,10 @@ public class BankCardDialog extends BaseTipDialog {
                         return;
                     }
                 }
-                this.f54240d = this;
+                this.f54243d = this;
                 this.a = z;
-                this.f54238b = i3;
-                this.f54239c = str;
+                this.f54241b = i3;
+                this.f54242c = str;
             }
 
             @Override // android.view.View.OnClickListener
@@ -318,9 +318,9 @@ public class BankCardDialog extends BaseTipDialog {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                     if (this.a) {
-                        int i5 = this.f54238b;
+                        int i5 = this.f54241b;
                         if (i5 == 1) {
-                            BaiduPay.getInstance().bindCardAuth(this.f54240d.f54232b, false);
+                            BaiduPay.getInstance().bindCardAuth(this.f54243d.f54235b, false);
                             new Handler().postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -348,13 +348,13 @@ public class BankCardDialog extends BaseTipDialog {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.a.f54240d.dismiss();
+                                        this.a.f54243d.dismiss();
                                     }
                                 }
                             }, 300L);
                             StatisticManager.onEvent(StatServiceEvent.EVENT_AuthorizePay_AddCard);
                         } else if (i5 != 2) {
-                            BaiduPay.getInstance().bindCard(this.f54240d.f54232b, new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.3.2
+                            BaiduPay.getInstance().bindCard(this.f54243d.f54235b, new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.3.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass3 a;
@@ -381,8 +381,8 @@ public class BankCardDialog extends BaseTipDialog {
                                 public void onChangeFailed(String str2) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, str2) == null) {
-                                        this.a.f54240d.f54233c = false;
-                                        this.a.f54240d.dismiss();
+                                        this.a.f54243d.f54236c = false;
+                                        this.a.f54243d.dismiss();
                                     }
                                 }
 
@@ -390,28 +390,28 @@ public class BankCardDialog extends BaseTipDialog {
                                 public void onChangeSucceed(String str2) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                                        this.a.f54240d.f54233c = true;
-                                        GlobalUtils.toast(this.a.f54240d.f54232b, ResUtils.getString(this.a.f54240d.f54232b, "wallet_base_bind_success"));
-                                        this.a.f54240d.dismiss();
+                                        this.a.f54243d.f54236c = true;
+                                        GlobalUtils.toast(this.a.f54243d.f54235b, ResUtils.getString(this.a.f54243d.f54235b, "wallet_base_bind_success"));
+                                        this.a.f54243d.dismiss();
                                     }
                                 }
                             }, PayRequestCache.BindCategory.Initiative, 1, "", null, null, null, false, null);
                         } else {
-                            this.f54240d.a(this.f54239c);
-                            if (this.f54240d.f54235e != null) {
-                                this.f54240d.f54235e.onChangeSucceed();
-                                this.f54240d.f54235e = null;
+                            this.f54243d.a(this.f54242c);
+                            if (this.f54243d.f54238e != null) {
+                                this.f54243d.f54238e.onChangeSucceed();
+                                this.f54243d.f54238e = null;
                             }
                         }
-                    } else if (this.f54238b != 1) {
-                        GlobalUtils.toast(this.f54240d.f54232b, ResUtils.getString(this.f54240d.f54232b, "ebpay_bank_count_beyond"));
+                    } else if (this.f54241b != 1) {
+                        GlobalUtils.toast(this.f54243d.f54235b, ResUtils.getString(this.f54243d.f54235b, "ebpay_bank_count_beyond"));
                     } else {
-                        GlobalUtils.toast(this.f54240d.f54232b, ResUtils.getString(this.f54240d.f54232b, "ebpay_bankcard_overflow_tips2"));
+                        GlobalUtils.toast(this.f54243d.f54235b, ResUtils.getString(this.f54243d.f54235b, "ebpay_bankcard_overflow_tips2"));
                     }
                 }
             }
         });
-        ((TextView) findViewById(ResUtils.id(this.f54232b, "wallet_balance_bankcard_select"))).setText(ResUtils.getString(this.f54232b, "ebpay_use_new_card") + "                       ");
+        ((TextView) findViewById(ResUtils.id(this.f54235b, "wallet_balance_bankcard_select"))).setText(ResUtils.getString(this.f54235b, "ebpay_use_new_card") + "                       ");
         a(i2);
     }
 
@@ -419,7 +419,7 @@ public class BankCardDialog extends BaseTipDialog {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            BaiduPay.getInstance().bindCard(this.f54232b, new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.4
+            BaiduPay.getInstance().bindCard(this.f54235b, new BaiduPay.IBindCardCallback(this) { // from class: com.baidu.wallet.paysdk.ui.BankCardDialog.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BankCardDialog a;
@@ -446,7 +446,7 @@ public class BankCardDialog extends BaseTipDialog {
                 public void onChangeFailed(String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) {
-                        this.a.f54233c = false;
+                        this.a.f54236c = false;
                         this.a.dismiss();
                     }
                 }
@@ -455,8 +455,8 @@ public class BankCardDialog extends BaseTipDialog {
                 public void onChangeSucceed(String str2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                        this.a.f54233c = true;
-                        GlobalUtils.toast(this.a.f54232b, ResUtils.getString(this.a.f54232b, "wallet_base_bind_success"));
+                        this.a.f54236c = true;
+                        GlobalUtils.toast(this.a.f54235b, ResUtils.getString(this.a.f54235b, "wallet_base_bind_success"));
                         this.a.dismiss();
                     }
                 }
@@ -477,7 +477,7 @@ public class BankCardDialog extends BaseTipDialog {
                 return;
             }
             View childAt = this.a.getChildAt(i3);
-            ImageButton imageButton = (ImageButton) childAt.findViewById(ResUtils.id(this.f54232b, "bank_card_check_btn"));
+            ImageButton imageButton = (ImageButton) childAt.findViewById(ResUtils.id(this.f54235b, "bank_card_check_btn"));
             if (i3 != i2) {
                 z = false;
             }
@@ -488,7 +488,7 @@ public class BankCardDialog extends BaseTipDialog {
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDialog f54241b;
+                public final /* synthetic */ BankCardDialog f54244b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -505,7 +505,7 @@ public class BankCardDialog extends BaseTipDialog {
                             return;
                         }
                     }
-                    this.f54241b = this;
+                    this.f54244b = this;
                     this.a = i3;
                 }
 
@@ -513,16 +513,16 @@ public class BankCardDialog extends BaseTipDialog {
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (!"1".equals(((CardDisplayInfo) this.f54241b.f54234d.get(this.a)).f54243c)) {
-                            if (TextUtils.isEmpty(((CardDisplayInfo) this.f54241b.f54234d.get(this.a)).f54244d)) {
+                        if (!"1".equals(((CardDisplayInfo) this.f54244b.f54237d.get(this.a)).f54246c)) {
+                            if (TextUtils.isEmpty(((CardDisplayInfo) this.f54244b.f54237d.get(this.a)).f54247d)) {
                                 return;
                             }
-                            GlobalUtils.toast(this.f54241b.f54232b, ((CardDisplayInfo) this.f54241b.f54234d.get(this.a)).f54244d);
+                            GlobalUtils.toast(this.f54244b.f54235b, ((CardDisplayInfo) this.f54244b.f54237d.get(this.a)).f54247d);
                             return;
                         }
-                        this.f54241b.f54233c = false;
-                        this.f54241b.a(this.a);
-                        this.f54241b.dismiss();
+                        this.f54244b.f54236c = false;
+                        this.f54244b.a(this.a);
+                        this.f54244b.dismiss();
                     }
                 }
             });

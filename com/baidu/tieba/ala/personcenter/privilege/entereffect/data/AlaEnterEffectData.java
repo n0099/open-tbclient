@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
 import c.a.d.f.m.b;
-import c.a.d.m.e.n;
+import c.a.d.n.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaEnterEffectData implements Serializable, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
@@ -84,7 +84,7 @@ public class AlaEnterEffectData implements Serializable, n {
         }
     }
 
-    @Override // c.a.d.m.e.n
+    @Override // c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -2,8 +2,8 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.r0.t.d.d;
-import c.a.s0.m3.c.f;
+import c.a.s0.t.d.d;
+import c.a.t0.m3.c.f;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -77,7 +77,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     }
                 } else if (i2 == 7) {
                     if (z) {
-                        d.d().P(z2);
+                        d.d().S(z2);
                     } else if (z2) {
                         this.a.mView.g().turnOffNoCallback();
                     } else {

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SegAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegAR";
@@ -42,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f33762io;
+    public byte[] f33918io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -68,7 +68,7 @@ public class SegAR extends c {
     public int vz;
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
@@ -179,7 +179,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f33762io = null;
+        this.f33918io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -658,9 +658,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f33762io = gd.gc();
+                                    this.vA.f33918io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f33762io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f33918io == null) {
                                         return;
                                     }
                                     j jVar = new j();

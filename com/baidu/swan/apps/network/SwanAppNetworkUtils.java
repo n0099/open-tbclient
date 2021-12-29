@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.h0.u.g;
-import c.a.q0.a.k;
-import c.a.q0.a.p1.l;
-import c.a.q0.a.y1.b.e;
-import c.a.q0.a.z2.q0;
+import c.a.r0.a.h0.u.g;
+import c.a.r0.a.k;
+import c.a.r0.a.p1.l;
+import c.a.r0.a.y1.b.e;
+import c.a.r0.a.z2.q0;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -28,14 +28,14 @@ import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class SwanAppNetworkUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -107,8 +107,8 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
-    public static class a implements c.a.q0.a.y1.b.a<Bundle> {
+    /* loaded from: classes11.dex */
+    public static class a implements c.a.r0.a.y1.b.a<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -132,7 +132,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.a.y1.b.a
+        @Override // c.a.r0.a.y1.b.a
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -144,7 +144,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface b {
         void onResult(int i2);
     }

@@ -14,7 +14,7 @@ public abstract class d<T extends c> extends b<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f2098c;
+    public final Object f2525c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(int i2) {
@@ -34,7 +34,7 @@ public abstract class d<T extends c> extends b<T> {
                 return;
             }
         }
-        this.f2098c = new Object();
+        this.f2525c = new Object();
     }
 
     @Override // c.a.c0.s.p0.b
@@ -44,7 +44,7 @@ public abstract class d<T extends c> extends b<T> {
         T t;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.f2098c) {
+            synchronized (this.f2525c) {
                 t = (T) super.a();
             }
             return t;
@@ -56,7 +56,7 @@ public abstract class d<T extends c> extends b<T> {
     public void d(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this.f2098c) {
+            synchronized (this.f2525c) {
                 super.d(t);
             }
         }

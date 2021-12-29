@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.l.w0.a;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.RoundCornerFrameLayout;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class i extends c.a.l.a<c.a.r0.s.r.a> {
+public class i extends c.a.l.a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
     public static int s;
@@ -35,11 +35,11 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public View f3825j;
+    public View f4240j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TextView f3826k;
-    public c.a.r0.s.r.a l;
+    public TextView f4241k;
+    public c.a.s0.s.q.a l;
     public RoundCornerFrameLayout m;
     public FakeVideoContainer n;
     public int o;
@@ -52,10 +52,10 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup.LayoutParams f3827e;
+        public final /* synthetic */ ViewGroup.LayoutParams f4242e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i f3828f;
+        public final /* synthetic */ i f4243f;
 
         public a(i iVar, ViewGroup.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
@@ -72,17 +72,17 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
                     return;
                 }
             }
-            this.f3828f = iVar;
-            this.f3827e = layoutParams;
+            this.f4243f = iVar;
+            this.f4242e = layoutParams;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f3827e.width = this.f3828f.f3825j.getWidth();
-                this.f3827e.height = (this.f3828f.f3825j.getWidth() / 16) * 9;
-                this.f3828f.m.setLayoutParams(this.f3827e);
+                this.f4242e.width = this.f4243f.f4240j.getWidth();
+                this.f4242e.height = (this.f4243f.f4240j.getWidth() / 16) * 9;
+                this.f4243f.m.setLayoutParams(this.f4242e);
             }
         }
     }
@@ -112,15 +112,15 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0165a c0165a) {
+        public boolean a(a.C0186a c0186a) {
             InterceptResult invokeL;
             RoundCornerFrameLayout roundCornerFrameLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0165a)) == null) {
-                if (c0165a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0186a)) == null) {
+                if (c0186a.b() != 7 || (roundCornerFrameLayout = this.a.m) == null) {
                     return false;
                 }
-                roundCornerFrameLayout.onRootPressed(((Boolean) c0165a.c()).booleanValue());
+                roundCornerFrameLayout.onRootPressed(((Boolean) c0186a.c()).booleanValue());
                 return false;
             }
             return invokeL.booleanValue;
@@ -140,8 +140,8 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
                 return;
             }
         }
-        r = (c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
-        int k2 = c.a.d.f.p.m.k(TbadkCoreApplication.getInst());
+        r = (c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2;
+        int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
         s = k2;
         int i2 = k2 - r;
         t = i2;
@@ -177,17 +177,17 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f3825j == null) {
-                View inflate = LayoutInflater.from(this.f3796f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
-                this.f3825j = inflate;
-                this.f3826k = (TextView) inflate.findViewById(R.id.video_seg_title);
-                this.m = (RoundCornerFrameLayout) this.f3825j.findViewById(R.id.frame_video);
-                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f3796f);
+            if (this.f4240j == null) {
+                View inflate = LayoutInflater.from(this.f4211f).inflate(R.layout.card_video_layout, (ViewGroup) null, true);
+                this.f4240j = inflate;
+                this.f4241k = (TextView) inflate.findViewById(R.id.video_seg_title);
+                this.m = (RoundCornerFrameLayout) this.f4240j.findViewById(R.id.frame_video);
+                FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.f4211f);
                 this.n = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
                 this.m.addView(this.n);
             }
-            return this.f3825j;
+            return this.f4240j;
         }
         return (View) invokeV.objValue;
     }
@@ -211,20 +211,20 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
         r8 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x00bd, code lost:
-        r0 = c.a.r0.b.g.b.o(r11, r8, null, r0, r1);
+        r0 = c.a.s0.b.g.b.o(r11, r8, null, r0, r1);
      */
     @Override // c.a.l.p
     /* renamed from: n */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            int k2 = c.a.d.f.p.m.k(TbadkCoreApplication.getInst());
+            int k2 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
             if (k2 != this.o) {
-                int k3 = c.a.d.f.p.m.k(TbadkCoreApplication.getInst());
+                int k3 = c.a.d.f.p.n.k(TbadkCoreApplication.getInst());
                 s = k3;
                 int i2 = k3 - r;
                 t = i2;
@@ -274,14 +274,14 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
                     this.m.post(new a(this, layoutParams));
                 }
             }
-            if (!this.l.getThreadData().R1() && this.l.getThreadData().getType() != d2.W3) {
-                this.f3826k.setMaxLines(2);
-                ThreadCardUtils.setTitle(this.f3826k, this.l.getThreadData(), 0, this.p);
+            if (!this.l.getThreadData().R1() && this.l.getThreadData().getType() != d2.Y3) {
+                this.f4241k.setMaxLines(2);
+                ThreadCardUtils.setTitle(this.f4241k, this.l.getThreadData(), 0, this.p);
             } else {
-                this.f3826k.setMaxLines(5);
-                ThreadCardUtils.setTitle(this.f3826k, this.l.getThreadData(), t, this.p);
+                this.f4241k.setMaxLines(5);
+                ThreadCardUtils.setTitle(this.f4241k, this.l.getThreadData(), t, this.p);
             }
-            TextView textView = this.f3826k;
+            TextView textView = this.f4241k;
             ThreadCardUtils.dealMainViewTopMargin(this.m, (textView == null || textView.getVisibility() != 0) ? true : true, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
         }
     }
@@ -295,12 +295,12 @@ public class i extends c.a.l.a<c.a.r0.s.r.a> {
 
     @Override // c.a.l.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        c.a.r0.s.r.a aVar;
+        c.a.s0.s.q.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i2) == null) || (aVar = this.l) == null || aVar.getThreadData() == null) {
             return;
         }
-        c.a.s0.g0.m.l(this.f3826k, this.l.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
+        c.a.t0.g0.m.l(this.f4241k, this.l.getThreadData().g0(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.m.onChangeSkinType(i2);
         this.m.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

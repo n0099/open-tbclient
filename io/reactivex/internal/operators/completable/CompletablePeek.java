@@ -36,7 +36,7 @@ public final class CompletablePeek extends Completable {
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64552d;
+        public Disposable f64547d;
         public final /* synthetic */ CompletablePeek this$0;
 
         public CompletableObserverImplementation(CompletablePeek completablePeek, CompletableObserver completableObserver) {
@@ -68,7 +68,7 @@ public final class CompletablePeek extends Completable {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
                 }
-                this.f64552d.dispose();
+                this.f64547d.dispose();
             }
         }
 
@@ -88,13 +88,13 @@ public final class CompletablePeek extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64552d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64547d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f64552d == DisposableHelper.DISPOSED) {
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f64547d == DisposableHelper.DISPOSED) {
                 return;
             }
             try {
@@ -112,7 +112,7 @@ public final class CompletablePeek extends Completable {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                if (this.f64552d == DisposableHelper.DISPOSED) {
+                if (this.f64547d == DisposableHelper.DISPOSED) {
                     RxJavaPlugins.onError(th);
                     return;
                 }
@@ -134,14 +134,14 @@ public final class CompletablePeek extends Completable {
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
                 try {
                     this.this$0.onSubscribe.accept(disposable);
-                    if (DisposableHelper.validate(this.f64552d, disposable)) {
-                        this.f64552d = disposable;
+                    if (DisposableHelper.validate(this.f64547d, disposable)) {
+                        this.f64547d = disposable;
                         this.actual.onSubscribe(this);
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     disposable.dispose();
-                    this.f64552d = DisposableHelper.DISPOSED;
+                    this.f64547d = DisposableHelper.DISPOSED;
                     EmptyDisposable.error(th, this.actual);
                 }
             }

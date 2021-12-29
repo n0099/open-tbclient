@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
-import c.a.s0.a0.f.g.c.d;
+import c.a.t0.a0.f.g.c.d;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

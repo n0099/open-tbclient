@@ -36,13 +36,13 @@ public class h extends f {
     public void b(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            if (this.f1287e) {
+            if (this.f1680e) {
                 System.currentTimeMillis();
             }
             I();
-            if (i2 != this.f1288f || i3 != this.f1289g) {
-                this.f1288f = i2;
-                this.f1289g = i3;
+            if (i2 != this.f1681f || i3 != this.f1682g) {
+                this.f1681f = i2;
+                this.f1682g = i3;
                 t(" w * h : " + i2 + " * " + i3);
                 s();
             }
@@ -50,11 +50,11 @@ public class h extends f {
                 return;
             }
             q();
-            b bVar = this.f1285c;
+            b bVar = this.f1678c;
             if (bVar != null) {
                 bVar.g();
             }
-            b bVar2 = this.f1286d;
+            b bVar2 = this.f1679d;
             if (bVar2 != null) {
                 bVar2.g();
             }
@@ -68,8 +68,8 @@ public class h extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack, i2, map)) == null) {
             try {
-                if (this.f1285c != null && i2 != 0 && mediaTrack != null && this.m != null && this.l != null && (G = G(map, mediaTrack)) != null) {
-                    return this.f1285c.e(i2, G);
+                if (this.f1678c != null && i2 != 0 && mediaTrack != null && this.m != null && this.l != null && (G = G(map, mediaTrack)) != null) {
+                    return this.f1678c.e(i2, G);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -98,8 +98,8 @@ public class h extends f {
         }
         try {
             try {
-                if (this.f1285c != null && mediaTrack != null && this.m != null && this.l != null) {
-                    b bVar = this.f1285c;
+                if (this.f1678c != null && mediaTrack != null && this.m != null && this.l != null) {
+                    b bVar = this.f1678c;
                     float f2 = mediaTrack.glClearColor[0];
                     float f3 = mediaTrack.glClearColor[1];
                     float f4 = mediaTrack.glClearColor[2];
@@ -107,10 +107,10 @@ public class h extends f {
                     bVar.h(f2, f3, f4, i4);
                     ArrayList arrayList = new ArrayList();
                     try {
-                        if (mediaTrack.mediaSegments == null || mediaTrack.mediaSegments.size() <= this.f1291i) {
+                        if (mediaTrack.mediaSegments == null || mediaTrack.mediaSegments.size() <= this.f1684i) {
                             i5 = i2;
                         } else {
-                            MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.f1291i);
+                            MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.f1684i);
                             i5 = i2 == 0 ? mediaSegment.textureId : i2;
                             if (i3 == 1) {
                                 z = z(mediaSegment, i5, map);
@@ -128,21 +128,21 @@ public class h extends f {
                             i5 = z;
                         }
                         if (i5 != 0 && arrayList.size() > 0) {
-                            i5 = this.f1285c.f(i5, arrayList);
+                            i5 = this.f1678c.f(i5, arrayList);
                         }
                         return i5;
                     } catch (Exception e2) {
                         e = e2;
                         e.printStackTrace();
                         u(e.toString(), e);
-                        b bVar2 = this.f1285c;
+                        b bVar2 = this.f1678c;
                         if (bVar2 != null) {
                             bVar2.h(0.0f, 0.0f, 0.0f, 0.0f);
                         }
                         return i4;
                     }
                 }
-                b bVar3 = this.f1285c;
+                b bVar3 = this.f1678c;
                 if (bVar3 != null) {
                     bVar3.h(0.0f, 0.0f, 0.0f, 0.0f);
                 }
@@ -152,7 +152,7 @@ public class h extends f {
                 i4 = i2;
             }
         } finally {
-            b bVar4 = this.f1285c;
+            b bVar4 = this.f1678c;
             if (bVar4 != null) {
                 bVar4.h(0.0f, 0.0f, 0.0f, 0.0f);
             }
@@ -192,16 +192,16 @@ public class h extends f {
         }
         try {
             try {
-                if (this.f1285c != null && mediaTrack != null && this.m != null && this.l != null) {
-                    this.f1285c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
+                if (this.f1678c != null && mediaTrack != null && this.m != null && this.l != null) {
+                    this.f1678c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
                     ArrayList arrayList = new ArrayList();
                     i2 = D(map, arrayList, mediaTrack, i2);
                     if (i2 != 0 && arrayList.size() > 0) {
-                        return this.f1285c.f(i2, arrayList);
+                        return this.f1678c.f(i2, arrayList);
                     }
-                    bVar = this.f1285c;
+                    bVar = this.f1678c;
                 }
-                b bVar2 = this.f1285c;
+                b bVar2 = this.f1678c;
                 if (bVar2 != null) {
                     bVar2.h(0.0f, 0.0f, 0.0f, 0.0f);
                 }
@@ -209,10 +209,10 @@ public class h extends f {
             } catch (Exception e2) {
                 e2.printStackTrace();
                 u(e2.toString(), e2);
-                bVar = this.f1285c;
+                bVar = this.f1678c;
             }
         } finally {
-            b bVar3 = this.f1285c;
+            b bVar3 = this.f1678c;
             if (bVar3 != null) {
                 bVar3.h(0.0f, 0.0f, 0.0f, 0.0f);
             }
@@ -228,9 +228,9 @@ public class h extends f {
                 return i2;
             }
             Map<String, ShaderConfig> map = this.l;
-            if (map != null && !map.containsKey(c.a.b0.b.a.k.c.f1311g)) {
-                this.l.put(c.a.b0.b.a.k.c.f1311g, ShaderConfig.getGaussianBlurHShaderConfig(f2));
-                this.l.put(c.a.b0.b.a.k.c.f1312h, ShaderConfig.getGaussianBlurVShaderConfig(f2));
+            if (map != null && !map.containsKey(c.a.b0.b.a.k.c.f1704g)) {
+                this.l.put(c.a.b0.b.a.k.c.f1704g, ShaderConfig.getGaussianBlurHShaderConfig(f2));
+                this.l.put(c.a.b0.b.a.k.c.f1705h, ShaderConfig.getGaussianBlurVShaderConfig(f2));
                 Map<String, a> l = c.a.b0.b.a.k.a.l(this.a, this.l);
                 for (Map.Entry<String, a> entry : l.entrySet()) {
                     a value = entry.getValue();
@@ -239,14 +239,14 @@ public class h extends f {
                 }
                 this.m.putAll(l);
             }
-            if (this.f1286d == null) {
-                this.f1286d = new b();
+            if (this.f1679d == null) {
+                this.f1679d = new b();
             }
-            this.f1286d.g();
-            this.f1286d.c(i3, i4);
+            this.f1679d.g();
+            this.f1679d.c(i3, i4);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.m.get(c.a.b0.b.a.k.c.f1311g));
-            arrayList.add(this.m.get(c.a.b0.b.a.k.c.f1312h));
+            arrayList.add(this.m.get(c.a.b0.b.a.k.c.f1704g));
+            arrayList.add(this.m.get(c.a.b0.b.a.k.c.f1705h));
             float[] fArr3 = fArr;
             float[] fArr4 = fArr2;
             int i5 = 0;
@@ -263,7 +263,7 @@ public class h extends f {
                 fArr3 = null;
                 fArr4 = null;
             }
-            return this.f1286d.f(i2, arrayList);
+            return this.f1679d.f(i2, arrayList);
         }
         return invokeCommon.intValue;
     }

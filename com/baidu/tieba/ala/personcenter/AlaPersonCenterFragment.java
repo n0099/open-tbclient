@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.a0.l.c.a;
+import c.a.t0.a0.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragment;
@@ -17,25 +17,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f43487e;
+    public TbPageContext f43675e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43488f;
+    public String f43676f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43489g;
+    public String f43677g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43490h;
+    public String f43678h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f43491i;
+    public a f43679i;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            a aVar = this.f43491i;
+            a aVar = this.f43679i;
             if (aVar != null) {
                 aVar.m(i2);
             }
@@ -68,7 +68,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.onChangeSkinType(i2);
-            a aVar = this.f43491i;
+            a aVar = this.f43679i;
             if (aVar != null) {
                 aVar.m(i2);
             }
@@ -90,16 +90,16 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-            this.f43487e = pageContext;
+            this.f43675e = pageContext;
             a aVar = new a(pageContext, true);
-            this.f43491i = aVar;
-            aVar.s(this.f43489g);
-            this.f43491i.r(this.f43488f);
-            this.f43491i.t(this.f43490h);
+            this.f43679i = aVar;
+            aVar.s(this.f43677g);
+            this.f43679i.r(this.f43676f);
+            this.f43679i.t(this.f43678h);
             if (getArguments() != null) {
-                this.f43491i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
+                this.f43679i.k(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
             }
-            return this.f43491i.i();
+            return this.f43679i.i();
         }
         return (View) invokeLLL.objValue;
     }
@@ -108,7 +108,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f43491i.o();
+            this.f43679i.o();
             super.onDestroy();
         }
     }
@@ -127,7 +127,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                this.f43491i.l();
+                this.f43679i.l();
             }
         }
     }
@@ -149,21 +149,21 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f43488f = str;
+            this.f43676f = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f43489g = str;
+            this.f43677g = str;
         }
     }
 
     public void setForumType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f43490h = str;
+            this.f43678h = str;
         }
     }
 }

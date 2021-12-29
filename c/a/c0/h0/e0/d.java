@@ -17,7 +17,7 @@ public class d extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public final SimpleFeedAdInfoView f1714j;
+    public final SimpleFeedAdInfoView f2141j;
 
     /* loaded from: classes.dex */
     public class a implements SimpleAdInfoView.c {
@@ -26,7 +26,7 @@ public class d extends f {
         public final /* synthetic */ AdBaseModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ d f1715b;
+        public final /* synthetic */ d f2142b;
 
         public a(d dVar, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d extends f {
                     return;
                 }
             }
-            this.f1715b = dVar;
+            this.f2142b = dVar;
             this.a = adBaseModel;
         }
 
@@ -51,8 +51,8 @@ public class d extends f {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                d dVar = this.f1715b;
-                dVar.q(ClogBuilder.LogType.FREE_CLICK.type, dVar.f1710c, str, this.a.f38063d.f1800b);
+                d dVar = this.f2142b;
+                dVar.q(ClogBuilder.LogType.FREE_CLICK.type, dVar.f2137c, str, this.a.f38219d.f2227b);
             }
         }
     }
@@ -76,14 +76,14 @@ public class d extends f {
                 return;
             }
         }
-        this.f1714j = (SimpleFeedAdInfoView) view.findViewById(c.a.c0.b.e.feed_ad_operate_app_info_view);
+        this.f2141j = (SimpleFeedAdInfoView) view.findViewById(c.a.c0.b.e.feed_ad_operate_app_info_view);
         m();
     }
 
     private void m() {
         SimpleFeedAdInfoView simpleFeedAdInfoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (simpleFeedAdInfoView = this.f1714j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (simpleFeedAdInfoView = this.f2141j) == null) {
             return;
         }
         simpleFeedAdInfoView.initSkin();
@@ -107,11 +107,11 @@ public class d extends f {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, nadExpressNaBaseView) == null) {
             super.update(adBaseModel, nadExpressNaBaseView);
             m();
-            SimpleFeedAdInfoView simpleFeedAdInfoView = this.f1714j;
+            SimpleFeedAdInfoView simpleFeedAdInfoView = this.f2141j;
             if (simpleFeedAdInfoView != null) {
                 simpleFeedAdInfoView.update(adBaseModel);
-                this.f1714j.setBackground(getResources().getDrawable(c.a.c0.b.d.nad_operate_download_bg));
-                this.f1714j.setAfterListener(new a(this, adBaseModel));
+                this.f2141j.setBackground(getResources().getDrawable(c.a.c0.b.d.nad_operate_download_bg));
+                this.f2141j.setAfterListener(new a(this, adBaseModel));
             }
         }
     }

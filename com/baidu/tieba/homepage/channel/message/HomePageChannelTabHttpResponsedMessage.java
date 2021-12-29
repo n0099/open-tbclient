@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.channel.message;
 
-import c.a.s0.o1.b.a.a;
+import c.a.t0.o1.b.a.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

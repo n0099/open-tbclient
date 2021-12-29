@@ -14,10 +14,10 @@ public class b {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final List<a> f1782b;
+    public final List<a> f2209b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1783c;
+    public final String f2210c;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -26,10 +26,10 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f1784b;
+        public boolean f2211b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1785c;
+        public String f2212c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class b {
                     return;
                 }
             }
-            this.f1784b = false;
+            this.f2211b = false;
         }
 
         public String a() {
@@ -56,19 +56,19 @@ public class b {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1785c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2212c : (String) invokeV.objValue;
         }
 
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1784b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2211b : invokeV.booleanValue;
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f1784b = z;
+                this.f2211b = z;
             }
         }
     }

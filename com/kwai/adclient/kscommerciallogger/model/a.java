@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2129a {
+    public static class C2136a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
@@ -73,7 +73,7 @@ public class a {
         /* renamed from: h  reason: collision with root package name */
         public String f60431h;
 
-        public C2129a(@NonNull String str) {
+        public C2136a(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,56 +91,56 @@ public class a {
             this.a = str;
         }
 
-        public static C2129a a() {
+        public static C2136a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C2129a("ad_client_error_log") : (C2129a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new C2136a("ad_client_error_log") : (C2136a) invokeV.objValue;
         }
 
-        public static C2129a b() {
+        public static C2136a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new C2129a("ad_client_apm_log") : (C2129a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new C2136a("ad_client_apm_log") : (C2136a) invokeV.objValue;
         }
 
-        public C2129a a(BusinessType businessType) {
+        public C2136a a(BusinessType businessType) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessType)) == null) {
                 this.f60425b = businessType;
                 return this;
             }
-            return (C2129a) invokeL.objValue;
+            return (C2136a) invokeL.objValue;
         }
 
-        public C2129a a(@NonNull String str) {
+        public C2136a a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 this.f60427d = str;
                 return this;
             }
-            return (C2129a) invokeL.objValue;
+            return (C2136a) invokeL.objValue;
         }
 
-        public C2129a a(JSONObject jSONObject) {
+        public C2136a a(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
                 this.f60429f = jSONObject;
                 return this;
             }
-            return (C2129a) invokeL.objValue;
+            return (C2136a) invokeL.objValue;
         }
 
-        public C2129a b(@NonNull String str) {
+        public C2136a b(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
                 this.f60431h = str;
                 return this;
             }
-            return (C2129a) invokeL.objValue;
+            return (C2136a) invokeL.objValue;
         }
 
         public a c() {
@@ -159,12 +159,12 @@ public class a {
         }
     }
 
-    public a(C2129a c2129a) {
+    public a(C2136a c2136a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c2129a};
+            Object[] objArr = {c2136a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -174,18 +174,18 @@ public class a {
                 return;
             }
         }
-        this.a = c2129a.a;
-        this.f60418b = c2129a.f60425b;
-        this.f60419c = c2129a.f60426c;
-        this.f60420d = c2129a.f60427d;
-        this.f60421e = c2129a.f60428e;
-        this.f60422f = c2129a.f60429f;
-        this.f60423g = c2129a.f60430g;
-        this.f60424h = c2129a.f60431h;
+        this.a = c2136a.a;
+        this.f60418b = c2136a.f60425b;
+        this.f60419c = c2136a.f60426c;
+        this.f60420d = c2136a.f60427d;
+        this.f60421e = c2136a.f60428e;
+        this.f60422f = c2136a.f60429f;
+        this.f60423g = c2136a.f60430g;
+        this.f60424h = c2136a.f60431h;
     }
 
-    public /* synthetic */ a(C2129a c2129a, AnonymousClass1 anonymousClass1) {
-        this(c2129a);
+    public /* synthetic */ a(C2136a c2136a, AnonymousClass1 anonymousClass1) {
+        this(c2136a);
     }
 
     public String a() {

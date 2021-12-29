@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
+import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
-import com.vivo.push.util.z;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LinkProxyActivity extends Activity {
@@ -36,8 +36,8 @@ public class LinkProxyActivity extends Activity {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00db A[Catch: Exception -> 0x00f1, TryCatch #2 {Exception -> 0x00f1, blocks: (B:27:0x009e, B:29:0x00a4, B:31:0x00b0, B:33:0x00b6, B:35:0x00be, B:38:0x00c5, B:40:0x00cd, B:42:0x00d1, B:47:0x00db, B:48:0x00df), top: B:62:0x009e }] */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00df A[Catch: Exception -> 0x00f1, TRY_LEAVE, TryCatch #2 {Exception -> 0x00f1, blocks: (B:27:0x009e, B:29:0x00a4, B:31:0x00b0, B:33:0x00b6, B:35:0x00be, B:38:0x00c5, B:40:0x00cd, B:42:0x00d1, B:47:0x00db, B:48:0x00df), top: B:62:0x009e }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00da A[Catch: Exception -> 0x00ec, TryCatch #0 {Exception -> 0x00ec, blocks: (B:27:0x009d, B:29:0x00a3, B:31:0x00af, B:33:0x00b5, B:35:0x00bd, B:38:0x00c4, B:40:0x00cc, B:42:0x00d0, B:47:0x00da, B:48:0x00de), top: B:57:0x009d }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00de A[Catch: Exception -> 0x00ec, TRY_LEAVE, TryCatch #0 {Exception -> 0x00ec, blocks: (B:27:0x009d, B:29:0x00a3, B:31:0x00af, B:33:0x00b5, B:35:0x00bd, B:38:0x00c4, B:40:0x00cc, B:42:0x00d0, B:47:0x00da, B:48:0x00de), top: B:57:0x009d }] */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -82,7 +82,7 @@ public class LinkProxyActivity extends Activity {
                         if (intent2 == null) {
                             p.d("LinkProxyActivity", "adapterToService proxyIntent is null");
                         } else {
-                            z.a(this, intent2);
+                            aa.a(this, intent2);
                         }
                     }
                 } catch (Exception e2) {
@@ -96,7 +96,7 @@ public class LinkProxyActivity extends Activity {
                             if (!z) {
                                 startService(intent3);
                             } else {
-                                p.b("LinkProxyActivity", "service's exported is " + z);
+                                p.b("LinkProxyActivity", "service's exported is ".concat(String.valueOf(z)));
                             }
                         }
                         z = false;

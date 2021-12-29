@@ -164,7 +164,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == -3) {
                     jVar = z ? new d.b(parcel) : new h.b(parcel);
                 } else if (readByte == -1) {
-                    jVar = z ? new d.C2138d(parcel) : new h.d(parcel);
+                    jVar = z ? new d.C2145d(parcel) : new h.d(parcel);
                 } else if (readByte == 1) {
                     jVar = z ? new d.f(parcel) : new h.f(parcel);
                 } else if (readByte == 2) {
@@ -172,7 +172,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                 } else if (readByte == 3) {
                     jVar = z ? new d.g(parcel) : new h.g(parcel);
                 } else if (readByte == 5) {
-                    jVar = z ? new d.h(parcel) : new h.C2139h(parcel);
+                    jVar = z ? new d.h(parcel) : new h.C2146h(parcel);
                 } else if (readByte != 6) {
                     messageSnapshot = null;
                     if (messageSnapshot == null) {

@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
-import c.a.q0.a.d2.d;
-import c.a.q0.z.a.b;
+import c.a.r0.a.d2.d;
+import c.a.r0.z.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

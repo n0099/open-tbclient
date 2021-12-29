@@ -64,7 +64,7 @@ public class b extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (super.g()) {
-                this.t = (ImageView) this.f1693b.findViewById(r.bubble_jump_arrow);
+                this.t = (ImageView) this.f2120b.findViewById(r.bubble_jump_arrow);
                 return true;
             }
             return false;

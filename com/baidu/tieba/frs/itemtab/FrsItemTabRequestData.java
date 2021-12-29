@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
-import c.a.r0.l0.b.g;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
+import c.a.s0.l0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -34,16 +34,16 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // c.a.r0.l0.b.i
+    @Override // c.a.s0.l0.b.i
     public Object e(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) m.h(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
             b0.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // c.a.r0.l0.b.f
+    @Override // c.a.s0.l0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // c.a.r0.l0.b.f
+    @Override // c.a.s0.l0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

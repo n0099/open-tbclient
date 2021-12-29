@@ -19,7 +19,7 @@ public class g implements c {
     public Message a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f2281b;
+    public Set<String> f2708b;
 
     public g(Message message) {
         Interceptable interceptable = $ic;
@@ -38,13 +38,13 @@ public class g implements c {
         }
         this.a = message;
         List<Field> b2 = c.a.d.f.b.a.a.b(message.getClass());
-        this.f2281b = new HashSet();
+        this.f2708b = new HashSet();
         if (b2 == null || b2.size() <= 0) {
             return;
         }
         for (Field field : b2) {
             if (field != null) {
-                this.f2281b.add(field.getName());
+                this.f2708b.add(field.getName());
             }
         }
     }
@@ -53,7 +53,7 @@ public class g implements c {
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2281b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2708b : (Set) invokeV.objValue;
     }
 
     @Override // c.a.d.f.b.b.a.c.c

@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.d.d;
-import c.a.d.f.p.k;
-import c.a.r0.s.l;
+import c.a.d.f.p.l;
+import c.a.s0.s.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -93,7 +93,7 @@ public class TbImageHelper {
     private void updateNetworkStatusCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mIsWifiCache = k.H();
+            this.mIsWifiCache = l.H();
         }
     }
 
@@ -150,7 +150,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (l.c().e() != 0 ? l.c().e() != 1 : !this.mIsWifiCache) {
+            if (k.c().e() != 0 ? k.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);
@@ -166,7 +166,7 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d2 = l.c().d();
+            int d2 = k.c().d();
             int i2 = 1300;
             if (d2 != 0) {
                 if (d2 != 1) {
@@ -184,11 +184,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (l.c().e() == 0) {
+            if (k.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (l.c().e() == 1) {
+            } else if (k.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;

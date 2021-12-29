@@ -3,7 +3,6 @@ package com.vivo.push.sdk.service;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.a;
+import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 /* loaded from: classes4.dex */
 public class CommandService extends Service {
@@ -54,7 +54,7 @@ public class CommandService extends Service {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             p.c("CommandService", getClass().getSimpleName() + " -- oncreate " + getPackageName());
             super.onCreate();
-            a.a().a(getApplicationContext());
+            a.a().a(ContextDelegate.getContext(getApplicationContext()));
         }
     }
 
@@ -71,6 +71,7 @@ public class CommandService extends Service {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i2, i3)) == null) {
+            p.c("CommandService", getClass().getSimpleName() + " -- onStartCommand " + getPackageName());
             if (intent == null) {
                 stopSelf();
                 return 2;
@@ -80,10 +81,8 @@ public class CommandService extends Service {
                 return 2;
             } else {
                 try {
-                    String stringExtra = intent.getStringExtra("command_type");
-                    if (!TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver")) {
-                        a.a().a(intent);
-                    }
+                    a.a().a(getClass().getName());
+                    a.a().a(intent);
                 } catch (Exception e2) {
                     p.a("CommandService", "onStartCommand -- error", e2);
                 }

@@ -7,17 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class w extends x {
+public final class w extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f63029b;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w() {
-        super(20);
+        super(2011);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,52 +28,45 @@ public final class w extends x {
                 return;
             }
         }
-        this.a = -1L;
+        this.a = 0;
     }
 
-    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    @Override // com.vivo.push.o
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            super.c(aVar);
-            aVar.a("undo_msg_v1", this.a);
-            aVar.a("undo_msg_type_v1", this.f63029b);
+            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.a);
         }
     }
 
-    public final long d() {
+    @Override // com.vivo.push.o
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = this.a;
-            if (j2 != -1) {
-                return String.valueOf(j2);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    @Override // com.vivo.push.o
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "OnUndoMsgCommand" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "PushModeCommand" : (String) invokeV.objValue;
     }
 
-    @Override // com.vivo.push.b.x, com.vivo.push.b.u, com.vivo.push.y
+    @Override // com.vivo.push.o
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            super.d(aVar);
-            this.a = aVar.b("undo_msg_v1", this.a);
-            this.f63029b = aVar.b("undo_msg_type_v1", 0);
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
         }
     }
 }

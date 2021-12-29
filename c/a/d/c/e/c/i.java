@@ -6,7 +6,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,10 +30,10 @@ public class i {
             if (i2 != 0 && i3 != 0) {
                 sb.append("cmd = ");
                 sb.append(i2);
-                sb.append(TrackUI.SEPERATOR);
+                sb.append("\t");
                 sb.append("sequence = ");
                 sb.append(i3);
-                sb.append(TrackUI.SEPERATOR);
+                sb.append("\t");
             }
             sb.append(str3);
             try {

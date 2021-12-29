@@ -5,7 +5,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.q0.n.r.c;
+import c.a.r0.n.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public c<View> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f41179b;
+    public SparseArray<View> f41335b;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -40,7 +40,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             }
         }
         this.a = new c<>(5);
-        this.f41179b = new SparseArray<>();
+        this.f41335b = new SparseArray<>();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -53,7 +53,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             }
             viewGroup.removeView(view);
             this.a.b(view);
-            this.f41179b.remove(i2);
+            this.f41335b.remove(i2);
         }
     }
 
@@ -70,7 +70,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public View getCurrentView(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f41179b.get(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f41335b.get(i2) : (View) invokeI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -82,7 +82,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             if (a2 == null) {
                 a2 = onInstantiateItem(viewGroup, i2);
             }
-            this.f41179b.put(i2, a2);
+            this.f41335b.put(i2, a2);
             viewGroup.addView(a2);
             onConfigItem(a2, i2);
             return a2;

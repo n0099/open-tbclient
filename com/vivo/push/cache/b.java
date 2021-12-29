@@ -1,95 +1,74 @@
 package com.vivo.push.cache;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
-import com.vivo.push.util.z;
 import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile b f63063b;
+    public static volatile b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public e f63064c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(432263058, "Lcom/vivo/push/cache/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(432263058, "Lcom/vivo/push/cache/b;");
-                return;
-            }
-        }
-        a = new Object();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public d f63062b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static b a() {
+    public static synchronized b a() {
         InterceptResult invokeV;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f63063b == null) {
-                synchronized (a) {
-                    if (f63063b == null) {
-                        f63063b = new b();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (b.class) {
+                if (a == null) {
+                    a = new b();
                 }
+                bVar = a;
             }
-            return f63063b;
+            return bVar;
         }
         return (b) invokeV.objValue;
     }
 
-    public final e a(Context context) {
+    public final d a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            e eVar = this.f63064c;
-            if (eVar != null) {
-                return eVar;
+            d dVar = this.f63062b;
+            if (dVar != null) {
+                return dVar;
             }
             try {
-                String str = z.a(context) ? "com.vivo.push.cache.ServerConfigManagerImpl" : "com.vivo.push.cache.ClientConfigManagerImpl";
+                String str = aa.a(context) ? "com.vivo.push.cache.ServerConfigManagerImpl" : "com.vivo.push.cache.ClientConfigManagerImpl";
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
-                p.d("ConfigManagerFactory", "createConfig success is " + str);
-                e eVar2 = (e) method.invoke(null, context);
-                this.f63064c = eVar2;
-                return eVar2;
+                p.d("ConfigManagerFactory", "createConfig success is ".concat(str));
+                d dVar2 = (d) method.invoke(null, context);
+                this.f63062b = dVar2;
+                return dVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 p.b("ConfigManagerFactory", "createConfig error", e2);
                 return null;
             }
         }
-        return (e) invokeL.objValue;
+        return (d) invokeL.objValue;
     }
 }

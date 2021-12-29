@@ -926,7 +926,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -1080,7 +1080,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     public abstract void subscribeActual(MaybeObserver<? super T> maybeObserver);
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -1206,7 +1206,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Single) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> unsubscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -1271,7 +1271,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Single) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Maybe<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1298,7 +1298,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Maybe) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1564,7 +1564,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (T) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1594,7 +1594,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Disposable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, MaybeSource<? extends T> maybeSource) {
         InterceptResult invokeCommon;
@@ -1668,7 +1668,7 @@ public abstract class Maybe<T> implements MaybeSource<T> {
         return (Flowable) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Maybe<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;

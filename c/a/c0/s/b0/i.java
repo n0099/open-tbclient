@@ -28,22 +28,22 @@ public class i extends g implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f1898f;
+    public ImageView f2325f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f1899g;
+    public boolean f2326g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1900h;
+    public int f2327h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f1901i;
+    public int f2328i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f1902j;
+    public boolean f2329j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f1903k;
+    public boolean f2330k;
     public boolean l;
 
     public i() {
@@ -59,24 +59,24 @@ public class i extends g implements View.OnClickListener {
                 return;
             }
         }
-        this.f1900h = -1;
-        this.f1901i = -1;
-        this.f1902j = false;
-        this.f1903k = false;
+        this.f2327h = -1;
+        this.f2328i = -1;
+        this.f2329j = false;
+        this.f2330k = false;
         this.l = false;
     }
 
     public final void A(c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            L(pVar.d(16));
+            I(pVar.d(16));
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1899g = n().f1() == 0;
+            this.f2326g = n().f1() == 0;
             x();
         }
     }
@@ -107,7 +107,7 @@ public class i extends g implements View.OnClickListener {
             }
             G(z);
             boolean z2 = !z;
-            K(z2);
+            H(z2);
             n().s0(z2);
             c.a.c0.s.q0.b.c().d(c.a.c0.s.c0.f.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
         }
@@ -119,7 +119,7 @@ public class i extends g implements View.OnClickListener {
             boolean z = n().X() || c.a.c0.s.v0.k.c(getContext()) <= 0;
             w(z);
             n().w0(z);
-            K(z);
+            H(z);
         }
     }
 
@@ -129,67 +129,67 @@ public class i extends g implements View.OnClickListener {
         }
     }
 
-    public void K(boolean z) {
+    public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (this.f1903k) {
+            if (this.f2330k) {
                 if (!z) {
-                    if (!this.f1902j) {
-                        this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_selector_full));
+                    if (!this.f2329j) {
+                        this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_selector_full));
                     } else {
-                        this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_full));
+                        this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_full));
                     }
-                } else if (!this.f1902j) {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_selector_full));
+                } else if (!this.f2329j) {
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_selector_full));
                 } else {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_full));
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_full));
                 }
                 u();
             } else if (!z && c.a.c0.s.v0.k.c(getContext()) != 0) {
-                if (!this.f1902j) {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_selector));
+                if (!this.f2329j) {
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_selector));
                 } else {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_half));
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_close_half));
                 }
                 u();
             } else {
-                if (!this.f1902j) {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_selector));
+                if (!this.f2329j) {
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_selector));
                 } else {
-                    this.f1898f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_half));
+                    this.f2325f.setImageDrawable(ContextCompat.getDrawable(getContext(), q.nad_videoplayer_new_player_mute_open_half));
                 }
                 D();
             }
         }
     }
 
-    public void L(boolean z) {
+    public void I(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            M(z, true);
+            J(z, true);
         }
     }
 
-    public void M(boolean z, boolean z2) {
+    public void J(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f1898f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f2325f.getLayoutParams();
             boolean z3 = true;
             if (!((n().V0() && n().f1() == 1) ? false : false) && !z) {
                 layoutParams.bottomMargin = 0;
                 layoutParams.leftMargin = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_leftmargin);
             } else if (z2) {
-                int i2 = this.f1901i;
+                int i2 = this.f2328i;
                 if (i2 == -1) {
                     i2 = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_buttomargin);
                 }
                 layoutParams.bottomMargin = i2;
-                layoutParams.leftMargin = this.f1900h;
+                layoutParams.leftMargin = this.f2327h;
             } else {
                 layoutParams.bottomMargin = 0;
                 layoutParams.leftMargin = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_leftmargin);
             }
-            this.f1898f.setLayoutParams(layoutParams);
+            this.f2325f.setLayoutParams(layoutParams);
         }
     }
 
@@ -198,18 +198,18 @@ public class i extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             ImageView imageView = new ImageView(getContext());
-            this.f1898f = imageView;
+            this.f2325f = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            this.f1898f.setOnClickListener(this);
+            this.f2325f.setOnClickListener(this);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_width), (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_height));
             layoutParams.gravity = BadgeDrawable.BOTTOM_START;
-            if (this.f1900h == -1) {
-                this.f1900h = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_leftmargin);
+            if (this.f2327h == -1) {
+                this.f2327h = (int) getContext().getResources().getDimension(c.a.c0.h0.p.nad_videoplayer_bd_video_mute_leftmargin);
             }
-            layoutParams.leftMargin = this.f1900h;
-            this.f1898f.setLayoutParams(layoutParams);
-            this.f1898f.setVisibility(8);
-            if (this.f1891e.x() != null) {
+            layoutParams.leftMargin = this.f2327h;
+            this.f2325f.setLayoutParams(layoutParams);
+            this.f2325f.setVisibility(8);
+            if (this.f2318e.x() != null) {
                 F();
             }
         }
@@ -220,7 +220,7 @@ public class i extends g implements View.OnClickListener {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1898f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2325f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -373,11 +373,11 @@ public class i extends g implements View.OnClickListener {
                 case 1:
                 case 2:
                 case 3:
-                    this.f1898f.setVisibility(4);
+                    this.f2325f.setVisibility(4);
                     return;
                 case 4:
                     if (n().V0() && n().f1() == 1) {
-                        ImageView imageView = this.f1898f;
+                        ImageView imageView = this.f2325f;
                         if (C() && !y()) {
                             r6 = 0;
                         }
@@ -389,42 +389,42 @@ public class i extends g implements View.OnClickListener {
                 case 5:
                     if (z()) {
                         if (v.W0()) {
-                            if (this.f1898f.getVisibility() == 0) {
-                                this.f1898f.setVisibility(4);
+                            if (this.f2325f.getVisibility() == 0) {
+                                this.f2325f.setVisibility(4);
                                 return;
                             }
                             return;
-                        } else if (this.f1898f.getVisibility() != 0) {
-                            this.f1898f.setVisibility(0);
+                        } else if (this.f2325f.getVisibility() != 0) {
+                            this.f2325f.setVisibility(0);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.f1898f.setVisibility(4);
+                    this.f2325f.setVisibility(4);
                     return;
                 case 6:
-                    this.f1898f.setVisibility(y() ? 4 : 0);
+                    this.f2325f.setVisibility(y() ? 4 : 0);
                     return;
                 case 7:
                 case '\b':
                     if (z()) {
-                        this.f1898f.setVisibility(0);
+                        this.f2325f.setVisibility(0);
                         return;
                     } else {
-                        this.f1898f.setVisibility(4);
+                        this.f2325f.setVisibility(4);
                         return;
                     }
                 case '\t':
-                    this.f1903k = true;
-                    K(z());
+                    this.f2330k = true;
+                    H(z());
                     B();
                     return;
                 case '\n':
-                    this.f1903k = false;
-                    K(z());
-                    this.f1899g = false;
-                    L(false);
+                    this.f2330k = false;
+                    H(z());
+                    this.f2326g = false;
+                    I(false);
                     x();
                     return;
                 case 11:
@@ -435,7 +435,7 @@ public class i extends g implements View.OnClickListener {
                         return;
                     }
                     int g2 = pVar.g(5);
-                    K(g2 <= 0);
+                    H(g2 <= 0);
                     x();
                     boolean z = z();
                     if ((!z || g2 <= 0) && (z || g2 != 0)) {
@@ -452,26 +452,26 @@ public class i extends g implements View.OnClickListener {
                     }
                     return;
                 case 14:
-                    L(pVar.d(11));
+                    I(pVar.d(11));
                     return;
                 case 15:
                 case 16:
                     F();
                     return;
                 case 17:
-                    this.f1902j = true;
-                    K(z());
-                    if (this.f1898f.getVisibility() != 0) {
-                        this.f1898f.setVisibility(0);
+                    this.f2329j = true;
+                    H(z());
+                    if (this.f2325f.getVisibility() != 0) {
+                        this.f2325f.setVisibility(0);
                         return;
                     }
                     return;
                 case 18:
-                    this.f1902j = false;
-                    K(z());
-                    if (this.f1898f.getVisibility() == 0) {
-                        if ((!this.f1899g || y()) && !z()) {
-                            this.f1898f.setVisibility(8);
+                    this.f2329j = false;
+                    H(z());
+                    if (this.f2325f.getVisibility() == 0) {
+                        if ((!this.f2326g || y()) && !z()) {
+                            this.f2325f.setVisibility(8);
                             return;
                         }
                         return;
@@ -488,8 +488,8 @@ public class i extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, playerStatus, playerStatus2) == null) {
             super.k(playerStatus, playerStatus2);
-            if ((PlayerStatus.PREPARING == playerStatus || PlayerStatus.PLAYING == playerStatus) && this.f1899g && this.f1898f.getVisibility() != 0 && !y()) {
-                this.f1898f.setVisibility(0);
+            if ((PlayerStatus.PREPARING == playerStatus || PlayerStatus.PLAYING == playerStatus) && this.f2326g && this.f2325f.getVisibility() != 0 && !y()) {
+                this.f2325f.setVisibility(0);
             }
         }
     }
@@ -497,7 +497,7 @@ public class i extends g implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, view) == null) && view.equals(this.f1898f) && !this.f1902j) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view) == null) && view.equals(this.f2325f) && !this.f2329j) {
             E();
             x();
         }
@@ -511,11 +511,11 @@ public class i extends g implements View.OnClickListener {
             if (((v.W0() && n().V0()) ? false : true) && z) {
                 z3 = true;
             }
-            this.f1899g = z3;
+            this.f2326g = z3;
             if (n().V0()) {
-                s(this.f1899g);
+                s(this.f2326g);
             } else {
-                t(this.f1899g);
+                t(this.f2326g);
             }
         }
     }
@@ -531,23 +531,23 @@ public class i extends g implements View.OnClickListener {
                     return 4;
                 }
                 if (z() && C()) {
-                    this.f1898f.setVisibility(0);
-                } else if (this.f1902j) {
-                    this.f1898f.setVisibility(0);
+                    this.f2325f.setVisibility(0);
+                } else if (this.f2329j) {
+                    this.f2325f.setVisibility(0);
                 } else {
-                    this.f1898f.setVisibility(4);
+                    this.f2325f.setVisibility(4);
                 }
                 return 0;
             } else if (z) {
-                this.f1898f.setVisibility((!C() || y()) ? 8 : 8);
+                this.f2325f.setVisibility((!C() || y()) ? 8 : 8);
                 return 4;
             } else {
                 if ((z() || c.a.c0.s.v0.k.c(getContext()) == 0) && C()) {
-                    this.f1898f.setVisibility(0);
-                } else if (this.f1902j) {
-                    this.f1898f.setVisibility(0);
+                    this.f2325f.setVisibility(0);
+                } else if (this.f2329j) {
+                    this.f2325f.setVisibility(0);
                 } else {
-                    this.f1898f.setVisibility(4);
+                    this.f2325f.setVisibility(4);
                 }
                 return 0;
             }
@@ -560,7 +560,7 @@ public class i extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048593, this, z)) == null) {
             if (z) {
-                this.f1898f.setVisibility(0);
+                this.f2325f.setVisibility(0);
                 return 4;
             }
             x();
@@ -579,9 +579,9 @@ public class i extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             Animation a = c.a.c0.s.v0.f.a();
-            if (this.f1898f.getVisibility() != 0) {
-                this.f1898f.setVisibility(0);
-                this.f1898f.startAnimation(a);
+            if (this.f2325f.getVisibility() != 0) {
+                this.f2325f.setVisibility(0);
+                this.f2325f.startAnimation(a);
             }
         }
     }
@@ -596,19 +596,19 @@ public class i extends g implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (!z() && c.a.c0.s.v0.k.c(getContext()) != 0) {
-                if (this.f1899g && !y()) {
-                    this.f1898f.setVisibility(0);
-                } else if (this.f1902j) {
-                    this.f1898f.setVisibility(0);
+                if (this.f2326g && !y()) {
+                    this.f2325f.setVisibility(0);
+                } else if (this.f2329j) {
+                    this.f2325f.setVisibility(0);
                 } else {
-                    this.f1898f.setVisibility(4);
+                    this.f2325f.setVisibility(4);
                 }
             } else if (C()) {
-                this.f1898f.setVisibility(0);
+                this.f2325f.setVisibility(0);
             } else {
-                this.f1898f.setVisibility(4);
+                this.f2325f.setVisibility(4);
             }
-            ImageView imageView = this.f1898f;
+            ImageView imageView = this.f2325f;
             if (imageView == null || imageView.getVisibility() == 0) {
                 return;
             }

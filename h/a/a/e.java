@@ -11,7 +11,7 @@ public final class e {
     public static final int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f64074b;
+    public static final int[] f64069b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -105,7 +105,7 @@ public final class e {
             }
         }
         a = new int[]{0, 0, 0, 0, 0, 4096, 9216, 21504, 35840, 44032, 53248, 63488, 74752, 87040, 93696, 100864, 104704, 106752, 108928, 113536, 115968, 118528, 119872, 121280, 122016};
-        f64074b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
+        f64069b = new int[]{0, 0, 0, 0, 10, 10, 11, 11, 10, 10, 10, 10, 10, 9, 9, 8, 7, 7, 8, 7, 7, 6, 6, 5, 5};
     }
 
     public static byte[] a() {

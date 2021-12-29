@@ -40,10 +40,10 @@ public class h implements l<ImageView> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, g> f1733c;
+    public final Map<String, g> f2160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Lock f1734d;
+    public final Lock f2161d;
 
     /* loaded from: classes.dex */
     public class a implements f {
@@ -52,21 +52,21 @@ public class h implements l<ImageView> {
         public final /* synthetic */ ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h f1735b;
+        public final /* synthetic */ h f2162b;
 
         /* renamed from: c.a.c0.h0.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0055a implements Runnable {
+        public class RunnableC0076a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f1736e;
+            public final /* synthetic */ Bitmap f2163e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f1737f;
+            public final /* synthetic */ a f2164f;
 
-            public RunnableC0055a(a aVar, Bitmap bitmap) {
+            public RunnableC0076a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,17 +81,17 @@ public class h implements l<ImageView> {
                         return;
                     }
                 }
-                this.f1737f = aVar;
-                this.f1736e = bitmap;
+                this.f2164f = aVar;
+                this.f2163e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1737f.a.setImageBitmap(this.f1736e);
-                    this.f1737f.a.setBackgroundResource(17170445);
-                    this.f1737f.a.setVisibility(0);
+                    this.f2164f.a.setImageBitmap(this.f2163e);
+                    this.f2164f.a.setBackgroundResource(17170445);
+                    this.f2164f.a.setVisibility(0);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class h implements l<ImageView> {
                     return;
                 }
             }
-            this.f1735b = hVar;
+            this.f2162b = hVar;
             this.a = imageView;
         }
 
@@ -119,7 +119,7 @@ public class h implements l<ImageView> {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.setImageDrawable(this.f1735b.k(this.a));
+                this.a.setImageDrawable(this.f2162b.k(this.a));
             }
         }
 
@@ -127,7 +127,7 @@ public class h implements l<ImageView> {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                c.a.c0.e.g.b(new RunnableC0055a(this, bitmap));
+                c.a.c0.e.g.b(new RunnableC0076a(this, bitmap));
             }
         }
     }
@@ -139,10 +139,10 @@ public class h implements l<ImageView> {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ g f1738b;
+        public final /* synthetic */ g f2165b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ h f1739c;
+        public final /* synthetic */ h f2166c;
 
         public b(h hVar, String str, g gVar) {
             Interceptable interceptable = $ic;
@@ -159,21 +159,21 @@ public class h implements l<ImageView> {
                     return;
                 }
             }
-            this.f1739c = hVar;
+            this.f2166c = hVar;
             this.a = str;
-            this.f1738b = gVar;
+            this.f2165b = gVar;
         }
 
         @Override // c.a.c0.r.p.a
         public void a(Exception exc, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i2) == null) {
-                this.f1739c.f1734d.lock();
+                this.f2166c.f2161d.lock();
                 try {
-                    this.f1739c.f1733c.remove(this.a);
-                    this.f1738b.a();
+                    this.f2166c.f2160c.remove(this.a);
+                    this.f2165b.a();
                 } finally {
-                    this.f1739c.f1734d.unlock();
+                    this.f2166c.f2161d.unlock();
                 }
             }
         }
@@ -187,24 +187,24 @@ public class h implements l<ImageView> {
                 options.inInputShareable = true;
                 Bitmap decodeStream = BitmapFactory.decodeStream(new e(inputStream), null, options);
                 if (decodeStream == null) {
-                    this.f1739c.f1734d.lock();
+                    this.f2166c.f2161d.lock();
                     try {
-                        this.f1739c.f1733c.remove(this.a);
-                        this.f1738b.a();
+                        this.f2166c.f2160c.remove(this.a);
+                        this.f2165b.a();
                         return;
                     } finally {
                     }
                 }
                 String str = this.a;
-                Bitmap o = !str.substring(str.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? h.o(h.p(decodeStream, 100 - (this.f1739c.q(decodeStream) * 10)), h.r(options)) : decodeStream;
+                Bitmap o = !str.substring(str.lastIndexOf("/") + 1).toUpperCase().contains("PNG") ? h.o(h.p(decodeStream, 100 - (this.f2166c.q(decodeStream) * 10)), h.r(options)) : decodeStream;
                 if (o != null) {
                     decodeStream = o;
                 }
                 c.a.c0.c.a.d().j(this.a, decodeStream);
-                this.f1739c.f1734d.lock();
+                this.f2166c.f2161d.lock();
                 try {
-                    this.f1739c.f1733c.remove(this.a);
-                    this.f1738b.b(decodeStream);
+                    this.f2166c.f2160c.remove(this.a);
+                    this.f2165b.b(decodeStream);
                 } finally {
                 }
             }
@@ -218,13 +218,13 @@ public class h implements l<ImageView> {
         public final /* synthetic */ ImageView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f1740b;
+        public final /* synthetic */ int f2167b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f1741c;
+        public final /* synthetic */ int f2168c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ h f1742d;
+        public final /* synthetic */ h f2169d;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
@@ -232,10 +232,10 @@ public class h implements l<ImageView> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Bitmap f1743e;
+            public final /* synthetic */ Bitmap f2170e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ c f1744f;
+            public final /* synthetic */ c f2171f;
 
             public a(c cVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
@@ -252,17 +252,17 @@ public class h implements l<ImageView> {
                         return;
                     }
                 }
-                this.f1744f = cVar;
-                this.f1743e = bitmap;
+                this.f2171f = cVar;
+                this.f2170e = bitmap;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f1744f.a.setImageBitmap(this.f1743e);
-                    c cVar = this.f1744f;
-                    int i2 = cVar.f1741c;
+                    this.f2171f.a.setImageBitmap(this.f2170e);
+                    c cVar = this.f2171f;
+                    int i2 = cVar.f2168c;
                     if (i2 >= 0) {
                         cVar.a.setAlpha(i2 / 100.0f);
                     }
@@ -285,10 +285,10 @@ public class h implements l<ImageView> {
                     return;
                 }
             }
-            this.f1742d = hVar;
+            this.f2169d = hVar;
             this.a = imageView;
-            this.f1740b = i2;
-            this.f1741c = i3;
+            this.f2167b = i2;
+            this.f2168c = i3;
         }
 
         @Override // c.a.c0.h0.h.f
@@ -302,7 +302,7 @@ public class h implements l<ImageView> {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.a.post(new a(this, this.f1742d.j(this.a, bitmap, this.f1740b, this.f1741c)));
+                this.a.post(new a(this, this.f2169d.j(this.a, bitmap, this.f2167b, this.f2168c)));
             }
         }
     }
@@ -467,8 +467,8 @@ public class h implements l<ImageView> {
                 return;
             }
         }
-        this.f1733c = new ConcurrentHashMap();
-        this.f1734d = new ReentrantLock();
+        this.f2160c = new ConcurrentHashMap();
+        this.f2161d = new ReentrantLock();
     }
 
     public static int i(Bitmap bitmap) {
@@ -638,7 +638,7 @@ public class h implements l<ImageView> {
             if (!(view instanceof AdImageView)) {
                 return c.a.c0.h0.d.b().a(view.getContext());
             }
-            int i2 = ((AdImageView) view).getConfig().f1666b;
+            int i2 = ((AdImageView) view).getConfig().f2093b;
             if (i2 != 0) {
                 return view.getResources().getDrawable(i2);
             }
@@ -666,12 +666,12 @@ public class h implements l<ImageView> {
     public final void m(String str, @Nullable f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, fVar) == null) {
-            this.f1734d.lock();
+            this.f2161d.lock();
             try {
-                g gVar = this.f1733c.get(str);
+                g gVar = this.f2160c.get(str);
                 if (gVar == null) {
                     g gVar2 = new g();
-                    this.f1733c.put(str, gVar2);
+                    this.f2160c.put(str, gVar2);
                     gVar2.c(fVar);
                     n(str, gVar2);
                 } else {
@@ -679,7 +679,7 @@ public class h implements l<ImageView> {
                     gVar.c(fVar);
                 }
             } finally {
-                this.f1734d.unlock();
+                this.f2161d.unlock();
             }
         }
     }

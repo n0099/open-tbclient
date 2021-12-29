@@ -602,7 +602,7 @@ public abstract class h extends MessageSnapshot {
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2139h extends d {
+    public static class C2146h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -610,7 +610,7 @@ public abstract class h extends MessageSnapshot {
         public final int f60627b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2139h(int i2, int i3, Throwable th, int i4) {
+        public C2146h(int i2, int i3, Throwable th, int i4) {
             super(i2, i3, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -632,7 +632,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2139h(Parcel parcel) {
+        public C2146h(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {

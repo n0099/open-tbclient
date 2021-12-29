@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.s0.d1.c1;
-import c.a.s0.d1.d1;
-import c.a.s0.d1.e1;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.g1;
-import c.a.s0.d1.i1;
+import c.a.d.f.p.n;
+import c.a.t0.d1.c1;
+import c.a.t0.d1.d1;
+import c.a.t0.d1.e1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.g1;
+import c.a.t0.d1.i1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,25 +35,25 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f44683e;
+    public int f44870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f44684f;
+    public TbImageView f44871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f44685g;
+    public TextView f44872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f44686h;
+    public TextView f44873h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f44687i;
+    public int f44874i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f44688j;
+    public int f44875j;
 
     /* renamed from: k  reason: collision with root package name */
-    public OriForumInfo f44689k;
+    public OriForumInfo f44876k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarCellView(Context context) {
@@ -73,7 +73,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f44683e = 3;
+        this.f44870e = 3;
         a(context);
     }
 
@@ -81,16 +81,16 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g1.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-            this.f44684f = (TbImageView) findViewById(f1.frs_brand_bar_cell_img);
-            this.f44685g = (TextView) findViewById(f1.frs_brand_bar_cell_name);
-            this.f44686h = (TextView) findViewById(f1.frs_brand_bar_cell_attention);
-            this.f44684f.setDefaultResource(17170445);
-            this.f44684f.setDefaultBgResource(c1.CAM_X0205);
-            this.f44684f.setBorderColor(0);
-            this.f44684f.setRadius(m.f(getContext(), d1.tbds20));
-            this.f44684f.setConrers(5);
-            this.f44687i = m.f(context, d1.tbds471);
-            this.f44688j = m.f(context, d1.tbds164);
+            this.f44871f = (TbImageView) findViewById(f1.frs_brand_bar_cell_img);
+            this.f44872g = (TextView) findViewById(f1.frs_brand_bar_cell_name);
+            this.f44873h = (TextView) findViewById(f1.frs_brand_bar_cell_attention);
+            this.f44871f.setDefaultResource(17170445);
+            this.f44871f.setDefaultBgResource(c1.CAM_X0205);
+            this.f44871f.setBorderColor(0);
+            this.f44871f.setRadius(n.f(getContext(), d1.tbds20));
+            this.f44871f.setConrers(5);
+            this.f44874i = n.f(context, d1.tbds471);
+            this.f44875j = n.f(context, d1.tbds164);
             setOnClickListener(this);
             onChangeSkinType();
         }
@@ -99,21 +99,21 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public void onChangeSkinType() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f44683e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f44870e) {
             return;
         }
-        this.f44683e = skinType;
+        this.f44870e = skinType;
         SkinManager.setBackgroundResource(this, e1.cp_bg_line_d_e_selector);
-        SkinManager.setViewTextColor(this.f44685g, c1.CAM_X0106);
-        SkinManager.setViewTextColor(this.f44686h, c1.CAM_X0109);
+        SkinManager.setViewTextColor(this.f44872g, c1.CAM_X0106);
+        SkinManager.setViewTextColor(this.f44873h, c1.CAM_X0109);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            TiebaStatic.log(new StatisticItem("c13110").param("obj_id", this.f44689k.ori_fid.longValue()));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.f44689k.ori_fname, "")));
+            TiebaStatic.log(new StatisticItem("c13110").param("obj_id", this.f44876k.ori_fid.longValue()));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.f44876k.ori_fname, "")));
         }
     }
 
@@ -122,7 +122,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f44687i, this.f44688j);
+            setMeasuredDimension(this.f44874i, this.f44875j);
         }
     }
 
@@ -134,10 +134,10 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
                 return;
             }
             setVisibility(0);
-            this.f44689k = oriForumInfo;
-            this.f44684f.startLoad(oriForumInfo.ori_avatar, 10, false);
-            this.f44685g.setText(oriForumInfo.ori_fname);
-            this.f44686h.setText(String.format(getContext().getString(i1.frs_brand_relation_bar_attention), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+            this.f44876k = oriForumInfo;
+            this.f44871f.startLoad(oriForumInfo.ori_avatar, 10, false);
+            this.f44872g.setText(oriForumInfo.ori_fname);
+            this.f44873h.setText(String.format(getContext().getString(i1.frs_brand_relation_bar_attention), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
         }
     }
 
@@ -160,7 +160,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f44683e = 3;
+        this.f44870e = 3;
         a(context);
     }
 
@@ -183,7 +183,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f44683e = 3;
+        this.f44870e = 3;
         a(context);
     }
 }

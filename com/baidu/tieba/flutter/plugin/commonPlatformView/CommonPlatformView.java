@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.NonNull;
-import c.a.s0.s3.a;
+import c.a.t0.s3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -123,7 +123,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
                 this.mSquareDelegate = aVar;
                 aVar.g();
                 this.mSquareDelegate.o();
-                this.mainView = this.mSquareDelegate.f23592d.d();
+                this.mainView = this.mSquareDelegate.f24105d.d();
             }
         }
     }

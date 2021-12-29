@@ -142,7 +142,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                 return imageRequest.getSourceFile().getPath();
             }
             if (UriUtil.isLocalContentUri(sourceUri)) {
-                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.f39154k.equals(sourceUri.getAuthority())) {
+                if (Build.VERSION.SDK_INT < 19 || !ImageClipActivity.f39310k.equals(sourceUri.getAuthority())) {
                     uri = sourceUri;
                     str = null;
                     strArr = null;

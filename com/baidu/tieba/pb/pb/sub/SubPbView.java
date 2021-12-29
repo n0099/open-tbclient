@@ -13,9 +13,9 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.s0.s2.g;
-import c.a.s0.s2.r.u;
+import c.a.d.f.p.n;
+import c.a.t0.s2.g;
+import c.a.t0.s2.r.u;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeListView;
@@ -32,25 +32,25 @@ public class SubPbView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BlankView f48379e;
+    public BlankView f48600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f48380f;
+    public View f48601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48381g;
+    public LinearLayout f48602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BdTypeListView f48382h;
+    public BdTypeListView f48603h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f48383i;
+    public RelativeLayout f48604i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f48384j;
+    public float f48605j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f48385k;
+    public float f48606k;
     public boolean l;
     public boolean m;
     public ValueAnimator n;
@@ -68,7 +68,7 @@ public class SubPbView extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SubPbView f48386e;
+        public final /* synthetic */ SubPbView f48607e;
 
         public a(SubPbView subPbView) {
             Interceptable interceptable = $ic;
@@ -85,25 +85,25 @@ public class SubPbView extends LinearLayout {
                     return;
                 }
             }
-            this.f48386e = subPbView;
+            this.f48607e = subPbView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f48386e.o = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                SubPbView subPbView = this.f48386e;
-                subPbView.t = 1.0f - (subPbView.o / m.i(this.f48386e.getContext()));
-                if (this.f48386e.o == 0) {
-                    this.f48386e.t = 1.0f;
-                } else if (this.f48386e.o == m.i(this.f48386e.getContext())) {
-                    this.f48386e.t = 0.0f;
-                    if (this.f48386e.m && (this.f48386e.getContext() instanceof Activity)) {
-                        ((Activity) this.f48386e.getContext()).finish();
+                this.f48607e.o = ((Integer) valueAnimator.getAnimatedValue()).intValue();
+                SubPbView subPbView = this.f48607e;
+                subPbView.t = 1.0f - (subPbView.o / n.i(this.f48607e.getContext()));
+                if (this.f48607e.o == 0) {
+                    this.f48607e.t = 1.0f;
+                } else if (this.f48607e.o == n.i(this.f48607e.getContext())) {
+                    this.f48607e.t = 0.0f;
+                    if (this.f48607e.m && (this.f48607e.getContext() instanceof Activity)) {
+                        ((Activity) this.f48607e.getContext()).finish();
                     }
                 }
-                this.f48386e.requestLayout();
+                this.f48607e.requestLayout();
             }
         }
     }
@@ -141,7 +141,7 @@ public class SubPbView extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            if (this.f48379e != null && this.u) {
+            if (this.f48600e != null && this.u) {
                 if (this.n.isRunning()) {
                     this.n.end();
                     return true;
@@ -151,34 +151,34 @@ public class SubPbView extends LinearLayout {
                     if (action != 1) {
                         if (action == 2) {
                             float rawY = motionEvent.getRawY();
-                            this.f48385k = rawY;
-                            this.t = 1.0f - ((rawY - this.f48384j) / m.i(getContext()));
-                            if ((this.q || this.r) && this.f48380f.getTop() == 0 && this.f48382h.getFirstVisiblePosition() == 0 && !this.m) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48385k, this.f48384j, this.o, this.t, this.m)));
+                            this.f48606k = rawY;
+                            this.t = 1.0f - ((rawY - this.f48605j) / n.i(getContext()));
+                            if ((this.q || this.r) && this.f48601f.getTop() == 0 && this.f48603h.getFirstVisiblePosition() == 0 && !this.m) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48606k, this.f48605j, this.o, this.t, this.m)));
                             }
                         }
                     }
                     this.l = false;
-                    z = this.f48385k > this.f48384j && this.f48380f.getTop() == 0 && this.f48382h.getFirstVisiblePosition() == 0;
-                    boolean z2 = this.f48385k - this.f48384j > ((float) this.s) && this.f48380f.getTop() == 0 && this.f48382h.getFirstVisiblePosition() == 0;
+                    z = this.f48606k > this.f48605j && this.f48601f.getTop() == 0 && this.f48603h.getFirstVisiblePosition() == 0;
+                    boolean z2 = this.f48606k - this.f48605j > ((float) this.s) && this.f48601f.getTop() == 0 && this.f48603h.getFirstVisiblePosition() == 0;
                     this.m = z2;
                     if (z2) {
                         if (this.q || this.r) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48385k, this.f48384j, this.o, this.t, this.m)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48606k, this.f48605j, this.o, this.t, this.m)));
                         }
-                        this.n.setIntValues((int) (this.f48385k - this.f48384j), m.i(getContext()));
+                        this.n.setIntValues((int) (this.f48606k - this.f48605j), n.i(getContext()));
                         this.n.setDuration(300L);
                         this.n.start();
                     } else {
                         this.t = 1.0f;
-                        this.f48384j = 0.0f;
-                        this.f48385k = 0.0f;
+                        this.f48605j = 0.0f;
+                        this.f48606k = 0.0f;
                         if (this.q || this.r) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48385k, this.f48384j, this.o, this.t, this.m)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48606k, this.f48605j, this.o, this.t, this.m)));
                         }
                         requestLayout();
                     }
-                    if (!this.l || (this.f48385k > this.f48384j && this.f48380f.getTop() == 0 && this.f48382h.getFirstVisiblePosition() == 0)) {
+                    if (!this.l || (this.f48606k > this.f48605j && this.f48601f.getTop() == 0 && this.f48603h.getFirstVisiblePosition() == 0)) {
                         this.l = true;
                         requestLayout();
                         return true;
@@ -190,11 +190,11 @@ public class SubPbView extends LinearLayout {
                         return super.dispatchTouchEvent(motionEvent);
                     }
                 }
-                this.f48385k = motionEvent.getRawY();
-                if (this.f48380f.getTop() == 0 && this.f48382h.getFirstVisiblePosition() == 0) {
-                    this.f48384j = motionEvent.getRawY();
+                this.f48606k = motionEvent.getRawY();
+                if (this.f48601f.getTop() == 0 && this.f48603h.getFirstVisiblePosition() == 0) {
+                    this.f48605j = motionEvent.getRawY();
                 } else {
-                    this.f48384j = this.f48385k;
+                    this.f48605j = this.f48606k;
                 }
                 z = false;
                 if (this.l) {
@@ -228,7 +228,7 @@ public class SubPbView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             float f2 = this.t;
-            if (f2 >= 0.0f && this.f48379e != null) {
+            if (f2 >= 0.0f && this.f48600e != null) {
                 canvas.drawColor(Color.argb((int) (f2 * 168.0f), 0, 0, 0), PorterDuff.Mode.SRC);
             }
             if (this.q || this.r) {
@@ -243,9 +243,9 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.m = true;
             if (this.q || this.r) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48385k, this.f48384j, this.o, this.t, this.m)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new u(this.f48606k, this.f48605j, this.o, this.t, this.m)));
             }
-            this.n.setIntValues(0, m.i(getContext()));
+            this.n.setIntValues(0, n.i(getContext()));
             this.n.setDuration(300L);
             this.n.start();
         }
@@ -255,26 +255,26 @@ public class SubPbView extends LinearLayout {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            if (this.f48379e == null) {
+            if (this.f48600e == null) {
                 super.onLayout(z, i2, i3, i4, i5);
                 return;
             }
             int i6 = this.o;
             if (i6 == 0) {
                 super.onLayout(z, i2, i3, i4, i5);
-                float f2 = this.f48385k;
-                float f3 = this.f48384j;
+                float f2 = this.f48606k;
+                float f3 = this.f48605j;
                 if (f2 <= f3 || !this.l) {
                     return;
                 }
-                LinearLayout linearLayout = this.f48381g;
+                LinearLayout linearLayout = this.f48602g;
                 linearLayout.layout(i2, (int) (f2 - f3), i4, ((int) (f2 - f3)) + linearLayout.getHeight());
-                this.f48383i.layout(i2, ((int) (this.f48385k - this.f48384j)) + this.f48381g.getHeight(), i4, i5);
+                this.f48604i.layout(i2, ((int) (this.f48606k - this.f48605j)) + this.f48602g.getHeight(), i4, i5);
                 return;
             }
-            LinearLayout linearLayout2 = this.f48381g;
+            LinearLayout linearLayout2 = this.f48602g;
             linearLayout2.layout(i2, i6, i4, linearLayout2.getMeasuredHeight() + i6);
-            this.f48383i.layout(i2, this.o + this.f48381g.getMeasuredHeight(), i4, i5);
+            this.f48604i.layout(i2, this.o + this.f48602g.getMeasuredHeight(), i4, i5);
         }
     }
 
@@ -289,14 +289,14 @@ public class SubPbView extends LinearLayout {
     public void setBlankView(BlankView blankView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, blankView) == null) {
-            this.f48379e = blankView;
+            this.f48600e = blankView;
         }
     }
 
     public void setContentView(RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, relativeLayout) == null) {
-            this.f48383i = relativeLayout;
+            this.f48604i = relativeLayout;
         }
     }
 
@@ -324,14 +324,14 @@ public class SubPbView extends LinearLayout {
     public void setListView(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bdTypeListView) == null) {
-            this.f48382h = bdTypeListView;
+            this.f48603h = bdTypeListView;
         }
     }
 
     public void setNavigationView(LinearLayout linearLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, linearLayout) == null) {
-            this.f48381g = linearLayout;
+            this.f48602g = linearLayout;
         }
     }
 
@@ -340,20 +340,20 @@ public class SubPbView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048590, this, uVar) == null) || uVar == null) {
             return;
         }
-        this.t = uVar.f22586d;
-        float f2 = uVar.f22584b;
-        this.f48384j = f2;
+        this.t = uVar.f23098d;
+        float f2 = uVar.f23096b;
+        this.f48605j = f2;
         float f3 = uVar.a;
-        this.f48385k = f3;
-        this.o = uVar.f22585c;
-        this.m = uVar.f22587e;
+        this.f48606k = f3;
+        this.o = uVar.f23097c;
+        this.m = uVar.f23099e;
         boolean z = f3 > f2;
         if (this.m) {
-            this.n.setIntValues((int) (this.f48385k - this.f48384j), m.i(getContext()));
+            this.n.setIntValues((int) (this.f48606k - this.f48605j), n.i(getContext()));
             this.n.setDuration(0L);
             this.n.start();
         }
-        if (this.f48385k > this.f48384j) {
+        if (this.f48606k > this.f48605j) {
             this.l = true;
         } else {
             this.l = z;
@@ -364,7 +364,7 @@ public class SubPbView extends LinearLayout {
     public void setTopView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            this.f48380f = view;
+            this.f48601f = view;
         }
     }
 
@@ -421,12 +421,12 @@ public class SubPbView extends LinearLayout {
         this.r = false;
         this.t = 0.0f;
         if (0 != 0) {
-            this.s = m.i(context) / 10;
+            this.s = n.i(context) / 10;
         } else {
-            this.s = (m.i(context) / 3) - m.f(TbadkCoreApplication.getInst(), g.ds160);
+            this.s = (n.i(context) / 3) - n.f(TbadkCoreApplication.getInst(), g.ds160);
         }
-        this.o = m.i(context);
-        ValueAnimator ofInt = ValueAnimator.ofInt(m.i(context), 0);
+        this.o = n.i(context);
+        ValueAnimator ofInt = ValueAnimator.ofInt(n.i(context), 0);
         this.n = ofInt;
         ofInt.setDuration(this.p);
         this.n.setInterpolator(new LinearInterpolator());

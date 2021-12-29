@@ -1,11 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -15,28 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class k implements com.kwad.sdk.core.d<AdInfo> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public k() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(AdInfo adInfo, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         AdInfo.AdBaseInfo adBaseInfo = new AdInfo.AdBaseInfo();
@@ -108,36 +84,31 @@ public class k implements com.kwad.sdk.core.d<AdInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(AdInfo adInfo, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, adInfo, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "adBaseInfo", adInfo.adBaseInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "advertiserInfo", adInfo.advertiserInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adConversionInfo", adInfo.adConversionInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adMaterialInfo", adInfo.adMaterialInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adTrackInfo", adInfo.adTrackInfoList);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadSafeInfo", adInfo.downloadSafeInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "status", adInfo.status);
-            com.kwad.sdk.utils.t.a(jSONObject, "progress", adInfo.progress);
-            com.kwad.sdk.utils.t.a(jSONObject, "soFarBytes", adInfo.soFarBytes);
-            com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", adInfo.totalBytes);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadFilePath", adInfo.downloadFilePath);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadId", adInfo.downloadId);
-            com.kwad.sdk.utils.t.a(jSONObject, "adPreloadInfo", adInfo.adPreloadInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adSplashInfo", adInfo.adSplashInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adStyleInfo", adInfo.adStyleInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adStyleInfo2", adInfo.adStyleInfo2);
-            com.kwad.sdk.utils.t.a(jSONObject, "adAggregateInfo", adInfo.adAggregateInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adRewardInfo", adInfo.adRewardInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adInsertScreenInfo", adInfo.adInsertScreenInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "adProductInfo", adInfo.adProductInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "ocpcActionType", adInfo.ocpcActionType);
-            com.kwad.sdk.utils.t.a(jSONObject, "adMatrixInfo", adInfo.adMatrixInfo);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "adBaseInfo", adInfo.adBaseInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "advertiserInfo", adInfo.advertiserInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adConversionInfo", adInfo.adConversionInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adMaterialInfo", adInfo.adMaterialInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adTrackInfo", adInfo.adTrackInfoList);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadSafeInfo", adInfo.downloadSafeInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "status", adInfo.status);
+        com.kwad.sdk.utils.t.a(jSONObject, "progress", adInfo.progress);
+        com.kwad.sdk.utils.t.a(jSONObject, "soFarBytes", adInfo.soFarBytes);
+        com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", adInfo.totalBytes);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadFilePath", adInfo.downloadFilePath);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadId", adInfo.downloadId);
+        com.kwad.sdk.utils.t.a(jSONObject, "adPreloadInfo", adInfo.adPreloadInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adSplashInfo", adInfo.adSplashInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adStyleInfo", adInfo.adStyleInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adStyleInfo2", adInfo.adStyleInfo2);
+        com.kwad.sdk.utils.t.a(jSONObject, "adAggregateInfo", adInfo.adAggregateInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adRewardInfo", adInfo.adRewardInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adInsertScreenInfo", adInfo.adInsertScreenInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "adProductInfo", adInfo.adProductInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "ocpcActionType", adInfo.ocpcActionType);
+        com.kwad.sdk.utils.t.a(jSONObject, "adMatrixInfo", adInfo.adMatrixInfo);
+        return jSONObject;
     }
 }

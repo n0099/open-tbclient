@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.d.m.e.a;
+import c.a.d.n.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
-public class AlaEnterEffectCategoryAdapter extends a<c.a.s0.a0.l.g.d.d.a, ViewHolder> {
+/* loaded from: classes12.dex */
+public class AlaEnterEffectCategoryAdapter extends a<c.a.t0.a0.l.g.d.d.a, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.s0.a0.l.g.d.d.a, ViewHo
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, c.a.s0.a0.l.g.d.d.a.f14893f);
+        super(context, c.a.t0.a0.l.g.d.d.a.f15391f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.s0.a0.l.g.d.d.a, ViewHo
         }
     }
 
-    public final void g0(ViewHolder viewHolder) {
+    public final void Z(ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || viewHolder == null) {
             return;
@@ -84,30 +84,30 @@ public class AlaEnterEffectCategoryAdapter extends a<c.a.s0.a0.l.g.d.d.a, ViewHo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public ViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f2871e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.f3299e).inflate(R.layout.ala_enter_effect_category_layout, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: i0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, c.a.s0.a0.l.g.d.d.a aVar, ViewHolder viewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: b0 */
+    public View S(int i2, View view, ViewGroup viewGroup, c.a.t0.a0.l.g.d.d.a aVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, aVar, viewHolder})) == null) {
             if (aVar != null) {
-                viewHolder.mCategoryName.setText(aVar.f14894e);
+                viewHolder.mCategoryName.setText(aVar.f15392e);
             }
             if (i2 == 0) {
                 viewHolder.mDevide.setVisibility(8);
             } else {
                 viewHolder.mDevide.setVisibility(0);
             }
-            g0(viewHolder);
+            Z(viewHolder);
             return viewHolder.getView();
         }
         return (View) invokeCommon.objValue;

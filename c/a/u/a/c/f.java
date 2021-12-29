@@ -35,16 +35,16 @@ public class f extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Socket f26630c;
+    public Socket f27069c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f26631d;
+    public InputStream f27070d;
 
     /* renamed from: e  reason: collision with root package name */
-    public OutputStream f26632e;
+    public OutputStream f27071e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f26633f;
+    public String f27072f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(Context context, String str) {
@@ -64,28 +64,28 @@ public class f extends c {
                 return;
             }
         }
-        this.f26633f = str;
+        this.f27072f = str;
     }
 
     @Override // c.a.u.a.c.c
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.f26631d) : (InputStream) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.f27070d) : (InputStream) invokeV.objValue;
     }
 
     @Override // c.a.u.a.c.c
     public void c(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.f26591b = dVar;
+            this.f27030b = dVar;
             if (dVar != null) {
-                this.f26631d = dVar.f26594d;
-                this.f26632e = dVar.f26595e;
+                this.f27070d = dVar.f27033d;
+                this.f27071e = dVar.f27034e;
                 return;
             }
-            this.f26631d = null;
-            this.f26632e = null;
+            this.f27070d = null;
+            this.f27071e = null;
         }
     }
 
@@ -93,7 +93,7 @@ public class f extends c {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.f26591b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.f27030b) : invokeV.booleanValue;
     }
 
     @Override // c.a.u.a.c.c
@@ -107,11 +107,11 @@ public class f extends c {
     public void f(b bVar) throws IOException {
         OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f26630c == null || (outputStream = this.f26632e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) || this.f27069c == null || (outputStream = this.f27071e) == null) {
             return;
         }
         outputStream.write(bVar.a);
-        this.f26632e.flush();
+        this.f27071e.flush();
     }
 
     public final d g(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
@@ -119,18 +119,18 @@ public class f extends c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
             c.a.u.a.h.e.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i2 + "-----------------");
-            this.f26630c = h(str, i2);
+            this.f27069c = h(str, i2);
             d dVar = new d();
-            Socket socket = this.f26630c;
+            Socket socket = this.f27069c;
             if (socket == null) {
                 return dVar;
             }
-            dVar.f26593c = socket;
-            dVar.f26594d = socket.getInputStream();
-            dVar.f26595e = this.f26630c.getOutputStream();
+            dVar.f27032c = socket;
+            dVar.f27033d = socket.getInputStream();
+            dVar.f27034e = this.f27069c.getOutputStream();
             Boolean bool = Boolean.TRUE;
             dVar.a = bool;
-            dVar.f26592b = bool;
+            dVar.f27031b = bool;
             return dVar;
         }
         return (d) invokeLI.objValue;
@@ -140,7 +140,7 @@ public class f extends c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i2)) == null) {
-            if (this.f26633f.equals(b.c.f33494d)) {
+            if (this.f27072f.equals(b.c.f33650d)) {
                 return j(str, i2);
             }
             return i(str, i2);
@@ -213,17 +213,17 @@ public class f extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, dVar)) == null) {
             if (dVar != null && dVar.a.booleanValue()) {
                 try {
-                    if (dVar.f26593c != null) {
-                        dVar.f26593c.close();
-                        dVar.f26593c = null;
+                    if (dVar.f27032c != null) {
+                        dVar.f27032c.close();
+                        dVar.f27032c = null;
                     }
-                    if (dVar.f26594d != null) {
-                        dVar.f26594d.close();
-                        dVar.f26594d = null;
+                    if (dVar.f27033d != null) {
+                        dVar.f27033d.close();
+                        dVar.f27033d = null;
                     }
-                    if (dVar.f26595e != null) {
-                        dVar.f26595e.close();
-                        dVar.f26595e = null;
+                    if (dVar.f27034e != null) {
+                        dVar.f27034e.close();
+                        dVar.f27034e = null;
                         return true;
                     }
                     return true;

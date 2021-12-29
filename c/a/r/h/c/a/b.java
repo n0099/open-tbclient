@@ -6,17 +6,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f11782b;
+    public boolean f5069b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f11783c;
+    public boolean f5070c;
 
     public b(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class b {
             }
         }
         this.a = str;
-        this.f11782b = z;
-        this.f11783c = z2;
+        this.f5069b = z;
+        this.f5070c = z2;
     }
 
     public static int a(int i2) {
@@ -94,13 +94,13 @@ public class b {
                         break;
                     }
                     char charAt = this.a.charAt(iArr[i7]);
-                    if (this.f11783c) {
+                    if (this.f5070c) {
                         charAt = Character.toLowerCase(charAt);
                     }
                     byteArrayOutputStream.write(charAt);
                     i7++;
                 }
-                if (this.f11782b) {
+                if (this.f5069b) {
                     while (i2 < 8) {
                         byteArrayOutputStream.write(61);
                         i2++;

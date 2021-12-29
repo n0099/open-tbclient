@@ -23,7 +23,7 @@ public class d extends CookieHandler {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CookieHandler f33512b;
+    public final CookieHandler f33668b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,9 +55,9 @@ public class d extends CookieHandler {
             }
         }
         if (Build.VERSION.SDK_INT >= 19) {
-            this.f33512b = e.a();
+            this.f33668b = e.a();
         } else {
-            this.f33512b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
+            this.f33668b = new CookieManager(null, CookiePolicy.ACCEPT_ALL);
         }
     }
 
@@ -71,14 +71,14 @@ public class d extends CookieHandler {
     public Map<String, List<String>> get(URI uri, Map<String, List<String>> map) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f33512b.get(uri, map) : (Map) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, uri, map)) == null) ? this.f33668b.get(uri, map) : (Map) invokeLL.objValue;
     }
 
     @Override // java.net.CookieHandler
     public void put(URI uri, Map<String, List<String>> map) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, map) == null) {
-            this.f33512b.put(uri, map);
+            this.f33668b.put(uri, map);
         }
     }
 }

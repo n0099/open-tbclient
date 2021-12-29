@@ -11,19 +11,19 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2254d;
+    public static a f2681d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InterfaceC0077a f2255b;
+    public InterfaceC0098a f2682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2256c;
+    public boolean f2683c;
 
     /* renamed from: c.a.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0077a {
+    public interface InterfaceC0098a {
         void registerIdleTask(String str, Runnable runnable);
 
         void scheduleIdleTask(boolean z);
@@ -43,27 +43,27 @@ public class a {
             }
         }
         this.a = false;
-        this.f2256c = false;
+        this.f2683c = false;
     }
 
     public static a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2254d == null) {
-                f2254d = new a();
+            if (f2681d == null) {
+                f2681d = new a();
             }
-            return f2254d;
+            return f2681d;
         }
         return (a) invokeV.objValue;
     }
 
     public void a(String str, Runnable runnable) {
-        InterfaceC0077a interfaceC0077a;
+        InterfaceC0098a interfaceC0098a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (this.a && !this.f2256c && (interfaceC0077a = this.f2255b) != null) {
-                interfaceC0077a.registerIdleTask(str, runnable);
+            if (this.a && !this.f2683c && (interfaceC0098a = this.f2682b) != null) {
+                interfaceC0098a.registerIdleTask(str, runnable);
             } else {
                 runnable.run();
             }
@@ -77,21 +77,21 @@ public class a {
     }
 
     public void d() {
-        InterfaceC0077a interfaceC0077a;
+        InterfaceC0098a interfaceC0098a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0077a = this.f2255b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interfaceC0098a = this.f2682b) == null) {
             return;
         }
-        interfaceC0077a.scheduleIdleTask(true);
+        interfaceC0098a.scheduleIdleTask(true);
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2256c = true;
-            InterfaceC0077a interfaceC0077a = this.f2255b;
-            if (interfaceC0077a != null) {
-                interfaceC0077a.scheduleIdleTask(false);
+            this.f2683c = true;
+            InterfaceC0098a interfaceC0098a = this.f2682b;
+            if (interfaceC0098a != null) {
+                interfaceC0098a.scheduleIdleTask(false);
             }
         }
     }
@@ -106,14 +106,14 @@ public class a {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f2256c = z;
+            this.f2683c = z;
         }
     }
 
-    public void h(InterfaceC0077a interfaceC0077a) {
+    public void h(InterfaceC0098a interfaceC0098a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0077a) == null) {
-            this.f2255b = interfaceC0077a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0098a) == null) {
+            this.f2682b = interfaceC0098a;
         }
     }
 }

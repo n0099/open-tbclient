@@ -11,13 +11,13 @@ public class l {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1807b;
+    public final String f2234b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final n f1808c;
+    public final n f2235c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1809d;
+    public String f2236d;
 }

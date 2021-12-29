@@ -31,29 +31,29 @@ public final class HeartBeatManager implements NoProguard {
     public static final String a = "HeartBeatManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f33349b = 180;
+    public static final int f33505b = 180;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HeartBeatManager f33350c;
+    public static HeartBeatManager f33506c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f33351d;
+    public Context f33507d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RestHeartBeat f33352e;
+    public RestHeartBeat f33508e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Timer f33353f;
+    public Timer f33509f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f33354g;
+    public b f33510g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f33355h;
+    public long f33511h;
 
     /* renamed from: i  reason: collision with root package name */
-    public c.a f33356i;
+    public c.a f33512i;
 
     /* loaded from: classes9.dex */
     public final class RestHeartBeat implements NoProguard, Serializable {
@@ -169,12 +169,12 @@ public final class HeartBeatManager implements NoProguard {
                 return;
             }
         }
-        this.f33351d = null;
-        this.f33352e = new RestHeartBeat();
-        this.f33353f = null;
-        this.f33354g = new b();
-        this.f33355h = 0L;
-        this.f33356i = new c.a(this) { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.1
+        this.f33507d = null;
+        this.f33508e = new RestHeartBeat();
+        this.f33509f = null;
+        this.f33510g = new b();
+        this.f33511h = 0L;
+        this.f33512i = new c.a(this) { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ HeartBeatManager a;
@@ -202,7 +202,7 @@ public final class HeartBeatManager implements NoProguard {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    return TextUtils.equals(a.c().a() + this.a.f33352e.mHeartbeatUrl, str);
+                    return TextUtils.equals(a.c().a() + this.a.f33508e.mHeartbeatUrl, str);
                 }
                 return invokeL.booleanValue;
             }
@@ -214,8 +214,8 @@ public final class HeartBeatManager implements NoProguard {
                     return;
                 }
                 if (!a(str)) {
-                    this.a.f33352e.reset();
-                    long splitTimeMs = this.a.f33352e.getSplitTimeMs();
+                    this.a.f33508e.reset();
+                    long splitTimeMs = this.a.f33508e.getSplitTimeMs();
                     this.a.a(splitTimeMs, splitTimeMs);
                     String str3 = HeartBeatManager.a;
                     LogUtil.i(str3, HeartBeatManager.a + " business request success.");
@@ -225,7 +225,7 @@ public final class HeartBeatManager implements NoProguard {
                 StringBuilder sb = new StringBuilder();
                 sb.append(HeartBeatManager.a);
                 sb.append(" heartbeat ");
-                sb.append(this.a.f33355h > 0 ? "background " : "");
+                sb.append(this.a.f33511h > 0 ? "background " : "");
                 sb.append("request success.");
                 LogUtil.i(str4, sb.toString());
             }
@@ -238,10 +238,10 @@ public final class HeartBeatManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (HeartBeatManager.class) {
-                if (f33350c == null) {
-                    f33350c = new HeartBeatManager();
+                if (f33506c == null) {
+                    f33506c = new HeartBeatManager();
                 }
-                heartBeatManager = f33350c;
+                heartBeatManager = f33506c;
             }
             return heartBeatManager;
         }
@@ -252,11 +252,11 @@ public final class HeartBeatManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                HeartBeatCfgEntity a2 = a.c().a(this.f33351d);
+                HeartBeatCfgEntity a2 = a.c().a(this.f33507d);
                 if (a2 != null && a2.isUsed()) {
                     if (a2.validate()) {
-                        this.f33352e.updateCfg(a2);
-                        this.f33354g.a(1);
+                        this.f33508e.updateCfg(a2);
+                        this.f33510g.a(1);
                     } else {
                         String str = a;
                         LogUtil.w(str, a + " start resp isn't validate.");
@@ -265,7 +265,7 @@ public final class HeartBeatManager implements NoProguard {
                 }
                 String str2 = a;
                 LogUtil.w(str2, a + " start resp is null or isn't used.");
-                this.f33354g.a(2);
+                this.f33510g.a(2);
             }
         }
     }
@@ -276,14 +276,14 @@ public final class HeartBeatManager implements NoProguard {
             String str = a;
             LogUtil.i(str, a + " onStateChanged isForeground:" + z);
             if (z) {
-                if (this.f33352e.isValid()) {
-                    this.f33354g.a(1);
-                    this.f33354g.a(4);
+                if (this.f33508e.isValid()) {
+                    this.f33510g.a(1);
+                    this.f33510g.a(4);
                 }
-                a.c().b(this.f33351d);
+                a.c().b(this.f33507d);
                 return;
             }
-            this.f33354g.a(3);
+            this.f33510g.a(3);
         }
     }
 
@@ -291,7 +291,7 @@ public final class HeartBeatManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
             if (context != null) {
-                this.f33351d = DxmApplicationContextImpl.getApplicationContext(context);
+                this.f33507d = DxmApplicationContextImpl.getApplicationContext(context);
                 a.c().c(str);
                 return;
             }
@@ -302,8 +302,8 @@ public final class HeartBeatManager implements NoProguard {
     public void startHeartBeat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            com.baidu.apollon.restnet.c.a(this.f33356i);
-            a(0L, this.f33352e.getSplitTimeMs());
+            com.baidu.apollon.restnet.c.a(this.f33512i);
+            a(0L, this.f33508e.getSplitTimeMs());
             String str = a;
             LogUtil.i(str, a + " HeartBeat start.");
         }
@@ -312,12 +312,12 @@ public final class HeartBeatManager implements NoProguard {
     public void stopHeartBeat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Timer timer = this.f33353f;
+            Timer timer = this.f33509f;
             if (timer != null) {
                 timer.cancel();
-                this.f33353f = null;
+                this.f33509f = null;
             }
-            this.f33352e.reset();
+            this.f33508e.reset();
             a(0L);
             com.baidu.apollon.restnet.c.a(null);
             String str = a;
@@ -329,22 +329,22 @@ public final class HeartBeatManager implements NoProguard {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (this.f33352e.beating()) {
-                this.f33354g.a(2);
+            if (this.f33508e.beating()) {
+                this.f33510g.a(2);
                 String str = a;
-                LogUtil.i(str, a + " heartbeat beat enough mKeepAliveMax:" + this.f33352e.mKeepAliveMax + ", costTime:" + this.f33352e.mCostTime);
-            } else if (this.f33355h > 0 && Calendar.getInstance().getTimeInMillis() / 1000 > this.f33355h + 180) {
-                this.f33354g.a(2);
-            } else if (!NetworkUtils.isNetworkAvailable(this.f33351d)) {
+                LogUtil.i(str, a + " heartbeat beat enough mKeepAliveMax:" + this.f33508e.mKeepAliveMax + ", costTime:" + this.f33508e.mCostTime);
+            } else if (this.f33511h > 0 && Calendar.getInstance().getTimeInMillis() / 1000 > this.f33511h + 180) {
+                this.f33510g.a(2);
+            } else if (!NetworkUtils.isNetworkAvailable(this.f33507d)) {
                 String str2 = a;
                 LogUtil.i(str2, a + " schedule the network isn't available.");
             } else {
-                RestTemplate restTemplate = new RestTemplate(this.f33351d);
+                RestTemplate restTemplate = new RestTemplate(this.f33507d);
                 restTemplate.setMessageConverter(new com.baidu.apollon.restnet.converter.b());
                 try {
                     String str3 = a;
                     LogUtil.i(str3, a + " send heartbeat request.");
-                    restTemplate.a(a.c().a() + this.f33352e.mHeartbeatUrl, null, "utf-8", String.class);
+                    restTemplate.a(a.c().a() + this.f33508e.mHeartbeatUrl, null, "utf-8", String.class);
                 } catch (RestRuntimeException e2) {
                     String str4 = a;
                     LogUtil.errord(str4, a + " Heart Beat exception:" + e2.getMessage());
@@ -357,7 +357,7 @@ public final class HeartBeatManager implements NoProguard {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f33355h = j2;
+            this.f33511h = j2;
         }
     }
 
@@ -366,11 +366,11 @@ public final class HeartBeatManager implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             try {
-                if (this.f33353f != null) {
-                    this.f33353f.cancel();
+                if (this.f33509f != null) {
+                    this.f33509f.cancel();
                 }
                 Timer timer = new Timer();
-                this.f33353f = timer;
+                this.f33509f = timer;
                 timer.schedule(new TimerTask(this) { // from class: com.baidu.apollon.heartbeat.HeartBeatManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;

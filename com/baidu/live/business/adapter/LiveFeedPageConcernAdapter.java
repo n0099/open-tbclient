@@ -36,22 +36,22 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LayoutInflater f35735b;
+    public LayoutInflater f35891b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<d> f35736c;
+    public List<d> f35892c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f35737d;
+    public Context f35893d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f35738e;
+    public boolean f35894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f35739f;
+    public String f35895f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f35740g;
+    public float[] f35896g;
 
     /* loaded from: classes10.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,19 +60,19 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public LottieAnimationView f35741b;
+        public LottieAnimationView f35897b;
 
         /* renamed from: c  reason: collision with root package name */
-        public SimpleDraweeView f35742c;
+        public SimpleDraweeView f35898c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f35743d;
+        public TextView f35899d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ImageView f35744e;
+        public ImageView f35900e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f35745f;
+        public String f35901f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -92,7 +92,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                     return;
                 }
             }
-            this.f35745f = "";
+            this.f35901f = "";
         }
     }
 
@@ -102,13 +102,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f35746e;
+        public final /* synthetic */ int f35902e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewHolder f35747f;
+        public final /* synthetic */ ViewHolder f35903f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ LiveFeedPageConcernAdapter f35748g;
+        public final /* synthetic */ LiveFeedPageConcernAdapter f35904g;
 
         public a(LiveFeedPageConcernAdapter liveFeedPageConcernAdapter, int i2, ViewHolder viewHolder) {
             Interceptable interceptable = $ic;
@@ -125,31 +125,31 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                     return;
                 }
             }
-            this.f35748g = liveFeedPageConcernAdapter;
-            this.f35746e = i2;
-            this.f35747f = viewHolder;
+            this.f35904g = liveFeedPageConcernAdapter;
+            this.f35902e = i2;
+            this.f35903f = viewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                LiveFeedPageSdk.m("FollowItemClick: position: " + this.f35746e);
-                int i2 = this.f35746e;
-                if (i2 < 0 || i2 >= this.f35748g.f35736c.size() || this.f35748g.f35736c.get(this.f35746e) == null) {
+                LiveFeedPageSdk.m("FollowItemClick: position: " + this.f35902e);
+                int i2 = this.f35902e;
+                if (i2 < 0 || i2 >= this.f35904g.f35892c.size() || this.f35904g.f35892c.get(this.f35902e) == null) {
                     return;
                 }
-                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((d) this.f35748g.f35736c.get(this.f35746e)).f26972d);
-                d dVar = (d) this.f35748g.f35736c.get(this.f35746e);
-                String str = this.f35748g.f35738e ? "chenjinshi" : "zhibopindao";
+                LiveFeedPageSdk.m("FollowItemClick: scheme: " + ((d) this.f35904g.f35892c.get(this.f35902e)).f27413d);
+                d dVar = (d) this.f35904g.f35892c.get(this.f35902e);
+                String str = this.f35904g.f35894e ? "chenjinshi" : "zhibopindao";
                 if (dVar.a) {
-                    LiveFeedPageSdk.f().g().invokeScheme(this.f35747f.itemView.getContext(), dVar.f26972d);
-                    c.a.x.b.c.a.j(this.f35748g.f35737d, this.f35748g.a, str);
+                    LiveFeedPageSdk.f().g().invokeScheme(this.f35903f.itemView.getContext(), dVar.f27413d);
+                    c.a.x.b.c.a.j(this.f35904g.f35893d, this.f35904g.a, str);
                     return;
                 }
-                LiveFeedPageSdk.f().g().invokeScheme(this.f35747f.itemView.getContext(), dVar.f26972d);
-                LiveHostInfo liveHostInfo = dVar.f26973e;
-                c.a.x.b.c.a.h(this.f35748g.f35737d, this.f35748g.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.f35746e + 1, dVar.f26971c, dVar.f26970b, dVar.f26974f);
+                LiveFeedPageSdk.f().g().invokeScheme(this.f35903f.itemView.getContext(), dVar.f27413d);
+                LiveHostInfo liveHostInfo = dVar.f27414e;
+                c.a.x.b.c.a.h(this.f35904g.f35893d, this.f35904g.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, this.f35902e + 1, dVar.f27412c, dVar.f27411b, dVar.f27415f);
             }
         }
     }
@@ -169,21 +169,21 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
                 return;
             }
         }
-        this.f35736c = new ArrayList();
-        this.f35737d = context;
+        this.f35892c = new ArrayList();
+        this.f35893d = context;
         this.a = str;
-        this.f35738e = z;
-        this.f35735b = LayoutInflater.from(context);
-        this.f35739f = f.e().o();
-        float a2 = c.a.x.b.f.a.a(this.f35737d, 8.0f);
-        this.f35740g = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
+        this.f35894e = z;
+        this.f35891b = LayoutInflater.from(context);
+        this.f35895f = f.e().o();
+        float a2 = c.a.x.b.f.a.a(this.f35893d, 8.0f);
+        this.f35896g = new float[]{a2, a2, a2, a2, a2, a2, a2, a2};
     }
 
     public final void e(@NonNull ViewHolder viewHolder) {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) && (lottieAnimationView = viewHolder.f35741b) != null && lottieAnimationView.isAnimating()) {
-            viewHolder.f35741b.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) && (lottieAnimationView = viewHolder.f35897b) != null && lottieAnimationView.isAnimating()) {
+            viewHolder.f35897b.cancelAnimation();
         }
     }
 
@@ -192,7 +192,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lottieAnimationView) == null) || lottieAnimationView == null) {
             return;
         }
-        if (this.f35738e) {
+        if (this.f35894e) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
         } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
             lottieAnimationView.setAnimation("live_feed_page_shinning.json");
@@ -204,17 +204,17 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     public final void g(@NonNull ViewHolder viewHolder) {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || (lottieAnimationView = viewHolder.f35741b) == null || lottieAnimationView.getVisibility() != 0 || viewHolder.f35741b.isAnimating()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewHolder) == null) || (lottieAnimationView = viewHolder.f35897b) == null || lottieAnimationView.getVisibility() != 0 || viewHolder.f35897b.isAnimating()) {
             return;
         }
-        viewHolder.f35741b.playAnimation();
+        viewHolder.f35897b.playAnimation();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35736c.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f35892c.size() : invokeV.intValue;
     }
 
     public void setConcernList(List<d> list) {
@@ -222,13 +222,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         if (!(interceptable == null || interceptable.invokeL(1048590, this, list) == null) || c.a.x.g.g.d.c(list)) {
             return;
         }
-        List<d> list2 = this.f35736c;
+        List<d> list2 = this.f35892c;
         if (list2 != null) {
             list2.clear();
         } else {
-            this.f35736c = new ArrayList();
+            this.f35892c = new ArrayList();
         }
-        this.f35736c.addAll(list);
+        this.f35892c.addAll(list);
         notifyDataSetChanged();
     }
 
@@ -237,71 +237,71 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
     public void onBindViewHolder(ViewHolder viewHolder, int i2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || (dVar = (d) c.a.x.g.g.d.b(this.f35736c, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i2) == null) || (dVar = (d) c.a.x.g.g.d.b(this.f35892c, i2)) == null) {
             return;
         }
-        if (dVar.f26975g) {
-            String str = this.f35738e ? "chenjinshi" : "zhibopindao";
+        if (dVar.f27416g) {
+            String str = this.f35894e ? "chenjinshi" : "zhibopindao";
             if (dVar.a) {
-                c.a.x.b.c.a.k(this.f35737d, this.a, str);
+                c.a.x.b.c.a.k(this.f35893d, this.a, str);
             } else {
-                LiveHostInfo liveHostInfo = dVar.f26973e;
-                c.a.x.b.c.a.i(this.f35737d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i2 + 1, dVar.f26971c, dVar.f26970b, dVar.f26974f);
+                LiveHostInfo liveHostInfo = dVar.f27414e;
+                c.a.x.b.c.a.i(this.f35893d, this.a, liveHostInfo == null ? "" : liveHostInfo.uk, str, i2 + 1, dVar.f27412c, dVar.f27411b, dVar.f27415f);
             }
-            dVar.f26975g = false;
+            dVar.f27416g = false;
         }
         if (dVar.a) {
             e(viewHolder);
-            if (this.f35738e) {
-                viewHolder.f35744e.setImageResource(b.live_feed_page_follow_jump_more_imm);
+            if (this.f35894e) {
+                viewHolder.f35900e.setImageResource(b.live_feed_page_follow_jump_more_imm);
             } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
-                viewHolder.f35744e.setImageResource(b.live_feed_page_follow_jump_more_day);
+                viewHolder.f35900e.setImageResource(b.live_feed_page_follow_jump_more_day);
             } else {
-                viewHolder.f35744e.setImageResource(b.live_feed_page_follow_jump_more_night);
+                viewHolder.f35900e.setImageResource(b.live_feed_page_follow_jump_more_night);
             }
-            viewHolder.f35744e.setVisibility(0);
-            viewHolder.f35741b.setVisibility(8);
-            viewHolder.f35743d.setVisibility(8);
-            viewHolder.f35742c.setVisibility(8);
+            viewHolder.f35900e.setVisibility(0);
+            viewHolder.f35897b.setVisibility(8);
+            viewHolder.f35899d.setVisibility(8);
+            viewHolder.f35898c.setVisibility(8);
         } else {
-            viewHolder.f35744e.setVisibility(8);
-            viewHolder.f35741b.setVisibility(0);
-            viewHolder.f35743d.setVisibility(0);
-            viewHolder.f35742c.setVisibility(0);
-            LiveHostInfo liveHostInfo2 = dVar.f26973e;
+            viewHolder.f35900e.setVisibility(8);
+            viewHolder.f35897b.setVisibility(0);
+            viewHolder.f35899d.setVisibility(0);
+            viewHolder.f35898c.setVisibility(0);
+            LiveHostInfo liveHostInfo2 = dVar.f27414e;
             if (liveHostInfo2 != null) {
-                viewHolder.f35742c.setImageURI(liveHostInfo2.avatar);
+                viewHolder.f35898c.setImageURI(liveHostInfo2.avatar);
             }
-            viewHolder.f35743d.setTextColor(f.e().a(this.f35737d, this.f35738e, "color_white3"));
+            viewHolder.f35899d.setTextColor(f.e().a(this.f35893d, this.f35894e, "color_white3"));
         }
-        LiveHostInfo liveHostInfo3 = dVar.f26973e;
+        LiveHostInfo liveHostInfo3 = dVar.f27414e;
         if (liveHostInfo3 != null) {
             if (j.a(liveHostInfo3.name)) {
                 viewHolder.a.setText(e.live_feed_page_follow_jump_more_txt);
             } else {
-                viewHolder.a.setText(dVar.f26973e.name);
+                viewHolder.a.setText(dVar.f27414e.name);
             }
-            viewHolder.a.setTextColor(f.e().a(this.f35737d, this.f35738e, "color_1F1F1F"));
+            viewHolder.a.setTextColor(f.e().a(this.f35893d, this.f35894e, "color_1F1F1F"));
         }
         viewHolder.itemView.setOnClickListener(new a(this, i2, viewHolder));
-        viewHolder.f35742c.getHierarchy().setPlaceholderImage(f.e().j(this.f35738e), ScalingUtils.ScaleType.FIT_XY);
-        if (this.f35738e) {
-            viewHolder.f35742c.getHierarchy().setUseGlobalColorFilter(false);
+        viewHolder.f35898c.getHierarchy().setPlaceholderImage(f.e().j(this.f35894e), ScalingUtils.ScaleType.FIT_XY);
+        if (this.f35894e) {
+            viewHolder.f35898c.getHierarchy().setUseGlobalColorFilter(false);
         }
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(f.e().a(this.f35737d, this.f35738e, "color_FF3333"));
-        gradientDrawable.setCornerRadii(this.f35740g);
-        gradientDrawable.setStroke(c.a.x.b.f.a.a(this.f35737d, 1.0f), f.e().a(this.f35737d, this.f35738e, "color_white1"));
-        viewHolder.f35743d.setBackgroundDrawable(gradientDrawable);
-        this.f35739f = f.e().o();
-        if (j.a(viewHolder.f35745f) || viewHolder.f35745f.equals(this.f35739f)) {
+        gradientDrawable.setColor(f.e().a(this.f35893d, this.f35894e, "color_FF3333"));
+        gradientDrawable.setCornerRadii(this.f35896g);
+        gradientDrawable.setStroke(c.a.x.b.f.a.a(this.f35893d, 1.0f), f.e().a(this.f35893d, this.f35894e, "color_white1"));
+        viewHolder.f35899d.setBackgroundDrawable(gradientDrawable);
+        this.f35895f = f.e().o();
+        if (j.a(viewHolder.f35901f) || viewHolder.f35901f.equals(this.f35895f)) {
             return;
         }
-        viewHolder.f35745f = this.f35739f;
-        if (viewHolder.f35741b.isAnimating()) {
-            viewHolder.f35741b.cancelAnimation();
+        viewHolder.f35901f = this.f35895f;
+        if (viewHolder.f35897b.isAnimating()) {
+            viewHolder.f35897b.cancelAnimation();
         }
-        f(viewHolder.f35741b);
+        f(viewHolder.f35897b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -310,16 +310,16 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) {
-            View inflate = this.f35735b.inflate(c.a.x.c.a.d.live_feed_page_follow_list_layout, viewGroup, false);
+            View inflate = this.f35891b.inflate(c.a.x.c.a.d.live_feed_page_follow_list_layout, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
             viewHolder.a = (TextView) inflate.findViewById(c.tv_item_name);
-            viewHolder.f35743d = (TextView) inflate.findViewById(c.avatar_tip);
-            viewHolder.f35744e = (ImageView) inflate.findViewById(c.follow_jump_more);
-            viewHolder.f35741b = (LottieAnimationView) inflate.findViewById(c.avatar_lottie);
-            viewHolder.f35742c = (SimpleDraweeView) inflate.findViewById(c.avatar_iv);
-            viewHolder.f35745f = this.f35739f;
-            f(viewHolder.f35741b);
-            viewHolder.f35741b.loop(true);
+            viewHolder.f35899d = (TextView) inflate.findViewById(c.avatar_tip);
+            viewHolder.f35900e = (ImageView) inflate.findViewById(c.follow_jump_more);
+            viewHolder.f35897b = (LottieAnimationView) inflate.findViewById(c.avatar_lottie);
+            viewHolder.f35898c = (SimpleDraweeView) inflate.findViewById(c.avatar_iv);
+            viewHolder.f35901f = this.f35895f;
+            f(viewHolder.f35897b);
+            viewHolder.f35897b.loop(true);
             return viewHolder;
         }
         return (ViewHolder) invokeLI.objValue;

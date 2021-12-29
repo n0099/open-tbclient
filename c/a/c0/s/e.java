@@ -31,35 +31,35 @@ public abstract class e implements c.a.c0.s.i0.e {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.s.j0.i f1957b;
+    public c.a.c0.s.j0.i f2384b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LayerContainer f1958c;
+    public LayerContainer f2385c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.c0.s.k0.c f1959d;
+    public c.a.c0.s.k0.c f2386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f1960e;
+    public ViewGroup f2387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.c0.s.o0.f f1961f;
+    public c.a.c0.s.o0.f f2388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AudioManager f1962g;
+    public AudioManager f2389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f1963h;
+    public b f2390h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f1964i;
+    public boolean f2391i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public String f1965j;
+    public String f2392j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f1966k;
+    public boolean f2393k;
     public ViewGroup.LayoutParams l;
     public c.a.c0.s.z.n m;
     public final c.a.c0.s.c0.m n;
@@ -82,10 +82,10 @@ public abstract class e implements c.a.c0.s.i0.e {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1967e;
+        public final /* synthetic */ int f2394e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f1968f;
+        public final /* synthetic */ e f2395f;
 
         public a(e eVar, int i2) {
             Interceptable interceptable = $ic;
@@ -102,18 +102,18 @@ public abstract class e implements c.a.c0.s.i0.e {
                     return;
                 }
             }
-            this.f1968f = eVar;
-            this.f1967e = i2;
+            this.f2395f = eVar;
+            this.f2394e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.f1967e;
-                if ((i2 == -2 || i2 == -1) && this.f1968f.Y()) {
-                    this.f1968f.f0(2);
-                    this.f1968f.a();
+                int i2 = this.f2394e;
+                if ((i2 == -2 || i2 == -1) && this.f2395f.Y()) {
+                    this.f2395f.f0(2);
+                    this.f2395f.a();
                 }
             }
         }
@@ -249,7 +249,7 @@ public abstract class e implements c.a.c0.s.i0.e {
     public c.a.c0.s.j0.i A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1957b : (c.a.c0.s.j0.i) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2384b : (c.a.c0.s.j0.i) invokeV.objValue;
     }
 
     public void A0(boolean z2) {
@@ -272,12 +272,12 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             c.a.c0.s.v0.h.g(M0("setVideoScalingMode(" + i2 + SmallTailInfo.EMOTION_SUFFIX));
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return;
             }
             this.x = i2;
-            iVar.v0(i2);
+            iVar.o0(i2);
         }
     }
 
@@ -285,11 +285,11 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return 0;
             }
-            return iVar.V();
+            return iVar.O();
         }
         return invokeV.intValue;
     }
@@ -305,11 +305,11 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return 0;
             }
-            return iVar.W();
+            return iVar.P();
         }
         return invokeV.intValue;
     }
@@ -328,8 +328,8 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z2) == null) {
             c.a.c0.s.v0.h.g(M0("setVideoUrl = " + str));
-            this.a.f2058b = str;
-            z().o(this.a.f2058b, z2, B());
+            this.a.f2485b = str;
+            z().o(this.a.f2485b, z2, B());
         }
     }
 
@@ -377,8 +377,8 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
-            return iVar == null ? PlayerStatus.IDLE : iVar.X();
+            c.a.c0.s.j0.i iVar = this.f2384b;
+            return iVar == null ? PlayerStatus.IDLE : iVar.Q();
         }
         return (PlayerStatus) invokeV.objValue;
     }
@@ -393,9 +393,9 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                return iVar.Y();
+                return iVar.R();
             }
             return 0;
         }
@@ -405,10 +405,10 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            H().b(this.f1959d);
-            z().b(this.f1959d);
-            q().b(this.f1959d);
-            t().b(this.f1959d);
+            H().b(this.f2386d);
+            z().b(this.f2386d);
+            q().b(this.f2386d);
+            t().b(this.f2386d);
         }
     }
 
@@ -430,8 +430,8 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
-            return iVar == null ? "" : iVar.b0();
+            c.a.c0.s.j0.i iVar = this.f2384b;
+            return iVar == null ? "" : iVar.U();
         }
         return (String) invokeV.objValue;
     }
@@ -440,7 +440,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             c.a.c0.s.v0.h.g(M0("stop()"));
-            if (this.f1957b == null) {
+            if (this.f2384b == null) {
                 return;
             }
             a();
@@ -455,9 +455,9 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                return iVar.c0();
+                return iVar.V();
             }
             return 0;
         }
@@ -494,7 +494,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             c.a.c0.s.k0.c createMessenger = d.d().createMessenger();
-            this.f1959d = createMessenger;
+            this.f2386d = createMessenger;
             createMessenger.b(new c(this, null));
             c.a.c0.s.q0.b.c().a(this);
         }
@@ -521,13 +521,13 @@ public abstract class e implements c.a.c0.s.i0.e {
     public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f1966k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f2393k : invokeV.booleanValue;
     }
 
     public boolean U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f1964i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.f2391i : invokeV.booleanValue;
     }
 
     public boolean V() {
@@ -564,14 +564,14 @@ public abstract class e implements c.a.c0.s.i0.e {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            AudioManager audioManager = this.f1962g;
-            if (audioManager != null && (bVar = this.f1963h) != null) {
+            AudioManager audioManager = this.f2389g;
+            if (audioManager != null && (bVar = this.f2390h) != null) {
                 audioManager.abandonAudioFocus(bVar);
                 c.a.c0.s.v0.h.g(M0("abandonAudioFocus()"));
-                this.f1962g = null;
-                this.f1963h = null;
+                this.f2389g = null;
+                this.f2390h = null;
             }
-            this.f1964i = false;
+            this.f2391i = false;
         }
     }
 
@@ -584,7 +584,7 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void b(@NonNull c.a.c0.s.j0.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) {
-            this.f1958c.addLayer(bVar);
+            this.f2385c.addLayer(bVar);
         }
     }
 
@@ -597,7 +597,7 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void c(@NonNull c.a.c0.s.j0.b bVar, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048618, this, bVar, layoutParams) == null) {
-            this.f1958c.addLayer(bVar, layoutParams);
+            this.f2385c.addLayer(bVar, layoutParams);
         }
     }
 
@@ -605,18 +605,18 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048619, this, z2) == null) {
             c.a.c0.s.v0.h.g(M0("mute(" + z2 + SmallTailInfo.EMOTION_SUFFIX));
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return;
             }
-            iVar.d0(z2);
+            iVar.W(z2);
         }
     }
 
     public void d(@NonNull c.a.c0.s.o0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, aVar) == null) {
-            this.f1961f.a(aVar);
+            this.f2388f.a(aVar);
         }
     }
 
@@ -633,10 +633,10 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048622, this, iVar) == null) {
             k();
-            c.a.c0.s.v0.h.g(M0("attachKernelLayer(" + System.identityHashCode(iVar) + "), kernel = " + System.identityHashCode(iVar.Z())));
-            this.f1957b = iVar;
-            iVar.o0(this);
-            this.f1958c.attachKernelLayer(iVar);
+            c.a.c0.s.v0.h.g(M0("attachKernelLayer(" + System.identityHashCode(iVar) + "), kernel = " + System.identityHashCode(iVar.S())));
+            this.f2384b = iVar;
+            iVar.h0(this);
+            this.f2385c.attachKernelLayer(iVar);
         }
     }
 
@@ -658,7 +658,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
             c.a.c0.s.v0.h.g(M0("pause(" + i2 + SmallTailInfo.EMOTION_SUFFIX));
-            if (this.f1957b == null) {
+            if (this.f2384b == null) {
                 return;
             }
             a();
@@ -673,8 +673,8 @@ public abstract class e implements c.a.c0.s.i0.e {
         if (interceptable == null || interceptable.invokeLZ(1048626, this, viewGroup, z2) == null) {
             j(z2);
             c.a.c0.s.v0.h.g(M0("attachToContainer(" + System.identityHashCode(viewGroup) + StringUtil.ARRAY_ELEMENT_SEPARATOR + z2 + SmallTailInfo.EMOTION_SUFFIX));
-            this.f1960e = viewGroup;
-            viewGroup.addView(this.f1958c, this.l);
+            this.f2387e = viewGroup;
+            viewGroup.addView(this.f2385c, this.l);
             z().j();
         }
     }
@@ -689,11 +689,11 @@ public abstract class e implements c.a.c0.s.i0.e {
             y().r();
             a();
             j0();
-            this.f1961f.c();
-            this.f1958c.release();
+            this.f2388f.c();
+            this.f2385c.release();
             j(false);
             i0();
-            this.f1960e = null;
+            this.f2387e = null;
         }
     }
 
@@ -702,11 +702,11 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            ViewGroup viewGroup = this.f1960e;
+            ViewGroup viewGroup = this.f2387e;
             if (viewGroup == null || !(viewGroup.getContext() instanceof Activity)) {
                 return null;
             }
-            return (Activity) this.f1960e.getContext();
+            return (Activity) this.f2387e.getContext();
         }
         return (Activity) invokeV.objValue;
     }
@@ -717,11 +717,11 @@ public abstract class e implements c.a.c0.s.i0.e {
             this.l = new ViewGroup.LayoutParams(-1, -1);
             this.a = new c.a.c0.s.m0.i();
             O();
-            this.f1961f = new c.a.c0.s.o0.f(this);
+            this.f2388f = new c.a.c0.s.o0.f(this);
             LayerContainer i2 = i(context);
-            this.f1958c = i2;
+            this.f2385c = i2;
             i2.bindPlayer(this);
-            this.f1958c.setClickable(true);
+            this.f2385c.setClickable(true);
             N();
         }
     }
@@ -729,12 +729,12 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void h0() {
         c.a.c0.s.j0.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048630, this) == null) || (iVar = this.f1957b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048630, this) == null) || (iVar = this.f2384b) == null) {
             return;
         }
-        iVar.e0();
-        this.f1957b.y0();
-        this.f1957b.g0();
+        iVar.X();
+        this.f2384b.r0();
+        this.f2384b.Z();
     }
 
     public LayerContainer i(Context context) {
@@ -747,21 +747,21 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048632, this) == null) {
             c.a.c0.s.q0.b.c().g(this);
-            this.f1959d.release();
+            this.f2386d.release();
         }
     }
 
     public void j(boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048633, this, z2) == null) && (this.f1958c.getParent() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) this.f1958c.getParent();
-            viewGroup.removeView(this.f1958c);
+        if ((interceptable == null || interceptable.invokeZ(1048633, this, z2) == null) && (this.f2385c.getParent() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) this.f2385c.getParent();
+            viewGroup.removeView(this.f2385c);
             c.a.c0.s.v0.h.g(M0("detachFromContainer(" + z2 + "), parent = " + System.identityHashCode(viewGroup)));
             if (z2) {
-                this.f1958c.onContainerDetach();
+                this.f2385c.onContainerDetach();
                 z().k();
             }
-            this.f1960e = null;
+            this.f2387e = null;
         }
     }
 
@@ -780,12 +780,12 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            if (this.f1957b != null) {
-                c.a.c0.s.v0.h.g(M0("detachKernelLayer = " + System.identityHashCode(this.f1957b)));
-                c.a.c0.s.j0.i iVar = this.f1957b;
-                this.f1958c.detachLayer((c.a.c0.s.j0.b) iVar, true);
-                iVar.o0(null);
-                this.f1957b = null;
+            if (this.f2384b != null) {
+                c.a.c0.s.v0.h.g(M0("detachKernelLayer = " + System.identityHashCode(this.f2384b)));
+                c.a.c0.s.j0.i iVar = this.f2384b;
+                this.f2385c.detachLayer((c.a.c0.s.j0.b) iVar, true);
+                iVar.h0(null);
+                this.f2384b = null;
                 return iVar;
             }
             return null;
@@ -795,17 +795,17 @@ public abstract class e implements c.a.c0.s.i0.e {
 
     public void k0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || this.f1964i) {
+        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || this.f2391i) {
             return;
         }
-        if (this.f1962g == null) {
-            this.f1962g = (AudioManager) m().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
+        if (this.f2389g == null) {
+            this.f2389g = (AudioManager) m().getSystemService(MediaStreamTrack.AUDIO_TRACK_KIND);
         }
-        if (this.f1962g != null) {
-            if (this.f1963h == null) {
-                this.f1963h = new b(this, null);
+        if (this.f2389g != null) {
+            if (this.f2390h == null) {
+                this.f2390h = new b(this, null);
             }
-            this.f1964i = this.f1962g.requestAudioFocus(this.f1963h, 3, 2) == 1;
+            this.f2391i = this.f2389g.requestAudioFocus(this.f2390h, 3, 2) == 1;
             c.a.c0.s.v0.h.g(M0("requestAudioFocus()"));
         }
     }
@@ -814,7 +814,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
             c.a.c0.s.v0.h.g(M0("doPlay(), status = " + I()));
-            if (this.f1957b == null || W()) {
+            if (this.f2384b == null || W()) {
                 return;
             }
             if (!X()) {
@@ -832,7 +832,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
             c.a.c0.s.v0.h.g(M0("resume()"));
-            if (this.f1957b != null && W()) {
+            if (this.f2384b != null && W()) {
                 if (!X()) {
                     k0();
                 }
@@ -854,12 +854,12 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
             c.a.c0.s.v0.h.g(M0("resumeFromError()"));
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                iVar.z0();
+                iVar.s0();
             }
             B0(F());
-            D0(this.a.f2058b);
+            D0(this.a.f2485b);
             n0(false);
         }
     }
@@ -868,26 +868,26 @@ public abstract class e implements c.a.c0.s.i0.e {
     public ViewGroup n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.f1960e : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? this.f2387e : (ViewGroup) invokeV.objValue;
     }
 
     public void n0(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048642, this, z2) == null) {
             c.a.c0.s.v0.h.g(M0("resumePlayer(" + z2 + SmallTailInfo.EMOTION_SUFFIX));
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return;
             }
             if (z2) {
                 c.a.c0.s.m0.i iVar2 = this.a;
-                iVar2.f2060d = 0;
-                iVar2.f2061e = 0;
-                iVar2.f2062f = 0;
+                iVar2.f2487d = 0;
+                iVar2.f2488e = 0;
+                iVar2.f2489f = 0;
             } else {
-                this.a.f2060d = iVar.V();
-                this.a.f2061e = this.f1957b.Q();
-                this.a.f2062f = this.f1957b.W();
+                this.a.f2487d = iVar.O();
+                this.a.f2488e = this.f2384b.L();
+                this.a.f2489f = this.f2384b.P();
             }
             if (W()) {
                 l0();
@@ -982,11 +982,11 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
                 return 0;
             }
-            return iVar.O();
+            return iVar.K();
         }
         return invokeV.intValue;
     }
@@ -1008,7 +1008,7 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void q0(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048655, this, pVar) == null) {
-            this.f1959d.d(pVar);
+            this.f2386d.d(pVar);
         }
     }
 
@@ -1016,11 +1016,11 @@ public abstract class e implements c.a.c0.s.i0.e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
-                return this.a.f2061e;
+                return this.a.f2488e;
             }
-            return iVar.Q();
+            return iVar.L();
         }
         return invokeV.intValue;
     }
@@ -1028,21 +1028,21 @@ public abstract class e implements c.a.c0.s.i0.e {
     public void r0(@Nullable String str) {
         c.a.c0.s.j0.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048657, this, str) == null) || (iVar = this.f1957b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048657, this, str) == null) || (iVar = this.f2384b) == null) {
             return;
         }
-        iVar.m0(str);
+        iVar.f0(str);
     }
 
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar == null) {
-                return this.a.f2061e * 1000;
+                return this.a.f2488e * 1000;
             }
-            return iVar.S();
+            return iVar.M();
         }
         return invokeV.intValue;
     }
@@ -1064,9 +1064,9 @@ public abstract class e implements c.a.c0.s.i0.e {
 
     public void t0(boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048661, this, z2) == null) && z2 && this.f1957b != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048661, this, z2) == null) && z2 && this.f2384b != null) {
             c.a.c0.s.v0.h.g(M0("setHasReplaceUrl(" + z2 + SmallTailInfo.EMOTION_SUFFIX));
-            this.f1957b.A0(null);
+            this.f2384b.t0(null);
         }
     }
 
@@ -1074,13 +1074,13 @@ public abstract class e implements c.a.c0.s.i0.e {
     public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.f1965j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) ? this.f2392j : (String) invokeV.objValue;
     }
 
     public void u0(@Nullable c.a.c0.s.f0.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048663, this, kVar) == null) {
-            this.f1959d.a(kVar);
+            this.f2386d.a(kVar);
         }
     }
 
@@ -1088,16 +1088,16 @@ public abstract class e implements c.a.c0.s.i0.e {
     public LayerContainer v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f1958c : (LayerContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) ? this.f2385c : (LayerContainer) invokeV.objValue;
     }
 
     public void v0(boolean z2) {
         c.a.c0.s.j0.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048665, this, z2) == null) || (iVar = this.f1957b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048665, this, z2) == null) || (iVar = this.f2384b) == null) {
             return;
         }
-        iVar.p0(z2);
+        iVar.i0(z2);
     }
 
     public int w() {
@@ -1111,9 +1111,9 @@ public abstract class e implements c.a.c0.s.i0.e {
         if (interceptable == null || interceptable.invokeZ(1048667, this, z2) == null) {
             c.a.c0.s.v0.h.g(M0("setMuteMode(" + z2 + SmallTailInfo.EMOTION_SUFFIX));
             this.s = z2;
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                iVar.d0(z2);
+                iVar.W(z2);
             }
             if (z2) {
                 a();
@@ -1126,16 +1126,16 @@ public abstract class e implements c.a.c0.s.i0.e {
     public c.a.c0.s.k0.c x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.f1959d : (c.a.c0.s.k0.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) ? this.f2386d : (c.a.c0.s.k0.c) invokeV.objValue;
     }
 
     public void x0(@Nullable String str) {
         c.a.c0.s.j0.i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048669, this, str) == null) || (iVar = this.f1957b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048669, this, str) == null) || (iVar = this.f2384b) == null) {
             return;
         }
-        iVar.q0(str);
+        iVar.j0(str);
     }
 
     @NonNull
@@ -1162,9 +1162,9 @@ public abstract class e implements c.a.c0.s.i0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048673, this, f2) == null) {
             this.t = f2;
-            c.a.c0.s.j0.i iVar = this.f1957b;
+            c.a.c0.s.j0.i iVar = this.f2384b;
             if (iVar != null) {
-                iVar.t0(f2);
+                iVar.m0(f2);
                 c.a.c0.s.v0.h.g(M0("setSpeed(" + f2 + SmallTailInfo.EMOTION_SUFFIX));
             }
         }
@@ -1206,7 +1206,7 @@ public abstract class e implements c.a.c0.s.i0.e {
                 return;
             }
         }
-        this.f1966k = false;
+        this.f2393k = false;
         this.n = new c.a.c0.s.c0.m();
         this.o = new c.a.c0.s.c0.h();
         this.p = new c.a.c0.s.c0.c();
@@ -1218,7 +1218,7 @@ public abstract class e implements c.a.c0.s.i0.e {
         this.x = 2;
         this.y = hVar;
         this.r = str;
-        this.f1965j = str2;
+        this.f2392j = str2;
         c.a.c0.s.v0.h.g(M0("BDVideoPlayer(" + context + ",  kernelLayer@" + System.identityHashCode(iVar) + ", key@" + this.r + SmallTailInfo.EMOTION_SUFFIX));
         context = context == null ? m() : context;
         h(context);

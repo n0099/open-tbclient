@@ -26,7 +26,7 @@ public final class e {
                 return false;
             }
             try {
-                if (com.bytedance.pangle.util.h.a()) {
+                if (com.bytedance.pangle.util.g.a()) {
                     a2 = d.a(str);
                 } else {
                     a2 = a.a(str);

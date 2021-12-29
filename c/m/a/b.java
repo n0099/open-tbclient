@@ -19,19 +19,19 @@ public final class b extends Drawable {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31032b;
+    public int f31110b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView.ScaleType f31033c;
+    public ImageView.ScaleType f31111c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.m.a.f.b f31034d;
+    public final c.m.a.f.b f31112d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SVGAVideoEntity f31035e;
+    public final SVGAVideoEntity f31113e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f31036f;
+    public final c f31114f;
 
     public b(SVGAVideoEntity sVGAVideoEntity, c cVar) {
         Interceptable interceptable = $ic;
@@ -48,23 +48,23 @@ public final class b extends Drawable {
                 return;
             }
         }
-        this.f31035e = sVGAVideoEntity;
-        this.f31036f = cVar;
+        this.f31113e = sVGAVideoEntity;
+        this.f31114f = cVar;
         this.a = true;
-        this.f31033c = ImageView.ScaleType.MATRIX;
-        this.f31034d = new c.m.a.f.b(sVGAVideoEntity, cVar);
+        this.f31111c = ImageView.ScaleType.MATRIX;
+        this.f31112d = new c.m.a.f.b(sVGAVideoEntity, cVar);
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31032b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31110b : invokeV.intValue;
     }
 
     public final SVGAVideoEntity b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31035e : (SVGAVideoEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31113e : (SVGAVideoEntity) invokeV.objValue;
     }
 
     public final void c(boolean z) {
@@ -78,10 +78,10 @@ public final class b extends Drawable {
 
     public final void d(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f31032b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f31110b == i2) {
             return;
         }
-        this.f31032b = i2;
+        this.f31110b = i2;
         invalidateSelf();
     }
 
@@ -91,13 +91,13 @@ public final class b extends Drawable {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.a || canvas == null) {
             return;
         }
-        this.f31034d.a(canvas, this.f31032b, this.f31033c);
+        this.f31112d.a(canvas, this.f31110b, this.f31111c);
     }
 
     public final void e(ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.f31033c = scaleType;
+            this.f31111c = scaleType;
         }
     }
 

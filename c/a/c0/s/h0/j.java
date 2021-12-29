@@ -19,10 +19,10 @@ public class j extends b implements c.a.c0.s.f0.e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public i f1974b;
+    public i f2401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f1975c;
+    public Object f2402c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(Map<String, String> map, Object obj) {
@@ -42,14 +42,14 @@ public class j extends b implements c.a.c0.s.f0.e {
                 return;
             }
         }
-        this.f1975c = obj;
+        this.f2402c = obj;
     }
 
     @Override // c.a.c0.s.f0.a
     public void a(boolean z) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (iVar = this.f1974b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (iVar = this.f2401b) == null) {
             return;
         }
         iVar.k(z);
@@ -61,17 +61,17 @@ public class j extends b implements c.a.c0.s.f0.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str) && this.a != null && PlayerEvent.ACTION_ON_COMPLETE.equals(str)) {
-                this.a.V(0);
-                i iVar = new i(this.a, this.f1975c);
-                this.f1974b = iVar;
+                this.a.O(0);
+                i iVar = new i(this.a, this.f2402c);
+                this.f2401b = iVar;
                 iVar.e();
                 if (k()) {
-                    if (this.f1974b.i()) {
-                        this.a.V(0);
+                    if (this.f2401b.i()) {
+                        this.a.O(0);
                         this.a.u().y().y(true);
                         return true;
                     }
-                    this.a.V(8);
+                    this.a.O(8);
                 }
             }
             return false;
@@ -83,7 +83,7 @@ public class j extends b implements c.a.c0.s.f0.e {
     public void e(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.f1975c = obj;
+            this.f2402c = obj;
         }
     }
 
@@ -147,18 +147,18 @@ public class j extends b implements c.a.c0.s.f0.e {
                 c2 = 65535;
             }
             if (c2 != 0) {
-                if (c2 == 1 && this.a.Q() && this.f1974b != null) {
+                if (c2 == 1 && this.a.L() && this.f2401b != null) {
                     if (!pVar.d(4)) {
-                        this.f1974b.m();
+                        this.f2401b.m();
                         return;
                     } else {
-                        this.f1974b.l();
+                        this.f2401b.l();
                         return;
                     }
                 }
                 return;
             }
-            this.a.V(8);
+            this.a.O(8);
         }
     }
 
@@ -183,7 +183,7 @@ public class j extends b implements c.a.c0.s.f0.e {
     public void l(boolean z) {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (iVar = this.f1974b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) || (iVar = this.f2401b) == null) {
             return;
         }
         iVar.j(z);
@@ -191,10 +191,10 @@ public class j extends b implements c.a.c0.s.f0.e {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f1974b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.f2401b == null) {
             return;
         }
-        this.f1974b = null;
+        this.f2401b = null;
     }
 
     @Override // c.a.c0.s.f0.a
@@ -202,10 +202,10 @@ public class j extends b implements c.a.c0.s.f0.e {
         c.a.c0.s.j0.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.f1974b != null && (fVar = this.a) != null && fVar.Q()) {
-                this.f1974b.f();
+            if (this.f2401b != null && (fVar = this.a) != null && fVar.L()) {
+                this.f2401b.f();
             }
-            i iVar = this.f1974b;
+            i iVar = this.f2401b;
             if (iVar != null) {
                 iVar.c();
                 m();
@@ -218,7 +218,7 @@ public class j extends b implements c.a.c0.s.f0.e {
     public void onLayerRelease() {
         i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iVar = this.f1974b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iVar = this.f2401b) == null) {
             return;
         }
         iVar.f();

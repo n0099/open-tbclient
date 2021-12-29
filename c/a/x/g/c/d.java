@@ -15,10 +15,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f27044b;
+    public static d f27485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakHashMap<Object, List<c.a.x.g.c.b>> f27045c;
+    public static WeakHashMap<Object, List<c.a.x.g.c.b>> f27486c;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
@@ -59,20 +59,20 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f27044b == null) {
-                f27044b = b.a;
+            if (f27485b == null) {
+                f27485b = b.a;
             }
-            return f27044b;
+            return f27485b;
         }
         return (d) invokeV.objValue;
     }
 
     public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || f27045c.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || f27486c.isEmpty()) {
             return;
         }
-        this.a.c(f27045c, obj);
+        this.a.c(f27486c, obj);
     }
 
     public void c(Object obj, Class<?> cls, int i2, c.a.x.g.c.a aVar) {
@@ -80,7 +80,7 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i2, aVar) == null) || obj == null || cls == null || aVar == null || !f.a(i2)) {
             return;
         }
-        this.a.d(f27045c, obj, cls, i2, aVar);
+        this.a.d(f27486c, obj, cls, i2, aVar);
     }
 
     public synchronized void d(Object obj, Class<?> cls, c.a.x.g.c.a aVar) {
@@ -94,10 +94,10 @@ public class d {
 
     public void e(Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null || f27045c.isEmpty() || !f27045c.containsKey(obj)) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, obj) == null) || obj == null || f27486c.isEmpty() || !f27486c.containsKey(obj)) {
             return;
         }
-        this.a.e(f27045c, obj);
+        this.a.e(f27486c, obj);
     }
 
     public d() {
@@ -113,7 +113,7 @@ public class d {
                 return;
             }
         }
-        f27045c = new WeakHashMap<>();
+        f27486c = new WeakHashMap<>();
         this.a = new e();
     }
 }

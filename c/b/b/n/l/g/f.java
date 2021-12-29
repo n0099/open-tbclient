@@ -12,7 +12,7 @@ public class f {
     public c.b.b.q.b<c, Matrix4> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Matrix4[] f28015b;
+    public Matrix4[] f28089b;
 
     public f() {
         Interceptable interceptable = $ic;

@@ -12,10 +12,10 @@ public final class aa {
     public static boolean a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f37440b;
+    public static final String f37596b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f37441c;
+    public static final String f37597c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public final class aa {
                 return;
             }
         }
-        f37440b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
-        f37441c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
+        f37596b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
+        f37597c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
     }
 }

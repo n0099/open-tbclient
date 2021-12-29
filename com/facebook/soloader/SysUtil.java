@@ -19,7 +19,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -27,7 +27,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class AiAppsShareDelegateActivity extends ProcessDelegateBaseActivity {
                 } else if (i4 == 2) {
                     this.mDelegation.mResult.putBoolean("share_result", false);
                     this.mDelegation.mResult.putString("callBack", this.mDelegation.mParams.getString("errorCallback", ""));
-                    this.mDelegation.mResult.putString("info", f.f31788j);
+                    this.mDelegation.mResult.putString("info", f.f31931j);
                 }
                 exit();
                 return;

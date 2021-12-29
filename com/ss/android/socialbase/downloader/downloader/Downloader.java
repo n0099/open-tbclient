@@ -1,14 +1,6 @@
 package com.ss.android.socialbase.downloader.downloader;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
 import com.ss.android.socialbase.downloader.depend.IDownloadListener;
 import com.ss.android.socialbase.downloader.depend.ac;
@@ -18,81 +10,45 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class Downloader extends b {
-    public static /* synthetic */ Interceptable $ic;
     public static volatile Downloader instance;
-    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1580336970, "Lcom/ss/android/socialbase/downloader/downloader/Downloader;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1580336970, "Lcom/ss/android/socialbase/downloader/downloader/Downloader;");
-                return;
-            }
-        }
         c.a(new v());
         instance = null;
     }
 
     public Downloader() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
     }
 
     public static Downloader getInstance(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (instance == null) {
-                synchronized (Downloader.class) {
-                    if (instance == null) {
-                        c.a(context);
-                        instance = new Downloader();
-                    }
+        if (instance == null) {
+            synchronized (Downloader.class) {
+                if (instance == null) {
+                    c.a(context);
+                    instance = new Downloader();
                 }
             }
-            return instance;
         }
-        return (Downloader) invokeL.objValue;
+        return instance;
     }
 
     public static synchronized void init(DownloaderBuilder downloaderBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloaderBuilder) == null) {
-            synchronized (Downloader.class) {
-                initOrCover(downloaderBuilder, false);
-            }
+        synchronized (Downloader.class) {
+            initOrCover(downloaderBuilder, false);
         }
     }
 
     public static synchronized void initOrCover(DownloaderBuilder downloaderBuilder, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, downloaderBuilder, z) == null) {
-            synchronized (Downloader.class) {
-                if (downloaderBuilder == null) {
-                    return;
-                }
-                if (instance == null) {
-                    instance = downloaderBuilder.build();
-                } else if (!c.R()) {
-                    c.a(downloaderBuilder);
-                } else if (z) {
-                    c.b(downloaderBuilder);
-                }
+        synchronized (Downloader.class) {
+            if (downloaderBuilder == null) {
+                return;
+            }
+            if (instance == null) {
+                instance = downloaderBuilder.build();
+            } else if (!c.R()) {
+                c.a(downloaderBuilder);
+            } else if (z) {
+                c.b(downloaderBuilder);
             }
         }
     }
@@ -374,20 +330,6 @@ public class Downloader extends b {
     }
 
     public Downloader(DownloaderBuilder downloaderBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloaderBuilder};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         c.a(downloaderBuilder);
     }
 

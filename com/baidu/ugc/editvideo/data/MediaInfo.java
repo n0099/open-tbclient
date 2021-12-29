@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.data;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.t.t;
+import c.a.a1.t.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

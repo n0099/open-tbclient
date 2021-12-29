@@ -21,7 +21,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64595d;
+        public Disposable f64590d;
 
         public IgnoreObservable(Observer<? super T> observer) {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64595d.dispose();
+                this.f64590d.dispose();
             }
         }
 
@@ -53,7 +53,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64595d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64590d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -83,7 +83,7 @@ public final class ObservableIgnoreElements<T> extends AbstractObservableWithUps
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                this.f64595d = disposable;
+                this.f64590d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

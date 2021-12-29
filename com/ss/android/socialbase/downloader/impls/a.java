@@ -6,13 +6,6 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.constants.EnqueueType;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
@@ -31,70 +24,41 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 /* loaded from: classes3.dex */
 public abstract class a implements h.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final com.ss.android.socialbase.downloader.h.h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f62488b;
+    public final SparseArray<DownloadTask> f62488b = new SparseArray<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f62489c;
+    public final SparseArray<DownloadTask> f62489c = new SparseArray<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f62490d;
+    public final SparseArray<DownloadTask> f62490d = new SparseArray<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f62491e;
+    public final SparseArray<DownloadTask> f62491e = new SparseArray<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<DownloadTask> f62492f;
+    public final SparseArray<DownloadTask> f62492f = new SparseArray<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final SparseArray<SparseArray<DownloadTask>> f62493g;
+    public final SparseArray<SparseArray<DownloadTask>> f62493g = new SparseArray<>();
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.i.h<Integer, DownloadTask> f62494h;
+    public final com.ss.android.socialbase.downloader.i.h<Integer, DownloadTask> f62494h = new com.ss.android.socialbase.downloader.i.h<>();
 
     /* renamed from: i  reason: collision with root package name */
-    public final SparseArray<Long> f62495i;
+    public final SparseArray<Long> f62495i = new SparseArray<>();
 
     /* renamed from: j  reason: collision with root package name */
-    public final LinkedBlockingDeque<DownloadTask> f62496j;
+    public final LinkedBlockingDeque<DownloadTask> f62496j = new LinkedBlockingDeque<>();
+    public final com.ss.android.socialbase.downloader.h.h a = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
 
     /* renamed from: k  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.downloader.j f62497k;
-
-    public a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f62488b = new SparseArray<>();
-        this.f62489c = new SparseArray<>();
-        this.f62490d = new SparseArray<>();
-        this.f62491e = new SparseArray<>();
-        this.f62492f = new SparseArray<>();
-        this.f62493g = new SparseArray<>();
-        this.f62494h = new com.ss.android.socialbase.downloader.i.h<>();
-        this.f62495i = new SparseArray<>();
-        this.f62496j = new LinkedBlockingDeque<>();
-        this.a = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
-        this.f62497k = com.ss.android.socialbase.downloader.downloader.c.x();
-    }
+    public final com.ss.android.socialbase.downloader.downloader.j f62497k = com.ss.android.socialbase.downloader.downloader.c.x();
 
     private void c(DownloadTask downloadTask) {
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, downloadTask) == null) || downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
+        if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
             return;
         }
         try {
@@ -135,31 +99,25 @@ public abstract class a implements h.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadTask o(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65549, this, i2)) == null) {
-            DownloadTask downloadTask = this.f62488b.get(i2);
-            if (downloadTask == null) {
-                DownloadTask downloadTask2 = this.f62490d.get(i2);
-                if (downloadTask2 == null) {
-                    DownloadTask downloadTask3 = this.f62489c.get(i2);
-                    if (downloadTask3 == null) {
-                        DownloadTask downloadTask4 = this.f62491e.get(i2);
-                        return downloadTask4 == null ? this.f62492f.get(i2) : downloadTask4;
-                    }
-                    return downloadTask3;
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask == null) {
+            DownloadTask downloadTask2 = this.f62490d.get(i2);
+            if (downloadTask2 == null) {
+                DownloadTask downloadTask3 = this.f62489c.get(i2);
+                if (downloadTask3 == null) {
+                    DownloadTask downloadTask4 = this.f62491e.get(i2);
+                    return downloadTask4 == null ? this.f62492f.get(i2) : downloadTask4;
                 }
-                return downloadTask2;
+                return downloadTask3;
             }
-            return downloadTask;
+            return downloadTask2;
         }
-        return (DownloadTask) invokeI.objValue;
+        return downloadTask;
     }
 
     private void p(int i2) {
         DownloadTask first;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65550, this, i2) == null) || this.f62496j.isEmpty()) {
+        if (this.f62496j.isEmpty()) {
             return;
         }
         DownloadTask first2 = this.f62496j.getFirst();
@@ -187,295 +145,217 @@ public abstract class a implements h.a {
     public abstract com.ss.android.socialbase.downloader.h.c c(int i2);
 
     public synchronized DownloadInfo d(int i2) {
-        InterceptResult invokeI;
         DownloadInfo b2;
         DownloadTask downloadTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            synchronized (this) {
-                b2 = this.f62497k.b(i2);
-                if (b2 == null && (downloadTask = this.f62488b.get(i2)) != null) {
-                    b2 = downloadTask.getDownloadInfo();
-                }
-            }
-            return b2;
+        b2 = this.f62497k.b(i2);
+        if (b2 == null && (downloadTask = this.f62488b.get(i2)) != null) {
+            b2 = downloadTask.getDownloadInfo();
         }
-        return (DownloadInfo) invokeI.objValue;
+        return b2;
     }
 
     public synchronized boolean e(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            synchronized (this) {
-                com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "pause id=" + i2);
-                DownloadInfo b2 = this.f62497k.b(i2);
-                if (b2 == null || b2.getStatus() != 11) {
-                    synchronized (this.f62488b) {
-                        b(i2);
-                    }
-                    if (b2 == null) {
-                        DownloadTask downloadTask = this.f62488b.get(i2);
-                        if (downloadTask != null) {
-                            new com.ss.android.socialbase.downloader.downloader.f(downloadTask, this.a).d();
-                            return true;
-                        }
-                    } else {
-                        a(b2);
-                        if (b2.getStatus() == 1) {
-                            DownloadTask downloadTask2 = this.f62488b.get(i2);
-                            if (downloadTask2 != null) {
-                                new com.ss.android.socialbase.downloader.downloader.f(downloadTask2, this.a).d();
-                                return true;
-                            }
-                        } else if (DownloadStatus.isDownloading(b2.getStatus())) {
-                            b2.setStatus(-2);
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-                return false;
+        com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "pause id=" + i2);
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 == null || b2.getStatus() != 11) {
+            synchronized (this.f62488b) {
+                b(i2);
             }
+            if (b2 == null) {
+                DownloadTask downloadTask = this.f62488b.get(i2);
+                if (downloadTask != null) {
+                    new com.ss.android.socialbase.downloader.downloader.f(downloadTask, this.a).d();
+                    return true;
+                }
+            } else {
+                a(b2);
+                if (b2.getStatus() == 1) {
+                    DownloadTask downloadTask2 = this.f62488b.get(i2);
+                    if (downloadTask2 != null) {
+                        new com.ss.android.socialbase.downloader.downloader.f(downloadTask2, this.a).d();
+                        return true;
+                    }
+                } else if (DownloadStatus.isDownloading(b2.getStatus())) {
+                    b2.setStatus(-2);
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeI.booleanValue;
+        return false;
     }
 
     public synchronized boolean f(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null) {
-                    DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
-                    if (downloadInfo != null) {
-                        downloadInfo.setDownloadFromReserveWifi(false);
-                    }
-                    a(downloadTask);
-                } else {
-                    g(i2);
-                }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null) {
+            DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+            if (downloadInfo != null) {
+                downloadInfo.setDownloadFromReserveWifi(false);
             }
-            return true;
+            a(downloadTask);
+        } else {
+            g(i2);
         }
-        return invokeI.booleanValue;
+        return true;
     }
 
     public synchronized boolean g(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62490d.get(i2);
-                if (downloadTask == null) {
-                    downloadTask = this.f62491e.get(i2);
-                }
-                if (downloadTask != null) {
-                    DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
-                    if (downloadInfo != null) {
-                        downloadInfo.setDownloadFromReserveWifi(false);
-                    }
-                    a(downloadTask);
-                    return true;
-                }
-                return false;
-            }
+        DownloadTask downloadTask = this.f62490d.get(i2);
+        if (downloadTask == null) {
+            downloadTask = this.f62491e.get(i2);
         }
-        return invokeI.booleanValue;
+        if (downloadTask != null) {
+            DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+            if (downloadInfo != null) {
+                downloadInfo.setDownloadFromReserveWifi(false);
+            }
+            a(downloadTask);
+            return true;
+        }
+        return false;
     }
 
     public synchronized af h(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null) {
-                    return downloadTask.getNotificationClickCallback();
-                }
-                DownloadTask downloadTask2 = this.f62489c.get(i2);
-                if (downloadTask2 != null) {
-                    return downloadTask2.getNotificationClickCallback();
-                }
-                DownloadTask downloadTask3 = this.f62490d.get(i2);
-                if (downloadTask3 != null) {
-                    return downloadTask3.getNotificationClickCallback();
-                }
-                DownloadTask downloadTask4 = this.f62491e.get(i2);
-                if (downloadTask4 != null) {
-                    return downloadTask4.getNotificationClickCallback();
-                }
-                DownloadTask downloadTask5 = this.f62492f.get(i2);
-                if (downloadTask5 != null) {
-                    return downloadTask5.getNotificationClickCallback();
-                }
-                return null;
-            }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null) {
+            return downloadTask.getNotificationClickCallback();
         }
-        return (af) invokeI.objValue;
+        DownloadTask downloadTask2 = this.f62489c.get(i2);
+        if (downloadTask2 != null) {
+            return downloadTask2.getNotificationClickCallback();
+        }
+        DownloadTask downloadTask3 = this.f62490d.get(i2);
+        if (downloadTask3 != null) {
+            return downloadTask3.getNotificationClickCallback();
+        }
+        DownloadTask downloadTask4 = this.f62491e.get(i2);
+        if (downloadTask4 != null) {
+            return downloadTask4.getNotificationClickCallback();
+        }
+        DownloadTask downloadTask5 = this.f62492f.get(i2);
+        if (downloadTask5 != null) {
+            return downloadTask5.getNotificationClickCallback();
+        }
+        return null;
     }
 
     public synchronized z i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null) {
-                    return downloadTask.getNotificationEventListener();
-                }
-                DownloadTask downloadTask2 = this.f62489c.get(i2);
-                if (downloadTask2 != null) {
-                    return downloadTask2.getNotificationEventListener();
-                }
-                DownloadTask downloadTask3 = this.f62490d.get(i2);
-                if (downloadTask3 != null) {
-                    return downloadTask3.getNotificationEventListener();
-                }
-                DownloadTask downloadTask4 = this.f62491e.get(i2);
-                if (downloadTask4 != null) {
-                    return downloadTask4.getNotificationEventListener();
-                }
-                DownloadTask downloadTask5 = this.f62492f.get(i2);
-                if (downloadTask5 != null) {
-                    return downloadTask5.getNotificationEventListener();
-                }
-                return null;
-            }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null) {
+            return downloadTask.getNotificationEventListener();
         }
-        return (z) invokeI.objValue;
+        DownloadTask downloadTask2 = this.f62489c.get(i2);
+        if (downloadTask2 != null) {
+            return downloadTask2.getNotificationEventListener();
+        }
+        DownloadTask downloadTask3 = this.f62490d.get(i2);
+        if (downloadTask3 != null) {
+            return downloadTask3.getNotificationEventListener();
+        }
+        DownloadTask downloadTask4 = this.f62491e.get(i2);
+        if (downloadTask4 != null) {
+            return downloadTask4.getNotificationEventListener();
+        }
+        DownloadTask downloadTask5 = this.f62492f.get(i2);
+        if (downloadTask5 != null) {
+            return downloadTask5.getNotificationEventListener();
+        }
+        return null;
     }
 
     public synchronized IDownloadFileUriProvider j(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null) {
-                    return downloadTask.getFileUriProvider();
-                }
-                DownloadTask downloadTask2 = this.f62489c.get(i2);
-                if (downloadTask2 != null) {
-                    return downloadTask2.getFileUriProvider();
-                }
-                DownloadTask downloadTask3 = this.f62490d.get(i2);
-                if (downloadTask3 != null) {
-                    return downloadTask3.getFileUriProvider();
-                }
-                DownloadTask downloadTask4 = this.f62491e.get(i2);
-                if (downloadTask4 != null) {
-                    return downloadTask4.getFileUriProvider();
-                }
-                DownloadTask downloadTask5 = this.f62492f.get(i2);
-                if (downloadTask5 != null) {
-                    return downloadTask5.getFileUriProvider();
-                }
-                return null;
-            }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null) {
+            return downloadTask.getFileUriProvider();
         }
-        return (IDownloadFileUriProvider) invokeI.objValue;
+        DownloadTask downloadTask2 = this.f62489c.get(i2);
+        if (downloadTask2 != null) {
+            return downloadTask2.getFileUriProvider();
+        }
+        DownloadTask downloadTask3 = this.f62490d.get(i2);
+        if (downloadTask3 != null) {
+            return downloadTask3.getFileUriProvider();
+        }
+        DownloadTask downloadTask4 = this.f62491e.get(i2);
+        if (downloadTask4 != null) {
+            return downloadTask4.getFileUriProvider();
+        }
+        DownloadTask downloadTask5 = this.f62492f.get(i2);
+        if (downloadTask5 != null) {
+            return downloadTask5.getFileUriProvider();
+        }
+        return null;
     }
 
     public synchronized boolean k(int i2) {
-        InterceptResult invokeI;
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62491e.get(i2);
-                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
-                    if (downloadInfo.canStartRetryDelayTask()) {
-                        a(downloadTask, false);
-                    }
-                    return true;
-                }
-                DownloadInfo b2 = this.f62497k.b(i2);
-                if (b2 != null && b2.canStartRetryDelayTask()) {
-                    a(new DownloadTask(b2), false);
-                }
-                return false;
+        DownloadTask downloadTask = this.f62491e.get(i2);
+        if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
+            if (downloadInfo.canStartRetryDelayTask()) {
+                a(downloadTask, false);
             }
+            return true;
         }
-        return invokeI.booleanValue;
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 != null && b2.canStartRetryDelayTask()) {
+            a(new DownloadTask(b2), false);
+        }
+        return false;
     }
 
     public synchronized boolean l(int i2) {
-        InterceptResult invokeI;
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62492f.get(i2);
-                if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
-                    return false;
-                }
-                if (downloadInfo.canReStartAsyncTask()) {
-                    a(downloadTask);
-                }
-                return true;
-            }
+        DownloadTask downloadTask = this.f62492f.get(i2);
+        if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
+            return false;
         }
-        return invokeI.booleanValue;
+        if (downloadInfo.canReStartAsyncTask()) {
+            a(downloadTask);
+        }
+        return true;
     }
 
     public synchronized void m(int i2) {
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
-                    downloadInfo.setForceIgnoreRecommendSize(true);
-                    a(downloadTask);
-                }
-            }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null) {
+            downloadInfo.setForceIgnoreRecommendSize(true);
+            a(downloadTask);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0015, code lost:
-        if (r4.f62490d.get(r5) != null) goto L15;
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0011, code lost:
+        if (r1.f62490d.get(r2) != null) goto L13;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized boolean n(int i2) {
-        InterceptResult invokeI;
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
-            synchronized (this) {
-                if (i2 != 0) {
-                    if (this.f62488b.get(i2) == null) {
-                    }
-                    z = true;
-                }
-                z = false;
+        if (i2 != 0) {
+            if (this.f62488b.get(i2) == null) {
             }
-            return z;
+            z = true;
         }
-        return invokeI.booleanValue;
+        z = false;
+        return z;
     }
 
     private void b(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, downloadTask) == null) {
-            int hashCodeForSameTask = downloadTask.getHashCodeForSameTask();
-            if (hashCodeForSameTask == 0 && downloadTask.isAutoSetHashCodeForSameTask()) {
-                hashCodeForSameTask = downloadTask.autoCalAndGetHashCodeForSameTask();
-            }
-            if (hashCodeForSameTask == 0) {
-                return;
-            }
-            SparseArray<DownloadTask> sparseArray = this.f62493g.get(downloadTask.getDownloadId());
-            if (sparseArray == null) {
-                sparseArray = new SparseArray<>();
-                this.f62493g.put(downloadTask.getDownloadId(), sparseArray);
-            }
-            com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "tryCacheSameTaskWithListenerHashCode id:" + downloadTask.getDownloadId() + " listener hasCode:" + hashCodeForSameTask);
-            sparseArray.put(hashCodeForSameTask, downloadTask);
+        int hashCodeForSameTask = downloadTask.getHashCodeForSameTask();
+        if (hashCodeForSameTask == 0 && downloadTask.isAutoSetHashCodeForSameTask()) {
+            hashCodeForSameTask = downloadTask.autoCalAndGetHashCodeForSameTask();
         }
+        if (hashCodeForSameTask == 0) {
+            return;
+        }
+        SparseArray<DownloadTask> sparseArray = this.f62493g.get(downloadTask.getDownloadId());
+        if (sparseArray == null) {
+            sparseArray = new SparseArray<>();
+            this.f62493g.put(downloadTask.getDownloadId(), sparseArray);
+        }
+        com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "tryCacheSameTaskWithListenerHashCode id:" + downloadTask.getDownloadId() + " listener hasCode:" + hashCodeForSameTask);
+        sparseArray.put(hashCodeForSameTask, downloadTask);
     }
 
     private void a(DownloadTask downloadTask, boolean z) {
@@ -483,8 +363,7 @@ public abstract class a implements h.a {
         int i2;
         DownloadInfo downloadInfo2;
         DownloadTask remove;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65542, this, downloadTask, z) == null) || downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
+        if (downloadTask == null || (downloadInfo = downloadTask.getDownloadInfo()) == null) {
             return;
         }
         if (downloadInfo.isEntityInvalid()) {
@@ -521,7 +400,7 @@ public abstract class a implements h.a {
         }
         com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "no downloading task :" + id);
         if (downloadInfo.canReStartAsyncTask()) {
-            downloadInfo.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.f62233c);
+            downloadInfo.setAsyncHandleStatus(com.ss.android.socialbase.downloader.constants.a.ASYNC_HANDLE_RESTART);
         }
         if (com.ss.android.socialbase.downloader.i.a.a(32768) && (remove = this.f62494h.remove(Integer.valueOf(id))) != null) {
             downloadTask.copyListenerFromPendingTask(remove);
@@ -549,196 +428,112 @@ public abstract class a implements h.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void d(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "clearDownloadDataInSubThread::id=" + i2 + " deleteTargetFile=" + z);
-                DownloadInfo b2 = this.f62497k.b(i2);
-                if (b2 != null) {
-                    if (z) {
-                        com.ss.android.socialbase.downloader.i.f.a(b2);
-                    } else {
-                        com.ss.android.socialbase.downloader.i.f.c(b2.getTempPath(), b2.getTempName());
-                    }
-                    b2.erase();
-                }
-                try {
-                    this.f62497k.f(i2);
-                } catch (SQLiteException e2) {
-                    e2.printStackTrace();
-                }
-                a(i2, 0, -4);
-                if (this.f62490d.get(i2) != null) {
-                    this.f62490d.remove(i2);
-                }
-                if (this.f62489c.get(i2) != null) {
-                    this.f62489c.remove(i2);
-                }
-                this.f62494h.remove(Integer.valueOf(i2));
-                com.ss.android.socialbase.downloader.g.a.b(i2);
+        com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "clearDownloadDataInSubThread::id=" + i2 + " deleteTargetFile=" + z);
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 != null) {
+            if (z) {
+                com.ss.android.socialbase.downloader.i.f.a(b2);
+            } else {
+                com.ss.android.socialbase.downloader.i.f.c(b2.getTempPath(), b2.getTempName());
             }
+            b2.erase();
         }
+        try {
+            this.f62497k.f(i2);
+        } catch (SQLiteException e2) {
+            e2.printStackTrace();
+        }
+        a(i2, 0, -4);
+        if (this.f62490d.get(i2) != null) {
+            this.f62490d.remove(i2);
+        }
+        if (this.f62489c.get(i2) != null) {
+            this.f62489c.remove(i2);
+        }
+        this.f62494h.remove(Integer.valueOf(i2));
+        com.ss.android.socialbase.downloader.g.a.b(i2);
     }
 
     public synchronized void b(List<String> list) {
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-            synchronized (this) {
-                try {
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                if (com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N())) {
-                    for (int i2 = 0; i2 < this.f62488b.size(); i2++) {
-                        DownloadTask downloadTask = this.f62488b.get(this.f62488b.keyAt(i2));
-                        if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && b(downloadInfo)) {
-                            downloadInfo.setAutoResumed(true);
-                            downloadInfo.setShowNotificationForNetworkResumed(true);
-                            a(downloadTask);
-                            downloadInfo.setDownloadFromReserveWifi(true);
-                            com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getReserveWifiStatusListener();
-                            if (reserveWifiStatusListener != null) {
-                                reserveWifiStatusListener.a(downloadInfo, 5, 2);
-                            }
-                        }
+        try {
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        if (com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N())) {
+            for (int i2 = 0; i2 < this.f62488b.size(); i2++) {
+                DownloadTask downloadTask = this.f62488b.get(this.f62488b.keyAt(i2));
+                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && b(downloadInfo)) {
+                    downloadInfo.setAutoResumed(true);
+                    downloadInfo.setShowNotificationForNetworkResumed(true);
+                    a(downloadTask);
+                    downloadInfo.setDownloadFromReserveWifi(true);
+                    com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getReserveWifiStatusListener();
+                    if (reserveWifiStatusListener != null) {
+                        reserveWifiStatusListener.a(downloadInfo, 5, 2);
                     }
                 }
             }
         }
     }
 
-    public void c(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            DownloadInfo b2 = this.f62497k.b(i2);
-            if (b2 != null) {
-                a(b2);
-            }
-            this.a.post(new Runnable(this, i2) { // from class: com.ss.android.socialbase.downloader.impls.a.4
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62504b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f62504b = this;
-                    this.a = i2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.ss.android.socialbase.downloader.notification.b.a().f(this.a);
-                    }
-                }
-            });
-            com.ss.android.socialbase.downloader.downloader.c.a(new Runnable(this, i2, z) { // from class: com.ss.android.socialbase.downloader.impls.a.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f62505b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f62506c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f62506c = this;
-                    this.a = i2;
-                    this.f62505b = z;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f62506c.c(this.a);
-                        this.f62506c.e(this.a, this.f62505b);
-                    }
-                }
-            }, false);
+    public void c(final int i2, final boolean z) {
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 != null) {
+            a(b2);
         }
+        this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.4
+            @Override // java.lang.Runnable
+            public void run() {
+                com.ss.android.socialbase.downloader.notification.b.a().f(i2);
+            }
+        });
+        com.ss.android.socialbase.downloader.downloader.c.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.5
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.c(i2);
+                a.this.e(i2, z);
+            }
+        }, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            try {
-                DownloadInfo b2 = this.f62497k.b(i2);
-                if (b2 != null) {
-                    com.ss.android.socialbase.downloader.i.f.a(b2, z);
-                    b2.erase();
-                }
-                try {
-                    this.f62497k.d(i2);
-                    this.f62497k.a(b2);
-                } catch (SQLiteException e2) {
-                    e2.printStackTrace();
-                }
-                if (this.f62490d.get(i2) != null) {
-                    this.f62490d.remove(i2);
-                }
-                if (this.f62489c.get(i2) != null) {
-                    this.f62489c.remove(i2);
-                }
-                this.f62494h.remove(Integer.valueOf(i2));
-                com.ss.android.socialbase.downloader.g.a.b(i2);
-            } catch (Throwable th) {
-                th.printStackTrace();
+        try {
+            DownloadInfo b2 = this.f62497k.b(i2);
+            if (b2 != null) {
+                com.ss.android.socialbase.downloader.i.f.a(b2, z);
+                b2.erase();
             }
+            try {
+                this.f62497k.d(i2);
+                this.f62497k.a(b2);
+            } catch (SQLiteException e2) {
+                e2.printStackTrace();
+            }
+            if (this.f62490d.get(i2) != null) {
+                this.f62490d.remove(i2);
+            }
+            if (this.f62489c.get(i2) != null) {
+                this.f62489c.remove(i2);
+            }
+            this.f62494h.remove(Integer.valueOf(i2));
+            com.ss.android.socialbase.downloader.g.a.b(i2);
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     private boolean b(DownloadInfo downloadInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, downloadInfo)) == null) {
-            if (downloadInfo != null && downloadInfo.statusInPause()) {
-                return downloadInfo.isPauseReserveOnWifi();
-            }
-            return false;
+        if (downloadInfo != null && downloadInfo.statusInPause()) {
+            return downloadInfo.isPauseReserveOnWifi();
         }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public void b() {
-        List<Integer> a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (a = a()) == null) {
+        List<Integer> a = a();
+        if (a == null) {
             return;
         }
         for (Integer num : a) {
@@ -746,532 +541,334 @@ public abstract class a implements h.a {
         }
     }
 
-    public void b(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            DownloadInfo b2 = this.f62497k.b(i2);
-            if (b2 != null) {
-                a(b2);
+    public void b(final int i2, final boolean z) {
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 != null) {
+            a(b2);
+        }
+        this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.2
+            @Override // java.lang.Runnable
+            public void run() {
+                com.ss.android.socialbase.downloader.notification.b.a().f(i2);
             }
-            this.a.post(new Runnable(this, i2) { // from class: com.ss.android.socialbase.downloader.impls.a.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f62501b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f62501b = this;
-                    this.a = i2;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        com.ss.android.socialbase.downloader.notification.b.a().f(this.a);
-                    }
-                }
-            });
-            com.ss.android.socialbase.downloader.downloader.c.a(new Runnable(this, i2, z) { // from class: com.ss.android.socialbase.downloader.impls.a.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ int a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f62502b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f62503c;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Boolean.valueOf(z)};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f62503c = this;
-                    this.a = i2;
-                    this.f62502b = z;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    DownloadTask o;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f62503c.c(this.a) == null && (o = this.f62503c.o(this.a)) != null) {
-                            DownloadInfo downloadInfo = o.getDownloadInfo();
-                            SparseArray<IDownloadListener> downloadListeners = o.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.f62257b);
-                            if (downloadListeners != null) {
-                                synchronized (downloadListeners) {
-                                    for (int i3 = 0; i3 < downloadListeners.size(); i3++) {
-                                        IDownloadListener iDownloadListener = downloadListeners.get(downloadListeners.keyAt(i3));
-                                        if (iDownloadListener != null) {
-                                            iDownloadListener.onCanceled(downloadInfo);
-                                        }
-                                    }
+        });
+        com.ss.android.socialbase.downloader.downloader.c.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.3
+            @Override // java.lang.Runnable
+            public void run() {
+                DownloadTask o;
+                if (a.this.c(i2) == null && (o = a.this.o(i2)) != null) {
+                    DownloadInfo downloadInfo = o.getDownloadInfo();
+                    SparseArray<IDownloadListener> downloadListeners = o.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.SUB);
+                    if (downloadListeners != null) {
+                        synchronized (downloadListeners) {
+                            for (int i3 = 0; i3 < downloadListeners.size(); i3++) {
+                                IDownloadListener iDownloadListener = downloadListeners.get(downloadListeners.keyAt(i3));
+                                if (iDownloadListener != null) {
+                                    iDownloadListener.onCanceled(downloadInfo);
                                 }
                             }
                         }
-                        this.f62503c.d(this.a, this.f62502b);
                     }
                 }
-            }, false);
-        }
+                a.this.d(i2, z);
+            }
+        }, false);
     }
 
     public synchronized void b(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                a(i2, i3, iDownloadListener, fVar, z, true);
-            }
-        }
+        a(i2, i3, iDownloadListener, fVar, z, true);
     }
 
     public List<DownloadInfo> b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Integer num : a()) {
-                DownloadInfo d2 = d(num.intValue());
-                if (d2 != null && str.equals(d2.getMimeType())) {
-                    arrayList.add(d2);
-                }
-            }
-            return arrayList;
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        ArrayList arrayList = new ArrayList();
+        for (Integer num : a()) {
+            DownloadInfo d2 = d(num.intValue());
+            if (d2 != null && str.equals(d2.getMimeType())) {
+                arrayList.add(d2);
+            }
+        }
+        return arrayList;
     }
 
     public synchronized void a(DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, downloadTask) == null) {
-            synchronized (this) {
-                if (downloadTask == null) {
-                    return;
-                }
-                DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
-                if (downloadInfo == null) {
-                    return;
-                }
-                downloadInfo.setDownloadFromReserveWifi(false);
-                if (downloadInfo.getEnqueueType() != EnqueueType.ENQUEUE_NONE) {
-                    c(downloadTask);
-                } else {
-                    a(downloadTask, true);
-                }
-            }
+        if (downloadTask == null) {
+            return;
+        }
+        DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+        if (downloadInfo == null) {
+            return;
+        }
+        downloadInfo.setDownloadFromReserveWifi(false);
+        if (downloadInfo.getEnqueueType() != EnqueueType.ENQUEUE_NONE) {
+            c(downloadTask);
+        } else {
+            a(downloadTask, true);
         }
     }
 
     public void b(int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            DownloadInfo b2 = this.f62497k.b(i2);
-            if (b2 != null) {
-                b2.setThrottleNetSpeed(j2);
-            }
-            a(i2, j2);
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (b2 != null) {
+            b2.setThrottleNetSpeed(j2);
         }
+        a(i2, j2);
     }
 
     public synchronized List<DownloadInfo> a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                List<DownloadInfo> a = this.f62497k.a(str);
-                if (a == null || a.isEmpty()) {
-                    ArrayList arrayList = new ArrayList();
-                    int size = this.f62488b.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        DownloadTask valueAt = this.f62488b.valueAt(i2);
-                        if (valueAt != null && valueAt.getDownloadInfo() != null && str.equals(valueAt.getDownloadInfo().getUrl())) {
-                            arrayList.add(valueAt.getDownloadInfo());
-                        }
-                    }
-                    return arrayList;
-                }
-                return a;
-            }
+        if (TextUtils.isEmpty(str)) {
+            return null;
         }
-        return (List) invokeL.objValue;
+        List<DownloadInfo> a = this.f62497k.a(str);
+        if (a == null || a.isEmpty()) {
+            ArrayList arrayList = new ArrayList();
+            int size = this.f62488b.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                DownloadTask valueAt = this.f62488b.valueAt(i2);
+                if (valueAt != null && valueAt.getDownloadInfo() != null && str.equals(valueAt.getDownloadInfo().getUrl())) {
+                    arrayList.add(valueAt.getDownloadInfo());
+                }
+            }
+            return arrayList;
+        }
+        return a;
     }
 
     public synchronized boolean a(int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask == null && com.ss.android.socialbase.downloader.i.a.a(65536)) {
-                    downloadTask = o(i2);
-                }
-                if (downloadTask != null) {
-                    if (!com.ss.android.socialbase.downloader.g.a.a(i2).b("fix_on_cancel_call_twice", true)) {
-                        new com.ss.android.socialbase.downloader.downloader.f(downloadTask, this.a).c();
-                    }
-                    this.a.post(new Runnable(this, downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.a), downloadTask.getDownloadInfo(), downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.f62258c)) { // from class: com.ss.android.socialbase.downloader.impls.a.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ SparseArray a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ DownloadInfo f62498b;
-
-                        /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SparseArray f62499c;
-
-                        /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ a f62500d;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, r7, r8, r9};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.f62500d = this;
-                            this.a = r7;
-                            this.f62498b = r8;
-                            this.f62499c = r9;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            SparseArray sparseArray;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                SparseArray sparseArray2 = this.a;
-                                if (sparseArray2 != null) {
-                                    synchronized (sparseArray2) {
-                                        for (int i3 = 0; i3 < this.a.size(); i3++) {
-                                            IDownloadListener iDownloadListener = (IDownloadListener) this.a.get(this.a.keyAt(i3));
-                                            if (iDownloadListener != null) {
-                                                iDownloadListener.onCanceled(this.f62498b);
-                                            }
-                                        }
-                                    }
-                                }
-                                DownloadInfo downloadInfo = this.f62498b;
-                                if (downloadInfo == null || !downloadInfo.canShowNotification() || (sparseArray = this.f62499c) == null) {
-                                    return;
-                                }
-                                synchronized (sparseArray) {
-                                    for (int i4 = 0; i4 < this.f62499c.size(); i4++) {
-                                        IDownloadListener iDownloadListener2 = (IDownloadListener) this.f62499c.get(this.f62499c.keyAt(i4));
-                                        if (iDownloadListener2 != null) {
-                                            iDownloadListener2.onCanceled(this.f62498b);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                DownloadInfo b2 = this.f62497k.b(i2);
-                if (com.ss.android.socialbase.downloader.i.a.a(65536)) {
-                    if (b2 != null) {
-                        b2.setStatus(-4);
-                    }
-                } else if (b2 != null && DownloadStatus.isDownloading(b2.getStatus())) {
-                    b2.setStatus(-4);
-                }
-                b(i2, z);
-            }
-            return true;
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask == null && com.ss.android.socialbase.downloader.i.a.a(65536)) {
+            downloadTask = o(i2);
         }
-        return invokeCommon.booleanValue;
+        if (downloadTask != null) {
+            if (!com.ss.android.socialbase.downloader.g.a.a(i2).b("fix_on_cancel_call_twice", true)) {
+                new com.ss.android.socialbase.downloader.downloader.f(downloadTask, this.a).c();
+            }
+            final DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+            final SparseArray<IDownloadListener> downloadListeners = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.MAIN);
+            final SparseArray<IDownloadListener> downloadListeners2 = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.NOTIFICATION);
+            this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    SparseArray sparseArray;
+                    SparseArray sparseArray2 = downloadListeners;
+                    if (sparseArray2 != null) {
+                        synchronized (sparseArray2) {
+                            for (int i3 = 0; i3 < downloadListeners.size(); i3++) {
+                                IDownloadListener iDownloadListener = (IDownloadListener) downloadListeners.get(downloadListeners.keyAt(i3));
+                                if (iDownloadListener != null) {
+                                    iDownloadListener.onCanceled(downloadInfo);
+                                }
+                            }
+                        }
+                    }
+                    DownloadInfo downloadInfo2 = downloadInfo;
+                    if (downloadInfo2 == null || !downloadInfo2.canShowNotification() || (sparseArray = downloadListeners2) == null) {
+                        return;
+                    }
+                    synchronized (sparseArray) {
+                        for (int i4 = 0; i4 < downloadListeners2.size(); i4++) {
+                            IDownloadListener iDownloadListener2 = (IDownloadListener) downloadListeners2.get(downloadListeners2.keyAt(i4));
+                            if (iDownloadListener2 != null) {
+                                iDownloadListener2.onCanceled(downloadInfo);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        DownloadInfo b2 = this.f62497k.b(i2);
+        if (com.ss.android.socialbase.downloader.i.a.a(65536)) {
+            if (b2 != null) {
+                b2.setStatus(-4);
+            }
+        } else if (b2 != null && DownloadStatus.isDownloading(b2.getStatus())) {
+            b2.setStatus(-4);
+        }
+        b(i2, z);
+        return true;
     }
 
     private void a(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, downloadInfo) == null) || downloadInfo == null) {
-            return;
-        }
-        try {
-            if (downloadInfo.getStatus() == 7 || downloadInfo.getRetryDelayStatus() != com.ss.android.socialbase.downloader.constants.g.a) {
-                downloadInfo.setStatus(5);
-                downloadInfo.setRetryDelayStatus(com.ss.android.socialbase.downloader.constants.g.a);
-                com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "cancelAlarm");
+        if (downloadInfo != null) {
+            try {
+                if (downloadInfo.getStatus() == 7 || downloadInfo.getRetryDelayStatus() != com.ss.android.socialbase.downloader.constants.g.DELAY_RETRY_NONE) {
+                    downloadInfo.setStatus(5);
+                    downloadInfo.setRetryDelayStatus(com.ss.android.socialbase.downloader.constants.g.DELAY_RETRY_NONE);
+                    com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "cancelAlarm");
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
-        } catch (Throwable th) {
-            th.printStackTrace();
         }
     }
 
     public synchronized void a(int i2, z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, zVar) == null) {
-            synchronized (this) {
-                DownloadTask downloadTask = this.f62488b.get(i2);
-                if (downloadTask != null) {
-                    downloadTask.setNotificationEventListener(zVar);
-                }
-            }
+        DownloadTask downloadTask = this.f62488b.get(i2);
+        if (downloadTask != null) {
+            downloadTask.setNotificationEventListener(zVar);
         }
     }
 
     public synchronized void a(List<String> list) {
         DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            synchronized (this) {
-                try {
-                    boolean b2 = com.ss.android.socialbase.downloader.i.a.a(1048576) ? com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N()) : true;
-                    for (int i2 = 0; i2 < this.f62490d.size(); i2++) {
-                        DownloadTask downloadTask = this.f62490d.get(this.f62490d.keyAt(i2));
-                        if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && (!downloadInfo.isOnlyWifi() || b2)) {
-                            downloadInfo.setAutoResumed(true);
-                            downloadInfo.setShowNotificationForNetworkResumed(true);
-                            a(downloadTask);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+        try {
+            boolean b2 = com.ss.android.socialbase.downloader.i.a.a(1048576) ? com.ss.android.socialbase.downloader.i.f.b(com.ss.android.socialbase.downloader.downloader.c.N()) : true;
+            for (int i2 = 0; i2 < this.f62490d.size(); i2++) {
+                DownloadTask downloadTask = this.f62490d.get(this.f62490d.keyAt(i2));
+                if (downloadTask != null && (downloadInfo = downloadTask.getDownloadInfo()) != null && downloadInfo.getMimeType() != null && list.contains(downloadInfo.getMimeType()) && (!downloadInfo.isOnlyWifi() || b2)) {
+                    downloadInfo.setAutoResumed(true);
+                    downloadInfo.setShowNotificationForNetworkResumed(true);
+                    a(downloadTask);
                 }
             }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public synchronized void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                DownloadTask o = o(i2);
-                if (o == null) {
-                    o = this.f62494h.get(Integer.valueOf(i2));
-                }
-                if (o != null) {
-                    o.removeDownloadListener(i3, iDownloadListener, fVar, z);
-                }
-            }
+        DownloadTask o = o(i2);
+        if (o == null) {
+            o = this.f62494h.get(Integer.valueOf(i2));
+        }
+        if (o != null) {
+            o.removeDownloadListener(i3, iDownloadListener, fVar, z);
         }
     }
 
-    public synchronized void a(int i2, int i3, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
+    public synchronized void a(int i2, int i3, final IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
         DownloadInfo b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iDownloadListener, fVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            synchronized (this) {
-                DownloadTask o = o(i2);
-                if (o != null) {
-                    o.addDownloadListener(i3, iDownloadListener, fVar, z);
-                    DownloadInfo downloadInfo = o.getDownloadInfo();
-                    if (z2 && downloadInfo != null && !a(i2) && (fVar == com.ss.android.socialbase.downloader.constants.f.a || fVar == com.ss.android.socialbase.downloader.constants.f.f62258c)) {
-                        boolean z3 = true;
-                        if (fVar == com.ss.android.socialbase.downloader.constants.f.f62258c && !downloadInfo.canShowNotification()) {
-                            z3 = false;
-                        }
-                        if (z3) {
-                            this.a.post(new Runnable(this, iDownloadListener, downloadInfo) { // from class: com.ss.android.socialbase.downloader.impls.a.6
-                                public static /* synthetic */ Interceptable $ic;
-                                public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ IDownloadListener a;
-
-                                /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ DownloadInfo f62507b;
-
-                                /* renamed from: c  reason: collision with root package name */
-                                public final /* synthetic */ a f62508c;
-
-                                {
-                                    Interceptable interceptable2 = $ic;
-                                    if (interceptable2 != null) {
-                                        InitContext newInitContext = TitanRuntime.newInitContext();
-                                        newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, iDownloadListener, downloadInfo};
-                                        interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i4 = newInitContext.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
-                                            newInitContext.thisArg = this;
-                                            interceptable2.invokeInitBody(65536, newInitContext);
-                                            return;
-                                        }
-                                    }
-                                    this.f62508c = this;
-                                    this.a = iDownloadListener;
-                                    this.f62507b = downloadInfo;
+        DownloadTask o = o(i2);
+        if (o != null) {
+            o.addDownloadListener(i3, iDownloadListener, fVar, z);
+            final DownloadInfo downloadInfo = o.getDownloadInfo();
+            if (z2 && downloadInfo != null && !a(i2) && (fVar == com.ss.android.socialbase.downloader.constants.f.MAIN || fVar == com.ss.android.socialbase.downloader.constants.f.NOTIFICATION)) {
+                boolean z3 = true;
+                if (fVar == com.ss.android.socialbase.downloader.constants.f.NOTIFICATION && !downloadInfo.canShowNotification()) {
+                    z3 = false;
+                }
+                if (z3) {
+                    this.a.post(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.a.6
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (iDownloadListener != null) {
+                                if (downloadInfo.getStatus() == -3) {
+                                    iDownloadListener.onSuccessed(downloadInfo);
+                                } else if (downloadInfo.getStatus() == -1) {
+                                    iDownloadListener.onFailed(downloadInfo, new BaseException(1000, "try add listener for failed task"));
                                 }
-
-                                @Override // java.lang.Runnable
-                                public void run() {
-                                    Interceptable interceptable2 = $ic;
-                                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a == null) {
-                                        return;
-                                    }
-                                    if (this.f62507b.getStatus() == -3) {
-                                        this.a.onSuccessed(this.f62507b);
-                                    } else if (this.f62507b.getStatus() == -1) {
-                                        this.a.onFailed(this.f62507b, new BaseException(1000, "try add listener for failed task"));
-                                    }
-                                }
-                            });
+                            }
                         }
-                    }
-                } else if (com.ss.android.socialbase.downloader.i.a.a(32768) && (b2 = this.f62497k.b(i2)) != null && b2.getStatus() != -3) {
-                    DownloadTask downloadTask = this.f62494h.get(Integer.valueOf(i2));
-                    if (downloadTask == null) {
-                        downloadTask = new DownloadTask(b2);
-                        this.f62494h.put(Integer.valueOf(i2), downloadTask);
-                    }
-                    downloadTask.addDownloadListener(i3, iDownloadListener, fVar, z);
+                    });
                 }
             }
+        } else if (com.ss.android.socialbase.downloader.i.a.a(32768) && (b2 = this.f62497k.b(i2)) != null && b2.getStatus() != -3) {
+            DownloadTask downloadTask = this.f62494h.get(Integer.valueOf(i2));
+            if (downloadTask == null) {
+                downloadTask = new DownloadTask(b2);
+                this.f62494h.put(Integer.valueOf(i2), downloadTask);
+            }
+            downloadTask.addDownloadListener(i3, iDownloadListener, fVar, z);
         }
     }
 
     private void a(int i2, BaseException baseException, DownloadTask downloadTask) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65539, this, i2, baseException, downloadTask) == null) || downloadTask == null) {
-            return;
+        if (downloadTask != null) {
+            DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
+            SparseArray<IDownloadListener> downloadListeners = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.MAIN);
+            SparseArray<IDownloadListener> downloadListeners2 = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.NOTIFICATION);
+            boolean z = downloadTask.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification();
+            com.ss.android.socialbase.downloader.i.c.a(i2, downloadListeners, true, downloadInfo, baseException);
+            com.ss.android.socialbase.downloader.i.c.a(i2, downloadListeners2, z, downloadInfo, baseException);
         }
-        DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
-        SparseArray<IDownloadListener> downloadListeners = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.a);
-        SparseArray<IDownloadListener> downloadListeners2 = downloadTask.getDownloadListeners(com.ss.android.socialbase.downloader.constants.f.f62258c);
-        boolean z = downloadTask.canShowNotification() || downloadInfo.isAutoInstallWithoutNotification();
-        com.ss.android.socialbase.downloader.i.c.a(i2, downloadListeners, true, downloadInfo, baseException);
-        com.ss.android.socialbase.downloader.i.c.a(i2, downloadListeners2, z, downloadInfo, baseException);
     }
 
     private void a(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, this, i2, i3) == null) {
-            com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "removeTask id: " + i2 + " listener hasCode: " + i3);
-            if (i3 == 0) {
+        com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "removeTask id: " + i2 + " listener hasCode: " + i3);
+        if (i3 == 0) {
+            this.f62488b.remove(i2);
+            this.f62493g.remove(i2);
+            return;
+        }
+        SparseArray<DownloadTask> sparseArray = this.f62493g.get(i2);
+        if (sparseArray != null) {
+            sparseArray.remove(i3);
+            com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "after downloadTaskWithListenerMap removeTask taskArray.size: " + sparseArray.size());
+            if (sparseArray.size() == 0) {
                 this.f62488b.remove(i2);
                 this.f62493g.remove(i2);
                 return;
             }
-            SparseArray<DownloadTask> sparseArray = this.f62493g.get(i2);
-            if (sparseArray != null) {
-                sparseArray.remove(i3);
-                com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "after downloadTaskWithListenerMap removeTask taskArray.size: " + sparseArray.size());
-                if (sparseArray.size() == 0) {
-                    this.f62488b.remove(i2);
-                    this.f62493g.remove(i2);
-                    return;
-                }
-                return;
-            }
-            this.f62488b.remove(i2);
+            return;
         }
+        this.f62488b.remove(i2);
     }
 
     public synchronized void a(int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4) == null) {
-            synchronized (this) {
-                if (i4 != -7) {
-                    if (i4 == -6) {
-                        this.f62489c.put(i2, this.f62488b.get(i2));
-                        a(i2, i3);
-                    } else if (i4 == -4) {
-                        a(i2, i3);
-                        p(i2);
-                    } else if (i4 == -3) {
-                        this.f62489c.put(i2, this.f62488b.get(i2));
-                        a(i2, i3);
-                        p(i2);
-                    } else if (i4 != -1) {
-                        if (i4 == 7) {
-                            DownloadTask downloadTask = this.f62488b.get(i2);
-                            if (downloadTask != null) {
-                                if (this.f62491e.get(i2) == null) {
-                                    this.f62491e.put(i2, downloadTask);
-                                }
-                                a(i2, i3);
-                            }
-                            p(i2);
-                        } else if (i4 == 8) {
-                            DownloadTask downloadTask2 = this.f62488b.get(i2);
-                            if (downloadTask2 != null && this.f62492f.get(i2) == null) {
-                                this.f62492f.put(i2, downloadTask2);
-                            }
-                            p(i2);
-                        }
-                    }
-                }
-                DownloadTask downloadTask3 = this.f62488b.get(i2);
-                if (downloadTask3 != null) {
-                    if (this.f62490d.get(i2) == null) {
-                        this.f62490d.put(i2, downloadTask3);
-                    }
-                    a(i2, i3);
-                }
+        if (i4 != -7) {
+            if (i4 == -6) {
+                this.f62489c.put(i2, this.f62488b.get(i2));
+                a(i2, i3);
+            } else if (i4 == -4) {
+                a(i2, i3);
                 p(i2);
+            } else if (i4 == -3) {
+                this.f62489c.put(i2, this.f62488b.get(i2));
+                a(i2, i3);
+                p(i2);
+            } else if (i4 != -1) {
+                if (i4 == 7) {
+                    DownloadTask downloadTask = this.f62488b.get(i2);
+                    if (downloadTask != null) {
+                        if (this.f62491e.get(i2) == null) {
+                            this.f62491e.put(i2, downloadTask);
+                        }
+                        a(i2, i3);
+                    }
+                    p(i2);
+                } else if (i4 == 8) {
+                    DownloadTask downloadTask2 = this.f62488b.get(i2);
+                    if (downloadTask2 != null && this.f62492f.get(i2) == null) {
+                        this.f62492f.put(i2, downloadTask2);
+                    }
+                    p(i2);
+                }
             }
         }
+        DownloadTask downloadTask3 = this.f62488b.get(i2);
+        if (downloadTask3 != null) {
+            if (this.f62490d.get(i2) == null) {
+                this.f62490d.put(i2, downloadTask3);
+            }
+            a(i2, i3);
+        }
+        p(i2);
     }
 
     @Override // com.ss.android.socialbase.downloader.h.h.a
     public void a(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, message) == null) {
-            int i2 = message.arg1;
-            int i3 = message.arg2;
-            com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "handleMsg id: " + i2 + " listener hasCode: " + i3);
-            Object obj = message.obj;
-            DownloadTask downloadTask = null;
-            BaseException baseException = obj instanceof Exception ? (BaseException) obj : null;
-            synchronized (this) {
-                if (i3 == 0) {
-                    downloadTask = this.f62488b.get(i2);
-                } else {
-                    SparseArray<DownloadTask> sparseArray = this.f62493g.get(i2);
-                    if (sparseArray != null) {
-                        downloadTask = sparseArray.get(i3);
-                    }
+        int i2 = message.arg1;
+        int i3 = message.arg2;
+        com.ss.android.socialbase.downloader.c.a.b("AbsDownloadEngine", "handleMsg id: " + i2 + " listener hasCode: " + i3);
+        Object obj = message.obj;
+        DownloadTask downloadTask = null;
+        BaseException baseException = obj instanceof Exception ? (BaseException) obj : null;
+        synchronized (this) {
+            if (i3 == 0) {
+                downloadTask = this.f62488b.get(i2);
+            } else {
+                SparseArray<DownloadTask> sparseArray = this.f62493g.get(i2);
+                if (sparseArray != null) {
+                    downloadTask = sparseArray.get(i3);
                 }
-                if (downloadTask == null) {
-                    return;
-                }
-                a(message.what, baseException, downloadTask);
-                a(i2, i3, message.what);
             }
+            if (downloadTask == null) {
+                return;
+            }
+            a(message.what, baseException, downloadTask);
+            a(i2, i3, message.what);
         }
     }
 }

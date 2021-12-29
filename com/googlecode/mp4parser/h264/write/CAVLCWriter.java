@@ -2,7 +2,6 @@ package com.googlecode.mp4parser.h264.write;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,29 +37,29 @@ public class CAVLCWriter extends BitstreamWriter {
     public void writeBool(boolean z, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-            Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
+            Debug.print(String.valueOf(str) + "\t");
             write1Bit(z ? 1 : 0);
-            Debug.println(TrackUI.SEPERATOR + z);
+            Debug.println("\t" + z);
         }
     }
 
     public void writeNBit(long j2, int i2, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
-            Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
+            Debug.print(String.valueOf(str) + "\t");
             for (int i3 = 0; i3 < i2; i3++) {
                 write1Bit(((int) (j2 >> ((i2 - i3) - 1))) & 1);
             }
-            Debug.println(TrackUI.SEPERATOR + j2);
+            Debug.println("\t" + j2);
         }
     }
 
     public void writeSE(int i2, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
+            Debug.print(String.valueOf(str) + "\t");
             writeUE(((i2 << 1) * (i2 < 0 ? -1 : 1)) + (i2 <= 0 ? 0 : 1));
-            Debug.println(TrackUI.SEPERATOR + i2);
+            Debug.println("\t" + i2);
         }
     }
 
@@ -83,9 +82,9 @@ public class CAVLCWriter extends BitstreamWriter {
     public void writeU(int i2, int i3, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, str) == null) {
-            Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
+            Debug.print(String.valueOf(str) + "\t");
             writeNBit((long) i2, i3);
-            Debug.println(TrackUI.SEPERATOR + i2);
+            Debug.println("\t" + i2);
         }
     }
 
@@ -124,9 +123,9 @@ public class CAVLCWriter extends BitstreamWriter {
     public void writeUE(int i2, String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
-            Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
+            Debug.print(String.valueOf(str) + "\t");
             writeUE(i2);
-            Debug.println(TrackUI.SEPERATOR + i2);
+            Debug.println("\t" + i2);
         }
     }
 }

@@ -58,11 +58,11 @@ public class e {
             return;
         }
         d dVar2 = new d();
-        dVar2.f26972d = optString;
+        dVar2.f27413d = optString;
         dVar2.a = true;
         LiveHostInfo liveHostInfo = new LiveHostInfo();
         liveHostInfo.name = optJSONObject.optString("txt");
-        dVar2.f26973e = liveHostInfo;
+        dVar2.f27414e = liveHostInfo;
         this.a.add(dVar2);
     }
 }

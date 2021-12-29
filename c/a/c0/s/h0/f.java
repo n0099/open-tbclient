@@ -21,7 +21,7 @@ public class f implements c.a.c0.s.f0.d {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1969b;
+    public int f2396b;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -37,21 +37,21 @@ public class f implements c.a.c0.s.f0.d {
             }
         }
         this.a = 0;
-        this.f1969b = 0;
+        this.f2396b = 0;
     }
 
     @Override // c.a.c0.s.f0.d
     public void a(c.a.c0.s.m0.a aVar) {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.f2041g)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || TextUtils.isEmpty(aVar.f2468g)) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        if (!TextUtils.isEmpty(aVar.f2040f)) {
-            clogBuilder.q(aVar.f2040f);
+        if (!TextUtils.isEmpty(aVar.f2467f)) {
+            clogBuilder.q(aVar.f2467f);
         }
-        clogBuilder.m(aVar.f2041g);
+        clogBuilder.m(aVar.f2468g);
         String c2 = aVar.a.c();
         char c3 = 65535;
         switch (c2.hashCode()) {
@@ -93,13 +93,13 @@ public class f implements c.a.c0.s.f0.d {
                 break;
         }
         if (c3 == 0) {
-            clogBuilder.r(ClogBuilder.LogType.VIDEO_START).h(aVar.f2036b).j(aVar.f2038d);
-            this.f1969b = 0;
+            clogBuilder.r(ClogBuilder.LogType.VIDEO_START).h(aVar.f2463b).j(aVar.f2465d);
+            this.f2396b = 0;
             this.a++;
             c.a.c0.x.a.b(clogBuilder);
         } else if (c3 == 1) {
             boolean d2 = aVar.a.d(7);
-            clogBuilder.i(aVar.f2037c).j(aVar.f2038d).k(aVar.f2039e);
+            clogBuilder.i(aVar.f2464c).j(aVar.f2465d).k(aVar.f2466e);
             if (d2) {
                 clogBuilder.r(ClogBuilder.LogType.VIDEO_PAUSE);
             } else {
@@ -107,45 +107,45 @@ public class f implements c.a.c0.s.f0.d {
             }
             c.a.c0.x.a.b(clogBuilder);
         } else if (c3 == 2) {
-            clogBuilder.r(ClogBuilder.LogType.VIDEO_RESUME).h(aVar.f2036b).j(aVar.f2038d);
+            clogBuilder.r(ClogBuilder.LogType.VIDEO_RESUME).h(aVar.f2463b).j(aVar.f2465d);
             c.a.c0.x.a.b(clogBuilder);
         } else if (c3 == 3 || c3 == 4) {
             if (this.a < 1) {
                 return;
             }
             try {
-                if (this.f1969b > Integer.parseInt(aVar.f2037c)) {
-                    clogBuilder.i(aVar.f2038d);
+                if (this.f2396b > Integer.parseInt(aVar.f2464c)) {
+                    clogBuilder.i(aVar.f2465d);
                 } else {
-                    clogBuilder.i(aVar.f2037c);
+                    clogBuilder.i(aVar.f2464c);
                 }
             } catch (NumberFormatException unused) {
-                clogBuilder.i(aVar.f2037c);
+                clogBuilder.i(aVar.f2464c);
             }
-            clogBuilder.r(ClogBuilder.LogType.VIDEO_COMPLETED).j(aVar.f2038d).k(aVar.f2039e).l("0");
+            clogBuilder.r(ClogBuilder.LogType.VIDEO_COMPLETED).j(aVar.f2465d).k(aVar.f2466e).l("0");
             this.a--;
             c.a.c0.x.a.b(clogBuilder);
         } else if (c3 != 5) {
         } else {
             int g2 = aVar.a.g(1);
             int g3 = aVar.a.g(2);
-            if (g2 == 0 && g3 != 0 && (i2 = this.f1969b) != 0 && i2 >= g3 - 2) {
-                clogBuilder.r(ClogBuilder.LogType.VIDEO_COMPLETED).i(String.valueOf(g3)).j(String.valueOf(g3)).k(aVar.f2039e);
+            if (g2 == 0 && g3 != 0 && (i2 = this.f2396b) != 0 && i2 >= g3 - 2) {
+                clogBuilder.r(ClogBuilder.LogType.VIDEO_COMPLETED).i(String.valueOf(g3)).j(String.valueOf(g3)).k(aVar.f2466e);
                 c.a.c0.x.a.b(clogBuilder);
-                ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.VIDEO_START).h(aVar.f2036b).j(aVar.f2038d).m(aVar.f2041g);
-                if (!TextUtils.isEmpty(aVar.f2040f)) {
-                    m.q(aVar.f2040f);
+                ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.VIDEO_START).h(aVar.f2463b).j(aVar.f2465d).m(aVar.f2468g);
+                if (!TextUtils.isEmpty(aVar.f2467f)) {
+                    m.q(aVar.f2467f);
                 }
                 c.a.c0.x.a.b(m);
             }
-            this.f1969b = g2;
+            this.f2396b = g2;
         }
     }
 
     @Override // c.a.c0.s.f0.d
     public void b(c.a.c0.s.m0.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.a == null || TextUtils.isEmpty(aVar.f2041g)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null || aVar.a == null || TextUtils.isEmpty(aVar.f2468g)) {
             return;
         }
         String c2 = aVar.a.c();
@@ -164,18 +164,18 @@ public class f implements c.a.c0.s.f0.d {
         }
         if (c3 != 0) {
             if (c3 == 1 || c3 == 2) {
-                c.a.c0.s.m0.b.f2043b.b();
+                c.a.c0.s.m0.b.f2470b.b();
                 return;
             }
             return;
         }
-        c.a.c0.s.m0.g a = c.a.c0.s.m0.b.f2043b.a();
+        c.a.c0.s.m0.g a = c.a.c0.s.m0.b.f2470b.a();
         if (a != null) {
-            a.c(aVar.f2041g);
-            a.e(aVar.f2036b);
-            a.d(aVar.f2042h);
-            a.b(aVar.f2038d);
-            c.a.c0.s.m0.b.f2043b.c(a);
+            a.c(aVar.f2468g);
+            a.e(aVar.f2463b);
+            a.d(aVar.f2469h);
+            a.b(aVar.f2465d);
+            c.a.c0.s.m0.b.f2470b.c(a);
         }
     }
 }

@@ -22,19 +22,19 @@ public class LrcTipTextview extends LinearLayout {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f35442b;
+    public TextView f35598b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f35443c;
+    public TextView f35599c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f35444d;
+    public TextView f35600d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35445e;
+    public int f35601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35446f;
+    public int f35602f;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -71,7 +71,7 @@ public class LrcTipTextview extends LinearLayout {
                 public final /* synthetic */ LrcView.a a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ LrcTipTextview f35447b;
+                public final /* synthetic */ LrcTipTextview f35603b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -88,7 +88,7 @@ public class LrcTipTextview extends LinearLayout {
                             return;
                         }
                     }
-                    this.f35447b = this;
+                    this.f35603b = this;
                     this.a = aVar;
                 }
 
@@ -96,26 +96,26 @@ public class LrcTipTextview extends LinearLayout {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f35447b.f35442b.setVisibility(8);
-                        int top = this.f35447b.getTop() + this.f35447b.getPaddingTop();
-                        int dimensionPixelOffset = this.f35447b.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);
+                        this.f35603b.f35598b.setVisibility(8);
+                        int top = this.f35603b.getTop() + this.f35603b.getPaddingTop();
+                        int dimensionPixelOffset = this.f35603b.getResources().getDimensionPixelOffset(R.dimen.liveness_video_lrc_tip_margintop_afteranim);
                         ValueAnimator ofInt = ValueAnimator.ofInt(1, 100);
-                        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (RelativeLayout.LayoutParams) this.f35447b.getLayoutParams(), top, dimensionPixelOffset) { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1.1
+                        ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, (RelativeLayout.LayoutParams) this.f35603b.getLayoutParams(), top, dimensionPixelOffset) { // from class: com.baidu.fsg.face.liveness.view.LrcTipTextview.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ RelativeLayout.LayoutParams a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ int f35448b;
+                            public final /* synthetic */ int f35604b;
 
                             /* renamed from: c  reason: collision with root package name */
-                            public final /* synthetic */ int f35449c;
+                            public final /* synthetic */ int f35605c;
 
                             /* renamed from: d  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f35450d;
+                            public final /* synthetic */ AnonymousClass1 f35606d;
 
                             /* renamed from: e  reason: collision with root package name */
-                            public IntEvaluator f35451e;
+                            public IntEvaluator f35607e;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -132,11 +132,11 @@ public class LrcTipTextview extends LinearLayout {
                                         return;
                                     }
                                 }
-                                this.f35450d = this;
+                                this.f35606d = this;
                                 this.a = r7;
-                                this.f35448b = top;
-                                this.f35449c = dimensionPixelOffset;
-                                this.f35451e = new IntEvaluator();
+                                this.f35604b = top;
+                                this.f35605c = dimensionPixelOffset;
+                                this.f35607e = new IntEvaluator();
                             }
 
                             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -145,14 +145,14 @@ public class LrcTipTextview extends LinearLayout {
                                 if (interceptable3 == null || interceptable3.invokeL(1048576, this, valueAnimator) == null) {
                                     int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                                     float f2 = intValue / 100.0f;
-                                    this.a.topMargin = this.f35451e.evaluate(f2, Integer.valueOf(this.f35448b), Integer.valueOf(this.f35449c)).intValue();
-                                    int intValue2 = this.f35451e.evaluate(f2, (Integer) 255, (Integer) 51).intValue();
-                                    this.f35450d.f35447b.f35443c.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-                                    this.f35450d.f35447b.f35444d.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
-                                    this.f35450d.f35447b.f35443c.setTextSize(0, this.f35451e.evaluate(f2, Integer.valueOf(this.f35450d.f35447b.f35445e), Integer.valueOf(this.f35450d.f35447b.f35446f)).intValue());
-                                    this.f35450d.f35447b.requestLayout();
+                                    this.a.topMargin = this.f35607e.evaluate(f2, Integer.valueOf(this.f35604b), Integer.valueOf(this.f35605c)).intValue();
+                                    int intValue2 = this.f35607e.evaluate(f2, (Integer) 255, (Integer) 51).intValue();
+                                    this.f35606d.f35603b.f35599c.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
+                                    this.f35606d.f35603b.f35600d.setTextColor(Color.rgb(intValue2, intValue2, intValue2));
+                                    this.f35606d.f35603b.f35599c.setTextSize(0, this.f35607e.evaluate(f2, Integer.valueOf(this.f35606d.f35603b.f35601e), Integer.valueOf(this.f35606d.f35603b.f35602f)).intValue());
+                                    this.f35606d.f35603b.requestLayout();
                                     if (intValue == 100) {
-                                        this.f35450d.a.a();
+                                        this.f35606d.a.a();
                                     }
                                 }
                             }
@@ -170,33 +170,33 @@ public class LrcTipTextview extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            this.f35445e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
-            this.f35446f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
+            this.f35601e = getResources().getDimensionPixelSize(R.dimen.rim_text_size_16);
+            this.f35602f = getResources().getDimensionPixelSize(R.dimen.rim_text_size_24);
             TextView textView = new TextView(getContext());
-            this.f35442b = textView;
+            this.f35598b = textView;
             textView.setTextColor(Color.rgb(255, 255, 255));
-            this.f35442b.setTextSize(0, this.f35446f);
-            this.f35442b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
+            this.f35598b.setTextSize(0, this.f35602f);
+            this.f35598b.setText(getContext().getString(R.string.rim_face_video_tips_start_resocrd));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text01_gap));
-            this.f35442b.setLayoutParams(layoutParams2);
+            this.f35598b.setLayoutParams(layoutParams2);
             TextView textView2 = new TextView(getContext());
-            this.f35443c = textView2;
+            this.f35599c = textView2;
             textView2.setTextColor(Color.rgb(255, 255, 255));
-            this.f35443c.setTextSize(0, this.f35445e);
-            this.f35443c.setText(getContext().getString(R.string.rim_face_video_tips_read_content));
+            this.f35599c.setTextSize(0, this.f35601e);
+            this.f35599c.setText(getContext().getString(R.string.rim_face_video_tips_read_content));
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams3.setMargins(0, 0, 0, getContext().getResources().getDimensionPixelSize(R.dimen.liveness_video_lrc_tip_text12_gap));
-            this.f35443c.setLayoutParams(layoutParams3);
+            this.f35599c.setLayoutParams(layoutParams3);
             TextView textView3 = new TextView(getContext());
-            this.f35444d = textView3;
+            this.f35600d = textView3;
             textView3.setTextColor(Color.rgb(255, 255, 255));
-            this.f35444d.setTextSize(0, this.f35445e);
-            this.f35444d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
-            this.f35444d.setLayoutParams(layoutParams);
-            addView(this.f35442b);
-            addView(this.f35443c);
-            addView(this.f35444d);
+            this.f35600d.setTextSize(0, this.f35601e);
+            this.f35600d.setText(getContext().getString(R.string.rim_face_video_tips_keep_face_in_box));
+            this.f35600d.setLayoutParams(layoutParams);
+            addView(this.f35598b);
+            addView(this.f35599c);
+            addView(this.f35600d);
         }
     }
 

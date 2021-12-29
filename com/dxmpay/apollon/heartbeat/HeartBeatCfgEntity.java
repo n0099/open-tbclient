@@ -128,7 +128,7 @@ public class HeartBeatCfgEntity implements NoProguard, Serializable {
             if (!TextUtils.isEmpty(json)) {
                 FileCopyUtils.copyToFile(json, new File(context.getCacheDir() + File.separator + "dxmheartbeatcfg.cfg"));
             }
-            c.b(context, com.baidu.apollon.heartbeat.c.f33375b, Calendar.getInstance().getTimeInMillis() / 1000);
+            c.b(context, com.baidu.apollon.heartbeat.c.f33531b, Calendar.getInstance().getTimeInMillis() / 1000);
         }
     }
 

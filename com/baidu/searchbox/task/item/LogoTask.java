@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.item;
 
 import c.a.d.b.a.b;
-import c.a.r0.r0.l;
+import c.a.s0.s0.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -78,7 +78,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                c.a.r0.s.g0.b.j().t("frs_first_in", true);
+                c.a.s0.s.g0.b.j().t("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             l.b().A(this.mIsFirstUse);

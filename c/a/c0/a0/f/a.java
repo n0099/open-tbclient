@@ -17,11 +17,11 @@ public class a {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public BaseExecutorCell f1328b;
+    public BaseExecutorCell f1755b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public BaseExecutorCell f1329c;
+    public BaseExecutorCell f1756c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public class a {
                 return;
             }
         }
-        this.a = BaseExecutorCell.b(c.a.c0.a0.a.f1317d, BaseExecutorCell.ExecutorType.ARTERY);
-        this.f1328b = BaseExecutorCell.b(c.a.c0.a0.a.f1318e, BaseExecutorCell.ExecutorType.ARTERY);
-        this.f1329c = BaseExecutorCell.b(c.a.c0.a0.a.f1319f, BaseExecutorCell.ExecutorType.ARTERY);
+        this.a = BaseExecutorCell.b(c.a.c0.a0.a.f1744d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.f1755b = BaseExecutorCell.b(c.a.c0.a0.a.f1745e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.f1756c = BaseExecutorCell.b(c.a.c0.a0.a.f1746f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
     public boolean a(ElasticTask elasticTask) {
@@ -47,17 +47,17 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
             int b2 = elasticTask.b();
             if (b2 == 0 || b2 == 1) {
-                if (this.a.c(elasticTask) || this.f1328b.c(elasticTask)) {
+                if (this.a.c(elasticTask) || this.f1755b.c(elasticTask)) {
                     return true;
                 }
-                return this.f1329c.c(elasticTask);
+                return this.f1756c.c(elasticTask);
             } else if (b2 == 2) {
-                if (this.f1328b.c(elasticTask)) {
+                if (this.f1755b.c(elasticTask)) {
                     return true;
                 }
-                return this.f1329c.c(elasticTask);
+                return this.f1756c.c(elasticTask);
             } else if (b2 == 3) {
-                return this.f1329c.c(elasticTask);
+                return this.f1756c.c(elasticTask);
             } else {
                 return false;
             }

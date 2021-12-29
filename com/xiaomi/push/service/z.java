@@ -57,12 +57,12 @@ public final class z extends bk.a {
             }
             bkVar.a("GAID", Config.GAID, a2);
             ie ieVar = new ie();
-            ieVar.b(this.f989a.f63862d);
-            ieVar.c(hp.f63603g.f514a);
+            ieVar.b(this.f989a.f63857d);
+            ieVar.c(hp.f63598g.f514a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
             ieVar.m518a().put(Config.GAID, a2);
-            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f989a.f63862d, ieVar, hf.f63556i));
+            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f989a.f63857d, ieVar, hf.f63551i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);
         }

@@ -19,7 +19,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.opensdk.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2224a {
+    public static class C2231a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -30,7 +30,7 @@ public final class a {
         public Bundle bundle;
         public String content;
 
-        public C2224a() {
+        public C2231a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,29 +45,29 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C2224a c2224a) {
+    public static boolean a(Context context, C2231a c2231a) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2224a)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2231a)) == null) {
             if (context == null) {
                 str = "send fail, invalid argument";
-            } else if (!d.b(c2224a.action)) {
+            } else if (!d.b(c2231a.action)) {
                 String str2 = null;
-                if (!d.b(c2224a.a)) {
-                    str2 = c2224a.a + ".permission.MM_MESSAGE";
+                if (!d.b(c2231a.a)) {
+                    str2 = c2231a.a + ".permission.MM_MESSAGE";
                 }
-                Intent intent = new Intent(c2224a.action);
-                Bundle bundle = c2224a.bundle;
+                Intent intent = new Intent(c2231a.action);
+                Bundle bundle = c2231a.bundle;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", Build.SDK_INT);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c2224a.content);
-                intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c2224a.f62825b);
-                intent.putExtra("_mmessage_checksum", b.a(c2224a.content, Build.SDK_INT, packageName));
+                intent.putExtra("_mmessage_content", c2231a.content);
+                intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c2231a.f62825b);
+                intent.putExtra("_mmessage_checksum", b.a(c2231a.content, Build.SDK_INT, packageName));
                 context.sendBroadcast(intent, str2);
                 Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
                 return true;

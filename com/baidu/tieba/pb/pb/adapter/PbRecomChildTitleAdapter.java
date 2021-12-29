@@ -4,14 +4,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.s.v.c;
-import c.a.s0.g0.g0.e;
-import c.a.s0.s2.f;
-import c.a.s0.s2.i;
-import c.a.s0.s2.j;
-import c.a.s0.s2.l;
-import c.a.s0.s2.u.f.n;
-import c.a.s0.s2.y.b;
+import c.a.s0.s.u.c;
+import c.a.t0.g0.g0.e;
+import c.a.t0.s2.f;
+import c.a.t0.s2.i;
+import c.a.t0.s2.j;
+import c.a.t0.s2.l;
+import c.a.t0.s2.u.f.n;
+import c.a.t0.s2.y.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +35,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f47973b;
+        public TextView f48194b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -62,7 +62,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         public void bindDataToView(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                this.f47973b.setText(eVar.f17771e);
+                this.f48194b.setText(eVar.f18266e);
             }
         }
 
@@ -70,7 +70,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 TextView textView = (TextView) view.findViewById(i.tv_title);
-                this.f47973b = textView;
+                this.f48194b = textView;
                 c.d(textView).A(l.F_X02);
             }
         }
@@ -82,7 +82,7 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
                 return;
             }
             SkinManager.setBackgroundColor(getView(), f.CAM_X0202);
-            SkinManager.setViewTextColor(this.f47973b, f.CAM_X0105);
+            SkinManager.setViewTextColor(this.f48194b, f.CAM_X0105);
             this.a = skinType;
         }
     }
@@ -108,37 +108,37 @@ public class PbRecomChildTitleAdapter extends n<e, ViewHolder> {
         }
     }
 
-    @Override // c.a.s0.s2.u.f.n, c.a.d.m.e.a
-    public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        k0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
+    @Override // c.a.t0.s2.u.f.n, c.a.d.n.e.a
+    public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        d0(i2, view, viewGroup, (e) obj, (ViewHolder) viewHolder);
         return view;
     }
 
-    public ViewHolder i0() {
+    public ViewHolder b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s : (ViewHolder) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: j0 */
-    public ViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: c0 */
+    public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f2871e).inflate(j.pb_reclist_title, viewGroup, false));
+            ViewHolder viewHolder = new ViewHolder(LayoutInflater.from(this.f3299e).inflate(j.pb_reclist_title, viewGroup, false));
             this.s = viewHolder;
             return viewHolder;
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    public View k0(int i2, View view, ViewGroup viewGroup, e eVar, ViewHolder viewHolder) {
+    public View d0(int i2, View view, ViewGroup viewGroup, e eVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, eVar, viewHolder})) == null) {
-            super.Z(i2, view, viewGroup, eVar, viewHolder);
+            super.S(i2, view, viewGroup, eVar, viewHolder);
             viewHolder.bindDataToView(eVar);
             viewHolder.onChangeSkin();
             return view;

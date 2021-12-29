@@ -18,10 +18,10 @@ public class e extends c.a.c0.h.f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1543b;
+        public String f1970b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1544c;
+        public String f1971c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -44,11 +44,11 @@ public class e extends c.a.c0.h.f {
                 StringBuilder sb = new StringBuilder();
                 sb.append(a.class.getSimpleName());
                 sb.append(" ## ");
-                sb.append(WebGLImageLoader.DATA_URL + this.f1544c);
+                sb.append(WebGLImageLoader.DATA_URL + this.f1971c);
                 sb.append(" ## ");
                 sb.append("jsCallback:" + this.a);
                 sb.append(" ## ");
-                sb.append("action:" + this.f1543b);
+                sb.append("action:" + this.f1970b);
                 return sb.toString();
             }
             return (String) invokeV.objValue;

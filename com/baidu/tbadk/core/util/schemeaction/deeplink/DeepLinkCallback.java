@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionParser;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -131,7 +131,7 @@ public interface DeepLinkCallback {
                 } else {
                     this.mWebResultCode = i2;
                 }
-                SchemeActionParser.printLog(str + " open onFailed-->errorCode=" + i2 + ":" + toString());
+                SchemeActionHelper.printLog(str + " open onFailed-->errorCode=" + i2 + ":" + toString());
             }
         }
 
@@ -187,7 +187,7 @@ public interface DeepLinkCallback {
                 } else {
                     this.mWebResultCode = 1;
                 }
-                SchemeActionParser.printLog(str + " open onSucceed-->:" + toString());
+                SchemeActionHelper.printLog(str + " open onSucceed-->:" + toString());
             }
         }
 

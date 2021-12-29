@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
-import c.a.r0.s.g0.b;
-import c.a.s0.x.f.a;
+import c.a.s0.s.g0.b;
+import c.a.t0.x.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

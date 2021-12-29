@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import c.a.g0.r.h;
+import c.a.h0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.PolyActivity;
 import com.baidu.poly.widget.WechatSignAutoRenewActivity;
@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class e implements c.a.g0.s.g.c {
+public class e implements c.a.h0.s.g.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f3103c;
+    public static e f3531c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f3104b;
+    public boolean f3532b;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -59,8 +59,8 @@ public class e implements c.a.g0.s.g.c {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.f3104b) {
-                this.this$0.f3104b = false;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.f3532b) {
+                this.this$0.f3532b = false;
                 try {
                     int intExtra = intent.getIntExtra("code", 0);
                     Intent intent2 = new Intent(PolyActivity.invokerActivity, WechatSignAutoRenewActivity.class);
@@ -90,26 +90,26 @@ public class e implements c.a.g0.s.g.c {
                 return;
             }
         }
-        this.f3104b = false;
+        this.f3532b = false;
     }
 
     public static e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f3103c == null) {
+            if (f3531c == null) {
                 synchronized (e.class) {
-                    if (f3103c == null) {
-                        f3103c = new e();
+                    if (f3531c == null) {
+                        f3531c = new e();
                     }
                 }
             }
-            return f3103c;
+            return f3531c;
         }
         return (e) invokeV.objValue;
     }
 
-    @Override // c.a.g0.s.g.c
+    @Override // c.a.h0.s.g.c
     public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
@@ -119,11 +119,11 @@ public class e implements c.a.g0.s.g.c {
                 return;
             }
             if (!a2.b(activity)) {
-                c.a.g0.t.e.b.f(activity, "您没有安装微信，请选择其他支付方式");
+                c.a.h0.t.e.b.f(activity, "您没有安装微信，请选择其他支付方式");
                 activity.finish();
                 return;
             }
-            this.f3104b = true;
+            this.f3532b = true;
             f();
             e();
             a2.a(activity, str, str2);

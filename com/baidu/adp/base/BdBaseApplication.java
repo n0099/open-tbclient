@@ -10,7 +10,7 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.a.h;
-import c.a.d.f.p.e;
+import c.a.d.f.p.f;
 import c.a.d.h.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -136,7 +136,7 @@ public class BdBaseApplication extends Application {
     private void initBitmapHelper() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            e.d().f(this.mContext);
+            f.d().f(this.mContext);
         }
     }
 

@@ -41,8 +41,8 @@ public class FastPayResultAdapter extends PayResultAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PayResultContent payResultContent = this.f54108c;
-            return (payResultContent == null || TextUtils.isEmpty(payResultContent.expected_time)) ? "" : this.f54108c.expected_time;
+            PayResultContent payResultContent = this.f54111c;
+            return (payResultContent == null || TextUtils.isEmpty(payResultContent.expected_time)) ? "" : this.f54111c.expected_time;
         }
         return (String) invokeV.objValue;
     }
@@ -65,7 +65,7 @@ public class FastPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f54108c != null;
+            return this.f54111c != null;
         }
         return invokeL.booleanValue;
     }

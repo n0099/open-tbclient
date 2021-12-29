@@ -15,7 +15,6 @@ import com.airbnb.lottie.model.Marker;
 import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.searchbox.track.ui.TrackUI;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -282,7 +281,7 @@ public class LottieComposition {
     public String toString() {
         StringBuilder sb = new StringBuilder("LottieComposition:\n");
         for (Layer layer : this.layers) {
-            sb.append(layer.toString(TrackUI.SEPERATOR));
+            sb.append(layer.toString("\t"));
         }
         return sb.toString();
     }

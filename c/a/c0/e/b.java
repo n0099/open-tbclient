@@ -62,7 +62,7 @@ public class b {
             }
         }
         a = new ArrayList();
-        c.a.j0.a.b.d<c.a.c0.l.a> dVar = new c.a.c0.l.c().a;
+        c.a.k0.a.b.d<c.a.c0.l.a> dVar = new c.a.c0.l.c().a;
         if (dVar == null || (list = dVar.getList()) == null) {
             return;
         }

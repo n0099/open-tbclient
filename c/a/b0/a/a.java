@@ -109,34 +109,34 @@ public class a {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EGLContext f1110b;
+    public EGLContext f1502b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f1111c;
+    public l f1503c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1112d;
+    public boolean f1504d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1113e;
+    public boolean f1505e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DuMixController f1114f;
+    public DuMixController f1506f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<DuMixCallback> f1115g;
+    public List<DuMixCallback> f1507g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DuMixInput f1116h;
+    public DuMixInput f1508h;
 
     /* renamed from: i  reason: collision with root package name */
-    public DuMixOutput f1117i;
+    public DuMixOutput f1509i;
 
     /* renamed from: j  reason: collision with root package name */
-    public SurfaceTexture.OnFrameAvailableListener f1118j;
+    public SurfaceTexture.OnFrameAvailableListener f1510j;
 
     /* renamed from: k  reason: collision with root package name */
-    public SurfaceTexture.OnFrameAvailableListener f1119k;
+    public SurfaceTexture.OnFrameAvailableListener f1511k;
     public FaceListener l;
     public LuaMsgListener m;
     public FilterStateListener n;
@@ -155,14 +155,14 @@ public class a {
 
     /* renamed from: c.a.b0.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0011a implements FrameRenderListener {
+    public class C0031a implements FrameRenderListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1120e;
+        public final /* synthetic */ a f1512e;
 
-        public C0011a(a aVar) {
+        public C0031a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class a {
                     return;
                 }
             }
-            this.f1120e = aVar;
+            this.f1512e = aVar;
         }
 
         @Override // com.baidu.ar.arrender.FrameRenderListener
@@ -185,8 +185,8 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 if (!a.d0) {
-                    if (this.f1120e.A < 2) {
-                        a.v(this.f1120e);
+                    if (this.f1512e.A < 2) {
+                        a.v(this.f1512e);
                         GLES20.glFinish();
                         return;
                     }
@@ -210,7 +210,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1121e;
+        public final /* synthetic */ a f1513e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -227,7 +227,7 @@ public class a {
                     return;
                 }
             }
-            this.f1121e = aVar;
+            this.f1513e = aVar;
         }
 
         @Override // com.baidu.ar.DuMixCallback
@@ -237,8 +237,8 @@ public class a {
                 if (a.d0()) {
                     a.Q("DuAr_DuController", "onCaseCreate: b = " + z + " , id = " + str2 + " , path = " + str);
                 }
-                for (int i2 = 0; i2 < this.f1121e.f1115g.size(); i2++) {
-                    DuMixCallback duMixCallback = (DuMixCallback) this.f1121e.f1115g.get(i2);
+                for (int i2 = 0; i2 < this.f1513e.f1507g.size(); i2++) {
+                    DuMixCallback duMixCallback = (DuMixCallback) this.f1513e.f1507g.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseCreate(z, str, str2);
                     }
@@ -253,8 +253,8 @@ public class a {
                 if (a.d0()) {
                     a.Q("DuAr_DuController", "onCaseDestroy");
                 }
-                for (int i2 = 0; i2 < this.f1121e.f1115g.size(); i2++) {
-                    DuMixCallback duMixCallback = (DuMixCallback) this.f1121e.f1115g.get(i2);
+                for (int i2 = 0; i2 < this.f1513e.f1507g.size(); i2++) {
+                    DuMixCallback duMixCallback = (DuMixCallback) this.f1513e.f1507g.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onCaseDestroy();
                     }
@@ -269,7 +269,7 @@ public class a {
                 if (a.d0()) {
                     a.Q("DuAr_DuController", "onError Type: " + duMixErrorType.name() + ", msg: " + str + ", ext: " + str2);
                 }
-                for (DuMixCallback duMixCallback : this.f1121e.f1115g) {
+                for (DuMixCallback duMixCallback : this.f1513e.f1507g) {
                     duMixCallback.onError(duMixErrorType, str, str2);
                 }
             }
@@ -282,13 +282,13 @@ public class a {
                 if (a.d0()) {
                     a.Q("DuAr_DuController", "onRelease");
                 }
-                for (int i2 = 0; i2 < this.f1121e.f1115g.size(); i2++) {
-                    DuMixCallback duMixCallback = (DuMixCallback) this.f1121e.f1115g.get(i2);
+                for (int i2 = 0; i2 < this.f1513e.f1507g.size(); i2++) {
+                    DuMixCallback duMixCallback = (DuMixCallback) this.f1513e.f1507g.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onRelease();
                     }
                 }
-                this.f1121e.f1115g.clear();
+                this.f1513e.f1507g.clear();
             }
         }
 
@@ -296,15 +296,15 @@ public class a {
         public void onSetup(boolean z, DuMixInput duMixInput, DuMixOutput duMixOutput) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), duMixInput, duMixOutput}) == null) {
-                this.f1121e.z = System.currentTimeMillis() - this.f1121e.y;
+                this.f1513e.z = System.currentTimeMillis() - this.f1513e.y;
                 if (a.d0()) {
-                    a.Q("DuAr_DuController", Build.MODEL + ", onSetup: " + z + ", spendTime:" + this.f1121e.z);
+                    a.Q("DuAr_DuController", Build.MODEL + ", onSetup: " + z + ", spendTime:" + this.f1513e.z);
                 }
-                this.f1121e.v = z;
-                this.f1121e.p0(z);
-                this.f1121e.E.clear();
-                for (int i2 = 0; i2 < this.f1121e.f1115g.size(); i2++) {
-                    DuMixCallback duMixCallback = (DuMixCallback) this.f1121e.f1115g.get(i2);
+                this.f1513e.v = z;
+                this.f1513e.p0(z);
+                this.f1513e.E.clear();
+                for (int i2 = 0; i2 < this.f1513e.f1507g.size(); i2++) {
+                    DuMixCallback duMixCallback = (DuMixCallback) this.f1513e.f1507g.get(i2);
                     if (duMixCallback != null) {
                         duMixCallback.onSetup(z, duMixInput, duMixOutput);
                     }
@@ -565,7 +565,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1122e;
+        public final /* synthetic */ a f1514e;
 
         public h(a aVar) {
             Interceptable interceptable = $ic;
@@ -582,19 +582,19 @@ public class a {
                     return;
                 }
             }
-            this.f1122e = aVar;
+            this.f1514e = aVar;
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, surfaceTexture) == null) {
-                this.f1122e.D.d();
-                if (this.f1122e.N != null) {
-                    this.f1122e.N.d();
+                this.f1514e.D.d();
+                if (this.f1514e.N != null) {
+                    this.f1514e.N.d();
                 }
-                if (this.f1122e.f1118j != null) {
-                    this.f1122e.f1118j.onFrameAvailable(surfaceTexture);
+                if (this.f1514e.f1510j != null) {
+                    this.f1514e.f1510j.onFrameAvailable(surfaceTexture);
                 }
             }
         }
@@ -606,7 +606,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1123e;
+        public final /* synthetic */ a f1515e;
 
         public i(a aVar) {
             Interceptable interceptable = $ic;
@@ -623,15 +623,15 @@ public class a {
                     return;
                 }
             }
-            this.f1123e = aVar;
+            this.f1515e = aVar;
         }
 
         @Override // com.baidu.ar.arrender.FrameRenderListener
         public void onRenderFinished(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                for (int i2 = 0; i2 < this.f1123e.P.size(); i2++) {
-                    FrameRenderListener frameRenderListener = (FrameRenderListener) this.f1123e.P.get(i2);
+                for (int i2 = 0; i2 < this.f1515e.P.size(); i2++) {
+                    FrameRenderListener frameRenderListener = (FrameRenderListener) this.f1515e.P.get(i2);
                     if (frameRenderListener != null) {
                         frameRenderListener.onRenderFinished(j2);
                     }
@@ -643,8 +643,8 @@ public class a {
         public void onRenderStarted(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                for (int i2 = 0; i2 < this.f1123e.P.size(); i2++) {
-                    FrameRenderListener frameRenderListener = (FrameRenderListener) this.f1123e.P.get(i2);
+                for (int i2 = 0; i2 < this.f1515e.P.size(); i2++) {
+                    FrameRenderListener frameRenderListener = (FrameRenderListener) this.f1515e.P.get(i2);
                     if (frameRenderListener != null) {
                         frameRenderListener.onRenderStarted(j2);
                     }
@@ -771,34 +771,34 @@ public class a {
                         this.a.A0(message);
                     }
                 } else {
-                    a.C0014a c0014a = new a.C0014a();
-                    c0014a.a = (int) c.a.b0.a.i.b.e().a();
+                    a.C0034a c0034a = new a.C0034a();
+                    c0034a.a = (int) c.a.b0.a.i.b.e().a();
                     ActivityManager.MemoryInfo f2 = c.a.b0.a.i.b.e().f();
                     if (f2 != null) {
-                        c0014a.f1201b = ((f2.totalMem / 1024) / 1024) - ((f2.availMem / 1024) / 1024);
+                        c0034a.f1594b = ((f2.totalMem / 1024) / 1024) - ((f2.availMem / 1024) / 1024);
                     }
                     if (this.a.N != null) {
                         if (this.a.M) {
-                            c0014a.f1203d = this.a.N.a(true);
-                            c0014a.f1204e = this.a.N.c(true);
+                            c0034a.f1596d = this.a.N.a(true);
+                            c0034a.f1597e = this.a.N.c(true);
                         } else {
-                            c0014a.f1205f = this.a.N.a(false);
-                            c0014a.f1206g = this.a.N.c(false);
+                            c0034a.f1598f = this.a.N.a(false);
+                            c0034a.f1599g = this.a.N.c(false);
                         }
-                        c0014a.f1202c = this.a.N.b();
+                        c0034a.f1595c = this.a.N.b();
                         this.a.N.g();
                     }
-                    c0014a.f1207h = this.a.Q;
-                    c0014a.f1208i = this.a.R;
-                    c0014a.f1209j = this.a.T;
-                    c0014a.f1210k = this.a.S;
-                    c0014a.l = this.a.U;
-                    c0014a.m = this.a.V;
-                    c0014a.n = this.a.W;
-                    c0014a.o = this.a.S();
-                    c0014a.p = this.a.W();
+                    c0034a.f1600h = this.a.Q;
+                    c0034a.f1601i = this.a.R;
+                    c0034a.f1602j = this.a.T;
+                    c0034a.f1603k = this.a.S;
+                    c0034a.l = this.a.U;
+                    c0034a.m = this.a.V;
+                    c0034a.n = this.a.W;
+                    c0034a.o = this.a.S();
+                    c0034a.p = this.a.W();
                     a aVar = this.a;
-                    aVar.n0(c0014a, aVar.M);
+                    aVar.n0(c0034a, aVar.M);
                     sendMessageDelayed(obtainMessage(3), 5000L);
                 }
             }
@@ -844,9 +844,9 @@ public class a {
                 return;
             }
         }
-        this.f1112d = false;
-        this.f1113e = false;
-        this.f1115g = new ArrayList();
+        this.f1504d = false;
+        this.f1505e = false;
+        this.f1507g = new ArrayList();
         this.q = 1280;
         this.r = 720;
         this.s = 720;
@@ -876,25 +876,25 @@ public class a {
         handlerThread.start();
         Context applicationContext = context.getApplicationContext();
         this.a = applicationContext;
-        this.f1110b = eGLContext;
-        this.f1111c = lVar;
+        this.f1502b = eGLContext;
+        this.f1503c = lVar;
         DuMixController duMixController = DuMixController.getInstance(applicationContext, c.a.b0.a.b.d(eGLContext));
-        this.f1114f = duMixController;
+        this.f1506f = duMixController;
         if (bArr != null && bArr.length > 0) {
             l0(duMixController.checkAuth(bArr, null, null));
-            this.f1114f.setAuthLicense(bArr, DuMixARConfig.getAipAppId(), DuMixARConfig.getAPIKey(), DuMixARConfig.getSecretKey());
+            this.f1506f.setAuthLicense(bArr, DuMixARConfig.getAipAppId(), DuMixARConfig.getAPIKey(), DuMixARConfig.getSecretKey());
         } else {
             l0(null);
         }
         R(false);
-        this.f1114f.getARProxyManager().getFaceAR().setFaceListener(new c(this));
-        this.f1114f.addLuaMsgListener(new d(this));
-        this.f1114f.setDefinedLuaListener(new e(this));
-        this.f1114f.setFilterStateListener(new f(this));
-        this.f1114f.setStateListener(new g(this));
-        this.f1119k = new h(this);
-        this.f1114f.addFrameRenderListener(new i(this));
-        this.f1114f.setARRenderFpsCallback(new j(this));
+        this.f1506f.getARProxyManager().getFaceAR().setFaceListener(new c(this));
+        this.f1506f.addLuaMsgListener(new d(this));
+        this.f1506f.setDefinedLuaListener(new e(this));
+        this.f1506f.setFilterStateListener(new f(this));
+        this.f1506f.setStateListener(new g(this));
+        this.f1511k = new h(this);
+        this.f1506f.addFrameRenderListener(new i(this));
+        this.f1506f.setARRenderFpsCallback(new j(this));
         c.a.b0.a.i.c cVar = new c.a.b0.a.i.c(FpsConstants.REPORT_FPS, "ar");
         this.D = cVar;
         cVar.f(5000L);
@@ -917,7 +917,7 @@ public class a {
             if (a0 == null) {
                 str3 = "";
             } else {
-                str3 = " by: " + a0.f1111c;
+                str3 = " by: " + a0.f1503c;
             }
             sb.append(str3);
             sb.toString();
@@ -929,11 +929,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, context, lVar, eGLContext, bArr)) == null) {
             a aVar = a0;
-            if (aVar == null || aVar.f1111c != lVar || aVar.f1110b != eGLContext) {
+            if (aVar == null || aVar.f1503c != lVar || aVar.f1502b != eGLContext) {
                 synchronized (a.class) {
-                    if (a0 == null || a0.f1111c != lVar || a0.f1110b != eGLContext) {
+                    if (a0 == null || a0.f1503c != lVar || a0.f1502b != eGLContext) {
                         if (a0 != null) {
-                            l lVar2 = a0.f1111c;
+                            l lVar2 = a0.f1503c;
                             a0.B0();
                             if (lVar2 != null) {
                                 lVar2.onHolderChanged(lVar);
@@ -1114,13 +1114,13 @@ public class a {
     public void B0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && a0 == this) {
-            this.f1112d = false;
-            this.f1113e = true;
+            this.f1504d = false;
+            this.f1505e = true;
             this.u = false;
             this.v = false;
-            this.f1111c = c0;
-            DuMixController duMixController = this.f1114f;
-            this.f1114f = null;
+            this.f1503c = c0;
+            DuMixController duMixController = this.f1506f;
+            this.f1506f = null;
             f0 = this.D.c();
             if (duMixController != null) {
                 Q("DuAr_DuController", "release");
@@ -1137,7 +1137,7 @@ public class a {
                 this.I.quit();
             }
             a0 = null;
-            this.f1110b = null;
+            this.f1502b = null;
             c.a.b0.a.i.d dVar = this.N;
             if (dVar != null) {
                 dVar.g();
@@ -1149,7 +1149,7 @@ public class a {
         DuMixController duMixController;
         IGLRenderer gLRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (duMixController = this.f1114f) == null || (gLRenderer = duMixController.getGLRenderer()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (duMixController = this.f1506f) == null || (gLRenderer = duMixController.getGLRenderer()) == null) {
             return;
         }
         if (d0) {
@@ -1198,10 +1198,10 @@ public class a {
     public void F0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a0 == this) {
-            if (this.f1114f != null) {
+            if (this.f1506f != null) {
                 Q("DuAr_DuController", "resume");
-                this.f1114f.resume();
-                this.f1112d = false;
+                this.f1506f.resume();
+                this.f1504d = false;
             }
             this.D.e();
         }
@@ -1262,13 +1262,13 @@ public class a {
 
     public void I0(HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) || this.f1114f == null || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) || this.f1506f == null || hashMap == null) {
             return;
         }
         if (d0()) {
             c.a.b0.a.j.i.a("DuAr_DuController", "sendMessage2Lua " + hashMap);
         }
-        this.f1114f.sendMsg2Lua(hashMap);
+        this.f1506f.sendMsg2Lua(hashMap);
     }
 
     public void J0(ARRenderFpsCallback aRRenderFpsCallback) {
@@ -1282,10 +1282,10 @@ public class a {
     public void K(DuMixCallback duMixCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, duMixCallback) == null) {
-            if (duMixCallback != null && !this.f1115g.contains(duMixCallback)) {
-                this.f1115g.add(duMixCallback);
+            if (duMixCallback != null && !this.f1507g.contains(duMixCallback)) {
+                this.f1507g.add(duMixCallback);
             }
-            c.a.b0.a.j.i.a("DuAr_DuController", "addDuMixCallback size " + this.f1115g.size());
+            c.a.b0.a.j.i.a("DuAr_DuController", "addDuMixCallback size " + this.f1507g.size());
         }
     }
 
@@ -1296,7 +1296,7 @@ public class a {
                 Q("DuAr_DuController", "setAllQualityParmForCartoon");
             }
             D0();
-            DuMixController duMixController = this.f1114f;
+            DuMixController duMixController = this.f1506f;
             if (duMixController != null) {
                 duMixController.updateFilter((FilterParam) FilterParam.TuneColorFilter.brightness, -0.01f);
                 duMixController.updateFilter((FilterParam) FilterParam.TuneColorFilter.contrast, 0.86f);
@@ -1321,7 +1321,7 @@ public class a {
             if (!e0() || beautyType == null) {
                 return;
             }
-            this.f1114f.updateFilter(beautyType.type, f2);
+            this.f1506f.updateFilter(beautyType.type, f2);
             u0(beautyType, Float.valueOf(f2));
         }
     }
@@ -1335,7 +1335,7 @@ public class a {
             if (!e0() || beautyType == null) {
                 return;
             }
-            this.f1114f.updateFilter(beautyType.type, i2);
+            this.f1506f.updateFilter(beautyType.type, i2);
             u0(beautyType, Integer.valueOf(i2));
         }
     }
@@ -1346,7 +1346,7 @@ public class a {
             if (d0()) {
                 c.a.b0.a.j.i.a("DuAr_DuController", " clearAllFilter :");
             }
-            DuMixController duMixController = this.f1114f;
+            DuMixController duMixController = this.f1506f;
             if (duMixController != null) {
                 duMixController.clearAllFilter();
             }
@@ -1359,7 +1359,7 @@ public class a {
             return;
         }
         String str = "";
-        DuMixController duMixController = this.f1114f;
+        DuMixController duMixController = this.f1506f;
         if (duMixController != null) {
             if (beautyType != null) {
                 if (!TextUtils.equals(this.E.get(beautyType), makeup.getResPath()) && (str = duMixController.updateFilterCase(makeup.getResPath())) != null) {
@@ -1385,10 +1385,10 @@ public class a {
             if (filterStateListener != null) {
                 filterStateListener.onFilterStateChanged(null, null);
             }
-            if (this.f1114f == null || !h0()) {
+            if (this.f1506f == null || !h0()) {
                 return;
             }
-            this.f1114f.clearCase();
+            this.f1506f.clearCase();
         }
     }
 
@@ -1426,7 +1426,7 @@ public class a {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i2, i3)) == null) {
-            DuMixController duMixController = this.f1114f;
+            DuMixController duMixController = this.f1506f;
             if (duMixController == null) {
                 return null;
             }
@@ -1453,11 +1453,11 @@ public class a {
                 return;
             }
             if (beautyType != BeautyType.cheeks && beautyType != BeautyType.lips && beautyType != BeautyType.highlight && beautyType != BeautyType.eyeshadow && beautyType != BeautyType.eyeliner && beautyType != BeautyType.eyebrow && beautyType != BeautyType.eyeball) {
-                this.f1114f.updateFilter(beautyType.type, str);
+                this.f1506f.updateFilter(beautyType.type, str);
                 u0(beautyType, str);
                 return;
             }
-            this.f1114f.updateFilterCase(str);
+            this.f1506f.updateFilterCase(str);
         }
     }
 
@@ -1470,7 +1470,7 @@ public class a {
             if (!e0() || beautyType == null) {
                 return;
             }
-            this.f1114f.updateFilter(beautyType.type, fArr);
+            this.f1506f.updateFilter(beautyType.type, fArr);
         }
     }
 
@@ -1508,31 +1508,31 @@ public class a {
     public void S0(ICaptureAbilityListener iCaptureAbilityListener) {
         DuMixController duMixController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, iCaptureAbilityListener) == null) || (duMixController = this.f1114f) == null || duMixController.getARProxyManager() == null || this.f1114f.getARProxyManager().getCaptureAR() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048601, this, iCaptureAbilityListener) == null) || (duMixController = this.f1506f) == null || duMixController.getARProxyManager() == null || this.f1506f.getARProxyManager().getCaptureAR() == null) {
             return;
         }
-        this.f1114f.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
+        this.f1506f.getARProxyManager().getCaptureAR().setAbilityListener(iCaptureAbilityListener);
     }
 
     public l T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f1111c : (l) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f1503c : (l) invokeV.objValue;
     }
 
     public void T0(ICallbackWith<ICaptureResult> iCallbackWith) {
         DuMixController duMixController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, iCallbackWith) == null) || (duMixController = this.f1114f) == null || duMixController.getARProxyManager() == null || this.f1114f.getARProxyManager().getCaptureAR() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, iCallbackWith) == null) || (duMixController = this.f1506f) == null || duMixController.getARProxyManager() == null || this.f1506f.getARProxyManager().getCaptureAR() == null) {
             return;
         }
-        this.f1114f.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
+        this.f1506f.getARProxyManager().getCaptureAR().setCaptureCallback(iCallbackWith);
     }
 
     public void U0(List<List<Point>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
-            DuMixController duMixController = this.f1114f;
+            DuMixController duMixController = this.f1506f;
             if (!e0() || list == null) {
                 return;
             }
@@ -1600,7 +1600,7 @@ public class a {
             if (!e0() || filterParam == null) {
                 return;
             }
-            this.f1114f.updateFilter(filterParam, f2);
+            this.f1506f.updateFilter(filterParam, f2);
         }
     }
 
@@ -1633,7 +1633,7 @@ public class a {
             if (!e0() || filterParam == null || list == null) {
                 return;
             }
-            this.f1114f.updateFilter(filterParam, list);
+            this.f1506f.updateFilter(filterParam, list);
         }
     }
 
@@ -1651,7 +1651,7 @@ public class a {
                 c.a.b0.a.j.i.a("DuAr_DuController", " setInitBeautyPath :  " + str);
             }
             if (e0()) {
-                this.f1114f.updateFilterCase(str);
+                this.f1506f.updateFilterCase(str);
             }
         }
     }
@@ -1700,14 +1700,14 @@ public class a {
             if (!e0() || str == null) {
                 return;
             }
-            this.f1114f.setMdlModelPath(str);
+            this.f1506f.setMdlModelPath(str);
         }
     }
 
     public final boolean e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? (this.f1114f == null || !h0() || f0()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? (this.f1506f == null || !h0() || f0()) ? false : true : invokeV.booleanValue;
     }
 
     public void e1(Texture texture) {
@@ -1720,7 +1720,7 @@ public class a {
     public boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f1112d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.f1504d : invokeV.booleanValue;
     }
 
     public void f1(c.a.b0.a.f.b bVar) {
@@ -1728,18 +1728,18 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048621, this, bVar) == null) {
             if (bVar != null) {
                 Y0(SharpnessFilter.sharpness, bVar.a);
-                Y0(FilterParam.TuneColorFilter.brightness, bVar.f1146b);
-                Y0(FilterParam.TuneColorFilter.contrast, bVar.f1147c);
-                Y0(FilterParam.TuneColorFilter.saturation, bVar.f1148d);
-                Y0(FilterParam.TuneColorFilter.curve, bVar.f1149e);
-                Z0(FilterParam.TuneColorFilter.rgbPoints, bVar.f1150f);
-                Z0(FilterParam.TuneColorFilter.redPoints, bVar.f1151g);
-                Z0(FilterParam.TuneColorFilter.greenPoints, bVar.f1152h);
-                Z0(FilterParam.TuneColorFilter.bluePoints, bVar.f1153i);
+                Y0(FilterParam.TuneColorFilter.brightness, bVar.f1538b);
+                Y0(FilterParam.TuneColorFilter.contrast, bVar.f1539c);
+                Y0(FilterParam.TuneColorFilter.saturation, bVar.f1540d);
+                Y0(FilterParam.TuneColorFilter.curve, bVar.f1541e);
+                Z0(FilterParam.TuneColorFilter.rgbPoints, bVar.f1542f);
+                Z0(FilterParam.TuneColorFilter.redPoints, bVar.f1543g);
+                Z0(FilterParam.TuneColorFilter.greenPoints, bVar.f1544h);
+                Z0(FilterParam.TuneColorFilter.bluePoints, bVar.f1545i);
                 return;
             }
-            Y0(SharpnessFilter.sharpness, c.a.b0.a.f.b.f1144j);
-            Y0(FilterParam.TuneColorFilter.brightness, c.a.b0.a.f.b.f1145k);
+            Y0(SharpnessFilter.sharpness, c.a.b0.a.f.b.f1536j);
+            Y0(FilterParam.TuneColorFilter.brightness, c.a.b0.a.f.b.f1537k);
             Y0(FilterParam.TuneColorFilter.contrast, c.a.b0.a.f.b.l);
             Y0(FilterParam.TuneColorFilter.saturation, c.a.b0.a.f.b.m);
             Y0(FilterParam.TuneColorFilter.curve, c.a.b0.a.f.b.n);
@@ -1753,17 +1753,17 @@ public class a {
     public boolean g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f1113e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.f1505e : invokeV.booleanValue;
     }
 
     public void g1() {
         DuMixController duMixController;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048623, this) == null) && d0 && (duMixController = this.f1114f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048623, this) == null) && d0 && (duMixController = this.f1506f) != null) {
             this.A = 0;
             IGLRenderer gLRenderer = duMixController.getGLRenderer();
             if (gLRenderer != null) {
-                gLRenderer.addFrameRenderListener(new C0011a(this));
+                gLRenderer.addFrameRenderListener(new C0031a(this));
             }
         }
     }
@@ -1780,7 +1780,7 @@ public class a {
             if (d0()) {
                 Q("DuAr_DuController", "startCaptureAbility");
             }
-            this.f1114f.startAbility("ability_capture", (HashMap<String, Object>) null);
+            this.f1506f.startAbility("ability_capture", (HashMap<String, Object>) null);
         }
     }
 
@@ -1795,7 +1795,7 @@ public class a {
                     c.a.b0.a.j.i.a("DuAr_DuController", "loadcase Path = " + str + ", arType = " + str2 + ", casePath = " + str2);
                 }
                 this.Q = str2;
-                this.f1114f.loadCase(aRType, str, str2);
+                this.f1506f.loadCase(aRType, str, str2);
                 s0(str, str2);
             }
         }
@@ -1807,7 +1807,7 @@ public class a {
             if (d0()) {
                 Q("DuAr_DuController", "stopCaptureAbility");
             }
-            this.f1114f.stopAbility("ability_capture");
+            this.f1506f.stopAbility("ability_capture");
         }
     }
 
@@ -1843,35 +1843,35 @@ public class a {
         }
     }
 
-    public void n0(a.C0014a c0014a, boolean z) {
+    public void n0(a.C0034a c0034a, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048630, this, c0014a, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048630, this, c0034a, z) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(FpsConstants.REPORT_FPS, c0014a.f1202c);
-                jSONObject.put("cpu", c0014a.a);
-                jSONObject.put("mem", c0014a.f1201b);
+                jSONObject.put(FpsConstants.REPORT_FPS, c0034a.f1595c);
+                jSONObject.put("cpu", c0034a.a);
+                jSONObject.put("mem", c0034a.f1594b);
                 if (z) {
-                    jSONObject.put("bft", c0014a.f1203d);
-                    jSONObject.put("sft", c0014a.f1204e);
+                    jSONObject.put("bft", c0034a.f1596d);
+                    jSONObject.put("sft", c0034a.f1597e);
                 } else {
-                    jSONObject.put("bft_val", c0014a.f1205f);
-                    jSONObject.put("sft_val", c0014a.f1206g);
+                    jSONObject.put("bft_val", c0034a.f1598f);
+                    jSONObject.put("sft_val", c0034a.f1599g);
                 }
-                if (c0014a.o != null && c0014a.o.length() > 0) {
-                    jSONObject.put("beauty", c0014a.o);
+                if (c0034a.o != null && c0034a.o.length() > 0) {
+                    jSONObject.put("beauty", c0034a.o);
                 }
-                if (c0014a.p != null && c0014a.p.length() > 0) {
-                    jSONObject.put("makeup", c0014a.p);
+                if (c0034a.p != null && c0034a.p.length() > 0) {
+                    jSONObject.put("makeup", c0034a.p);
                 }
-                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, c0014a.f1208i);
-                jSONObject.put(FaceItem.DIR_STICKER, c0014a.f1207h);
+                jSONObject.put(CloudControlRequest.REQUEST_KEY_FILTER, c0034a.f1601i);
+                jSONObject.put(FaceItem.DIR_STICKER, c0034a.f1600h);
                 String str = "1";
-                jSONObject.put(PushConstants.URI_PACKAGE_NAME, c0014a.f1210k ? "1" : "0");
-                jSONObject.put("lm", c0014a.f1209j ? "1" : "0");
-                jSONObject.put("pw", c0014a.n);
-                jSONObject.put("ew", c0014a.m);
-                if (!c0014a.l) {
+                jSONObject.put(PushConstants.URI_PACKAGE_NAME, c0034a.f1603k ? "1" : "0");
+                jSONObject.put("lm", c0034a.f1602j ? "1" : "0");
+                jSONObject.put("pw", c0034a.n);
+                jSONObject.put("ew", c0034a.m);
+                if (!c0034a.l) {
                     str = "0";
                 }
                 jSONObject.put("hevc", str);
@@ -1942,17 +1942,17 @@ public class a {
             try {
                 jSONObject.put("beauty_onsetup_ID", this.C);
                 int i2 = 1;
-                if (this.f1116h != null) {
-                    jSONObject.put("beauty_width", this.f1116h.getInputWidth());
-                    jSONObject.put("beauty_height", this.f1116h.getInputHeight());
-                    jSONObject.put("beauty_is_front_camera", this.f1116h.isFrontCamera() ? 1 : 0);
+                if (this.f1508h != null) {
+                    jSONObject.put("beauty_width", this.f1508h.getInputWidth());
+                    jSONObject.put("beauty_height", this.f1508h.getInputHeight());
+                    jSONObject.put("beauty_is_front_camera", this.f1508h.isFrontCamera() ? 1 : 0);
                     jSONObject.put("beauty_is_landscape", this.L ? 1 : 0);
                     jSONObject.put("beauty_is_sync", d0 ? 1 : 0);
                 }
-                if (this.f1117i != null) {
-                    jSONObject.put("beauty_out_width", this.f1117i.getOutputWidth());
-                    jSONObject.put("beauty_out_height", this.f1117i.getOutputHeight());
-                    jSONObject.put("beauty_out_fps", this.f1117i.getOutputFPS());
+                if (this.f1509i != null) {
+                    jSONObject.put("beauty_out_width", this.f1509i.getOutputWidth());
+                    jSONObject.put("beauty_out_height", this.f1509i.getOutputHeight());
+                    jSONObject.put("beauty_out_fps", this.f1509i.getOutputFPS());
                 }
                 jSONObject.put("beauty_is_resume", z ? 1 : 0);
                 File file = null;
@@ -1996,45 +1996,45 @@ public class a {
             if (d0()) {
                 Q("DuAr_DuController", "onARDrawerCreated frontCamera: " + z + ", surfaceTexture: " + surfaceTexture + "size[" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + " duMixCallback =" + duMixCallback);
             }
-            if (this.f1114f == null || this.f1116h == null) {
+            if (this.f1506f == null || this.f1508h == null) {
                 return;
             }
             if (i2 > 0 && i3 > 0) {
                 this.s = i2;
                 this.t = i3;
             }
-            this.f1118j = onFrameAvailableListener;
+            this.f1510j = onFrameAvailableListener;
             this.y = System.currentTimeMillis();
             if (surfaceTexture != null) {
-                surfaceTexture.setOnFrameAvailableListener(this.f1119k);
+                surfaceTexture.setOnFrameAvailableListener(this.f1511k);
             }
             K(duMixCallback);
             if (!this.u) {
-                this.f1116h.setFrontCamera(z);
-                if (this.f1110b != null) {
+                this.f1508h.setFrontCamera(z);
+                if (this.f1502b != null) {
                     Texture P = P(i2, i3);
                     this.x = P;
-                    this.f1117i = new DuMixOutput2(P, i2, i3);
+                    this.f1509i = new DuMixOutput2(P, i2, i3);
                 } else if (this.L) {
                     DuMixOutput duMixOutput = new DuMixOutput(surfaceTexture, this.t, this.s);
-                    this.f1117i = duMixOutput;
+                    this.f1509i = duMixOutput;
                     duMixOutput.setScreenOrientation(0);
                 } else {
-                    this.f1117i = new DuMixOutput(surfaceTexture, this.s, this.t);
+                    this.f1509i = new DuMixOutput(surfaceTexture, this.s, this.t);
                 }
                 int i4 = this.K;
                 if (i4 != 0) {
-                    this.f1117i.setOutputFPS(i4);
+                    this.f1509i.setOutputFPS(i4);
                 }
                 this.C = System.currentTimeMillis();
-                this.f1114f.setup(this.f1116h, this.f1117i, this.Z);
+                this.f1506f.setup(this.f1508h, this.f1509i, this.Z);
                 this.u = true;
                 r0(true);
-                q0("output", this.f1117i.getOutputWidth(), this.f1117i.getOutputHeight());
+                q0("output", this.f1509i.getOutputWidth(), this.f1509i.getOutputHeight());
                 Z().obtainMessage(3).sendToTarget();
                 return;
             }
-            this.f1114f.changeOutputSize(i2, i3);
+            this.f1506f.changeOutputSize(i2, i3);
             r0(false);
             q0("output", i2, i3);
         }
@@ -2073,15 +2073,15 @@ public class a {
                 this.q = i2;
                 this.r = i3;
             }
-            if (this.f1110b != null) {
+            if (this.f1502b != null) {
                 DuMixInput2 duMixInput2 = new DuMixInput2(this.w, i2, i3);
-                this.f1116h = duMixInput2;
+                this.f1508h = duMixInput2;
                 duMixInput2.setSyncInputContent(d0);
                 Q("DuAr_DuController", "onCameraDrawerCreated : sSyncInputContent = " + d0);
-                this.f1116h.setInputDegree(0);
+                this.f1508h.setInputDegree(0);
                 return;
             }
-            this.f1116h = new DuMixInput(surfaceTexture, this.q, this.r);
+            this.f1508h = new DuMixInput(surfaceTexture, this.q, this.r);
         }
     }
 
@@ -2101,7 +2101,7 @@ public class a {
             if (d0()) {
                 c.a.b0.a.j.i.a("DuAr_DuController", "onTouchEvent :");
             }
-            DuMixController duMixController = this.f1114f;
+            DuMixController duMixController = this.f1506f;
             if (duMixController != null) {
                 return duMixController.onTouch(view, motionEvent);
             }
@@ -2113,10 +2113,10 @@ public class a {
     public void y0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048641, this) == null) && a0 == this) {
-            if (this.f1114f != null) {
+            if (this.f1506f != null) {
                 Q("DuAr_DuController", "pause");
-                this.f1114f.pause();
-                this.f1112d = true;
+                this.f1506f.pause();
+                this.f1504d = true;
             }
             this.D.e();
         }

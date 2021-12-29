@@ -33,13 +33,13 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public IDetectionListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f52445b;
+    public Context f52448b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52446c;
+    public int f52449c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f52447d;
+    public String f52450d;
 
     /* renamed from: com.baidu.wallet.bankdetection.BankcardDetectionController$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -49,25 +49,25 @@ public class BankcardDetectionController extends Observable implements NoProguar
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f52448b;
+        public final /* synthetic */ String f52451b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BankcardDetectionController f52449c;
+        public final /* synthetic */ BankcardDetectionController f52452c;
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52449c.f52445b == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f52452c.f52448b == null) {
                 return;
             }
-            PayDownloadModule payDownloadModule = new PayDownloadModule(this.f52449c.f52445b, BeanConstants.SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME);
+            PayDownloadModule payDownloadModule = new PayDownloadModule(this.f52452c.f52448b, BeanConstants.SDK_DOWNLOAD_FILE_OCR_BANKCARD_MODULE_NAME);
             payDownloadModule.setPayDownloadCallBack(new PayDownloadModule.PayDownloadCallBack(this, payDownloadModule) { // from class: com.baidu.wallet.bankdetection.BankcardDetectionController.1.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayDownloadModule a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AnonymousClass1 f52450b;
+                public final /* synthetic */ AnonymousClass1 f52453b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -84,7 +84,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                             return;
                         }
                     }
-                    this.f52450b = this;
+                    this.f52453b = this;
                     this.a = payDownloadModule;
                 }
 
@@ -98,13 +98,13 @@ public class BankcardDetectionController extends Observable implements NoProguar
                         }
                         if (this.a != null) {
                             if (i2 == 2 || i2 == 3) {
-                                this.a.resetMD5AndDeleteDownloadFiles(this.f52450b.f52449c.f52445b);
+                                this.a.resetMD5AndDeleteDownloadFiles(this.f52453b.f52452c.f52448b);
                             }
                         }
                     }
                 }
             });
-            payDownloadModule.download(this.a, this.f52448b, ".zip");
+            payDownloadModule.download(this.a, this.f52451b, ".zip");
         }
     }
 
@@ -160,9 +160,9 @@ public class BankcardDetectionController extends Observable implements NoProguar
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iDetectionListener) == null) || iDetectionListener == null) {
             return;
         }
-        this.f52445b = context;
+        this.f52448b = context;
         this.a = iDetectionListener;
-        StatHelper.cacheUseOcrBankCard(this.f52446c);
+        StatHelper.cacheUseOcrBankCard(this.f52449c);
         StatHelper.cacheRealityBankCard(0);
         Intent intent = new Intent(context, BankCardDetectionActivity.class);
         StatHelper.bankCardDetction(PayStatServiceEvent.BANKCARD_DETCTION_ENTER, "");
@@ -176,7 +176,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
     public void initBankCardDetect(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f52445b = context;
+            this.f52448b = context;
             EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
             EventBus.getInstance().registerSticky(this, BeanConstants.SDKINIT_FAIL_EVENTBUS_EVENTKEY, 0, EventBus.ThreadMode.MainThread);
         }
@@ -196,9 +196,9 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 JSONObject jSONObject = new JSONObject(str);
                 LogUtil.d("----d", "obj:" + jSONObject.toString());
                 int optInt = jSONObject.optInt("useOcrBankCard", 0);
-                this.f52446c = optInt;
+                this.f52449c = optInt;
                 StatHelper.cacheUseOcrBankCard(optInt);
-                if (this.f52446c != 1) {
+                if (this.f52449c != 1) {
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -247,7 +247,7 @@ public class BankcardDetectionController extends Observable implements NoProguar
                 return;
             }
         }
-        this.f52446c = 0;
-        this.f52447d = "armeabi-v7a";
+        this.f52449c = 0;
+        this.f52450d = "armeabi-v7a";
     }
 }

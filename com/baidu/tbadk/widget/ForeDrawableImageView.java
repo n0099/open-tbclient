@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.l;
+import c.a.s0.s.k;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -87,7 +87,7 @@ public class ForeDrawableImageView extends TbImageView {
 
     public final void s(Canvas canvas, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i2, i3) == null) || StringUtils.isNull(this.Q) || l.c().g()) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, canvas, i2, i3) == null) || StringUtils.isNull(this.Q) || k.c().g()) {
             return;
         }
         canvas.drawText(this.Q, (int) (i2 - (this.S.measureText(this.Q) / 2.0f)), i3 + this.R, this.S);

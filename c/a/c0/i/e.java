@@ -15,16 +15,16 @@ public class e implements n {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f1769b;
+    public f f2196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1770c;
+    public int f2197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1771d;
+    public long f2198d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f1772e;
+    public AtomicBoolean f2199e;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -68,39 +68,39 @@ public class e implements n {
     @Override // c.a.c0.i.n
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f1772e.get()) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.f2199e.get()) {
             return;
         }
-        f fVar = this.f1769b;
+        f fVar = this.f2196b;
         if (fVar != null) {
             fVar.d();
-            this.f1769b = null;
-            this.f1770c = -1;
+            this.f2196b = null;
+            this.f2197c = -1;
         }
         if (z) {
-            if (this.f1771d == 0 || System.currentTimeMillis() - this.f1771d <= 300000) {
+            if (this.f2198d == 0 || System.currentTimeMillis() - this.f2198d <= 300000) {
                 return;
             }
-            if (this.f1772e.compareAndSet(false, true)) {
-                this.f1769b = new f(60, this.f1770c + 1, true);
+            if (this.f2199e.compareAndSet(false, true)) {
+                this.f2196b = new f(60, this.f2197c + 1, true);
             }
         } else {
-            if (this.f1772e.compareAndSet(false, true)) {
-                this.f1769b = new f(60, this.f1770c + 1, false);
+            if (this.f2199e.compareAndSet(false, true)) {
+                this.f2196b = new f(60, this.f2197c + 1, false);
             }
             c.a.c0.i.b.d().f();
         }
         b();
-        this.f1771d = System.currentTimeMillis();
+        this.f2198d = System.currentTimeMillis();
     }
 
     public void b() {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.f1770c + 1;
-            this.f1770c = i2;
-            if (i2 <= 2 && (fVar = this.f1769b) != null) {
+            int i2 = this.f2197c + 1;
+            this.f2197c = i2;
+            if (i2 <= 2 && (fVar = this.f2196b) != null) {
                 fVar.e();
             }
         }
@@ -109,7 +109,7 @@ public class e implements n {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1772e.set(false);
+            this.f2199e.set(false);
         }
     }
 
@@ -126,8 +126,8 @@ public class e implements n {
                 return;
             }
         }
-        this.f1770c = -1;
-        this.f1771d = 0L;
-        this.f1772e = new AtomicBoolean(false);
+        this.f2197c = -1;
+        this.f2198d = 0L;
+        this.f2199e = new AtomicBoolean(false);
     }
 }

@@ -45,10 +45,9 @@ public class ProgressHelper extends AbsHandlerTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int position = this.mPlayer.getPosition();
-            int positionMs = this.mPlayer.getPositionMs();
             int duration = this.mPlayer.getDuration();
             int bufferingPosition = this.mPlayer.getBufferingPosition();
-            this.mPlayer.getControlEventTrigger().syncPos(position, positionMs, duration, bufferingPosition);
+            this.mPlayer.getControlEventTrigger().syncPos(position, duration, bufferingPosition);
             callPlayerBack(position, duration, bufferingPosition);
         }
     }

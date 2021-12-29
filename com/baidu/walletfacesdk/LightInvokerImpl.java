@@ -157,7 +157,7 @@ public class LightInvokerImpl {
                 public final /* synthetic */ JSONObject a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IResultListener f54817b;
+                public final /* synthetic */ IResultListener f54820b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -175,7 +175,7 @@ public class LightInvokerImpl {
                         }
                     }
                     this.a = jSONObject2;
-                    this.f54817b = iResultListener;
+                    this.f54820b = iResultListener;
                 }
 
                 @Override // com.baidu.walletfacesdk.LivenessManager.IvoiceListener
@@ -191,7 +191,7 @@ public class LightInvokerImpl {
                         }
                         this.a.put("errCode", i3);
                         this.a.put("des", str2);
-                        this.f54817b.onResult(i2, this.a);
+                        this.f54820b.onResult(i2, this.a);
                     }
                 }
             });

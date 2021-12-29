@@ -6,18 +6,10 @@ import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i implements com.kwad.sdk.core.webview.kwai.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
+    public final Handler a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
     public b f58604b;
@@ -28,23 +20,7 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
 
     /* loaded from: classes3.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
     }
 
     /* loaded from: classes3.dex */
@@ -54,104 +30,50 @@ public class i implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f58604b = bVar;
-        this.a = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (bVar = this.f58604b) == null) {
-            return;
+        b bVar = this.f58604b;
+        if (bVar != null) {
+            bVar.a(i2);
         }
-        bVar.a(i2);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "hide" : (String) invokeV.objValue;
+        return "hide";
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            try {
-                this.f58605c = cVar;
-                a aVar = new a();
-                if (!TextUtils.isEmpty(str)) {
-                    aVar.parseJson(new JSONObject(str));
-                }
-                this.a.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.i.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ a a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ i f58606b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, aVar};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f58606b = this;
-                        this.a = aVar;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f58606b.a(this.a.a);
-                            if (this.f58606b.f58605c != null) {
-                                this.f58606b.f58605c.a(null);
-                            }
-                        }
-                    }
-                });
-            } catch (Exception e2) {
-                this.f58605c.a(-1, e2.getMessage());
-                com.kwad.sdk.core.d.a.b(e2);
+        try {
+            this.f58605c = cVar;
+            final a aVar = new a();
+            if (!TextUtils.isEmpty(str)) {
+                aVar.parseJson(new JSONObject(str));
             }
+            this.a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.i.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    i.this.a(aVar.a);
+                    if (i.this.f58605c != null) {
+                        i.this.f58605c.a(null);
+                    }
+                }
+            });
+        } catch (Exception e2) {
+            this.f58605c.a(-1, e2.getMessage());
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f58604b = null;
-            this.f58605c = null;
-            this.a.removeCallbacksAndMessages(null);
-        }
+        this.f58604b = null;
+        this.f58605c = null;
+        this.a.removeCallbacksAndMessages(null);
     }
 }

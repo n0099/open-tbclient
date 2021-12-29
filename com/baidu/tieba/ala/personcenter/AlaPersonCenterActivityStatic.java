@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter;
 
-import c.a.s0.d1.j0;
+import c.a.t0.d1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class AlaPersonCenterActivityStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.s0.a0.l.a aVar = new c.a.s0.a0.l.a();
+                c.a.t0.a0.l.a aVar = new c.a.t0.a0.l.a();
                 aVar.c(j0Var.c());
                 aVar.d(j0Var.d());
                 aVar.b(j0Var.b());

@@ -24,11 +24,11 @@ public class b extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38855b = "b";
+    public static final String f39011b = "b";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38856c;
+    public String f39012c;
 
     static {
         InterceptResult invokeClinit;
@@ -99,7 +99,7 @@ public class b extends com.baidu.platform.base.d {
                 return false;
             }
             geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-            geoCodeResult.setAddress(this.f38856c);
+            geoCodeResult.setAddress(this.f39012c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
             geoCodeResult.setLevel(optJSONObject.optString("level"));
@@ -173,7 +173,7 @@ public class b extends com.baidu.platform.base.d {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f38856c = str;
+            this.f39012c = str;
         }
     }
 }

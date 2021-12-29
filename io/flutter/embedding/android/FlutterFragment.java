@@ -405,7 +405,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
     public String getDartEntrypointFunctionName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getArguments().getString("dart_entrypoint", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getArguments().getString("dart_entrypoint", "main") : (String) invokeV.objValue;
     }
 
     @Nullable
@@ -822,7 +822,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
                     return;
                 }
             }
-            this.dartEntrypoint = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+            this.dartEntrypoint = "main";
             this.initialRoute = "/";
             this.handleDeeplinking = false;
             this.appBundlePath = null;
@@ -1012,7 +1012,7 @@ public class FlutterFragment extends Fragment implements FlutterActivityAndFragm
                     return;
                 }
             }
-            this.dartEntrypoint = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+            this.dartEntrypoint = "main";
             this.initialRoute = "/";
             this.handleDeeplinking = false;
             this.appBundlePath = null;

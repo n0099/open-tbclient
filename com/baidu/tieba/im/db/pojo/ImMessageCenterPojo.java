@@ -3,8 +3,8 @@ package com.baidu.tieba.im.db.pojo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
-import c.a.s0.s1.w.c;
+import c.a.d.f.p.m;
+import c.a.t0.s1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -98,7 +98,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (userData == null) {
                 return null;
             }
-            if (l.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+            if (m.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userData);
             }
             String toUid = commonMsgPojo.getToUid();
@@ -111,7 +111,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setNameShow(userData.getName_show());
                 imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
             } else if (userData2 != null) {
-                if (l.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                if (m.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());

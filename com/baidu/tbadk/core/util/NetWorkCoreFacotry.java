@@ -1,11 +1,10 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkManager1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +68,7 @@ public class NetWorkCoreFacotry {
                             currentType = 0;
                             BdLog.e("切换会老的网络内核");
                             TbadkCoreApplication.getInst().setNetWorkCoreType(currentType);
-                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + k.J() + ", TelType:" + k.f() + ", wap:" + getNetType(), 1, new Object[0]);
+                            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "network_core", "current Net：" + l.J() + ", TelType:" + l.f() + ", wap:" + getNetType(), 1, new Object[0]);
                         }
                     } else {
                         errorTime = 0;
@@ -101,14 +100,14 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                if (k.z()) {
-                    if (k.H()) {
+                if (l.z()) {
+                    if (l.H()) {
                         return "wifi";
                     }
-                    String c2 = k.c();
+                    String c2 = l.c();
                     if (c2 != null) {
                         if (c2.length() > 0) {
-                            return DeepLinkManager1.AD_WAP;
+                            return "wap";
                         }
                     }
                     return "net";

@@ -32,7 +32,6 @@ import com.baidu.apollon.ApollonConstants;
 import com.baidu.apollon.armor.SafePay;
 import com.baidu.apollon.permission.PermissionManager;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -69,34 +68,34 @@ public final class PhoneUtils {
     public static final Pattern a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f33630b;
+    public static final Pattern f33786b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f33631c;
+    public static final Pattern f33787c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f33632d;
+    public static final Pattern f33788d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33633e = "PhoneUtils";
+    public static final String f33789e = "PhoneUtils";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33634f = "_pay.preferences";
+    public static final String f33790f = "_pay.preferences";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33635g = "cuid_1";
+    public static final String f33791g = "cuid_1";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33636h = "cuid_2";
+    public static final String f33792h = "cuid_2";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33637i = "wime";
+    public static final String f33793i = "wime";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33638j = "identity_code";
+    public static final String f33794j = "identity_code";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f33639k = "phone_number";
+    public static final String f33795k = "phone_number";
     public static final String l = "card_no";
     public static final String m = "valid_date";
     public static final String n = "cvv2";
@@ -122,7 +121,7 @@ public final class PhoneUtils {
         public static final String a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f33640b = "features";
+        public static final String f33796b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -193,9 +192,9 @@ public final class PhoneUtils {
         }
         q = new ArrayList<>();
         a = Pattern.compile("((\\d|[A-F]){32}).*");
-        f33630b = Pattern.compile("((\\d|[a-f]){32}).*");
-        f33631c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
-        f33632d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
+        f33786b = Pattern.compile("((\\d|[a-f]){32}).*");
+        f33787c = Pattern.compile("((\\d|[A-F]){32}).*(\\|.*)");
+        f33788d = Pattern.compile("((\\d|[a-f]){32}).*(\\|.*)");
         q.add("card_no");
         q.add("valid_date");
         q.add("cvv2");
@@ -349,11 +348,11 @@ public final class PhoneUtils {
             if (cuid == null) {
                 return null;
             }
-            if (f33631c.matcher(cuid).matches()) {
+            if (f33787c.matcher(cuid).matches()) {
                 str2 = matcher.group(1) + matcher.group(3);
             }
             if (str2 == null) {
-                if (f33632d.matcher(cuid).matches()) {
+                if (f33788d.matcher(cuid).matches()) {
                     str = matcher2.group(1) + matcher2.group(3);
                 } else {
                     str = "";
@@ -729,7 +728,7 @@ public final class PhoneUtils {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
                 String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
-                    String str2 = str + TrackUI.SEPERATOR;
+                    String str2 = str + "\t";
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();
@@ -893,7 +892,7 @@ public final class PhoneUtils {
             Matcher matcher = a.matcher(deviceID);
             String group = matcher.matches() ? matcher.group(1) : null;
             if (group == null) {
-                Matcher matcher2 = f33630b.matcher(deviceID);
+                Matcher matcher2 = f33786b.matcher(deviceID);
                 return matcher2.matches() ? matcher2.group(1) : "";
             }
             return group;

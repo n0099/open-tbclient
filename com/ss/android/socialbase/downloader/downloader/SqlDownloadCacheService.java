@@ -6,105 +6,50 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SqlDownloadCacheService extends Service {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1154972622, "Lcom/ss/android/socialbase/downloader/downloader/SqlDownloadCacheService;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1154972622, "Lcom/ss/android/socialbase/downloader/downloader/SqlDownloadCacheService;");
-                return;
-            }
-        }
-        a = SqlDownloadCacheService.class.getSimpleName();
-    }
-
-    public SqlDownloadCacheService() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    public static final String a = SqlDownloadCacheService.class.getSimpleName();
 
     public static void a(Context context, ServiceConnection serviceConnection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, context, serviceConnection) == null) || context == null) {
-            return;
-        }
-        try {
-            Intent intent = new Intent(context, SqlDownloadCacheService.class);
-            if (serviceConnection != null) {
-                context.bindService(intent, serviceConnection, 1);
+        if (context != null) {
+            try {
+                Intent intent = new Intent(context, SqlDownloadCacheService.class);
+                if (serviceConnection != null) {
+                    context.bindService(intent, serviceConnection, 1);
+                }
+                context.startService(intent);
+            } catch (Throwable unused) {
             }
-            context.startService(intent);
-        } catch (Throwable unused) {
         }
     }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        InterceptResult invokeL;
         t tVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            j x = c.x();
-            if (x instanceof com.ss.android.socialbase.downloader.impls.d) {
-                tVar = ((com.ss.android.socialbase.downloader.impls.d) x).f();
-            } else {
-                tVar = x instanceof t ? (t) x : null;
-            }
-            if (tVar instanceof IBinder) {
-                return (IBinder) tVar;
-            }
-            return new Binder();
+        j x = c.x();
+        if (x instanceof com.ss.android.socialbase.downloader.impls.d) {
+            tVar = ((com.ss.android.socialbase.downloader.impls.d) x).f();
+        } else {
+            tVar = x instanceof t ? (t) x : null;
         }
-        return (IBinder) invokeL.objValue;
+        if (tVar instanceof IBinder) {
+            return (IBinder) tVar;
+        }
+        return new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.onCreate();
-            c.a(getApplicationContext());
-        }
+        super.onCreate();
+        c.a(getApplicationContext());
     }
 
     @Override // android.app.Service
     public int onStartCommand(Intent intent, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
-            int onStartCommand = super.onStartCommand(intent, i2, i3);
-            if (c.j()) {
-                return 2;
-            }
-            return onStartCommand;
+        int onStartCommand = super.onStartCommand(intent, i2, i3);
+        if (c.j()) {
+            return 2;
         }
-        return invokeLII.intValue;
+        return onStartCommand;
     }
 }

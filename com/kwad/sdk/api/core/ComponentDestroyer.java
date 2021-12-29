@@ -6,36 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class ComponentDestroyer {
-    public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ComponentDestroyer";
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public ComponentDestroyer() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
 
     public static void destroyActivity(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, activity) == null) || activity == null) {
+        if (activity == null) {
             return;
         }
         View decorView = activity.getWindow().getDecorView();
@@ -44,8 +22,7 @@ public class ComponentDestroyer {
     }
 
     public static void destroyFragment(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, fragment) == null) || fragment == null) {
+        if (fragment == null) {
             return;
         }
         View view = fragment.getView();
@@ -54,20 +31,17 @@ public class ComponentDestroyer {
     }
 
     public static synchronized void destroyWebViewInTree(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, view) == null) {
-            synchronized (ComponentDestroyer.class) {
-                if (view == null) {
-                    return;
-                }
-                if (view instanceof WebView) {
-                    ((WebView) view).destroy();
-                } else if (view instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i2 = 0; i2 < childCount; i2++) {
-                        destroyWebViewInTree(viewGroup.getChildAt(i2));
-                    }
+        synchronized (ComponentDestroyer.class) {
+            if (view == null) {
+                return;
+            }
+            if (view instanceof WebView) {
+                ((WebView) view).destroy();
+            } else if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    destroyWebViewInTree(viewGroup.getChildAt(i2));
                 }
             }
         }
@@ -75,8 +49,7 @@ public class ComponentDestroyer {
 
     public static void fixInputMethodManagerLeak(Context context, View view) {
         InputMethodManager inputMethodManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, view) == null) || context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+        if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};

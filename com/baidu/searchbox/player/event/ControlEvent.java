@@ -37,7 +37,6 @@ public class ControlEvent extends VideoEvent {
     @Deprecated
     public static final int KEY_PAYMENT_STATUS = 32;
     public static final int KEY_PROGRESS = 1;
-    public static final int KEY_PROGRESS_MS = 13;
     public static final int KEY_SEEK_MODE = 12;
     public static final int KEY_SEEK_PROGRESS = 5;
     public static final int KEY_SWITCH_MODE = 4;

@@ -141,7 +141,7 @@ public final class WebViewFactory {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
             if (c.a(mContext).a.a()) {
-                String str = aVar.f54844d + "libzeuswebviewchromium.so";
+                String str = aVar.f54847d + "libzeuswebviewchromium.so";
                 try {
                     j2 = new File(str).length();
                 } catch (Throwable th) {
@@ -172,7 +172,7 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f54844d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f54847d);
                 LoadErrorCode.getInstance().trace(522);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
@@ -605,7 +605,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f54844d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f54847d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -1481,7 +1481,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f54844d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f54847d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;

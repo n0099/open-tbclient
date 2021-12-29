@@ -1,7 +1,7 @@
 package com.baidu.tbadk.adBillingLog;
 
-import c.a.r0.d.c;
-import c.a.r0.d1.b0;
+import c.a.s0.d.c;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -44,18 +44,18 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (cVar = this.mReqData) == null) {
             return;
         }
-        builder.token = cVar.f12126d;
-        int i2 = cVar.f12128f;
+        builder.token = cVar.f12583d;
+        int i2 = cVar.f12585f;
         if (i2 >= 0) {
             builder.da_locate = String.valueOf(i2);
         }
-        int i3 = this.mReqData.f12124b;
+        int i3 = this.mReqData.f12581b;
         if (i3 >= 0) {
             builder.da_from = Integer.valueOf(i3);
         }
         c cVar2 = this.mReqData;
-        builder.extra_param = cVar2.f12127e;
-        builder.order_id = cVar2.f12125c;
+        builder.extra_param = cVar2.f12584e;
+        builder.order_id = cVar2.f12582c;
         int i4 = cVar2.a;
         if (i4 >= 0) {
             builder.da_type = String.valueOf(i4);

@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;

@@ -16,25 +16,25 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.a.a f63899b;
+    public com.yxcorp.kuaishou.addfp.a.a.a f63894b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f63900c;
+    public Context f63895c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63901d;
+    public String f63896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f63902e;
+    public String f63897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f63903f;
+    public String f63898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f63904g;
+    public String f63899g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f63905h;
+    public boolean f63900h;
 
     public d(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -51,20 +51,20 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
                 return;
             }
         }
-        this.f63901d = "";
-        this.f63902e = "";
-        this.f63903f = "";
-        this.f63904g = "";
-        this.f63905h = false;
-        this.f63899b = aVar;
-        this.f63900c = context;
+        this.f63896d = "";
+        this.f63897e = "";
+        this.f63898f = "";
+        this.f63899g = "";
+        this.f63900h = false;
+        this.f63894b = aVar;
+        this.f63895c = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = new e(this.f63900c, this);
+            this.a = new e(this.f63895c, this);
         }
     }
 
@@ -75,13 +75,13 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 if (TextUtils.isEmpty(str)) {
-                    aVar = this.f63899b;
+                    aVar = this.f63894b;
                 } else {
-                    this.f63901d = str;
+                    this.f63896d = str;
                     if (!TextUtils.isEmpty(str)) {
-                        this.f63899b.a(true, this);
+                        this.f63894b.a(true, this);
                     }
-                    aVar = this.f63899b;
+                    aVar = this.f63894b;
                 }
                 aVar.a(false, null);
             } catch (Throwable th) {
@@ -118,7 +118,7 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63901d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f63896d : (String) invokeV.objValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -149,7 +149,7 @@ public final class d implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void e() {
         com.yxcorp.kuaishou.addfp.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f63899b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f63894b) == null) {
             return;
         }
         aVar.a(false, this);

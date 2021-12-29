@@ -23,21 +23,21 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f54837b;
+    public static c f54840b;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f54838e;
+    public static final Object f54841e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Object f54839f;
+    public static final Object f54842f;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f54840c;
+    public b f54843c;
 
     /* renamed from: d  reason: collision with root package name */
-    public WebViewFactory.WebKitUnzipCallback f54841d;
+    public WebViewFactory.WebKitUnzipCallback f54844d;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -46,16 +46,16 @@ public final class c {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f54842b;
+        public Context f54845b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54843c;
+        public String f54846c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54844d;
+        public String f54847d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f54845e;
+        public boolean f54848e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 synchronized (this) {
-                    z = this.f54845e;
+                    z = this.f54848e;
                 }
                 return z;
             }
@@ -90,26 +90,26 @@ public final class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 synchronized (this) {
-                    if (this.f54845e) {
-                        this.f54845e = false;
+                    if (this.f54848e) {
+                        this.f54848e = false;
                     }
-                    if (this.f54845e) {
-                        if (this.f54842b.getFilesDir() == null) {
+                    if (this.f54848e) {
+                        if (this.f54845b.getFilesDir() == null) {
                             sb2 = null;
                         } else {
-                            if (this.f54842b.getApplicationInfo().nativeLibraryDir != null) {
+                            if (this.f54845b.getApplicationInfo().nativeLibraryDir != null) {
                                 sb = new StringBuilder();
-                                sb.append(this.f54842b.getApplicationInfo().nativeLibraryDir);
+                                sb.append(this.f54845b.getApplicationInfo().nativeLibraryDir);
                                 sb.append("/libzeuswebviewchromium.so");
                             } else {
                                 sb = new StringBuilder();
-                                sb.append(this.f54842b.getFilesDir().getParent());
+                                sb.append(this.f54845b.getFilesDir().getParent());
                                 sb.append("/lib/libzeuswebviewchromium.so");
                             }
                             sb2 = sb.toString();
                         }
-                        this.f54843c = sb2;
-                        this.f54844d = this.a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
+                        this.f54846c = sb2;
+                        this.f54847d = this.a + GlobalConstants.ZEUS_LIB_LOCAL_RELATIVE_PATH;
                     }
                 }
             }
@@ -123,20 +123,20 @@ public final class c {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f54846b;
+        public final /* synthetic */ c f54849b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Context f54847c;
+        public Context f54850c;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, this) == null) {
                 this.a = true;
-                synchronized (c.f54839f) {
-                    if (this.f54846b.f54841d != null) {
-                        this.f54846b.f54841d.unzipFinished();
-                        this.f54846b.f54841d = null;
+                synchronized (c.f54842f) {
+                    if (this.f54849b.f54844d != null) {
+                        this.f54849b.f54844d.unzipFinished();
+                        this.f54849b.f54844d = null;
                     }
                 }
             }
@@ -148,10 +148,10 @@ public final class c {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     boolean z = true;
-                    if (this.f54847c != null && SevenZipUtils.getInstance().prepare(this.f54847c, this.f54846b.a.f54843c, this.f54846b.a.f54844d)) {
+                    if (this.f54850c != null && SevenZipUtils.getInstance().prepare(this.f54850c, this.f54849b.a.f54846c, this.f54849b.a.f54847d)) {
                         ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.Start, ZeusPerformanceTiming.KEY_UNZIP);
                         SevenZipUtils.getInstance().hook(true);
-                        SevenZipUtils.getInstance().unzipWithMeta(this.f54846b.a.f54843c, this.f54846b.a.f54844d);
+                        SevenZipUtils.getInstance().unzipWithMeta(this.f54849b.a.f54846c, this.f54849b.a.f54847d);
                         Log.i("BlinkUnzipManager", "[perf][startup][unzip] finish.");
                         this.a = true;
                         int errorCode = SevenZipUtils.getInstance().getErrorCode();
@@ -197,7 +197,7 @@ public final class c {
                     }
                     LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                     StringBuilder sb = new StringBuilder("502:");
-                    if (this.f54847c != null) {
+                    if (this.f54850c != null) {
                         z = false;
                     }
                     sb.append(z);
@@ -226,8 +226,8 @@ public final class c {
                 return;
             }
         }
-        f54838e = new Object();
-        f54839f = new Object();
+        f54841e = new Object();
+        f54842f = new Object();
     }
 
     public c(Context context) {
@@ -249,7 +249,7 @@ public final class c {
         this.a = aVar;
         try {
             Context applicationContext = context.getApplicationContext();
-            aVar.f54842b = applicationContext;
+            aVar.f54845b = applicationContext;
             aVar.a = applicationContext.getFilesDir().toString();
         } catch (Exception unused) {
         }
@@ -261,10 +261,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             synchronized (c.class) {
-                if (f54837b == null) {
-                    f54837b = new c(context);
+                if (f54840b == null) {
+                    f54840b = new c(context);
                 }
-                cVar = f54837b;
+                cVar = f54840b;
             }
             return cVar;
         }
@@ -273,18 +273,18 @@ public final class c {
 
     private void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f54840c.isAlive() || this.f54840c.getState() == Thread.State.TERMINATED) {
+        if (!(interceptable == null || interceptable.invokeV(65543, this) == null) || this.f54843c.isAlive() || this.f54843c.getState() == Thread.State.TERMINATED) {
             return;
         }
         Log.i("BlinkUnzipManager", "[perf][startup][unzip] start task");
-        this.f54840c.start();
+        this.f54843c.start();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (f54838e) {
-                if (this.f54840c != null && this.a != null) {
+            synchronized (f54841e) {
+                if (this.f54843c != null && this.a != null) {
                     d();
                 }
             }
@@ -294,14 +294,14 @@ public final class c {
     public final void b() throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f54838e) {
+            synchronized (f54841e) {
                 try {
                     try {
-                        if (this.a.a() && this.f54840c != null) {
+                        if (this.a.a() && this.f54843c != null) {
                             d();
-                            this.f54840c.join(15000L);
-                            if (this.f54840c.a) {
-                                this.f54840c = null;
+                            this.f54843c.join(15000L);
+                            if (this.f54843c.a) {
+                                this.f54843c = null;
                             } else {
                                 LoadErrorCode.getInstance().set(102);
                                 throw new TimeoutException("unzip task not finished.");

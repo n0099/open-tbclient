@@ -12,13 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.download.a.a;
@@ -34,8 +27,6 @@ import com.kwad.sdk.utils.az;
 import com.kwad.sdk.widget.KsLogoView;
 /* loaded from: classes3.dex */
 public class DrawCardApp extends FrameLayout implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public AdTemplate a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -80,298 +71,154 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
         void b();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawCardApp(Context context) {
         super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawCardApp(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawCardApp(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         a(context);
     }
 
     private void a(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3) == null) {
-            d();
-            ValueAnimator a2 = az.a(this, i2, i3);
-            this.p = a2;
-            a2.setInterpolator(new DecelerateInterpolator(2.0f));
-            this.p.setDuration(300L);
-            this.p.start();
-        }
+        d();
+        ValueAnimator a2 = az.a(this, i2, i3);
+        this.p = a2;
+        a2.setInterpolator(new DecelerateInterpolator(2.0f));
+        this.p.setDuration(300L);
+        this.p.start();
     }
 
     private void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.ksad_draw_card_app, this);
-            this.f58972g = (ImageView) findViewById(R.id.ksad_card_app_close);
-            this.f58973h = (ImageView) findViewById(R.id.ksad_card_app_icon);
-            this.f58974i = (TextView) findViewById(R.id.ksad_card_app_name);
-            this.f58975j = (ViewGroup) findViewById(R.id.ksad_card_app_score_container);
-            this.f58976k = (AppScoreView) findViewById(R.id.ksad_card_app_score);
-            this.l = (TextView) findViewById(R.id.ksad_card_app_download_count);
-            this.m = (TextView) findViewById(R.id.ksad_card_app_desc);
-            this.n = (KsLogoView) findViewById(R.id.ksad_card_logo);
-            DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_card_app_download_btn);
-            this.o = drawDownloadProgressBar;
-            drawDownloadProgressBar.setTextSize(16);
-            this.f58971f = com.kwad.sdk.a.kwai.a.a(context, 156.0f);
-        }
+        FrameLayout.inflate(context, R.layout.ksad_draw_card_app, this);
+        this.f58972g = (ImageView) findViewById(R.id.ksad_card_app_close);
+        this.f58973h = (ImageView) findViewById(R.id.ksad_card_app_icon);
+        this.f58974i = (TextView) findViewById(R.id.ksad_card_app_name);
+        this.f58975j = (ViewGroup) findViewById(R.id.ksad_card_app_score_container);
+        this.f58976k = (AppScoreView) findViewById(R.id.ksad_card_app_score);
+        this.l = (TextView) findViewById(R.id.ksad_card_app_download_count);
+        this.m = (TextView) findViewById(R.id.ksad_card_app_desc);
+        this.n = (KsLogoView) findViewById(R.id.ksad_card_logo);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.ksad_card_app_download_btn);
+        this.o = drawDownloadProgressBar;
+        drawDownloadProgressBar.setTextSize(16);
+        this.f58971f = com.kwad.sdk.a.kwai.a.a(context, 156.0f);
     }
 
     private void d() {
-        ValueAnimator valueAnimator;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (valueAnimator = this.p) == null) {
-            return;
+        ValueAnimator valueAnimator = this.p;
+        if (valueAnimator != null) {
+            valueAnimator.removeAllListeners();
+            this.p.cancel();
         }
-        valueAnimator.removeAllListeners();
-        this.p.cancel();
     }
 
     private KsAppDownloadListener getAppDownloadListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            if (this.f58969d == null) {
-                this.f58969d = new c(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        if (this.f58969d == null) {
+            this.f58969d = new c() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.1
+                @Override // com.kwad.sdk.core.download.a.c
+                public void a(int i2) {
+                    super.a(i2);
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.a(), i2);
+                }
 
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ DrawCardApp f58977b;
+                @Override // com.kwad.sdk.api.KsAppDownloadListener
+                public void onDownloadFailed() {
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f58967b), DrawCardApp.this.o.getMax());
+                }
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f58977b = this;
-                    }
+                @Override // com.kwad.sdk.api.KsAppDownloadListener
+                public void onDownloadFinished() {
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.a(DrawCardApp.this.a), DrawCardApp.this.o.getMax());
+                }
 
-                    @Override // com.kwad.sdk.core.download.a.c
-                    public void a(int i2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            super.a(i2);
-                            this.f58977b.o.a(com.kwad.sdk.core.response.a.a.a(), i2);
-                        }
-                    }
+                @Override // com.kwad.sdk.api.KsAppDownloadListener
+                public void onIdle() {
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.A(DrawCardApp.this.f58967b), DrawCardApp.this.o.getMax());
+                }
 
-                    @Override // com.kwad.sdk.api.KsAppDownloadListener
-                    public void onDownloadFailed() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            this.f58977b.o.a(com.kwad.sdk.core.response.a.a.A(this.f58977b.f58967b), this.f58977b.o.getMax());
-                        }
-                    }
+                @Override // com.kwad.sdk.api.KsAppDownloadListener
+                public void onInstalled() {
+                    DrawCardApp.this.o.a(com.kwad.sdk.core.response.a.a.m(DrawCardApp.this.f58967b), DrawCardApp.this.o.getMax());
+                }
 
-                    @Override // com.kwad.sdk.api.KsAppDownloadListener
-                    public void onDownloadFinished() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                            this.f58977b.o.a(com.kwad.sdk.core.response.a.a.a(this.f58977b.a), this.f58977b.o.getMax());
-                        }
-                    }
-
-                    @Override // com.kwad.sdk.api.KsAppDownloadListener
-                    public void onIdle() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                            this.f58977b.o.a(com.kwad.sdk.core.response.a.a.A(this.f58977b.f58967b), this.f58977b.o.getMax());
-                        }
-                    }
-
-                    @Override // com.kwad.sdk.api.KsAppDownloadListener
-                    public void onInstalled() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                            this.f58977b.o.a(com.kwad.sdk.core.response.a.a.m(this.f58977b.f58967b), this.f58977b.o.getMax());
-                        }
-                    }
-
-                    @Override // com.kwad.sdk.api.KsAppDownloadListener
-                    public void onProgressUpdate(int i2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048581, this, i2) == null) {
-                            DrawDownloadProgressBar drawDownloadProgressBar = this.f58977b.o;
-                            drawDownloadProgressBar.a(i2 + "%", i2);
-                        }
-                    }
-                };
-            }
-            return this.f58969d;
+                @Override // com.kwad.sdk.api.KsAppDownloadListener
+                public void onProgressUpdate(int i2) {
+                    DrawDownloadProgressBar drawDownloadProgressBar = DrawCardApp.this.o;
+                    drawDownloadProgressBar.a(i2 + "%", i2);
+                }
+            };
         }
-        return (KsAppDownloadListener) invokeV.objValue;
+        return this.f58969d;
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-            this.f58968c = null;
-        }
+        d();
+        this.f58968c = null;
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, aVar) == null) {
-            this.a = adTemplate;
-            this.f58967b = d.j(adTemplate);
-            this.f58970e = aVar;
-            this.f58968c = new b(this.a, getAppDownloadListener());
-            KSImageLoader.loadAppIcon(this.f58973h, com.kwad.sdk.core.response.a.a.au(this.f58967b), adTemplate, 11);
-            this.f58974i.setText(com.kwad.sdk.core.response.a.a.t(this.f58967b));
-            String w = com.kwad.sdk.core.response.a.a.w(this.f58967b);
-            float x = com.kwad.sdk.core.response.a.a.x(this.f58967b);
-            boolean z = x >= 3.0f;
-            if (z) {
-                this.f58976k.setScore(x);
-                this.f58976k.setVisibility(0);
-            }
-            boolean z2 = !TextUtils.isEmpty(w);
-            if (z2) {
-                this.l.setText(w);
-                this.l.setVisibility(0);
-            }
-            if (z || z2) {
-                this.f58975j.setVisibility(0);
-            } else {
-                this.f58975j.setVisibility(8);
-            }
-            this.n.a(this.a);
-            this.m.setText(com.kwad.sdk.core.response.a.a.s(this.f58967b));
-            this.f58972g.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            setOnClickListener(this);
+        this.a = adTemplate;
+        this.f58967b = d.j(adTemplate);
+        this.f58970e = aVar;
+        this.f58968c = new b(this.a, getAppDownloadListener());
+        KSImageLoader.loadAppIcon(this.f58973h, com.kwad.sdk.core.response.a.a.au(this.f58967b), adTemplate, 11);
+        this.f58974i.setText(com.kwad.sdk.core.response.a.a.t(this.f58967b));
+        String w = com.kwad.sdk.core.response.a.a.w(this.f58967b);
+        float x = com.kwad.sdk.core.response.a.a.x(this.f58967b);
+        boolean z = x >= 3.0f;
+        if (z) {
+            this.f58976k.setScore(x);
+            this.f58976k.setVisibility(0);
         }
+        boolean z2 = !TextUtils.isEmpty(w);
+        if (z2) {
+            this.l.setText(w);
+            this.l.setVisibility(0);
+        }
+        if (z || z2) {
+            this.f58975j.setVisibility(0);
+        } else {
+            this.f58975j.setVisibility(8);
+        }
+        this.n.a(this.a);
+        this.m.setText(com.kwad.sdk.core.response.a.a.s(this.f58967b));
+        this.f58972g.setOnClickListener(this);
+        this.o.setOnClickListener(this);
+        setOnClickListener(this);
     }
 
     public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(0, this.f58971f);
-        }
+        a(0, this.f58971f);
     }
 
     public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(this.f58971f, 0);
-        }
+        a(this.f58971f, 0);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            if (view != this.f58972g) {
-                com.kwad.sdk.core.download.a.a.a(new a.C2076a(getContext()).a(this.a).a(this.f58968c).a(view == this.o).a(view == this.o ? 1 : 2).a(new a.b(this) { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ DrawCardApp a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
+        if (view != this.f58972g) {
+            com.kwad.sdk.core.download.a.a.a(new a.C2083a(getContext()).a(this.a).a(this.f58968c).a(view == this.o).a(view == this.o ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardApp.2
+                @Override // com.kwad.sdk.core.download.a.a.b
+                public void a() {
+                    if (DrawCardApp.this.f58970e != null) {
+                        DrawCardApp.this.f58970e.b();
                     }
-
-                    @Override // com.kwad.sdk.core.download.a.a.b
-                    public void a() {
-                        Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f58970e == null) {
-                            return;
-                        }
-                        this.a.f58970e.b();
-                    }
-                }));
-                return;
-            }
-            c();
-            a aVar = this.f58970e;
-            if (aVar != null) {
-                aVar.a();
-            }
+                }
+            }));
+            return;
+        }
+        c();
+        a aVar = this.f58970e;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes10.dex */
-public class IdleTaskRegister implements a.InterfaceC0077a {
+public class IdleTaskRegister implements a.InterfaceC0098a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, IdleLaunchTask> mTaskMap;
@@ -31,7 +31,7 @@ public class IdleTaskRegister implements a.InterfaceC0077a {
         this.mTaskMap = new HashMap();
     }
 
-    @Override // c.a.d.e.a.InterfaceC0077a
+    @Override // c.a.d.e.a.InterfaceC0098a
     public void registerIdleTask(String str, Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
@@ -74,7 +74,7 @@ public class IdleTaskRegister implements a.InterfaceC0077a {
         }
     }
 
-    @Override // c.a.d.e.a.InterfaceC0077a
+    @Override // c.a.d.e.a.InterfaceC0098a
     public void scheduleIdleTask(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {

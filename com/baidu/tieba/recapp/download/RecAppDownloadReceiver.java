@@ -3,7 +3,7 @@ package com.baidu.tieba.recapp.download;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.s0.j3.f0.k;
+import c.a.t0.j3.f0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.download.DownloadData;

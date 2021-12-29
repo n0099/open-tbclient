@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,13 +64,13 @@ public class FacePackageData extends AbstractImageProvider implements Serializab
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            if (!l.isEmpty(this.banner_url)) {
+            if (!m.isEmpty(this.banner_url)) {
                 arrayList.add(this.banner_url);
             }
-            if (!l.isEmpty(this.new_icon)) {
+            if (!m.isEmpty(this.new_icon)) {
                 arrayList.add(this.new_icon);
             }
-            if (!l.isEmpty(this.tag_url)) {
+            if (!m.isEmpty(this.tag_url)) {
                 arrayList.add(this.tag_url);
             }
             return arrayList;

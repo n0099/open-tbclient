@@ -14,9 +14,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.d.f.m.g;
-import c.a.d.f.p.m;
-import c.a.r0.s.t.i;
+import c.a.d.f.p.n;
+import c.a.s0.s.s.g;
+import c.a.s0.s.s.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -41,25 +41,25 @@ public class PopupDialog extends Dialog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41446e;
+    public Context f41605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f41447f;
+    public f f41606f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f41448g;
+    public LinearLayout f41607g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f41449h;
+    public float f41608h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f41450i;
+    public boolean f41609i;
 
     /* renamed from: j  reason: collision with root package name */
-    public i f41451j;
+    public j f41610j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f41452k;
+    public boolean f41611k;
     public CustomMessageListener l;
     public View mContentView;
 
@@ -94,8 +94,8 @@ public class PopupDialog extends Dialog {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && this.a.f41451j != null) {
-                this.a.f41451j.i();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && this.a.f41610j != null) {
+                this.a.f41610j.i();
             }
         }
     }
@@ -106,7 +106,7 @@ public class PopupDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f41453e;
+        public final /* synthetic */ PopupDialog f41612e;
 
         public b(PopupDialog popupDialog) {
             Interceptable interceptable = $ic;
@@ -123,14 +123,14 @@ public class PopupDialog extends Dialog {
                     return;
                 }
             }
-            this.f41453e = popupDialog;
+            this.f41612e = popupDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f41453e.cancel();
+                this.f41612e.cancel();
             }
         }
     }
@@ -195,7 +195,7 @@ public class PopupDialog extends Dialog {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f41454e;
+            public final /* synthetic */ d f41613e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -212,16 +212,16 @@ public class PopupDialog extends Dialog {
                         return;
                     }
                 }
-                this.f41454e = dVar;
+                this.f41613e = dVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41454e.a.f41447f == null || this.f41454e.a.f41447f.getPageActivity() == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41613e.a.f41606f == null || this.f41613e.a.f41606f.getPageActivity() == null) {
                     return;
                 }
-                Activity pageActivity = this.f41454e.a.f41447f.getPageActivity();
+                Activity pageActivity = this.f41613e.a.f41606f.getPageActivity();
                 if (pageActivity.isFinishing() || pageActivity.getWindow() == null) {
                     return;
                 }
@@ -251,8 +251,8 @@ public class PopupDialog extends Dialog {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f41450i = false;
-                this.a.f41448g.post(new a(this));
+                this.a.f41609i = false;
+                this.a.f41607g.post(new a(this));
             }
         }
 
@@ -267,7 +267,7 @@ public class PopupDialog extends Dialog {
         public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                this.a.f41450i = true;
+                this.a.f41609i = true;
             }
         }
     }
@@ -288,13 +288,13 @@ public class PopupDialog extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PopupDialog(f fVar, i iVar) {
+    public PopupDialog(f fVar, j jVar) {
         super(fVar.getPageActivity(), 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, iVar};
+            Object[] objArr = {fVar, jVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -306,26 +306,26 @@ public class PopupDialog extends Dialog {
                 return;
             }
         }
-        this.f41449h = 0.33f;
-        this.f41450i = false;
-        this.f41452k = true;
+        this.f41608h = 0.33f;
+        this.f41609i = false;
+        this.f41611k = true;
         this.l = new a(this, 2001304);
-        this.f41447f = fVar;
-        this.f41446e = fVar.getPageActivity();
-        this.f41451j = iVar;
-        this.mContentView = iVar.c();
+        this.f41606f = fVar;
+        this.f41605e = fVar.getPageActivity();
+        this.f41610j = jVar;
+        this.mContentView = jVar.c();
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41448g == null || this.f41450i || !isShowing()) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f41607g == null || this.f41609i || !isShowing()) {
             return;
         }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f41446e, R.anim.pop_exit_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f41605e, R.anim.pop_exit_anim);
         loadAnimation.setFillAfter(true);
         loadAnimation.setAnimationListener(new d(this));
-        this.f41448g.startAnimation(loadAnimation);
+        this.f41607g.startAnimation(loadAnimation);
         MessageManager.getInstance().unRegisterListener(this.l);
         MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.FALSE));
     }
@@ -339,7 +339,7 @@ public class PopupDialog extends Dialog {
     public LinearLayout getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41448g : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41607g : (LinearLayout) invokeV.objValue;
     }
 
     @Override // android.app.Dialog
@@ -361,35 +361,35 @@ public class PopupDialog extends Dialog {
             super.onCreate(bundle);
             requestWindowFeature(1);
             setContentView(R.layout.popup_dialog);
-            Display defaultDisplay = ((WindowManager) this.f41446e.getSystemService("window")).getDefaultDisplay();
+            Display defaultDisplay = ((WindowManager) this.f41605e.getSystemService("window")).getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = defaultDisplay.getHeight();
-            if (this.f41452k) {
-                attributes.y = m.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
+            if (this.f41611k) {
+                attributes.y = n.f(TbadkCoreApplication.getInst(), R.dimen._bottom_enter_anim_place_holder_height);
                 getWindow().addFlags(512);
             }
             getWindow().setAttributes(attributes);
             getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.f41449h);
+            getWindow().setDimAmount(this.f41608h);
             getWindow().setGravity(80);
             getWindow().setWindowAnimations(0);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-            this.f41448g = linearLayout;
+            this.f41607g = linearLayout;
             linearLayout.setOnClickListener(new b(this));
             View view = this.mContentView;
             if (view == null) {
                 return;
             }
-            this.f41448g.removeView(view);
-            if (this.f41452k) {
+            this.f41607g.removeView(view);
+            if (this.f41611k) {
                 View view2 = this.mContentView;
                 if ((view2 instanceof ViewGroup) && ((ViewGroup) view2).getChildAt(((ViewGroup) view2).getChildCount() - 1).getId() != m) {
                     View view3 = new View(getContext());
                     view3.setId(m);
-                    view3.setLayoutParams(new ViewGroup.LayoutParams(-1, m.f(getContext(), R.dimen.bottom_enter_anim_place_holder_height)));
+                    view3.setLayoutParams(new ViewGroup.LayoutParams(-1, n.f(getContext(), R.dimen.bottom_enter_anim_place_holder_height)));
                     SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
                     ((ViewGroup) this.mContentView).addView(view3);
                 }
@@ -397,55 +397,55 @@ public class PopupDialog extends Dialog {
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.f41448g.addView(this.mContentView);
+                    this.f41607g.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.f41448g.addView(this.mContentView);
+            this.f41607g.addView(this.mContentView);
         }
     }
 
-    public void setContentView(i iVar) {
+    public void setContentView(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, iVar) == null) {
-            this.f41451j = iVar;
-            this.mContentView = iVar.c();
+        if (interceptable == null || interceptable.invokeL(1048582, this, jVar) == null) {
+            this.f41610j = jVar;
+            this.mContentView = jVar.c();
         }
     }
 
-    public void setDefaultContentView(String str, String[] strArr, i.e eVar) {
+    public void setDefaultContentView(String str, String[] strArr, j.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, strArr, eVar) == null) {
-            this.f41451j = new i(this.f41446e);
+            this.f41610j = new j(this.f41605e);
             if (!StringUtils.isNull(str)) {
-                this.f41451j.p(str);
+                this.f41610j.p(str);
             }
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < strArr.length; i2++) {
-                arrayList.add(new c.a.r0.s.t.f(i2, strArr[i2], this.f41451j));
+                arrayList.add(new g(i2, strArr[i2], this.f41610j));
             }
-            this.f41451j.j(arrayList);
-            this.f41451j.m(eVar);
+            this.f41610j.j(arrayList);
+            this.f41610j.m(eVar);
             setCanceledOnTouchOutside(true);
-            this.mContentView = this.f41451j.c();
+            this.mContentView = this.f41610j.c();
         }
     }
 
     public void setTitleContent(SpannableStringBuilder spannableStringBuilder) {
-        i iVar;
+        j jVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, spannableStringBuilder) == null) || (iVar = this.f41451j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, spannableStringBuilder) == null) || (jVar = this.f41610j) == null) {
             return;
         }
-        iVar.n(spannableStringBuilder);
-        this.f41451j.o();
+        jVar.n(spannableStringBuilder);
+        this.f41610j.o();
     }
 
     public void setWindowDimAmount(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f41449h = f2;
+            this.f41608h = f2;
         }
     }
 
@@ -454,23 +454,23 @@ public class PopupDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.show();
-            this.f41447f.registerListener(this.l);
+            this.f41606f.registerListener(this.l);
         }
     }
 
     public void showDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f41450i = false;
+            this.f41609i = false;
             if (isShowing()) {
                 super.dismiss();
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(g.j(this, this.f41447f))));
-            if (this.f41448g != null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f41446e, R.anim.bomb_pop_enter_anim);
+            MessageManager.getInstance().dispatchResponsedMessage(new WindowSwitchMessage(Boolean.valueOf(c.a.d.f.m.g.j(this, this.f41606f))));
+            if (this.f41607g != null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f41605e, R.anim.bomb_pop_enter_anim);
                 loadAnimation.setFillAfter(true);
                 loadAnimation.setAnimationListener(new c(this));
-                this.f41448g.startAnimation(loadAnimation);
+                this.f41607g.startAnimation(loadAnimation);
             }
         }
     }
@@ -502,11 +502,11 @@ public class PopupDialog extends Dialog {
                 return;
             }
         }
-        this.f41449h = 0.33f;
-        this.f41450i = false;
-        this.f41452k = true;
+        this.f41608h = 0.33f;
+        this.f41609i = false;
+        this.f41611k = true;
         this.l = new a(this, 2001304);
-        this.f41446e = fVar.getPageActivity();
-        this.f41447f = fVar;
+        this.f41605e = fVar.getPageActivity();
+        this.f41606f = fVar;
     }
 }

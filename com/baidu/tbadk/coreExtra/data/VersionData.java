@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
@@ -189,7 +189,7 @@ public class VersionData implements Serializable {
             this.newVer = jSONObject.optString("new_version", null);
             this.size = jSONObject.optString("size", null);
             String optString = jSONObject.optString("new_four_version", null);
-            if (!l.isEmpty(optString)) {
+            if (!m.isEmpty(optString)) {
                 this.newVer = optString;
             }
             this.url = jSONObject.optString("new_version_url");

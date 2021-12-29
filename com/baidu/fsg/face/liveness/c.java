@@ -15,20 +15,20 @@ public class c {
     public static final int a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f35267b = 2;
+    public static final int f35423b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35268c;
+    public static final String f35424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35269d;
+    public static final String f35425d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35270e;
+    public static final String f35426e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f35271f;
+    public Context f35427f;
 
     /* loaded from: classes10.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
@@ -36,32 +36,32 @@ public class c {
         public static final int a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f35272b = 2;
+        public static final int f35428b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f35273c = 5;
+        public static final int f35429c = 5;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f35274d = -306;
+        public static final int f35430d = -306;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f35275e;
+        public String f35431e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f35276f;
+        public String f35432f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f35277g;
+        public boolean f35433g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f35278h;
+        public boolean f35434h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f35279i;
+        public boolean f35435i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ c f35280j;
+        public final /* synthetic */ c f35436j;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -78,12 +78,12 @@ public class c {
                     return;
                 }
             }
-            this.f35280j = cVar;
-            this.f35278h = true;
-            this.f35279i = false;
-            this.msgMap.put(1, c.f35268c);
-            this.msgMap.put(2, c.f35269d);
-            this.msgMap.put(-306, c.f35270e);
+            this.f35436j = cVar;
+            this.f35434h = true;
+            this.f35435i = false;
+            this.msgMap.put(1, c.f35424c);
+            this.msgMap.put(2, c.f35425d);
+            this.msgMap.put(-306, c.f35426e);
         }
     }
 
@@ -100,9 +100,9 @@ public class c {
                 return;
             }
         }
-        f35268c = ResUtils.string("error_msg_get_userinfo_failure");
-        f35269d = ResUtils.string("error_msg_upload_failure");
-        f35270e = ResUtils.string("error_msg_image_file_empty");
+        f35424c = ResUtils.string("error_msg_get_userinfo_failure");
+        f35425d = ResUtils.string("error_msg_upload_failure");
+        f35426e = ResUtils.string("error_msg_image_file_empty");
     }
 
     public c(Context context) {
@@ -120,7 +120,7 @@ public class c {
                 return;
             }
         }
-        this.f35271f = context;
+        this.f35427f = context;
     }
 
     public void a() {

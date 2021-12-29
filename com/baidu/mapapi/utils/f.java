@@ -12,7 +12,7 @@ public final class f implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f36773b;
+    public final /* synthetic */ int f36929b;
 
     public f(Context context, int i2) {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public final class f implements Runnable {
             }
         }
         this.a = context;
-        this.f36773b = i2;
+        this.f36929b = i2;
     }
 
     @Override // java.lang.Runnable
@@ -42,7 +42,7 @@ public final class f implements Runnable {
             do {
                 if (System.currentTimeMillis() - currentTimeMillis > 3000) {
                     b.a(this.a);
-                    b.a(this.f36773b, this.a);
+                    b.a(this.f36929b, this.a);
                 }
                 thread = b.v;
             } while (!thread.isInterrupted());

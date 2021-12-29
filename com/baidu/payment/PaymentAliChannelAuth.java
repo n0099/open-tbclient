@@ -1,7 +1,7 @@
 package com.baidu.payment;
 
 import android.app.Activity;
-import c.a.g0.l.a;
+import c.a.h0.l.a;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import c.g.a0.b.c;
+import c.g.b0.b.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;

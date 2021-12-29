@@ -3,11 +3,11 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.s0.c0.b.d;
-import c.a.s0.c0.b.e;
-import c.a.s0.c0.b.f;
-import c.a.s0.c0.e.a;
-import c.a.s0.c0.e.c;
+import c.a.t0.c0.b.d;
+import c.a.t0.c0.b.e;
+import c.a.t0.c0.b.f;
+import c.a.t0.c0.e.a;
+import c.a.t0.c0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import java.util.List;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CardBasicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class CardBasicLayout extends LinearLayout {
                 return;
             }
             int g2 = a.g();
-            if (g2 == c.f15382b) {
+            if (g2 == c.f15706b) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f15381d;
+                    this.status = a.f15705d;
                     this.mElectionData = this.mData.f();
                     return;
                 }
@@ -80,9 +80,9 @@ public class CardBasicLayout extends LinearLayout {
                     return;
                 }
                 this.mElectionData = b2.get(i2);
-            } else if (g2 == c.f15383c) {
+            } else if (g2 == c.f15707c) {
                 if (i2 == VoteCandidateCard.MINE_VOTE) {
-                    this.status = a.f15380c;
+                    this.status = a.f15704c;
                     List<d> b3 = this.mData.b();
                     if (b3 == null || b3.size() <= 0) {
                         return;
@@ -95,7 +95,7 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.f15379b;
+                this.status = a.f15703b;
                 List<d> b4 = this.mData.b();
                 if (b4 == null || b4.size() <= i2) {
                     return;
@@ -103,7 +103,7 @@ public class CardBasicLayout extends LinearLayout {
                 d dVar2 = b4.get(i2);
                 this.mElectionData = dVar2;
                 if (dVar2.i() == 1 && i2 == 0) {
-                    this.status = a.f15380c;
+                    this.status = a.f15704c;
                 }
             }
         }

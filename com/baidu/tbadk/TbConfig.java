@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.c0.c;
+import c.a.d.f.p.n;
+import c.a.s0.c0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -376,6 +376,7 @@ public class TbConfig {
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
     public static final int NOTIFY_SPORT_MATCH = 2001;
     public static final int NOTIFY_YUN_PUSH = 2500;
+    public static String NOVEL_PAY = null;
     public static final long ONE_DAY_TIME = 86400000;
     public static final String OP_BOOKRACK = "c/c/encourage/tbread/opBookrack";
     public static final int PB_BJH_REPLY_MUTI_IMAGE_MAX_COUNT = 1;
@@ -868,6 +869,7 @@ public class TbConfig {
         VOTE_ADD = "c/c/post/addPollPost";
         ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
         COMMIT_GRAFFITI = "c/c/graffiti/commit";
+        NOVEL_PAY = "c/s/adNovelPay";
         COULD_UPDATE = true;
         FORCE_UPDATE = false;
         VALUE_COMMON_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
@@ -1124,7 +1126,7 @@ public class TbConfig {
     public static final int getDimens(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? m.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? n.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1374,7 +1376,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(m.k(context) * m.i(context));
+        int sqrt = (int) Math.sqrt(n.k(context) * n.i(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1401,7 +1403,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, context)) == null) {
-            int d2 = m.d(context, 427.0f);
+            int d2 = n.d(context, 427.0f);
             if (d2 > 640) {
                 d2 = 640;
             }

@@ -1,13 +1,13 @@
 package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
-import c.a.d.m.e.p;
-import c.a.s0.h.a.a;
-import c.a.s0.h.d;
-import c.a.s0.h.e.b;
-import c.a.s0.h.e.c;
-import c.a.s0.h.e.e;
-import c.a.s0.h.e.h;
+import c.a.d.n.e.p;
+import c.a.t0.h.a.a;
+import c.a.t0.h.d;
+import c.a.t0.h.e.b;
+import c.a.t0.h.e.c;
+import c.a.t0.h.e.e;
+import c.a.t0.h.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,11 +32,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class C1878a implements a.InterfaceC1079a {
+        public class C1885a implements a.InterfaceC1106a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1878a(a aVar) {
+            public C1885a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,7 +52,7 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // c.a.s0.h.a.a.InterfaceC1079a
+            @Override // c.a.t0.h.a.a.InterfaceC1106a
             public void a(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class FrsBannerAdStatic {
                 a.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // c.a.s0.h.a.a.InterfaceC1079a
+            @Override // c.a.t0.h.a.a.InterfaceC1106a
             public void b(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -100,27 +100,27 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.s0.h.f.a aVar;
+            c.a.t0.h.f.a aVar;
             TbPageContext b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.s0.h.f.a) && (b2 = (aVar = (c.a.s0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.t0.h.f.a) && (b2 = (aVar = (c.a.t0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
                 b bVar = (b) b2.getPageActivity();
-                c.a.s0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
+                c.a.t0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
                 if (injectPlugin == null) {
-                    c.a.s0.h.e.d a = e.b().a(2);
+                    c.a.t0.h.e.d a = e.b().a(2);
                     if (a == null) {
                         return;
                     }
                     injectPlugin = a.a();
                     bVar.setInjectPlugin(2, injectPlugin);
                     injectPlugin.n(new c(b2));
-                    if (!(injectPlugin instanceof c.a.s0.h.a.a)) {
+                    if (!(injectPlugin instanceof c.a.t0.h.a.a)) {
                         return;
                     }
-                    ((c.a.s0.h.a.a) injectPlugin).f(new C1878a(this));
+                    ((c.a.t0.h.a.a) injectPlugin).f(new C1885a(this));
                 }
-                if (injectPlugin instanceof c.a.s0.h.a.a) {
-                    c.a.s0.h.a.a aVar2 = (c.a.s0.h.a.a) injectPlugin;
+                if (injectPlugin instanceof c.a.t0.h.a.a) {
+                    c.a.t0.h.a.a aVar2 = (c.a.t0.h.a.a) injectPlugin;
                     if (aVar.a() == 1) {
                         aVar2.setParams(aVar.g());
                         aVar2.b(aVar.d());

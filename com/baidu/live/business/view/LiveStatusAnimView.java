@@ -32,22 +32,22 @@ public class LiveStatusAnimView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f35795e;
+    public Context f35951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f35796f;
+    public ImageView f35952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LottieAnimationView f35797g;
+    public LottieAnimationView f35953g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f35798h;
+    public TextView f35954h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f35799i;
+    public boolean f35955i;
 
     /* renamed from: j  reason: collision with root package name */
-    public boolean f35800j;
+    public boolean f35956j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveStatusAnimView(@NonNull Context context) {
@@ -73,19 +73,19 @@ public class LiveStatusAnimView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f35795e = context;
+            this.f35951e = context;
             LayoutInflater.from(context).inflate(d.live_feed_page_status_anim_layout, this);
-            this.f35796f = (ImageView) findViewById(c.live_feed_page_tip_iv);
-            this.f35797g = (LottieAnimationView) findViewById(c.live_feed_page_tip_lottie);
-            this.f35798h = (TextView) findViewById(c.live_feed_page_tip_text);
-            this.f35797g.loop(true);
+            this.f35952f = (ImageView) findViewById(c.live_feed_page_tip_iv);
+            this.f35953g = (LottieAnimationView) findViewById(c.live_feed_page_tip_lottie);
+            this.f35954h = (TextView) findViewById(c.live_feed_page_tip_text);
+            this.f35953g.loop(true);
         }
     }
 
     public boolean isHasAnim() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35799i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35955i : invokeV.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -93,11 +93,11 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            LottieAnimationView lottieAnimationView = this.f35797g;
+            LottieAnimationView lottieAnimationView = this.f35953g;
             if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                 return;
             }
-            this.f35797g.cancelAnimation();
+            this.f35953g.cancelAnimation();
         }
     }
 
@@ -107,11 +107,11 @@ public class LiveStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
             super.onVisibilityChanged(view, i2);
             if (i2 != 0) {
-                LottieAnimationView lottieAnimationView = this.f35797g;
+                LottieAnimationView lottieAnimationView = this.f35953g;
                 if (lottieAnimationView == null || !lottieAnimationView.isAnimating()) {
                     return;
                 }
-                this.f35797g.cancelAnimation();
+                this.f35953g.cancelAnimation();
                 return;
             }
             startAnim();
@@ -122,18 +122,18 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
             stopAnim();
-            this.f35797g.setVisibility(8);
-            if (this.f35800j) {
-                this.f35797g.setAnimation("live_feed_page_tag_live_ani.json");
+            this.f35953g.setVisibility(8);
+            if (this.f35956j) {
+                this.f35953g.setAnimation("live_feed_page_tag_live_ani.json");
             } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !SkinManager.SKIN_TYPE_STR_DARK.equals(f.e().o())) {
-                this.f35797g.setAnimation("live_feed_page_tag_live_ani.json");
+                this.f35953g.setAnimation("live_feed_page_tag_live_ani.json");
             } else {
-                this.f35797g.setAnimation("live_feed_page_tag_live_night.json");
+                this.f35953g.setAnimation("live_feed_page_tag_live_night.json");
             }
             boolean z = (str2 == null || str2.equals(str3)) ? false : true;
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(a.a(this.f35795e, 9.0f));
+            gradientDrawable.setCornerRadius(a.a(this.f35951e, 9.0f));
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
             try {
@@ -142,84 +142,84 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable.setColors(new int[]{Color.parseColor("#FE33BA"), Color.parseColor("#FE3355")});
                 e2.printStackTrace();
             }
-            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !this.f35800j) {
+            if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(f.e().o()) && !this.f35956j) {
                 gradientDrawable.setColorFilter(Color.parseColor("#80000000"), PorterDuff.Mode.SRC_ATOP);
             } else {
                 gradientDrawable.setColorFilter(null);
             }
             setBackground(gradientDrawable);
             if (z) {
-                this.f35798h.setPadding(0, 0, 0, 0);
+                this.f35954h.setPadding(0, 0, 0, 0);
             } else {
-                this.f35798h.setPadding(a.a(this.f35795e, 3.0f), 0, 0, 0);
+                this.f35954h.setPadding(a.a(this.f35951e, 3.0f), 0, 0, 0);
             }
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             gradientDrawable2.setShape(0);
-            gradientDrawable2.setCornerRadius(a.a(this.f35795e, 9.0f));
+            gradientDrawable2.setCornerRadius(a.a(this.f35951e, 9.0f));
             if (i2 == 3) {
-                this.f35799i = false;
-                gradientDrawable2.setColors(new int[]{f.e().a(this.f35795e, this.f35800j, "color_768CAE"), f.e().a(this.f35795e, this.f35800j, "color_768CAE")});
-                if (!"day".equals(f.e().o()) && !this.f35800j) {
+                this.f35955i = false;
+                gradientDrawable2.setColors(new int[]{f.e().a(this.f35951e, this.f35956j, "color_768CAE"), f.e().a(this.f35951e, this.f35956j, "color_768CAE")});
+                if (!"day".equals(f.e().o()) && !this.f35956j) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.f35796f.setImageResource(b.live_feed_page_tag_back);
+                        this.f35952f.setImageResource(b.live_feed_page_tag_back);
                     } else {
-                        this.f35796f.setImageResource(b.live_feed_page_tag_back_night);
+                        this.f35952f.setImageResource(b.live_feed_page_tag_back_night);
                     }
                 } else {
-                    this.f35796f.setImageResource(b.live_feed_page_tag_back);
+                    this.f35952f.setImageResource(b.live_feed_page_tag_back);
                 }
-                this.f35796f.setBackgroundDrawable(gradientDrawable2);
-                this.f35796f.setVisibility(0);
+                this.f35952f.setBackgroundDrawable(gradientDrawable2);
+                this.f35952f.setVisibility(0);
             } else if (i2 == 0) {
-                this.f35799i = false;
-                gradientDrawable2.setColors(new int[]{f.e().a(this.f35795e, this.f35800j, "color_4E6EF2"), f.e().a(this.f35795e, this.f35800j, "color_4E6EF2")});
-                if (!"day".equals(f.e().o()) && !this.f35800j) {
+                this.f35955i = false;
+                gradientDrawable2.setColors(new int[]{f.e().a(this.f35951e, this.f35956j, "color_4E6EF2"), f.e().a(this.f35951e, this.f35956j, "color_4E6EF2")});
+                if (!"day".equals(f.e().o()) && !this.f35956j) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.f35796f.setImageResource(b.live_feed_page_tag_preview);
+                        this.f35952f.setImageResource(b.live_feed_page_tag_preview);
                     } else {
-                        this.f35796f.setImageResource(b.live_feed_page_tag_preview_night);
+                        this.f35952f.setImageResource(b.live_feed_page_tag_preview_night);
                     }
                 } else {
-                    this.f35796f.setImageResource(b.live_feed_page_tag_preview);
+                    this.f35952f.setImageResource(b.live_feed_page_tag_preview);
                 }
-                this.f35796f.setBackgroundDrawable(gradientDrawable2);
-                this.f35796f.setVisibility(0);
+                this.f35952f.setBackgroundDrawable(gradientDrawable2);
+                this.f35952f.setVisibility(0);
             } else {
-                this.f35799i = true;
+                this.f35955i = true;
                 if (z) {
-                    this.f35796f.setVisibility(4);
+                    this.f35952f.setVisibility(4);
                 } else {
-                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35795e, this.f35800j, "color_FF3333"), f.e().a(this.f35795e, this.f35800j, "color_FF3333")});
-                    this.f35796f.setImageResource(b.live_feed_page_transparent);
-                    this.f35796f.setBackgroundDrawable(gradientDrawable2);
-                    this.f35796f.setVisibility(0);
+                    gradientDrawable2.setColors(new int[]{f.e().a(this.f35951e, this.f35956j, "color_FF3333"), f.e().a(this.f35951e, this.f35956j, "color_FF3333")});
+                    this.f35952f.setImageResource(b.live_feed_page_transparent);
+                    this.f35952f.setBackgroundDrawable(gradientDrawable2);
+                    this.f35952f.setVisibility(0);
                 }
             }
-            this.f35798h.setTextColor(f.e().a(this.f35795e, this.f35800j, "color_white3"));
-            this.f35798h.setText(str);
+            this.f35954h.setTextColor(f.e().a(this.f35951e, this.f35956j, "color_white3"));
+            this.f35954h.setText(str);
         }
     }
 
     public void setIsImmersion(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f35800j = z;
+            this.f35956j = z;
         }
     }
 
     public void startAnim() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lottieAnimationView = this.f35797g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (lottieAnimationView = this.f35953g) == null) {
             return;
         }
-        if (this.f35799i) {
+        if (this.f35955i) {
             lottieAnimationView.setVisibility(0);
-            this.f35797g.setProgress(0.0f);
-            if (this.f35797g.isAnimating()) {
+            this.f35953g.setProgress(0.0f);
+            if (this.f35953g.isAnimating()) {
                 return;
             }
-            this.f35797g.playAnimation();
+            this.f35953g.playAnimation();
             return;
         }
         stopAnim();
@@ -228,8 +228,8 @@ public class LiveStatusAnimView extends FrameLayout {
     public void stopAnim() {
         LottieAnimationView lottieAnimationView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lottieAnimationView = this.f35797g) != null && lottieAnimationView.isAnimating()) {
-            this.f35797g.cancelAnimation();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lottieAnimationView = this.f35953g) != null && lottieAnimationView.isAnimating()) {
+            this.f35953g.cancelAnimation();
         }
     }
 
@@ -273,8 +273,8 @@ public class LiveStatusAnimView extends FrameLayout {
                 return;
             }
         }
-        this.f35799i = false;
-        this.f35800j = false;
+        this.f35955i = false;
+        this.f35956j = false;
         a(context);
     }
 }

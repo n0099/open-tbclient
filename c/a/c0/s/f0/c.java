@@ -22,11 +22,11 @@ public interface c {
 
         /* renamed from: c.a.c0.s.f0.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0066a implements e {
+        public class C0087a implements e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0066a(a aVar) {
+            public C0087a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public interface c {
         public e a(Map<String, String> map, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0066a(this) : (e) invokeLL.objValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new C0087a(this) : (e) invokeLL.objValue;
         }
     }
 

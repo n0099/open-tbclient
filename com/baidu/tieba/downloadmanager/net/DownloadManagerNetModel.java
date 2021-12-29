@@ -1,8 +1,8 @@
 package com.baidu.tieba.downloadmanager.net;
 
-import c.a.r0.l0.b.g;
-import c.a.s0.p0.e.a;
-import c.a.s0.p0.e.b;
+import c.a.s0.l0.b.g;
+import c.a.t0.p0.e.a;
+import c.a.t0.p0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;

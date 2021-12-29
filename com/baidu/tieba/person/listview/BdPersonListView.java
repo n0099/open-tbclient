@@ -62,7 +62,7 @@ public class BdPersonListView extends BdTypeListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48681b;
+        public int f48902b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -80,7 +80,7 @@ public class BdPersonListView extends BdTypeListView {
                 }
             }
             this.a = i3;
-            this.f48681b = i5;
+            this.f48902b = i5;
         }
 
         public int a(float f2) {
@@ -186,7 +186,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.a && a2 <= bVar.f48681b) {
+                                    if (a2 > bVar.a && a2 <= bVar.f48902b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -202,7 +202,7 @@ public class BdPersonListView extends BdTypeListView {
                                         b bVar2 = this.U;
                                         if (a2 <= bVar2.a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f48681b) {
+                                        } else if (a2 > bVar2.f48902b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;
@@ -284,7 +284,7 @@ public class BdPersonListView extends BdTypeListView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.U == null) {
             return;
         }
-        if (this.Q.getHeight() >= this.U.f48681b - (this.d0 / 2)) {
+        if (this.Q.getHeight() >= this.U.f48902b - (this.d0 / 2)) {
             doRefresh();
         } else {
             this.mRefreshListener.b();

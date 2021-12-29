@@ -18,12 +18,12 @@ public class a {
 
     /* renamed from: com.baidu.wallet.base.camera.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public class C1955a implements FileFilter {
+    public class C1962a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Pattern a;
 
-        public C1955a() {
+        public C1962a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (-1 == b.a.a) {
                 try {
-                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1955a()).length;
+                    b.a.a = new File("/sys/devices/system/cpu/").listFiles(new C1962a()).length;
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     b.a.a = 1;

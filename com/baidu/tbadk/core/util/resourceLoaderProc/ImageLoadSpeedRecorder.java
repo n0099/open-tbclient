@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
@@ -106,7 +106,7 @@ public class ImageLoadSpeedRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (k.v()) {
+            if (l.v()) {
                 if (speedRedordAvilable() && this.mAverageSpeed < 20.0f) {
                     if (this.mTaskSerial == null) {
                         this.mTaskSerial = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());

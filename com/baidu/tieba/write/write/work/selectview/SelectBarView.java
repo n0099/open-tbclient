@@ -10,14 +10,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.s.v.c;
-import c.a.s0.n4.d;
-import c.a.s0.n4.e;
-import c.a.s0.n4.f;
-import c.a.s0.n4.g;
-import c.a.s0.n4.h;
-import c.a.s0.n4.j;
+import c.a.d.f.p.n;
+import c.a.s0.s.u.c;
+import c.a.t0.o4.d;
+import c.a.t0.o4.e;
+import c.a.t0.o4.f;
+import c.a.t0.o4.g;
+import c.a.t0.o4.h;
+import c.a.t0.o4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -35,13 +35,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0016\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0010\u00105\u001a\u0002062\b\u00107\u001a\u0004\u0018\u000108J\u0006\u00109\u001a\u000206J\b\u0010:\u001a\u000206H\u0016R\u001a\u0010\u000b\u001a\u00020\fX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u001a\u0010\u0011\u001a\u00020\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001a\u0010\u0017\u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001cR\u001a\u0010\u001d\u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001e\u0010\u001a\"\u0004\b\u001f\u0010\u001cR\u001a\u0010 \u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\u001a\"\u0004\b\"\u0010\u001cR\u001a\u0010#\u001a\u00020$X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\u001a\u0010)\u001a\u00020\u0018X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b*\u0010\u001a\"\u0004\b+\u0010\u001cR\u001a\u0010,\u001a\u00020$X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010&\"\u0004\b.\u0010(R\u001a\u0010/\u001a\u000200X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b1\u00102\"\u0004\b3\u00104¨\u0006;"}, d2 = {"Lcom/baidu/tieba/write/write/work/selectview/SelectBarView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "mBottomLine", "Landroid/view/View;", "getMBottomLine", "()Landroid/view/View;", "setMBottomLine", "(Landroid/view/View;)V", "mCanChangeBarName", "", "getMCanChangeBarName", "()Z", "setMCanChangeBarName", "(Z)V", "mCenterContent", "Landroid/widget/TextView;", "getMCenterContent", "()Landroid/widget/TextView;", "setMCenterContent", "(Landroid/widget/TextView;)V", "mCenterContentPos", "getMCenterContentPos", "setMCenterContentPos", "mCenterContentTips", "getMCenterContentTips", "setMCenterContentTips", "mIconDrawable", "Landroid/graphics/drawable/Drawable;", "getMIconDrawable", "()Landroid/graphics/drawable/Drawable;", "setMIconDrawable", "(Landroid/graphics/drawable/Drawable;)V", "mLeftTitle", "getMLeftTitle", "setMLeftTitle", "mPosDrawable", "getMPosDrawable", "setMPosDrawable", "mRightArrow", "Landroid/widget/ImageView;", "getMRightArrow", "()Landroid/widget/ImageView;", "setMRightArrow", "(Landroid/widget/ImageView;)V", "bindData", "", "bean", "Lcom/baidu/tbadk/data/SelectForumData;", "init", "onChangeSkin", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SelectBarView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f51720e;
+    public boolean f51974e;
     public View mBottomLine;
     public TextView mCenterContent;
     public TextView mCenterContentPos;
@@ -69,7 +69,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f51720e = true;
+        this.f51974e = true;
         init();
     }
 
@@ -126,7 +126,7 @@ public class SelectBarView extends LinearLayout {
     public final boolean getMCanChangeBarName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51720e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f51974e : invokeV.booleanValue;
     }
 
     public final TextView getMCenterContent() {
@@ -240,11 +240,11 @@ public class SelectBarView extends LinearLayout {
             View findViewById3 = findViewById(g.center_content);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById3);
-            getMCenterContent().setCompoundDrawablePadding(m.f(getContext(), e.M_W_X002));
+            getMCenterContent().setCompoundDrawablePadding(n.f(getContext(), e.M_W_X002));
             View findViewById4 = findViewById(g.center_content_pos);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
-            getMCenterContentPos().setCompoundDrawablePadding(m.f(getContext(), e.M_W_X002));
+            getMCenterContentPos().setCompoundDrawablePadding(n.f(getContext(), e.M_W_X002));
             getMCenterContentPos().setVisibility(8);
             View findViewById5 = findViewById(g.right_arrow);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
@@ -253,7 +253,7 @@ public class SelectBarView extends LinearLayout {
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             onChangeSkin();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.s0.n4.e0.p.z.c
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.t0.o4.e0.p.z.c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -288,11 +288,11 @@ public class SelectBarView extends LinearLayout {
             Drawable pureDrawable = WebPManager.getPureDrawable(f.icon_pure_ba12, SkinManager.getColor(d.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
-            int f2 = m.f(getContext(), e.tbds32);
+            int f2 = n.f(getContext(), e.tbds32);
             getMIconDrawable().setBounds(0, 0, f2, f2);
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
-            getMCenterContent().setCompoundDrawablePadding(m.f(getContext(), e.M_W_X002));
-            getMCenterContent().setPadding(m.f(getContext(), e.M_W_X004), 0, m.f(getContext(), e.M_W_X004), 0);
+            getMCenterContent().setCompoundDrawablePadding(n.f(getContext(), e.M_W_X002));
+            getMCenterContent().setPadding(n.f(getContext(), e.M_W_X004), 0, n.f(getContext(), e.M_W_X004), 0);
             c d3 = c.d(getMCenterContentPos());
             d3.A(j.F_X01);
             d3.z(e.T_X09);
@@ -307,8 +307,8 @@ public class SelectBarView extends LinearLayout {
             setMPosDrawable(pureDrawable2);
             getMPosDrawable().setBounds(0, 0, f2, f2);
             getMCenterContentPos().setCompoundDrawables(getMPosDrawable(), null, null, null);
-            getMCenterContentPos().setCompoundDrawablePadding(m.f(getContext(), e.M_W_X004));
-            getMCenterContentPos().setPadding(m.f(getContext(), e.M_W_X004), 0, m.f(getContext(), e.M_W_X002), 0);
+            getMCenterContentPos().setCompoundDrawablePadding(n.f(getContext(), e.M_W_X004));
+            getMCenterContentPos().setPadding(n.f(getContext(), e.M_W_X004), 0, n.f(getContext(), e.M_W_X002), 0);
         }
     }
 
@@ -323,7 +323,7 @@ public class SelectBarView extends LinearLayout {
     public final void setMCanChangeBarName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f51720e = z;
+            this.f51974e = z;
         }
     }
 
@@ -402,7 +402,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f51720e = true;
+        this.f51974e = true;
         init();
     }
 
@@ -425,7 +425,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f51720e = true;
+        this.f51974e = true;
         init();
     }
 }

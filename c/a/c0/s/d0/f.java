@@ -19,10 +19,10 @@ public class f implements d {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.s.f f1946b;
+    public c.a.c0.s.f f2373b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f1947c;
+    public ViewGroup f2374c;
 
     public f(@NonNull c.a.c0.s.f fVar) {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class f implements d {
             }
         }
         this.a = -1;
-        this.f1946b = fVar;
+        this.f2373b = fVar;
     }
 
     public void a(boolean z, @Nullable Activity activity) {
@@ -74,29 +74,29 @@ public class f implements d {
     public void switchToFullStyle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1947c = this.f1946b.n();
-            this.f1946b.Y0(true);
-            Activity activity = this.f1946b.getActivity();
+            this.f2374c = this.f2373b.n();
+            this.f2373b.Y0(true);
+            Activity activity = this.f2373b.getActivity();
             a(true, activity);
-            c.a.c0.s.v0.i.b(activity, this.f1946b.X0());
+            c.a.c0.s.v0.i.b(activity, this.f2373b.X0());
             c.a.c0.s.v0.i.c(activity, true);
-            c.a.c0.s.v0.j.b(activity, this.f1946b.v());
+            c.a.c0.s.v0.j.b(activity, this.f2373b.v());
         }
     }
 
     @Override // c.a.c0.s.d0.d
     public void switchToNormalStyle() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f1947c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f2374c == null) {
             return;
         }
-        this.f1947c = this.f1946b.n();
-        this.f1946b.Y0(false);
-        Activity activity = this.f1946b.getActivity();
+        this.f2374c = this.f2373b.n();
+        this.f2373b.Y0(false);
+        Activity activity = this.f2373b.getActivity();
         a(false, activity);
         b(activity);
-        c.a.c0.s.v0.j.k(this.f1946b.v());
-        c.a.c0.s.v0.j.j(this.f1946b.n());
-        c.a.c0.s.v0.j.c(this.f1946b.v(), this.f1947c);
+        c.a.c0.s.v0.j.k(this.f2373b.v());
+        c.a.c0.s.v0.j.j(this.f2373b.n());
+        c.a.c0.s.v0.j.c(this.f2373b.v(), this.f2374c);
     }
 }

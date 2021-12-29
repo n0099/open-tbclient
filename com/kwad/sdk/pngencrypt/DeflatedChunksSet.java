@@ -1,20 +1,9 @@
 package com.kwad.sdk.pngencrypt;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 /* loaded from: classes3.dex */
 public class DeflatedChunksSet {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -22,12 +11,6 @@ public class DeflatedChunksSet {
 
     /* renamed from: c  reason: collision with root package name */
     public final boolean f59242c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f59243d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f59244e;
 
     /* renamed from: f  reason: collision with root package name */
     public final String f59245f;
@@ -47,105 +30,33 @@ public class DeflatedChunksSet {
     /* renamed from: k  reason: collision with root package name */
     public final boolean f59250k;
     public d l;
-    public long m;
-    public long n;
+    public long m = 0;
+    public long n = 0;
 
-    /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+    /* renamed from: d  reason: collision with root package name */
+    public int f59243d = -1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f59244e = -1;
+
     /* loaded from: classes3.dex */
-    public static final class State {
-        public static final /* synthetic */ State[] $VALUES;
-        public static /* synthetic */ Interceptable $ic;
-        public static final State CLOSED;
-        public static final State DONE;
-        public static final State ROW_READY;
-        public static final State WAITING_FOR_INPUT;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1281842589, "Lcom/kwad/sdk/pngencrypt/DeflatedChunksSet$State;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1281842589, "Lcom/kwad/sdk/pngencrypt/DeflatedChunksSet$State;");
-                    return;
-                }
-            }
-            WAITING_FOR_INPUT = new State("WAITING_FOR_INPUT", 0);
-            ROW_READY = new State("ROW_READY", 1);
-            DONE = new State("DONE", 2);
-            State state = new State("CLOSED", 3);
-            CLOSED = state;
-            $VALUES = new State[]{WAITING_FOR_INPUT, ROW_READY, DONE, state};
-        }
-
-        public State(String str, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    String str2 = (String) objArr2[0];
-                    ((Integer) objArr2[1]).intValue();
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public static State valueOf(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (State) Enum.valueOf(State.class, str) : (State) invokeL.objValue;
-        }
-
-        public static State[] values() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (State[]) $VALUES.clone() : (State[]) invokeV.objValue;
-        }
+    public enum State {
+        WAITING_FOR_INPUT,
+        ROW_READY,
+        DONE,
+        CLOSED;
 
         public boolean isClosed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this == CLOSED : invokeV.booleanValue;
+            return this == CLOSED;
         }
 
         public boolean isDone() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this == DONE || this == CLOSED : invokeV.booleanValue;
+            return this == DONE || this == CLOSED;
         }
     }
 
     public DeflatedChunksSet(String str, boolean z, int i2, int i3, Inflater inflater, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), inflater, bArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f59241b = State.WAITING_FOR_INPUT;
-        this.m = 0L;
-        this.n = 0L;
-        this.f59243d = -1;
-        this.f59244e = -1;
         this.f59245f = str;
         this.f59242c = z;
         this.f59247h = i2;
@@ -171,19 +82,14 @@ public class DeflatedChunksSet {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0085 A[Catch: RuntimeException -> 0x008b, TRY_LEAVE, TryCatch #1 {RuntimeException -> 0x008b, blocks: (B:4:0x0004, B:6:0x000a, B:7:0x0014, B:10:0x001e, B:12:0x0022, B:15:0x002f, B:17:0x0035, B:19:0x003d, B:23:0x0059, B:22:0x004e, B:24:0x0064, B:26:0x006a, B:34:0x007f, B:36:0x0085, B:27:0x006d, B:29:0x0075, B:30:0x0078, B:33:0x007d, B:14:0x0029), top: B:49:0x0004, inners: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x008a A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0081 A[Catch: RuntimeException -> 0x0087, TRY_LEAVE, TryCatch #0 {RuntimeException -> 0x0087, blocks: (B:2:0x0000, B:4:0x0006, B:5:0x0010, B:8:0x001a, B:10:0x001e, B:13:0x002b, B:15:0x0031, B:17:0x0039, B:21:0x0055, B:20:0x004a, B:22:0x0060, B:24:0x0066, B:32:0x007b, B:34:0x0081, B:25:0x0069, B:27:0x0071, B:28:0x0074, B:31:0x0079, B:12:0x0025), top: B:41:0x0000, inners: #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0086 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean i() {
         State state;
         int i2;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, this)) != null) {
-            return invokeV.booleanValue;
-        }
         try {
             if (this.f59241b == State.ROW_READY) {
                 com.kwad.sdk.core.d.a.a(new PngjException("invalid state"));
@@ -228,167 +134,122 @@ public class DeflatedChunksSet {
     }
 
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
     }
 
     public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59246g = 0;
-            this.f59248i++;
-            if (i2 < 1 || this.f59249j.finished()) {
-                this.f59247h = 0;
-                g();
-                return;
-            }
-            this.f59241b = State.WAITING_FOR_INPUT;
-            this.f59247h = i2;
-            if (this.f59242c) {
-                return;
-            }
-            i();
+        this.f59246g = 0;
+        this.f59248i++;
+        if (i2 < 1 || this.f59249j.finished()) {
+            this.f59247h = 0;
+            g();
+            return;
         }
+        this.f59241b = State.WAITING_FOR_INPUT;
+        this.f59247h = i2;
+        if (this.f59242c) {
+            return;
+        }
+        i();
     }
 
     public void a(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            if (!this.f59245f.equals(dVar.a().f59302c)) {
-                com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f59302c + ", expected:" + this.f59245f));
-            }
-            this.l = dVar;
-            int i2 = this.f59243d + 1;
-            this.f59243d = i2;
-            int i3 = this.f59244e;
-            if (i3 >= 0) {
-                dVar.a(i2 + i3);
-            }
+        if (!this.f59245f.equals(dVar.a().f59302c)) {
+            com.kwad.sdk.core.d.a.a(new PngjException("Bad chunk inside IdatSet, id:" + dVar.a().f59302c + ", expected:" + this.f59245f));
+        }
+        this.l = dVar;
+        int i2 = this.f59243d + 1;
+        this.f59243d = i2;
+        int i3 = this.f59244e;
+        if (i3 >= 0) {
+            dVar.a(i2 + i3);
         }
     }
 
     public void a(byte[] bArr, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, bArr, i2, i3) == null) {
-            this.m += i3;
-            if (i3 < 1 || this.f59241b.isDone()) {
-                return;
-            }
-            if (this.f59241b == State.ROW_READY) {
-                com.kwad.sdk.core.d.a.a(new PngjException("this should only be called if waitingForMoreInput"));
-            }
-            if (this.f59249j.needsDictionary() || !this.f59249j.needsInput()) {
-                throw new RuntimeException("should not happen");
-            }
-            this.f59249j.setInput(bArr, i2, i3);
-            if (!this.f59242c) {
-                i();
-                return;
-            }
-            while (i()) {
-                a(b());
-                if (d()) {
-                    c();
-                }
+        this.m += i3;
+        if (i3 < 1 || this.f59241b.isDone()) {
+            return;
+        }
+        if (this.f59241b == State.ROW_READY) {
+            com.kwad.sdk.core.d.a.a(new PngjException("this should only be called if waitingForMoreInput"));
+        }
+        if (this.f59249j.needsDictionary() || !this.f59249j.needsInput()) {
+            throw new RuntimeException("should not happen");
+        }
+        this.f59249j.setInput(bArr, i2, i3);
+        if (!this.f59242c) {
+            i();
+            return;
+        }
+        while (i()) {
+            a(b());
+            if (d()) {
+                c();
             }
         }
     }
 
     public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.f59241b.isClosed()) {
-                return false;
-            }
-            if (str.equals(this.f59245f) || b(str)) {
-                return true;
-            }
-            if (this.f59241b.isDone()) {
-                if (!this.f59241b.isClosed()) {
-                    f();
-                }
-                return false;
-            }
-            throw new PngjException("Unexpected chunk " + str + " while " + this.f59245f + " set is not done");
+        if (this.f59241b.isClosed()) {
+            return false;
         }
-        return invokeL.booleanValue;
+        if (str.equals(this.f59245f) || b(str)) {
+            return true;
+        }
+        if (this.f59241b.isDone()) {
+            if (!this.f59241b.isClosed()) {
+                f();
+            }
+            return false;
+        }
+        throw new PngjException("Unexpected chunk " + str + " while " + this.f59245f + " set is not done");
     }
 
     public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            throw new PngjException("not implemented");
-        }
-        return invokeV.intValue;
+        throw new PngjException("not implemented");
     }
 
     public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return false;
     }
 
     public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
     }
 
     public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f59241b.isDone() : invokeV.booleanValue;
+        return this.f59241b.isDone();
     }
 
     public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f59241b.isClosed() : invokeV.booleanValue;
+        return this.f59241b.isClosed();
     }
 
     public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            try {
-                if (!this.f59241b.isClosed()) {
-                    this.f59241b = State.CLOSED;
-                }
-                if (!this.f59250k || this.f59249j == null) {
-                    return;
-                }
-                this.f59249j.end();
-                this.f59249j = null;
-            } catch (Exception unused) {
+        try {
+            if (!this.f59241b.isClosed()) {
+                this.f59241b = State.CLOSED;
             }
+            if (!this.f59250k || this.f59249j == null) {
+                return;
+            }
+            this.f59249j.end();
+            this.f59249j = null;
+        } catch (Exception unused) {
         }
     }
 
     public void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || d()) {
+        if (d()) {
             return;
         }
         this.f59241b = State.DONE;
     }
 
     public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f59248i : invokeV.intValue;
+        return this.f59248i;
     }
 
     public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return new StringBuilder("idatSet : " + this.l.a().f59302c + " state=" + this.f59241b + " rows=" + this.f59248i + " bytes=" + this.m + "/" + this.n).toString();
-        }
-        return (String) invokeV.objValue;
+        return new StringBuilder("idatSet : " + this.l.a().f59302c + " state=" + this.f59241b + " rows=" + this.f59248i + " bytes=" + this.m + "/" + this.n).toString();
     }
 }

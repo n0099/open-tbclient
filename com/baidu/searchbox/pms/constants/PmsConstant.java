@@ -19,6 +19,7 @@ public final class PmsConstant {
         public static final int DB_VERSION_10_6_0 = 1;
         public static final int DB_VERSION_12_12_0 = 2;
         public static final int DB_VERSION_12_14_0 = 3;
+        public static final int DB_VERSION_12_27_7 = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public DynamicDBVersion() {

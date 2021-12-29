@@ -15,7 +15,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public final class Downloader {
                 public final /* synthetic */ ICallbackWith rw;
 
                 /* renamed from: rx  reason: collision with root package name */
-                public final /* synthetic */ Downloader f33759rx;
+                public final /* synthetic */ Downloader f33915rx;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -144,7 +144,7 @@ public final class Downloader {
                             return;
                         }
                     }
-                    this.f33759rx = this;
+                    this.f33915rx = this;
                     this.ru = str;
                     this.rv = iProgressCallback;
                     this.rw = iCallbackWith2;
@@ -163,10 +163,10 @@ public final class Downloader {
                 public void a(IHttpResponse iHttpResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
-                        this.f33759rx.rt = iHttpResponse.getContentLength();
+                        this.f33915rx.rt = iHttpResponse.getContentLength();
                         try {
-                            this.f33759rx.download(this.ru, this.rv);
-                            this.bT.run(Integer.valueOf(this.f33759rx.rt));
+                            this.f33915rx.download(this.ru, this.rv);
+                            this.bT.run(Integer.valueOf(this.f33915rx.rt));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             this.rw.run(e2);

@@ -1,5 +1,5 @@
 package com.baidu.ar.face;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IFace {
     void setFaceListener(FaceListener faceListener);
 

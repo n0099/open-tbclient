@@ -1,8 +1,8 @@
 package com.baidu.tieba.memberCenter.index.adapter;
 
 import android.view.View;
-import c.a.s0.f2.c.i;
-import c.a.s0.f2.c.k.q;
+import c.a.t0.f2.c.i;
+import c.a.t0.f2.c.k.q;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -17,7 +17,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public i a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View.OnClickListener f47460b;
+    public View.OnClickListener f47681b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TaskViewHolder(View view, BaseFragmentActivity baseFragmentActivity, View.OnClickListener onClickListener) {
@@ -37,7 +37,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f47460b = onClickListener;
+        this.f47681b = onClickListener;
         this.a = new i(view, baseFragmentActivity, onClickListener);
     }
 
@@ -54,7 +54,7 @@ public class TaskViewHolder extends TypeAdapter.ViewHolder {
     public void setCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f47460b = onClickListener;
+            this.f47681b = onClickListener;
         }
     }
 }

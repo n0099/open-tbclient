@@ -2,6 +2,8 @@ package com.baidu.searchbox;
 
 import android.app.Activity;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -59,6 +61,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             }
         }
 
+        @Nullable
         public JSONObject addData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -88,6 +91,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             }
         }
 
+        @Nullable
         public boolean shouldStats(Activity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -123,7 +127,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         sStartupCountUploadId = StartupCountStatsUtils.DEFAULT_STARTUP_UBC_ID;
         sUseDurationUploadId = StartupCountStatsUtils.DEFAULT_USE_DURATION_UBC_ID;
         sPerfSampleManager = new PerfSampleManager();
-        ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        ubc = null;
     }
 
     public StartupCountStats() {
@@ -171,6 +175,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
                     e2.printStackTrace();
                 }
             }
+            if (ubc == null) {
+                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            }
             ubc.onEvent(sStartupCountUploadId, jSONObject);
         }
     }
@@ -201,12 +208,14 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         return (String) invokeV.objValue;
     }
 
+    @NonNull
     public static String getSampleFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sPerfSampleManager.getSampleFlag() : (String) invokeV.objValue;
     }
 
+    @Nullable
     public static void setStartSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
@@ -214,6 +223,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, extDataCallBack) == null) {
@@ -221,6 +231,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, statsRule) == null) {
@@ -228,6 +239,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountStatsType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
@@ -235,6 +247,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setStartupCountUploadId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
@@ -242,6 +255,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationExtCallBack(ExtDataCallBack extDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, extDataCallBack) == null) {
@@ -249,6 +263,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationStatsRule(StatsRule statsRule) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, statsRule) == null) {
@@ -256,6 +271,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationStatsType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
@@ -263,6 +279,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
+    @Nullable
     public static void setUseDurationUploadId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
@@ -280,17 +297,22 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
+            if (ubc == null) {
+                ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            }
             sFlow = ubc.beginFlow(sUseDurationUploadId, jSONObject.toString(), 4);
         }
     }
 
     public static void stopTiming() {
-        Flow flow;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || (flow = sFlow) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65551, null) == null) || sFlow == null) {
             return;
         }
-        ubc.flowSetValueWithDuration(flow, generateValueJson());
+        if (ubc == null) {
+            ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        }
+        ubc.flowSetValueWithDuration(sFlow, generateValueJson());
         ubc.flowEnd(sFlow);
         sFlow = null;
         boolean z = DEBUG;
@@ -301,11 +323,15 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         if (!(interceptable == null || interceptable.invokeV(65552, null) == null) || sFlow == null || !sUseDurationStatsRule.shouldStats(null) || System.currentTimeMillis() - sFlow.getStartTime() <= 300000) {
             return;
         }
+        if (ubc == null) {
+            ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+        }
         ubc.flowSetValueWithDuration(sFlow, generateValueJson());
         boolean z = DEBUG;
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
@@ -314,6 +340,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onBackgroundToForeground(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
@@ -332,6 +359,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    @Nullable
     public void onForegroundToBackground(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {

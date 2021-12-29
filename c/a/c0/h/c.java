@@ -43,7 +43,7 @@ public class c {
                 Iterator<k> it = arrayList.iterator();
                 while (it.hasNext()) {
                     k next = it.next();
-                    b(next, next.f1663d, t);
+                    b(next, next.f2090d, t);
                 }
             }
         }
@@ -52,7 +52,7 @@ public class c {
     public final <T extends f> void b(k kVar, i<T> iVar, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kVar, iVar, t) == null) {
-            int i2 = kVar.f1662c;
+            int i2 = kVar.f2089c;
             if (i2 == 0) {
                 iVar.onEvent(t);
             } else if (i2 == 1) {

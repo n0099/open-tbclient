@@ -26,16 +26,16 @@ public class d extends c.b.b.n.l.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.b.b.n.l.i.a<Texture> f27978h;
+    public final c.b.b.n.l.i.a<Texture> f28052h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f27979i;
+    public float f28053i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f27980j;
+    public float f28054j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f27981k;
+    public float f28055k;
     public float l;
     public int m;
 
@@ -81,13 +81,13 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27979i = 0.0f;
-        this.f27980j = 0.0f;
-        this.f27981k = 1.0f;
+        this.f28053i = 0.0f;
+        this.f28054j = 0.0f;
+        this.f28055k = 1.0f;
         this.l = 1.0f;
         this.m = 0;
         if (f(j2)) {
-            this.f27978h = new c.b.b.n.l.i.a<>();
+            this.f28052h = new c.b.b.n.l.i.a<>();
             return;
         }
         throw new GdxRuntimeException("Invalid type specified");
@@ -106,13 +106,13 @@ public class d extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27954e;
-            long j3 = aVar.f27954e;
+            long j2 = this.f28028e;
+            long j3 = aVar.f28028e;
             if (j2 != j3) {
                 return j2 < j3 ? -1 : 1;
             }
             d dVar = (d) aVar;
-            int compareTo = this.f27978h.compareTo(dVar.f27978h);
+            int compareTo = this.f28052h.compareTo(dVar.f28052h);
             if (compareTo != 0) {
                 return compareTo;
             }
@@ -121,16 +121,16 @@ public class d extends c.b.b.n.l.a {
             if (i2 != i3) {
                 return i2 - i3;
             }
-            if (!com.badlogic.gdx.math.d.e(this.f27981k, dVar.f27981k)) {
-                return this.f27981k > dVar.f27981k ? 1 : -1;
+            if (!com.badlogic.gdx.math.d.e(this.f28055k, dVar.f28055k)) {
+                return this.f28055k > dVar.f28055k ? 1 : -1;
             } else if (!com.badlogic.gdx.math.d.e(this.l, dVar.l)) {
                 return this.l > dVar.l ? 1 : -1;
-            } else if (!com.badlogic.gdx.math.d.e(this.f27979i, dVar.f27979i)) {
-                return this.f27979i > dVar.f27979i ? 1 : -1;
-            } else if (com.badlogic.gdx.math.d.e(this.f27980j, dVar.f27980j)) {
+            } else if (!com.badlogic.gdx.math.d.e(this.f28053i, dVar.f28053i)) {
+                return this.f28053i > dVar.f28053i ? 1 : -1;
+            } else if (com.badlogic.gdx.math.d.e(this.f28054j, dVar.f28054j)) {
                 return 0;
             } else {
-                return this.f27980j > dVar.f27980j ? 1 : -1;
+                return this.f28054j > dVar.f28054j ? 1 : -1;
             }
         }
         return invokeL.intValue;
@@ -140,7 +140,7 @@ public class d extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((((((((super.hashCode() * 991) + this.f27978h.hashCode()) * 991) + t.b(this.f27979i)) * 991) + t.b(this.f27980j)) * 991) + t.b(this.f27981k)) * 991) + t.b(this.l)) * 991) + this.m : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((((((((super.hashCode() * 991) + this.f28052h.hashCode()) * 991) + t.b(this.f28053i)) * 991) + t.b(this.f28054j)) * 991) + t.b(this.f28055k)) * 991) + t.b(this.l)) * 991) + this.m : invokeV.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -161,7 +161,7 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27978h.c(aVar);
+        this.f28052h.c(aVar);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -183,9 +183,9 @@ public class d extends c.b.b.n.l.a {
                 return;
             }
         }
-        this.f27979i = f2;
-        this.f27980j = f3;
-        this.f27981k = f4;
+        this.f28053i = f2;
+        this.f28054j = f3;
+        this.f28055k = f4;
         this.l = f5;
         this.m = i2;
     }

@@ -417,7 +417,7 @@ public final class MediaCodecUtil {
     public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.a <= 22 && (v.f30625d.equals("ODROID-XU3") || v.f30625d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? v.a <= 22 && (v.f30703d.equals("ODROID-XU3") || v.f30703d.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str)) : invokeL.booleanValue;
     }
 
     public static Pair<Integer, Integer> d(String str, String[] strArr) {
@@ -665,20 +665,20 @@ public final class MediaCodecUtil {
             }
             if (v.a >= 21 || !("CIPAACDecoder".equals(str) || "CIPMP3Decoder".equals(str) || "CIPVorbisDecoder".equals(str) || "CIPAMRNBDecoder".equals(str) || "AACDecoder".equals(str) || "MP3Decoder".equals(str))) {
                 if (v.a >= 18 || !"OMX.SEC.MP3.Decoder".equals(str)) {
-                    if (v.a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f30623b) || ("Xiaomi".equals(v.f30624c) && v.f30623b.startsWith("HM")))) {
+                    if (v.a < 18 && "OMX.MTK.AUDIO.DECODER.AAC".equals(str) && ("a70".equals(v.f30701b) || ("Xiaomi".equals(v.f30702c) && v.f30701b.startsWith("HM")))) {
                         return false;
                     }
-                    if (v.a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f30623b) || "protou".equals(v.f30623b) || "ville".equals(v.f30623b) || "villeplus".equals(v.f30623b) || "villec2".equals(v.f30623b) || v.f30623b.startsWith("gee") || "C6602".equals(v.f30623b) || "C6603".equals(v.f30623b) || "C6606".equals(v.f30623b) || "C6616".equals(v.f30623b) || "L36h".equals(v.f30623b) || "SO-02E".equals(v.f30623b))) {
+                    if (v.a == 16 && "OMX.qcom.audio.decoder.mp3".equals(str) && ("dlxu".equals(v.f30701b) || "protou".equals(v.f30701b) || "ville".equals(v.f30701b) || "villeplus".equals(v.f30701b) || "villec2".equals(v.f30701b) || v.f30701b.startsWith("gee") || "C6602".equals(v.f30701b) || "C6603".equals(v.f30701b) || "C6606".equals(v.f30701b) || "C6616".equals(v.f30701b) || "L36h".equals(v.f30701b) || "SO-02E".equals(v.f30701b))) {
                         return false;
                     }
-                    if (v.a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f30623b) || "C1505".equals(v.f30623b) || "C1604".equals(v.f30623b) || "C1605".equals(v.f30623b))) {
+                    if (v.a == 16 && "OMX.qcom.audio.decoder.aac".equals(str) && ("C1504".equals(v.f30701b) || "C1505".equals(v.f30701b) || "C1604".equals(v.f30701b) || "C1605".equals(v.f30701b))) {
                         return false;
                     }
-                    if (v.a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f30624c.equals(ManufacturerUtils.SAMSUNG) && (v.f30623b.startsWith("zeroflte") || v.f30623b.startsWith("zerolte") || v.f30623b.startsWith("zenlte") || v.f30623b.equals("SC-05G") || v.f30623b.equals("marinelteatt") || v.f30623b.equals("404SC") || v.f30623b.equals("SC-04G") || v.f30623b.equals("SCV31")))) {
-                        if (v.a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30624c) && (v.f30623b.startsWith("d2") || v.f30623b.startsWith("serrano") || v.f30623b.startsWith("jflte") || v.f30623b.startsWith("santos") || v.f30623b.startsWith("t0"))) {
+                    if (v.a >= 24 || !(("OMX.SEC.aac.dec".equals(str) || "OMX.Exynos.AAC.Decoder".equals(str)) && v.f30702c.equals(ManufacturerUtils.SAMSUNG) && (v.f30701b.startsWith("zeroflte") || v.f30701b.startsWith("zerolte") || v.f30701b.startsWith("zenlte") || v.f30701b.equals("SC-05G") || v.f30701b.equals("marinelteatt") || v.f30701b.equals("404SC") || v.f30701b.equals("SC-04G") || v.f30701b.equals("SCV31")))) {
+                        if (v.a <= 19 && "OMX.SEC.vp8.dec".equals(str) && ManufacturerUtils.SAMSUNG.equals(v.f30702c) && (v.f30701b.startsWith("d2") || v.f30701b.startsWith("serrano") || v.f30701b.startsWith("jflte") || v.f30701b.startsWith("santos") || v.f30701b.startsWith("t0"))) {
                             return false;
                         }
-                        return (v.a <= 19 && v.f30623b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
+                        return (v.a <= 19 && v.f30701b.startsWith("jflte") && "OMX.qcom.video.decoder.vp8".equals(str)) ? false : true;
                     }
                     return false;
                 }

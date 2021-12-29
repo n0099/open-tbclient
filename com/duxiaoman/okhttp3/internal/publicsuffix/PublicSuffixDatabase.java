@@ -26,27 +26,27 @@ public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f55602e;
+    public static final byte[] f55601e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String[] f55603f;
+    public static final String[] f55602f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String[] f55604g;
+    public static final String[] f55603g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final PublicSuffixDatabase f55605h;
+    public static final PublicSuffixDatabase f55604h;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final CountDownLatch f55606b;
+    public final CountDownLatch f55605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f55607c;
+    public byte[] f55606c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f55608d;
+    public byte[] f55607d;
 
     static {
         InterceptResult invokeClinit;
@@ -61,10 +61,10 @@ public final class PublicSuffixDatabase {
                 return;
             }
         }
-        f55602e = new byte[]{42};
-        f55603f = new String[0];
-        f55604g = new String[]{ProxyConfig.MATCH_ALL_SCHEMES};
-        f55605h = new PublicSuffixDatabase();
+        f55601e = new byte[]{42};
+        f55602f = new String[0];
+        f55603g = new String[]{ProxyConfig.MATCH_ALL_SCHEMES};
+        f55604h = new PublicSuffixDatabase();
     }
 
     public PublicSuffixDatabase() {
@@ -81,7 +81,7 @@ public final class PublicSuffixDatabase {
             }
         }
         this.a = new AtomicBoolean(false);
-        this.f55606b = new CountDownLatch(1);
+        this.f55605b = new CountDownLatch(1);
     }
 
     public static String a(byte[] bArr, byte[][] bArr2, int i2) {
@@ -153,7 +153,7 @@ public final class PublicSuffixDatabase {
                         }
                         if (length2 >= i14) {
                             if (length2 <= i14) {
-                                return new String(bArr, i8, i10, e.f28467e);
+                                return new String(bArr, i8, i10, e.f28541e);
                             }
                         }
                     }
@@ -169,7 +169,7 @@ public final class PublicSuffixDatabase {
     public static PublicSuffixDatabase c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f55605h : (PublicSuffixDatabase) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f55604h : (PublicSuffixDatabase) invokeV.objValue;
     }
 
     public final String[] b(String[] strArr) {
@@ -186,20 +186,20 @@ public final class PublicSuffixDatabase {
                 f();
             } else {
                 try {
-                    this.f55606b.await();
+                    this.f55605b.await();
                 } catch (InterruptedException unused) {
                     Thread.currentThread().interrupt();
                 }
             }
             synchronized (this) {
-                if (this.f55607c == null) {
+                if (this.f55606c == null) {
                     throw new IllegalStateException("Unable to load publicsuffixes.gz resource from the classpath.");
                 }
             }
             int length = strArr.length;
             byte[][] bArr = new byte[length];
             for (int i3 = 0; i3 < strArr.length; i3++) {
-                bArr[i3] = strArr[i3].getBytes(e.f28467e);
+                bArr[i3] = strArr[i3].getBytes(e.f28541e);
             }
             int i4 = 0;
             while (true) {
@@ -208,7 +208,7 @@ public final class PublicSuffixDatabase {
                     str2 = null;
                     break;
                 }
-                str2 = a(this.f55607c, bArr, i4);
+                str2 = a(this.f55606c, bArr, i4);
                 if (str2 != null) {
                     break;
                 }
@@ -217,8 +217,8 @@ public final class PublicSuffixDatabase {
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
                 for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                    bArr2[i5] = f55602e;
-                    str3 = a(this.f55607c, bArr2, i5);
+                    bArr2[i5] = f55601e;
+                    str3 = a(this.f55606c, bArr2, i5);
                     if (str3 != null) {
                         break;
                     }
@@ -230,7 +230,7 @@ public final class PublicSuffixDatabase {
                     if (i2 >= length - 1) {
                         break;
                     }
-                    String a = a(this.f55608d, bArr, i2);
+                    String a = a(this.f55607d, bArr, i2);
                     if (a != null) {
                         str = a;
                         break;
@@ -241,17 +241,17 @@ public final class PublicSuffixDatabase {
             if (str != null) {
                 return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             } else if (str2 == null && str3 == null) {
-                return f55604g;
+                return f55603g;
             } else {
                 if (str2 != null) {
                     strArr2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 } else {
-                    strArr2 = f55603f;
+                    strArr2 = f55602f;
                 }
                 if (str3 != null) {
                     strArr3 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 } else {
-                    strArr3 = f55603f;
+                    strArr3 = f55602f;
                 }
                 return strArr2.length > strArr3.length ? strArr2 : strArr3;
             }
@@ -305,10 +305,10 @@ public final class PublicSuffixDatabase {
             byte[] bArr2 = new byte[buffer.readInt()];
             buffer.readFully(bArr2);
             synchronized (this) {
-                this.f55607c = bArr;
-                this.f55608d = bArr2;
+                this.f55606c = bArr;
+                this.f55607d = bArr2;
             }
-            this.f55606b.countDown();
+            this.f55605b.countDown();
         } finally {
             e.f(buffer);
         }

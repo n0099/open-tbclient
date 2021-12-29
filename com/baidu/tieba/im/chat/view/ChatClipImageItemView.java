@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import c.a.d.f.p.n;
 import c.a.d.g.a.g;
 import c.a.d.g.a.j;
 import c.a.d.g.a.m;
@@ -68,11 +69,11 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.m.d.a getBdImage() {
+    public c.a.d.n.d.a getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            c.a.d.m.d.a bdImage = super.getBdImage();
+            c.a.d.n.d.a bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
@@ -83,18 +84,18 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
             jVar.u(z);
             return bdImage;
         }
-        return (c.a.d.m.d.a) invokeV.objValue;
+        return (c.a.d.n.d.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public c.a.d.m.d.a getDefaultBdImage() {
+    public c.a.d.n.d.a getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.pathClipDrawer.u(false);
             return super.getDefaultBdImage();
         }
-        return (c.a.d.m.d.a) invokeV.objValue;
+        return (c.a.d.n.d.a) invokeV.objValue;
     }
 
     public boolean isLeft() {
@@ -230,10 +231,10 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            int d2 = c.a.d.f.p.m.d(getContext(), 4.0f);
-            int d3 = c.a.d.f.p.m.d(getContext(), 12.0f);
-            int d4 = c.a.d.f.p.m.d(getContext(), 6.0f);
-            int d5 = c.a.d.f.p.m.d(getContext(), 10.0f);
+            int d2 = n.d(getContext(), 4.0f);
+            int d3 = n.d(getContext(), 12.0f);
+            int d4 = n.d(getContext(), 6.0f);
+            int d5 = n.d(getContext(), 10.0f);
             float f5 = d4;
             float f6 = 2.0f * f4;
             float f7 = (f2 - f5) - f6;

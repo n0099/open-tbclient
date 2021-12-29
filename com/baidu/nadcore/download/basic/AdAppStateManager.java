@@ -89,7 +89,7 @@ public class AdAppStateManager extends BroadcastReceiver {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            aVar.f1513c = AdDownloadStatus.INSTALLED;
+            aVar.f1940c = AdDownloadStatus.INSTALLED;
             c.a.c0.g.a.a.b().d(AdDownloadAction.INSTALL_FINISH, aVar);
             c.a.c0.g.i.a.e(aVar);
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
@@ -100,10 +100,10 @@ public class AdAppStateManager extends BroadcastReceiver {
 
     public void register(@NonNull c.a.c0.g.d.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1514d)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || TextUtils.isEmpty(aVar.f1941d)) {
             return;
         }
-        c.e(this.mDatas, aVar.f1514d, aVar);
+        c.e(this.mDatas, aVar.f1941d, aVar);
     }
 
     public AdAppStateManager() {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.Tachikoma;
 import java.io.PrintStream;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Console {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

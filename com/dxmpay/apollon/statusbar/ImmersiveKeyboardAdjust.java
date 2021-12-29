@@ -24,10 +24,10 @@ public class ImmersiveKeyboardAdjust {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f55720e;
+        public final /* synthetic */ View f55719e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ImmersiveKeyboardAdjust f55721f;
+        public final /* synthetic */ ImmersiveKeyboardAdjust f55720f;
 
         public a(ImmersiveKeyboardAdjust immersiveKeyboardAdjust, View view) {
             Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class ImmersiveKeyboardAdjust {
                     return;
                 }
             }
-            this.f55721f = immersiveKeyboardAdjust;
-            this.f55720e = view;
+            this.f55720f = immersiveKeyboardAdjust;
+            this.f55719e = view;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -53,12 +53,12 @@ public class ImmersiveKeyboardAdjust {
             int computeUsableHeight;
             View view;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (computeUsableHeight = this.f55721f.computeUsableHeight(this.f55720e)) == this.f55721f.usableHeightPrevious || (view = this.f55720e) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (computeUsableHeight = this.f55720f.computeUsableHeight(this.f55719e)) == this.f55720f.usableHeightPrevious || (view = this.f55719e) == null) {
                 return;
             }
             view.getLayoutParams().height = computeUsableHeight;
-            this.f55720e.requestLayout();
-            this.f55721f.usableHeightPrevious = computeUsableHeight;
+            this.f55719e.requestLayout();
+            this.f55720f.usableHeightPrevious = computeUsableHeight;
         }
     }
 

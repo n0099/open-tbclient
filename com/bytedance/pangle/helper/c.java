@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.log.ZeusLogger;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -23,7 +22,7 @@ public final class c {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<String> f55181b;
+    public static List<String> f55183b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +38,7 @@ public final class c {
                 return;
             }
         }
-        f55181b = new CopyOnWriteArrayList();
+        f55183b = new CopyOnWriteArrayList();
     }
 
     public static String a() {
@@ -121,6 +120,6 @@ public final class c {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TextUtils.isEmpty(str) || !str.contains(":")) ? FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT : str.split(":")[1] : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (TextUtils.isEmpty(str) || !str.contains(":")) ? "main" : str.split(":")[1] : (String) invokeL.objValue;
     }
 }

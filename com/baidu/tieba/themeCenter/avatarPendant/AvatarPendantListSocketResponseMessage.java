@@ -1,7 +1,7 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.s0.b4.d.a;
-import c.a.s0.b4.h.e;
+import c.a.t0.c4.d.a;
+import c.a.t0.c4.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;

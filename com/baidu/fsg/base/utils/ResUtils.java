@@ -27,34 +27,34 @@ public final class ResUtils {
     public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34836b = "string";
+    public static final String f34992b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f34837c = "layout";
+    public static final String f34993c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f34838d = "style";
+    public static final String f34994d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f34839e = "drawable";
+    public static final String f34995e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f34840f = "color";
+    public static final String f34996f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f34841g = "array";
+    public static final String f34997g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f34842h = "attr";
+    public static final String f34998h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f34843i = "dimen";
+    public static final String f34999i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f34844j = "xml";
+    public static final String f35000j = "xml";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f34845k = "integer";
+    public static final String f35001k = "integer";
     public static final String l = "raw";
     public static Context m;
     public transient /* synthetic */ FieldHolder $fh;

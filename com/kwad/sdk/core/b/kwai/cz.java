@@ -1,39 +1,15 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.TbPreviewVideoActivityConfig;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.live.mode.LiveInfo;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class cz implements com.kwad.sdk.core.d<PhotoInfo> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public cz() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(PhotoInfo photoInfo, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, photoInfo, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         PhotoInfo.BaseInfo baseInfo = new PhotoInfo.BaseInfo();
@@ -65,22 +41,17 @@ public class cz implements com.kwad.sdk.core.d<PhotoInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(PhotoInfo photoInfo, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, photoInfo, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "baseInfo", photoInfo.baseInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, photoInfo.videoInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "coverInfo", photoInfo.coverInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "authorInfo", photoInfo.authorInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "liveInfo", photoInfo.liveInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "tubeEpisode", photoInfo.tubeEpisode);
-            com.kwad.sdk.utils.t.a(jSONObject, "wallpaperInfo", photoInfo.wallpaperInfo);
-            com.kwad.sdk.utils.t.a(jSONObject, "productInfo", photoInfo.productInfo);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "baseInfo", photoInfo.baseInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, photoInfo.videoInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "coverInfo", photoInfo.coverInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "authorInfo", photoInfo.authorInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "liveInfo", photoInfo.liveInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "tubeEpisode", photoInfo.tubeEpisode);
+        com.kwad.sdk.utils.t.a(jSONObject, "wallpaperInfo", photoInfo.wallpaperInfo);
+        com.kwad.sdk.utils.t.a(jSONObject, "productInfo", photoInfo.productInfo);
+        return jSONObject;
     }
 }

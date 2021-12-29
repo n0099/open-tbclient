@@ -15,7 +15,7 @@ public final class a {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f2117b;
+    public final c f2544b;
 
     public a(String host, c cVar) {
         Interceptable interceptable = $ic;
@@ -34,13 +34,13 @@ public final class a {
         }
         Intrinsics.checkNotNullParameter(host, "host");
         this.a = host;
-        this.f2117b = cVar;
+        this.f2544b = cVar;
     }
 
     public final c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2117b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2544b : (c) invokeV.objValue;
     }
 
     public final String b() {
@@ -56,7 +56,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f2117b, aVar.f2117b);
+                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f2544b, aVar.f2544b);
                 }
                 return false;
             }
@@ -71,7 +71,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.a;
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            c cVar = this.f2117b;
+            c cVar = this.f2544b;
             return hashCode + (cVar != null ? cVar.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -81,7 +81,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.f2117b + SmallTailInfo.EMOTION_SUFFIX;
+            return "AuthHostItemModel(host=" + this.a + ", auth=" + this.f2544b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

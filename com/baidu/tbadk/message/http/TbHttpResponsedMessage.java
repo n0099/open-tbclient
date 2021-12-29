@@ -2,7 +2,7 @@ package com.baidu.tbadk.message.http;
 
 import c.a.d.f.j.a.d;
 import c.a.d.f.j.a.e;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -90,10 +90,10 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         d dVar = eVar.d().get(eVar.d().size() - 1);
         NetWorkState.mErrorNums.addAndGet(eVar.d().size() - 1);
         NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
-        statisticsData.mMode = getMode(k.I());
-        statisticsData.mSize = dVar.f2389b;
-        statisticsData.mTime = dVar.f2393f;
-        statisticsData.mTimesNum = dVar.f2392e;
+        statisticsData.mMode = getMode(l.I());
+        statisticsData.mSize = dVar.f2816b;
+        statisticsData.mTime = dVar.f2820f;
+        statisticsData.mTimesNum = dVar.f2819e;
         statisticsData.mMethod = eVar.b().h() != HttpMessageTask.HTTP_METHOD.POST ? 2 : 1;
         NetWorkState.addStatisticsData(statisticsData);
     }

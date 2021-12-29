@@ -44,25 +44,25 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
     public BindFastRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54300b;
+    public String f54303b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54301c;
+    public String f54304c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54302d;
+    public String f54305d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54303e;
+    public String f54306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f54304f;
+    public String f54307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f54305g;
+    public String f54308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f54306h;
+    public String f54309h;
 
     public BindCardProtocolActivity() {
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                 if (!TextUtils.isEmpty(str2)) {
                     HtmlDataCache.getInstance().setHtml(str2);
                     Intent intent = new Intent(getActivity(), WebViewActivity.class);
-                    intent.putExtra("webview_title_string", this.f54301c);
+                    intent.putExtra("webview_title_string", this.f54304c);
                     intent.putExtra(WebViewActivity.HTML_DATA_FROM_SCENE, "1");
                     startActivity(intent);
                 } else {
@@ -142,12 +142,12 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             this.a = (BindFastRequest) PayRequestCache.getInstance().getRequest(PayRequestCache.getInstance().getBindCategoryByIntent(getIntent()));
-            this.f54300b = getIntent().getStringExtra(PROTOCOL_SNAPSHOT_ID);
-            this.f54302d = getIntent().getStringExtra(TRUE_NAME);
-            this.f54304f = getIntent().getStringExtra("identity_code");
-            this.f54303e = getIntent().getStringExtra(IDENTITY_TYPE);
-            this.f54305g = getIntent().getStringExtra("card_no");
-            this.f54306h = getIntent().getStringExtra("mobile");
+            this.f54303b = getIntent().getStringExtra(PROTOCOL_SNAPSHOT_ID);
+            this.f54305d = getIntent().getStringExtra(TRUE_NAME);
+            this.f54307f = getIntent().getStringExtra("identity_code");
+            this.f54306e = getIntent().getStringExtra(IDENTITY_TYPE);
+            this.f54308g = getIntent().getStringExtra("card_no");
+            this.f54309h = getIntent().getStringExtra("mobile");
             StatHelper.statServiceEvent(PayStatServiceEvent.ENTER_PROTOCOL_PAGE);
             a();
         }
@@ -194,7 +194,7 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                 public final /* synthetic */ com.baidu.wallet.paysdk.ui.widget.a.b a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BindCardProtocolActivity f54307b;
+                public final /* synthetic */ BindCardProtocolActivity f54310b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -211,7 +211,7 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                             return;
                         }
                     }
-                    this.f54307b = this;
+                    this.f54310b = this;
                     this.a = bVar;
                 }
 
@@ -223,8 +223,8 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
                         return;
                     }
                     StatHelper.statServiceEvent(PayStatServiceEvent.CLICK_PROTOCOL_ITEM);
-                    this.f54307b.f54301c = item.templateName;
-                    this.f54307b.a(item.protocolType, item.templateCode);
+                    this.f54310b.f54304c = item.templateName;
+                    this.f54310b.a(item.protocolType, item.templateCode);
                 }
             });
         }
@@ -236,13 +236,13 @@ public class BindCardProtocolActivity extends HalfProtocolScreenBaseActivity imp
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2) == null) {
             WalletGlobalUtils.showLoadingDialog(this);
             com.baidu.wallet.paysdk.beans.c cVar = (com.baidu.wallet.paysdk.beans.c) PayBeanFactory.getInstance().getBean((Context) this, 605, "BindCardProtocolActivity");
-            cVar.d(this.f54302d);
-            cVar.e(this.f54303e);
-            cVar.f(this.f54304f);
-            cVar.h(this.f54306h);
-            cVar.g(this.f54305g);
+            cVar.d(this.f54305d);
+            cVar.e(this.f54306e);
+            cVar.f(this.f54307f);
+            cVar.h(this.f54309h);
+            cVar.g(this.f54308g);
             cVar.b(str);
-            cVar.a(this.f54300b);
+            cVar.a(this.f54303b);
             cVar.c(str2);
             cVar.setResponseCallback(this);
             cVar.execBean();

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -25,16 +25,16 @@ public class MessageCardBottomView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f46848e;
+    public TextView f47068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f46849f;
+    public ViewGroup f47069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f46850g;
+    public ImageView f47070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f46851h;
+    public TextView f47071h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
@@ -61,43 +61,43 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-            this.f46848e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-            this.f46849f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-            this.f46850g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-            this.f46851h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+            this.f47068e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
+            this.f47069f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
+            this.f47070g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
+            this.f47071h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
         }
     }
 
     public View getReplyContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46849f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47069f : (View) invokeV.objValue;
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f46848e, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f46851h, R.drawable.selector_comment_and_prise_item_text_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f46850g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
+            SkinManager.setViewTextColor(this.f47068e, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f47071h, R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47070g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
         }
     }
 
     public void setData(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) {
-            if (!z && l.isEmpty(str)) {
+            if (!z && m.isEmpty(str)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f46849f.setVisibility(z ? 0 : 8);
-            if (l.isEmpty(str)) {
-                this.f46848e.setVisibility(8);
+            this.f47069f.setVisibility(z ? 0 : 8);
+            if (m.isEmpty(str)) {
+                this.f47068e.setVisibility(8);
                 return;
             }
-            this.f46848e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-            this.f46848e.setVisibility(0);
+            this.f47068e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.f47068e.setVisibility(0);
         }
     }
 

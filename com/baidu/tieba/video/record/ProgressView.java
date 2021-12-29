@@ -26,25 +26,25 @@ public class ProgressView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f50285e;
+    public a f50535e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f50286f;
+    public int f50536f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f50287g;
+    public Paint f50537g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f50288h;
+    public Paint f50538h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f50289i;
+    public Paint f50539i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Paint f50290j;
+    public Paint f50540j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Paint f50291k;
+    public Paint f50541k;
     public float l;
     public float m;
     public LinkedList<Integer> n;
@@ -188,22 +188,22 @@ public class ProgressView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f50287g = new Paint();
-            this.f50288h = new Paint();
-            this.f50289i = new Paint();
-            this.f50291k = new Paint();
-            this.f50290j = new Paint();
+            this.f50537g = new Paint();
+            this.f50538h = new Paint();
+            this.f50539i = new Paint();
+            this.f50541k = new Paint();
+            this.f50540j = new Paint();
             setBackgroundColor(Color.parseColor("#FFFFFF"));
-            this.f50287g.setStyle(Paint.Style.FILL);
-            this.f50287g.setColor(Color.parseColor("#33aaff"));
-            this.f50288h.setStyle(Paint.Style.FILL);
-            this.f50288h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
-            this.f50289i.setStyle(Paint.Style.FILL);
-            this.f50289i.setColor(Color.parseColor("#FFFFFF"));
-            this.f50291k.setStyle(Paint.Style.FILL);
-            this.f50291k.setColor(Color.parseColor("#e53917"));
-            this.f50290j.setStyle(Paint.Style.FILL);
-            this.f50290j.setColor(Color.parseColor("#33aaff"));
+            this.f50537g.setStyle(Paint.Style.FILL);
+            this.f50537g.setColor(Color.parseColor("#33aaff"));
+            this.f50538h.setStyle(Paint.Style.FILL);
+            this.f50538h.setColor(Color.rgb(51, (int) Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID, 255));
+            this.f50539i.setStyle(Paint.Style.FILL);
+            this.f50539i.setColor(Color.parseColor("#FFFFFF"));
+            this.f50541k.setStyle(Paint.Style.FILL);
+            this.f50541k.setColor(Color.parseColor("#e53917"));
+            this.f50540j.setStyle(Paint.Style.FILL);
+            this.f50540j.setColor(Color.parseColor("#33aaff"));
             DisplayMetrics displayMetrics = new DisplayMetrics();
             ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
             float f2 = displayMetrics.widthPixels / 15000.0f;
@@ -275,21 +275,21 @@ public class ProgressView extends View {
                         f4 = 1.0f;
                     }
                     float f5 = f4;
-                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f50287g);
-                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f50289i);
+                    canvas.drawRect(f2, 0.0f, f5, (float) (this.y - 1), this.f50537g);
+                    canvas.drawRect(f5, 0.0f, this.r, (float) (this.y - 1), this.f50539i);
                     j3 = intValue;
                 }
                 if (this.n.getLast().intValue() <= 3000.0f) {
                     float f6 = this.o;
-                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f50288h);
+                    canvas.drawRect(f6 * 3000.0f, 0.0f, (f6 * 3000.0f) + this.l, (float) (this.y - 1), this.f50538h);
                 }
             } else {
                 float f7 = this.o;
-                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f50288h);
+                canvas.drawRect(f7 * 3000.0f, 0.0f, (f7 * 3000.0f) + this.l, (float) (this.y - 1), this.f50538h);
             }
             if (this.p == State.ROLLBACK) {
                 float f8 = this.r;
-                canvas.drawRect(f8 - (((float) (this.x - this.w)) * this.o), 0.0f, f8, (float) this.y, this.f50291k);
+                canvas.drawRect(f8 - (((float) (this.x - this.w)) * this.o), 0.0f, f8, (float) this.y, this.f50541k);
             }
             if (this.p == State.START) {
                 float f9 = this.s + (this.t * ((float) (currentTimeMillis - this.u)));
@@ -297,28 +297,28 @@ public class ProgressView extends View {
                 float f10 = this.r + f9;
                 if (f10 <= getMeasuredWidth()) {
                     float f11 = this.r;
-                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f50287g);
+                    canvas.drawRect(f11, 0.0f, f11 + this.s, (float) (this.y - 1), this.f50537g);
                 } else {
-                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f50287g);
+                    canvas.drawRect(this.r, 0.0f, getMeasuredWidth(), (float) (this.y - 1), this.f50537g);
                 }
                 float f12 = f10 - 5.0f;
                 long j4 = this.y;
-                canvas.drawRect(f12, 0.0f, f12 + ((float) j4), (float) (j4 - 1), this.f50290j);
-                if (this.f50285e != null) {
+                canvas.drawRect(f12, 0.0f, f12 + ((float) j4), (float) (j4 - 1), this.f50540j);
+                if (this.f50535e != null) {
                     int measuredWidth = (int) ((f10 / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth <= 100 ? measuredWidth : 100;
-                    if (i2 != this.f50286f) {
-                        this.f50286f = i2;
-                        this.f50285e.a(i2);
+                    if (i2 != this.f50536f) {
+                        this.f50536f = i2;
+                        this.f50535e.a(i2);
                     }
                 }
             } else {
-                if (this.f50285e != null) {
+                if (this.f50535e != null) {
                     int measuredWidth2 = (int) ((this.r / getMeasuredWidth()) * 100.0f);
                     i2 = measuredWidth2 <= 100 ? measuredWidth2 : 100;
-                    if (i2 != this.f50286f) {
-                        this.f50286f = i2;
-                        this.f50285e.a(i2);
+                    if (i2 != this.f50536f) {
+                        this.f50536f = i2;
+                        this.f50535e.a(i2);
                     }
                 }
                 long j5 = this.v;
@@ -329,7 +329,7 @@ public class ProgressView extends View {
                 if (this.q) {
                     float f13 = this.r;
                     long j6 = this.y;
-                    canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j6), (float) (j6 - 1), this.f50290j);
+                    canvas.drawRect(f13 - 5.0f, 0.0f, (f13 - 5.0f) + ((float) j6), (float) (j6 - 1), this.f50540j);
                 }
             }
             this.u = System.currentTimeMillis();
@@ -354,7 +354,7 @@ public class ProgressView extends View {
             this.u = 0L;
             this.w = 0L;
             this.x = 0L;
-            this.f50286f = 0;
+            this.f50536f = 0;
             this.v = 0L;
         }
     }
@@ -377,7 +377,7 @@ public class ProgressView extends View {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.f50285e = aVar;
+            this.f50535e = aVar;
         }
     }
 

@@ -2746,7 +2746,7 @@ public final class Synchronized {
 
             /* renamed from: com.google.common.collect.Synchronized$SynchronizedAsMapEntries$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2052a extends e0<K, Collection<V>> {
+            public class C2059a extends e0<K, Collection<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2756,7 +2756,7 @@ public final class Synchronized {
                 /* renamed from: f  reason: collision with root package name */
                 public final /* synthetic */ a f57003f;
 
-                public C2052a(a aVar, Map.Entry entry) {
+                public C2059a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -2821,7 +2821,7 @@ public final class Synchronized {
             public Map.Entry<K, Collection<V>> a(Map.Entry<K, Collection<V>> entry) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2052a(this, entry) : (Map.Entry) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2059a(this, entry) : (Map.Entry) invokeL.objValue;
             }
         }
 

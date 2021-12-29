@@ -15,7 +15,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31593i;
+    public boolean f31736i;
 
     public H5OpenAuthActivity() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                 return;
             }
         }
-        this.f31593i = false;
+        this.f31736i = false;
     }
 
     @Override // com.alipay.sdk.app.H5PayActivity
@@ -44,11 +44,11 @@ public class H5OpenAuthActivity extends H5PayActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f31593i) {
+            if (this.f31736i) {
                 try {
-                    com.alipay.sdk.sys.a a = a.C1679a.a(getIntent());
+                    com.alipay.sdk.sys.a a = a.C1686a.a(getIntent());
                     if (a != null) {
-                        com.alipay.sdk.app.statistic.a.b(this, a, "", a.f31756d);
+                        com.alipay.sdk.app.statistic.a.b(this, a, "", a.f31899d);
                     }
                 } catch (Throwable unused) {
                 }
@@ -62,7 +62,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
             try {
-                com.alipay.sdk.sys.a a = a.C1679a.a(intent);
+                com.alipay.sdk.sys.a a = a.C1686a.a(intent);
                 try {
                     super.startActivity(intent);
                     Uri data = intent != null ? intent.getData() : null;
@@ -75,7 +75,7 @@ public class H5OpenAuthActivity extends H5PayActivity {
                     if (a != null) {
                         com.alipay.sdk.app.statistic.a.a(a, "biz", com.alipay.sdk.app.statistic.b.u0, th, uri);
                     }
-                    this.f31593i = true;
+                    this.f31736i = true;
                     throw th;
                 }
             } catch (Throwable unused) {

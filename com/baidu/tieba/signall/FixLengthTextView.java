@@ -20,7 +20,7 @@ public class FixLengthTextView extends TextView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f49542e;
+    public String f49765e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FixLengthTextView(Context context) {
@@ -46,15 +46,15 @@ public class FixLengthTextView extends TextView {
     public String getmMeasureText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49542e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49765e : (String) invokeV.objValue;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            if (!TextUtils.isEmpty(this.f49542e)) {
-                int desiredWidth = ((int) Layout.getDesiredWidth(this.f49542e, getPaint())) + getPaddingLeft() + getPaddingRight();
+            if (!TextUtils.isEmpty(this.f49765e)) {
+                int desiredWidth = ((int) Layout.getDesiredWidth(this.f49765e, getPaint())) + getPaddingLeft() + getPaddingRight();
                 int size = View.MeasureSpec.getSize(i2);
                 if (View.MeasureSpec.getMode(i2) == 1073741824) {
                     desiredWidth = Math.max(desiredWidth, size);
@@ -68,7 +68,7 @@ public class FixLengthTextView extends TextView {
     public void setmMeasureText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f49542e = str;
+            this.f49765e = str;
         }
     }
 
@@ -113,7 +113,7 @@ public class FixLengthTextView extends TextView {
             }
         }
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.fixtextview);
-        this.f49542e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(R$styleable.fixtextview_measuretext));
+        this.f49765e = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(R$styleable.fixtextview_measuretext));
         obtainStyledAttributes.recycle();
     }
 }

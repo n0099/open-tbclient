@@ -1,9 +1,9 @@
 package com.baidu.tieba.personPolymeric.mode.message;
 
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
-import c.a.r0.s.l;
-import c.a.s0.u2.b;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
+import c.a.s0.s.k;
+import c.a.t0.u2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -49,10 +49,10 @@ public class PersonPolymericReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.uid = Long.valueOf(this.uid);
             builder.pn = Integer.valueOf(this.pn);
-            builder.scr_w = Integer.valueOf(m.k(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_h = Integer.valueOf(m.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(l.c().e());
-            builder.scr_dip = Double.valueOf(m.h(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst().getApp()));
+            builder.q_type = Integer.valueOf(k.c().e());
+            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
             if (z) {
                 b0.a(builder, true);
             }

@@ -43,11 +43,11 @@ public class e implements View.OnKeyListener {
             if (keyEvent.getAction() == 0 && i2 == 4) {
                 z = this.a.o;
                 if (z) {
-                    safeScrollView = this.a.f34916g;
+                    safeScrollView = this.a.f35072g;
                     if (safeScrollView != null) {
-                        safeScrollView2 = this.a.f34916g;
+                        safeScrollView2 = this.a.f35072g;
                         if (safeScrollView2.isPopupWindowShowing()) {
-                            safeScrollView3 = this.a.f34916g;
+                            safeScrollView3 = this.a.f35072g;
                             safeScrollView3.dismissKeyBoard(this.a);
                             return true;
                         }

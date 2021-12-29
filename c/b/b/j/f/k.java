@@ -11,10 +11,10 @@ public class k extends b<c.b.b.n.m.i, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27750b;
+    public String f27824b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27751c;
+    public String f27825c;
 
     /* loaded from: classes9.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.m.i> {
@@ -22,19 +22,19 @@ public class k extends b<c.b.b.n.m.i, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27752b;
+        public String f27826b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f27753c;
+        public String f27827c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f27754d;
+        public boolean f27828d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f27755e;
+        public String f27829e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f27756f;
+        public String f27830f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class k extends b<c.b.b.n.m.i, a> {
                     return;
                 }
             }
-            this.f27754d = true;
+            this.f27828d = true;
         }
     }
 
@@ -71,8 +71,8 @@ public class k extends b<c.b.b.n.m.i, a> {
                 return;
             }
         }
-        this.f27750b = ".vert";
-        this.f27751c = ".frag";
+        this.f27824b = ".vert";
+        this.f27825c = ".frag";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,11 +106,11 @@ public class k extends b<c.b.b.n.m.i, a> {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
             String str3 = null;
             if (aVar2 != null) {
-                String str4 = aVar2.f27752b;
+                String str4 = aVar2.f27826b;
                 if (str4 == null) {
                     str4 = null;
                 }
-                str2 = aVar2.f27753c;
+                str2 = aVar2.f27827c;
                 if (str2 == null) {
                     str2 = null;
                 }
@@ -118,11 +118,11 @@ public class k extends b<c.b.b.n.m.i, a> {
             } else {
                 str2 = null;
             }
-            if (str3 == null && str.endsWith(this.f27751c)) {
-                str3 = str.substring(0, str.length() - this.f27751c.length()) + this.f27750b;
+            if (str3 == null && str.endsWith(this.f27825c)) {
+                str3 = str.substring(0, str.length() - this.f27825c.length()) + this.f27824b;
             }
-            if (str2 == null && str.endsWith(this.f27750b)) {
-                str2 = str.substring(0, str.length() - this.f27750b.length()) + this.f27751c;
+            if (str2 == null && str.endsWith(this.f27824b)) {
+                str2 = str.substring(0, str.length() - this.f27824b.length()) + this.f27825c;
             }
             c.b.b.m.a b2 = str3 == null ? aVar : b(str3);
             if (str2 != null) {
@@ -131,15 +131,15 @@ public class k extends b<c.b.b.n.m.i, a> {
             String o = b2.o();
             String o2 = b2.equals(aVar) ? o : aVar.o();
             if (aVar2 != null) {
-                if (aVar2.f27755e != null) {
-                    o = aVar2.f27755e + o;
+                if (aVar2.f27829e != null) {
+                    o = aVar2.f27829e + o;
                 }
-                if (aVar2.f27756f != null) {
-                    o2 = aVar2.f27756f + o2;
+                if (aVar2.f27830f != null) {
+                    o2 = aVar2.f27830f + o2;
                 }
             }
             c.b.b.n.m.i iVar = new c.b.b.n.m.i(o, o2);
-            if ((aVar2 == null || aVar2.f27754d) && !iVar.o()) {
+            if ((aVar2 == null || aVar2.f27828d) && !iVar.o()) {
                 eVar.p().b("ShaderProgram " + str + " failed to compile:\n" + iVar.l());
             }
             return iVar;

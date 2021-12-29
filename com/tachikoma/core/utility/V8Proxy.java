@@ -15,7 +15,7 @@ import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class V8Proxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

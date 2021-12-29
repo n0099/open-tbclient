@@ -3,7 +3,7 @@ package com.baidu.tieba.flutter.plugin.tiebautility.android;
 import android.content.res.Resources;
 import c.a.d.a.h;
 import c.a.d.f.m.a;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -42,7 +42,7 @@ public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
         int nightResouceId;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, this, str, i2)) == null) {
-            if (l.isEmpty(str)) {
+            if (m.isEmpty(str)) {
                 return i2;
             }
             if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str) && (nightResouceId = SkinManager.getNightResouceId(TbadkCoreApplication.getInst().getResources(), i2)) > 0) {

@@ -20,13 +20,13 @@ public final class a implements b, c, Cloneable, ByteChannel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f39455c;
+    public static final byte[] f39611c;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39456b;
+    public long f39612b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
                 return;
             }
         }
-        f39455c = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+        f39611c = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     }
 
     public a() {
@@ -61,26 +61,26 @@ public final class a implements b, c, Cloneable, ByteChannel {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39456b == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39612b == 0 : invokeV.booleanValue;
     }
 
     public byte b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            long j2 = this.f39456b;
+            long j2 = this.f39612b;
             if (j2 != 0) {
                 e eVar = this.a;
-                int i2 = eVar.f39461b;
-                int i3 = eVar.f39462c;
+                int i2 = eVar.f39617b;
+                int i3 = eVar.f39618c;
                 int i4 = i2 + 1;
                 byte b2 = eVar.a[i2];
-                this.f39456b = j2 - 1;
+                this.f39612b = j2 - 1;
                 if (i4 == i3) {
                     this.a = eVar.b();
                     f.a(eVar);
                 } else {
-                    eVar.f39461b = i4;
+                    eVar.f39617b = i4;
                 }
                 return b2;
             }
@@ -94,7 +94,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             try {
-                return a(this.f39456b, j.a);
+                return a(this.f39612b, j.a);
             } catch (EOFException e2) {
                 throw new AssertionError(e2);
             }
@@ -118,20 +118,20 @@ public final class a implements b, c, Cloneable, ByteChannel {
             return (a) invokeV.objValue;
         }
         a aVar = new a();
-        if (this.f39456b == 0) {
+        if (this.f39612b == 0) {
             return aVar;
         }
         e a = this.a.a();
         aVar.a = a;
-        a.f39466g = a;
-        a.f39465f = a;
+        a.f39622g = a;
+        a.f39621f = a;
         e eVar = this.a;
         while (true) {
-            eVar = eVar.f39465f;
+            eVar = eVar.f39621f;
             if (eVar != this.a) {
-                aVar.a.f39466g.a(eVar.a());
+                aVar.a.f39622g.a(eVar.a());
             } else {
-                aVar.f39456b = this.f39456b;
+                aVar.f39612b = this.f39612b;
                 return aVar;
             }
         }
@@ -141,11 +141,11 @@ public final class a implements b, c, Cloneable, ByteChannel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            long j2 = this.f39456b;
+            long j2 = this.f39612b;
             if (j2 <= 2147483647L) {
                 return d((int) j2);
             }
-            throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f39456b);
+            throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f39612b);
         }
         return (d) invokeV.objValue;
     }
@@ -159,8 +159,8 @@ public final class a implements b, c, Cloneable, ByteChannel {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                long j2 = this.f39456b;
-                if (j2 != aVar.f39456b) {
+                long j2 = this.f39612b;
+                if (j2 != aVar.f39612b) {
                     return false;
                 }
                 long j3 = 0;
@@ -169,10 +169,10 @@ public final class a implements b, c, Cloneable, ByteChannel {
                 }
                 e eVar = this.a;
                 e eVar2 = aVar.a;
-                int i2 = eVar.f39461b;
-                int i3 = eVar2.f39461b;
-                while (j3 < this.f39456b) {
-                    long min = Math.min(eVar.f39462c - i2, eVar2.f39462c - i3);
+                int i2 = eVar.f39617b;
+                int i3 = eVar2.f39617b;
+                while (j3 < this.f39612b) {
+                    long min = Math.min(eVar.f39618c - i2, eVar2.f39618c - i3);
                     int i4 = 0;
                     while (i4 < min) {
                         int i5 = i2 + 1;
@@ -184,13 +184,13 @@ public final class a implements b, c, Cloneable, ByteChannel {
                         i2 = i5;
                         i3 = i6;
                     }
-                    if (i2 == eVar.f39462c) {
-                        eVar = eVar.f39465f;
-                        i2 = eVar.f39461b;
+                    if (i2 == eVar.f39618c) {
+                        eVar = eVar.f39621f;
+                        i2 = eVar.f39617b;
                     }
-                    if (i3 == eVar2.f39462c) {
-                        eVar2 = eVar2.f39465f;
-                        i3 = eVar2.f39461b;
+                    if (i3 == eVar2.f39618c) {
+                        eVar2 = eVar2.f39621f;
+                        i3 = eVar2.f39617b;
                     }
                     j3 += min;
                 }
@@ -218,11 +218,11 @@ public final class a implements b, c, Cloneable, ByteChannel {
             }
             int i2 = 1;
             do {
-                int i3 = eVar.f39462c;
-                for (int i4 = eVar.f39461b; i4 < i3; i4++) {
+                int i3 = eVar.f39618c;
+                for (int i4 = eVar.f39617b; i4 < i3; i4++) {
                     i2 = (i2 * 31) + eVar.a[i4];
                 }
-                eVar = eVar.f39465f;
+                eVar = eVar.f39621f;
             } while (eVar != this.a);
             return i2;
         }
@@ -248,12 +248,12 @@ public final class a implements b, c, Cloneable, ByteChannel {
             if (eVar == null) {
                 return -1;
             }
-            int min = Math.min(byteBuffer.remaining(), eVar.f39462c - eVar.f39461b);
-            byteBuffer.put(eVar.a, eVar.f39461b, min);
-            int i2 = eVar.f39461b + min;
-            eVar.f39461b = i2;
-            this.f39456b -= min;
-            if (i2 == eVar.f39462c) {
+            int min = Math.min(byteBuffer.remaining(), eVar.f39618c - eVar.f39617b);
+            byteBuffer.put(eVar.a, eVar.f39617b, min);
+            int i2 = eVar.f39617b + min;
+            eVar.f39617b = i2;
+            this.f39612b -= min;
+            if (i2 == eVar.f39618c) {
                 this.a = eVar.b();
                 f.a(eVar);
             }
@@ -278,12 +278,12 @@ public final class a implements b, c, Cloneable, ByteChannel {
                 int i2 = remaining;
                 while (i2 > 0) {
                     e c2 = c(1);
-                    int min = Math.min(i2, 8192 - c2.f39462c);
-                    byteBuffer.get(c2.a, c2.f39462c, min);
+                    int min = Math.min(i2, 8192 - c2.f39618c);
+                    byteBuffer.get(c2.a, c2.f39618c, min);
                     i2 -= min;
-                    c2.f39462c += min;
+                    c2.f39618c += min;
                 }
-                this.f39456b += remaining;
+                this.f39612b += remaining;
                 return remaining;
             }
             throw new IllegalArgumentException("source == null");
@@ -295,7 +295,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048581, this, j2, charset)) == null) {
-            com.baidu.searchbox.v8engine.net.b.a(this.f39456b, 0L, j2);
+            com.baidu.searchbox.v8engine.net.b.a(this.f39612b, 0L, j2);
             if (charset != null) {
                 if (j2 > 2147483647L) {
                     throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j2);
@@ -303,14 +303,14 @@ public final class a implements b, c, Cloneable, ByteChannel {
                     return "";
                 } else {
                     e eVar = this.a;
-                    if (eVar.f39461b + j2 > eVar.f39462c) {
+                    if (eVar.f39617b + j2 > eVar.f39618c) {
                         return new String(a(j2), charset);
                     }
-                    String str = new String(eVar.a, eVar.f39461b, (int) j2, charset);
-                    int i2 = (int) (eVar.f39461b + j2);
-                    eVar.f39461b = i2;
-                    this.f39456b -= j2;
-                    if (i2 == eVar.f39462c) {
+                    String str = new String(eVar.a, eVar.f39617b, (int) j2, charset);
+                    int i2 = (int) (eVar.f39617b + j2);
+                    eVar.f39617b = i2;
+                    this.f39612b -= j2;
+                    if (i2 == eVar.f39618c) {
                         this.a = eVar.b();
                         f.a(eVar);
                     }
@@ -331,12 +331,12 @@ public final class a implements b, c, Cloneable, ByteChannel {
                 if (eVar == null) {
                     e a = f.a();
                     this.a = a;
-                    a.f39466g = a;
-                    a.f39465f = a;
+                    a.f39622g = a;
+                    a.f39621f = a;
                     return a;
                 }
-                e eVar2 = eVar.f39466g;
-                return (eVar2.f39462c + i2 > 8192 || !eVar2.f39464e) ? eVar2.a(f.a()) : eVar2;
+                e eVar2 = eVar.f39622g;
+                return (eVar2.f39618c + i2 > 8192 || !eVar2.f39620e) ? eVar2.a(f.a()) : eVar2;
             }
             throw new IllegalArgumentException();
         }
@@ -348,7 +348,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
             if (i2 == 0) {
-                return d.f39457b;
+                return d.f39613b;
             }
             return new g(this, i2);
         }
@@ -365,12 +365,12 @@ public final class a implements b, c, Cloneable, ByteChannel {
                 int i4 = i3 + i2;
                 while (i2 < i4) {
                     e c2 = c(1);
-                    int min = Math.min(i4 - i2, 8192 - c2.f39462c);
-                    System.arraycopy(bArr, i2, c2.a, c2.f39462c, min);
+                    int min = Math.min(i4 - i2, 8192 - c2.f39618c);
+                    System.arraycopy(bArr, i2, c2.a, c2.f39618c, min);
                     i2 += min;
-                    c2.f39462c += min;
+                    c2.f39618c += min;
                 }
-                this.f39456b += j2;
+                this.f39612b += j2;
                 return this;
             }
             throw new IllegalArgumentException("source == null");
@@ -382,7 +382,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-            com.baidu.searchbox.v8engine.net.b.a(this.f39456b, 0L, j2);
+            com.baidu.searchbox.v8engine.net.b.a(this.f39612b, 0L, j2);
             if (j2 <= 2147483647L) {
                 byte[] bArr = new byte[(int) j2];
                 a(bArr);
@@ -413,10 +413,10 @@ public final class a implements b, c, Cloneable, ByteChannel {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
             e c2 = c(1);
             byte[] bArr = c2.a;
-            int i3 = c2.f39462c;
-            c2.f39462c = i3 + 1;
+            int i3 = c2.f39618c;
+            c2.f39618c = i3 + 1;
             bArr[i3] = (byte) i2;
-            this.f39456b++;
+            this.f39612b++;
             return this;
         }
         return (a) invokeI.objValue;
@@ -431,12 +431,12 @@ public final class a implements b, c, Cloneable, ByteChannel {
             if (eVar == null) {
                 return -1;
             }
-            int min = Math.min(i3, eVar.f39462c - eVar.f39461b);
-            System.arraycopy(eVar.a, eVar.f39461b, bArr, i2, min);
-            int i4 = eVar.f39461b + min;
-            eVar.f39461b = i4;
-            this.f39456b -= min;
-            if (i4 == eVar.f39462c) {
+            int min = Math.min(i3, eVar.f39618c - eVar.f39617b);
+            System.arraycopy(eVar.a, eVar.f39617b, bArr, i2, min);
+            int i4 = eVar.f39617b + min;
+            eVar.f39617b = i4;
+            this.f39612b -= min;
+            if (i4 == eVar.f39618c) {
                 this.a = eVar.b();
                 f.a(eVar);
             }
@@ -455,13 +455,13 @@ public final class a implements b, c, Cloneable, ByteChannel {
             int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j2)) / 4) + 1;
             e c2 = c(numberOfTrailingZeros);
             byte[] bArr = c2.a;
-            int i2 = c2.f39462c;
+            int i2 = c2.f39618c;
             for (int i3 = (i2 + numberOfTrailingZeros) - 1; i3 >= i2; i3--) {
-                bArr[i3] = f39455c[(int) (15 & j2)];
+                bArr[i3] = f39611c[(int) (15 & j2)];
                 j2 >>>= 4;
             }
-            c2.f39462c += numberOfTrailingZeros;
-            this.f39456b += numberOfTrailingZeros;
+            c2.f39618c += numberOfTrailingZeros;
+            this.f39612b += numberOfTrailingZeros;
             return this;
         }
         return (a) invokeJ.objValue;
@@ -489,7 +489,7 @@ public final class a implements b, c, Cloneable, ByteChannel {
                         if (charAt < 128) {
                             e c2 = c(1);
                             byte[] bArr = c2.a;
-                            int i4 = c2.f39462c - i2;
+                            int i4 = c2.f39618c - i2;
                             int min = Math.min(i3, 8192 - i4);
                             int i5 = i2 + 1;
                             bArr[i2 + i4] = (byte) charAt;
@@ -501,10 +501,10 @@ public final class a implements b, c, Cloneable, ByteChannel {
                                 bArr[i5 + i4] = (byte) charAt2;
                                 i5++;
                             }
-                            int i6 = c2.f39462c;
+                            int i6 = c2.f39618c;
                             int i7 = (i4 + i5) - i6;
-                            c2.f39462c = i6 + i7;
-                            this.f39456b += i7;
+                            c2.f39618c = i6 + i7;
+                            this.f39612b += i7;
                             i2 = i5;
                         } else {
                             if (charAt < 2048) {

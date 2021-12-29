@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i implements IHttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

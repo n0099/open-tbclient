@@ -27,7 +27,7 @@ public class d implements f {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f56341b;
+        public final LinkedBlockingQueue<IBinder> f56340b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class d implements f {
                 }
             }
             this.a = false;
-            this.f56341b = new LinkedBlockingQueue<>();
+            this.f56340b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
@@ -54,7 +54,7 @@ public class d implements f {
                     throw new IllegalStateException();
                 }
                 this.a = true;
-                return this.f56341b.poll(5L, TimeUnit.SECONDS);
+                return this.f56340b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -64,7 +64,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f56341b.put(iBinder);
+                    this.f56340b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }

@@ -110,7 +110,7 @@ public class f extends d {
         }
     }
 
-    public void K(boolean z) {
+    public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (n().n1().e() && z) {
@@ -137,12 +137,12 @@ public class f extends d {
             this.n = layoutParams;
             layoutParams.gravity = 80;
             ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), s.nad_videoplayer_bd_layer_control_bottom_view, null);
-            this.f1892i = viewGroup;
+            this.f2319i = viewGroup;
             this.m = viewGroup.findViewById(r.bd_layer_bottom);
-            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.f1892i.findViewById(r.layer_seekbar);
-            this.f1893j = bdLayerSeekBar;
+            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.f2319i.findViewById(r.layer_seekbar);
+            this.f2320j = bdLayerSeekBar;
             bdLayerSeekBar.setSeekBarHolderListener(this);
-            ImageView imageView = (ImageView) this.f1892i.findViewById(r.expand_full_button);
+            ImageView imageView = (ImageView) this.f2319i.findViewById(r.expand_full_button);
             this.l = imageView;
             imageView.setOnClickListener(this);
             A(false);
@@ -212,7 +212,7 @@ public class f extends d {
                     break;
             }
             if (c2 == 3) {
-                K(true);
+                H(true);
             } else if (c2 != 4) {
                 if (c2 == 6 && n().r1()) {
                     C();
@@ -228,7 +228,7 @@ public class f extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.j();
-            this.f1893j.setSeekBarHolderListener(null);
+            this.f2320j.setSeekBarHolderListener(null);
         }
     }
 
@@ -236,7 +236,7 @@ public class f extends d {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, view) == null) && view.equals(this.l)) {
-            ((c.a.c0.s.j0.k) this.f1891e).n0(!n().V0());
+            ((c.a.c0.s.j0.k) this.f2318e).g0(!n().V0());
         }
     }
 
@@ -259,7 +259,7 @@ public class f extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.q();
-            K(true);
+            H(true);
         }
     }
 
@@ -267,7 +267,7 @@ public class f extends d {
     public View t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f1892i.findViewById(r.anchor) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f2319i.findViewById(r.anchor) : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.b0.d
@@ -276,7 +276,7 @@ public class f extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             c.a.c0.s.j0.f a = c.a.c0.s.v0.l.a(n().v().getLayerList());
-            return n().Q() || (a != null ? a.Q() : false);
+            return n().Q() || (a != null ? a.L() : false);
         }
         return invokeV.booleanValue;
     }

@@ -84,13 +84,13 @@ public final class b {
                 int hashCode = a2.hashCode();
                 if (hashCode != 49) {
                     if (hashCode == 50 && a2.equals("2")) {
-                        return a.C0070a.a;
+                        return a.C0091a.a;
                     }
                 } else if (a2.equals("1")) {
                     return a.b.a;
                 }
             }
-            return a.C0070a.a;
+            return a.C0091a.a;
         }
         return (a) invokeV.objValue;
     }

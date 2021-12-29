@@ -3,7 +3,7 @@ package com.baidu.tieba.home;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.t.a;
+import c.a.s0.s.s.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,7 +27,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback;
     public BfbInfoModel mModel;
-    public c.a.s0.m1.a mView;
+    public c.a.t0.m1.a mView;
 
     /* loaded from: classes12.dex */
     public class a implements BfbInfoModel.b {
@@ -78,12 +78,12 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.s.t.a f45549e;
+        public final /* synthetic */ c.a.s0.s.s.a f45736e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f45550f;
+        public final /* synthetic */ CreateBarGuideActivity f45737f;
 
-        public b(CreateBarGuideActivity createBarGuideActivity, c.a.r0.s.t.a aVar) {
+        public b(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,16 +98,16 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f45550f = createBarGuideActivity;
-            this.f45549e = aVar;
+            this.f45737f = createBarGuideActivity;
+            this.f45736e = aVar;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45549e.dismiss();
-                this.f45550f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f45550f.getPageContext().getPageActivity())));
+                this.f45736e.dismiss();
+                this.f45737f.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(this.f45737f.getPageContext().getPageActivity())));
             }
         }
     }
@@ -118,12 +118,12 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.r0.s.t.a f45551e;
+        public final /* synthetic */ c.a.s0.s.s.a f45738e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ CreateBarGuideActivity f45552f;
+        public final /* synthetic */ CreateBarGuideActivity f45739f;
 
-        public c(CreateBarGuideActivity createBarGuideActivity, c.a.r0.s.t.a aVar) {
+        public c(CreateBarGuideActivity createBarGuideActivity, c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,15 +138,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
                     return;
                 }
             }
-            this.f45552f = createBarGuideActivity;
-            this.f45551e = aVar;
+            this.f45739f = createBarGuideActivity;
+            this.f45738e = aVar;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f45551e.dismiss();
+                this.f45738e.dismiss();
             }
         }
     }
@@ -174,7 +174,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             if (StringUtils.isNull(str)) {
                 str = getResources().getString(R.string.tips_version_low);
             }
-            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(getActivity());
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(getActivity());
             aVar.setTitle(str);
             aVar.setPositiveButton(R.string.confirm, new b(this, aVar));
             aVar.setNegativeButton(R.string.cancel, new c(this, aVar));
@@ -188,7 +188,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.changeSkinType(i2);
-            c.a.s0.m1.a aVar = this.mView;
+            c.a.t0.m1.a aVar = this.mView;
             if (aVar != null) {
                 aVar.f();
             }
@@ -208,7 +208,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.mModel = bfbInfoModel;
             bfbInfoModel.A(this.mCallback);
-            c.a.s0.m1.a aVar = new c.a.s0.m1.a(this);
+            c.a.t0.m1.a aVar = new c.a.t0.m1.a(this);
             this.mView = aVar;
             aVar.e();
             showLoadingView(this.mView.d());

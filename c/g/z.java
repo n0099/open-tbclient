@@ -13,10 +13,10 @@ public class z {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f29306b;
+    public final n f29383b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HashMap<String, p> f29307c;
+    public final HashMap<String, p> f29384c;
 
     /* loaded from: classes9.dex */
     public interface a<E> {
@@ -38,8 +38,8 @@ public class z {
                 return;
             }
         }
-        this.f29306b = new n();
-        this.f29307c = new HashMap<>();
+        this.f29383b = new n();
+        this.f29384c = new HashMap<>();
     }
 
     public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {

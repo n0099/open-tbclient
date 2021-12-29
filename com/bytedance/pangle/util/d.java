@@ -8,11 +8,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.DigestInputStream;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public final class d {
-    public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "DES/ECB/NoPadding";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f55227b = "DESede/ECB/NoPadding";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f55228c = "AES/ECB/NoPadding";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final char[] f55229d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,89 +40,112 @@ public final class d {
                 return;
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            if (bArr != null) {
-                return a(bArr, bArr.length);
-            }
-            throw new NullPointerException("bytes is null");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String a(byte[] bArr, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2)) == null) {
-            if (bArr != null) {
-                if (i2 + 0 <= bArr.length) {
-                    int i3 = i2 * 2;
-                    char[] cArr = new char[i3];
-                    int i4 = 0;
-                    for (int i5 = 0; i5 < i2; i5++) {
-                        int i6 = bArr[i5 + 0] & 255;
-                        int i7 = i4 + 1;
-                        char[] cArr2 = a;
-                        cArr[i4] = cArr2[i6 >> 4];
-                        i4 = i7 + 1;
-                        cArr[i7] = cArr2[i6 & 15];
-                    }
-                    return new String(cArr, 0, i3);
-                }
-                throw new IndexOutOfBoundsException();
-            }
-            throw new NullPointerException("bytes is null");
-        }
-        return (String) invokeLI.objValue;
+        f55229d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, file)) != null) {
-            return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) ? a(b(file)) : (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0032 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
+    public static byte[] b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) != null) {
+            return (byte[]) invokeL.objValue;
         }
+        ?? r0 = 0;
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            if (messageDigest == null) {
+            if (file == null) {
                 return null;
             }
-            FileInputStream fileInputStream = new FileInputStream(file);
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = fileInputStream.read(bArr, 0, 8192);
-                if (read > 0) {
-                    messageDigest.update(bArr, 0, read);
-                } else {
-                    fileInputStream.close();
-                    return a(messageDigest.digest());
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    DigestInputStream digestInputStream = new DigestInputStream(fileInputStream, MessageDigest.getInstance("MD5"));
+                    do {
+                    } while (digestInputStream.read(new byte[262144]) > 0);
+                    byte[] digest = digestInputStream.getMessageDigest().digest();
+                    f.a(fileInputStream);
+                    return digest;
+                } catch (IOException e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    f.a(fileInputStream);
+                    return null;
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    f.a(fileInputStream);
+                    return null;
                 }
+            } catch (IOException e4) {
+                e = e4;
+                fileInputStream = null;
+                e.printStackTrace();
+                f.a(fileInputStream);
+                return null;
+            } catch (NoSuchAlgorithmException e5) {
+                e = e5;
+                fileInputStream = null;
+                e.printStackTrace();
+                f.a(fileInputStream);
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                f.a(r0);
+                throw th;
             }
-        } catch (Exception unused) {
+        } catch (Throwable th2) {
+            th = th2;
+            r0 = interceptable;
+        }
+    }
+
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr != null && (length = bArr.length) > 0) {
+                char[] cArr = new char[length << 1];
+                int i2 = 0;
+                for (int i3 = 0; i3 < length; i3++) {
+                    int i4 = i2 + 1;
+                    char[] cArr2 = f55229d;
+                    cArr[i2] = cArr2[(bArr[i3] >>> 4) & 15];
+                    i2 = i4 + 1;
+                    cArr[i4] = cArr2[bArr[i3] & 15];
+                }
+                return new String(cArr);
+            }
             return null;
         }
+        return (String) invokeL.objValue;
     }
 
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            boolean z = false;
             if (str != null) {
-                try {
-                    if (str.length() != 0) {
-                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                        messageDigest.update(str.getBytes("UTF-8"));
-                        return a(messageDigest.digest());
+                int length = str.length();
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (!Character.isWhitespace(str.charAt(i2))) {
+                        break;
                     }
-                } catch (Exception unused) {
                 }
             }
-            return null;
+            z = true;
+            return a(z ? null : new File(str));
         }
         return (String) invokeL.objValue;
     }

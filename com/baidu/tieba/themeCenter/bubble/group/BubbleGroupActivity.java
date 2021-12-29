@@ -1,10 +1,10 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
 import android.os.Bundle;
-import c.a.r0.p0.d;
-import c.a.s0.b4.f.b.b;
-import c.a.s0.b4.f.b.c;
-import c.a.s0.b4.h.e;
+import c.a.s0.q0.d;
+import c.a.t0.c4.f.b.b;
+import c.a.t0.c4.f.b.c;
+import c.a.t0.c4.h.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
@@ -19,7 +19,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel.c mCallback;
-    public c.a.s0.b4.f.a.a mItemController;
+    public c.a.t0.c4.f.a.a mItemController;
     public BubbleGroupModel mModel;
     public c mView;
 
@@ -80,7 +80,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.r0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.mModel = bubbleGroupModel;
             bubbleGroupModel.G(this.mCallback);
-            c.a.s0.b4.f.a.a aVar = new c.a.s0.b4.f.a.a(getPageContext());
+            c.a.t0.c4.f.a.a aVar = new c.a.t0.c4.f.a.a(getPageContext());
             this.mItemController = aVar;
             c cVar = new c(this, aVar);
             this.mView = cVar;

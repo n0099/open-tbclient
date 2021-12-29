@@ -34,14 +34,14 @@ public class a extends BaseExecutorCell {
                 return;
             }
         }
-        this.f38168c = new ThreadPoolExecutor(i2, i2, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.f38324c = new ThreadPoolExecutor(i2, i2, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e() < this.f38167b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e() < this.f38323b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell

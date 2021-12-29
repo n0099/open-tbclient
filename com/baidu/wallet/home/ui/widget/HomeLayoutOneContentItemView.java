@@ -24,10 +24,10 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
     public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NetImageView f53178b;
+    public NetImageView f53181b;
 
     /* renamed from: c  reason: collision with root package name */
-    public NetImageView f53179c;
+    public NetImageView f53182c;
     public MaskTextView mDesc_1;
     public MaskTextView mDesc_2;
     public NetImageView mIcon;
@@ -63,8 +63,8 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
             this.mTitle = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_title"));
             this.mDesc_1 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_des_1"));
             this.mDesc_2 = (MaskTextView) findViewById(ResUtils.id(getContext(), "home_finance_item_des_2"));
-            this.f53178b = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
-            this.f53179c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
+            this.f53181b = (NetImageView) findViewById(ResUtils.id(getContext(), "red_dot_im"));
+            this.f53182c = (NetImageView) findViewById(ResUtils.id(getContext(), "corner_flag_im"));
         }
     }
 
@@ -92,14 +92,14 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (isShoudShowPoint()) {
-                this.f53178b.setVisibility(0);
-                ((RelativeLayout.LayoutParams) this.f53178b.getLayoutParams()).addRule(1, this.mTitle.getId());
-                ((RelativeLayout.LayoutParams) this.f53178b.getLayoutParams()).addRule(6, this.mTitle.getId());
-                ((RelativeLayout.LayoutParams) this.f53178b.getLayoutParams()).leftMargin = (int) (ResUtils.getDimension(getContext(), "bd_wallet_home_icon_flag_text_right_margin") - ResUtils.getDimension(getContext(), "bd_wallet_home_item_life_margin"));
-                this.f53178b.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
+                this.f53181b.setVisibility(0);
+                ((RelativeLayout.LayoutParams) this.f53181b.getLayoutParams()).addRule(1, this.mTitle.getId());
+                ((RelativeLayout.LayoutParams) this.f53181b.getLayoutParams()).addRule(6, this.mTitle.getId());
+                ((RelativeLayout.LayoutParams) this.f53181b.getLayoutParams()).leftMargin = (int) (ResUtils.getDimension(getContext(), "bd_wallet_home_icon_flag_text_right_margin") - ResUtils.getDimension(getContext(), "bd_wallet_home_item_life_margin"));
+                this.f53181b.setImageDrawable(ResUtils.getDrawable(getContext(), isShowWhiteDot() ? "wallet_home_white_star" : "wallet_home_red_star"));
                 return true;
             }
-            this.f53178b.setVisibility(8);
+            this.f53181b.setVisibility(8);
             return false;
         }
         return invokeV.booleanValue;
@@ -146,12 +146,12 @@ public class HomeLayoutOneContentItemView extends BaseItemView {
         }
         setIconUrl(getData().logo);
         if (!handlePoint() && hasCornor()) {
-            this.f53179c.setVisibility(0);
-            NetImageView netImageView = this.f53179c;
+            this.f53182c.setVisibility(0);
+            NetImageView netImageView = this.f53182c;
             netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + getData().corner_addr);
             return;
         }
-        this.f53179c.setVisibility(8);
+        this.f53182c.setVisibility(8);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView

@@ -1,8 +1,5 @@
 package com.kwad.sdk.crash.utils;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,45 +8,28 @@ import java.io.Reader;
 import java.io.Writer;
 /* loaded from: classes3.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
         }
     }
 
     public static void a(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
-            a((Closeable) inputStream);
-        }
+        a((Closeable) inputStream);
     }
 
     public static void a(OutputStream outputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
-            a((Closeable) outputStream);
-        }
+        a((Closeable) outputStream);
     }
 
     public static void a(Reader reader) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, reader) == null) {
-            a((Closeable) reader);
-        }
+        a((Closeable) reader);
     }
 
     public static void a(Writer writer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writer) == null) {
-            a((Closeable) writer);
-        }
+        a((Closeable) writer);
     }
 }

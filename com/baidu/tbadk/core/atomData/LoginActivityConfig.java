@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.c0.a;
+import c.a.s0.s.b0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;

@@ -5,11 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.p.a.c3;
-import c.p.a.g3;
-import c.p.a.m2;
-import c.p.a.r0;
-import c.p.a.y2;
+import c.q.a.c3;
+import c.q.a.g3;
+import c.q.a.m2;
+import c.q.a.r0;
+import c.q.a.y2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
@@ -80,7 +80,7 @@ public class WinDReceiver extends BroadcastReceiver {
                 if (z) {
                     y2 a = c3.a(context);
                     try {
-                        a.f31377b = c3.d("wie", new g3(info));
+                        a.f31520b = c3.d("wie", new g3(info));
                         a.k("co", 200);
                     } catch (JSONException unused) {
                     }
@@ -112,7 +112,7 @@ public class WinDReceiver extends BroadcastReceiver {
                     g3 g3Var = new g3(info);
                     String open = info.getOpen();
                     try {
-                        a.f31377b = c3.d("wiop", g3Var);
+                        a.f31520b = c3.d("wiop", g3Var);
                         a.l("msg", c3.b(open));
                     } catch (JSONException unused) {
                     }

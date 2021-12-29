@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.s0.s2.i;
+import c.a.t0.s2.i;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

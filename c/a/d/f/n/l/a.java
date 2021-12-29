@@ -1,6 +1,6 @@
 package c.a.d.f.n.l;
 
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ public class a {
             statsItem.b("url", str2);
             statsItem.b("issuccess", z ? "1" : "0");
             statsItem.b("ishttp", z2 ? "1" : "0");
-            statsItem.b("nettype", k.m());
+            statsItem.b("nettype", l.m());
             statsItem.b("connt", String.valueOf(j2));
             statsItem.b("rwt", String.valueOf(j3));
             statsItem.b("parset", String.valueOf(j4));

@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<InterfaceC1983a> a;
+    public final List<InterfaceC1990a> a;
 
     /* renamed from: com.baidu.wallet.paysdk.a$1  reason: invalid class name */
     /* loaded from: classes13.dex */
@@ -26,12 +26,12 @@ public class a {
 
     /* renamed from: com.baidu.wallet.paysdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public interface InterfaceC1983a {
+    public interface InterfaceC1990a {
         boolean a(CharSequence charSequence);
     }
 
     /* loaded from: classes13.dex */
-    public static class b implements InterfaceC1983a {
+    public static class b implements InterfaceC1990a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1983a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1990a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class a {
     }
 
     /* loaded from: classes13.dex */
-    public static class c implements InterfaceC1983a {
+    public static class c implements InterfaceC1990a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1983a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1990a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class a {
     }
 
     /* loaded from: classes13.dex */
-    public static class d implements InterfaceC1983a {
+    public static class d implements InterfaceC1990a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1983a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1990a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class a {
     }
 
     /* loaded from: classes13.dex */
-    public static class e implements InterfaceC1983a {
+    public static class e implements InterfaceC1990a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -193,7 +193,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1983a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1990a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class a {
     }
 
     /* loaded from: classes13.dex */
-    public static class f implements InterfaceC1983a {
+    public static class f implements InterfaceC1990a {
         public static /* synthetic */ Interceptable $ic;
         public static final Pattern a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class a {
             }
         }
 
-        @Override // com.baidu.wallet.paysdk.a.InterfaceC1983a
+        @Override // com.baidu.wallet.paysdk.a.InterfaceC1990a
         public boolean a(CharSequence charSequence) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -287,8 +287,8 @@ public class a {
             if (TextUtils.isEmpty(charSequence)) {
                 return false;
             }
-            for (InterfaceC1983a interfaceC1983a : this.a) {
-                if (interfaceC1983a.a(charSequence)) {
+            for (InterfaceC1990a interfaceC1990a : this.a) {
+                if (interfaceC1990a.a(charSequence)) {
                     return true;
                 }
             }

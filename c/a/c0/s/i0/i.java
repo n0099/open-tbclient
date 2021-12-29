@@ -20,7 +20,7 @@ public class i extends f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final SysVideoView f1982g;
+    public final SysVideoView f2409g;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -35,14 +35,14 @@ public class i extends f {
                 return;
             }
         }
-        this.f1982g = new SysVideoView(s.a());
+        this.f2409g = new SysVideoView(s.a());
     }
 
     @Override // c.a.c0.s.i0.a
     public void A(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            this.f1982g.seekTo(i2, i3);
+            this.f2409g.seekTo(i2, i3);
         }
     }
 
@@ -57,7 +57,7 @@ public class i extends f {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1982g.setVideoURI(this.f1976b, this.f1978d);
+            this.f2409g.setVideoURI(this.f2403b, this.f2405d);
         }
     }
 
@@ -65,7 +65,7 @@ public class i extends f {
     public void F(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f1982g.setLooping(z);
+            this.f2409g.setLooping(z);
         }
     }
 
@@ -109,7 +109,7 @@ public class i extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.N();
-            this.f1982g.start();
+            this.f2409g.start();
             if (n(PlayerStatus.COMPLETE)) {
                 p(PlayerStatus.PLAYING);
             }
@@ -130,7 +130,7 @@ public class i extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.P();
-            this.f1982g.stop();
+            this.f2409g.stop();
         }
     }
 
@@ -145,13 +145,13 @@ public class i extends f {
     public void S(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.f1982g.setOnCompletionListener(gVar);
-            this.f1982g.setOnErrorListener(gVar);
-            this.f1982g.setOnInfoListener(gVar);
-            this.f1982g.setOnSeekCompleteListener(gVar);
-            this.f1982g.setOnPreparedListener(gVar);
-            this.f1982g.setOnBufferingUpdateListener(gVar);
-            this.f1982g.setOnVideoSizeChangedListener(gVar);
+            this.f2409g.setOnCompletionListener(gVar);
+            this.f2409g.setOnErrorListener(gVar);
+            this.f2409g.setOnInfoListener(gVar);
+            this.f2409g.setOnSeekCompleteListener(gVar);
+            this.f2409g.setOnPreparedListener(gVar);
+            this.f2409g.setOnBufferingUpdateListener(gVar);
+            this.f2409g.setOnVideoSizeChangedListener(gVar);
             U(true);
         }
     }
@@ -173,7 +173,7 @@ public class i extends f {
     public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f1982g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f2409g : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.i0.a
@@ -187,14 +187,14 @@ public class i extends f {
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f1982g.getDuration() / 1000 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f2409g.getDuration() / 1000 : invokeV.intValue;
     }
 
     @Override // c.a.c0.s.i0.a
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f1982g.getDuration() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f2409g.getDuration() : invokeV.intValue;
     }
 
     @Override // c.a.c0.s.i0.a
@@ -204,11 +204,11 @@ public class i extends f {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             if (n(PlayerStatus.IDLE)) {
                 int e2 = e() / 1000;
-                if (e2 - (this.f1982g.getCurrentPosition() / 1000) <= 2) {
+                if (e2 - (this.f2409g.getCurrentPosition() / 1000) <= 2) {
                     return e2;
                 }
             }
-            return this.f1982g.getCurrentPosition() / 1000;
+            return this.f2409g.getCurrentPosition() / 1000;
         }
         return invokeV.intValue;
     }
@@ -218,10 +218,10 @@ public class i extends f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            if (n(PlayerStatus.IDLE) && e() - this.f1982g.getCurrentPosition() <= 2) {
+            if (n(PlayerStatus.IDLE) && e() - this.f2409g.getCurrentPosition() <= 2) {
                 return f();
             }
-            return this.f1982g.getCurrentPosition();
+            return this.f2409g.getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -230,21 +230,21 @@ public class i extends f {
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f1982g.getVideoHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f2409g.getVideoHeight() : invokeV.intValue;
     }
 
     @Override // c.a.c0.s.i0.a
     public int m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f1982g.getVideoWidth() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f2409g.getVideoWidth() : invokeV.intValue;
     }
 
     @Override // c.a.c0.s.i0.a
     public void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.f1982g.muteOrUnmuteAudio(z);
+            this.f2409g.muteOrUnmuteAudio(z);
         }
     }
 
@@ -253,11 +253,11 @@ public class i extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onInit();
-            this.f1982g.reset();
-            this.f1982g.setVisibility(0);
-            this.f1982g.setAlpha(1.0f);
+            this.f2409g.reset();
+            this.f2409g.setVisibility(0);
+            this.f2409g.setAlpha(1.0f);
             T(true);
-            this.f1982g.setBackgroundColor(-16777216);
+            this.f2409g.setBackgroundColor(-16777216);
         }
     }
 
@@ -266,10 +266,10 @@ public class i extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onRelease();
-            this.f1978d.clear();
+            this.f2405d.clear();
             P();
-            this.f1982g.setVisibility(0);
-            this.f1982g.setAlpha(1.0f);
+            this.f2409g.setVisibility(0);
+            this.f2409g.setAlpha(1.0f);
             E(null);
         }
     }
@@ -281,7 +281,7 @@ public class i extends f {
             super.u();
             if (n(PlayerStatus.PLAYING, PlayerStatus.PREPARED, PlayerStatus.PREPARING)) {
                 p(PlayerStatus.PAUSE);
-                this.f1982g.pause();
+                this.f2409g.pause();
             }
         }
     }
@@ -300,7 +300,7 @@ public class i extends f {
             super.y();
             if (n(PlayerStatus.PREPARED, PlayerStatus.PREPARING, PlayerStatus.PAUSE, PlayerStatus.COMPLETE)) {
                 p(PlayerStatus.PLAYING);
-                this.f1982g.start();
+                this.f2409g.start();
             }
         }
     }
@@ -309,7 +309,7 @@ public class i extends f {
     public void z(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.f1982g.seekTo(i2);
+            this.f2409g.seekTo(i2);
         }
     }
 }

@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.t.k;
-import c.a.s0.m3.b.a.c;
-import c.a.s0.v3.j0.n;
+import c.a.s0.s.s.l;
+import c.a.t0.m3.b.a.c;
+import c.a.t0.w3.j0.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -49,13 +49,13 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean loadSuccess;
     public c.b mCallback;
-    public c.a.r0.s.t.c mDialog;
-    public ArrayList<k> mMyBar;
+    public c.a.s0.s.s.d mDialog;
+    public ArrayList<l> mMyBar;
     public c.a.d.c.g.a mNetMessageListener;
     public HttpMessageListener mSetPrivateHttpListener;
-    public c.a.s0.m3.b.a.a mSetting;
+    public c.a.t0.m3.b.a.a mSetting;
     public CustomMessageListener mThreadPrivacyStatusUpdateListener;
-    public c.a.s0.m3.b.a.c mView;
+    public c.a.t0.m3.b.a.c mView;
     public CustomMessageListener markUpdateListener;
     public int optionBarSelected;
     public int optionBazhuShowInside;
@@ -90,7 +90,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             this.a = secretSettingActivity;
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -99,7 +99,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -107,7 +107,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -116,7 +116,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -127,7 +127,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -137,7 +137,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -145,7 +145,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -155,7 +155,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -163,7 +163,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -171,7 +171,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             }
         }
 
-        @Override // c.a.s0.m3.b.a.c.b
+        @Override // c.a.t0.m3.b.a.c.b
         public void onBackPressed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -274,7 +274,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 }
                 this.a.loadSuccess = true;
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    c.a.s0.m3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    c.a.t0.m3.b.a.a privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
@@ -328,9 +328,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                c.a.r0.s.g0.b j2 = c.a.r0.s.g0.b.j();
+                c.a.s0.s.g0.b j2 = c.a.s0.s.g0.b.j();
                 int k2 = j2.k(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-                c.a.r0.s.g0.b j3 = c.a.r0.s.g0.b.j();
+                c.a.s0.s.g0.b j3 = c.a.s0.s.g0.b.j();
                 int k3 = j3.k(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
                 this.a.optionBazhuShowInside = k2;
                 this.a.optionBazhuShowOutside = k3;
@@ -345,10 +345,10 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f49422e;
+        public final /* synthetic */ String f49645e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SecretSettingActivity f49423f;
+        public final /* synthetic */ SecretSettingActivity f49646f;
 
         public e(SecretSettingActivity secretSettingActivity, String str) {
             Interceptable interceptable = $ic;
@@ -365,48 +365,48 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                     return;
                 }
             }
-            this.f49423f = secretSettingActivity;
-            this.f49422e = str;
+            this.f49646f = secretSettingActivity;
+            this.f49645e = str;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f49423f.showProgressBar();
-                String b2 = ((k) this.f49423f.mMyBar.get(i2)).b();
+                this.f49646f.showProgressBar();
+                String b2 = ((l) this.f49646f.mMyBar.get(i2)).b();
                 int i3 = 7;
                 if (SecretSettingActivity.POSITION_SHOW_ALL_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 1);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 1);
                     i3 = 1;
                 } else if (SecretSettingActivity.POSITION_FRIEND_ONLY_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 2);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 2);
                     i3 = 2;
                 } else if (SecretSettingActivity.POSITION_HIDE_ALL_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 3);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 3);
                     i3 = 3;
                 } else if (SecretSettingActivity.POSITION_REPLY_FANS_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 5);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 5);
                     i3 = 5;
                 } else if (SecretSettingActivity.POSITION_REPLY_ATTENTIONS_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 6);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 6);
                     i3 = 6;
                 } else if (SecretSettingActivity.POSITION_MYSELF_ONLY_TAG.equals(b2)) {
-                    this.f49423f.sendSetPrivacyMessage(this.f49422e, 7);
+                    this.f49646f.sendSetPrivacyMessage(this.f49645e, 7);
                 } else {
                     i3 = 0;
                 }
-                this.f49423f.mDialog.h(i2);
-                if ("group".equals(this.f49422e)) {
-                    this.f49423f.optionGroupSelected = i3;
-                } else if ("post".equals(this.f49422e)) {
-                    this.f49423f.optionForumSelected = i3;
-                } else if ("like".equals(this.f49422e)) {
-                    this.f49423f.optionBarSelected = i3;
-                } else if ("live".equals(this.f49422e)) {
-                    this.f49423f.optionLiveSelected = i3;
-                } else if ("reply".equals(this.f49422e)) {
-                    this.f49423f.optionThreadReplySelected = i3;
+                this.f49646f.mDialog.h(i2);
+                if ("group".equals(this.f49645e)) {
+                    this.f49646f.optionGroupSelected = i3;
+                } else if ("post".equals(this.f49645e)) {
+                    this.f49646f.optionForumSelected = i3;
+                } else if ("like".equals(this.f49645e)) {
+                    this.f49646f.optionBarSelected = i3;
+                } else if ("live".equals(this.f49645e)) {
+                    this.f49646f.optionLiveSelected = i3;
+                } else if ("reply".equals(this.f49645e)) {
+                    this.f49646f.optionThreadReplySelected = i3;
                 }
             }
         }
@@ -471,41 +471,41 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         this.mThreadPrivacyStatusUpdateListener = new f(this, 2921065);
     }
 
-    private ArrayList<k> createLiveRichDialogList(int i2) {
+    private ArrayList<l> createLiveRichDialogList(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, this, i2)) == null) {
-            ArrayList<k> arrayList = new ArrayList<>();
-            arrayList.add(new k(getPageContext().getString(R.string.info_privacy_all), "", i2 == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new k(getPageContext().getString(R.string.info_privacy_hide), "", i2 == 3, POSITION_HIDE_ALL_TAG));
+            ArrayList<l> arrayList = new ArrayList<>();
+            arrayList.add(new l(getPageContext().getString(R.string.info_privacy_all), "", i2 == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new l(getPageContext().getString(R.string.info_privacy_hide), "", i2 == 3, POSITION_HIDE_ALL_TAG));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    private ArrayList<k> createRichDialogList(int i2) {
+    private ArrayList<l> createRichDialogList(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65557, this, i2)) == null) {
-            ArrayList<k> arrayList = new ArrayList<>();
-            arrayList.add(new k(getPageContext().getString(R.string.info_privacy_all), "", i2 == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new k(getPageContext().getString(R.string.info_privacy_friend), "", i2 == 2, POSITION_FRIEND_ONLY_TAG));
-            arrayList.add(new k(getPageContext().getString(R.string.info_privacy_hide), "", i2 == 3, POSITION_HIDE_ALL_TAG));
+            ArrayList<l> arrayList = new ArrayList<>();
+            arrayList.add(new l(getPageContext().getString(R.string.info_privacy_all), "", i2 == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new l(getPageContext().getString(R.string.info_privacy_friend), "", i2 == 2, POSITION_FRIEND_ONLY_TAG));
+            arrayList.add(new l(getPageContext().getString(R.string.info_privacy_hide), "", i2 == 3, POSITION_HIDE_ALL_TAG));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    private ArrayList<k> createThreadReplyList(int i2, int i3) {
+    private ArrayList<l> createThreadReplyList(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(65558, this, i2, i3)) == null) {
-            ArrayList<k> arrayList = new ArrayList<>();
-            arrayList.add(new k(getPageContext().getString(R.string.all_person), "", i2 == 1, POSITION_SHOW_ALL_TAG));
-            arrayList.add(new k(getPageContext().getString(R.string.my_fans), "", i2 == 5, POSITION_REPLY_FANS_TAG));
-            arrayList.add(new k(getPageContext().getString(R.string.my_attentions), "", i2 == 6, POSITION_REPLY_ATTENTIONS_TAG));
+            ArrayList<l> arrayList = new ArrayList<>();
+            arrayList.add(new l(getPageContext().getString(R.string.all_person), "", i2 == 1, POSITION_SHOW_ALL_TAG));
+            arrayList.add(new l(getPageContext().getString(R.string.my_fans), "", i2 == 5, POSITION_REPLY_FANS_TAG));
+            arrayList.add(new l(getPageContext().getString(R.string.my_attentions), "", i2 == 6, POSITION_REPLY_ATTENTIONS_TAG));
             if (i3 == 1) {
-                arrayList.add(new k(getPageContext().getString(R.string.myself_only), "", i2 == 7, POSITION_MYSELF_ONLY_TAG));
+                arrayList.add(new l(getPageContext().getString(R.string.myself_only), "", i2 == 7, POSITION_MYSELF_ONLY_TAG));
             }
             return arrayList;
         }
@@ -551,24 +551,24 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             } else if ("reply".equals(str)) {
                 this.mMyBar = createThreadReplyList(this.optionThreadReplySelected, this.optionThreadReplyShowMyself);
             }
-            c.a.r0.s.t.c cVar = this.mDialog;
-            if (cVar != null) {
-                cVar.d();
+            c.a.s0.s.s.d dVar = this.mDialog;
+            if (dVar != null) {
+                dVar.d();
             }
-            c.a.r0.s.t.c cVar2 = new c.a.r0.s.t.c(getPageContext());
-            this.mDialog = cVar2;
-            cVar2.m(str2);
-            c.a.r0.s.t.c cVar3 = this.mDialog;
-            cVar3.k(this.mMyBar, new e(this, str));
-            cVar3.m(str2);
-            c.a.r0.s.t.c cVar4 = this.mDialog;
-            cVar4.c();
-            cVar4.n();
+            c.a.s0.s.s.d dVar2 = new c.a.s0.s.s.d(getPageContext());
+            this.mDialog = dVar2;
+            dVar2.m(str2);
+            c.a.s0.s.s.d dVar3 = this.mDialog;
+            dVar3.k(this.mMyBar, new e(this, str));
+            dVar3.m(str2);
+            c.a.s0.s.s.d dVar4 = this.mDialog;
+            dVar4.c();
+            dVar4.n();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateSelectedOption(c.a.s0.m3.b.a.a aVar) {
+    public void updateSelectedOption(c.a.t0.m3.b.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, aVar) == null) {
             this.optionBarSelected = aVar.c();
@@ -588,9 +588,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mView.onChangeSkinType(i2);
-            c.a.r0.s.t.c cVar = this.mDialog;
-            if (cVar != null) {
-                cVar.g();
+            c.a.s0.s.s.d dVar = this.mDialog;
+            if (dVar != null) {
+                dVar.g();
             }
         }
     }
@@ -600,8 +600,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new c.a.s0.m3.b.a.c(this);
-            this.mSetting = new c.a.s0.m3.b.a.a();
+            this.mView = new c.a.t0.m3.b.a.c(this);
+            this.mSetting = new c.a.t0.m3.b.a.a();
             this.mView.p(this.mCallback);
             if (this.mSetting.k()) {
                 this.mView.q(true);
@@ -623,9 +623,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            c.a.r0.s.t.c cVar = this.mDialog;
-            if (cVar != null) {
-                cVar.d();
+            c.a.s0.s.s.d dVar = this.mDialog;
+            if (dVar != null) {
+                dVar.d();
             }
         }
     }

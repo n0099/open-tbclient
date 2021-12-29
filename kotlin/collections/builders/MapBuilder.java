@@ -84,7 +84,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
                 } else {
                     sb.append(obj);
                 }
-                sb.append(a.f31721h);
+                sb.append(a.f31864h);
                 Object[] objArr = getMap$kotlin_stdlib().valuesArray;
                 Intrinsics.checkNotNull(objArr);
                 Object obj2 = objArr[getLastIndex$kotlin_stdlib()];
@@ -188,7 +188,7 @@ public final class MapBuilder<K, V> implements Map<K, V>, KMutableMap {
         public String toString() {
             StringBuilder sb = new StringBuilder();
             sb.append(getKey());
-            sb.append(a.f31721h);
+            sb.append(a.f31864h);
             sb.append(getValue());
             return sb.toString();
         }

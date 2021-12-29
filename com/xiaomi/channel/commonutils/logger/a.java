@@ -11,7 +11,7 @@ public final class a {
     public static String a = "Job";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63261b = "Net";
+    public static String f63256b = "Net";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

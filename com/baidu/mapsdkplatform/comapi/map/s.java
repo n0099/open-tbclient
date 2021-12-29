@@ -37,9 +37,9 @@ public class s extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            rVar = r.f36973c;
+            rVar = r.f37129c;
             if (rVar != null) {
-                wVar = this.a.f36975d;
+                wVar = this.a.f37131d;
                 wVar.a(message);
             }
         }

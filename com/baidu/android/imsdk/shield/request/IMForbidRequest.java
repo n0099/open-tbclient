@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -130,7 +131,7 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-                jSONObject.put("device_type", 2);
+                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("timestamp", currentTimeMillis);
                 int i2 = 1;
                 jSONObject.put("reason", 1);

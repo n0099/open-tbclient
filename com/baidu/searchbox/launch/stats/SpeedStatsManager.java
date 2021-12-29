@@ -207,7 +207,18 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public boolean packData(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, jSONObject)) == null) ? this.mZygoteSpeedStats.packData(jSONObject) && this.mAdSpeedStats.packData(jSONObject) && this.mAppBeforeCreateSpeedStats.packData(jSONObject) && this.mAppCreateSpeedStats.packData(jSONObject) && this.mActivityCreateSpeedStats.packData(jSONObject) && this.mAttachWindowSpeedStats.packData(jSONObject) && this.mFirstFrameSpeedStats.packData(jSONObject) && this.mAsyncTaskSpeedStats.packData(jSONObject) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, jSONObject)) == null) {
+            this.mZygoteSpeedStats.packData(jSONObject);
+            this.mAdSpeedStats.packData(jSONObject);
+            this.mAppBeforeCreateSpeedStats.packData(jSONObject);
+            this.mAppCreateSpeedStats.packData(jSONObject);
+            this.mActivityCreateSpeedStats.packData(jSONObject);
+            this.mAttachWindowSpeedStats.packData(jSONObject);
+            this.mFirstFrameSpeedStats.packData(jSONObject);
+            this.mAsyncTaskSpeedStats.packData(jSONObject);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats

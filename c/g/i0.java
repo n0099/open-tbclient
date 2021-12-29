@@ -1,100 +1,61 @@
 package c.g;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import com.fun.p0;
 /* loaded from: classes9.dex */
-public abstract class i0 {
+public class i0 implements p0.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final m0<i0> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ m0 a;
 
-    /* loaded from: classes9.dex */
-    public static class a extends m0<i0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Object, c.g.i0] */
-        @Override // c.g.m0
-        public i0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new k0("https://rpe.xdplt.com/evt/") : invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1579654124, "Lc/g/i0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1579654124, "Lc/g/i0;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public i0() {
+    public i0(m0 m0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = m0Var;
     }
 
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static i0 a() {
-        InterceptResult invokeV;
-        i0 i0Var;
+    @Override // com.fun.p0.b
+    public void a(@Nullable NetworkInfo networkInfo) {
+        m0 m0Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m0<i0> m0Var = a;
-            synchronized (m0Var) {
-                if (m0Var.a == null) {
-                    m0Var.a = m0Var.a();
-                }
-                i0Var = m0Var.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
+            if (networkInfo == null) {
+                this.a.f29327d = "unknow";
+                return;
             }
-            return i0Var;
+            if (networkInfo.isConnectedOrConnecting()) {
+                String subtypeName = networkInfo.getSubtypeName();
+                if (!TextUtils.isEmpty(subtypeName)) {
+                    this.a.f29327d = subtypeName;
+                    return;
+                } else {
+                    m0Var = this.a;
+                    str = networkInfo.getTypeName();
+                }
+            } else {
+                m0Var = this.a;
+                str = "unknow";
+            }
+            m0Var.f29327d = str;
         }
-        return (i0) invokeV.objValue;
     }
-
-    public abstract void b(String str, String str2, Object obj);
-
-    public abstract void c(String str, Map<String, Object> map);
-
-    public abstract void d(String str, JSONObject jSONObject);
 }

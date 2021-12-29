@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.s0.j3.z;
+import c.a.d.f.p.n;
+import c.a.t0.j3.z;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,25 +36,25 @@ public class McnVideoAdView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f37195e;
+    public Context f37351e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f37196f;
+    public TbImageView f37352f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f37197g;
+    public TextView f37353g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f37198h;
+    public TextView f37354h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f37199i;
+    public Animation f37355i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Animation f37200j;
+    public Animation f37356j;
 
     /* renamed from: k  reason: collision with root package name */
-    public float f37201k;
+    public float f37357k;
     public float l;
     public boolean m;
     public boolean n;
@@ -116,7 +116,7 @@ public class McnVideoAdView extends FrameLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ McnVideoAdView f37202e;
+        public final /* synthetic */ McnVideoAdView f37358e;
 
         public b(McnVideoAdView mcnVideoAdView) {
             Interceptable interceptable = $ic;
@@ -133,17 +133,17 @@ public class McnVideoAdView extends FrameLayout {
                     return;
                 }
             }
-            this.f37202e = mcnVideoAdView;
+            this.f37358e = mcnVideoAdView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37202e.r == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f37358e.r == null) {
                 return;
             }
-            this.f37202e.r.requestDisallowInterceptTouchEvent(false);
-            this.f37202e.r = null;
+            this.f37358e.r.requestDisallowInterceptTouchEvent(false);
+            this.f37358e.r = null;
         }
     }
 
@@ -195,7 +195,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f37195e = context;
+        this.f37351e = context;
         f();
     }
 
@@ -205,14 +205,14 @@ public class McnVideoAdView extends FrameLayout {
             return;
         }
         this.o = aVar;
-        this.f37196f.startLoad(aVar.a, 10, false);
-        if (!StringUtils.isNull(aVar.f27598b)) {
-            this.f37197g.setText(aVar.f27598b);
+        this.f37352f.startLoad(aVar.a, 10, false);
+        if (!StringUtils.isNull(aVar.f27688b)) {
+            this.f37353g.setText(aVar.f27688b);
         }
-        if (StringUtils.isNull(aVar.f27599c)) {
+        if (StringUtils.isNull(aVar.f27689c)) {
             return;
         }
-        this.f37198h.setText(aVar.f27599c);
+        this.f37354h.setText(aVar.f27689c);
     }
 
     public final void d() {
@@ -224,11 +224,11 @@ public class McnVideoAdView extends FrameLayout {
 
     public void dismiss() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f37200j == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f37356j == null) {
             return;
         }
         clearAnimation();
-        startAnimation(this.f37200j);
+        startAnimation(this.f37356j);
     }
 
     public final void e() {
@@ -236,7 +236,7 @@ public class McnVideoAdView extends FrameLayout {
         c.a.z.a aVar;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f37195e) == null || (aVar = this.o) == null || (str = aVar.f27600d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (context = this.f37351e) == null || (aVar = this.o) == null || (str = aVar.f27690d) == null) {
             return;
         }
         z.d(context, str, null, null, null);
@@ -249,17 +249,17 @@ public class McnVideoAdView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.f37195e).inflate(R.layout.mcn_video_ad_layout, this);
-            this.f37196f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-            this.f37197g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-            this.f37198h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-            this.f37196f.setConrers(5);
-            this.f37196f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f37196f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.f37196f.setRadius(m.f(this.f37195e, R.dimen.tbds20));
-            this.f37199i = AnimationUtils.loadAnimation(this.f37195e, R.anim.mcn_video_ad_open_anim);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f37195e, R.anim.mcn_video_ad_close_anim);
-            this.f37200j = loadAnimation;
+            LayoutInflater.from(this.f37351e).inflate(R.layout.mcn_video_ad_layout, this);
+            this.f37352f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+            this.f37353g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+            this.f37354h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+            this.f37352f.setConrers(5);
+            this.f37352f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f37352f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+            this.f37352f.setRadius(n.f(this.f37351e, R.dimen.tbds20));
+            this.f37355i = AnimationUtils.loadAnimation(this.f37351e, R.anim.mcn_video_ad_open_anim);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f37351e, R.anim.mcn_video_ad_close_anim);
+            this.f37356j = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
         }
     }
@@ -298,7 +298,7 @@ public class McnVideoAdView extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f37201k = motionEvent.getX();
+                this.f37357k = motionEvent.getX();
                 this.l = motionEvent.getY();
                 ViewParent parent = getParent();
                 this.r = parent;
@@ -307,14 +307,14 @@ public class McnVideoAdView extends FrameLayout {
                 }
             } else if (action == 1) {
                 d();
-                if (Math.abs(motionEvent.getX() - this.f37201k) < 5.0f && Math.abs(motionEvent.getY() - this.l) < 5.0f) {
+                if (Math.abs(motionEvent.getX() - this.f37357k) < 5.0f && Math.abs(motionEvent.getY() - this.l) < 5.0f) {
                     e();
                 }
             } else if (action != 2) {
                 if (action == 3) {
                     d();
                 }
-            } else if (motionEvent.getX() - this.f37201k > 10.0f && this.m) {
+            } else if (motionEvent.getX() - this.f37357k > 10.0f && this.m) {
                 this.n = true;
                 dismiss();
                 c cVar = this.p;
@@ -348,9 +348,9 @@ public class McnVideoAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, aVar, viewGroup) == null) {
             showMcnVideoAdWithOutAnim(aVar, viewGroup);
-            if (this.f37199i != null) {
+            if (this.f37355i != null) {
                 clearAnimation();
-                startAnimation(this.f37199i);
+                startAnimation(this.f37355i);
             }
         }
     }
@@ -403,7 +403,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f37195e = context;
+        this.f37351e = context;
         f();
     }
 
@@ -429,7 +429,7 @@ public class McnVideoAdView extends FrameLayout {
         this.m = false;
         this.n = false;
         this.q = new Handler();
-        this.f37195e = context;
+        this.f37351e = context;
         f();
     }
 }

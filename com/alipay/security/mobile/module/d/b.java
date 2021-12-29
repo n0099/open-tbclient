@@ -18,7 +18,7 @@ public final class b {
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.alipay.security.mobile.module.http.v2.a f31867b;
+    public com.alipay.security.mobile.module.http.v2.a f32010b;
 
     public b(String str, com.alipay.security.mobile.module.http.v2.a aVar) {
         Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public final class b {
             }
         }
         this.a = null;
-        this.f31867b = null;
+        this.f32010b = null;
         this.a = new File(str);
-        this.f31867b = aVar;
+        this.f32010b = aVar;
     }
 
     public static String a(String str) {
@@ -81,7 +81,7 @@ public final class b {
                         str2 = (String) arrayList.get(arrayList.size() - 2);
                         size--;
                     }
-                    if (!this.f31867b.logCollect(a(com.alipay.security.mobile.module.a.b.a(this.a.getAbsolutePath(), str2)))) {
+                    if (!this.f32010b.logCollect(a(com.alipay.security.mobile.module.a.b.a(this.a.getAbsolutePath(), str2)))) {
                         size--;
                     }
                     for (int i2 = 0; i2 < size; i2++) {

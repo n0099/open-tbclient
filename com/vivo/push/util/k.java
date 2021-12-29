@@ -1,164 +1,167 @@
 package com.vivo.push.util;
 
-import android.os.Build;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.c.r;
+import com.vivo.push.cache.ClientConfigManagerImpl;
+import com.vivo.push.model.InsideNotificationItem;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class k {
+public final class k extends AsyncTask<String, Void, List<Bitmap>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f63128b;
+    public InsideNotificationItem f63143b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f63129c;
+    public long f63144c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f63130d;
+    public boolean f63145d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f63131e;
+    public int f63146e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f63132f;
+    public r.a f63147f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f63133g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final boolean f63134h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static Method f63135i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f63136j;
-
-    /* renamed from: k  reason: collision with root package name */
-    public static String f63137k;
-    public static String l;
-    public static String m;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        String b2;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178449, "Lcom/vivo/push/util/k;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(744178449, "Lcom/vivo/push/util/k;");
+    public k(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z, r.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j2), Boolean.valueOf(z), aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = z.b("ro.vivo.product.overseas", "no").equals("yes");
-        if (Build.VERSION.SDK_INT >= 26) {
-            b2 = z.b("ro.product.country.region", "N");
-        } else {
-            b2 = z.b("ro.product.customize.bbk", "N");
-        }
-        f63128b = b2;
-        f63129c = "RU".equals(b2);
-        f63130d = "IN".equals(f63128b);
-        f63131e = b("rom_1.0");
-        f63132f = b("rom_2.0");
-        f63133g = b("rom_2.5");
-        f63134h = b("rom_3.0");
-        f63136j = null;
-        f63137k = null;
-        l = "";
-        m = "";
+        this.f63146e = 0;
+        this.a = context;
+        this.f63143b = insideNotificationItem;
+        this.f63144c = j2;
+        this.f63145d = z;
+        this.f63147f = aVar;
     }
 
-    public static synchronized String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (k.class) {
-                if (f63136j == null && f63137k == null) {
-                    try {
-                        Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class, String.class);
-                        f63135i = declaredMethod;
-                        declaredMethod.setAccessible(true);
-                        f63136j = (String) f63135i.invoke(null, "ro.vivo.rom", "@><@");
-                        f63137k = (String) f63135i.invoke(null, "ro.vivo.rom.version", "@><@");
-                    } catch (Exception unused) {
-                        p.b("Device", "getRomCode error");
-                    }
-                }
-                p.d("Device", "sRomProperty1 : " + f63136j + " ; sRomProperty2 : " + f63137k);
-                String a2 = a(f63136j);
-                if (TextUtils.isEmpty(a2)) {
-                    String a3 = a(f63137k);
-                    if (TextUtils.isEmpty(a3)) {
-                        return null;
-                    }
-                    return a3;
-                }
-                return a2;
-            }
-        }
-        return (String) invokeV.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // android.os.AsyncTask
+    public final /* synthetic */ void onPostExecute(List<Bitmap> list) {
+        List<Bitmap> list2 = list;
+        super.onPostExecute(list2);
+        p.c("ImageDownTask", "onPostExecute");
+        com.vivo.push.m.c(new l(this, list2));
     }
 
-    public static boolean b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0090, code lost:
+        if (r5 == null) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0092, code lost:
+        r5.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x009c, code lost:
+        if (r5 == null) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x009f, code lost:
+        r6 = null;
+     */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public List<Bitmap> doInBackground(String... strArr) {
         InterceptResult invokeL;
+        InputStream inputStream;
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String b2 = z.b("ro.vivo.rom", "");
-            String b3 = z.b("ro.vivo.rom.version", "");
-            p.d("Device", "ro.vivo.rom = " + b2 + " ; ro.vivo.rom.version = " + b3);
-            if (b2 == null || !b2.contains(str)) {
-                return b3 != null && b3.contains(str);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(Build.MANUFACTURER)) {
-                p.d("Device", "Build.MANUFACTURER is null");
-                return false;
-            }
-            p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-            return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith(RomUtils.MANUFACTURER_VIVO);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, strArr)) == null) {
+            this.f63146e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
+            InputStream inputStream2 = null;
+            if (!this.f63145d) {
+                p.d("ImageDownTask", "bitmap is not display by forbid net");
                 return null;
             }
-            Matcher matcher = Pattern.compile("rom_([\\d]*).?([\\d]*)", 2).matcher(str);
-            if (matcher.find()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(matcher.group(1));
-                sb.append(TextUtils.isEmpty(matcher.group(2)) ? "0" : matcher.group(2).substring(0, 1));
-                return sb.toString();
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < 2; i2++) {
+                String str = strArr[i2];
+                p.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                        httpURLConnection.setConnectTimeout(30000);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setUseCaches(false);
+                        httpURLConnection.connect();
+                        int responseCode = httpURLConnection.getResponseCode();
+                        p.c("ImageDownTask", "code=".concat(String.valueOf(responseCode)));
+                        if (responseCode == 200) {
+                            inputStream = httpURLConnection.getInputStream();
+                            try {
+                                try {
+                                    bitmap = BitmapFactory.decodeStream(inputStream);
+                                } catch (Throwable th) {
+                                    th = th;
+                                    inputStream2 = inputStream;
+                                    if (inputStream2 != null) {
+                                        try {
+                                            inputStream2.close();
+                                        } catch (Exception unused) {
+                                        }
+                                    }
+                                    throw th;
+                                }
+                            } catch (MalformedURLException unused2) {
+                                p.a("ImageDownTask", "MalformedURLException");
+                            } catch (IOException unused3) {
+                                p.a("ImageDownTask", "IOException");
+                            }
+                        } else {
+                            inputStream = null;
+                            bitmap = null;
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                    } catch (MalformedURLException unused5) {
+                        inputStream = null;
+                    } catch (IOException unused6) {
+                        inputStream = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    arrayList.add(bitmap);
+                } else if (i2 == 0) {
+                    arrayList.add(null);
+                }
             }
-            return null;
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

@@ -22,7 +22,7 @@ public class cc extends XMPushService.i {
     public final /* synthetic */ byte[] f953a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f63851b;
+    public final /* synthetic */ int f63846b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
@@ -43,7 +43,7 @@ public class cc extends XMPushService.i {
             }
         }
         this.a = xMPushService;
-        this.f63851b = i3;
+        this.f63846b = i3;
         this.f953a = bArr;
         this.f952a = str;
     }
@@ -62,7 +62,7 @@ public class cc extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             m.m683a((Context) this.a);
             av.a().m656a("5");
-            com.xiaomi.push.ab.a(this.f63851b);
+            com.xiaomi.push.ab.a(this.f63846b);
             fmVar = this.a.f849a;
             fmVar.c(fm.a());
             this.a.a(this.f953a, this.f952a);

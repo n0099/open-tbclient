@@ -32,28 +32,28 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f50773e;
+    public final Paint f51021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f50774f;
+    public final Paint f51022f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f50775g;
+    public final Path f51023g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f50776h;
+    public int f51024h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b f50777i;
+    public b f51025i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f50778j;
+    public int f51026j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f50779k;
+    public int f51027k;
     public int l;
     public int m;
-    public final c<c.a.d.m.d.a> mCallback;
+    public final c<c.a.d.n.d.a> mCallback;
     public int n;
     public int o;
     public Shader p;
@@ -64,7 +64,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public boolean u;
 
     /* loaded from: classes12.dex */
-    public class a extends c<c.a.d.m.d.a> {
+    public class a extends c<c.a.d.n.d.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsAnomalyImg a;
@@ -105,7 +105,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.m.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.n.d.a aVar, String str, int i2) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str, i2) == null) || aVar == null) {
                 return;
@@ -124,13 +124,13 @@ public class FrsAnomalyImg extends AppCompatImageView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f50780b;
+        public int f51028b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f50781c;
+        public int f51029c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f50782d;
+        public int f51030d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f50780b = i2;
+                this.f51028b = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -160,7 +160,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.f50781c = i2;
+                this.f51029c = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -170,7 +170,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.f50782d = i2;
+                this.f51030d = i2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -212,9 +212,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
-                return (int) Math.round(this.f50777i.f50782d / Math.tan(Math.toRadians((int) (((bVar.f50780b + 90) / 2) + 0.5d))));
+                return (int) Math.round(this.f51025i.f51030d / Math.tan(Math.toRadians((int) (((bVar.f51028b + 90) / 2) + 0.5d))));
             }
             return 0;
         }
@@ -225,9 +225,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
-                return (int) Math.round(this.f50777i.a * Math.tan(Math.toRadians(bVar.f50780b)));
+                return (int) Math.round(this.f51025i.a * Math.tan(Math.toRadians(bVar.f51028b)));
             }
             return 0;
         }
@@ -238,9 +238,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
-                return (int) Math.round(getA() * Math.sin(Math.toRadians(bVar.f50780b)));
+                return (int) Math.round(getA() * Math.sin(Math.toRadians(bVar.f51028b)));
             }
             return 0;
         }
@@ -251,9 +251,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
-                return (int) Math.round(getA() * Math.cos(Math.toRadians(bVar.f50780b)));
+                return (int) Math.round(getA() * Math.cos(Math.toRadians(bVar.f51028b)));
             }
             return 0;
         }
@@ -264,9 +264,9 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
-                return bVar.f50781c;
+                return bVar.f51029c;
             }
             return 0;
         }
@@ -277,7 +277,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            b bVar = this.f50777i;
+            b bVar = this.f51025i;
             if (bVar != null) {
                 return bVar.a;
             }
@@ -290,7 +290,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             i();
-            this.f50774f.setColor(SkinManager.getColor(R.color.CAM_X0210));
+            this.f51022f.setColor(SkinManager.getColor(R.color.CAM_X0210));
             invalidate();
         }
     }
@@ -298,8 +298,8 @@ public class FrsAnomalyImg extends AppCompatImageView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f50778j = Math.max(getPaddingLeft(), getPaddingRight());
-            this.f50779k = Math.max(getPaddingTop(), getPaddingBottom());
+            this.f51026j = Math.max(getPaddingLeft(), getPaddingRight());
+            this.f51027k = Math.max(getPaddingTop(), getPaddingBottom());
         }
     }
 
@@ -331,35 +331,35 @@ public class FrsAnomalyImg extends AppCompatImageView {
                 float min = Math.min(this.l / this.q, this.m / this.r);
                 this.t.postScale(min, min);
                 this.s.setLocalMatrix(this.t);
-                this.f50773e.setShader(this.s);
+                this.f51021e.setShader(this.s);
             } else {
                 float f2 = (this.m / 2.0f) / this.o;
                 this.t.postScale(f2, f2);
                 this.t.postTranslate((this.l - (this.n * f2)) / 2.0f, (this.m - (this.o * f2)) / 2.0f);
                 this.p.setLocalMatrix(this.t);
-                this.f50773e.setShader(this.p);
+                this.f51021e.setShader(this.p);
             }
-            this.f50775g.moveTo(this.f50778j, this.f50776h + this.f50779k);
-            Path path = this.f50775g;
-            int i2 = this.f50778j;
-            int i3 = this.f50779k;
-            path.quadTo(i2, i3, this.f50776h + i2, i3);
-            this.f50775g.quadTo(this.f50776h + this.f50778j, this.f50779k, (getWidth() - this.f50776h) - this.f50778j, this.f50779k);
-            this.f50775g.quadTo(getWidth() - this.f50778j, this.f50779k, getWidth() - this.f50778j, this.f50776h + this.f50779k);
-            this.f50775g.quadTo(getWidth() - this.f50778j, this.f50776h + this.f50779k, getWidth() - this.f50778j, ((getHeight() - this.f50776h) - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo(getWidth() - this.f50778j, (getHeight() - this.f50779k) - getTenonHeigh(), (getWidth() - this.f50776h) - this.f50778j, (getHeight() - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo((getWidth() - this.f50776h) - this.f50778j, (getHeight() - this.f50779k) - getTenonHeigh(), getA() + getB() + getDistance(), (getHeight() - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo(getDistance() + getB(), (getHeight() - this.f50779k) - getTenonHeigh(), (getDistance() + getB()) - getC(), ((getHeight() - this.f50779k) - getTenonHeigh()) + getD());
-            this.f50775g.quadTo((getDistance() + getB()) - getC(), ((getHeight() - this.f50779k) - getTenonHeigh()) + getD(), getDistance(), getHeight() - this.f50779k);
-            this.f50775g.quadTo(getDistance(), getHeight() - this.f50779k, (getDistance() - getB()) + getC(), ((getHeight() - this.f50779k) - getTenonHeigh()) + getD());
-            this.f50775g.quadTo(getDistance() - getB(), (getHeight() - this.f50779k) - getTenonHeigh(), (getDistance() - getB()) - getC(), (getHeight() - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo((getDistance() - getB()) - getC(), (getHeight() - this.f50779k) - getTenonHeigh(), this.f50778j + this.f50776h, (getHeight() - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo(this.f50778j, (getHeight() - this.f50779k) - getTenonHeigh(), this.f50778j, ((getHeight() - this.f50776h) - this.f50779k) - getTenonHeigh());
-            this.f50775g.quadTo(this.f50778j, ((getHeight() - this.f50776h) - this.f50779k) - getTenonHeigh(), this.f50778j, this.f50776h + this.f50779k);
-            this.f50775g.close();
+            this.f51023g.moveTo(this.f51026j, this.f51024h + this.f51027k);
+            Path path = this.f51023g;
+            int i2 = this.f51026j;
+            int i3 = this.f51027k;
+            path.quadTo(i2, i3, this.f51024h + i2, i3);
+            this.f51023g.quadTo(this.f51024h + this.f51026j, this.f51027k, (getWidth() - this.f51024h) - this.f51026j, this.f51027k);
+            this.f51023g.quadTo(getWidth() - this.f51026j, this.f51027k, getWidth() - this.f51026j, this.f51024h + this.f51027k);
+            this.f51023g.quadTo(getWidth() - this.f51026j, this.f51024h + this.f51027k, getWidth() - this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo(getWidth() - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), (getWidth() - this.f51024h) - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo((getWidth() - this.f51024h) - this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), getA() + getB() + getDistance(), (getHeight() - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo(getDistance() + getB(), (getHeight() - this.f51027k) - getTenonHeigh(), (getDistance() + getB()) - getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD());
+            this.f51023g.quadTo((getDistance() + getB()) - getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD(), getDistance(), getHeight() - this.f51027k);
+            this.f51023g.quadTo(getDistance(), getHeight() - this.f51027k, (getDistance() - getB()) + getC(), ((getHeight() - this.f51027k) - getTenonHeigh()) + getD());
+            this.f51023g.quadTo(getDistance() - getB(), (getHeight() - this.f51027k) - getTenonHeigh(), (getDistance() - getB()) - getC(), (getHeight() - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo((getDistance() - getB()) - getC(), (getHeight() - this.f51027k) - getTenonHeigh(), this.f51026j + this.f51024h, (getHeight() - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo(this.f51026j, (getHeight() - this.f51027k) - getTenonHeigh(), this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh());
+            this.f51023g.quadTo(this.f51026j, ((getHeight() - this.f51024h) - this.f51027k) - getTenonHeigh(), this.f51026j, this.f51024h + this.f51027k);
+            this.f51023g.close();
             if (this.u) {
-                canvas.drawPath(this.f50775g, this.f50774f);
-                canvas.drawPath(this.f50775g, this.f50773e);
+                canvas.drawPath(this.f51023g, this.f51022f);
+                canvas.drawPath(this.f51023g, this.f51021e);
             }
         }
     }
@@ -380,7 +380,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f50776h = i2;
+            this.f51024h = i2;
             return this;
         }
         return (FrsAnomalyImg) invokeI.objValue;
@@ -390,7 +390,7 @@ public class FrsAnomalyImg extends AppCompatImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
-            this.f50777i = bVar;
+            this.f51025i = bVar;
             return this;
         }
         return (FrsAnomalyImg) invokeL.objValue;
@@ -429,16 +429,16 @@ public class FrsAnomalyImg extends AppCompatImageView {
                 return;
             }
         }
-        this.f50776h = 0;
-        this.f50777i = null;
-        this.f50778j = 0;
-        this.f50779k = 0;
+        this.f51024h = 0;
+        this.f51025i = null;
+        this.f51026j = 0;
+        this.f51027k = 0;
         this.t = new Matrix();
         this.mCallback = new a(this);
-        this.f50773e = new Paint();
+        this.f51021e = new Paint();
         Paint paint = new Paint();
-        this.f50774f = paint;
+        this.f51022f = paint;
         paint.setStyle(Paint.Style.FILL);
-        this.f50775g = new Path();
+        this.f51023g = new Path();
     }
 }

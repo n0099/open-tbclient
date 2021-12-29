@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class LightAppListenerImpl implements ILightAppListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

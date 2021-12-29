@@ -15,10 +15,10 @@ public final class c {
     public InputStream a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f55151b;
+    public boolean f55150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f55152c;
+    public int f55151c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -38,8 +38,8 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream) == null) {
             this.a = inputStream;
-            this.f55151b = false;
-            this.f55152c = 0;
+            this.f55150b = false;
+            this.f55151c = 0;
         }
     }
 
@@ -48,13 +48,13 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int i2 = 0;
-            if (this.f55151b) {
+            if (this.f55150b) {
                 for (int i3 = 24; i3 >= 0; i3 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f55152c++;
+                    this.f55151c++;
                     i2 |= read << i3;
                 }
                 return i2;
@@ -65,7 +65,7 @@ public final class c {
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f55152c++;
+                this.f55151c++;
                 i4 |= read2 << i2;
                 i2 += 8;
             }
@@ -78,7 +78,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long skip = this.a.skip(4L);
-            this.f55152c = (int) (this.f55152c + skip);
+            this.f55151c = (int) (this.f55151c + skip);
             if (skip != 4) {
                 throw new EOFException();
             }

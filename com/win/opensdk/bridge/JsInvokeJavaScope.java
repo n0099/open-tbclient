@@ -3,7 +3,7 @@ package com.win.opensdk.bridge;
 import android.webkit.WebView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.p.a.q0;
+import c.q.a.q0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

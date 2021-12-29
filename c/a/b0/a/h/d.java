@@ -17,25 +17,28 @@ import java.util.Objects;
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static d f1173g;
+    /* renamed from: h  reason: collision with root package name */
+    public static d f1565h;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1174b;
+    public File f1566b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f1175c;
+    public File f1567c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f1176d;
+    public File f1568d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f1177e;
+    public File f1569e;
 
     /* renamed from: f  reason: collision with root package name */
-    public File f1178f;
+    public File f1570f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public File f1571g;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -55,27 +58,33 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (d.class) {
-                if (f1173g == null) {
-                    f1173g = new d();
+                if (f1565h == null) {
+                    f1565h = new d();
                 }
             }
         }
     }
 
-    public static File b() {
-        InterceptResult invokeV;
+    public static File b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d().f1177e : (File) invokeV.objValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                return d().f1570f;
+            }
+            return d().f1569e;
+        }
+        return (File) invokeZ.objValue;
     }
 
     public static d d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f1173g == null) {
+            if (f1565h == null) {
                 a();
             }
-            return f1173g;
+            return f1565h;
         }
         return (d) invokeV.objValue;
     }
@@ -96,7 +105,7 @@ public class d {
     public static File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().f1178f : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().f1571g : (File) invokeV.objValue;
     }
 
     @SuppressLint({"NewApi"})
@@ -115,13 +124,13 @@ public class d {
     public File g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1175c : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1567c : (File) invokeV.objValue;
     }
 
     public File h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1176d : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1568d : (File) invokeV.objValue;
     }
 
     public void i(Context context) {
@@ -129,31 +138,36 @@ public class d {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = e(context);
             File c2 = c(context);
-            this.f1174b = c2;
+            this.f1566b = c2;
             if (c2 == null) {
-                this.f1174b = this.a;
+                this.f1566b = this.a;
             }
-            if (this.f1174b != null) {
-                this.f1175c = new File(this.f1174b, "sdk");
-                File file = new File(this.f1175c, "arsource");
-                this.f1176d = file;
+            if (this.f1566b != null) {
+                this.f1567c = new File(this.f1566b, "sdk");
+                File file = new File(this.f1567c, "arsource");
+                this.f1568d = file;
                 if (!file.exists()) {
-                    this.f1176d.mkdirs();
+                    this.f1568d.mkdirs();
                 }
             }
             if (this.a != null) {
                 new File(this.a, "sdk");
                 File file2 = new File(this.a, "sdklibs/armeabi-v7a");
-                this.f1177e = file2;
+                this.f1569e = file2;
                 if (!file2.exists()) {
-                    this.f1177e.mkdirs();
+                    this.f1569e.mkdirs();
                 }
-                File file3 = new File(this.a, "sdklibs/armeabi-v7a-2");
-                this.f1178f = file3;
-                if (file3.exists()) {
+                File file3 = new File(this.a, "sdklibs/arm64-v8a");
+                this.f1570f = file3;
+                if (!file3.exists()) {
+                    this.f1570f.mkdirs();
+                }
+                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
+                this.f1571g = file4;
+                if (file4.exists()) {
                     return;
                 }
-                this.f1178f.mkdirs();
+                this.f1571g.mkdirs();
             }
         }
     }

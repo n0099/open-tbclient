@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
-import c.a.m0.a.d.c;
+import c.a.n0.a.d.c;
 import c.a.y.c.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
@@ -68,7 +68,7 @@ public interface AREngineDelegate {
 
     void setGameRecordCallback(c.a.y.c.c cVar);
 
-    void setOnStuckScreenListener(c.a.m0.a.d.a aVar);
+    void setOnStuckScreenListener(c.a.n0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 

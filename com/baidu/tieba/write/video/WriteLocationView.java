@@ -3,9 +3,9 @@ package com.baidu.tieba.write.video;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.d.f.p.k;
-import c.a.r0.s.t.a;
-import c.a.s0.n4.j;
+import c.a.d.f.p.l;
+import c.a.s0.s.s.a;
+import c.a.t0.o4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -24,31 +24,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WriteLocationView extends LocationInfoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public BaseActivity<?> f51433h;
+    public BaseActivity<?> f51682h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LocationModel f51434i;
+    public LocationModel f51683i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f51435j;
+    public int f51684j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final LocationModel.e f51436k;
+    public final LocationModel.e f51685k;
     public final CustomMessageListener l;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteLocationView f51437e;
+        public final /* synthetic */ WriteLocationView f51686e;
 
         public a(WriteLocationView writeLocationView) {
             Interceptable interceptable = $ic;
@@ -65,25 +65,25 @@ public class WriteLocationView extends LocationInfoView {
                     return;
                 }
             }
-            this.f51437e = writeLocationView;
+            this.f51686e = writeLocationView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                int i2 = this.f51437e.f51435j;
+                int i2 = this.f51686e.f51684j;
                 if (i2 == 0) {
-                    this.f51437e.onLocViewClickedInInitState();
+                    this.f51686e.onLocViewClickedInInitState();
                 } else if (i2 != 2) {
                 } else {
-                    this.f51437e.h();
+                    this.f51686e.h();
                 }
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements LocationModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class WriteLocationView extends LocationInfoView {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f51433h.showToast(j.no_network_guide);
+                this.a.f51682h.showToast(j.no_network_guide);
                 this.a.j(0, true, null);
             }
         }
@@ -132,9 +132,9 @@ public class WriteLocationView extends LocationInfoView {
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                BaseActivity baseActivity = this.a.f51433h;
+                BaseActivity baseActivity = this.a.f51682h;
                 if (StringUtils.isNull(str)) {
-                    str = this.a.f51433h.getResources().getString(j.location_fail);
+                    str = this.a.f51682h.getResources().getString(j.location_fail);
                 }
                 baseActivity.showToast(str);
                 this.a.j(0, true, null);
@@ -142,13 +142,13 @@ public class WriteLocationView extends LocationInfoView {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteLocationView f51438e;
+        public final /* synthetic */ WriteLocationView f51687e;
 
         public c(WriteLocationView writeLocationView) {
             Interceptable interceptable = $ic;
@@ -165,26 +165,26 @@ public class WriteLocationView extends LocationInfoView {
                     return;
                 }
             }
-            this.f51438e = writeLocationView;
+            this.f51687e = writeLocationView;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f51438e.j(0, true, null);
+                this.f51687e.j(0, true, null);
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteLocationView f51439e;
+        public final /* synthetic */ WriteLocationView f51688e;
 
         public d(WriteLocationView writeLocationView) {
             Interceptable interceptable = $ic;
@@ -201,25 +201,25 @@ public class WriteLocationView extends LocationInfoView {
                     return;
                 }
             }
-            this.f51439e = writeLocationView;
+            this.f51688e = writeLocationView;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (k.z()) {
-                    this.f51439e.j(1, true, null);
-                    this.f51439e.f51434i.L();
+                if (l.z()) {
+                    this.f51688e.j(1, true, null);
+                    this.f51688e.f51683i.L();
                 } else {
-                    this.f51439e.f51436k.a();
+                    this.f51688e.f51685k.a();
                 }
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,12 +253,12 @@ public class WriteLocationView extends LocationInfoView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedSelectLocation)) {
                 ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
                 if (responsedSelectLocation.isShowLocation()) {
-                    this.a.f51434i.N(false);
-                    this.a.f51434i.M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                    this.a.f51683i.N(false);
+                    this.a.f51683i.M(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                     this.a.j(2, true, responsedSelectLocation.getName());
                     return;
                 }
-                this.a.f51434i.N(true);
+                this.a.f51683i.N(true);
                 this.a.j(0, true, null);
             }
         }
@@ -289,7 +289,7 @@ public class WriteLocationView extends LocationInfoView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LocationModel locationModel = this.f51434i;
+            LocationModel locationModel = this.f51683i;
             if (locationModel == null) {
                 return false;
             }
@@ -301,20 +301,20 @@ public class WriteLocationView extends LocationInfoView {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.f51433h.getPageContext().getPageActivity())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.f51682h.getPageContext().getPageActivity())));
         }
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f51434i.z() && this.f51434i.E(TbadkCoreApplication.getInst())) {
-                if (this.f51434i.D()) {
-                    j(2, true, c.a.s0.v3.o0.b.a().b().getFormatted_address());
+            if (this.f51683i.z() && this.f51683i.E(TbadkCoreApplication.getInst())) {
+                if (this.f51683i.D()) {
+                    j(2, true, c.a.t0.w3.o0.b.a().b().getFormatted_address());
                     return;
                 }
                 j(1, true, null);
-                this.f51434i.I();
+                this.f51683i.I();
                 return;
             }
             j(0, true, null);
@@ -324,11 +324,11 @@ public class WriteLocationView extends LocationInfoView {
     public void init(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, baseActivity) == null) {
-            this.f51433h = baseActivity;
+            this.f51682h = baseActivity;
             baseActivity.registerListener(this.l);
-            LocationModel locationModel = new LocationModel(this.f51433h.getPageContext());
-            this.f51434i = locationModel;
-            locationModel.O(this.f51436k);
+            LocationModel locationModel = new LocationModel(this.f51682h.getPageContext());
+            this.f51683i = locationModel;
+            locationModel.O(this.f51685k);
             setOnClickListener(new a(this));
             i();
         }
@@ -337,7 +337,7 @@ public class WriteLocationView extends LocationInfoView {
     public final void j(int i2, boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.f51435j = i2;
+            this.f51684j = i2;
             setVisibility(z ? 0 : 8);
             setState(i2, str);
         }
@@ -346,8 +346,8 @@ public class WriteLocationView extends LocationInfoView {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.r0.s.t.a aVar = new c.a.r0.s.t.a(this.f51433h.getPageContext().getPageActivity());
-            aVar.setMessageId(j.location_app_permission_prompt).setPositiveButton(j.isopen, new d(this)).setNegativeButton(j.cancel, new c(this)).create(this.f51433h.getPageContext());
+            c.a.s0.s.s.a aVar = new c.a.s0.s.s.a(this.f51682h.getPageContext().getPageActivity());
+            aVar.setMessageId(j.location_app_permission_prompt).setPositiveButton(j.isopen, new d(this)).setNegativeButton(j.cancel, new c(this)).create(this.f51682h.getPageContext());
             aVar.show();
         }
     }
@@ -355,17 +355,17 @@ public class WriteLocationView extends LocationInfoView {
     public void onLocViewClickedInInitState() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!this.f51434i.E(this.f51433h.getPageContext().getPageActivity())) {
-                this.f51433h.showToast(j.location_system_permission_prompt);
+            if (!this.f51683i.E(this.f51682h.getPageContext().getPageActivity())) {
+                this.f51682h.showToast(j.location_system_permission_prompt);
                 j(0, true, null);
             } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
                 k();
-            } else if (this.f51434i.D()) {
+            } else if (this.f51683i.D()) {
                 h();
             } else {
-                this.f51434i.N(false);
+                this.f51683i.N(false);
                 j(1, true, null);
-                this.f51434i.I();
+                this.f51683i.I();
             }
         }
     }
@@ -373,7 +373,7 @@ public class WriteLocationView extends LocationInfoView {
     public void stopTask() {
         LocationModel locationModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (locationModel = this.f51434i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (locationModel = this.f51683i) == null) {
             return;
         }
         locationModel.cancelLoadData();
@@ -398,8 +398,8 @@ public class WriteLocationView extends LocationInfoView {
                 return;
             }
         }
-        this.f51435j = 0;
-        this.f51436k = new b(this);
+        this.f51684j = 0;
+        this.f51685k = new b(this);
         this.l = new e(this, 2001226);
     }
 }

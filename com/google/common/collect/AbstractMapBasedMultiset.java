@@ -140,12 +140,12 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
             this.f56702h = abstractMapBasedMultiset;
             this.f56699e = this.f56702h.backingMap.e();
             this.f56700f = -1;
-            this.f56701g = this.f56702h.backingMap.f30985d;
+            this.f56701g = this.f56702h.backingMap.f31063d;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56702h.backingMap.f30985d != this.f56701g) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f56702h.backingMap.f31063d != this.f56701g) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -190,7 +190,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
                 this.f56702h.size -= abstractMapBasedMultiset.backingMap.x(this.f56700f);
                 this.f56699e = this.f56702h.backingMap.t(this.f56699e, this.f56700f);
                 this.f56700f = -1;
-                this.f56701g = this.f56702h.backingMap.f30985d;
+                this.f56701g = this.f56702h.backingMap.f31063d;
             }
         }
     }

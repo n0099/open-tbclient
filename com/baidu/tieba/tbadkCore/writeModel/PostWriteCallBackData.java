@@ -1,8 +1,8 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.r.w1;
-import c.a.r0.u.a;
+import c.a.s0.s.q.w1;
+import c.a.s0.u.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.AccessState;

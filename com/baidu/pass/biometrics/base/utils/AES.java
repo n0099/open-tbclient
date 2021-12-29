@@ -16,21 +16,21 @@ public class AES {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38616d = "UTF-8";
+    public static final String f38772d = "UTF-8";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38617e = "AES/CBC/NoPadding";
+    public static final String f38773e = "AES/CBC/NoPadding";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38618f = "AES";
+    public static final String f38774f = "AES";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38619b;
+    public String f38775b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38620c;
+    public String f38776c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AES() {
@@ -72,8 +72,8 @@ public class AES {
                 byte[] bArr2 = new byte[0];
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f38620c);
-                    Cipher cipher = Cipher.getInstance(this.f38619b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f38776c);
+                    Cipher cipher = Cipher.getInstance(this.f38775b);
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(bArr);
                 } catch (Throwable unused) {
@@ -92,8 +92,8 @@ public class AES {
             if (str != null && str.length() != 0) {
                 try {
                     IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.a));
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f38620c);
-                    Cipher cipher = Cipher.getInstance(this.f38619b);
+                    SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f38776c);
+                    Cipher cipher = Cipher.getInstance(this.f38775b);
                     cipher.init(1, secretKeySpec, ivParameterSpec);
                     return cipher.doFinal(a(str).getBytes());
                 } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
@@ -142,10 +142,10 @@ public class AES {
             }
         }
         this.a = "UTF-8";
-        this.f38619b = "AES/CBC/NoPadding";
-        this.f38620c = "AES";
-        this.f38620c = str;
-        this.f38619b = str2;
+        this.f38775b = "AES/CBC/NoPadding";
+        this.f38776c = "AES";
+        this.f38776c = str;
+        this.f38775b = str2;
         this.a = str3;
     }
 }

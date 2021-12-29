@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s.t.a;
+import c.a.s0.s.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -28,24 +28,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements c.a.s0.k4.b {
+public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity> implements c.a.t0.l4.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isComplite;
     public boolean isContinuePlay;
     public boolean isDontDisplaytAgain;
     public ImageView mClose;
-    public c.a.s0.k4.a mDialog;
+    public c.a.t0.l4.a mDialog;
     public View mErrorContainer;
     public MediaPlayer.OnInfoListener mInfoListener;
     public int mLastPlayPosition;
     public TextView mLoadErrorText;
     public TextView mPlayText;
-    public c.a.r0.s.i0.a mProgressDialog;
+    public c.a.s0.s.i0.a mProgressDialog;
     public ImageView mShare;
     public int mSkinType;
     public Runnable mTimeoutRunnable;
-    public c.a.s0.k4.d.a mVideoEasterEggPresenter;
+    public c.a.t0.l4.d.a mVideoEasterEggPresenter;
     public ScaleVideoView mVideoView;
 
     /* loaded from: classes12.dex */
@@ -54,7 +54,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50380e;
+        public final /* synthetic */ VideoEasterEggActivity f50630e;
 
         public a(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -71,14 +71,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50380e = videoEasterEggActivity;
+            this.f50630e = videoEasterEggActivity;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.f50380e.isDontDisplaytAgain = z;
+                this.f50630e.isDontDisplaytAgain = z;
             }
         }
     }
@@ -89,7 +89,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50381e;
+        public final /* synthetic */ VideoEasterEggActivity f50631e;
 
         public b(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -106,18 +106,18 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50381e = videoEasterEggActivity;
+            this.f50631e = videoEasterEggActivity;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f50381e.mVideoEasterEggPresenter != null) {
-                    this.f50381e.mVideoEasterEggPresenter.c();
+                if (this.f50631e.mVideoEasterEggPresenter != null) {
+                    this.f50631e.mVideoEasterEggPresenter.c();
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_REPLAY));
                 }
-                this.f50381e.mDialog.dismiss();
+                this.f50631e.mDialog.dismiss();
             }
         }
     }
@@ -128,7 +128,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50382e;
+        public final /* synthetic */ VideoEasterEggActivity f50632e;
 
         public c(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -145,18 +145,18 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50382e = videoEasterEggActivity;
+            this.f50632e = videoEasterEggActivity;
         }
 
-        @Override // c.a.r0.s.t.a.e
-        public void onClick(c.a.r0.s.t.a aVar) {
+        @Override // c.a.s0.s.s.a.e
+        public void onClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (this.f50382e.mVideoEasterEggPresenter != null) {
-                    this.f50382e.mVideoEasterEggPresenter.e();
+                if (this.f50632e.mVideoEasterEggPresenter != null) {
+                    this.f50632e.mVideoEasterEggPresenter.e();
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).param("obj_locate", 2));
                 }
-                this.f50382e.mDialog.dismiss();
+                this.f50632e.mDialog.dismiss();
             }
         }
     }
@@ -167,7 +167,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50383e;
+        public final /* synthetic */ VideoEasterEggActivity f50633e;
 
         public d(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50383e = videoEasterEggActivity;
+            this.f50633e = videoEasterEggActivity;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public void onDismiss(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.f50383e.isDontDisplaytAgain) {
-                this.f50383e.mVideoEasterEggPresenter.b();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.f50633e.isDontDisplaytAgain) {
+                this.f50633e.mVideoEasterEggPresenter.b();
             }
         }
     }
@@ -202,7 +202,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50384e;
+        public final /* synthetic */ VideoEasterEggActivity f50634e;
 
         public e(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -219,16 +219,16 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50384e = videoEasterEggActivity;
+            this.f50634e = videoEasterEggActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50384e.mVideoEasterEggPresenter == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f50634e.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.f50384e.mVideoEasterEggPresenter.a();
+            this.f50634e.mVideoEasterEggPresenter.a();
         }
     }
 
@@ -238,7 +238,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50385e;
+        public final /* synthetic */ VideoEasterEggActivity f50635e;
 
         public f(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50385e = videoEasterEggActivity;
+            this.f50635e = videoEasterEggActivity;
         }
 
         @Override // android.media.MediaPlayer.OnInfoListener
@@ -264,8 +264,8 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
                 if (i2 == 3) {
-                    this.f50385e.setVideoMask(false);
-                    c.a.d.f.m.e.a().removeCallbacks(this.f50385e.mTimeoutRunnable);
+                    this.f50635e.setVideoMask(false);
+                    c.a.d.f.m.e.a().removeCallbacks(this.f50635e.mTimeoutRunnable);
                 }
                 return false;
             }
@@ -279,7 +279,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50386e;
+        public final /* synthetic */ VideoEasterEggActivity f50636e;
 
         public g(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -296,16 +296,16 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50386e = videoEasterEggActivity;
+            this.f50636e = videoEasterEggActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50386e.mVideoEasterEggPresenter == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50636e.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.f50386e.mVideoEasterEggPresenter.onClose();
+            this.f50636e.mVideoEasterEggPresenter.onClose();
         }
     }
 
@@ -315,7 +315,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50387e;
+        public final /* synthetic */ VideoEasterEggActivity f50637e;
 
         public h(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -332,17 +332,17 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50387e = videoEasterEggActivity;
+            this.f50637e = videoEasterEggActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50387e.mVideoEasterEggPresenter == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50637e.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.f50387e.mVideoEasterEggPresenter.e();
-            this.f50387e.pauseVideo();
+            this.f50637e.mVideoEasterEggPresenter.e();
+            this.f50637e.pauseVideo();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHARE).param("obj_locate", 1));
         }
     }
@@ -353,7 +353,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50388e;
+        public final /* synthetic */ VideoEasterEggActivity f50638e;
 
         public i(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -370,7 +370,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50388e = videoEasterEggActivity;
+            this.f50638e = videoEasterEggActivity;
         }
 
         @Override // android.media.MediaPlayer.OnErrorListener
@@ -378,8 +378,8 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i2, i3)) == null) {
-                if (this.f50388e.mVideoEasterEggPresenter != null) {
-                    this.f50388e.mVideoEasterEggPresenter.a();
+                if (this.f50638e.mVideoEasterEggPresenter != null) {
+                    this.f50638e.mVideoEasterEggPresenter.a();
                     return true;
                 }
                 return true;
@@ -394,7 +394,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50389e;
+        public final /* synthetic */ VideoEasterEggActivity f50639e;
 
         public j(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -411,16 +411,16 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50389e = videoEasterEggActivity;
+            this.f50639e = videoEasterEggActivity;
         }
 
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f50389e.isComplite = true;
-                if (this.f50389e.mVideoEasterEggPresenter != null) {
-                    this.f50389e.mVideoEasterEggPresenter.d();
+                this.f50639e.isComplite = true;
+                if (this.f50639e.mVideoEasterEggPresenter != null) {
+                    this.f50639e.mVideoEasterEggPresenter.d();
                 }
             }
         }
@@ -432,7 +432,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50390e;
+        public final /* synthetic */ VideoEasterEggActivity f50640e;
 
         public k(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -449,15 +449,15 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50390e = videoEasterEggActivity;
+            this.f50640e = videoEasterEggActivity;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.f50390e.mVideoView.setMediaPlayer(mediaPlayer);
-                mediaPlayer.setOnInfoListener(this.f50390e.mInfoListener);
+                this.f50640e.mVideoView.setMediaPlayer(mediaPlayer);
+                mediaPlayer.setOnInfoListener(this.f50640e.mInfoListener);
             }
         }
     }
@@ -468,7 +468,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50391e;
+        public final /* synthetic */ VideoEasterEggActivity f50641e;
 
         public l(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -485,7 +485,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50391e = videoEasterEggActivity;
+            this.f50641e = videoEasterEggActivity;
         }
 
         @Override // android.view.SurfaceHolder.Callback
@@ -499,7 +499,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceHolder) == null) {
-                this.f50391e.setVideoMask(true);
+                this.f50641e.setVideoMask(true);
             }
         }
 
@@ -507,7 +507,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceHolder) == null) {
-                this.f50391e.isComplite = false;
+                this.f50641e.isComplite = false;
             }
         }
     }
@@ -518,7 +518,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ VideoEasterEggActivity f50392e;
+        public final /* synthetic */ VideoEasterEggActivity f50642e;
 
         public m(VideoEasterEggActivity videoEasterEggActivity) {
             Interceptable interceptable = $ic;
@@ -535,16 +535,16 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
                     return;
                 }
             }
-            this.f50392e = videoEasterEggActivity;
+            this.f50642e = videoEasterEggActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50392e.mVideoEasterEggPresenter == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f50642e.mVideoEasterEggPresenter == null) {
                 return;
             }
-            this.f50392e.mVideoEasterEggPresenter.c();
+            this.f50642e.mVideoEasterEggPresenter.c();
         }
     }
 
@@ -569,14 +569,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         this.mInfoListener = new f(this);
     }
 
-    private c.a.s0.k4.a buildDialog(String str, String str2) {
+    private c.a.t0.l4.a buildDialog(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, this, str, str2)) == null) {
-            c.a.s0.k4.a aVar = new c.a.s0.k4.a(this);
+            c.a.t0.l4.a aVar = new c.a.t0.l4.a(this);
             this.mDialog = aVar;
             aVar.e(str2);
-            if (c.a.d.f.p.l.isEmpty(str)) {
+            if (c.a.d.f.p.m.isEmpty(str)) {
                 str = getResources().getString(R.string.easter_dialog_default_message);
             }
             this.mDialog.f(str);
@@ -587,7 +587,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             this.mDialog.create(getPageContext());
             return this.mDialog;
         }
-        return (c.a.s0.k4.a) invokeLL.objValue;
+        return (c.a.t0.l4.a) invokeLL.objValue;
     }
 
     private void initErrorContainer() {
@@ -620,7 +620,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mProgressDialog = new c.a.r0.s.i0.a(getPageContext());
+            this.mProgressDialog = new c.a.s0.s.i0.a(getPageContext());
             setSwipeBackEnabled(false);
             setContentView(R.layout.video_easter_egg_layout);
             initNavigationBar();
@@ -659,14 +659,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, this, z) == null) {
             if (z) {
-                c.a.r0.s.i0.a aVar = this.mProgressDialog;
+                c.a.s0.s.i0.a aVar = this.mProgressDialog;
                 if (aVar != null && !aVar.c()) {
                     this.mProgressDialog.h(true);
                 }
                 this.mVideoView.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
                 return;
             }
-            c.a.r0.s.i0.a aVar2 = this.mProgressDialog;
+            c.a.s0.s.i0.a aVar2 = this.mProgressDialog;
             if (aVar2 != null) {
                 aVar2.h(false);
             }
@@ -690,7 +690,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // c.a.s0.k4.b
+    @Override // c.a.t0.l4.b
     public void finishActivity() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -727,7 +727,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             UtilHelper.useNavigationBarStyleImmersiveSticky(this, true);
-            this.mVideoEasterEggPresenter = new c.a.s0.k4.d.b(getPageContext(), this, getIntent());
+            this.mVideoEasterEggPresenter = new c.a.t0.l4.d.b(getPageContext(), this, getIntent());
             initUI();
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_VIDEO_EASTER_EGG_SHOW));
         }
@@ -738,7 +738,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            c.a.s0.k4.d.a aVar = this.mVideoEasterEggPresenter;
+            c.a.t0.l4.d.a aVar = this.mVideoEasterEggPresenter;
             if (aVar != null) {
                 aVar.onDestroy();
             }
@@ -751,7 +751,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
             pauseVideo();
-            c.a.s0.k4.d.a aVar = this.mVideoEasterEggPresenter;
+            c.a.t0.l4.d.a aVar = this.mVideoEasterEggPresenter;
             if (aVar != null) {
                 aVar.onPause();
             }
@@ -763,14 +763,14 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            c.a.s0.k4.d.a aVar = this.mVideoEasterEggPresenter;
+            c.a.t0.l4.d.a aVar = this.mVideoEasterEggPresenter;
             if (aVar != null) {
                 aVar.onResume();
             }
         }
     }
 
-    @Override // c.a.s0.k4.b
+    @Override // c.a.t0.l4.b
     public void rePlayVideo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
@@ -782,7 +782,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // c.a.s0.k4.b
+    @Override // c.a.t0.l4.b
     public void showDialog(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
@@ -793,7 +793,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // c.a.s0.k4.b
+    @Override // c.a.t0.l4.b
     public void showErrorView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -804,10 +804,10 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
         }
     }
 
-    @Override // c.a.s0.k4.b
+    @Override // c.a.t0.l4.b
     public void startPlayVideo(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || c.a.d.f.p.l.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, str) == null) || c.a.d.f.p.m.isEmpty(str) || this.mVideoView.isPlaying() || this.isComplite) {
             return;
         }
         if (this.isContinuePlay) {

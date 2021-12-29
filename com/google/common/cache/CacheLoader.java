@@ -155,7 +155,7 @@ public abstract class CacheLoader<K, V> {
 
         /* renamed from: com.google.common.cache.CacheLoader$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class CallableC2041a implements Callable<V> {
+        public class CallableC2048a implements Callable<V> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -168,7 +168,7 @@ public abstract class CacheLoader<K, V> {
             /* renamed from: g  reason: collision with root package name */
             public final /* synthetic */ a f56579g;
 
-            public CallableC2041a(a aVar, Object obj, Object obj2) {
+            public CallableC2048a(a aVar, Object obj, Object obj2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,7 +236,7 @@ public abstract class CacheLoader<K, V> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k2, v)) == null) {
-                ListenableFutureTask create = ListenableFutureTask.create(new CallableC2041a(this, k2, v));
+                ListenableFutureTask create = ListenableFutureTask.create(new CallableC2048a(this, k2, v));
                 this.f56576b.execute(create);
                 return create;
             }

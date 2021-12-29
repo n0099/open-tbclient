@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import c.a.r0.x0.a;
+import c.a.s0.y0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -70,7 +70,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.mSearchView = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (a) invokeLL.objValue;
+        return (b) invokeLL.objValue;
     }
 
     public boolean isShouldHideInput(View view, MotionEvent motionEvent) {

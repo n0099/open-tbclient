@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.s0.d1.m2.d;
+import c.a.t0.d1.m2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

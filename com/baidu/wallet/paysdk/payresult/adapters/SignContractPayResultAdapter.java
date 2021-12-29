@@ -50,8 +50,8 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f54108c;
-            if (payResultContent == null || this.f54107b == null) {
+            PayResultContent payResultContent = this.f54111c;
+            if (payResultContent == null || this.f54110b == null) {
                 return null;
             }
             if (payResultContent.isPaySuccess) {
@@ -62,7 +62,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
                 }
                 this.contents.put("statusDrawableName", "wallet_base_result_main_success");
                 this.contents.put("okBtnText", "dxm_ebpay_result_btn_success");
-                this.contents.put("payDetailInfo", this.f54108c.pay_detail_info);
+                this.contents.put("payDetailInfo", this.f54111c.pay_detail_info);
             }
             return this.contents;
         }
@@ -75,14 +75,14 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.contents.clear();
-            PayResultContent payResultContent = this.f54108c;
-            if (payResultContent == null || this.f54107b == null) {
+            PayResultContent payResultContent = this.f54111c;
+            if (payResultContent == null || this.f54110b == null) {
                 return null;
             }
             if (!payResultContent.isPaySuccess) {
                 this.contents.put("statusDrawableName", "dxm_wallet_base_result_paying");
                 this.contents.put("mainTip", b.a() ? "ebpay_sign_paying" : "ebpay_pay_paying");
-                this.contents.put("errorMsg", this.f54108c.mErrorMsg);
+                this.contents.put("errorMsg", this.f54111c.mErrorMsg);
             }
             return this.contents;
         }
@@ -103,7 +103,7 @@ public class SignContractPayResultAdapter extends BasePayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f54108c != null;
+            return this.f54111c != null;
         }
         return invokeL.booleanValue;
     }

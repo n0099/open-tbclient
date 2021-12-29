@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class MediaModel implements Parcelable, Comparable<Object> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaModel> CREATOR;
@@ -25,7 +25,7 @@ public class MediaModel implements Parcelable, Comparable<Object> {
     public String tempPath;
     public String type;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class a implements Parcelable.Creator<MediaModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -41,7 +41,7 @@ public final class q implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             p pVar = this.f63054b;
-            PushMessageCallback pushMessageCallback = ((ab) pVar).f63032b;
+            PushMessageCallback pushMessageCallback = ((z) pVar).f63061b;
             context = pVar.a;
             pushMessageCallback.onTransmissionMessage(context, this.a);
         }

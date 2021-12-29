@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;

@@ -19,10 +19,10 @@ public class LoadHistoryResponsedMessage extends CustomResponsedMessage<a> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<ChatMessage> f46568b;
+        public List<ChatMessage> f46788b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f46569c;
+        public boolean f46789c;
 
         public a() {
             Interceptable interceptable = $ic;

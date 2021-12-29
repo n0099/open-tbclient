@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.w.c;
+import c.a.s0.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -28,8 +28,8 @@ import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
+/* loaded from: classes12.dex */
+public class XiubaTbJsBridge implements c.a.t0.w3.n0.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -44,7 +44,7 @@ public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
     public final CustomMessageListener installListener;
     public final TbPageContext<?> mTbPageContext;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,14 +82,14 @@ public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ XiubaTbJsBridge f43059b;
+        public final /* synthetic */ XiubaTbJsBridge f43247b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(XiubaTbJsBridge xiubaTbJsBridge, int i2) {
@@ -109,7 +109,7 @@ public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
                     return;
                 }
             }
-            this.f43059b = xiubaTbJsBridge;
+            this.f43247b = xiubaTbJsBridge;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -126,13 +126,13 @@ public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
                         if (downloadData.getStatus() == 5) {
                             if (!this.a) {
                                 this.a = true;
-                                this.f43059b.callDownloadListener(1);
+                                this.f43247b.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.f43059b.callDownloadListener(2);
+                            this.f43247b.callDownloadListener(2);
                             this.a = false;
                         } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
-                            this.f43059b.callDownloadListener(0);
+                            this.f43247b.callDownloadListener(0);
                             this.a = false;
                         }
                     }
@@ -357,7 +357,7 @@ public class XiubaTbJsBridge implements c.a.s0.v3.n0.b {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.s0.v3.n0.b
+    @Override // c.a.t0.w3.n0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

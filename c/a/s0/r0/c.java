@@ -1,5 +1,7 @@
 package c.a.s0.r0;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface c {
-    void a(String str, String str2, String str3);
+    void a(h hVar);
+
+    void onFail(int i2, String str);
 }

@@ -11,7 +11,7 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b.b.q.a<f> f28016b;
+    public c.b.b.q.a<f> f28090b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,6 @@ public class a {
                 return;
             }
         }
-        this.f28016b = new c.b.b.q.a<>();
+        this.f28090b = new c.b.b.q.a<>();
     }
 }

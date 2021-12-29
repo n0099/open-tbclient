@@ -33,15 +33,15 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C1687a implements c {
+        public class C1694a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Plugin a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f32119b;
+            public final /* synthetic */ a f32261b;
 
-            public C1687a(a aVar, Plugin plugin2) {
+            public C1694a(a aVar, Plugin plugin2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                         return;
                     }
                 }
-                this.f32119b = aVar;
+                this.f32261b = aVar;
                 this.a = plugin2;
             }
 
@@ -64,10 +64,10 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                    Intent intent = new Intent(this.f32119b.a.getIntent());
-                    intent.setComponent(new ComponentName(str, this.f32119b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                    this.a.launchIntent(this.f32119b.a.getPageContext().getContext(), intent);
-                    this.f32119b.a.finish();
+                    Intent intent = new Intent(this.f32261b.a.getIntent());
+                    intent.setComponent(new ComponentName(str, this.f32261b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                    this.a.launchIntent(this.f32261b.a.getPageContext().getContext(), intent);
+                    this.f32261b.a.finish();
                 }
             }
         }
@@ -97,7 +97,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (plugin2 = PluginCenter.getInstance().getPlugin(str)) == null) {
                 return;
             }
-            plugin2.asyncInit(str, new C1687a(this, plugin2));
+            plugin2.asyncInit(str, new C1694a(this, plugin2));
         }
 
         @Override // c.a.d.i.g.b

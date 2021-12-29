@@ -1,14 +1,14 @@
 package com.baidu.swan.apps.core.pms;
 
-import c.a.q0.a.u2.a;
-import c.a.q0.q.i.f;
+import c.a.r0.a.u2.a;
+import c.a.r0.q.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class PkgDownloadError extends Throwable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

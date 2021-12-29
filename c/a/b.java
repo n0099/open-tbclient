@@ -4,9 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import c.a.h0.b.e;
-import c.a.h0.b.f.f;
-import c.a.l0.a.h.d;
+import c.a.i0.b.e;
+import c.a.i0.b.f.f;
+import c.a.m0.a.h.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,21 +22,21 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f1103f;
+    public static final b f1495f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.h0.b.a f1104b;
+    public c.a.i0.b.a f1496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1105c;
+    public long f1497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f1106d;
+    public final Handler f1498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ArrayList<d> f1107e;
+    public final ArrayList<d> f1499e;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -44,10 +44,10 @@ public class b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f1108e;
+        public final /* synthetic */ int f1500e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f1109f;
+        public final /* synthetic */ b f1501f;
 
         public a(b bVar, int i2) {
             Interceptable interceptable = $ic;
@@ -64,20 +64,20 @@ public class b {
                     return;
                 }
             }
-            this.f1109f = bVar;
-            this.f1108e = i2;
+            this.f1501f = bVar;
+            this.f1500e = i2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f1108e != 1 || ((float) (System.currentTimeMillis() - this.f1109f.f1105c)) >= f.c() * 60000.0f) {
-                    if (this.f1109f.f1104b == null) {
-                        this.f1109f.f1104b = new c.a.h0.b.a();
+                if (this.f1500e != 1 || ((float) (System.currentTimeMillis() - this.f1501f.f1497c)) >= f.c() * 60000.0f) {
+                    if (this.f1501f.f1496b == null) {
+                        this.f1501f.f1496b = new c.a.i0.b.a();
                     }
-                    this.f1109f.f1104b.l();
-                    this.f1109f.f1105c = System.currentTimeMillis();
+                    this.f1501f.f1496b.l();
+                    this.f1501f.f1497c = System.currentTimeMillis();
                 }
             }
         }
@@ -85,7 +85,7 @@ public class b {
 
     /* renamed from: c.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0010b {
+    public interface InterfaceC0030b {
         void onFailed();
 
         void onSuccess();
@@ -104,7 +104,7 @@ public class b {
                 return;
             }
         }
-        f1103f = new b();
+        f1495f = new b();
     }
 
     public b() {
@@ -121,20 +121,20 @@ public class b {
             }
         }
         this.a = false;
-        this.f1106d = new Handler(Looper.myLooper());
-        this.f1107e = new ArrayList<>();
+        this.f1498d = new Handler(Looper.myLooper());
+        this.f1499e = new ArrayList<>();
     }
 
     public static b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f1103f : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f1495f : (b) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1107e.clear();
+            this.f1499e.clear();
         }
     }
 
@@ -152,7 +152,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d2 = c.a.h0.a.b.d.a().d();
+            JSONObject d2 = c.a.i0.a.b.d.a().d();
             return d2 == null || d2.optBoolean("real_time_query_switch", true);
         }
         return invokeV.booleanValue;
@@ -167,7 +167,7 @@ public class b {
     public void j(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f1106d.postDelayed(new a(this, i2), 5000L);
+            this.f1498d.postDelayed(new a(this, i2), 5000L);
         }
     }
 }

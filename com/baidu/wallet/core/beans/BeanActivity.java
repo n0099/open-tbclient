@@ -249,13 +249,13 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f52958b;
+                public final /* synthetic */ int f52961b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52959c;
+                public final /* synthetic */ String f52962c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f52960d;
+                public final /* synthetic */ BeanActivity f52963d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -272,19 +272,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f52960d = this;
+                    this.f52963d = this;
                     this.a = i2;
-                    this.f52958b = i3;
-                    this.f52959c = str;
+                    this.f52961b = i3;
+                    this.f52962c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f52960d;
+                        BeanActivity beanActivity = this.f52963d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleFailure(this.a, this.f52958b, this.f52959c);
+                            beanActivity.handleFailure(this.a, this.f52961b, this.f52962c);
                         }
                     }
                 }
@@ -309,13 +309,13 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Object f52955b;
+                public final /* synthetic */ Object f52958b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f52956c;
+                public final /* synthetic */ String f52959c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ BeanActivity f52957d;
+                public final /* synthetic */ BeanActivity f52960d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -332,19 +332,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                             return;
                         }
                     }
-                    this.f52957d = this;
+                    this.f52960d = this;
                     this.a = i2;
-                    this.f52955b = obj;
-                    this.f52956c = str;
+                    this.f52958b = obj;
+                    this.f52959c = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        BeanActivity beanActivity = this.f52957d;
+                        BeanActivity beanActivity = this.f52960d;
                         if (beanActivity.mAct != null) {
-                            beanActivity.handleResponse(this.a, this.f52955b, this.f52956c);
+                            beanActivity.handleResponse(this.a, this.f52958b, this.f52959c);
                         }
                     }
                 }

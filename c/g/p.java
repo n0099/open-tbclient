@@ -13,7 +13,7 @@ public class p {
 
     /* loaded from: classes9.dex */
     public interface a {
-        FunAdLoader a(i iVar);
+        FunAdLoader a(k kVar);
     }
 
     public p(String str, a aVar) {

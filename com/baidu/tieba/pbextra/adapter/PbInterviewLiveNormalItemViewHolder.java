@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -58,7 +58,7 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
         this.giftListView = (PbGiftListView) view.findViewById(R.id.gift_list_view);
         this.richText.getLayoutStrategy().t();
         this.richText.getLayoutStrategy().k(true);
-        int min = Math.min(((((m.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
+        int min = Math.min(((((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
         this.richText.getLayoutStrategy().q(min);
         this.richText.getLayoutStrategy().p((int) (min * 1.618f));
         this.richText.setTextSize(TbConfig.getContentSize());

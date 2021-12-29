@@ -2,16 +2,7 @@ package com.kwad.sdk.core.download;
 
 import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.core.network.m;
@@ -38,65 +29,35 @@ import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final String a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f57973b;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static ExecutorService f57973b = com.kwad.sdk.core.i.b.i();
 
     /* loaded from: classes3.dex */
     public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final OutputStream a;
 
         public a(File file, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.d.c
         public void a(int i2, Map<String, List<String>> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, map) == null) {
-            }
         }
 
         @Override // com.kwad.sdk.core.download.d.c
         public void a(long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            }
         }
 
         @Override // com.kwad.sdk.core.download.d.c
         public void a(byte[] bArr, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.a.write(bArr, i2, i3);
-            }
+            this.a.write(bArr, i2, i3);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.close();
-            }
+            this.a.close();
         }
     }
 
@@ -114,124 +75,82 @@ public class d {
         void a(byte[] bArr, int i2, int i3);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(303278505, "Lcom/kwad/sdk/core/download/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(303278505, "Lcom/kwad/sdk/core/download/d;");
-                return;
-            }
-        }
-        a = aq.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
-        f57973b = com.kwad.sdk.core.i.b.i();
-    }
-
     public static URLConnection a(String str, int i2, int i3, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            try {
-                URLConnection openConnection = new URL(str).openConnection();
-                m.a(openConnection);
-                openConnection.setRequestProperty("Accept-Language", "zh-CN");
-                if (i2 > 0) {
-                    openConnection.setConnectTimeout(i2);
-                }
-                if (i3 > 0) {
-                    openConnection.setReadTimeout(i3);
-                }
-                openConnection.setUseCaches(z);
-                openConnection.setDoInput(true);
-                openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
-                openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                return openConnection;
-            } catch (MalformedURLException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                return null;
+        try {
+            URLConnection openConnection = new URL(str).openConnection();
+            m.a(openConnection);
+            openConnection.setRequestProperty("Accept-Language", "zh-CN");
+            if (i2 > 0) {
+                openConnection.setConnectTimeout(i2);
             }
+            if (i3 > 0) {
+                openConnection.setReadTimeout(i3);
+            }
+            openConnection.setUseCaches(z);
+            openConnection.setDoInput(true);
+            openConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            openConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+            return openConnection;
+        } catch (MalformedURLException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            return null;
         }
-        return (URLConnection) invokeCommon.objValue;
     }
 
     public static void a(Context context, AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, adInfo) == null) {
-            a(context, adInfo, false);
-        }
+        a(context, adInfo, false);
     }
 
     public static void a(Context context, AdInfo adInfo, boolean z) {
-        AdDownloadProxy proxyForDownload;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, context, adInfo, z) == null) || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
-            return;
+        AdDownloadProxy proxyForDownload = KsAdSDKImpl.get().getProxyForDownload();
+        if (proxyForDownload != null) {
+            DownloadParams transform = DownloadParams.transform(adInfo);
+            transform.requestInstallPermission = z;
+            proxyForDownload.startDownload(context, transform.mDownloadid, transform);
         }
-        DownloadParams transform = DownloadParams.transform(adInfo);
-        transform.requestInstallPermission = z;
-        proxyForDownload.startDownload(context, transform.mDownloadid, transform);
     }
 
     public static void a(Context context, String str) {
-        AdDownloadProxy proxyForDownload;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
-            return;
+        AdDownloadProxy proxyForDownload = KsAdSDKImpl.get().getProxyForDownload();
+        if (proxyForDownload != null) {
+            proxyForDownload.pauseDownload(context, str, null);
         }
-        proxyForDownload.pauseDownload(context, str, null);
     }
 
     public static void a(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+            }
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i2) {
-        InterceptResult invokeLLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLI = interceptable.invokeLLLI(65542, null, str, file, bVar, i2)) != null) {
-            return invokeLLLI.booleanValue;
-        }
-        a aVar = null;
+        a aVar;
+        a aVar2 = null;
         try {
-            a aVar2 = new a(file, false);
-            try {
-                boolean a2 = a(str, (String) null, aVar2, bVar, i2);
-                a(aVar2);
-                return a2;
-            } catch (Throwable th) {
-                th = th;
-                aVar = aVar2;
-                a(aVar);
-                throw th;
-            }
+            aVar = new a(file, false);
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            boolean a2 = a(str, (String) null, aVar, bVar, i2);
+            a(aVar);
+            return a2;
         } catch (Throwable th2) {
             th = th2;
+            aVar2 = aVar;
+            a(aVar2);
+            throw th;
         }
     }
 
     public static boolean a(String str, String str2, c cVar, b bVar, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, cVar, bVar, Integer.valueOf(i2)})) == null) ? a(str, str2, cVar, bVar, i2, -1L, -1L, false) : invokeCommon.booleanValue;
+        return a(str, str2, cVar, bVar, i2, -1L, -1L, false);
     }
 
     public static boolean a(String str, String str2, c cVar, b bVar, int i2, long j2, long j3, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, cVar, bVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
-            return invokeCommon.booleanValue;
-        }
         HttpURLConnection httpURLConnection = null;
         try {
             HttpURLConnection httpURLConnection2 = (HttpURLConnection) a(str, 10000, i2 > 0 ? i2 : 120000, false, true);
@@ -259,21 +178,16 @@ public class d {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:86:0x0180 A[Catch: all -> 0x01aa, TryCatch #4 {all -> 0x01aa, blocks: (B:84:0x017c, B:86:0x0180, B:88:0x01a9, B:87:0x0183), top: B:109:0x017c }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x0183 A[Catch: all -> 0x01aa, TryCatch #4 {all -> 0x01aa, blocks: (B:84:0x017c, B:86:0x0180, B:88:0x01a9, B:87:0x0183), top: B:109:0x017c }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x017c A[Catch: all -> 0x01a6, TryCatch #3 {all -> 0x01a6, blocks: (B:82:0x0178, B:84:0x017c, B:86:0x01a5, B:85:0x017f), top: B:101:0x0178 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x017f A[Catch: all -> 0x01a6, TryCatch #3 {all -> 0x01a6, blocks: (B:82:0x0178, B:84:0x017c, B:86:0x01a5, B:85:0x017f), top: B:101:0x0178 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean a(HttpURLConnection httpURLConnection, String str, c cVar, b bVar, int i2, long j2, long j3, boolean z) {
-        InterceptResult invokeCommon;
         Object valueOf;
         File file;
         FileOutputStream fileOutputStream;
         File file2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{httpURLConnection, str, cVar, bVar, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) != null) {
-            return invokeCommon.booleanValue;
-        }
         BufferedInputStream bufferedInputStream = null;
         int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         if (i3 > 0 || j3 > 0) {

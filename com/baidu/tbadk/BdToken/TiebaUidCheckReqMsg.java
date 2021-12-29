@@ -1,7 +1,7 @@
 package com.baidu.tbadk.BdToken;
 
-import c.a.r0.a.e;
-import c.a.r0.d1.b0;
+import c.a.s0.a.e;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

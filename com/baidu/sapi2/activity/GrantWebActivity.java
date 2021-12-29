@@ -121,7 +121,7 @@ public class GrantWebActivity extends BaseActivity {
             if (data != null) {
                 this.t = data.getQueryParameter("channel_id");
                 this.u = data.getQueryParameter(x.o);
-                this.v = data.getQueryParameter(h.f34764f);
+                this.v = data.getQueryParameter(h.f34920f);
                 this.w = data.getQueryParameter(TTDownloadField.TT_FORCE);
                 this.x = data.getQueryParameter("wap_tpl");
             }
@@ -453,7 +453,7 @@ public class GrantWebActivity extends BaseActivity {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GrantWebActivity f39136b;
+                public final /* synthetic */ GrantWebActivity f39292b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -470,7 +470,7 @@ public class GrantWebActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f39136b = this;
+                    this.f39292b = this;
                     this.a = z3;
                 }
 
@@ -481,7 +481,7 @@ public class GrantWebActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
-                        this.f39136b.finish();
+                        this.f39292b.finish();
                     }
                 }
 
@@ -490,7 +490,7 @@ public class GrantWebActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f39136b.e();
+                        this.f39292b.e();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;

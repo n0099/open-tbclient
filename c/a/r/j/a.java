@@ -13,38 +13,38 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.C0776a a;
+    public a.C0241a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0777a f11794b;
+    public C0242a f5081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11795c;
+    public String f5082c;
 
     /* renamed from: c.a.r.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0777a {
+    /* loaded from: classes.dex */
+    public static class C0242a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c.a.r.h.d.a f11796b;
+        public c.a.r.h.d.a f5083b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TrustSubjectManager.d f11797c;
+        public TrustSubjectManager.d f5084c;
 
         /* renamed from: d  reason: collision with root package name */
-        public ExecutorService f11798d;
+        public ExecutorService f5085d;
 
         /* renamed from: e  reason: collision with root package name */
-        public ExecutorService f11799e;
+        public ExecutorService f5086e;
 
-        public C0777a() {
+        public C0242a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,7 +59,7 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,23 +82,23 @@ public abstract class a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public interface c<T> {
         void a(int i2, Exception exc, Bundle bundle);
 
         void onResult(T t, Bundle bundle);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f11800e;
+        public final /* synthetic */ c f5087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11801f;
+        public final /* synthetic */ String f5088f;
 
         public d(a aVar, c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -115,15 +115,15 @@ public abstract class a {
                     return;
                 }
             }
-            this.f11800e = cVar;
-            this.f11801f = str;
+            this.f5087e = cVar;
+            this.f5088f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f11800e.onResult(this.f11801f, null);
+                this.f5087e.onResult(this.f5088f, null);
             }
         }
     }
@@ -143,7 +143,7 @@ public abstract class a {
                 return;
             }
         }
-        this.f11795c = str;
+        this.f5082c = str;
     }
 
     public static String b(String str, String str2) {
@@ -165,11 +165,11 @@ public abstract class a {
         return (String) invokeLL.objValue;
     }
 
-    public final void a(C0777a c0777a) {
+    public final void a(C0242a c0242a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c0777a) == null) {
-            this.f11794b = c0777a;
-            this.a = c0777a.f11796b.d().f("ids");
+        if (interceptable == null || interceptable.invokeL(1048576, this, c0242a) == null) {
+            this.f5081b = c0242a;
+            this.a = c0242a.f5083b.d().f("ids");
         }
     }
 
@@ -187,7 +187,7 @@ public abstract class a {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f11795c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f5082c : (String) invokeV.objValue;
     }
 
     public abstract void f(b bVar);
@@ -195,7 +195,7 @@ public abstract class a {
     public void g(c<String> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f11794b.f11798d.submit(new d(this, cVar, c()));
+            this.f5081b.f5085d.submit(new d(this, cVar, c()));
         }
     }
 }

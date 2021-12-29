@@ -19,7 +19,7 @@ public final class b implements j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final C0142b f3533b;
+    public static final C0163b f3961b;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] a;
 
@@ -62,11 +62,11 @@ public final class b implements j {
 
     /* renamed from: c.a.j.h.b.b$b.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0142b {
+    public static final class C0163b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0142b() {
+        public C0163b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public final class b implements j {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (a) invokeV.objValue;
         }
 
-        public /* synthetic */ C0142b(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0163b(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -105,7 +105,7 @@ public final class b implements j {
                 return;
             }
         }
-        f3533b = new C0142b(null);
+        f3961b = new C0163b(null);
     }
 
     public b(byte[] bArr) {
@@ -130,7 +130,7 @@ public final class b implements j {
     public static final a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3533b.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f3961b.a() : (a) invokeV.objValue;
     }
 
     public byte[] a() {

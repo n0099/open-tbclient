@@ -19,54 +19,54 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f1368e;
+    public static final String f1795e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1369b;
+    public String f1796b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1370c;
+    public String f1797c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1371d;
+    public int f1798d;
 
     /* renamed from: c.a.c0.b.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0019a implements c.a.c0.d.h.a {
+    public class C0040a implements c.a.c0.d.h.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f1372b;
+        public final /* synthetic */ Context f1799b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f1373c;
+        public final /* synthetic */ String f1800c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f1374d;
+        public final /* synthetic */ String f1801d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1375e;
+        public final /* synthetic */ String f1802e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f1376f;
+        public final /* synthetic */ String f1803f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f1377g;
+        public final /* synthetic */ String f1804g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f1378h;
+        public final /* synthetic */ boolean f1805h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ String f1379i;
+        public final /* synthetic */ String f1806i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ a f1380j;
+        public final /* synthetic */ a f1807j;
 
-        public C0019a(a aVar, c cVar, Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
+        public C0040a(a aVar, c cVar, Context context, String str, String str2, String str3, String str4, String str5, boolean z, String str6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,16 +81,16 @@ public class a {
                     return;
                 }
             }
-            this.f1380j = aVar;
+            this.f1807j = aVar;
             this.a = cVar;
-            this.f1372b = context;
-            this.f1373c = str;
-            this.f1374d = str2;
-            this.f1375e = str3;
-            this.f1376f = str4;
-            this.f1377g = str5;
-            this.f1378h = z;
-            this.f1379i = str6;
+            this.f1799b = context;
+            this.f1800c = str;
+            this.f1801d = str2;
+            this.f1802e = str3;
+            this.f1803f = str4;
+            this.f1804g = str5;
+            this.f1805h = z;
+            this.f1806i = str6;
         }
 
         @Override // c.a.c0.d.h.a
@@ -98,16 +98,16 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    if (!TextUtils.isEmpty(this.f1380j.f1370c)) {
+                    if (!TextUtils.isEmpty(this.f1807j.f1797c)) {
                         ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.f1380j.a)) {
-                            clogBuilder.n(this.f1380j.a);
+                        if (!TextUtils.isEmpty(this.f1807j.a)) {
+                            clogBuilder.n(this.f1807j.a);
                         }
                         clogBuilder.q("DEEPLINK");
                         clogBuilder.r(ClogBuilder.LogType.DEEP_LINK);
                         clogBuilder.g("APP");
-                        clogBuilder.m(this.f1380j.f1370c);
-                        if (this.f1380j.f1371d == 1) {
+                        clogBuilder.m(this.f1807j.f1797c);
+                        if (this.f1807j.f1798d == 1) {
                             clogBuilder.h("deferred");
                         }
                         c.a.c0.x.a.b(clogBuilder);
@@ -116,10 +116,10 @@ public class a {
                     if (cVar != null) {
                         cVar.onResult(true);
                     }
-                    c.a.c0.b.l.c.c.e(this.f1380j.f1370c);
+                    c.a.c0.b.l.c.c.e(this.f1807j.f1797c);
                     return;
                 }
-                this.f1380j.j(this.f1372b, this.f1373c, this.f1374d, this.f1375e, this.f1376f, this.f1377g, this.f1378h, this.f1379i, this.a);
+                this.f1807j.j(this.f1799b, this.f1800c, this.f1801d, this.f1802e, this.f1803f, this.f1804g, this.f1805h, this.f1806i, this.a);
             }
         }
     }
@@ -131,13 +131,13 @@ public class a {
         public final /* synthetic */ c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f1381b;
+        public final /* synthetic */ Context f1808b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f1382c;
+        public final /* synthetic */ String f1809c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ a f1383d;
+        public final /* synthetic */ a f1810d;
 
         public b(a aVar, c cVar, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -154,10 +154,10 @@ public class a {
                     return;
                 }
             }
-            this.f1383d = aVar;
+            this.f1810d = aVar;
             this.a = cVar;
-            this.f1381b = context;
-            this.f1382c = str;
+            this.f1808b = context;
+            this.f1809c = str;
         }
 
         @Override // c.a.c0.d.h.a
@@ -165,15 +165,15 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    if (!TextUtils.isEmpty(this.f1383d.f1370c)) {
+                    if (!TextUtils.isEmpty(this.f1810d.f1797c)) {
                         ClogBuilder clogBuilder = new ClogBuilder();
-                        if (!TextUtils.isEmpty(this.f1383d.a)) {
-                            clogBuilder.n(this.f1383d.a);
+                        if (!TextUtils.isEmpty(this.f1810d.a)) {
+                            clogBuilder.n(this.f1810d.a);
                         }
                         clogBuilder.q("DEEPLINK");
                         clogBuilder.r(ClogBuilder.LogType.DEEP_LINK);
                         clogBuilder.g("MARKET");
-                        clogBuilder.m(this.f1383d.f1370c);
+                        clogBuilder.m(this.f1810d.f1797c);
                         c.a.c0.x.a.b(clogBuilder);
                     }
                     c cVar = this.a;
@@ -185,7 +185,7 @@ public class a {
                 }
                 c cVar2 = this.a;
                 if (cVar2 != null) {
-                    cVar2.onResult(this.f1383d.h(this.f1381b, this.f1382c));
+                    cVar2.onResult(this.f1810d.h(this.f1808b, this.f1809c));
                 }
             }
         }
@@ -209,7 +209,7 @@ public class a {
                 return;
             }
         }
-        f1368e = c.a.c0.e.a.a().j() + "://vendor/ad/easybrowse?ad_id=_AD_ID_&ext_info=_AD_EXT_&url=_URL_TEMPLATE_";
+        f1795e = c.a.c0.e.a.a().j() + "://vendor/ad/easybrowse?ad_id=_AD_ID_&ext_info=_AD_EXT_&url=_URL_TEMPLATE_";
     }
 
     public a() {
@@ -225,7 +225,7 @@ public class a {
                 return;
             }
         }
-        this.f1371d = 0;
+        this.f1798d = 0;
     }
 
     public boolean f(Context context, String str, HashMap<String, String> hashMap, c cVar) {
@@ -251,7 +251,7 @@ public class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (!TextUtils.isEmpty(this.f1370c)) {
+            if (!TextUtils.isEmpty(this.f1797c)) {
                 ClogBuilder clogBuilder = new ClogBuilder();
                 if (!TextUtils.isEmpty(this.a)) {
                     clogBuilder.n(this.a);
@@ -259,20 +259,20 @@ public class a {
                 clogBuilder.q("DEEPLINK");
                 clogBuilder.r(ClogBuilder.LogType.DEEP_LINK);
                 clogBuilder.g("URL");
-                clogBuilder.m(this.f1370c);
-                if (this.f1371d == 1) {
+                clogBuilder.m(this.f1797c);
+                if (this.f1798d == 1) {
                     clogBuilder.h("deferred");
                 }
                 c.a.c0.x.a.b(clogBuilder);
             }
             if (!str.startsWith(c.a.c0.e.a.a().j()) && !str.startsWith("nadcorevendor://")) {
                 if (str.startsWith("http") || str.startsWith("https")) {
-                    String replace = f1368e.replace("_URL_TEMPLATE_", str);
-                    if (!TextUtils.isEmpty(this.f1369b)) {
-                        replace = replace.replace("_AD_ID_", this.f1369b);
+                    String replace = f1795e.replace("_URL_TEMPLATE_", str);
+                    if (!TextUtils.isEmpty(this.f1796b)) {
+                        replace = replace.replace("_AD_ID_", this.f1796b);
                     }
-                    if (!TextUtils.isEmpty(this.f1370c)) {
-                        replace = replace.replace("_AD_EXT_", this.f1370c);
+                    if (!TextUtils.isEmpty(this.f1797c)) {
+                        replace = replace.replace("_AD_EXT_", this.f1797c);
                     }
                     c.a.c0.d.c.c(replace, context);
                     return true;
@@ -292,7 +292,7 @@ public class a {
         }
         try {
             try {
-                c.a.c0.d.h.c.a(context, str, str6, new C0019a(this, cVar, context, str2, str3, str4, str5, str6, z, str7), z);
+                c.a.c0.d.h.c.a(context, str, str6, new C0040a(this, cVar, context, str2, str3, str4, str5, str6, z, str7), z);
             } catch (Exception unused) {
                 j(context, str2, str3, str4, str5, str6, z, str7, cVar);
             }
@@ -340,11 +340,11 @@ public class a {
                 String str7 = hashMap.get("exemption");
                 int parseInt = !TextUtils.isEmpty(str7) ? Integer.parseInt(str7) : 0;
                 String str8 = hashMap.get("source");
-                this.f1369b = hashMap.get(LegoListActivityConfig.AD_ID);
-                this.f1370c = hashMap.get("ext_info");
+                this.f1796b = hashMap.get(LegoListActivityConfig.AD_ID);
+                this.f1797c = hashMap.get("ext_info");
                 String str9 = hashMap.get("exemption");
                 if (!TextUtils.isEmpty(str9)) {
-                    this.f1371d = Integer.parseInt(str9);
+                    this.f1798d = Integer.parseInt(str9);
                 }
                 hashMap.get("ad_name");
                 if (!TextUtils.isEmpty(str)) {

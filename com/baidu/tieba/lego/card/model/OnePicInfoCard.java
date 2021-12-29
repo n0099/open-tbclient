@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.s0.x1.o.j.b;
+import c.a.t0.x1.o.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,8 +44,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = c.a.s0.x1.o.k.b.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = c.a.s0.x1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = c.a.t0.x1.o.k.b.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = c.a.t0.x1.o.k.b.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
@@ -53,10 +53,10 @@ public class OnePicInfoCard extends BaseCardInfo {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
             if (optJSONObject != null) {
                 b bVar = new b();
-                bVar.f25448c = optJSONObject.optInt("type");
+                bVar.f25938c = optJSONObject.optInt("type");
                 bVar.a = optJSONObject.optString("url");
-                bVar.f25447b = optJSONObject.optString("urlNight");
-                bVar.f25449d = optJSONObject.optString("content", "");
+                bVar.f25937b = optJSONObject.optString("urlNight");
+                bVar.f25939d = optJSONObject.optString("content", "");
                 this.iconList.add(bVar);
             }
         }

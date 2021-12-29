@@ -28,7 +28,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f64559d;
+        public Disposable f64554d;
         public final Consumer<? super T> onAfterSuccess;
 
         public DoAfterObserver(MaybeObserver<? super T> maybeObserver, Consumer<? super T> consumer) {
@@ -54,7 +54,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f64559d.dispose();
+                this.f64554d.dispose();
             }
         }
 
@@ -62,7 +62,7 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64559d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64554d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -84,8 +84,8 @@ public final class MaybeDoAfterSuccess<T> extends AbstractMaybeWithUpstream<T, T
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64559d, disposable)) {
-                this.f64559d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f64554d, disposable)) {
+                this.f64554d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -12,7 +12,7 @@ public class a0 extends r {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f2642b;
+    public Map<String, String> f3070b;
 
     public a0(boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public class a0 extends r {
             }
         }
         this.a = z;
-        this.f2642b = map;
+        this.f3070b = map;
     }
 }

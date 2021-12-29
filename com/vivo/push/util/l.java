@@ -1,48 +1,28 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.cache.ClientConfigManagerImpl;
+import com.vivo.push.c.r;
 import com.vivo.push.model.InsideNotificationItem;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class l extends AsyncTask<String, Void, List<Bitmap>> {
+public final class l implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final /* synthetic */ List a;
 
     /* renamed from: b  reason: collision with root package name */
-    public InsideNotificationItem f63138b;
+    public final /* synthetic */ k f63148b;
 
-    /* renamed from: c  reason: collision with root package name */
-    public long f63139c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f63140d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f63141e;
-
-    public l(Context context, InsideNotificationItem insideNotificationItem, long j2, boolean z) {
+    public l(k kVar, List list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, insideNotificationItem, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {kVar, list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -52,114 +32,34 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                 return;
             }
         }
-        this.f63141e = 0;
-        this.a = context;
-        this.f63138b = insideNotificationItem;
-        this.f63139c = j2;
-        this.f63140d = z;
+        this.f63148b = kVar;
+        this.a = list;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0094, code lost:
-        if (r5 == null) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0096, code lost:
-        r5.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a0, code lost:
-        if (r5 == null) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00a3, code lost:
-        r6 = null;
-     */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public List<Bitmap> doInBackground(String... strArr) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        Bitmap bitmap;
+    @Override // java.lang.Runnable
+    public final void run() {
+        InsideNotificationItem insideNotificationItem;
+        long j2;
+        Context context;
+        InsideNotificationItem insideNotificationItem2;
+        long j3;
+        int i2;
+        r.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, strArr)) == null) {
-            this.f63141e = ClientConfigManagerImpl.getInstance(this.a).getNotifyStyle();
-            InputStream inputStream2 = null;
-            if (!this.f63140d) {
-                p.d("ImageDownTask", "bitmap is not display by forbid net");
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            insideNotificationItem = this.f63148b.f63143b;
+            if (insideNotificationItem != null) {
+                x b2 = x.b();
+                j2 = this.f63148b.f63144c;
+                b2.a("com.vivo.push.notify_key", j2);
+                context = this.f63148b.a;
+                List list = this.a;
+                insideNotificationItem2 = this.f63148b.f63143b;
+                j3 = this.f63148b.f63144c;
+                i2 = this.f63148b.f63146e;
+                aVar = this.f63148b.f63147f;
+                NotifyAdapterUtil.pushNotification(context, list, insideNotificationItem2, j3, i2, aVar);
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < 2; i2++) {
-                String str = strArr[i2];
-                p.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                        httpURLConnection.setConnectTimeout(30000);
-                        httpURLConnection.setDoInput(true);
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.connect();
-                        int responseCode = httpURLConnection.getResponseCode();
-                        p.c("ImageDownTask", "code=" + responseCode);
-                        if (responseCode == 200) {
-                            inputStream = httpURLConnection.getInputStream();
-                            try {
-                                try {
-                                    bitmap = BitmapFactory.decodeStream(inputStream);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    inputStream2 = inputStream;
-                                    if (inputStream2 != null) {
-                                        try {
-                                            inputStream2.close();
-                                        } catch (Exception unused) {
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            } catch (MalformedURLException unused2) {
-                                p.a("ImageDownTask", "MalformedURLException");
-                            } catch (IOException unused3) {
-                                p.a("ImageDownTask", "IOException");
-                            }
-                        } else {
-                            inputStream = null;
-                            bitmap = null;
-                        }
-                        if (inputStream != null) {
-                            try {
-                                inputStream.close();
-                            } catch (Exception unused4) {
-                            }
-                        }
-                    } catch (MalformedURLException unused5) {
-                        inputStream = null;
-                    } catch (IOException unused6) {
-                        inputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    arrayList.add(bitmap);
-                } else if (i2 == 0) {
-                    arrayList.add(null);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // android.os.AsyncTask
-    public final /* synthetic */ void onPostExecute(List<Bitmap> list) {
-        List<Bitmap> list2 = list;
-        super.onPostExecute(list2);
-        p.c("ImageDownTask", "onPostExecute");
-        if (this.f63138b != null) {
-            w.b().a("com.vivo.push.notify_key", this.f63139c);
-            NotifyAdapterUtil.pushNotification(this.a, list2, this.f63138b, this.f63139c, this.f63141e);
         }
     }
 }

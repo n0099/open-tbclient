@@ -12,7 +12,7 @@ public final class RestDebugConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static RestDebugConfig f55687b;
+    public static RestDebugConfig f55686b;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
@@ -38,10 +38,10 @@ public final class RestDebugConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (RestDebugConfig.class) {
-                if (f55687b == null) {
-                    f55687b = new RestDebugConfig();
+                if (f55686b == null) {
+                    f55686b = new RestDebugConfig();
                 }
-                restDebugConfig = f55687b;
+                restDebugConfig = f55686b;
             }
             return restDebugConfig;
         }

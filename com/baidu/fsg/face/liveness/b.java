@@ -17,34 +17,34 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35191b;
+    public int f35347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f35192c;
+    public int f35348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35193d;
+    public String f35349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35194e;
+    public String f35350e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f35195f;
+    public long f35351f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f35196g;
+    public long f35352g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f35197h;
+    public long f35353h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f35198i;
+    public long f35354i;
 
     /* renamed from: j  reason: collision with root package name */
-    public long f35199j;
+    public long f35355j;
 
     /* renamed from: k  reason: collision with root package name */
-    public long f35200k;
+    public long f35356k;
     public long l;
     public long m;
     public long n;
@@ -67,13 +67,13 @@ public class b {
                 return;
             }
         }
-        this.f35195f = 0L;
-        this.f35196g = 0L;
-        this.f35197h = 0L;
+        this.f35351f = 0L;
+        this.f35352g = 0L;
+        this.f35353h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f35193d = "";
-        this.f35194e = "";
+        this.f35349d = "";
+        this.f35350e = "";
     }
 
     private ArrayList<String> c() {
@@ -81,9 +81,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(this.f35198i));
-            arrayList.add(String.valueOf(this.f35199j));
-            arrayList.add(String.valueOf(this.f35200k));
+            arrayList.add(String.valueOf(this.f35354i));
+            arrayList.add(String.valueOf(this.f35355j));
+            arrayList.add(String.valueOf(this.f35356k));
             arrayList.add(String.valueOf(this.l));
             arrayList.add(String.valueOf(this.m));
             LivenessRecogDTO livenessRecogDTO = this.s;
@@ -102,8 +102,8 @@ public class b {
             ArrayList arrayList = new ArrayList();
             if (d.t.equals(str)) {
                 ArrayList arrayList2 = new ArrayList();
-                arrayList2.add(this.f35191b + "");
-                arrayList2.add(this.f35192c + "");
+                arrayList2.add(this.f35347b + "");
+                arrayList2.add(this.f35348c + "");
                 arrayList2.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.t, arrayList2);
             } else if (d.r.equals(str)) {
@@ -112,10 +112,10 @@ public class b {
                 arrayList.add(b() + "");
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(d.s, arrayList);
-            } else if (d.f35308f.equals(str)) {
+            } else if (d.f35464f.equals(str)) {
                 arrayList.add(((System.currentTimeMillis() - this.a) / 1000) + "");
                 arrayList.add(spno);
-                RimStatisticsUtil.onEventWithValues(d.f35308f, arrayList);
+                RimStatisticsUtil.onEventWithValues(d.f35464f, arrayList);
             } else if (d.u.equals(str)) {
                 if (this.o > 0) {
                     str2 = (this.n / this.o) + "";
@@ -135,13 +135,13 @@ public class b {
                     } else {
                         this.p.add("");
                     }
-                    this.p.add(this.f35191b + ProxyConfig.MATCH_ALL_SCHEMES + this.f35192c);
+                    this.p.add(this.f35347b + ProxyConfig.MATCH_ALL_SCHEMES + this.f35348c);
                     this.p.add(spno);
                     RimStatisticsUtil.onEventWithValues(str, this.p);
                 }
             } else if (d.l.equals(str)) {
-                arrayList.add(this.f35194e);
-                arrayList.add(this.f35193d);
+                arrayList.add(this.f35350e);
+                arrayList.add(this.f35349d);
                 arrayList.add(spno);
                 RimStatisticsUtil.onEventWithValues(str, arrayList);
             } else if (d.o.equals(str)) {
@@ -168,9 +168,9 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            long j2 = this.f35197h;
+            long j2 = this.f35353h;
             if (j2 >= 2) {
-                return (this.f35196g - this.f35195f) / j2;
+                return (this.f35352g - this.f35351f) / j2;
             }
             return 0L;
         }
@@ -180,7 +180,7 @@ public class b {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f35193d += str;
+            this.f35349d += str;
         }
     }
 
@@ -199,24 +199,24 @@ public class b {
                 return;
             }
         }
-        this.f35195f = 0L;
-        this.f35196g = 0L;
-        this.f35197h = 0L;
+        this.f35351f = 0L;
+        this.f35352g = 0L;
+        this.f35353h = 0L;
         this.p = new ArrayList<>();
         this.q = new StringBuilder();
-        this.f35193d = "";
-        this.f35194e = "";
+        this.f35349d = "";
+        this.f35350e = "";
         this.s = livenessRecogDTO;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f35195f == 0) {
-                this.f35195f = System.currentTimeMillis();
+            if (this.f35351f == 0) {
+                this.f35351f = System.currentTimeMillis();
             }
-            this.f35196g = System.currentTimeMillis();
-            this.f35197h++;
+            this.f35352g = System.currentTimeMillis();
+            this.f35353h++;
         }
     }
 

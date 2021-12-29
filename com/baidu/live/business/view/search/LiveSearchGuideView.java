@@ -24,10 +24,10 @@ public class LiveSearchGuideView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f35838e;
+    public ImageView f35994e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35839f;
+    public TextView f35995f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveSearchGuideView(@NonNull Context context) {
@@ -54,25 +54,25 @@ public class LiveSearchGuideView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(d.live_feed_page_search_guide_view, this);
-            this.f35838e = (ImageView) findViewById(c.live_feed_page_search_guide_iv);
-            this.f35839f = (TextView) findViewById(c.live_feed_page_search_guide_tv);
+            this.f35994e = (ImageView) findViewById(c.live_feed_page_search_guide_iv);
+            this.f35995f = (TextView) findViewById(c.live_feed_page_search_guide_tv);
         }
     }
 
     public void onDarkModeChange(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f35839f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (textView = this.f35995f) == null) {
             return;
         }
         textView.setTextColor(f.e().a(getContext(), false, "color_search_guide"));
         if ("day".equals(str)) {
-            this.f35838e.setImageResource(b.live_feed_page_search_guide_corner);
-            this.f35839f.setBackgroundResource(b.live_feed_page_search_guide_bg);
+            this.f35994e.setImageResource(b.live_feed_page_search_guide_corner);
+            this.f35995f.setBackgroundResource(b.live_feed_page_search_guide_bg);
         } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.f35838e.setImageResource(b.live_feed_page_search_guide_corner_night);
-            this.f35839f.setBackgroundResource(b.live_feed_page_search_guide_bg_night);
-            this.f35839f.setTextColor(-1);
+            this.f35994e.setImageResource(b.live_feed_page_search_guide_corner_night);
+            this.f35995f.setBackgroundResource(b.live_feed_page_search_guide_bg_night);
+            this.f35995f.setTextColor(-1);
         }
     }
 

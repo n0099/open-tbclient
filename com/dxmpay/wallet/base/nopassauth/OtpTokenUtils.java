@@ -31,7 +31,7 @@ public final class OtpTokenUtils {
     public static long a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f55848b = 10;
+    public static int f55847b = 10;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -218,13 +218,13 @@ public final class OtpTokenUtils {
     public static long getmSyncWithServerTime(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f52540b, 0L)).longValue() : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f52543b, 0L)).longValue() : invokeL.longValue;
     }
 
     public static void setmSyncWithServerTime(Context context, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65545, null, context, j2) == null) {
-            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f52540b, Long.valueOf(j2));
+            SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, com.baidu.wallet.base.nopassauth.OtpTokenUtils.f52543b, Long.valueOf(j2));
         }
     }
 
@@ -248,7 +248,7 @@ public final class OtpTokenUtils {
                 httpsURLConnection.setDoOutput(true);
                 httpsURLConnection.setUseCaches(false);
                 httpsURLConnection.setRequestMethod("GET");
-                httpsURLConnection.setConnectTimeout(f55848b * 1000);
+                httpsURLConnection.setConnectTimeout(f55847b * 1000);
                 httpsURLConnection.setHostnameVerifier(new a());
                 httpsURLConnection.connect();
                 a = httpsURLConnection.getDate() / 1000;

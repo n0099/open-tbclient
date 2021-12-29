@@ -73,10 +73,10 @@ public final class c {
                 }
             }
             if (bArr.length % 3 > 0) {
-                stringBuffer.setCharAt(stringBuffer.length() - 1, com.alipay.sdk.encrypt.a.f31721h);
+                stringBuffer.setCharAt(stringBuffer.length() - 1, com.alipay.sdk.encrypt.a.f31864h);
             }
             if (bArr.length % 3 == 1) {
-                stringBuffer.setCharAt(stringBuffer.length() - 2, com.alipay.sdk.encrypt.a.f31721h);
+                stringBuffer.setCharAt(stringBuffer.length() - 2, com.alipay.sdk.encrypt.a.f31864h);
             }
             return stringBuffer.toString();
         }

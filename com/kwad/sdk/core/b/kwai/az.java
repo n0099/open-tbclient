@@ -1,37 +1,14 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.ar.constants.HttpConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class az implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.d> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public az() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(com.kwad.sdk.core.request.model.d dVar, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, dVar, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         dVar.a = jSONObject.optString("imei");
@@ -125,43 +102,38 @@ public class az implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.d
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(com.kwad.sdk.core.request.model.d dVar, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, dVar, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "imei", dVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "imei1", dVar.f58352b);
-            com.kwad.sdk.utils.t.a(jSONObject, "imei2", dVar.f58353c);
-            com.kwad.sdk.utils.t.a(jSONObject, "meid", dVar.f58354d);
-            com.kwad.sdk.utils.t.a(jSONObject, "oaid", dVar.f58355e);
-            com.kwad.sdk.utils.t.a(jSONObject, "appMkt", dVar.f58356f);
-            com.kwad.sdk.utils.t.a(jSONObject, "appMktParam", dVar.f58357g);
-            com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, dVar.f58358h);
-            com.kwad.sdk.utils.t.a(jSONObject, "osApi", dVar.f58359i);
-            com.kwad.sdk.utils.t.a(jSONObject, "osVersion", dVar.f58360j);
-            com.kwad.sdk.utils.t.a(jSONObject, "language", dVar.f58361k);
-            com.kwad.sdk.utils.t.a(jSONObject, "screenWidth", dVar.l);
-            com.kwad.sdk.utils.t.a(jSONObject, "screenHeight", dVar.m);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceWidth", dVar.n);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceHeight", dVar.o);
-            com.kwad.sdk.utils.t.a(jSONObject, "androidId", dVar.p);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceId", dVar.q);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceVendor", dVar.r);
-            com.kwad.sdk.utils.t.a(jSONObject, Constants.PARAM_PLATFORM, dVar.s);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceModel", dVar.t);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceBrand", dVar.u);
-            com.kwad.sdk.utils.t.a(jSONObject, "deviceSig", dVar.v);
-            com.kwad.sdk.utils.t.a(jSONObject, "eGid", dVar.w);
-            com.kwad.sdk.utils.t.a(jSONObject, "appPackageName", dVar.x);
-            com.kwad.sdk.utils.t.a(jSONObject, "arch", dVar.y);
-            com.kwad.sdk.utils.t.a(jSONObject, "screenDirection", dVar.z);
-            com.kwad.sdk.utils.t.a(jSONObject, "kwaiVersionName", dVar.A);
-            com.kwad.sdk.utils.t.a(jSONObject, "kwaiNebulaVersionName", dVar.B);
-            com.kwad.sdk.utils.t.a(jSONObject, "sourceFlag", dVar.C);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "imei", dVar.a);
+        com.kwad.sdk.utils.t.a(jSONObject, "imei1", dVar.f58352b);
+        com.kwad.sdk.utils.t.a(jSONObject, "imei2", dVar.f58353c);
+        com.kwad.sdk.utils.t.a(jSONObject, "meid", dVar.f58354d);
+        com.kwad.sdk.utils.t.a(jSONObject, "oaid", dVar.f58355e);
+        com.kwad.sdk.utils.t.a(jSONObject, "appMkt", dVar.f58356f);
+        com.kwad.sdk.utils.t.a(jSONObject, "appMktParam", dVar.f58357g);
+        com.kwad.sdk.utils.t.a(jSONObject, HttpConstants.HTTP_OS_TYPE_OLD, dVar.f58358h);
+        com.kwad.sdk.utils.t.a(jSONObject, "osApi", dVar.f58359i);
+        com.kwad.sdk.utils.t.a(jSONObject, "osVersion", dVar.f58360j);
+        com.kwad.sdk.utils.t.a(jSONObject, "language", dVar.f58361k);
+        com.kwad.sdk.utils.t.a(jSONObject, "screenWidth", dVar.l);
+        com.kwad.sdk.utils.t.a(jSONObject, "screenHeight", dVar.m);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceWidth", dVar.n);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceHeight", dVar.o);
+        com.kwad.sdk.utils.t.a(jSONObject, "androidId", dVar.p);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceId", dVar.q);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceVendor", dVar.r);
+        com.kwad.sdk.utils.t.a(jSONObject, Constants.PARAM_PLATFORM, dVar.s);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceModel", dVar.t);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceBrand", dVar.u);
+        com.kwad.sdk.utils.t.a(jSONObject, "deviceSig", dVar.v);
+        com.kwad.sdk.utils.t.a(jSONObject, "eGid", dVar.w);
+        com.kwad.sdk.utils.t.a(jSONObject, "appPackageName", dVar.x);
+        com.kwad.sdk.utils.t.a(jSONObject, "arch", dVar.y);
+        com.kwad.sdk.utils.t.a(jSONObject, "screenDirection", dVar.z);
+        com.kwad.sdk.utils.t.a(jSONObject, "kwaiVersionName", dVar.A);
+        com.kwad.sdk.utils.t.a(jSONObject, "kwaiNebulaVersionName", dVar.B);
+        com.kwad.sdk.utils.t.a(jSONObject, "sourceFlag", dVar.C);
+        return jSONObject;
     }
 }

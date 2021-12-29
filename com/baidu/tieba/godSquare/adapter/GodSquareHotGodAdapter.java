@@ -3,8 +3,8 @@ package com.baidu.tieba.godSquare.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.s0.g0.d0;
-import c.a.s0.g0.f0.h;
+import c.a.t0.g0.d0;
+import c.a.t0.g0.f0.h;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -20,21 +20,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
-public class GodSquareHotGodAdapter extends c.a.d.m.e.a<h, ViewHolder> {
+public class GodSquareHotGodAdapter extends c.a.d.n.e.a<h, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> m;
-    public c.a.s0.i1.d.a n;
+    public c.a.t0.i1.d.a n;
     public d0 o;
 
     /* loaded from: classes12.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.a.s0.i1.d.a mCardView;
+        public c.a.t0.i1.d.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, c.a.s0.i1.d.a aVar) {
+        public ViewHolder(GodSquareHotGodAdapter godSquareHotGodAdapter, c.a.t0.i1.d.a aVar) {
             super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -61,7 +61,7 @@ public class GodSquareHotGodAdapter extends c.a.d.m.e.a<h, ViewHolder> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GodSquareHotGodAdapter f45537b;
+        public final /* synthetic */ GodSquareHotGodAdapter f45724b;
 
         public a(GodSquareHotGodAdapter godSquareHotGodAdapter) {
             Interceptable interceptable = $ic;
@@ -78,31 +78,31 @@ public class GodSquareHotGodAdapter extends c.a.d.m.e.a<h, ViewHolder> {
                     return;
                 }
             }
-            this.f45537b = godSquareHotGodAdapter;
+            this.f45724b = godSquareHotGodAdapter;
         }
 
-        @Override // c.a.s0.g0.d0
+        @Override // c.a.t0.g0.d0
         public void a(View view, BaseCardInfo baseCardInfo) {
             h hVar;
             MetaData metaData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f45537b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f17744e) == null || StringUtils.isNull(metaData.getUserId())) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, baseCardInfo) == null) || view == null || this.f45724b.n == null || !(baseCardInfo instanceof h) || (metaData = (hVar = (h) baseCardInfo).f18239e) == null || StringUtils.isNull(metaData.getUserId())) {
                 return;
             }
-            if (view.getId() != this.f45537b.n.m.getId()) {
-                if (view.getId() == this.f45537b.n.j().getId() || view.getId() == this.f45537b.n.o.getId()) {
-                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f17744e.getUserId()));
+            if (view.getId() != this.f45724b.n.m.getId()) {
+                if (view.getId() == this.f45724b.n.j().getId() || view.getId() == this.f45724b.n.o.getId()) {
+                    TiebaStatic.log(new StatisticItem("c10951").param("obj_id", hVar.f18239e.getUserId()));
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f17744e.getUserId()));
+            TiebaStatic.log(new StatisticItem("c10803").param("obj_locate", 4).param("obj_id", hVar.f18239e.getUserId()));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodSquareHotGodAdapter(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), h.f17742h);
+        super(tbPageContext.getPageActivity(), h.f18237h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,13 +124,13 @@ public class GodSquareHotGodAdapter extends c.a.d.m.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public ViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            c.a.s0.i1.d.a aVar = new c.a.s0.i1.d.a(this.m);
+            c.a.t0.i1.d.a aVar = new c.a.t0.i1.d.a(this.m);
             this.n = aVar;
             aVar.q(this.m.getUniqueId());
             this.n.m(this.o);
@@ -140,11 +140,11 @@ public class GodSquareHotGodAdapter extends c.a.d.m.e.a<h, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: i0 */
-    public View Z(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: b0 */
+    public View S(int i2, View view, ViewGroup viewGroup, h hVar, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
-        c.a.s0.i1.d.a aVar;
+        c.a.t0.i1.d.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, hVar, viewHolder})) == null) {
             if (viewHolder == null || (aVar = viewHolder.mCardView) == null) {

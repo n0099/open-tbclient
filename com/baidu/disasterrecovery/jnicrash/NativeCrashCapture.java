@@ -94,7 +94,7 @@ public class NativeCrashCapture implements NoProGuard {
             if (Build.VERSION.SDK_INT > 19) {
                 c.a.o.a.b bVar = sNativeCrashHandler;
                 if (bVar != null) {
-                    bVar.d();
+                    bVar.e();
                     return;
                 }
                 return;
@@ -102,7 +102,7 @@ public class NativeCrashCapture implements NoProGuard {
             boolean z = DEBUG;
             c.a.o.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
-                bVar2.d();
+                bVar2.e();
             }
         }
     }
@@ -124,12 +124,18 @@ public class NativeCrashCapture implements NoProGuard {
                     e2.printStackTrace();
                 }
             }
-            nativeInit(Build.VERSION.SDK_INT);
-            if (z) {
-                c.a.o.a.a.a();
+            try {
+                nativeInit(Build.VERSION.SDK_INT);
+                if (z) {
+                    c.a.o.a.a.a();
+                }
+                file.delete();
+                boolean z2 = DEBUG;
+            } catch (Throwable th) {
+                if (DEBUG) {
+                    th.printStackTrace();
+                }
             }
-            file.delete();
-            boolean z2 = DEBUG;
         }
     }
 
@@ -139,10 +145,10 @@ public class NativeCrashCapture implements NoProGuard {
             File file = new File(sContext.getFilesDir() + "/" + SO_LOAD_FLAG_FILE);
             File file2 = new File(sContext.getFilesDir() + "/" + SO_INIT_FLAG_FILE);
             if (file.exists()) {
-                sNativeCrashHandler.f(STATISTIC_UBC_LOAD_CRASH_TAG, "Native load crash");
+                sNativeCrashHandler.g(STATISTIC_UBC_LOAD_CRASH_TAG, "Native load crash");
             }
             if (file2.exists()) {
-                sNativeCrashHandler.f(STATISTIC_UBC_INIT_FAILED_TAG, "Native init failed");
+                sNativeCrashHandler.g(STATISTIC_UBC_INIT_FAILED_TAG, "Native init failed");
             }
             try {
                 if (!file.exists()) {
@@ -159,7 +165,7 @@ public class NativeCrashCapture implements NoProGuard {
             } catch (Throwable th) {
                 sInit = false;
                 th.printStackTrace();
-                sNativeCrashHandler.f(STATISTIC_UBC_LOAD_EXP_TAG, Log.getStackTraceString(th));
+                sNativeCrashHandler.g(STATISTIC_UBC_LOAD_EXP_TAG, Log.getStackTraceString(th));
             }
         }
     }
@@ -190,7 +196,7 @@ public class NativeCrashCapture implements NoProGuard {
             if (Build.VERSION.SDK_INT > 19) {
                 c.a.o.a.b bVar = sNativeCrashHandler;
                 if (bVar != null) {
-                    bVar.i(str, i2, i3);
+                    bVar.j(str, i2, i3);
                     return;
                 }
                 return;
@@ -198,7 +204,7 @@ public class NativeCrashCapture implements NoProGuard {
             boolean z = DEBUG;
             c.a.o.a.b bVar2 = sNativeCrashHandler;
             if (bVar2 != null) {
-                bVar2.i(str, i2, i3);
+                bVar2.j(str, i2, i3);
             }
         }
     }

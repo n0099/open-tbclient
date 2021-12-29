@@ -15,19 +15,19 @@ public final class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63079b;
+    public long f63094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f63080c;
+    public int f63095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f63081d;
+    public String f63096d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f63082e;
+    public boolean f63097e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f63083f;
+    public boolean f63098f;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -44,10 +44,10 @@ public final class b {
                 return;
             }
         }
-        this.f63079b = -1L;
-        this.f63080c = -1;
-        this.f63082e = false;
-        this.f63083f = false;
+        this.f63094b = -1L;
+        this.f63095c = -1;
+        this.f63097e = false;
+        this.f63098f = false;
         if (!TextUtils.isEmpty(str)) {
             this.a = str;
             return;
@@ -64,26 +64,26 @@ public final class b {
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63079b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63094b : invokeV.longValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63082e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63097e : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63083f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63098f : invokeV.booleanValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.f63079b + ", mPackageVersion=" + this.f63080c + ", mInBlackList=" + this.f63082e + ", mPushEnable=" + this.f63083f + "}";
+            return "PushPackageInfo{mPackageName=" + this.a + ", mPushVersion=" + this.f63094b + ", mPackageVersion=" + this.f63095c + ", mInBlackList=" + this.f63097e + ", mPushEnable=" + this.f63098f + "}";
         }
         return (String) invokeV.objValue;
     }
@@ -91,35 +91,35 @@ public final class b {
     public final void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f63079b = j2;
+            this.f63094b = j2;
         }
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f63083f = z;
+            this.f63098f = z;
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f63082e = z;
+            this.f63097e = z;
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f63080c = i2;
+            this.f63095c = i2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f63081d = str;
+            this.f63096d = str;
         }
     }
 }

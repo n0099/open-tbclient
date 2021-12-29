@@ -5,9 +5,9 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.c0.x.a;
 import c.a.c0.x.c.d;
 import c.a.c0.x.c.e;
-import c.a.h0.a.c.i;
-import c.a.h0.b.f.b;
-import c.a.h0.b.f.g;
+import c.a.i0.a.c.i;
+import c.a.i0.b.f.b;
+import c.a.i0.b.f.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +24,7 @@ public class BaseVM {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39020b;
+    public static String f39176b;
     public transient /* synthetic */ FieldHolder $fh;
     public final g a;
 
@@ -222,21 +222,21 @@ public class BaseVM {
             long currentTimeMillis = System.currentTimeMillis() - j3;
             long j4 = j3 - j2;
             d a = new e().f("1006").b("f1", Long.valueOf(j2)).a("f2", str).a("f3", str2);
-            a.b((e) a.a("f4", currentTimeMillis + "").a("f5", str3).a("f6", String.valueOf(c.a.h0.b.e.a())).a("f10", String.valueOf(j4)));
+            a.b((e) a.a("f4", currentTimeMillis + "").a("f5", str3).a("f6", String.valueOf(c.a.i0.b.e.a())).a("f10", String.valueOf(j4)));
         }
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f39020b = "";
+            f39176b = "";
         }
     }
 
     public static void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            f39020b = str;
+            f39176b = str;
         }
     }
 
@@ -259,7 +259,7 @@ public class BaseVM {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.CLICK).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3388d);
+            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.CLICK).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3841d);
             if (!TextUtils.isEmpty(str)) {
                 m.j(str);
             }
@@ -270,21 +270,21 @@ public class BaseVM {
     public void d(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
-            a.b(new ClogBuilder().r(ClogBuilder.LogType.CLOSE).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3388d).i(String.valueOf(j2)).h(c.a.c0.e.a.b().getResources().getConfiguration().orientation == 1 ? "1" : "0").j(str));
+            a.b(new ClogBuilder().r(ClogBuilder.LogType.CLOSE).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3841d).i(String.valueOf(j2)).h(c.a.c0.e.a.b().getResources().getConfiguration().orientation == 1 ? "1" : "0").j(str));
         }
     }
 
     public void f(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            a.b(new ClogBuilder().r(ClogBuilder.LogType.DISCARD).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3388d).h("10").i(str).j(str2));
+            a.b(new ClogBuilder().r(ClogBuilder.LogType.DISCARD).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3841d).h("10").i(str).j(str2));
         }
     }
 
     public void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.SHOW).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3388d);
+            ClogBuilder m = new ClogBuilder().r(ClogBuilder.LogType.SHOW).p(ClogBuilder.Page.NA_SPLASH).m(this.a.f3841d);
             if (jSONObject != null) {
                 if (jSONObject.has("adRenderCostTime")) {
                     m.i(jSONObject.optString("adRenderCostTime"));
@@ -316,7 +316,7 @@ public class BaseVM {
             try {
                 String optString = new JSONObject(str).optString("url");
                 if (!TextUtils.isEmpty(optString)) {
-                    c.a.c0.x.b.a.a(optString.replace("__GESTURE__", String.valueOf(f39020b)));
+                    c.a.c0.x.b.a.a(optString.replace("__GESTURE__", String.valueOf(f39176b)));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

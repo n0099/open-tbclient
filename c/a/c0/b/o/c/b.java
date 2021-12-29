@@ -24,18 +24,18 @@ public final class b implements d, c.a.c0.n.c, e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f1407d;
+    public static boolean f1834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static b f1408e;
+    public static b f1835e;
     public transient /* synthetic */ FieldHolder $fh;
     public final CopyOnWriteArrayList<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedList<WeakReference<Activity>> f1409b;
+    public final LinkedList<WeakReference<Activity>> f1836b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1410c;
+    public int f1837c;
 
     static {
         InterceptResult invokeClinit;
@@ -66,21 +66,21 @@ public final class b implements d, c.a.c0.n.c, e {
             }
         }
         this.a = new CopyOnWriteArrayList<>();
-        this.f1409b = new LinkedList<>();
+        this.f1836b = new LinkedList<>();
     }
 
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f1408e == null) {
+            if (f1835e == null) {
                 synchronized (b.class) {
-                    if (f1408e == null) {
-                        f1408e = new b();
+                    if (f1835e == null) {
+                        f1835e = new b();
                     }
                 }
             }
-            return f1408e;
+            return f1835e;
         }
         return (b) invokeV.objValue;
     }
@@ -91,10 +91,10 @@ public final class b implements d, c.a.c0.n.c, e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f1409b.isEmpty() || this.f1409b.size() < 2) {
+            if (this.f1836b.isEmpty() || this.f1836b.size() < 2) {
                 return null;
             }
-            LinkedList<WeakReference<Activity>> linkedList = this.f1409b;
+            LinkedList<WeakReference<Activity>> linkedList = this.f1836b;
             return linkedList.get(linkedList.size() - 2).get();
         }
         return (Activity) invokeV.objValue;
@@ -107,12 +107,12 @@ public final class b implements d, c.a.c0.n.c, e {
         Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int size = this.f1409b.size();
+            int size = this.f1836b.size();
             if (size < 2) {
                 return d();
             }
             for (int i2 = size - 1; i2 >= 0; i2--) {
-                WeakReference<Activity> weakReference = this.f1409b.get(i2);
+                WeakReference<Activity> weakReference = this.f1836b.get(i2);
                 if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
                     return activity;
                 }
@@ -128,7 +128,7 @@ public final class b implements d, c.a.c0.n.c, e {
         WeakReference<Activity> last;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f1409b.isEmpty() || (last = this.f1409b.getLast()) == null) {
+            if (this.f1836b.isEmpty() || (last = this.f1836b.getLast()) == null) {
                 return null;
             }
             return last.get();
@@ -147,7 +147,7 @@ public final class b implements d, c.a.c0.n.c, e {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null || this.a.contains(dVar)) {
             return;
         }
-        f1407d = true;
+        f1834d = true;
         this.a.add(dVar);
     }
 
@@ -156,7 +156,7 @@ public final class b implements d, c.a.c0.n.c, e {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) || dVar == null || this.a.contains(dVar)) {
             return;
         }
-        if (f1407d && this.a.size() > 0) {
+        if (f1834d && this.a.size() > 0) {
             CopyOnWriteArrayList<d> copyOnWriteArrayList = this.a;
             copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, dVar);
             return;
@@ -168,7 +168,7 @@ public final class b implements d, c.a.c0.n.c, e {
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
-            this.f1409b.add(new WeakReference<>(activity));
+            this.f1836b.add(new WeakReference<>(activity));
             if (e()) {
                 Iterator<d> it = this.a.iterator();
                 while (it.hasNext()) {
@@ -188,21 +188,21 @@ public final class b implements d, c.a.c0.n.c, e {
                     it.next().onActivityDestroyed(activity);
                 }
             }
-            if (this.f1409b.isEmpty()) {
+            if (this.f1836b.isEmpty()) {
                 return;
             }
-            int size = this.f1409b.size();
+            int size = this.f1836b.size();
             while (true) {
                 size--;
                 if (size < 0) {
                     size = -1;
                     break;
-                } else if (this.f1409b.get(size).get() == activity) {
+                } else if (this.f1836b.get(size).get() == activity) {
                     break;
                 }
             }
             if (size != -1) {
-                this.f1409b.remove(size);
+                this.f1836b.remove(size);
             }
         }
     }
@@ -250,8 +250,8 @@ public final class b implements d, c.a.c0.n.c, e {
                     it.next().onActivityStarted(activity);
                 }
             }
-            int i2 = this.f1410c + 1;
-            this.f1410c = i2;
+            int i2 = this.f1837c + 1;
+            this.f1837c = i2;
             if (i2 == 1) {
                 onBackgroundToForeground(activity);
             }
@@ -268,8 +268,8 @@ public final class b implements d, c.a.c0.n.c, e {
                     it.next().onActivityStopped(activity);
                 }
             }
-            int i2 = this.f1410c - 1;
-            this.f1410c = i2;
+            int i2 = this.f1837c - 1;
+            this.f1837c = i2;
             if (i2 == 0) {
                 onForegroundToBackground(activity);
             }

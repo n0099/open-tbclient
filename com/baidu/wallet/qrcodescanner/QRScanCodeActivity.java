@@ -103,7 +103,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public static final int DIALOG_TXT_COPY = 289;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f54723c = 10010;
+    public static int f54726c = 10010;
     public static IScanCodeListener mLightAppListener;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
@@ -112,31 +112,31 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public Runnable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f54724b;
+    public final int f54727b;
 
     /* renamed from: d  reason: collision with root package name */
-    public Bitmap f54725d;
+    public Bitmap f54728d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageProcessor f54726e;
+    public ImageProcessor f54729e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f54727f;
+    public RelativeLayout f54730f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ScanLineView f54728g;
+    public ScanLineView f54731g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MistLayorView f54729h;
+    public MistLayorView f54732h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ProgressView f54730i;
+    public ProgressView f54733i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f54731j;
+    public ImageView f54734j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ImageView f54732k;
+    public ImageView f54735k;
     public CameraCtrl l;
     public ImageView m;
     public NetImageView n;
@@ -226,13 +226,13 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ int a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f54736b;
+                        public final /* synthetic */ int f54739b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ LevelListDrawable f54737c;
+                        public final /* synthetic */ LevelListDrawable f54740c;
 
                         /* renamed from: d  reason: collision with root package name */
-                        public final /* synthetic */ AnonymousClass1 f54738d;
+                        public final /* synthetic */ AnonymousClass1 f54741d;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -249,10 +249,10 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54738d = this;
+                            this.f54741d = this;
                             this.a = r7;
-                            this.f54736b = r8;
-                            this.f54737c = levelListDrawable;
+                            this.f54739b = r8;
+                            this.f54740c = levelListDrawable;
                         }
 
                         @Override // com.baidu.apollon.imagemanager.ImageLoader.OnGetBitmapListener
@@ -278,13 +278,13 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             if (!(interceptable2 == null || interceptable2.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str2, obj, bitmap) == null) || bitmap == null) {
                                 return;
                             }
-                            this.f54737c.addLevel(1, 1, new BitmapDrawable(Bitmap.createScaledBitmap(bitmap, this.a, this.f54736b, true)));
-                            this.f54737c.setBounds(0, 0, this.a, this.f54736b);
-                            this.f54737c.setLevel(1);
-                            this.f54738d.a.a.runOnUiThread(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.16.1.1.1
+                            this.f54740c.addLevel(1, 1, new BitmapDrawable(Bitmap.createScaledBitmap(bitmap, this.a, this.f54739b, true)));
+                            this.f54740c.setBounds(0, 0, this.a, this.f54739b);
+                            this.f54740c.setLevel(1);
+                            this.f54741d.a.a.runOnUiThread(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.16.1.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ C20011 a;
+                                public final /* synthetic */ C20081 a;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -308,8 +308,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.a.f54738d.a.a.y.refreshDrawableState();
-                                        this.a.f54738d.a.a.y.setText(this.a.f54738d.a.a.y.getText());
+                                        this.a.f54741d.a.a.y.refreshDrawableState();
+                                        this.a.f54741d.a.a.y.setText(this.a.f54741d.a.a.y.getText());
                                     }
                                 }
                             });
@@ -371,22 +371,22 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
         public final /* synthetic */ QRScanCodeActivity a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f54747b;
+        public byte[] f54750b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f54748c;
+        public int f54751c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f54749d;
+        public int f54752d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54750e;
+        public int f54753e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Object[] f54751f;
+        public Object[] f54754f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int[] f54752g;
+        public int[] f54755g;
 
         public a(QRScanCodeActivity qRScanCodeActivity, byte[] bArr, int i2, int i3, int i4, int[] iArr) {
             Interceptable interceptable = $ic;
@@ -404,11 +404,11 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 }
             }
             this.a = qRScanCodeActivity;
-            this.f54747b = bArr;
-            this.f54748c = i2;
-            this.f54749d = i3;
-            this.f54750e = i4;
-            this.f54752g = iArr;
+            this.f54750b = bArr;
+            this.f54751c = i2;
+            this.f54752d = i3;
+            this.f54753e = i4;
+            this.f54755g = iArr;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -418,17 +418,17 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 if (AnonymousClass15.a[ScanCodeController.a().ordinal()] != 1) {
                     long currentTimeMillis = System.currentTimeMillis();
                     LogUtil.i("zxing", "zxing result cost " + currentTimeMillis);
-                    this.f54751f = com.baidu.wallet.qrcodescanner.a.a.a().a(this.f54747b, this.f54748c, this.f54749d, this.f54750e);
+                    this.f54754f = com.baidu.wallet.qrcodescanner.a.a.a().a(this.f54750b, this.f54751c, this.f54752d, this.f54753e);
                     LogUtil.i("zxing", "zxing result cost " + (System.currentTimeMillis() - currentTimeMillis));
                     DXMSdkSAUtils.onEventEndWithValues("qrcodeIdlCost", (int) (System.currentTimeMillis() - currentTimeMillis), Arrays.asList("album"));
                 } else {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     LogUtil.i("zxing", "zxing result cost " + currentTimeMillis2);
-                    this.f54751f = this.a.a(this.f54748c, this.f54749d, this.f54752g);
+                    this.f54754f = this.a.a(this.f54751c, this.f54752d, this.f54755g);
                     LogUtil.i("zxing", "zxing result cost " + (System.currentTimeMillis() - currentTimeMillis2));
                     DXMSdkSAUtils.onEventEndWithValues("qrcodeZxingCost", (int) (System.currentTimeMillis() - currentTimeMillis2), Arrays.asList("album"));
                 }
-                Object[] objArr = this.f54751f;
+                Object[] objArr = this.f54754f;
                 if (objArr != null) {
                     this.a.onProcessImageOk(objArr);
                 } else {
@@ -461,7 +461,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 WalletGlobalUtils.safeShowDialog(this.a.a, QRScanCodeActivity.DIALOG_PROCESS_IMG_FAILED, "");
                                 this.a.a.restartScan();
-                                this.a.a.f54728g.start();
+                                this.a.a.f54731g.start();
                             }
                         }
                     });
@@ -477,7 +477,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
         public SoundPool a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54753b;
+        public int f54756b;
 
         public b(SoundPool soundPool, int i2) {
             Interceptable interceptable = $ic;
@@ -495,14 +495,14 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 }
             }
             this.a = soundPool;
-            this.f54753b = i2;
+            this.f54756b = i2;
         }
 
         @Override // android.media.SoundPool.OnLoadCompleteListener
         public void onLoadComplete(SoundPool soundPool, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, soundPool, i2, i3) == null) {
-                soundPool.play(this.f54753b, 2.0f, 2.0f, 0, 0, 1.0f);
+                soundPool.play(this.f54756b, 2.0f, 2.0f, 0, 0, 1.0f);
             }
         }
     }
@@ -535,7 +535,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 return;
             }
         }
-        this.f54724b = 17;
+        this.f54727b = 17;
         this.A = true;
         this.B = true;
         this.C = false;
@@ -566,7 +566,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.a.f54730i.setVisibility(8);
+                    this.a.f54733i.setVisibility(8);
                 }
             }
         };
@@ -727,7 +727,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public static boolean isMediaDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, uri)) == null) ? ImageClipActivity.f39154k.equals(uri.getAuthority()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, uri)) == null) ? ImageClipActivity.f39310k.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
@@ -806,31 +806,31 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 sendBroadcast(intent2);
                 getContentResolver();
                 try {
-                    if (this.f54725d != null) {
-                        this.f54725d.recycle();
+                    if (this.f54728d != null) {
+                        this.f54728d.recycle();
                     }
                     if (getApplicationInfo().targetSdkVersion >= 29 && Build.VERSION.SDK_INT >= 29) {
                         ParcelFileDescriptor openFileDescriptor = getContentResolver().openFileDescriptor(uri2, "r");
                         if (openFileDescriptor != null) {
-                            this.f54725d = BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor());
+                            this.f54728d = BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor());
                         }
                         openFileDescriptor.close();
                     } else if (Build.VERSION.SDK_INT >= 19) {
-                        this.f54725d = this.f54726e.decode(new File(getPath(getActivity(), uri2)), 0);
+                        this.f54728d = this.f54729e.decode(new File(getPath(getActivity(), uri2)), 0);
                     } else {
                         Cursor query = getActivity().getContentResolver().query(uri2, new String[]{"_data"}, null, null, null);
                         int columnIndexOrThrow = query.getColumnIndexOrThrow("_data");
                         query.moveToFirst();
                         String string = query.getString(columnIndexOrThrow);
                         query.close();
-                        this.f54725d = this.f54726e.decode(new File(string), 0);
+                        this.f54728d = this.f54729e.decode(new File(string), 0);
                     }
-                    int width = this.f54725d.getWidth();
-                    int height = this.f54725d.getHeight();
+                    int width = this.f54728d.getWidth();
+                    int height = this.f54728d.getHeight();
                     int i4 = width * height;
                     int[] iArr = new int[i4];
                     byte[] bArr = new byte[i4];
-                    this.f54725d.getPixels(iArr, 0, width, 0, 0, width, height);
+                    this.f54728d.getPixels(iArr, 0, width, 0, 0, width, height);
                     encodeYUV420SP(bArr, iArr, width, height);
                     LogUtil.d("zxing", "idl pixels = " + iArr);
                     new a(this, bArr, width, height, 2, iArr).start();
@@ -863,13 +863,13 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void onCameraOpen() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f54731j.setVisibility(CameraCtrl.isSupprtFlashLight(getPackageManager()) ? 0 : 8);
+            this.f54734j.setVisibility(CameraCtrl.isSupprtFlashLight(getPackageManager()) ? 0 : 8);
             this.C = this.l.isSupportZoom();
-            this.f54728g.start();
+            this.f54731g.start();
             if (this.l.isSupportZoom()) {
-                this.f54730i.setMaxPregress(this.l.getMaxZoom());
-                this.f54730i.setProgress(this.l.getCurrentZoom());
-                this.r.a(new a.InterfaceC2003a(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.9
+                this.f54733i.setMaxPregress(this.l.getMaxZoom());
+                this.f54733i.setProgress(this.l.getCurrentZoom());
+                this.r.a(new a.InterfaceC2010a(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ QRScanCodeActivity a;
@@ -892,7 +892,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         this.a = this;
                     }
 
-                    @Override // com.baidu.wallet.qrcodescanner.a.InterfaceC2003a
+                    @Override // com.baidu.wallet.qrcodescanner.a.InterfaceC2010a
                     public void a(boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -905,12 +905,12 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                 maxZoom = i2;
                             }
                             this.a.l.setZoom(maxZoom);
-                            this.a.f54730i.setProgress(maxZoom);
-                            this.a.f54730i.invalidate();
+                            this.a.f54733i.setProgress(maxZoom);
+                            this.a.f54733i.invalidate();
                         }
                     }
 
-                    @Override // com.baidu.wallet.qrcodescanner.a.InterfaceC2003a
+                    @Override // com.baidu.wallet.qrcodescanner.a.InterfaceC2010a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.a.C) {
@@ -918,8 +918,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         }
                     }
                 });
-                this.f54727f.setOnTouchListener(this.r);
-                this.f54730i.setProgressStatusChangeListener(new ProgressView.b(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.10
+                this.f54730f.setOnTouchListener(this.r);
+                this.f54733i.setProgressStatusChangeListener(new ProgressView.b(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ QRScanCodeActivity a;
@@ -967,10 +967,10 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
             int id = view.getId();
-            if (view == this.f54731j) {
+            if (view == this.f54734j) {
                 DXMSdkSAUtils.onEvent("scanCodeUseFlash");
                 triggerFlash();
-            } else if (view == this.f54732k) {
+            } else if (view == this.f54735k) {
                 DXMSdkSAUtils.onEvent("scanCodeFromAlbum");
                 if (PermissionManager.checkCallingPermission(getActivity(), s.f57425i)) {
                     Intent intent = new Intent();
@@ -1011,7 +1011,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
                                 if (bool.booleanValue()) {
-                                    if (PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f57425i}, QRScanCodeActivity.f54723c)) {
+                                    if (PermissionManager.checkCallingOrSelfPermission(this.a.getActivity(), new String[]{s.f57425i}, QRScanCodeActivity.f54726c)) {
                                         return;
                                     }
                                     this.a.c();
@@ -1055,20 +1055,20 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f54728g = (ScanLineView) findViewById(ResUtils.id(getActivity(), "camera_scanline"));
+            this.f54731g = (ScanLineView) findViewById(ResUtils.id(getActivity(), "camera_scanline"));
             this.y = (TextView) findViewById(ResUtils.id(getActivity(), "ad_union_text"));
             if (DisplayUtils.getDisplayHeight(this) < DisplayUtils.dip2px(this, 535.0f)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f54728g.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f54731g.getLayoutParams();
                 int dip2px = DisplayUtils.dip2px(this, 200.0f);
                 layoutParams.width = dip2px;
                 layoutParams.height = dip2px;
                 ((RelativeLayout.LayoutParams) this.y.getLayoutParams()).width = layoutParams.width;
             }
-            this.f54729h = (MistLayorView) findViewById(ResUtils.id(getActivity(), "camera_mist"));
-            this.f54730i = (ProgressView) findViewById(ResUtils.id(getActivity(), "camera_progress_zoom"));
-            this.f54731j = (ImageView) findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
-            this.f54732k = (ImageView) findViewById(ResUtils.id(getActivity(), "open_album"));
-            this.f54727f = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "camera_ui"));
+            this.f54732h = (MistLayorView) findViewById(ResUtils.id(getActivity(), "camera_mist"));
+            this.f54733i = (ProgressView) findViewById(ResUtils.id(getActivity(), "camera_progress_zoom"));
+            this.f54734j = (ImageView) findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
+            this.f54735k = (ImageView) findViewById(ResUtils.id(getActivity(), "open_album"));
+            this.f54730f = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "camera_ui"));
             this.o = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "camera_ad_layout"));
             this.n = (NetImageView) findViewById(ResUtils.id(getActivity(), "camera_ad"));
             this.m = (ImageView) findViewById(ResUtils.id(getActivity(), "camera_ad_del"));
@@ -1083,10 +1083,10 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
             this.w = new Handler(getMainLooper());
             b();
             setOnCameraChangeListener(this);
-            this.f54731j.setOnClickListener(this);
-            AccessibilityUtils.setContentDescription(this.f54731j, "打开闪光灯");
-            this.f54732k.setOnClickListener(this);
-            this.f54726e = new ImageProcessor(DxmApplicationContextImpl.getApplicationContext(this));
+            this.f54734j.setOnClickListener(this);
+            AccessibilityUtils.setContentDescription(this.f54734j, "打开闪光灯");
+            this.f54735k.setOnClickListener(this);
+            this.f54729e = new ImageProcessor(DxmApplicationContextImpl.getApplicationContext(this));
             View.OnTouchListener onTouchListener = new View.OnTouchListener(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1126,7 +1126,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 }
             };
             this.z = onTouchListener;
-            this.f54732k.setOnTouchListener(onTouchListener);
+            this.f54735k.setOnTouchListener(onTouchListener);
             com.baidu.wallet.qrcodescanner.a.a.a().a(getActivity(), new com.baidu.wallet.qrcodescanner.a.b(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -1170,7 +1170,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                 public final /* synthetic */ b.a a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass12 f54733b;
+                                public final /* synthetic */ AnonymousClass12 f54736b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -1187,7 +1187,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                             return;
                                         }
                                     }
-                                    this.f54733b = this;
+                                    this.f54736b = this;
                                     this.a = aVar;
                                 }
 
@@ -1197,15 +1197,15 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, view) == null) {
                                         DXMSdkSAUtils.onEvent("scanCodeOpenBanner");
                                         if ("2".equals(this.a.a)) {
-                                            WalletLoginHelper.getInstance().startPage(this.a.f54765b);
+                                            WalletLoginHelper.getInstance().startPage(this.a.f54768b);
                                         } else if ("1".equals(this.a.a)) {
-                                            if (!NetworkUtils.isNetworkAvailable(this.f54733b.a.getActivity())) {
-                                                GlobalUtils.toast(this.f54733b.a.getActivity(), ResUtils.getString(this.f54733b.a.getActivity(), "ebpay_no_network"));
+                                            if (!NetworkUtils.isNetworkAvailable(this.f54736b.a.getActivity())) {
+                                                GlobalUtils.toast(this.f54736b.a.getActivity(), ResUtils.getString(this.f54736b.a.getActivity(), "ebpay_no_network"));
                                             } else {
-                                                BaiduWalletDelegate.getInstance().openH5Module(this.f54733b.a.getActivity(), this.a.f54765b, false);
+                                                BaiduWalletDelegate.getInstance().openH5Module(this.f54736b.a.getActivity(), this.a.f54768b, false);
                                             }
                                         } else if ("3".equals(this.a.a)) {
-                                            BaiduWalletServiceController.getInstance().gotoWalletService(this.f54733b.a.getActivity(), this.a.f54765b, "");
+                                            BaiduWalletServiceController.getInstance().gotoWalletService(this.f54736b.a.getActivity(), this.a.f54768b, "");
                                         }
                                     }
                                 }
@@ -1257,7 +1257,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f54728g.stop();
+            this.f54731g.stop();
             SoundPool soundPool = this.q;
             if (soundPool != null) {
                 soundPool.release();
@@ -1341,7 +1341,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54741b;
+                        public final /* synthetic */ QRScanCodeActivity f54744b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1358,7 +1358,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54741b = this;
+                            this.f54744b = this;
                             this.a = promptDialog;
                         }
 
@@ -1376,7 +1376,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54742b;
+                        public final /* synthetic */ QRScanCodeActivity f54745b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1393,7 +1393,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54742b = this;
+                            this.f54745b = this;
                             this.a = promptDialog;
                         }
 
@@ -1402,8 +1402,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                ((ClipboardManager) this.f54742b.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(this.f54742b.s.trim());
-                                GlobalUtils.toast(this.f54742b.getActivity(), ResUtils.getString(this.f54742b.getActivity(), "wallet_qr_scancode_copy_success"));
+                                ((ClipboardManager) this.f54745b.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(this.f54745b.s.trim());
+                                GlobalUtils.toast(this.f54745b.getActivity(), ResUtils.getString(this.f54745b.getActivity(), "wallet_qr_scancode_copy_success"));
                                 this.a.dismiss();
                             }
                         }
@@ -1451,7 +1451,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54740b;
+                        public final /* synthetic */ QRScanCodeActivity f54743b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1468,7 +1468,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54740b = this;
+                            this.f54743b = this;
                             this.a = promptDialog2;
                         }
 
@@ -1476,8 +1476,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                DXMSdkSAUtils.onEventWithValues("Scancoderemindy", Arrays.asList(this.f54740b.t));
-                                QRScanCodeActivity qRScanCodeActivity = this.f54740b;
+                                DXMSdkSAUtils.onEventWithValues("Scancoderemindy", Arrays.asList(this.f54743b.t));
+                                QRScanCodeActivity qRScanCodeActivity = this.f54743b;
                                 qRScanCodeActivity.startParserURl(qRScanCodeActivity.t, true);
                                 this.a.dismiss();
                             }
@@ -1495,7 +1495,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54743b;
+                        public final /* synthetic */ QRScanCodeActivity f54746b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1512,7 +1512,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54743b = this;
+                            this.f54746b = this;
                             this.a = promptDialog3;
                         }
 
@@ -1536,7 +1536,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54744b;
+                        public final /* synthetic */ QRScanCodeActivity f54747b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1553,7 +1553,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54744b = this;
+                            this.f54747b = this;
                             this.a = promptDialog4;
                         }
 
@@ -1562,7 +1562,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                                 this.a.dismiss();
-                                this.f54744b.finish();
+                                this.f54747b.finish();
                             }
                         }
                     });
@@ -1572,7 +1572,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54745b;
+                        public final /* synthetic */ QRScanCodeActivity f54748b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1589,7 +1589,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54745b = this;
+                            this.f54748b = this;
                             this.a = promptDialog4;
                         }
 
@@ -1598,9 +1598,9 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                ((ClipboardManager) this.f54745b.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(this.f54745b.u.trim());
-                                GlobalUtils.toast(this.f54745b.getActivity(), ResUtils.getString(this.f54745b.getActivity(), "wallet_qr_alipay_wx_jd_copy_success"));
-                                this.f54745b.restartScan();
+                                ((ClipboardManager) this.f54748b.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(this.f54748b.u.trim());
+                                GlobalUtils.toast(this.f54748b.getActivity(), ResUtils.getString(this.f54748b.getActivity(), "wallet_qr_alipay_wx_jd_copy_success"));
+                                this.f54748b.restartScan();
                                 this.a.dismiss();
                             }
                         }
@@ -1617,7 +1617,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         public final /* synthetic */ PromptDialog a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ QRScanCodeActivity f54746b;
+                        public final /* synthetic */ QRScanCodeActivity f54749b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1634,7 +1634,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     return;
                                 }
                             }
-                            this.f54746b = this;
+                            this.f54749b = this;
                             this.a = promptDialog5;
                         }
 
@@ -1643,7 +1643,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                                 this.a.dismiss();
-                                this.f54746b.finishWithoutAnim();
+                                this.f54749b.finishWithoutAnim();
                             }
                         }
                     });
@@ -1684,7 +1684,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.a.f54728g.stop();
+                        this.a.f54731g.stop();
                     }
                 }
             });
@@ -1715,7 +1715,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048595, this, i2, strArr, iArr) == null) {
-            if (i2 == f54723c) {
+            if (i2 == f54726c) {
                 if (strArr != null && iArr != null && strArr.length != 0 && iArr.length != 0) {
                     for (int i3 = 0; i3 < strArr.length; i3++) {
                         if (s.f57425i.equalsIgnoreCase(strArr[i3]) && iArr != null && iArr.length > i3) {
@@ -1762,8 +1762,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                     DXMSdkSAUtils.onEvent("scancodenative");
                     b(z);
                     try {
-                        if (aVar.f54766c != null) {
-                            ComfirmOrderActivity.ComfirmScanOrderInfo(getActivity(), (QRCodeShortUrlResponse.OrderParam) JsonUtils.fromJson(aVar.f54766c.toString(), QRCodeShortUrlResponse.OrderParam.class), aVar.f54765b, new ComfirmOrderActivity.a(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.11
+                        if (aVar.f54769c != null) {
+                            ComfirmOrderActivity.ComfirmScanOrderInfo(getActivity(), (QRCodeShortUrlResponse.OrderParam) JsonUtils.fromJson(aVar.f54769c.toString(), QRCodeShortUrlResponse.OrderParam.class), aVar.f54768b, new ComfirmOrderActivity.a(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.11
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ QRScanCodeActivity a;
@@ -1808,7 +1808,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                     }
                 } else if ("2".equals(aVar.a)) {
                     DXMSdkSAUtils.onEvent("scancodeurl");
-                    WalletLoginHelper.getInstance().startPage(aVar.f54765b);
+                    WalletLoginHelper.getInstance().startPage(aVar.f54768b);
                     b(z);
                     finishWithoutAnim();
                 } else if (HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP.equals(aVar.a)) {
@@ -1827,12 +1827,12 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         restartScan();
                         return;
                     }
-                    BaiduWalletDelegate.getInstance().openH5Module(getActivity(), aVar.f54765b, false);
+                    BaiduWalletDelegate.getInstance().openH5Module(getActivity(), aVar.f54768b, false);
                     b(z);
                     finishWithoutAnim();
                 } else if ("3".equals(aVar.a)) {
                     DXMSdkSAUtils.onEvent("scancodenative");
-                    BaiduWalletServiceController.getInstance().gotoWalletService(getActivity(), aVar.f54765b, "");
+                    BaiduWalletServiceController.getInstance().gotoWalletService(getActivity(), aVar.f54768b, "");
                     b(z);
                     finishWithoutAnim();
                 } else if (CloudControlRequest.DEFAULT_TIME.equals(aVar.a)) {
@@ -1842,10 +1842,10 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                     WalletGlobalUtils.safeShowDialog(this, DIALOG_CHECK_SAFE, "");
                 } else if ("501".equals(aVar.a)) {
                     b(z);
-                    JSONObject jSONObject = aVar.f54767d;
+                    JSONObject jSONObject = aVar.f54770d;
                     if (jSONObject != null && jSONObject.has("errmsg")) {
                         try {
-                            String string = aVar.f54767d.getString("errmsg");
+                            String string = aVar.f54770d.getString("errmsg");
                             if (!TextUtils.isEmpty(string)) {
                                 this.s = string;
                                 WalletGlobalUtils.safeShowDialog(this, DIALOG_COLLECTION_CODE_TIP, "");
@@ -1944,16 +1944,16 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void relayoutUi(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, rect) == null) {
-            MistLayorView mistLayorView = this.f54729h;
+            MistLayorView mistLayorView = this.f54732h;
             if (mistLayorView != null) {
                 mistLayorView.setFocusFrame(rect);
             }
-            ProgressView progressView = this.f54730i;
+            ProgressView progressView = this.f54733i;
             if (progressView != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) progressView.getLayoutParams();
                 int i2 = rect.top;
                 layoutParams.topMargin = i2 + (((rect.bottom - i2) - layoutParams.height) / 2);
-                this.f54730i.requestLayout();
+                this.f54733i.requestLayout();
             }
         }
     }
@@ -1962,7 +1962,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void restartScan() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f54728g.start();
+            this.f54731g.start();
             super.restartScan();
         }
     }
@@ -1977,7 +1977,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     public void showProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            this.f54730i.setVisibility(0);
+            this.f54733i.setVisibility(0);
             if (this.w == null) {
                 this.w = new Handler(getMainLooper());
             }
@@ -1996,18 +1996,18 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || this.f54731j == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || this.f54734j == null) {
             return;
         }
-        this.f54731j.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f54731j, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f54734j.setImageResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f54734j, z ? "关闭闪光灯" : "打开闪光灯");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65549, this, z) == null) && z) {
-            playAmazingSound(getActivity(), ResUtils.raw(this.f54728g.getContext(), "sweep"));
+            playAmazingSound(getActivity(), ResUtils.raw(this.f54731g.getContext(), "sweep"));
         }
     }
 
@@ -2070,7 +2070,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ QRScanCodeActivity f54739b;
+                public final /* synthetic */ QRScanCodeActivity f54742b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2087,7 +2087,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             return;
                         }
                     }
-                    this.f54739b = this;
+                    this.f54742b = this;
                     this.a = str;
                 }
 
@@ -2098,7 +2098,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                         IScanCodeListener iScanCodeListener = QRScanCodeActivity.mLightAppListener;
                         if (iScanCodeListener != null) {
                             if (iScanCodeListener.shouldDispatchUrl(this.a)) {
-                                QRScanCodeActivity.mLightAppListener.dispatchUrl(this.f54739b.getActivity(), this.a, new IScannerDispatchListener(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.18.1
+                                QRScanCodeActivity.mLightAppListener.dispatchUrl(this.f54742b.getActivity(), this.a, new IScannerDispatchListener(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.18.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass18 a;
@@ -2125,8 +2125,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     public void onClose() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.a.f54739b.b(true);
-                                            this.a.f54739b.finish();
+                                            this.a.f54742b.b(true);
+                                            this.a.f54742b.finish();
                                         }
                                     }
 
@@ -2134,7 +2134,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                                     public void onRescan() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                            this.a.f54739b.restartScan();
+                                            this.a.f54742b.restartScan();
                                         }
                                     }
                                 });
@@ -2143,11 +2143,11 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             QRScanCodeActivity.mLightAppListener = null;
                         }
                         if (!ScanCoderWrapper.getInstance().shouldDispatchUrl(this.a)) {
-                            WalletGlobalUtils.safeShowDialog(this.f54739b, -2, "");
-                            this.f54739b.startParserURl(this.a, false);
+                            WalletGlobalUtils.safeShowDialog(this.f54742b, -2, "");
+                            this.f54742b.startParserURl(this.a, false);
                             return;
                         }
-                        ScanCoderWrapper.getInstance().dispatchUrl(this.f54739b, this.a, new IScannerDispatchListener(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.18.2
+                        ScanCoderWrapper.getInstance().dispatchUrl(this.f54742b, this.a, new IScannerDispatchListener(this) { // from class: com.baidu.wallet.qrcodescanner.QRScanCodeActivity.18.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass18 a;
@@ -2174,8 +2174,8 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             public void onClose() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    this.a.f54739b.b(true);
-                                    this.a.f54739b.finish();
+                                    this.a.f54742b.b(true);
+                                    this.a.f54742b.finish();
                                 }
                             }
 
@@ -2183,7 +2183,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             public void onRescan() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                    this.a.f54739b.restartScan();
+                                    this.a.f54742b.restartScan();
                                 }
                             }
                         });
@@ -2209,7 +2209,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 public final /* synthetic */ Object[][] a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ QRScanCodeActivity f54734b;
+                public final /* synthetic */ QRScanCodeActivity f54737b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2226,7 +2226,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             return;
                         }
                     }
-                    this.f54734b = this;
+                    this.f54737b = this;
                     this.a = objArr;
                 }
 
@@ -2270,7 +2270,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                 public final /* synthetic */ Object[][] a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ QRScanCodeActivity f54735b;
+                public final /* synthetic */ QRScanCodeActivity f54738b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -2287,7 +2287,7 @@ public class QRScanCodeActivity extends CameraBaseActivity implements View.OnCli
                             return;
                         }
                     }
-                    this.f54735b = this;
+                    this.f54738b = this;
                     this.a = objArr;
                 }
 

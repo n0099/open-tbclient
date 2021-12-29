@@ -19,10 +19,10 @@ public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f1179b;
+    public static g f1572b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c.a.b0.a.j.b f1180c;
+    public static c.a.b0.a.j.b f1573c;
     public transient /* synthetic */ FieldHolder $fh;
     public Boolean a;
 
@@ -106,10 +106,10 @@ public class g {
         public final /* synthetic */ b.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f1181b;
+        public final /* synthetic */ String f1574b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ File f1182c;
+        public final /* synthetic */ File f1575c;
 
         public b(g gVar, b.a aVar, String str, File file) {
             Interceptable interceptable = $ic;
@@ -127,8 +127,8 @@ public class g {
                 }
             }
             this.a = aVar;
-            this.f1181b = str;
-            this.f1182c = file;
+            this.f1574b = str;
+            this.f1575c = file;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:23:0x0068, code lost:
@@ -147,9 +147,9 @@ public class g {
                     g.c("onLoadAssets " + z2 + ", state " + i2);
                 }
                 if (this.a != null) {
-                    String str = z2 ? null : this.f1181b;
-                    if (this.f1182c != null) {
-                        c.a.b0.a.b.s(new c.a.b0.a.c(this.f1182c.getAbsolutePath()));
+                    String str = z2 ? null : this.f1574b;
+                    if (this.f1575c != null) {
+                        c.a.b0.a.b.s(new c.a.b0.a.c(this.f1575c.getAbsolutePath()));
                     }
                     if (z2) {
                         boolean k0 = c.a.b0.a.a.k0();
@@ -182,8 +182,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (g.class) {
-                if (f1179b == null) {
-                    f1179b = new g();
+                if (f1572b == null) {
+                    f1572b = new g();
                 }
             }
         }
@@ -200,10 +200,10 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f1179b == null) {
+            if (f1572b == null) {
                 b();
             }
-            return f1179b;
+            return f1572b;
         }
         return (g) invokeV.objValue;
     }
@@ -212,13 +212,13 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f1180c == null) {
+            if (f1573c == null) {
                 c.a.b0.a.j.b k2 = c.a.b0.a.j.b.k();
                 c.a.b0.a.b.g();
                 k2.m(c.a.b0.a.b.getContext(), "arsource", new File(c.a.b0.a.c.a()));
-                f1180c = k2;
+                f1573c = k2;
             }
-            return f1180c;
+            return f1573c;
         }
         return (c.a.b0.a.j.b) invokeV.objValue;
     }

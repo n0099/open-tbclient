@@ -16,30 +16,30 @@ public final class ArcOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36242d = "ArcOptions";
+    public static final String f36398d = "ArcOptions";
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36243b;
+    public boolean f36399b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f36244c;
+    public Bundle f36400c;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f36245e;
+    public int f36401e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36246f;
+    public int f36402f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LatLng f36247g;
+    public LatLng f36403g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LatLng f36248h;
+    public LatLng f36404h;
 
     /* renamed from: i  reason: collision with root package name */
-    public LatLng f36249i;
+    public LatLng f36405i;
 
     static {
         InterceptResult invokeClinit;
@@ -69,9 +69,9 @@ public final class ArcOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f36245e = -16777216;
-        this.f36246f = 5;
-        this.f36243b = true;
+        this.f36401e = -16777216;
+        this.f36402f = 5;
+        this.f36399b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -80,14 +80,14 @@ public final class ArcOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Arc arc = new Arc();
-            arc.A = this.f36243b;
+            arc.A = this.f36399b;
             arc.z = this.a;
-            arc.B = this.f36244c;
-            arc.a = this.f36245e;
-            arc.f36238b = this.f36246f;
-            arc.f36239c = this.f36247g;
-            arc.f36240d = this.f36248h;
-            arc.f36241e = this.f36249i;
+            arc.B = this.f36400c;
+            arc.a = this.f36401e;
+            arc.f36394b = this.f36402f;
+            arc.f36395c = this.f36403g;
+            arc.f36396d = this.f36404h;
+            arc.f36397e = this.f36405i;
             return arc;
         }
         return (Overlay) invokeV.objValue;
@@ -97,7 +97,7 @@ public final class ArcOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f36245e = i2;
+            this.f36401e = i2;
             return this;
         }
         return (ArcOptions) invokeI.objValue;
@@ -107,7 +107,7 @@ public final class ArcOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle)) == null) {
-            this.f36244c = bundle;
+            this.f36400c = bundle;
             return this;
         }
         return (ArcOptions) invokeL.objValue;
@@ -116,37 +116,37 @@ public final class ArcOptions extends OverlayOptions {
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36245e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36401e : invokeV.intValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36249i : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36405i : (LatLng) invokeV.objValue;
     }
 
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36244c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36400c : (Bundle) invokeV.objValue;
     }
 
     public LatLng getMiddlePoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36248h : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36404h : (LatLng) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36247g : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36403g : (LatLng) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36246f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36402f : invokeV.intValue;
     }
 
     public int getZIndex() {
@@ -158,7 +158,7 @@ public final class ArcOptions extends OverlayOptions {
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36243b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36399b : invokeV.booleanValue;
     }
 
     public ArcOptions points(LatLng latLng, LatLng latLng2, LatLng latLng3) {
@@ -171,9 +171,9 @@ public final class ArcOptions extends OverlayOptions {
             if (latLng == latLng2 || latLng == latLng3 || latLng2 == latLng3) {
                 throw new IllegalArgumentException("BDMapSDKException: start and middle and end points can not be same");
             }
-            this.f36247g = latLng;
-            this.f36248h = latLng2;
-            this.f36249i = latLng3;
+            this.f36403g = latLng;
+            this.f36404h = latLng2;
+            this.f36405i = latLng3;
             return this;
         }
         return (ArcOptions) invokeLLL.objValue;
@@ -183,7 +183,7 @@ public final class ArcOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            this.f36243b = z;
+            this.f36399b = z;
             return this;
         }
         return (ArcOptions) invokeZ.objValue;
@@ -194,7 +194,7 @@ public final class ArcOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
             if (i2 > 0) {
-                this.f36246f = i2;
+                this.f36402f = i2;
             }
             return this;
         }

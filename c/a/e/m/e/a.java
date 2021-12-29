@@ -1,6 +1,6 @@
 package c.a.e.m.e;
 
-import c.a.s0.x1.o.h.b;
+import c.a.t0.x1.o.h.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,30 +12,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements c.a.s0.x1.o.h.b {
+public class a implements c.a.t0.x1.o.h.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3079e;
+    public int f3507e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f3080f;
+    public String f3508f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3081g;
+    public String f3509g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3082h;
+    public String f3510h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f3083i;
+    public String f3511i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f3084j;
+    public int f3512j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f3085k;
+    public String f3513k;
     public String l;
     public String m;
     public String n;
@@ -62,7 +62,7 @@ public class a implements c.a.s0.x1.o.h.b {
                 return;
             }
         }
-        this.f3079e = 3;
+        this.f3507e = 3;
         this.u = new ArrayList<>();
         this.v = new ArrayList<>();
     }
@@ -70,7 +70,7 @@ public class a implements c.a.s0.x1.o.h.b {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3079e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3507e : invokeV.intValue;
     }
 
     public String b() {
@@ -88,7 +88,7 @@ public class a implements c.a.s0.x1.o.h.b {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3079e == 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3507e == 2 : invokeV.booleanValue;
     }
 
     public boolean d() {
@@ -99,8 +99,8 @@ public class a implements c.a.s0.x1.o.h.b {
             if (a() != 0) {
                 return a() == 1 && (str = this.l) != null && (str.startsWith("http://") || this.l.startsWith("https://"));
             }
-            String str2 = this.f3085k;
-            return str2 != null && (str2.startsWith("http://") || this.f3085k.startsWith("https://"));
+            String str2 = this.f3513k;
+            return str2 != null && (str2.startsWith("http://") || this.f3513k.startsWith("https://"));
         }
         return invokeV.booleanValue;
     }
@@ -108,11 +108,11 @@ public class a implements c.a.s0.x1.o.h.b {
     public void e(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f3079e = i2;
+            this.f3507e = i2;
         }
     }
 
-    @Override // c.a.s0.x1.o.h.b
+    @Override // c.a.t0.x1.o.h.b
     public b.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -120,8 +120,8 @@ public class a implements c.a.s0.x1.o.h.b {
             if (this.w == null) {
                 b.a aVar = new b.a();
                 this.w = aVar;
-                aVar.f25435c = this.u;
-                aVar.f25436d = this.v;
+                aVar.f25925c = this.u;
+                aVar.f25926d = this.v;
             }
             return this.w;
         }

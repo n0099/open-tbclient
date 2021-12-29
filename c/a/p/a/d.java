@@ -15,7 +15,7 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f4417b;
+    public static d f4624b;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedHashMap<String, Integer> a;
 
@@ -54,14 +54,14 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4417b == null) {
+            if (f4624b == null) {
                 synchronized (d.class) {
-                    if (f4417b == null) {
-                        f4417b = new d();
+                    if (f4624b == null) {
+                        f4624b = new d();
                     }
                 }
             }
-            return f4417b;
+            return f4624b;
         }
         return (d) invokeV.objValue;
     }

@@ -16,9 +16,9 @@ import c.a.d.a.f;
 import c.a.d.a.g;
 import c.a.d.a.i;
 import c.a.d.f.l.d;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import c.a.d.g.a.h;
-import c.a.d.m.e.q;
+import c.a.d.n.e.q;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
@@ -46,7 +46,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdBaseActivity f32012e;
+        public final /* synthetic */ BdBaseActivity f32155e;
 
         public a(BdBaseActivity bdBaseActivity) {
             Interceptable interceptable = $ic;
@@ -63,14 +63,14 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
                     return;
                 }
             }
-            this.f32012e = bdBaseActivity;
+            this.f32155e = bdBaseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdBaseActivity bdBaseActivity = this.f32012e;
+                BdBaseActivity bdBaseActivity = this.f32155e;
                 bdBaseActivity.onPreLoad(bdBaseActivity.onGetPreLoadListView());
             }
         }
@@ -356,7 +356,7 @@ public abstract class BdBaseActivity<T> extends Activity implements View.OnClick
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            m.M(getApplicationContext(), str);
+            n.M(getApplicationContext(), str);
         }
     }
 

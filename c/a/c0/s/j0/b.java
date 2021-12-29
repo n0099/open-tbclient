@@ -23,16 +23,16 @@ public abstract class b implements o {
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.s.k0.c f1985e;
+    public c.a.c0.s.k0.c f2412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LayerContainer f1986f;
+    public LayerContainer f2413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f1987g;
+    public Context f2414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Handler f1988h;
+    public Handler f2415h;
 
     /* loaded from: classes.dex */
     public static class a extends Handler {
@@ -89,11 +89,11 @@ public abstract class b implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             if (context == null) {
-                this.f1987g = c.a.c0.s.d.b();
+                this.f2414g = c.a.c0.s.d.b();
             } else {
-                this.f1987g = context;
+                this.f2414g = context;
             }
-            this.f1988h = new a(this);
+            this.f2415h = new a(this);
         }
     }
 
@@ -106,7 +106,7 @@ public abstract class b implements o {
     public final boolean C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1985e != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2412e != null : invokeV.booleanValue;
     }
 
     public void D() {
@@ -122,7 +122,7 @@ public abstract class b implements o {
             return;
         }
         for (int i2 : subscribeEvent) {
-            this.f1985e.c(i2, this);
+            this.f2412e.c(i2, this);
         }
     }
 
@@ -137,21 +137,21 @@ public abstract class b implements o {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) && C()) {
             pVar.t(this);
-            this.f1985e.d(pVar);
+            this.f2412e.d(pVar);
         }
     }
 
-    public void K(@Nullable c.a.c0.s.f0.k kVar) {
+    public void H(@Nullable c.a.c0.s.f0.k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, kVar) == null) {
             u().u0(kVar);
         }
     }
 
-    public void L(@NonNull LayerContainer layerContainer) {
+    public void I(@NonNull LayerContainer layerContainer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layerContainer) == null) {
-            this.f1986f = layerContainer;
+            this.f2413f = layerContainer;
         }
     }
 
@@ -236,9 +236,9 @@ public abstract class b implements o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             c.a.c0.s.v0.h.a("onLayerRelease() = " + this);
-            this.f1988h.removeCallbacksAndMessages(null);
-            this.f1987g = null;
-            this.f1985e = null;
+            this.f2415h.removeCallbacksAndMessages(null);
+            this.f2414g = null;
+            this.f2412e = null;
         }
     }
 
@@ -252,7 +252,7 @@ public abstract class b implements o {
     public void r(@NonNull c.a.c0.s.k0.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, cVar) == null) {
-            this.f1985e = cVar;
+            this.f2412e = cVar;
             E();
         }
     }
@@ -260,25 +260,25 @@ public abstract class b implements o {
     public void s() {
         c.a.c0.s.k0.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (cVar = this.f1985e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (cVar = this.f2412e) == null) {
             return;
         }
         cVar.e(this);
-        this.f1985e = null;
+        this.f2412e = null;
     }
 
     @NonNull
     public Context t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f1987g.getApplicationContext() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f2414g.getApplicationContext() : (Context) invokeV.objValue;
     }
 
     public c.a.c0.s.e u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            LayerContainer layerContainer = this.f1986f;
+            LayerContainer layerContainer = this.f2413f;
             if (layerContainer != null) {
                 return layerContainer.getBindPlayer();
             }
@@ -296,20 +296,20 @@ public abstract class b implements o {
     public Handler w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f1988h : (Handler) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f2415h : (Handler) invokeV.objValue;
     }
 
     public LayerContainer x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f1986f : (LayerContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f2413f : (LayerContainer) invokeV.objValue;
     }
 
     @Nullable
     public c.a.c0.s.k0.c y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f1985e : (c.a.c0.s.k0.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f2412e : (c.a.c0.s.k0.c) invokeV.objValue;
     }
 
     public void z(Message message) {

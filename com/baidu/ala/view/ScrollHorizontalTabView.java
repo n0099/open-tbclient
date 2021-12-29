@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.ala.data.TabData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -197,8 +197,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -514,7 +514,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.mTabItemView, i2)).getLocationOnScreen(iArr);
-                int k2 = m.k(getContext()) - iArr[0];
+                int k2 = n.k(getContext()) - iArr[0];
                 int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds160);
                 if (iArr[0] < 0) {
                     post(new Runnable(this, dimensionPixelSize) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.3
@@ -624,8 +624,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -707,8 +707,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = m.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
-        this.mIndicatorWidth = m.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
+        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.ds5);
+        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.ds64);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);

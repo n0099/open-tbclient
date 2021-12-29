@@ -6,10 +6,11 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.collection.ArrayMap;
 import c.a.d.f.j.b.a;
-import c.a.d.f.p.m;
-import c.a.r0.d1.l;
-import c.a.r0.k0.b;
-import c.a.r0.k0.h;
+import c.a.d.f.p.n;
+import c.a.s0.e1.l;
+import c.a.s0.e1.r;
+import c.a.s0.k0.b;
+import c.a.t0.k4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -41,6 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.un.s;
 import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes11.dex */
 public class PermissionUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -82,7 +84,7 @@ public class PermissionUtil {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.r0.k0.b
+            @Override // c.a.s0.k0.b
             public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -102,8 +104,6 @@ public class PermissionUtil {
                     TbadkCoreApplication.getInst().initCrabSdk();
                     TbadkCoreApplication.getInst().registerPhoneListener();
                     TbadkCoreApplication.getInst().initCyberPlayer();
-                    TbadkCoreApplication.getInst().initCuidGalaxy2();
-                    TbadkCoreApplication.getInst().initCuidGalaxy3();
                     TbadkCoreApplication.getInst().initBearSdk();
                     a.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
                     a.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
@@ -112,11 +112,20 @@ public class PermissionUtil {
                     BdStatisticsManager.getInstance().setCommonDataMac(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setOaid(PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst()));
                     BdStatisticsManager.getInstance().setAndroidId(TbadkCoreApplication.getInst().getAndroidId());
+                    BdStatisticsManager.getInstance().setCuid(TbadkCoreApplication.getInst().getCuid());
+                    BdStatisticsManager.getInstance().setCuidGalaxy2(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    c.a.d.f.n.n.b.m().o(TbadkCoreApplication.getInst().getCuid());
+                    c.a.d.f.n.n.b.m().p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    c.a.d.f.n.m.a.o().p();
                     FH.setAgreePolicy(TbadkCoreApplication.getInst(), PermissionUtil.isAgreePrivacyPolicy);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921554));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
                     if (SapiAccountManager.getInstance() != null) {
                         SapiAccountManager.getInstance().setAgreeDangerousProtocol(true);
+                    }
+                    h.c().b();
+                    if (TbadkCoreApplication.getInst().isMainProcess(false) || TbadkCoreApplication.getInst().isRemoteProcess()) {
+                        c.a.c0.e.b.c();
                     }
                     return true;
                 }
@@ -358,7 +367,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, PermissionRequest.RESOURCE_AUDIO_CAPTURE)) {
-                    m.L(providerContext, R.string.record_audio_permission_denied_fun_disable);
+                    n.L(providerContext, R.string.record_audio_permission_denied_fun_disable);
                     return true;
                 }
                 return false;
@@ -415,7 +424,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    m.L(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
+                    n.L(providerContext, R.string.write_external_storage_permission_denied_fun_disable);
                     return true;
                 }
                 return false;
@@ -451,7 +460,18 @@ public class PermissionUtil {
     public static boolean isAgreePrivacyPolicy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? isAgreePrivacyPolicy || c.a.r0.s.g0.b.j().g("key_secret_is_show", false) || c.a.r0.s.g0.b.j().g("key_secret_is_show_new", false) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            boolean z = true;
+            if (isAgreePrivacyPolicy) {
+                return true;
+            }
+            if (!c.a.s0.s.g0.b.j().g("key_secret_is_show", false) && !c.a.s0.s.g0.b.j().g("key_secret_is_show_new", false)) {
+                z = false;
+            }
+            isAgreePrivacyPolicy = z;
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 
     public static Context providerContext(Context context) {
@@ -463,7 +483,7 @@ public class PermissionUtil {
     public static void registerMutiProcessPrivacyPolicy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, null) == null) {
-            h.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
+            c.a.s0.k0.h.f().l(PrivacyPolicyEvent.class, mAgreePrivacyPolicyEventListener);
         }
     }
 
@@ -616,7 +636,7 @@ public class PermissionUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65572, null, z) == null) {
             isAgreePrivacyPolicy = z;
-            c.a.r0.s.g0.b.j().t("key_secret_is_show_new", z);
+            c.a.s0.s.g0.b.j().t("key_secret_is_show_new", z);
             if (TbadkCoreApplication.getIntent() != null) {
                 String dataString = TbadkCoreApplication.getIntent().getDataString();
                 if (!TextUtils.isEmpty(dataString)) {
@@ -625,9 +645,14 @@ public class PermissionUtil {
                 }
             }
             GrowthStatsUtil.statisticActivity();
-            h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
+            c.a.s0.k0.h.i(new PrivacyPolicyEvent(Boolean.valueOf(z)));
             FH.setAgreePolicy(TbadkCoreApplication.getInst(), isAgreePrivacyPolicy);
             CloudControlManager.getInstance().requestCloudControl("0");
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
+            arrayList.add(new BasicNameValuePair("cuid", TbadkCoreApplication.getUniqueIdentifier()));
+            c.a.d.c.e.c.h.f(arrayList);
+            c.a.d.f.r.h.j().w(arrayList);
             BdSocketLinkService.setHasAbsoluteClose(false);
             BdSocketLinkService.setAvailable(true);
             BdSocketLinkService.startService(true, "privacy agree");
@@ -663,15 +688,16 @@ public class PermissionUtil {
                     }
                 }
             });
+            r.g().q();
         }
     }
 
     public static void syncAgreeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65573, null, z) == null) && z && c.a.r0.s.g0.b.j().g("key_secret_is_show", false)) {
+        if ((interceptable == null || interceptable.invokeZ(65573, null, z) == null) && z && c.a.s0.s.g0.b.j().g("key_secret_is_show", false)) {
             isAgreePrivacyPolicy = true;
-            c.a.r0.s.g0.b.j().t("key_secret_is_show_new", true);
-            c.a.r0.s.g0.b.j().C("key_secret_is_show");
+            c.a.s0.s.g0.b.j().t("key_secret_is_show_new", true);
+            c.a.s0.s.g0.b.j().C("key_secret_is_show");
         }
     }
 

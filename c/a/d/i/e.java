@@ -17,15 +17,15 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile e f2757d;
+    public static volatile e f3185d;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Class<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2758b;
+    public int f3186b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2759c;
+    public int f3187c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,8 +56,8 @@ public class e {
             }
         }
         this.a = null;
-        this.f2758b = 0;
-        this.f2759c = 0;
+        this.f3186b = 0;
+        this.f3187c = 0;
         this.a = new HashMap<>();
     }
 
@@ -65,14 +65,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2757d == null) {
+            if (f3185d == null) {
                 synchronized (e.class) {
-                    if (f2757d == null) {
-                        f2757d = new e();
+                    if (f3185d == null) {
+                        f3185d = new e();
                     }
                 }
             }
-            return f2757d;
+            return f3185d;
         }
         return (e) invokeV.objValue;
     }
@@ -85,21 +85,21 @@ public class e {
             Class<?> cls2 = this.a.get(cls.getName());
             if (cls2 == null) {
                 if (PluginBaseRemoteService.class.isAssignableFrom(cls)) {
-                    int i2 = this.f2759c;
+                    int i2 = this.f3187c;
                     if (i2 == 10) {
                         BdLog.e("can not find service,Has started 10 Remoteservice");
                         return null;
                     }
-                    this.f2759c = i2 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f2759c;
+                    this.f3187c = i2 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.RemoteServiceProxy" + this.f3187c;
                 } else if (PluginBaseService.class.isAssignableFrom(cls)) {
-                    int i3 = this.f2758b;
+                    int i3 = this.f3186b;
                     if (i3 == 20) {
                         BdLog.e("can not find service,Has started 20 service");
                         return null;
                     }
-                    this.f2758b = i3 + 1;
-                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f2758b;
+                    this.f3186b = i3 + 1;
+                    str = "com.baidu.adp.plugin.proxy.service.ServiceProxy" + this.f3186b;
                 } else {
                     str = PluginBaseThirdService.class.isAssignableFrom(cls) ? "com.baidu.adp.plugin.proxy.service.ThirdServiceProxy" : "";
                 }

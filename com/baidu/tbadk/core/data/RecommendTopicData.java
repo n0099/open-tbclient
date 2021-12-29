@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s0.g0.f0.n;
-import c.a.s0.g0.f0.o;
+import c.a.t0.g0.f0.n;
+import c.a.t0.g0.f0.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -31,7 +31,7 @@ public class RecommendTopicData {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f41405b;
+    public List<RecommendTopicListData> f41564b;
 
     /* loaded from: classes11.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
@@ -129,9 +129,9 @@ public class RecommendTopicData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 n nVar = new n();
-                nVar.f17752c = this.tag;
+                nVar.f18247c = this.tag;
                 nVar.a = this.topicId;
-                nVar.f17751b = this.topicName;
+                nVar.f18246b = this.topicName;
                 return nVar;
             }
             return (n) invokeV.objValue;
@@ -259,7 +259,7 @@ public class RecommendTopicData {
                 return;
             }
         }
-        this.f41405b = new ArrayList();
+        this.f41564b = new ArrayList();
     }
 
     public o a() {
@@ -268,10 +268,10 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             o oVar = new o();
-            oVar.f17756g = b();
-            if (this.f41405b != null) {
+            oVar.f18251g = b();
+            if (this.f41564b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f41405b) {
+                for (RecommendTopicListData recommendTopicListData : this.f41564b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -279,7 +279,7 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            oVar.f17757h = arrayList;
+            oVar.f18252h = arrayList;
             return oVar;
         }
         return (o) invokeV.objValue;
@@ -315,7 +315,7 @@ public class RecommendTopicData {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f41405b.add(recommendTopicListData);
+                        this.f41564b.add(recommendTopicListData);
                     }
                 }
             }

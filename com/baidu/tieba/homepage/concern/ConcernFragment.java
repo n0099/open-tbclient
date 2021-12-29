@@ -8,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.s.r.y0;
-import c.a.s0.d1.o0;
-import c.a.s0.v3.s0.g;
+import c.a.d.f.p.n;
+import c.a.s0.s.q.y0;
+import c.a.t0.d1.o0;
+import c.a.t0.w3.s0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -57,25 +57,25 @@ public class ConcernFragment extends BaseFragment implements o0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ConcernPageView f45568e;
+    public ConcernPageView f45755e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ConcernPageView.l f45569f;
+    public ConcernPageView.l f45756f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ScrollFragmentTabHost f45570g;
+    public ScrollFragmentTabHost f45757g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f45571h;
+    public boolean f45758h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f45572i;
+    public boolean f45759i;
 
     /* renamed from: j  reason: collision with root package name */
-    public CustomMessageListener f45573j;
+    public CustomMessageListener f45760j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final AntiHelper.k f45574k;
+    public final AntiHelper.k f45761k;
     public CustomMessageListener l;
     public final CustomMessageListener m;
     public final CustomMessageListener n;
@@ -115,15 +115,15 @@ public class ConcernFragment extends BaseFragment implements o0 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f42047c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getUniqueId())) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f42213c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(this.a.getUniqueId())) {
                     return;
                 }
                 if (updateAttentionMessage.getData().l != null) {
-                    if (AntiHelper.t(this.a.getActivity(), updateAttentionMessage.getData().l, this.a.f45574k) != null) {
+                    if (AntiHelper.t(this.a.getActivity(), updateAttentionMessage.getData().l, this.a.f45761k) != null) {
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                     }
-                } else if (updateAttentionMessage.getData().a && updateAttentionMessage.getData().f42048d) {
-                    m.L(this.a.getActivity(), R.string.attention_success);
+                } else if (updateAttentionMessage.getData().a && updateAttentionMessage.getData().f42214d) {
+                    n.L(this.a.getActivity(), R.string.attention_success);
                 }
             }
         }
@@ -154,7 +154,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(c.a.r0.s.t.a aVar) {
+        public void onNavigationButtonClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
@@ -162,7 +162,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(c.a.r0.s.t.a aVar) {
+        public void onPositiveButtonClick(c.a.s0.s.s.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
@@ -201,8 +201,8 @@ public class ConcernFragment extends BaseFragment implements o0 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f45568e != null && this.a.f45568e.isInit()) {
-                this.a.f45568e.onScreenSizeChange();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.f45755e != null && this.a.f45755e.isInit()) {
+                this.a.f45755e.onScreenSizeChange();
             }
         }
     }
@@ -219,19 +219,19 @@ public class ConcernFragment extends BaseFragment implements o0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f45575e;
+            public final /* synthetic */ PostWriteCallBackData f45762e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f45576f;
+            public final /* synthetic */ long f45763f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ long f45577g;
+            public final /* synthetic */ long f45764g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ long f45578h;
+            public final /* synthetic */ long f45765h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ d f45579i;
+            public final /* synthetic */ d f45766i;
 
             public a(d dVar, PostWriteCallBackData postWriteCallBackData, long j2, long j3, long j4) {
                 Interceptable interceptable = $ic;
@@ -248,26 +248,26 @@ public class ConcernFragment extends BaseFragment implements o0 {
                         return;
                     }
                 }
-                this.f45579i = dVar;
-                this.f45575e = postWriteCallBackData;
-                this.f45576f = j2;
-                this.f45577g = j3;
-                this.f45578h = j4;
+                this.f45766i = dVar;
+                this.f45762e = postWriteCallBackData;
+                this.f45763f = j2;
+                this.f45764g = j3;
+                this.f45765h = j4;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k2 = m.k(TbadkCoreApplication.getInst());
-                    int i2 = m.i(TbadkCoreApplication.getInst());
+                    int k2 = n.k(TbadkCoreApplication.getInst());
+                    int i2 = n.i(TbadkCoreApplication.getInst());
                     float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                    requestGetMyPostNetMessage.setProZone(this.f45575e.getProZone());
-                    requestGetMyPostNetMessage.setParams(this.f45576f, this.f45577g, this.f45578h, k2, i2, f2, i3);
+                    requestGetMyPostNetMessage.setProZone(this.f45762e.getProZone());
+                    requestGetMyPostNetMessage.setParams(this.f45763f, this.f45764g, this.f45765h, k2, i2, f2, i3);
                     requestGetMyPostNetMessage.setCallFrom(1);
-                    this.f45579i.a.sendMessage(requestGetMyPostNetMessage);
+                    this.f45766i.a.sendMessage(requestGetMyPostNetMessage);
                 }
             }
         }
@@ -311,10 +311,10 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
                 y0 y0Var = new y0();
                 y0Var.S2(writeData);
-                if (this.a.f45568e == null || !this.a.f45568e.isInit()) {
+                if (this.a.f45755e == null || !this.a.f45755e.isInit()) {
                     return;
                 }
-                this.a.f45568e.insertOneThread(y0Var);
+                this.a.f45755e.insertOneThread(y0Var);
             }
         }
     }
@@ -331,19 +331,19 @@ public class ConcernFragment extends BaseFragment implements o0 {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ PostWriteCallBackData f45580e;
+            public final /* synthetic */ PostWriteCallBackData f45767e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ long f45581f;
+            public final /* synthetic */ long f45768f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ long f45582g;
+            public final /* synthetic */ long f45769g;
 
             /* renamed from: h  reason: collision with root package name */
-            public final /* synthetic */ long f45583h;
+            public final /* synthetic */ long f45770h;
 
             /* renamed from: i  reason: collision with root package name */
-            public final /* synthetic */ e f45584i;
+            public final /* synthetic */ e f45771i;
 
             public a(e eVar, PostWriteCallBackData postWriteCallBackData, long j2, long j3, long j4) {
                 Interceptable interceptable = $ic;
@@ -360,26 +360,26 @@ public class ConcernFragment extends BaseFragment implements o0 {
                         return;
                     }
                 }
-                this.f45584i = eVar;
-                this.f45580e = postWriteCallBackData;
-                this.f45581f = j2;
-                this.f45582g = j3;
-                this.f45583h = j4;
+                this.f45771i = eVar;
+                this.f45767e = postWriteCallBackData;
+                this.f45768f = j2;
+                this.f45769g = j3;
+                this.f45770h = j4;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int k2 = m.k(TbadkCoreApplication.getInst());
-                    int i2 = m.i(TbadkCoreApplication.getInst());
+                    int k2 = n.k(TbadkCoreApplication.getInst());
+                    int i2 = n.i(TbadkCoreApplication.getInst());
                     float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                     int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                     RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                    requestGetMyPostNetMessage.setProZone(this.f45580e.getProZone());
-                    requestGetMyPostNetMessage.setParams(this.f45581f, this.f45582g, this.f45583h, k2, i2, f2, i3);
+                    requestGetMyPostNetMessage.setProZone(this.f45767e.getProZone());
+                    requestGetMyPostNetMessage.setParams(this.f45768f, this.f45769g, this.f45770h, k2, i2, f2, i3);
                     requestGetMyPostNetMessage.setCallFrom(1);
-                    this.f45584i.a.sendMessage(requestGetMyPostNetMessage);
+                    this.f45771i.a.sendMessage(requestGetMyPostNetMessage);
                 }
             }
         }
@@ -423,10 +423,10 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
                 y0 y0Var = new y0();
                 y0Var.S2(writeData);
-                if (this.a.f45568e == null || !this.a.f45568e.isInit()) {
+                if (this.a.f45755e == null || !this.a.f45755e.isInit()) {
                     return;
                 }
-                this.a.f45568e.insertOneThread(y0Var);
+                this.a.f45755e.insertOneThread(y0Var);
             }
         }
     }
@@ -485,7 +485,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
                         if (z || getMyPostHttpResponseMessage.getError() == 0) {
-                            this.a.e(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                            this.a.f(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                             return;
                         }
                         return;
@@ -497,7 +497,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
                         if (z || getMyPostSocketResponseMessage.getError() == 0) {
-                            this.a.e(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                            this.a.f(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                             return;
                         }
                         return;
@@ -525,37 +525,37 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 return;
             }
         }
-        this.f45571h = false;
-        this.f45573j = new a(this, 2001115);
-        this.f45574k = new b(this);
+        this.f45758h = false;
+        this.f45760j = new a(this, 2001115);
+        this.f45761k = new b(this);
         this.l = new c(this, 2921414);
         this.m = new d(this, 2001383);
         this.n = new e(this, 2921650);
         this.o = new f(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
     }
 
-    @Override // c.a.s0.d1.o0
+    @Override // c.a.t0.d1.o0
     public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ConcernPageView concernPageView = this.f45568e;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView == null || !concernPageView.isInit()) {
                 return;
             }
-            this.f45568e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.f45755e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void completePullRefresh() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.f45568e) != null && concernPageView.isInit()) {
-            this.f45568e.completePullRefresh();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.f45755e) != null && concernPageView.isInit()) {
+            this.f45755e.completePullRefresh();
         }
     }
 
-    public final void e(int i2, String str, GetMyPostResIdl getMyPostResIdl) {
+    public final void f(int i2, String str, GetMyPostResIdl getMyPostResIdl) {
         User_Info user_Info;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, getMyPostResIdl) == null) {
@@ -570,7 +570,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
             y0 y0Var = new y0();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
-            f(builder2, getMyPostResIdl.data.user_info);
+            i(builder2, getMyPostResIdl.data.user_info);
             User user = builder.author;
             if (user == null || TextUtils.isEmpty(user.name)) {
                 builder.author = builder2.build(true);
@@ -582,13 +582,39 @@ public class ConcernFragment extends BaseFragment implements o0 {
             builder.fname = g.k().m();
             builder.fid = Long.valueOf(c.a.d.f.m.b.g(g.k().m(), 0L));
             y0Var.c3(builder.build(true));
-            this.f45568e.insertOneThread(y0Var);
+            this.f45755e.insertOneThread(y0Var);
         }
     }
 
-    public final void f(User.Builder builder, User_Info user_Info) {
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.s0.q0.a
+    public String getCurrentPageKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, builder, user_Info) == null) || user_Info == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a038" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.s0.q0.a
+    public List<String> getCurrentPageSourceKeyList() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (super.getCurrentPageSourceKeyList() != null) {
+                arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
+            } else {
+                arrayList = new ArrayList();
+            }
+            if (!"a001".equals(ListUtils.getItem(arrayList, arrayList.size() - 1))) {
+                arrayList.add("a001");
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void i(User.Builder builder, User_Info user_Info) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, builder, user_Info) == null) || user_Info == null) {
             return;
         }
         Long l = user_Info.id;
@@ -610,32 +636,6 @@ public class ConcernFragment extends BaseFragment implements o0 {
         builder.new_god_data = user_Info.new_god_data;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.r0.p0.a
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a038" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.r0.p0.a
-    public List<String> getCurrentPageSourceKeyList() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (super.getCurrentPageSourceKeyList() != null) {
-                arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
-            } else {
-                arrayList = new ArrayList();
-            }
-            if (!"a001".equals(ListUtils.getItem(arrayList, arrayList.size() - 1))) {
-                arrayList.add("a001");
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -645,7 +645,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
             this.m.setSelfListener(true);
             this.o.getHttpMessageListener().setSelfListener(true);
             this.o.getSocketMessageListener().setSelfListener(true);
-            ConcernPageView concernPageView = this.f45568e;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView == null || !concernPageView.isInit()) {
                 return;
             }
@@ -660,11 +660,11 @@ public class ConcernFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             super.onChangeSkinType(i2);
-            ConcernPageView concernPageView = this.f45568e;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView == null || !concernPageView.isInit()) {
                 return;
             }
-            this.f45568e.onChangeSkinType(i2);
+            this.f45755e.onChangeSkinType(i2);
         }
     }
 
@@ -674,22 +674,22 @@ public class ConcernFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5022);
-            if (this.f45568e.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f45568e.getParent()).removeView(this.f45568e);
-                ConcernPageView.l lVar = this.f45569f;
+            if (this.f45755e.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.f45755e.getParent()).removeView(this.f45755e);
+                ConcernPageView.l lVar = this.f45756f;
                 if (lVar != null) {
-                    this.f45568e.setCallback(lVar);
+                    this.f45755e.setCallback(lVar);
                 }
             }
-            if (this.f45568e.isInit()) {
-                this.f45568e.setPageUniqueId(getUniqueId());
-                if (this.f45571h) {
-                    this.f45568e.initListeners();
-                    this.f45571h = false;
+            if (this.f45755e.isInit()) {
+                this.f45755e.setPageUniqueId(getUniqueId());
+                if (this.f45758h) {
+                    this.f45755e.initListeners();
+                    this.f45758h = false;
                 }
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CONCERN_TAB_ON_CREATE_VIEW_END_STAMP_KEY);
-            return this.f45568e;
+            return this.f45755e;
         }
         return (View) invokeLLL.objValue;
     }
@@ -701,11 +701,11 @@ public class ConcernFragment extends BaseFragment implements o0 {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.m);
             MessageManager.getInstance().unRegisterListener(this.n);
-            ConcernPageView concernPageView = this.f45568e;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView != null && concernPageView.isInit()) {
-                this.f45568e.onDestroy();
+                this.f45755e.onDestroy();
             }
-            this.f45571h = true;
+            this.f45758h = true;
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
         }
     }
@@ -714,20 +714,20 @@ public class ConcernFragment extends BaseFragment implements o0 {
     public void onDetach() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f45573j);
+            MessageManager.getInstance().unRegisterListener(this.f45760j);
             MessageManager.getInstance().unRegisterListener(this.l);
             super.onDetach();
         }
     }
 
-    @Override // c.a.s0.d1.o0
+    @Override // c.a.t0.d1.o0
     public void onPageOutEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
         }
     }
 
-    @Override // c.a.s0.d1.o0
+    @Override // c.a.t0.d1.o0
     public void onPageStartIn() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -739,7 +739,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            this.f45568e.setTabInForeBackgroundState(true);
+            this.f45755e.setTabInForeBackgroundState(true);
         }
     }
 
@@ -749,33 +749,33 @@ public class ConcernFragment extends BaseFragment implements o0 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (!this.f45572i) {
-                    ConcernPageView concernPageView = this.f45568e;
+                if (!this.f45759i) {
+                    ConcernPageView concernPageView = this.f45755e;
                     if (concernPageView != null) {
                         if (!concernPageView.isInit()) {
-                            this.f45568e.init(getContext());
-                            if (!c.a.r0.b.d.E()) {
-                                this.f45568e.removeAllViews();
-                                this.f45568e.showRealView();
+                            this.f45755e.init(getContext());
+                            if (!c.a.s0.b.d.G()) {
+                                this.f45755e.removeAllViews();
+                                this.f45755e.showRealView();
                             }
-                            this.f45568e.initListeners();
-                            registerListener(this.f45573j);
+                            this.f45755e.initListeners();
+                            registerListener(this.f45760j);
                             registerListener(this.l);
-                            this.f45568e.setScrollFragmentTabHost(this.f45570g);
-                            this.f45568e.setPageUniqueId(getUniqueId());
+                            this.f45755e.setScrollFragmentTabHost(this.f45757g);
+                            this.f45755e.setPageUniqueId(getUniqueId());
                             registerListener(this.m);
                             registerListener(this.o);
                             registerListener(this.n);
-                            this.f45568e.setTabInForeBackgroundState(false);
+                            this.f45755e.setTabInForeBackgroundState(false);
                         }
-                        this.f45568e.firstLoad();
+                        this.f45755e.firstLoad();
                     }
-                    this.f45572i = true;
+                    this.f45759i = true;
                 }
-                this.f45568e.setViewForeground();
+                this.f45755e.setViewForeground();
                 return;
             }
-            this.f45568e.onViewBackGround();
+            this.f45755e.onViewBackGround();
             completePullRefresh();
         }
     }
@@ -786,7 +786,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5024);
             super.onResume();
-            ConcernPageView concernPageView = this.f45568e;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView != null) {
                 concernPageView.onResume();
             }
@@ -794,32 +794,32 @@ public class ConcernFragment extends BaseFragment implements o0 {
         }
     }
 
-    @Override // c.a.s0.d1.o0
+    @Override // c.a.t0.d1.o0
     public void refreshPage() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f45572i && (concernPageView = this.f45568e) != null && concernPageView.isInit()) {
-            this.f45568e.reload();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.f45759i && (concernPageView = this.f45755e) != null && concernPageView.isInit()) {
+            this.f45755e.reload();
         }
     }
 
     public void setCallback(ConcernPageView.l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, lVar) == null) {
-            this.f45569f = lVar;
-            this.f45568e.setCallback(lVar);
+            this.f45756f = lVar;
+            this.f45755e.setCallback(lVar);
         }
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, scrollFragmentTabHost) == null) {
-            this.f45570g = scrollFragmentTabHost;
-            ConcernPageView concernPageView = this.f45568e;
+            this.f45757g = scrollFragmentTabHost;
+            ConcernPageView concernPageView = this.f45755e;
             if (concernPageView == null || !concernPageView.isInit()) {
                 return;
             }
-            this.f45568e.setScrollFragmentTabHost(scrollFragmentTabHost);
+            this.f45755e.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 
@@ -832,15 +832,15 @@ public class ConcernFragment extends BaseFragment implements o0 {
     public void startRedDotLoad() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (concernPageView = this.f45568e) != null && concernPageView.isInit()) {
-            this.f45568e.redDotLoad();
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (concernPageView = this.f45755e) != null && concernPageView.isInit()) {
+            this.f45755e.redDotLoad();
         }
     }
 
     public void updateData(tbclient.Userlike.DataRes dataRes, boolean z) {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048597, this, dataRes, z) == null) || (concernPageView = this.f45568e) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048597, this, dataRes, z) == null) || (concernPageView = this.f45755e) == null) {
             return;
         }
         concernPageView.updateData(dataRes, z);
@@ -849,7 +849,7 @@ public class ConcernFragment extends BaseFragment implements o0 {
     public void updateError(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, str, i2) == null) {
-            this.f45568e.updateError(str, i2);
+            this.f45755e.updateError(str, i2);
         }
     }
 
@@ -869,15 +869,15 @@ public class ConcernFragment extends BaseFragment implements o0 {
                 return;
             }
         }
-        this.f45571h = false;
-        this.f45573j = new a(this, 2001115);
-        this.f45574k = new b(this);
+        this.f45758h = false;
+        this.f45760j = new a(this, 2001115);
+        this.f45761k = new b(this);
         this.l = new c(this, 2921414);
         this.m = new d(this, 2001383);
         this.n = new e(this, 2921650);
         this.o = new f(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
         SpeedStatsManager.getInstance().addStatsTimeStamp(5020);
-        this.f45568e = new ConcernPageView(context);
+        this.f45755e = new ConcernPageView(context);
         SpeedStatsManager.getInstance().addStatsTimeStamp(5021);
     }
 }

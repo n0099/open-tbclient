@@ -124,7 +124,7 @@ public final class RimStatisticsUtil {
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.baidu.fsg.base.a.f34608h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) ? com.baidu.fsg.base.a.f34764h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {

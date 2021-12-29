@@ -4,42 +4,24 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
-public class ClientConfigManagerImpl implements e {
+public class ClientConfigManagerImpl implements d {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final Object SLOCK;
     public static final String TAG = "ClientConfigManager";
     public static volatile ClientConfigManagerImpl sClientConfigManagerImpl;
     public transient /* synthetic */ FieldHolder $fh;
     public a mAppConfigSettings;
     public Context mContext;
-    public f mPushConfigSettings;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(542586068, "Lcom/vivo/push/cache/ClientConfigManagerImpl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(542586068, "Lcom/vivo/push/cache/ClientConfigManagerImpl;");
-                return;
-            }
-        }
-        SLOCK = new Object();
-    }
+    public e mPushConfigSettings;
 
     public ClientConfigManagerImpl(Context context) {
         Interceptable interceptable = $ic;
@@ -47,39 +29,39 @@ public class ClientConfigManagerImpl implements e {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = context.getApplicationContext();
+        this.mContext = ContextDelegate.getContext(context);
         this.mAppConfigSettings = new a(this.mContext);
-        this.mPushConfigSettings = new f(this.mContext);
+        this.mPushConfigSettings = new e(this.mContext);
     }
 
-    public static ClientConfigManagerImpl getInstance(Context context) {
+    public static synchronized ClientConfigManagerImpl getInstance(Context context) {
         InterceptResult invokeL;
+        ClientConfigManagerImpl clientConfigManagerImpl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (sClientConfigManagerImpl == null) {
-                synchronized (SLOCK) {
-                    if (sClientConfigManagerImpl == null) {
-                        sClientConfigManagerImpl = new ClientConfigManagerImpl(context);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (ClientConfigManagerImpl.class) {
+                if (sClientConfigManagerImpl == null) {
+                    sClientConfigManagerImpl = new ClientConfigManagerImpl(context);
                 }
+                clientConfigManagerImpl = sClientConfigManagerImpl;
             }
-            return sClientConfigManagerImpl;
+            return clientConfigManagerImpl;
         }
         return (ClientConfigManagerImpl) invokeL.objValue;
     }
 
     private void prepareAppConfig() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             a aVar = this.mAppConfigSettings;
             if (aVar == null) {
                 this.mAppConfigSettings = new a(this.mContext);
@@ -89,19 +71,19 @@ public class ClientConfigManagerImpl implements e {
         }
     }
 
-    private f preparePushConfigSettings() {
+    private e preparePushConfigSettings() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            f fVar = this.mPushConfigSettings;
-            if (fVar == null) {
-                this.mPushConfigSettings = new f(this.mContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            e eVar = this.mPushConfigSettings;
+            if (eVar == null) {
+                this.mPushConfigSettings = new e(this.mContext);
             } else {
-                fVar.c();
+                eVar.c();
             }
             return this.mPushConfigSettings;
         }
-        return (f) invokeV.objValue;
+        return (e) invokeV.objValue;
     }
 
     public void clearPush() {
@@ -174,7 +156,7 @@ public class ClientConfigManagerImpl implements e {
                     }
                 }
             }
-            p.d(TAG, " initWhiteLogList " + hashSet);
+            p.d(TAG, " initWhiteLogList ".concat(String.valueOf(hashSet)));
             return hashSet;
         }
         return (Set) invokeV.objValue;
@@ -230,7 +212,7 @@ public class ClientConfigManagerImpl implements e {
         return invokeV.booleanValue;
     }
 
-    @Override // com.vivo.push.cache.e
+    @Override // com.vivo.push.cache.d
     public boolean isInBlackList(long j2) {
         InterceptResult invokeJ;
         String[] split;

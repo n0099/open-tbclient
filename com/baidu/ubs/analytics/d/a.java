@@ -13,20 +13,20 @@ public final class a {
     public static final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f52048b;
+    public static final String f52304b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f52049c;
+    public static final String f52305c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f52050d;
+    public static int f52306d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public static final class EnumC1948a {
+    public static final class EnumC1955a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -64,16 +64,16 @@ public final class a {
             }
         }
         a = Environment.getExternalStorageDirectory().getPath();
-        f52048b = a + "/baidu/ab/crash/";
-        f52049c = a + "/baidu/ab/sdklog/";
+        f52304b = a + "/baidu/ab/crash/";
+        f52305c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f52050d = EnumC1948a.aV;
+        f52306d = EnumC1955a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f52050d == EnumC1948a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f52306d == EnumC1955a.aV : invokeV.booleanValue;
     }
 
     public static int b() {

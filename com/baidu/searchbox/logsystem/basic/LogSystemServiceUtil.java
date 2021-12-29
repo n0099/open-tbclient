@@ -7,7 +7,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;

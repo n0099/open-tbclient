@@ -12,13 +12,13 @@ public class i {
     public static final float[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float[] f1303b;
+    public static final float[] f1696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float[] f1304c;
+    public static final float[] f1697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final float[] f1305d;
+    public static final float[] f1698d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -75,9 +75,9 @@ public class i {
             }
         }
         a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
-        f1303b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
-        f1304c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
-        f1305d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+        f1696b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
+        f1697c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
+        f1698d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
     }
 
     public static float a(float f2) {
@@ -93,13 +93,13 @@ public class i {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             int i2 = a.a[rotation.ordinal()];
             if (i2 == 1) {
-                fArr = f1303b;
+                fArr = f1696b;
             } else if (i2 == 2) {
-                fArr = f1304c;
+                fArr = f1697c;
             } else if (i2 != 3) {
                 fArr = a;
             } else {
-                fArr = f1305d;
+                fArr = f1698d;
             }
             if (z) {
                 fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};

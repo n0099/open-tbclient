@@ -11,19 +11,19 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2312b;
+    public String f2739b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2313c;
+    public int f2740c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2314d;
+    public String f2741d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2315e;
+    public int f2742e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2316f;
+    public long f2743f;
 
     public h() {
         Interceptable interceptable = $ic;

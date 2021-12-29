@@ -19,7 +19,7 @@ public class JsCallback {
     public WeakReference a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63213b;
+    public String f63208b;
 
     /* loaded from: classes4.dex */
     public class JsCallbackException extends Exception {
@@ -63,7 +63,7 @@ public class JsCallback {
             }
         }
         this.a = new WeakReference(webView);
-        this.f63213b = str;
+        this.f63208b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -107,7 +107,7 @@ public class JsCallback {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f63213b, jSONObject2.toString());
+            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f63208b, jSONObject2.toString());
             if (AsyncTaskExecutor.isMainThread()) {
                 webView.loadUrl(format);
             } else {
@@ -117,7 +117,7 @@ public class JsCallback {
                     public final /* synthetic */ WebView a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f63214b;
+                    public final /* synthetic */ String f63209b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -135,14 +135,14 @@ public class JsCallback {
                             }
                         }
                         this.a = webView;
-                        this.f63214b = format;
+                        this.f63209b = format;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.loadUrl(this.f63214b);
+                            this.a.loadUrl(this.f63209b);
                         }
                     }
                 });

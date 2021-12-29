@@ -30,7 +30,7 @@ import com.tachikoma.core.utility.TKConverter;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKText extends TKBase<AppCompatTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

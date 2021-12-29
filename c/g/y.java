@@ -49,10 +49,10 @@ public class y implements z.a<j> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar) == null) {
             j jVar2 = jVar;
             LogPrinter.v("Update SerialSlotId:%s", jVar2.a);
-            HashMap<String, p> hashMap = this.a.f29307c;
+            HashMap<String, p> hashMap = this.a.f29384c;
             String str = jVar2.a;
             hashMap.put(str, new p(str, new w(this, jVar2)));
-            n nVar = this.a.f29306b;
+            n nVar = this.a.f29383b;
             synchronized (nVar.a) {
                 nVar.a(jVar2.a).add(new n.b(jVar2));
             }

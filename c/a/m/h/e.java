@@ -13,10 +13,10 @@ public abstract class e {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4027b;
+    public int f4363b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4028c;
+    public int f4364c;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -43,12 +43,12 @@ public abstract class e {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4028c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4364c : invokeV.intValue;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4027b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4363b : invokeV.intValue;
     }
 }

@@ -11,70 +11,71 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.s0.z2.p;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.s0.s.q.d2;
+import c.a.t0.z2.t;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
+import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaVideoContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable A;
-    public TbCyberVideoView.h B;
-    public CyberPlayerManager.OnErrorListener C;
+    public c.a.t0.z2.v.a A;
+    public Runnable B;
+    public TbVideoViewContainer.a C;
     public Runnable D;
     public Runnable E;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f43763e;
+    public View f43951e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.s0.g0.e0.a f43764f;
+    public c.a.t0.g0.e0.a f43952f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCyberVideoView f43765g;
+    public TbVideoViewContainer f43953g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f43766h;
+    public c.a.t0.z2.g f43954h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f43767i;
+    public TbImageView f43955i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f43768j;
+    public View f43956j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TBLottieAnimationView f43769k;
-    public TextView l;
-    public FrameLayout m;
-    public Animation n;
-    public AudioAnimationView o;
-    public View p;
-    public TextView q;
-    public View r;
-    public TextView s;
-    public View.OnClickListener t;
-    public LinearLayout u;
-    public TextView v;
-    public int w;
-    public TbImageView.g x;
-    public View.OnClickListener y;
-    public CyberPlayerManager.OnPreparedListener z;
+    public TextView f43957k;
+    public TBLottieAnimationView l;
+    public TextView m;
+    public FrameLayout n;
+    public Animation o;
+    public AudioAnimationView p;
+    public View q;
+    public TextView r;
+    public View s;
+    public TextView t;
+    public View.OnClickListener u;
+    public LinearLayout v;
+    public TextView w;
+    public int x;
+    public TbImageView.g y;
+    public View.OnClickListener z;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements TbImageView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,8 +102,8 @@ public class AlaVideoContainer extends LinearLayout {
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void a(String str, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.a.f43766h != null) {
-                this.a.f43766h.setDefaultBgResource(0);
+            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z && this.a.f43955i != null) {
+                this.a.f43955i.setDefaultBgResource(0);
             }
         }
 
@@ -114,13 +115,13 @@ public class AlaVideoContainer extends LinearLayout {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43770e;
+        public final /* synthetic */ AlaVideoContainer f43958e;
 
         public b(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -137,32 +138,32 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43770e = alaVideoContainer;
+            this.f43958e = alaVideoContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f43770e.f43763e.getId()) {
-                if (k.z()) {
-                    if (this.f43770e.t != null) {
-                        this.f43770e.t.onClick(view);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == this.f43958e.f43951e.getId()) {
+                if (l.z()) {
+                    if (this.f43958e.u != null) {
+                        this.f43958e.u.onClick(view);
                         return;
                     }
                     return;
                 }
-                m.J(this.f43770e.getContext(), this.f43770e.getContext().getString(R.string.no_network_guide));
+                n.J(this.f43958e.getContext(), this.f43958e.getContext().getString(R.string.no_network_guide));
             }
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class c implements CyberPlayerManager.OnPreparedListener {
+    /* loaded from: classes12.dex */
+    public class c implements c.a.t0.z2.v.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43771e;
+        public final /* synthetic */ AlaVideoContainer f43959e;
 
         public c(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -179,33 +180,229 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43771e = alaVideoContainer;
+            this.f43959e = alaVideoContainer;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void changeRenderViewMode(int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public int getCurrentPosition() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public View getMainView() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (View) invokeV.objValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public boolean isFullScreen() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public boolean isPlaying() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public boolean onBackPress() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public boolean onBackground(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                return false;
+            }
+            return invokeZ.booleanValue;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+        public void onCompletion() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+        public boolean onError(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i2, i3, obj)) == null) {
+                c.a.d.f.m.e.a().post(this.f43959e.E);
+                return false;
+            }
+            return invokeIIL.booleanValue;
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+        public boolean onInfo(int i2, int i3, Object obj) {
+            InterceptResult invokeIIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i2, i3, obj)) == null) {
+                return false;
+            }
+            return invokeIIL.booleanValue;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f43771e.f43765g != null) {
-                    this.f43771e.f43765g.setLooping(true);
-                    this.f43771e.f43765g.setVolume(0.0f, 0.0f);
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                if (this.f43959e.f43954h != null) {
+                    this.f43959e.f43954h.setLooping(true);
+                    this.f43959e.f43954h.setVolume(0.0f, 0.0f);
                 }
-                this.f43771e.o.start();
-                this.f43771e.m.setVisibility(8);
-                this.f43771e.f43766h.setVisibility(8);
-                c.a.d.f.m.e.a().postDelayed(this.f43771e.A, 3000L);
-                c.a.d.f.m.e.a().removeCallbacks(this.f43771e.E);
+                this.f43959e.p.start();
+                this.f43959e.n.setVisibility(8);
+                this.f43959e.f43955i.setVisibility(8);
+                c.a.d.f.m.e.a().postDelayed(this.f43959e.B, 3000L);
+                c.a.d.f.m.e.a().removeCallbacks(this.f43959e.E);
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void onScroll() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+        public void onSeekComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.play.TbVideoViewContainer.a
+        public void onSurfaceDestroyed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public boolean onVolumeUp() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setAfterClickListener(View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setData(d2 d2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048593, this, d2Var) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setFrom(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setStageType(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setStatistic(t tVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048597, this, tVar) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void setUniqueId(BdUniqueId bdUniqueId) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void startPlay() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            }
+        }
+
+        @Override // c.a.t0.z2.v.a
+        public void stopPlay() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43772e;
+        public final /* synthetic */ AlaVideoContainer f43960e;
 
         public d(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -222,26 +419,26 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43772e = alaVideoContainer;
+            this.f43960e = alaVideoContainer;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43772e.f43767i == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43960e.f43956j == null) {
                 return;
             }
-            this.f43772e.f43767i.startAnimation(this.f43772e.n);
+            this.f43960e.f43956j.startAnimation(this.f43960e.o);
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class e implements TbCyberVideoView.h {
+    /* loaded from: classes12.dex */
+    public class e implements TbVideoViewContainer.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43773e;
+        public final /* synthetic */ AlaVideoContainer f43961e;
 
         public e(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -258,25 +455,25 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43773e = alaVideoContainer;
+            this.f43961e = alaVideoContainer;
         }
 
-        @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.h
+        @Override // com.baidu.tieba.play.TbVideoViewContainer.a
         public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43773e.resetUI();
+                this.f43961e.resetUI();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
-    public class f implements CyberPlayerManager.OnErrorListener {
+    /* loaded from: classes12.dex */
+    public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43774e;
+        public final /* synthetic */ AlaVideoContainer f43962e;
 
         public f(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -293,28 +490,25 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43774e = alaVideoContainer;
+            this.f43962e = alaVideoContainer;
         }
 
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
-        public boolean onError(int i2, int i3, Object obj) {
-            InterceptResult invokeIIL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                c.a.d.f.m.e.a().post(this.f43774e.E);
-                return false;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f43962e.resetUI();
             }
-            return invokeIIL.booleanValue;
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43775e;
+        public final /* synthetic */ AlaVideoContainer f43963e;
 
         public g(AlaVideoContainer alaVideoContainer) {
             Interceptable interceptable = $ic;
@@ -331,51 +525,16 @@ public class AlaVideoContainer extends LinearLayout {
                     return;
                 }
             }
-            this.f43775e = alaVideoContainer;
+            this.f43963e = alaVideoContainer;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43775e.resetUI();
-            }
-        }
-    }
-
-    /* loaded from: classes11.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaVideoContainer f43776e;
-
-        public h(AlaVideoContainer alaVideoContainer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {alaVideoContainer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f43776e = alaVideoContainer;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43776e.p.setVisibility(0);
-                this.f43776e.m.setVisibility(8);
-                c.a.d.f.m.e.a().postDelayed(this.f43776e.D, 2000L);
+                this.f43963e.q.setVisibility(0);
+                this.f43963e.n.setVisibility(8);
+                c.a.d.f.m.e.a().postDelayed(this.f43963e.D, 2000L);
             }
         }
     }
@@ -398,43 +557,42 @@ public class AlaVideoContainer extends LinearLayout {
                 return;
             }
         }
-        this.w = 3;
-        this.x = new a(this);
-        this.y = new b(this);
-        this.z = new c(this);
-        this.A = new d(this);
-        this.B = new e(this);
-        this.C = new f(this);
-        this.D = new g(this);
-        this.E = new h(this);
+        this.x = 3;
+        this.y = new a(this);
+        this.z = new b(this);
+        this.A = new c(this);
+        this.B = new d(this);
+        this.C = new e(this);
+        this.D = new f(this);
+        this.E = new g(this);
         init();
     }
 
     public void cancelPlayAnimation() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tBLottieAnimationView = this.f43769k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (tBLottieAnimationView = this.l) == null) {
             return;
         }
         tBLottieAnimationView.cancelAnimation();
     }
 
-    public c.a.s0.g0.e0.a getController() {
+    public c.a.t0.g0.e0.a getController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43764f : (c.a.s0.g0.e0.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43952f : (c.a.t0.g0.e0.a) invokeV.objValue;
     }
 
-    public TbCyberVideoView getVideoView() {
+    public c.a.t0.z2.g getVideoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43765g : (TbCyberVideoView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43954h : (c.a.t0.z2.g) invokeV.objValue;
     }
 
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43763e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43951e : (View) invokeV.objValue;
     }
 
     public void init() {
@@ -442,48 +600,49 @@ public class AlaVideoContainer extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_video_card_item_new, (ViewGroup) this, true);
             View findViewById = inflate.findViewById(R.id.video_container);
-            this.f43763e = findViewById;
-            findViewById.setOnClickListener(this.y);
-            TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) inflate.findViewById(R.id.video_view);
-            this.f43765g = tbCyberVideoView;
-            tbCyberVideoView.setStageType(null);
-            ViewGroup.LayoutParams layoutParams = this.f43765g.getLayoutParams();
-            layoutParams.height = (this.f43765g.getWidth() * 9) / 16;
-            this.f43765g.setLayoutParams(layoutParams);
-            this.f43765g.setOnPreparedListener(this.z);
-            this.f43765g.setOnSurfaceDestroyedListener(this.B);
-            this.f43765g.setOnErrorListener(this.C);
+            this.f43951e = findViewById;
+            findViewById.setOnClickListener(this.z);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.video_view);
+            this.f43953g = tbVideoViewContainer;
+            c.a.t0.z2.g control = tbVideoViewContainer.getControl();
+            this.f43954h = control;
+            control.setStageType(null);
+            ViewGroup.LayoutParams layoutParams = this.f43953g.getLayoutParams();
+            layoutParams.height = (this.f43953g.getWidth() * 9) / 16;
+            this.f43953g.setLayoutParams(layoutParams);
+            this.f43954h.setOperableVideoContainer(this.A);
+            this.f43954h.setOnSurfaceDestroyedListener(this.C);
             TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.img_thumbnail);
-            this.f43766h = tbImageView;
+            this.f43955i = tbImageView;
             tbImageView.setDrawCorner(true);
-            this.f43766h.setPlaceHolder(3);
-            this.f43766h.setEvent(this.x);
-            this.f43766h.setGifIconSupport(false);
-            this.f43766h.setConrers(15);
-            this.f43766h.setRadius(m.f(getContext(), R.dimen.tbds10));
-            this.f43766h.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.f43766h.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f43766h.setBorderSurroundContent(true);
-            this.f43766h.setDrawBorder(true);
-            this.f43767i = inflate.findViewById(R.id.layout_title);
-            this.f43768j = (TextView) inflate.findViewById(R.id.tv_title);
+            this.f43955i.setPlaceHolder(3);
+            this.f43955i.setEvent(this.y);
+            this.f43955i.setGifIconSupport(false);
+            this.f43955i.setConrers(15);
+            this.f43955i.setRadius(n.f(getContext(), R.dimen.tbds10));
+            this.f43955i.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+            this.f43955i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f43955i.setBorderSurroundContent(true);
+            this.f43955i.setDrawBorder(true);
+            this.f43956j = inflate.findViewById(R.id.layout_title);
+            this.f43957k = (TextView) inflate.findViewById(R.id.tv_title);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.img_play);
-            this.f43769k = tBLottieAnimationView;
+            this.l = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.m = (FrameLayout) inflate.findViewById(R.id.layout_loading);
-            this.n = AnimationUtils.loadAnimation(getContext(), R.anim.video_title_fade_out);
+            this.n = (FrameLayout) inflate.findViewById(R.id.layout_loading);
+            this.o = AnimationUtils.loadAnimation(getContext(), R.anim.video_title_fade_out);
             AudioAnimationView audioAnimationView = (AudioAnimationView) inflate.findViewById(R.id.playing_indicator);
-            this.o = audioAnimationView;
+            this.p = audioAnimationView;
             audioAnimationView.setCertainColumnCount(4);
-            this.o.setColumnColor(R.color.CAM_X0302);
-            this.p = inflate.findViewById(R.id.layout_error);
-            this.q = (TextView) inflate.findViewById(R.id.video_error_tips);
-            this.r = inflate.findViewById(R.id.layout_live_end);
-            this.s = (TextView) inflate.findViewById(R.id.video_live_end_tips);
-            this.u = (LinearLayout) inflate.findViewById(R.id.llAlaLivingLogLayout);
-            this.v = (TextView) inflate.findViewById(R.id.tvAlaLivingLogView);
-            this.f43764f = new c.a.s0.g0.e0.a(this);
-            this.l = (TextView) inflate.findViewById(R.id.play_count);
+            this.p.setColumnColor(R.color.CAM_X0302);
+            this.q = inflate.findViewById(R.id.layout_error);
+            this.r = (TextView) inflate.findViewById(R.id.video_error_tips);
+            this.s = inflate.findViewById(R.id.layout_live_end);
+            this.t = (TextView) inflate.findViewById(R.id.video_live_end_tips);
+            this.v = (LinearLayout) inflate.findViewById(R.id.llAlaLivingLogLayout);
+            this.w = (TextView) inflate.findViewById(R.id.tvAlaLivingLogView);
+            this.f43952f = new c.a.t0.g0.e0.a(this);
+            this.m = (TextView) inflate.findViewById(R.id.play_count);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -499,21 +658,21 @@ public class AlaVideoContainer extends LinearLayout {
 
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == this.w) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == this.x) {
             return;
         }
-        this.w = i2;
-        TextView textView = this.f43768j;
+        this.x = i2;
+        TextView textView = this.f43957k;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
         }
-        SkinManager.setLottieAnimation(this.f43769k, R.raw.ala_play);
-        SkinManager.setViewTextColor(this.q, R.color.CAM_X0101);
-        SkinManager.setBackgroundColor(this.p, R.color.black_alpha80);
-        SkinManager.setBackgroundColor(this.f43765g, R.color.black_alpha100);
-        SkinManager.setViewTextColor(this.s, R.color.CAM_X0101);
-        SkinManager.setBackgroundColor(this.r, R.color.black_alpha80);
-        SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
+        SkinManager.setLottieAnimation(this.l, R.raw.ala_play);
+        SkinManager.setViewTextColor(this.r, R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.q, R.color.black_alpha80);
+        SkinManager.setBackgroundColor(this.f43953g, R.color.black_alpha100);
+        SkinManager.setViewTextColor(this.t, R.color.CAM_X0101);
+        SkinManager.setBackgroundColor(this.s, R.color.black_alpha80);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0101);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -528,17 +687,17 @@ public class AlaVideoContainer extends LinearLayout {
     public void resetLiveEndUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f43766h.setVisibility(0);
-            this.f43769k.setVisibility(8);
-            this.m.setVisibility(8);
-            View view = this.f43767i;
+            this.f43955i.setVisibility(0);
+            this.l.setVisibility(8);
+            this.n.setVisibility(8);
+            View view = this.f43956j;
             if (view != null) {
                 view.clearAnimation();
             }
-            this.o.resetStartState();
-            this.p.setVisibility(8);
-            this.r.setVisibility(0);
-            c.a.d.f.m.e.a().removeCallbacks(this.A);
+            this.p.resetStartState();
+            this.q.setVisibility(8);
+            this.s.setVisibility(0);
+            c.a.d.f.m.e.a().removeCallbacks(this.B);
             c.a.d.f.m.e.a().removeCallbacks(this.D);
             c.a.d.f.m.e.a().removeCallbacks(this.E);
         }
@@ -547,17 +706,17 @@ public class AlaVideoContainer extends LinearLayout {
     public void resetUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f43766h.setVisibility(0);
-            this.f43769k.setVisibility(0);
-            this.m.setVisibility(8);
-            View view = this.f43767i;
+            this.f43955i.setVisibility(0);
+            this.l.setVisibility(0);
+            this.n.setVisibility(8);
+            View view = this.f43956j;
             if (view != null) {
                 view.clearAnimation();
             }
-            this.o.resetStartState();
-            this.p.setVisibility(8);
-            this.r.setVisibility(8);
-            c.a.d.f.m.e.a().removeCallbacks(this.A);
+            this.p.resetStartState();
+            this.q.setVisibility(8);
+            this.s.setVisibility(8);
+            c.a.d.f.m.e.a().removeCallbacks(this.B);
             c.a.d.f.m.e.a().removeCallbacks(this.D);
             c.a.d.f.m.e.a().removeCallbacks(this.E);
         }
@@ -566,35 +725,35 @@ public class AlaVideoContainer extends LinearLayout {
     public void setLigvingLogLayoutVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.u.setVisibility(i2);
+            this.v.setVisibility(i2);
         }
     }
 
     public void setLivingLogLeftDrawable(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.v.setCompoundDrawablesWithIntrinsicBounds(i2, 0, 0, 0);
+            this.w.setCompoundDrawablesWithIntrinsicBounds(i2, 0, 0, 0);
         }
     }
 
     public void setLivingLogText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.v.setText(i2);
+            this.w.setText(i2);
         }
     }
 
     public void setOnVideoClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
-            this.t = onClickListener;
+            this.u = onClickListener;
         }
     }
 
     public void setPlayCount(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || (textView = this.m) == null) {
             return;
         }
         textView.setText(str);
@@ -603,33 +762,33 @@ public class AlaVideoContainer extends LinearLayout {
     public void setTitle(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (textView = this.f43768j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, str) == null) || (textView = this.f43957k) == null) {
             return;
         }
         textView.setText(str);
     }
 
-    public void setVideoStatsData(p pVar) {
+    public void setVideoStatsData(t tVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, pVar) == null) {
-            this.f43765g.setVideoStatData(pVar);
+        if (interceptable == null || interceptable.invokeL(1048592, this, tVar) == null) {
+            this.f43954h.setVideoStatData(tVar);
         }
     }
 
     public void setVideoThumbnail(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f43766h.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f43766h.startLoad(str, 10, false);
+            this.f43955i.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.f43955i.startLoad(str, 10, false);
         }
     }
 
     public void showLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f43766h.setVisibility(0);
-            this.f43769k.setVisibility(8);
-            this.m.setVisibility(0);
+            this.f43955i.setVisibility(0);
+            this.l.setVisibility(8);
+            this.n.setVisibility(0);
             c.a.d.f.m.e.a().postDelayed(this.E, 60000L);
         }
     }
@@ -637,7 +796,7 @@ public class AlaVideoContainer extends LinearLayout {
     public void startPlayAnimation() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (tBLottieAnimationView = this.f43769k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (tBLottieAnimationView = this.l) == null) {
             return;
         }
         tBLottieAnimationView.playAnimation();
@@ -662,15 +821,14 @@ public class AlaVideoContainer extends LinearLayout {
                 return;
             }
         }
-        this.w = 3;
-        this.x = new a(this);
-        this.y = new b(this);
-        this.z = new c(this);
-        this.A = new d(this);
-        this.B = new e(this);
-        this.C = new f(this);
-        this.D = new g(this);
-        this.E = new h(this);
+        this.x = 3;
+        this.y = new a(this);
+        this.z = new b(this);
+        this.A = new c(this);
+        this.B = new d(this);
+        this.C = new e(this);
+        this.D = new f(this);
+        this.E = new g(this);
         init();
     }
 
@@ -693,15 +851,14 @@ public class AlaVideoContainer extends LinearLayout {
                 return;
             }
         }
-        this.w = 3;
-        this.x = new a(this);
-        this.y = new b(this);
-        this.z = new c(this);
-        this.A = new d(this);
-        this.B = new e(this);
-        this.C = new f(this);
-        this.D = new g(this);
-        this.E = new h(this);
+        this.x = 3;
+        this.y = new a(this);
+        this.z = new b(this);
+        this.A = new c(this);
+        this.B = new d(this);
+        this.C = new e(this);
+        this.D = new f(this);
+        this.E = new g(this);
         init();
     }
 }

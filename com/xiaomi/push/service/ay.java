@@ -48,10 +48,10 @@ public class ay extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av a = av.a();
             av.b bVar = this.a.f923a;
-            if (a.a(bVar.f63826g, bVar.f919b).f910a == null) {
-                XMPushService xMPushService = this.a.f63831b.f912a;
+            if (a.a(bVar.f63821g, bVar.f919b).f910a == null) {
+                XMPushService xMPushService = this.a.f63826b.f912a;
                 av.b bVar2 = this.a.f923a;
-                xMPushService.a(bVar2.f63826g, bVar2.f919b, 2, null, null);
+                xMPushService.a(bVar2.f63821g, bVar2.f919b, 2, null, null);
             }
         }
     }

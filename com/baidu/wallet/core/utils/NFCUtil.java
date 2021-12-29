@@ -23,10 +23,10 @@ public final class NFCUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f53012b;
+    public NfcAdapter f53015b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f53013c;
+    public PendingIntent f53016c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 

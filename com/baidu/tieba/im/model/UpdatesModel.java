@@ -2,10 +2,10 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.d1.k0;
-import c.a.r0.d1.n0;
-import c.a.r0.d1.s;
-import c.a.s0.s1.h.d;
+import c.a.s0.e1.k0;
+import c.a.s0.e1.n0;
+import c.a.s0.e1.s;
+import c.a.t0.s1.h.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -132,7 +132,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.r0.d1.k0
+            @Override // c.a.s0.e1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -163,7 +163,7 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.r0.d1.k0
+                @Override // c.a.s0.e1.k0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -207,7 +207,7 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.r0.d1.k0
+            @Override // c.a.s0.e1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -277,7 +277,7 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.r0.d1.k0
+                @Override // c.a.s0.e1.k0
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

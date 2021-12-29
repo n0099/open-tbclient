@@ -70,7 +70,7 @@ public class HWPushHelper {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f63273c);
+            String a4 = ae.a(context).a(at.f63268c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;

@@ -1,7 +1,7 @@
 package com.baidu.tieba.face.data;
 
 import android.text.TextUtils;
-import c.a.s0.x0.c.b;
+import c.a.t0.x0.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,14 +31,14 @@ public class SingleBarEmotionRecommendData implements Serializable, b {
         }
     }
 
-    @Override // c.a.s0.x0.c.b
+    @Override // c.a.t0.x0.c.b
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.cover) : invokeV.booleanValue;
     }
 
-    @Override // c.a.s0.x0.c.b
+    @Override // c.a.t0.x0.c.b
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

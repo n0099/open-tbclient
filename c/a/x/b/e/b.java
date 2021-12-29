@@ -20,34 +20,34 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26988b;
+    public String f27429b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f26989c;
+    public String f27430c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f26990d;
+    public String f27431d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26991e;
+    public int f27432e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26992f;
+    public int f27433f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f26993g;
+    public int f27434g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26994h;
+    public int f27435h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26995i;
+    public int f27436i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f26996j;
+    public int f27437j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f26997k;
+    public int f27438k;
     public String l;
     public String m;
     public String n;
@@ -139,13 +139,13 @@ public class b {
     public void d(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            this.f26991e = i2;
-            this.f26992f = i3;
-            this.f26993g = i4;
-            this.f26994h = i5;
-            this.f26995i = i6;
-            this.f26996j = i7;
-            this.f26997k = i8;
+            this.f27432e = i2;
+            this.f27433f = i3;
+            this.f27434g = i4;
+            this.f27435h = i5;
+            this.f27436i = i6;
+            this.f27437j = i7;
+            this.f27438k = i8;
         }
     }
 }

@@ -30,34 +30,34 @@ public class y {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1746b;
+    public int f2173b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1747c;
+    public int f2174c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f1748d;
+    public float[] f2175d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f1749e;
+    public float[] f2176e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f1750f;
+    public float[] f2177f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f1751g;
+    public float[] f2178g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int[] f1752h;
+    public int[] f2179h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int[] f1753i;
+    public int[] f2180i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int[] f1754j;
+    public int[] f2181j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f1755k;
+    public int f2182k;
     public VelocityTracker l;
     public float m;
     public float n;
@@ -107,7 +107,7 @@ public class y {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ y f1756e;
+        public final /* synthetic */ y f2183e;
 
         public b(y yVar) {
             Interceptable interceptable = $ic;
@@ -124,14 +124,14 @@ public class y {
                     return;
                 }
             }
-            this.f1756e = yVar;
+            this.f2183e = yVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1756e.G(0);
+                this.f2183e.G(0);
             }
         }
     }
@@ -245,7 +245,7 @@ public class y {
                 return;
             }
         }
-        this.f1747c = -1;
+        this.f2174c = -1;
         this.v = new b(this);
         if (viewGroup == null) {
             throw new IllegalArgumentException("Parent view may not be null");
@@ -255,7 +255,7 @@ public class y {
             this.r = cVar;
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.o = (int) ((context.getResources().getDisplayMetrics().density * 20.0f) + 0.5f);
-            this.f1746b = viewConfiguration.getScaledTouchSlop();
+            this.f2173b = viewConfiguration.getScaledTouchSlop();
             this.m = viewConfiguration.getScaledMaximumFlingVelocity();
             this.n = viewConfiguration.getScaledMinimumFlingVelocity();
             this.q = ScrollerCompat.create(context, w);
@@ -269,7 +269,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, Float.valueOf(f2), cVar})) == null) {
             y n = n(viewGroup, cVar);
-            n.f1746b = (int) (n.f1746b * (1.0f / f2));
+            n.f2173b = (int) (n.f2173b * (1.0f / f2));
             return n;
         }
         return (y) invokeCommon.objValue;
@@ -317,7 +317,7 @@ public class y {
                 View s = s((int) x, (int) y);
                 E(x, y, pointerId);
                 M(s, pointerId);
-                int i4 = this.f1752h[pointerId];
+                int i4 = this.f2179h[pointerId];
                 int i5 = this.p;
                 if ((i4 & i5) != 0) {
                     this.r.i(i4 & i5, pointerId);
@@ -329,16 +329,16 @@ public class y {
                 b();
             } else if (actionMasked == 2) {
                 if (this.a == 1) {
-                    int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, this.f1747c);
+                    int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, this.f2174c);
                     float v = v(motionEvent, findPointerIndex);
                     float w2 = w(motionEvent, findPointerIndex);
                     if (v == -1.0f || w2 == -1.0f) {
                         return;
                     }
-                    float[] fArr = this.f1750f;
-                    int i6 = this.f1747c;
+                    float[] fArr = this.f2177f;
+                    int i6 = this.f2174c;
                     int i7 = (int) (v - fArr[i6]);
-                    int i8 = (int) (w2 - this.f1751g[i6]);
+                    int i8 = (int) (w2 - this.f2178g[i6]);
                     q(this.s.getLeft() + i7, this.s.getTop() + i8, i7, i8);
                     F(motionEvent);
                     return;
@@ -349,8 +349,8 @@ public class y {
                     float v2 = v(motionEvent, i3);
                     float w3 = w(motionEvent, i3);
                     if (v2 != -1.0f && w3 != -1.0f) {
-                        float f2 = v2 - this.f1748d[pointerId2];
-                        float f3 = w3 - this.f1749e[pointerId2];
+                        float f2 = v2 - this.f2175d[pointerId2];
+                        float f3 = w3 - this.f2176e[pointerId2];
                         D(f2, f3, pointerId2);
                         if (this.a != 1) {
                             View s2 = s((int) v2, (int) w3);
@@ -381,7 +381,7 @@ public class y {
                 E(v3, w4, pointerId3);
                 if (this.a == 0) {
                     M(s((int) v3, (int) w4), pointerId3);
-                    int i9 = this.f1752h[pointerId3];
+                    int i9 = this.f2179h[pointerId3];
                     int i10 = this.p;
                     if ((i9 & i10) != 0) {
                         this.r.i(i9 & i10, pointerId3);
@@ -392,7 +392,7 @@ public class y {
             } else if (actionMasked != 6) {
             } else {
                 int pointerId4 = MotionEventCompat.getPointerId(motionEvent, actionIndex);
-                if (this.a == 1 && pointerId4 == this.f1747c) {
+                if (this.a == 1 && pointerId4 == this.f2174c) {
                     int pointerCount2 = MotionEventCompat.getPointerCount(motionEvent);
                     while (true) {
                         if (i3 >= pointerCount2) {
@@ -400,14 +400,14 @@ public class y {
                             break;
                         }
                         int pointerId5 = MotionEventCompat.getPointerId(motionEvent, i3);
-                        if (pointerId5 != this.f1747c) {
+                        if (pointerId5 != this.f2174c) {
                             float v4 = v(motionEvent, i3);
                             float w5 = w(motionEvent, i3);
                             if (v4 != -1.0f && w5 != -1.0f) {
                                 View s3 = s((int) v4, (int) w5);
                                 View view = this.s;
                                 if (s3 == view && M(view, pointerId5)) {
-                                    i2 = this.f1747c;
+                                    i2 = this.f2174c;
                                     break;
                                 }
                             } else {
@@ -426,7 +426,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.l.computeCurrentVelocity(1000, this.m);
-            o(f(VelocityTrackerCompat.getXVelocity(this.l, this.f1747c), this.n, this.m), f(VelocityTrackerCompat.getYVelocity(this.l, this.f1747c), this.n, this.m));
+            o(f(VelocityTrackerCompat.getXVelocity(this.l, this.f2174c), this.n, this.m), f(VelocityTrackerCompat.getYVelocity(this.l, this.f2174c), this.n, this.m));
         }
     }
 
@@ -444,7 +444,7 @@ public class y {
                 i3 |= 8;
             }
             if (i3 != 0) {
-                int[] iArr = this.f1753i;
+                int[] iArr = this.f2180i;
                 iArr[i2] = iArr[i2] | i3;
                 this.r.g(i3, i2);
             }
@@ -455,14 +455,14 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2)}) == null) {
             r(i2);
-            float[] fArr = this.f1748d;
-            this.f1750f[i2] = f2;
+            float[] fArr = this.f2175d;
+            this.f2177f[i2] = f2;
             fArr[i2] = f2;
-            float[] fArr2 = this.f1749e;
-            this.f1751g[i2] = f3;
+            float[] fArr2 = this.f2176e;
+            this.f2178g[i2] = f3;
             fArr2[i2] = f3;
-            this.f1752h[i2] = u((int) f2, (int) f3);
-            this.f1755k |= 1 << i2;
+            this.f2179h[i2] = u((int) f2, (int) f3);
+            this.f2182k |= 1 << i2;
         }
     }
 
@@ -477,8 +477,8 @@ public class y {
                 if (v == -1.0f || w2 == -1.0f) {
                     return;
                 }
-                this.f1750f[pointerId] = v;
-                this.f1751g[pointerId] = w2;
+                this.f2177f[pointerId] = v;
+                this.f2178g[pointerId] = w2;
             }
         }
     }
@@ -515,7 +515,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
             if (this.t) {
-                return t(i2, i3, (int) VelocityTrackerCompat.getXVelocity(this.l, this.f1747c), (int) VelocityTrackerCompat.getYVelocity(this.l, this.f1747c));
+                return t(i2, i3, (int) VelocityTrackerCompat.getXVelocity(this.l, this.f2174c), (int) VelocityTrackerCompat.getYVelocity(this.l, this.f2174c));
             }
             throw new IllegalStateException("Cannot settleCapturedViewAt outside of a call to Callback#onViewReleased");
         }
@@ -552,7 +552,7 @@ public class y {
                 if (s2 == this.s && this.a == 2) {
                     M(s2, pointerId);
                 }
-                int i2 = this.f1752h[pointerId];
+                int i2 = this.f2179h[pointerId];
                 int i3 = this.p;
                 if ((i2 & i3) != 0) {
                     this.r.i(i2 & i3, pointerId);
@@ -567,8 +567,8 @@ public class y {
                         float v = v(motionEvent, i4);
                         float w2 = w(motionEvent, i4);
                         if (v != f2 && w2 != f2) {
-                            float f3 = v - this.f1748d[pointerId2];
-                            float f4 = w2 - this.f1749e[pointerId2];
+                            float f3 = v - this.f2175d[pointerId2];
+                            float f4 = w2 - this.f2176e[pointerId2];
                             View s3 = s((int) v, (int) w2);
                             boolean z2 = s3 != null && e(s3, f3, f4);
                             if (z2) {
@@ -616,7 +616,7 @@ public class y {
                     E(v2, w3, pointerId3);
                     int i7 = this.a;
                     if (i7 == 0) {
-                        int i8 = this.f1752h[pointerId3];
+                        int i8 = this.f2179h[pointerId3];
                         int i9 = this.p;
                         if ((i8 & i9) != 0) {
                             this.r.i(i8 & i9, pointerId3);
@@ -640,7 +640,7 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, view, i2, i3)) == null) {
             this.s = view;
-            this.f1747c = -1;
+            this.f2174c = -1;
             boolean t = t(i2, i3, 0, 0);
             if (!t && this.a == 0 && this.s != null) {
                 this.s = null;
@@ -654,13 +654,13 @@ public class y {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, view, i2)) == null) {
-            if (view == this.s && this.f1747c == i2) {
+            if (view == this.s && this.f2174c == i2) {
                 return true;
             }
             if (view == null || !this.r.n(view, i2)) {
                 return false;
             }
-            this.f1747c = i2;
+            this.f2174c = i2;
             c(view, i2);
             return true;
         }
@@ -686,7 +686,7 @@ public class y {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f1747c = -1;
+            this.f2174c = -1;
             h();
             VelocityTracker velocityTracker = this.l;
             if (velocityTracker != null) {
@@ -702,7 +702,7 @@ public class y {
         if (interceptable == null || interceptable.invokeLI(1048591, this, view, i2) == null) {
             if (view.getParent() == this.u) {
                 this.s = view;
-                this.f1747c = i2;
+                this.f2174c = i2;
                 this.r.j(view, i2);
                 G(1);
                 return;
@@ -717,15 +717,15 @@ public class y {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             float abs = Math.abs(f2);
             float abs2 = Math.abs(f3);
-            if ((this.f1752h[i2] & i3) != i3 || (this.p & i3) == 0 || (this.f1754j[i2] & i3) == i3 || (this.f1753i[i2] & i3) == i3) {
+            if ((this.f2179h[i2] & i3) != i3 || (this.p & i3) == 0 || (this.f2181j[i2] & i3) == i3 || (this.f2180i[i2] & i3) == i3) {
                 return false;
             }
-            int i4 = this.f1746b;
+            int i4 = this.f2173b;
             if (abs > i4 || abs2 > i4) {
                 if (abs >= abs2 * 0.5f || !this.r.h(i3)) {
-                    return (this.f1753i[i2] & i3) == 0 && abs > ((float) this.f1746b);
+                    return (this.f2180i[i2] & i3) == 0 && abs > ((float) this.f2173b);
                 }
-                int[] iArr = this.f1754j;
+                int[] iArr = this.f2181j;
                 iArr[i2] = iArr[i2] | i3;
                 return false;
             }
@@ -744,9 +744,9 @@ public class y {
             boolean z = this.r.d(view) > 0;
             boolean z2 = this.r.e(view) > 0;
             if (!z || !z2) {
-                return z ? Math.abs(f2) > ((float) this.f1746b) : z2 && Math.abs(f3) > ((float) this.f1746b);
+                return z ? Math.abs(f2) > ((float) this.f2173b) : z2 && Math.abs(f3) > ((float) this.f2173b);
             }
-            int i2 = this.f1746b;
+            int i2 = this.f2173b;
             return (f2 * f2) + (f3 * f3) > ((float) (i2 * i2));
         }
         return invokeCommon.booleanValue;
@@ -781,33 +781,33 @@ public class y {
     public final void h() {
         float[] fArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (fArr = this.f1748d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (fArr = this.f2175d) == null) {
             return;
         }
         Arrays.fill(fArr, 0.0f);
-        Arrays.fill(this.f1749e, 0.0f);
-        Arrays.fill(this.f1750f, 0.0f);
-        Arrays.fill(this.f1751g, 0.0f);
-        Arrays.fill(this.f1752h, 0);
-        Arrays.fill(this.f1753i, 0);
-        Arrays.fill(this.f1754j, 0);
-        this.f1755k = 0;
+        Arrays.fill(this.f2176e, 0.0f);
+        Arrays.fill(this.f2177f, 0.0f);
+        Arrays.fill(this.f2178g, 0.0f);
+        Arrays.fill(this.f2179h, 0);
+        Arrays.fill(this.f2180i, 0);
+        Arrays.fill(this.f2181j, 0);
+        this.f2182k = 0;
     }
 
     public final void i(int i2) {
         float[] fArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (fArr = this.f1748d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (fArr = this.f2175d) == null) {
             return;
         }
         fArr[i2] = 0.0f;
-        this.f1749e[i2] = 0.0f;
-        this.f1750f[i2] = 0.0f;
-        this.f1751g[i2] = 0.0f;
-        this.f1752h[i2] = 0;
-        this.f1753i[i2] = 0;
-        this.f1754j[i2] = 0;
-        this.f1755k = (~(1 << i2)) & this.f1755k;
+        this.f2176e[i2] = 0.0f;
+        this.f2177f[i2] = 0.0f;
+        this.f2178g[i2] = 0.0f;
+        this.f2179h[i2] = 0;
+        this.f2180i[i2] = 0;
+        this.f2181j[i2] = 0;
+        this.f2182k = (~(1 << i2)) & this.f2182k;
     }
 
     public final int j(int i2, int i3, int i4) {
@@ -953,7 +953,7 @@ public class y {
     public final void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            float[] fArr = this.f1748d;
+            float[] fArr = this.f2175d;
             if (fArr == null || fArr.length <= i2) {
                 int i3 = i2 + 1;
                 float[] fArr2 = new float[i3];
@@ -963,29 +963,29 @@ public class y {
                 int[] iArr = new int[i3];
                 int[] iArr2 = new int[i3];
                 int[] iArr3 = new int[i3];
-                float[] fArr6 = this.f1748d;
+                float[] fArr6 = this.f2175d;
                 if (fArr6 != null) {
                     System.arraycopy(fArr6, 0, fArr2, 0, fArr6.length);
-                    float[] fArr7 = this.f1749e;
+                    float[] fArr7 = this.f2176e;
                     System.arraycopy(fArr7, 0, fArr3, 0, fArr7.length);
-                    float[] fArr8 = this.f1750f;
+                    float[] fArr8 = this.f2177f;
                     System.arraycopy(fArr8, 0, fArr4, 0, fArr8.length);
-                    float[] fArr9 = this.f1751g;
+                    float[] fArr9 = this.f2178g;
                     System.arraycopy(fArr9, 0, fArr5, 0, fArr9.length);
-                    int[] iArr4 = this.f1752h;
+                    int[] iArr4 = this.f2179h;
                     System.arraycopy(iArr4, 0, iArr, 0, iArr4.length);
-                    int[] iArr5 = this.f1753i;
+                    int[] iArr5 = this.f2180i;
                     System.arraycopy(iArr5, 0, iArr2, 0, iArr5.length);
-                    int[] iArr6 = this.f1754j;
+                    int[] iArr6 = this.f2181j;
                     System.arraycopy(iArr6, 0, iArr3, 0, iArr6.length);
                 }
-                this.f1748d = fArr2;
-                this.f1749e = fArr3;
-                this.f1750f = fArr4;
-                this.f1751g = fArr5;
-                this.f1752h = iArr;
-                this.f1753i = iArr2;
-                this.f1754j = iArr3;
+                this.f2175d = fArr2;
+                this.f2176e = fArr3;
+                this.f2177f = fArr4;
+                this.f2178g = fArr5;
+                this.f2179h = iArr;
+                this.f2180i = iArr2;
+                this.f2181j = iArr3;
             }
         }
     }
@@ -1072,7 +1072,7 @@ public class y {
     public int x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f1746b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f2173b : invokeV.intValue;
     }
 
     public int y() {

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.PluginContext;
 import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.b;
 import com.bytedance.pangle.util.FieldUtils;
 @Keep
 @SuppressLint({"NewApi"})
@@ -36,7 +35,7 @@ public class PluginActivityWrapper extends GenerateActivityWrapper {
         this.mOriginActivity = activity;
         this.pluginContext = pluginContext;
         if (!activity.isDestroyed()) {
-            Zeus.getAppApplication().registerActivityLifecycleCallbacks(new b(this) { // from class: com.bytedance.pangle.wrapper.PluginActivityWrapper.1
+            Zeus.getAppApplication().registerActivityLifecycleCallbacks(new com.bytedance.pangle.a(this) { // from class: com.bytedance.pangle.wrapper.PluginActivityWrapper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PluginActivityWrapper a;
@@ -59,7 +58,7 @@ public class PluginActivityWrapper extends GenerateActivityWrapper {
                     this.a = this;
                 }
 
-                @Override // com.bytedance.pangle.b, android.app.Application.ActivityLifecycleCallbacks
+                @Override // com.bytedance.pangle.a, android.app.Application.ActivityLifecycleCallbacks
                 public final void onActivityDestroyed(Activity activity2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity2) == null) {

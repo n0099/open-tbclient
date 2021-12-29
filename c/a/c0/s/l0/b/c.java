@@ -29,10 +29,10 @@ public class c extends m {
     }
 
     @Override // c.a.c0.s.j0.m
-    public void S() {
+    public void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.S();
+            super.M();
             LinearLayout linearLayout = this.m;
             if (linearLayout != null) {
                 linearLayout.setClickable(false);
@@ -41,11 +41,11 @@ public class c extends m {
     }
 
     @Override // c.a.c0.s.j0.m
-    public void T() {
+    public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.T();
-            LinearLayout linearLayout = this.f1998j;
+            super.N();
+            LinearLayout linearLayout = this.f2425j;
             if (linearLayout != null) {
                 linearLayout.setClickable(false);
             }

@@ -87,14 +87,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.a == a2 || ga.a.f63489b == a2) {
+                if (ga.a.a == a2 || ga.a.f63484b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f63491d);
+                    glVar.a(ga.a.f63486d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f63529e));
+                    glVar.a(new gg(gg.a.f63524e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -155,7 +155,7 @@ public class gk {
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f63827h, attributeValue2), text));
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f63822h, attributeValue2), text));
                             a.next();
                             gcVar = a(a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {

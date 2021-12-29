@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public abstract class SpecialForumTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f43399e;
+    public Handler f43587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Runnable f43400f;
+    public Runnable f43588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f43401g;
+    public CustomMessageListener f43589g;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SpecialForumTabBaseFragment f43402e;
+        public final /* synthetic */ SpecialForumTabBaseFragment f43590e;
 
         public a(SpecialForumTabBaseFragment specialForumTabBaseFragment) {
             Interceptable interceptable = $ic;
@@ -48,19 +48,19 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f43402e = specialForumTabBaseFragment;
+            this.f43590e = specialForumTabBaseFragment;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43402e.notifyDataSetChanged();
+                this.f43590e.notifyDataSetChanged();
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.f43399e.removeCallbacks(this.a.f43400f);
-                this.a.f43399e.postDelayed(this.a.f43400f, 500L);
+                this.a.f43587e.removeCallbacks(this.a.f43588f);
+                this.a.f43587e.postDelayed(this.a.f43588f, 500L);
             }
         }
     }
@@ -111,9 +111,9 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
                 return;
             }
         }
-        this.f43399e = new Handler();
-        this.f43400f = new a(this);
-        this.f43401g = new b(this, 2921414);
+        this.f43587e = new Handler();
+        this.f43588f = new a(this);
+        this.f43589g = new b(this, 2921414);
     }
 
     public void forceRefresh() {
@@ -129,7 +129,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            MessageManager.getInstance().registerListener(this.f43401g);
+            MessageManager.getInstance().registerListener(this.f43589g);
         }
     }
 
@@ -138,7 +138,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.f43401g);
+            MessageManager.getInstance().unRegisterListener(this.f43589g);
         }
     }
 }

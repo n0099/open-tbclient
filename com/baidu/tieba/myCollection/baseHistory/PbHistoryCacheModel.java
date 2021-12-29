@@ -1,6 +1,6 @@
 package com.baidu.tieba.myCollection.baseHistory;
 
-import c.a.s0.k2.h.a;
+import c.a.t0.k2.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;

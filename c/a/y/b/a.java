@@ -21,10 +21,10 @@ public class a {
     public c.a.y.b.c.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f27095b;
+    public List<b> f27518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27096c;
+    public int f27519c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,18 +56,18 @@ public class a {
                 return;
             }
         }
-        this.f27096c = 0;
+        this.f27519c = 0;
         b(obj, list);
     }
 
     public void a(long j2) {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || this.a == null || (list = this.f27095b) == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || this.a == null || (list = this.f27518b) == null || list.size() == 0) {
             return;
         }
         synchronized (this) {
-            for (b bVar : this.f27095b) {
+            for (b bVar : this.f27518b) {
                 this.a.b(bVar.c());
                 bVar.b(j2);
             }
@@ -84,41 +84,41 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        List<b> list2 = this.f27095b;
+        List<b> list2 = this.f27518b;
         if (list2 == null) {
-            this.f27095b = new ArrayList();
+            this.f27518b = new ArrayList();
         } else {
             list2.clear();
         }
         for (int i2 = 0; i2 < list.size(); i2++) {
             try {
-                this.f27095b.add(new b(list.get(i2)));
+                this.f27518b.add(new b(list.get(i2)));
                 if (list.get(i2).l()) {
-                    this.f27096c = i2;
+                    this.f27519c = i2;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        int size = this.f27095b.size();
-        int i3 = this.f27096c;
+        int size = this.f27518b.size();
+        int i3 = this.f27519c;
         if (size > i3) {
             if (obj != null) {
                 if (obj instanceof Surface) {
-                    this.a = new c.a.y.b.c.a(this.f27095b.get(this.f27096c).c(), (Surface) obj, true);
+                    this.a = new c.a.y.b.c.a(this.f27518b.get(this.f27519c).c(), (Surface) obj, true);
                 } else if (obj instanceof SurfaceTexture) {
-                    this.a = new c.a.y.b.c.a(this.f27095b.get(this.f27096c).c(), (SurfaceTexture) obj);
+                    this.a = new c.a.y.b.c.a(this.f27518b.get(this.f27519c).c(), (SurfaceTexture) obj);
                 } else if (obj instanceof SurfaceHolder) {
-                    this.a = new c.a.y.b.c.a(this.f27095b.get(this.f27096c).c(), (SurfaceHolder) obj);
+                    this.a = new c.a.y.b.c.a(this.f27518b.get(this.f27519c).c(), (SurfaceHolder) obj);
                 }
             } else {
-                List<b> list3 = this.f27095b;
+                List<b> list3 = this.f27518b;
                 if (list3 != null && list3 != null && (bVar = list3.get(i3)) != null && (aVar = this.a) != null) {
                     aVar.f(bVar.c());
                 }
             }
         }
-        for (b bVar2 : this.f27095b) {
+        for (b bVar2 : this.f27518b) {
             c.a.y.b.c.a aVar2 = this.a;
             if (aVar2 != null) {
                 aVar2.b(bVar2.c());
@@ -135,13 +135,13 @@ public class a {
                 aVar.g();
                 this.a = null;
             }
-            List<b> list = this.f27095b;
+            List<b> list = this.f27518b;
             if (list != null) {
                 for (b bVar : list) {
                     bVar.e();
                 }
-                this.f27095b.clear();
-                this.f27095b = null;
+                this.f27518b.clear();
+                this.f27518b = null;
             }
         }
     }
@@ -149,7 +149,7 @@ public class a {
     public void d(c.a.y.b.e.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            for (b bVar : this.f27095b) {
+            for (b bVar : this.f27518b) {
                 c.a.y.b.c.a aVar = this.a;
                 if (aVar != null) {
                     aVar.b(bVar.c());
@@ -163,10 +163,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.a.c();
-            for (b bVar : this.f27095b) {
+            for (b bVar : this.f27518b) {
                 bVar.e();
             }
-            this.f27095b.clear();
+            this.f27518b.clear();
             b(null, list);
         }
     }

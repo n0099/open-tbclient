@@ -9,13 +9,13 @@ public final class f {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f1794b;
+    public a f2221b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f1795c;
+    public c f2222c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f1796d;
+    public g f2223d;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -30,7 +30,7 @@ public final class f {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1797b;
+        public int f2224b;
     }
 
     /* loaded from: classes.dex */

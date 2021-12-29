@@ -19,34 +19,34 @@ public final class ResUtils {
     public static final String a = "id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33643b = "string";
+    public static final String f33799b = "string";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33644c = "layout";
+    public static final String f33800c = "layout";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33645d = "style";
+    public static final String f33801d = "style";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f33646e = "drawable";
+    public static final String f33802e = "drawable";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33647f = "color";
+    public static final String f33803f = "color";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f33648g = "array";
+    public static final String f33804g = "array";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f33649h = "attr";
+    public static final String f33805h = "attr";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f33650i = "dimen";
+    public static final String f33806i = "dimen";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f33651j = "xml";
+    public static final String f33807j = "xml";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f33652k = "integer";
+    public static final String f33808k = "integer";
     public static final String l = "raw";
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -28,34 +28,34 @@ public class RoundRectNetImageView extends NetImageView {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52733b;
+    public int f52736b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52734c;
+    public int f52737c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52735d;
+    public int f52738d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Bitmap f52736e;
+    public Bitmap f52739e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f52737f;
+    public Paint f52740f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f52738g;
+    public Paint f52741g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Matrix f52739h;
+    public final Matrix f52742h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f52740i;
+    public boolean f52743i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f52741j;
+    public int f52744j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f52742k;
+    public int f52745k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundRectNetImageView(Context context) {
@@ -76,18 +76,18 @@ public class RoundRectNetImageView extends NetImageView {
             }
         }
         this.a = RoundRectNetImageView.class.getName();
-        this.f52739h = new Matrix();
-        this.f52740i = true;
-        this.f52741j = 0;
-        this.f52742k = 0;
+        this.f52742h = new Matrix();
+        this.f52743i = true;
+        this.f52744j = 0;
+        this.f52745k = 0;
         c();
     }
 
     private void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, attributeSet) == null) {
-            this.f52740i = true;
-            this.f52741j = -1;
+            this.f52743i = true;
+            this.f52744j = -1;
         }
     }
 
@@ -95,7 +95,7 @@ public class RoundRectNetImageView extends NetImageView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            return View.MeasureSpec.getMode(i2) == 1073741824 ? View.MeasureSpec.getSize(i2) : this.f52734c;
+            return View.MeasureSpec.getMode(i2) == 1073741824 ? View.MeasureSpec.getSize(i2) : this.f52737c;
         }
         return invokeI.intValue;
     }
@@ -104,14 +104,14 @@ public class RoundRectNetImageView extends NetImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             Paint paint = new Paint();
-            this.f52737f = paint;
+            this.f52740f = paint;
             paint.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f52738g = paint2;
+            this.f52741g = paint2;
             paint2.setAntiAlias(true);
-            this.f52739h.set(null);
-            this.f52739h.postTranslate(this.f52733b, this.f52734c);
-            this.f52735d = DisplayUtils.dip2px(getContext(), 39.0f);
+            this.f52742h.set(null);
+            this.f52742h.postTranslate(this.f52736b, this.f52737c);
+            this.f52738d = DisplayUtils.dip2px(getContext(), 39.0f);
         }
     }
 
@@ -120,10 +120,10 @@ public class RoundRectNetImageView extends NetImageView {
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) getDrawable();
             if (bitmapDrawable == null) {
-                bitmapDrawable = (BitmapDrawable) getResources().getDrawable(this.f52742k);
+                bitmapDrawable = (BitmapDrawable) getResources().getDrawable(this.f52745k);
             }
             if (bitmapDrawable != null) {
-                this.f52736e = bitmapDrawable.getBitmap();
+                this.f52739e = bitmapDrawable.getBitmap();
             }
         }
     }
@@ -133,35 +133,35 @@ public class RoundRectNetImageView extends NetImageView {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            if (this.f52740i) {
+            if (this.f52743i) {
                 d();
-                if (this.f52736e == null) {
+                if (this.f52739e == null) {
                     return;
                 }
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(this.f52736e, this.f52733b, this.f52734c, false);
+                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(this.f52739e, this.f52736b, this.f52737c, false);
                 Shader.TileMode tileMode = Shader.TileMode.CLAMP;
                 BitmapShader bitmapShader = new BitmapShader(createScaledBitmap, tileMode, tileMode);
-                bitmapShader.setLocalMatrix(this.f52739h);
-                this.f52737f.setShader(bitmapShader);
+                bitmapShader.setLocalMatrix(this.f52742h);
+                this.f52740f.setShader(bitmapShader);
             } else {
-                this.f52737f.setColor(this.f52741j);
+                this.f52740f.setColor(this.f52744j);
             }
             Path path = new Path();
-            path.moveTo(this.f52735d, 0.0f);
-            path.lineTo(this.f52733b - this.f52735d, 0.0f);
-            int i2 = this.f52733b;
-            path.quadTo(i2, 0.0f, i2, this.f52735d);
-            path.lineTo(this.f52733b, this.f52734c - this.f52735d);
-            int i3 = this.f52733b;
-            int i4 = this.f52734c;
-            path.quadTo(i3, i4, i3 - this.f52735d, i4);
-            path.lineTo(this.f52735d, this.f52734c);
-            int i5 = this.f52734c;
-            path.quadTo(0.0f, i5, 0.0f, i5 - this.f52735d);
-            path.lineTo(0.0f, this.f52735d);
-            path.quadTo(0.0f, 0.0f, this.f52735d, 0.0f);
+            path.moveTo(this.f52738d, 0.0f);
+            path.lineTo(this.f52736b - this.f52738d, 0.0f);
+            int i2 = this.f52736b;
+            path.quadTo(i2, 0.0f, i2, this.f52738d);
+            path.lineTo(this.f52736b, this.f52737c - this.f52738d);
+            int i3 = this.f52736b;
+            int i4 = this.f52737c;
+            path.quadTo(i3, i4, i3 - this.f52738d, i4);
+            path.lineTo(this.f52738d, this.f52737c);
+            int i5 = this.f52737c;
+            path.quadTo(0.0f, i5, 0.0f, i5 - this.f52738d);
+            path.lineTo(0.0f, this.f52738d);
+            path.quadTo(0.0f, 0.0f, this.f52738d, 0.0f);
             path.close();
-            canvas.drawPath(path, this.f52737f);
+            canvas.drawPath(path, this.f52740f);
         }
     }
 
@@ -171,8 +171,8 @@ public class RoundRectNetImageView extends NetImageView {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             int a = a(i2);
             int b2 = b(i3);
-            this.f52733b = a;
-            this.f52734c = b2;
+            this.f52736b = a;
+            this.f52737c = b2;
             setMeasuredDimension(a, b2);
         }
     }
@@ -180,14 +180,14 @@ public class RoundRectNetImageView extends NetImageView {
     public void setBackgroudColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f52741j = i2;
+            this.f52744j = i2;
         }
     }
 
     public void setCornerSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f52735d = i2;
+            this.f52738d = i2;
         }
     }
 
@@ -204,7 +204,7 @@ public class RoundRectNetImageView extends NetImageView {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
-            return View.MeasureSpec.getMode(i2) == 1073741824 ? View.MeasureSpec.getSize(i2) : this.f52733b;
+            return View.MeasureSpec.getMode(i2) == 1073741824 ? View.MeasureSpec.getSize(i2) : this.f52736b;
         }
         return invokeI.intValue;
     }
@@ -229,10 +229,10 @@ public class RoundRectNetImageView extends NetImageView {
             }
         }
         this.a = RoundRectNetImageView.class.getName();
-        this.f52739h = new Matrix();
-        this.f52740i = true;
-        this.f52741j = 0;
-        this.f52742k = 0;
+        this.f52742h = new Matrix();
+        this.f52743i = true;
+        this.f52744j = 0;
+        this.f52745k = 0;
         a(context, attributeSet);
         c();
     }
@@ -257,10 +257,10 @@ public class RoundRectNetImageView extends NetImageView {
             }
         }
         this.a = RoundRectNetImageView.class.getName();
-        this.f52739h = new Matrix();
-        this.f52740i = true;
-        this.f52741j = 0;
-        this.f52742k = 0;
+        this.f52742h = new Matrix();
+        this.f52743i = true;
+        this.f52744j = 0;
+        this.f52745k = 0;
         a(context, attributeSet);
         c();
     }

@@ -18,10 +18,10 @@ public class a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f39638b;
+    public b f39794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39639c;
+    public boolean f39795c;
 
     /* renamed from: com.baidu.sofire.k.a$1  reason: invalid class name */
     /* loaded from: classes10.dex */
@@ -46,19 +46,19 @@ public class a implements b {
             int[] iArr = new int[b.a.values().length];
             a = iArr;
             try {
-                iArr[b.a.f39667d.ordinal()] = 1;
+                iArr[b.a.f39823d.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[b.a.f39668e.ordinal()] = 2;
+                a[b.a.f39824e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[b.a.f39666c.ordinal()] = 3;
+                a[b.a.f39822c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[b.a.f39665b.ordinal()] = 4;
+                a[b.a.f39821b.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
@@ -81,8 +81,8 @@ public class a implements b {
                 return;
             }
         }
-        this.f39638b = null;
-        this.f39639c = false;
+        this.f39794b = null;
+        this.f39795c = false;
     }
 
     public static a a() {
@@ -114,10 +114,10 @@ public class a implements b {
             return;
         }
         try {
-            if (this.f39639c) {
+            if (this.f39795c) {
                 return;
             }
-            this.f39639c = true;
+            this.f39795c = true;
             int i2 = AnonymousClass1.a[b.a.a(Build.MANUFACTURER).ordinal()];
             if (i2 == 1) {
                 cVar2 = new com.baidu.sofire.n.c();
@@ -127,18 +127,18 @@ public class a implements b {
                 cVar2 = new com.baidu.sofire.o.b();
             } else if (i2 != 4) {
                 if (i2 == 5) {
-                    this.f39638b = null;
+                    this.f39794b = null;
                 }
-                if (this.f39638b == null) {
-                    this.f39638b.a(context, cVar);
+                if (this.f39794b == null) {
+                    this.f39794b.a(context, cVar);
                     return;
                 }
                 return;
             } else {
                 cVar2 = new com.baidu.sofire.l.b();
             }
-            this.f39638b = cVar2;
-            if (this.f39638b == null) {
+            this.f39794b = cVar2;
+            if (this.f39794b == null) {
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -150,7 +150,7 @@ public class a implements b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.f39638b;
+            b bVar = this.f39794b;
             if (bVar == null) {
                 return null;
             }

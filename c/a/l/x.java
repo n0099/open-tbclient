@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class x extends a<c.a.r0.s.r.a> {
+public class x extends a<c.a.s0.s.q.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public MutiImgSingleHorizontalLayout f3902j;
+    public MutiImgSingleHorizontalLayout f4317j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f3903k;
+    public int f4318k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(Context context) {
@@ -39,15 +39,15 @@ public class x extends a<c.a.r0.s.r.a> {
                 return;
             }
         }
-        this.f3903k = 3;
-        this.f3902j = new MutiImgSingleHorizontalLayout(context);
+        this.f4318k = 3;
+        this.f4317j = new MutiImgSingleHorizontalLayout(context);
     }
 
     @Override // c.a.l.a
     public View f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3902j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4317j : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
@@ -58,20 +58,20 @@ public class x extends a<c.a.r0.s.r.a> {
     }
 
     @Override // c.a.l.a
-    public void k(c.a.s0.g0.d0<c.a.r0.s.r.a> d0Var) {
+    public void k(c.a.t0.g0.d0<c.a.s0.s.q.a> d0Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d0Var) == null) {
-            this.f3902j.setSubClickListener(d0Var);
+            this.f4317j.setSubClickListener(d0Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: n */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f3902j.onBindDataToView(aVar);
+            this.f4317j.onBindDataToView(aVar);
         }
     }
 
@@ -85,14 +85,14 @@ public class x extends a<c.a.r0.s.r.a> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            this.f3903k = i2;
+            this.f4318k = i2;
         }
     }
 
     public void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f3902j.setFromCDN(z);
+            this.f4317j.setFromCDN(z);
         }
     }
 }

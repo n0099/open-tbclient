@@ -15,7 +15,7 @@ public abstract class b extends BaseExecutorCell {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1325d;
+    public boolean f1752d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(int i2) {
@@ -35,14 +35,14 @@ public abstract class b extends BaseExecutorCell {
                 return;
             }
         }
-        this.f1325d = false;
+        this.f1752d = false;
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1325d && e() < this.f38167b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1752d && e() < this.f38323b : invokeV.booleanValue;
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
@@ -50,7 +50,7 @@ public abstract class b extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
             super.g(elasticTask);
-            if (this.f1325d) {
+            if (this.f1752d) {
                 c.a.c0.a0.f.c.f().k();
             }
         }
@@ -59,24 +59,24 @@ public abstract class b extends BaseExecutorCell {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f1325d) {
+            if (this.f1752d) {
                 d();
                 return;
             }
-            this.f1325d = true;
-            this.f38168c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
+            this.f1752d = true;
+            this.f38324c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f1325d) {
+            if (!this.f1752d) {
                 d();
                 return;
             }
-            this.f1325d = false;
-            this.f38168c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
+            this.f1752d = false;
+            this.f38324c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
         }
     }
 }

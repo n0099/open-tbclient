@@ -18,7 +18,7 @@ public class n {
     public h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f2127b;
+    public b f2554b;
 
     public n() {
         Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class n {
     public void i(o oVar) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oVar) == null) || (bVar = this.f2127b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oVar) == null) || (bVar = this.f2554b) == null) {
             return;
         }
         bVar.a(oVar);
@@ -231,7 +231,7 @@ public class n {
     public void j(o oVar) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, oVar) == null) || (bVar = this.f2127b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, oVar) == null) || (bVar = this.f2554b) == null) {
             return;
         }
         bVar.b(oVar);
@@ -304,7 +304,7 @@ public class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.a = null;
-            this.f2127b = null;
+            this.f2554b = null;
         }
     }
 

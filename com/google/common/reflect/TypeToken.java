@@ -293,7 +293,7 @@ public abstract class TypeToken<T> extends c.i.d.h.d<T> implements Serializable 
     }
 
     /* loaded from: classes3.dex */
-    public class a extends b.C1664b<T> {
+    public class a extends b.C1668b<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

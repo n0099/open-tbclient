@@ -17,7 +17,7 @@ public final class hg {
     public static final /* synthetic */ hg[] f478a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hg f63559b;
+    public static final hg f63554b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,7 +38,7 @@ public final class hg {
         }
         a = new hg("START", 0, 0);
         hg hgVar = new hg("BIND", 1, 1);
-        f63559b = hgVar;
+        f63554b = hgVar;
         f478a = new hg[]{a, hgVar};
     }
 

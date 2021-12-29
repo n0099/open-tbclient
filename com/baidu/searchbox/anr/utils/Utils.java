@@ -1,9 +1,12 @@
 package com.baidu.searchbox.anr.utils;
 
-import android.os.Build;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.anr.collector.ThreadCollector;
+import com.baidu.searchbox.aperf.param.ThreadCollector;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,14 +23,14 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes10.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String KEY_ANR_LOG = "Wrote stack traces to ";
-    public static final int LOG_MONITOR_TIMEOUT = 5000;
-    public static final int THRESHOLD_TIME = 5;
+    public static final int CHECKPROCESS_SEPARATOR_TIMEOUT = 500;
+    public static final int LOG_MONITOR_TIMEOUT = 500;
     public transient /* synthetic */ FieldHolder $fh;
 
     public Utils() {
@@ -44,6 +47,37 @@ public class Utils {
         }
     }
 
+    public static boolean checkProcessAnrState(Context context, long j2) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            if (activityManager == null) {
+                return false;
+            }
+            int myPid = Process.myPid();
+            long j3 = j2 / 500;
+            for (int i2 = 0; i2 < j3; i2++) {
+                List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = activityManager.getProcessesInErrorState();
+                if (processesInErrorState != null) {
+                    for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
+                        if (processErrorStateInfo.pid == myPid && processErrorStateInfo.condition == 2) {
+                            String str = "a: found!" + processErrorStateInfo.processName + "," + processErrorStateInfo.shortMsg + "," + processErrorStateInfo.longMsg + ",";
+                            return true;
+                        }
+                    }
+                }
+                try {
+                    Thread.sleep(500L);
+                } catch (Exception unused) {
+                }
+            }
+            AppConfig.isDebug();
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0039, code lost:
         if (r2 == null) goto L27;
      */
@@ -54,7 +88,7 @@ public class Utils {
         InterceptResult invokeV;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
             return (String) invokeV.objValue;
         }
         try {
@@ -106,7 +140,7 @@ public class Utils {
     public static boolean isRecentANR(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) {
             if (TextUtils.isEmpty(str) || i2 < 0) {
                 return false;
             }
@@ -123,7 +157,7 @@ public class Utils {
 
     public static void storeAllTraces2File(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         FileWriter fileWriter = null;
@@ -172,172 +206,135 @@ public class Utils {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:61:0x013e, code lost:
-        if (r14 != null) goto L75;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x0166, code lost:
-        if (r14 == null) goto L74;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0168, code lost:
-        r14.destroy();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x016b, code lost:
-        return false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x016f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:107:0x015b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x0163 A[Catch: IOException -> 0x015f, TRY_LEAVE, TryCatch #12 {IOException -> 0x015f, blocks: (B:79:0x015b, B:82:0x0163), top: B:107:0x015b }] */
-    /* JADX WARN: Removed duplicated region for block: B:91:0x0177 A[Catch: IOException -> 0x0173, TRY_LEAVE, TryCatch #4 {IOException -> 0x0173, blocks: (B:88:0x016f, B:91:0x0177), top: B:101:0x016f }] */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x017c  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x0101 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:92:0x00f7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean storeIfRealANR(String str, int i2) {
-        InterceptResult invokeLI;
+    public static void storeLogcat(String str, int i2) {
         Process process;
         BufferedReader bufferedReader;
-        BufferedWriter bufferedWriter;
-        String[] split;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) != null) {
-            return invokeLI.booleanValue;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        BufferedWriter bufferedWriter2 = null;
-        try {
-            if (Build.VERSION.SDK_INT <= 22) {
-                process = Runtime.getRuntime().exec("logcat -vtime -T " + i2);
+        if (interceptable == null || interceptable.invokeLI(65541, null, str, i2) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            BufferedWriter bufferedWriter = null;
+            try {
+                file = new File(str);
+            } catch (IOException e2) {
+                e = e2;
+                process = null;
+                bufferedReader = null;
+            } catch (Throwable th) {
+                th = th;
+                process = null;
+                bufferedReader = null;
+            }
+            if (!file.exists() && !file.createNewFile()) {
+                String str2 = "Create log file failed: " + file.getAbsolutePath();
+                return;
+            }
+            process = Runtime.getRuntime().exec("logcat -v time -t " + i2);
+            try {
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(file));
                 try {
-                    File file = new File(str);
-                    if (!file.exists() && !file.createNewFile()) {
-                        String str2 = "Create log file failed: " + file.getAbsolutePath();
-                        if (process != null) {
-                            process.destroy();
-                        }
-                        return false;
-                    }
-                    bufferedWriter = new BufferedWriter(new FileWriter(file));
-                } catch (IOException e2) {
-                    e = e2;
-                    bufferedReader = null;
-                    try {
-                        e.printStackTrace();
-                        if (bufferedWriter2 != null) {
-                        }
-                        if (bufferedReader != null) {
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        if (bufferedWriter2 != null) {
+                    bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    do {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            bufferedWriter2.write(readLine + StringUtils.LF);
+                        } catch (IOException e3) {
+                            e = e3;
+                            bufferedWriter = bufferedWriter2;
                             try {
-                                bufferedWriter2.close();
-                            } catch (IOException unused) {
+                                e.printStackTrace();
+                                if (bufferedWriter != null) {
+                                    try {
+                                        bufferedWriter.close();
+                                    } catch (IOException e4) {
+                                        e4.printStackTrace();
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (IOException e5) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                                if (process == null) {
+                                    return;
+                                }
+                                process.destroy();
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (bufferedWriter != null) {
+                                    try {
+                                        bufferedWriter.close();
+                                    } catch (IOException e6) {
+                                        e6.printStackTrace();
+                                    }
+                                }
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (IOException e7) {
+                                        e7.printStackTrace();
+                                    }
+                                }
                                 if (process != null) {
                                     process.destroy();
                                 }
                                 throw th;
                             }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            bufferedWriter = bufferedWriter2;
+                            if (bufferedWriter != null) {
+                            }
+                            if (bufferedReader != null) {
+                            }
+                            if (process != null) {
+                            }
+                            throw th;
                         }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        if (process != null) {
-                        }
-                        throw th;
+                    } while (System.currentTimeMillis() - currentTimeMillis <= 500);
+                    bufferedWriter2.flush();
+                    if (AppConfig.isDebug()) {
+                        String str3 = "save log file : " + str + ", time :" + (System.currentTimeMillis() - currentTimeMillis);
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                    try {
+                        bufferedWriter2.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e9) {
+                        e9.printStackTrace();
+                    }
+                    if (process == null) {
+                        return;
+                    }
+                } catch (IOException e10) {
+                    e = e10;
                     bufferedReader = null;
-                    if (bufferedWriter2 != null) {
-                    }
-                    if (bufferedReader != null) {
-                    }
-                    if (process != null) {
-                    }
-                    throw th;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
                 }
-            } else {
-                process = Runtime.getRuntime().exec(new String[]{"/system/bin/sh", "-c", "logcat -vtime -T " + i2 + " | tee " + str});
-                bufferedWriter = null;
-            }
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                boolean z = false;
-                while (System.currentTimeMillis() - currentTimeMillis < 5000) {
-                    try {
-                        if (bufferedReader.ready()) {
-                            if (!z) {
-                                String str3 = "Ready time: " + (System.currentTimeMillis() - currentTimeMillis);
-                                z = true;
-                            }
-                            String readLine = bufferedReader.readLine();
-                            if (Build.VERSION.SDK_INT <= 22 && bufferedWriter != null && readLine != null) {
-                                bufferedWriter.write(readLine + StringUtils.LF);
-                            }
-                            if (readLine != null && readLine.contains(KEY_ANR_LOG) && (split = readLine.split(" ")) != null && split.length >= 2 && isRecentANR(split[1], 5)) {
-                                String str4 = "Detect ANR time: " + (System.currentTimeMillis() - currentTimeMillis);
-                                if (bufferedWriter != null) {
-                                    try {
-                                        bufferedWriter.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                }
-                                bufferedReader.close();
-                                if (process != null) {
-                                    process.destroy();
-                                }
-                                return true;
-                            }
-                        }
-                    } catch (IOException e3) {
-                        e = e3;
-                        bufferedWriter2 = bufferedWriter;
-                        e = e;
-                        e.printStackTrace();
-                        if (bufferedWriter2 != null) {
-                            try {
-                                bufferedWriter2.close();
-                            } catch (IOException unused3) {
-                            }
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        bufferedWriter2 = bufferedWriter;
-                        th = th;
-                        if (bufferedWriter2 != null) {
-                        }
-                        if (bufferedReader != null) {
-                        }
-                        if (process != null) {
-                        }
-                        throw th;
-                    }
-                }
-                if (bufferedWriter != null) {
-                    try {
-                        bufferedWriter.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                bufferedReader.close();
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e11) {
+                e = e11;
                 bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th5) {
+                th = th5;
                 bufferedReader = null;
             }
-        } catch (IOException e5) {
-            e = e5;
-            process = null;
-            bufferedReader = null;
-        } catch (Throwable th5) {
-            th = th5;
-            process = null;
-            bufferedReader = null;
+            process.destroy();
         }
     }
 }

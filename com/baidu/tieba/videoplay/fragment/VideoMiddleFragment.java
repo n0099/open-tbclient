@@ -47,7 +47,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(0, 0, false);
             }
         }
     }
@@ -80,7 +80,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         public void a(int i2, int i3, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-                this.a.mainHeaderLayout.onTopLayoutChange(i2, i3, z);
+                this.a.mainHeaderLayout.onTopLayoutChange(0, 0, false);
             }
         }
     }
@@ -142,5 +142,12 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
             return onCreateView;
         }
         return (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
+    public void setViewPagerOnAchieveRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
     }
 }

@@ -8,8 +8,8 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import c.a.d.f.p.m;
-import c.a.s0.n2.g.i;
+import c.a.d.f.p.n;
+import c.a.t0.n2.g.i;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -50,7 +50,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f47768e;
+        public final /* synthetic */ SelectSingleForumActivity f47989e;
 
         public a(SelectSingleForumActivity selectSingleForumActivity) {
             Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                     return;
                 }
             }
-            this.f47768e = selectSingleForumActivity;
+            this.f47989e = selectSingleForumActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -76,17 +76,17 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            if (view.getId() == this.f47768e.mTransmitConfirmButton.getId()) {
-                if (this.f47768e.getSelectedData() == null) {
+            if (view.getId() == this.f47989e.mTransmitConfirmButton.getId()) {
+                if (this.f47989e.getSelectedData() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f47768e.getSelectedData());
-                this.f47768e.setResult(-1, intent);
-                this.f47768e.finish();
-            } else if (view.getId() == this.f47768e.mBackView.getId()) {
-                this.f47768e.setResult(0);
-                this.f47768e.finish();
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.f47989e.getSelectedData());
+                this.f47989e.setResult(-1, intent);
+                this.f47989e.finish();
+            } else if (view.getId() == this.f47989e.mBackView.getId()) {
+                this.f47989e.setResult(0);
+                this.f47989e.finish();
             }
         }
     }
@@ -97,7 +97,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectSingleForumActivity f47769e;
+        public final /* synthetic */ SelectSingleForumActivity f47990e;
 
         public b(SelectSingleForumActivity selectSingleForumActivity) {
             Interceptable interceptable = $ic;
@@ -114,24 +114,24 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                     return;
                 }
             }
-            this.f47769e = selectSingleForumActivity;
+            this.f47990e = selectSingleForumActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f47769e.mDataList.get(i2);
+                BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.f47990e.mDataList.get(i2);
                 CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                 if (checkBox.isChecked()) {
                     return;
                 }
-                if (this.f47769e.getSelectedData() != null && this.f47769e.getSelectedData().isChecked) {
-                    this.f47769e.getSelectedData().isChecked = false;
+                if (this.f47990e.getSelectedData() != null && this.f47990e.getSelectedData().isChecked) {
+                    this.f47990e.getSelectedData().isChecked = false;
                 }
                 baInfo.isChecked = true;
                 checkBox.setChecked(!checkBox.isChecked());
-                this.f47769e.mAdapter.notifyDataSetChanged();
+                this.f47990e.mAdapter.notifyDataSetChanged();
             }
         }
     }
@@ -206,7 +206,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             this.mBackView = addSystemImageButton;
             if (addSystemImageButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBackView.getLayoutParams();
-                layoutParams.leftMargin = m.f(getActivity(), R.dimen.ds10);
+                layoutParams.leftMargin = n.f(getActivity(), R.dimen.ds10);
                 this.mBackView.setLayoutParams(layoutParams);
             }
             this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.emotion_make_select_bar));

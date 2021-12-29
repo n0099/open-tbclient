@@ -1,6 +1,5 @@
 package com.baidu.wallet.core.utils;
 
-import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +36,7 @@ public class ExceptionUtils {
                 stringBuffer.append(exc.getMessage());
                 stringBuffer.append(org.apache.commons.lang3.StringUtils.LF);
                 for (StackTraceElement stackTraceElement : exc.getStackTrace()) {
-                    stringBuffer.append(TrackUI.SEPERATOR);
+                    stringBuffer.append("\t");
                     stringBuffer.append(stackTraceElement.toString());
                     stringBuffer.append(org.apache.commons.lang3.StringUtils.LF);
                 }

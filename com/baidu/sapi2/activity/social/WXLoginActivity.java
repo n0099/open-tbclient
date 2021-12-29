@@ -130,16 +130,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ((BaseSSOLoginActivity) this).f39194g = v;
-            ((BaseSSOLoginActivity) this).f39192e = w;
-            ((BaseSSOLoginActivity) this).f39193f = x;
+            ((BaseSSOLoginActivity) this).f39350g = v;
+            ((BaseSSOLoginActivity) this).f39348e = w;
+            ((BaseSSOLoginActivity) this).f39349f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (((BaseSSOLoginActivity) this).f39193f) {
+            if (((BaseSSOLoginActivity) this).f39349f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
@@ -174,8 +174,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f39192e;
-                x = ((BaseSSOLoginActivity) this).f39193f;
+                w = ((BaseSSOLoginActivity) this).f39348e;
+                x = ((BaseSSOLoginActivity) this).f39349f;
                 a(new a(this));
                 return;
             }

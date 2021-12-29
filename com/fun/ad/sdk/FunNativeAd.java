@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface FunNativeAd {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class InteractionType {
         public static /* synthetic */ Interceptable $ic;
         public static final InteractionType TYPE_BROWSE;

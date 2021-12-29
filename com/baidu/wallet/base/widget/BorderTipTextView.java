@@ -17,19 +17,19 @@ public class BorderTipTextView extends TextView {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f52598b;
+    public int f52601b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f52599c;
+    public int f52602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f52600d;
+    public int f52603d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ColorStateList f52601e;
+    public ColorStateList f52604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Drawable f52602f;
+    public Drawable f52605f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BorderTipTextView(Context context, AttributeSet attributeSet) {
@@ -51,11 +51,11 @@ public class BorderTipTextView extends TextView {
             }
         }
         this.a = getPaddingLeft();
-        this.f52598b = getPaddingRight();
-        this.f52599c = getPaddingTop();
-        this.f52600d = getPaddingBottom();
-        this.f52601e = getTextColors();
-        this.f52602f = getBackground();
+        this.f52601b = getPaddingRight();
+        this.f52602c = getPaddingTop();
+        this.f52603d = getPaddingBottom();
+        this.f52604e = getTextColors();
+        this.f52605f = getBackground();
     }
 
     public void setText(CharSequence charSequence, boolean z) {
@@ -68,10 +68,10 @@ public class BorderTipTextView extends TextView {
                 setPadding(6, 0, 6, 2);
                 return;
             }
-            setBackgroundDrawable(this.f52602f);
-            setTextColor(this.f52601e);
+            setBackgroundDrawable(this.f52605f);
+            setTextColor(this.f52604e);
             setText(charSequence);
-            setPadding(this.a, this.f52599c, this.f52598b, this.f52600d);
+            setPadding(this.a, this.f52602c, this.f52601b, this.f52603d);
         }
     }
 }

@@ -26,42 +26,42 @@ public class AdBaseModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38061b;
+    public boolean f38217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38062c;
+    public final boolean f38218c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f38063d;
+    public final j f38219d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f38064e;
+    public final b f38220e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public final AdOperator f38065f;
+    public final AdOperator f38221f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final p f38066g;
+    public final p f38222g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final l f38067h;
+    public final l f38223h;
     @Nullable
 
     /* renamed from: i  reason: collision with root package name */
-    public final c f38068i;
+    public final c f38224i;
     @Nullable
 
     /* renamed from: j  reason: collision with root package name */
-    public h f38069j;
+    public h f38225j;
     @Nullable
 
     /* renamed from: k  reason: collision with root package name */
-    public f f38070k;
+    public f f38226k;
     public o l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */

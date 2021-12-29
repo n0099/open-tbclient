@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.DownloadParams;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bb implements com.kwad.sdk.core.d<DownloadParams> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public bb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(DownloadParams downloadParams, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, downloadParams, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         downloadParams.mDownloadid = jSONObject.optString("mDownloadid");
@@ -84,29 +60,24 @@ public class bb implements com.kwad.sdk.core.d<DownloadParams> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(DownloadParams downloadParams, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, downloadParams, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "mDownloadid", downloadParams.mDownloadid);
-            com.kwad.sdk.utils.t.a(jSONObject, "mAppName", downloadParams.mAppName);
-            com.kwad.sdk.utils.t.a(jSONObject, "mPkgname", downloadParams.mPkgname);
-            com.kwad.sdk.utils.t.a(jSONObject, "mVersion", downloadParams.mVersion);
-            com.kwad.sdk.utils.t.a(jSONObject, "mVersionCode", downloadParams.mVersionCode);
-            com.kwad.sdk.utils.t.a(jSONObject, "mAppSize", downloadParams.mAppSize);
-            com.kwad.sdk.utils.t.a(jSONObject, "mFileMd5", downloadParams.mFileMd5);
-            com.kwad.sdk.utils.t.a(jSONObject, "mFileUrl", downloadParams.mFileUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "mAppIcon", downloadParams.mAppIcon);
-            com.kwad.sdk.utils.t.a(jSONObject, "mShortDesc", downloadParams.mShortDesc);
-            com.kwad.sdk.utils.t.a(jSONObject, "mTaskId", downloadParams.mTaskId);
-            com.kwad.sdk.utils.t.a(jSONObject, "filePath", downloadParams.filePath);
-            com.kwad.sdk.utils.t.a(jSONObject, "requestInstallPermission", downloadParams.requestInstallPermission);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadEnablePause", downloadParams.downloadEnablePause);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadPlace", downloadParams.downloadPlace);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "mDownloadid", downloadParams.mDownloadid);
+        com.kwad.sdk.utils.t.a(jSONObject, "mAppName", downloadParams.mAppName);
+        com.kwad.sdk.utils.t.a(jSONObject, "mPkgname", downloadParams.mPkgname);
+        com.kwad.sdk.utils.t.a(jSONObject, "mVersion", downloadParams.mVersion);
+        com.kwad.sdk.utils.t.a(jSONObject, "mVersionCode", downloadParams.mVersionCode);
+        com.kwad.sdk.utils.t.a(jSONObject, "mAppSize", downloadParams.mAppSize);
+        com.kwad.sdk.utils.t.a(jSONObject, "mFileMd5", downloadParams.mFileMd5);
+        com.kwad.sdk.utils.t.a(jSONObject, "mFileUrl", downloadParams.mFileUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "mAppIcon", downloadParams.mAppIcon);
+        com.kwad.sdk.utils.t.a(jSONObject, "mShortDesc", downloadParams.mShortDesc);
+        com.kwad.sdk.utils.t.a(jSONObject, "mTaskId", downloadParams.mTaskId);
+        com.kwad.sdk.utils.t.a(jSONObject, "filePath", downloadParams.filePath);
+        com.kwad.sdk.utils.t.a(jSONObject, "requestInstallPermission", downloadParams.requestInstallPermission);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadEnablePause", downloadParams.downloadEnablePause);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadPlace", downloadParams.downloadPlace);
+        return jSONObject;
     }
 }

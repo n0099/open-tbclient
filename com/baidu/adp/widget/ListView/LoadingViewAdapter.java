@@ -5,10 +5,10 @@ import android.util.Pair;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.m;
-import c.a.d.m.e.a;
-import c.a.d.m.e.t;
-import c.a.r0.g0.g;
+import c.a.d.f.p.n;
+import c.a.d.n.e.a;
+import c.a.d.n.e.t;
+import c.a.s0.g0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,7 +58,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f2966e);
+        super(tbPageContext.getPageActivity(), t.f3394e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,37 +76,37 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
             }
         }
         this.m = new LinkedList<>();
-        this.n = g0(R.dimen.tbds304);
-        this.o = g0(R.dimen.tbds198);
+        this.n = Z(R.dimen.tbds304);
+        this.o = Z(R.dimen.tbds198);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // c.a.d.m.e.a
-    public /* bridge */ /* synthetic */ View Z(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
-        i0(i2, view, viewGroup, tVar, tabLoadingViewHolder);
+    @Override // c.a.d.n.e.a
+    public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
+        b0(i2, view, viewGroup, tVar, tabLoadingViewHolder);
         return view;
     }
 
-    public final int g0(int i2) {
+    public final int Z(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? m.f(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? n.f(TbadkCoreApplication.getInst(), i2) : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.m.e.a
-    /* renamed from: h0 */
-    public TabLoadingViewHolder S(ViewGroup viewGroup) {
+    @Override // c.a.d.n.e.a
+    /* renamed from: a0 */
+    public TabLoadingViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(this.f2871e);
+            RelativeLayout relativeLayout = new RelativeLayout(this.f3299e);
             ViewGroup.LayoutParams u = u(viewGroup);
             u.width = -1;
             u.height = -1;
             relativeLayout.setLayoutParams(u);
             relativeLayout.setGravity(1);
-            g gVar = new g(this.f2871e, 0);
+            g gVar = new g(this.f3299e, 0);
             gVar.attachView(relativeLayout);
             gVar.q(this.n);
             gVar.o(this.o);
@@ -124,7 +124,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         return (TabLoadingViewHolder) invokeL.objValue;
     }
 
-    public View i0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
+    public View b0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
         InterceptResult invokeCommon;
         g gVar;
         Interceptable interceptable = $ic;

@@ -11,7 +11,7 @@ public final class i {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ f f63955b;
+    public /* synthetic */ f f63950b;
 
     public i(f fVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class i {
                 return;
             }
         }
-        this.f63955b = fVar;
+        this.f63950b = fVar;
         this.a = "wifi";
     }
 }

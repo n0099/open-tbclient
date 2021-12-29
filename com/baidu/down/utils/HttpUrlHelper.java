@@ -121,10 +121,10 @@ public final class HttpUrlHelper {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(7:5|(1:42)(2:9|(2:22|(1:38))(6:12|13|14|15|16|17))|31|14|15|16|17) */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0058, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0058, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0059, code lost:
         r0.printStackTrace();
      */
     /*
@@ -241,7 +241,7 @@ public final class HttpUrlHelper {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f31721h);
+                    sb.append(a.f31864h);
                     sb.append(str2);
                 }
             }

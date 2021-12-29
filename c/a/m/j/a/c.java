@@ -18,7 +18,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SecureRandom f4081b;
+    public static final SecureRandom f4417b;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
@@ -35,7 +35,7 @@ public class c {
                 return;
             }
         }
-        f4081b = new SecureRandom();
+        f4417b = new SecureRandom();
     }
 
     public c() {
@@ -80,7 +80,7 @@ public class c {
     public void a(int i2, byte[] bArr, byte[] bArr2) throws InvalidAlgorithmParameterException, InvalidKeyException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, bArr, bArr2) == null) {
-            this.a.d(i2, bArr, bArr2, f4081b);
+            this.a.d(i2, bArr, bArr2, f4417b);
         }
     }
 

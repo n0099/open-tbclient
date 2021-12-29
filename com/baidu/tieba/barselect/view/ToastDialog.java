@@ -5,7 +5,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class ToastDialog extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f43681e;
+    public View f43869e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f43682f;
+    public TextView f43870f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43683g;
+    public String f43871g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ToastDialog(Context context) {
@@ -52,8 +52,8 @@ public class ToastDialog extends AlertDialog {
     public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            int f2 = m.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-            View view = this.f43681e;
+            int f2 = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+            View view = this.f43869e;
             int i3 = R.color.cp_cont_b_alpha80;
             SkinManager.setBackgroundShapeDrawable(view, f2, i3, i3, i2);
         }
@@ -62,7 +62,7 @@ public class ToastDialog extends AlertDialog {
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f43683g = str;
+            this.f43871g = str;
         }
     }
 
@@ -75,10 +75,10 @@ public class ToastDialog extends AlertDialog {
             if (window != null) {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.id_card_dialog);
-                this.f43681e = window.findViewById(R.id.toast_container);
-                this.f43682f = (TextView) window.findViewById(R.id.toast_tv);
-                if (!StringUtils.isNull(this.f43683g)) {
-                    this.f43682f.setText(this.f43683g);
+                this.f43869e = window.findViewById(R.id.toast_container);
+                this.f43870f = (TextView) window.findViewById(R.id.toast_tv);
+                if (!StringUtils.isNull(this.f43871g)) {
+                    this.f43870f.setText(this.f43871g);
                 }
                 onSkinChange(TbadkCoreApplication.getInst().getSkinType());
             }

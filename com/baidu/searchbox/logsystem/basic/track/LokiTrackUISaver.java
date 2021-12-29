@@ -1,8 +1,9 @@
 package com.baidu.searchbox.logsystem.basic.track;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
@@ -24,6 +25,8 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes10.dex */
 public class LokiTrackUISaver {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String SEPERATOR = "\t";
+    public static final String SEPERATOR_ARROR = "->";
     public static final char SEPERATOR_ENTER = '\n';
     public static final String TAG = "LokiTrackUISaver";
     public static final String TEMP_FILE_SUFFIX = ".tmp";
@@ -166,17 +169,42 @@ public class LokiTrackUISaver {
                     for (int i2 = 0; i2 < allTrackUIs.size(); i2++) {
                         if (allTrackUIs.get(i2) != trackUI) {
                             if (AppConfig.isDebug()) {
-                                String str = "perTrack = " + trackUI2.toString();
+                                String str = "perTrack = " + trackUI2String(trackUI2);
                             }
-                            FileUtils.saveToFile(trackUI2.toString() + '\n', tempTraceFile, true);
+                            FileUtils.saveToFile(trackUI2String(trackUI2) + '\n', tempTraceFile, true);
                         }
                     }
                 }
             }
             if (AppConfig.isDebug()) {
-                String str2 = "uitrackStr = " + trackUI.toString();
+                String str2 = "uitrackStr = " + trackUI2String(trackUI);
             }
-            FileUtils.saveToFile(trackUI.toString() + '\n', tempTraceFile, true);
+            FileUtils.saveToFile(trackUI2String(trackUI) + '\n', tempTraceFile, true);
         }
+    }
+
+    @NonNull
+    public static String trackUI2String(@NonNull TrackUI trackUI) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, trackUI)) == null) {
+            StringBuilder sb = new StringBuilder(TrackUI.getTime(trackUI.getTimeStamp()));
+            sb.append("\t");
+            sb.append(trackUI.getTimeStamp());
+            sb.append("\t");
+            sb.append(trackUI.getActivityPage());
+            sb.append(trackUI.getActivityPageTag());
+            if (!TextUtils.isEmpty(trackUI.getFragmentPage())) {
+                sb.append("->");
+                sb.append(trackUI.getFragmentPage());
+                if (!TextUtils.isEmpty(trackUI.getFragmentPageTag())) {
+                    sb.append(trackUI.getFragmentPageTag());
+                }
+            }
+            sb.append("\t");
+            sb.append(trackUI.getEvent());
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

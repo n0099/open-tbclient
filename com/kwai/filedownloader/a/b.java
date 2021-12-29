@@ -22,7 +22,7 @@ public class b implements com.kwai.filedownloader.a.a {
     public final SparseArray<List<com.kwai.filedownloader.c.a>> f60433b;
 
     /* loaded from: classes3.dex */
-    public class a implements a.InterfaceC2131a {
+    public class a implements a.InterfaceC2138a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -45,28 +45,28 @@ public class b implements com.kwai.filedownloader.a.a {
             this.a = bVar;
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a(int i2, com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, cVar) == null) {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void a(com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
             }
         }
 
-        @Override // com.kwai.filedownloader.a.a.InterfaceC2131a
+        @Override // com.kwai.filedownloader.a.a.InterfaceC2138a
         public void b(com.kwai.filedownloader.c.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
@@ -77,18 +77,18 @@ public class b implements com.kwai.filedownloader.a.a {
         public Iterator<com.kwai.filedownloader.c.c> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new C2132b(this.a) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new C2139b(this.a) : (Iterator) invokeV.objValue;
         }
     }
 
     /* renamed from: com.kwai.filedownloader.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C2132b implements Iterator<com.kwai.filedownloader.c.c> {
+    public class C2139b implements Iterator<com.kwai.filedownloader.c.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C2132b(b bVar) {
+        public C2139b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -270,10 +270,10 @@ public class b implements com.kwai.filedownloader.a.a {
     }
 
     @Override // com.kwai.filedownloader.a.a
-    public a.InterfaceC2131a b() {
+    public a.InterfaceC2138a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new a(this) : (a.InterfaceC2131a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? new a(this) : (a.InterfaceC2138a) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.a.a

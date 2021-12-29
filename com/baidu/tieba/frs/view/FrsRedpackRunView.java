@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.g1;
-import c.a.s0.d1.h1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.g1;
+import c.a.t0.d1.h1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
@@ -25,16 +25,16 @@ public class FrsRedpackRunView extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AutoScrollTextView f45304e;
+    public AutoScrollTextView f45491e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TBLottieAnimationView f45305f;
+    public TBLottieAnimationView f45492f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f45306g;
+    public View f45493g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f45307h;
+    public Context f45494h;
 
     /* loaded from: classes12.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
@@ -42,7 +42,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsRedpackRunView f45308e;
+        public final /* synthetic */ FrsRedpackRunView f45495e;
 
         public a(FrsRedpackRunView frsRedpackRunView) {
             Interceptable interceptable = $ic;
@@ -59,14 +59,14 @@ public class FrsRedpackRunView extends RelativeLayout {
                     return;
                 }
             }
-            this.f45308e = frsRedpackRunView;
+            this.f45495e = frsRedpackRunView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning() && valueAnimator.getAnimatedFraction() > 0.5d) {
-                this.f45308e.f45304e.translatDraw(valueAnimator.getAnimatedFraction());
+                this.f45495e.f45491e.translatDraw(valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -77,7 +77,7 @@ public class FrsRedpackRunView extends RelativeLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsRedpackRunView f45309e;
+        public final /* synthetic */ FrsRedpackRunView f45496e;
 
         public b(FrsRedpackRunView frsRedpackRunView) {
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class FrsRedpackRunView extends RelativeLayout {
                     return;
                 }
             }
-            this.f45309e = frsRedpackRunView;
+            this.f45496e = frsRedpackRunView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -108,8 +108,8 @@ public class FrsRedpackRunView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f45309e.f45304e.init(((Activity) this.f45309e.f45307h).getWindowManager());
-                this.f45309e.f45304e.startScroll();
+                this.f45496e.f45491e.init(((Activity) this.f45496e.f45494h).getWindowManager());
+                this.f45496e.f45491e.startScroll();
             }
         }
 
@@ -146,16 +146,16 @@ public class FrsRedpackRunView extends RelativeLayout {
                 return;
             }
         }
-        this.f45307h = context;
+        this.f45494h = context;
         c(context);
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f45306g = LayoutInflater.from(context).inflate(g1.frs_main_redpack_run_view, this);
-            this.f45304e = (AutoScrollTextView) findViewById(f1.tv_redpack_live_title);
-            this.f45305f = (TBLottieAnimationView) findViewById(f1.frs_tblottie_anim);
+            this.f45493g = LayoutInflater.from(context).inflate(g1.frs_main_redpack_run_view, this);
+            this.f45491e = (AutoScrollTextView) findViewById(f1.tv_redpack_live_title);
+            this.f45492f = (TBLottieAnimationView) findViewById(f1.frs_tblottie_anim);
         }
     }
 
@@ -168,11 +168,11 @@ public class FrsRedpackRunView extends RelativeLayout {
     public void setClickliner(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            View view = this.f45306g;
+            View view = this.f45493g;
             if (view != null) {
                 view.setOnClickListener(onClickListener);
             }
-            AutoScrollTextView autoScrollTextView = this.f45304e;
+            AutoScrollTextView autoScrollTextView = this.f45491e;
             if (autoScrollTextView != null) {
                 autoScrollTextView.setClickliner(onClickListener);
             }
@@ -182,22 +182,22 @@ public class FrsRedpackRunView extends RelativeLayout {
     public void settextTitle(String str) {
         AutoScrollTextView autoScrollTextView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (autoScrollTextView = this.f45304e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (autoScrollTextView = this.f45491e) == null) {
             return;
         }
         autoScrollTextView.setText(str);
-        this.f45304e.init(((Activity) this.f45307h).getWindowManager());
+        this.f45491e.init(((Activity) this.f45494h).getWindowManager());
         show();
     }
 
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setLottieAnimation(this.f45305f, h1.lottie_redpack_run);
-            this.f45305f.setImageAssetsFolder("lottie_redpack_runscoll");
-            this.f45305f.addAnimatorUpdateListener(new a(this));
-            this.f45305f.addAnimatorListener(new b(this));
-            this.f45305f.playAnimation();
+            SkinManager.setLottieAnimation(this.f45492f, h1.lottie_redpack_run);
+            this.f45492f.setImageAssetsFolder("lottie_redpack_runscoll");
+            this.f45492f.addAnimatorUpdateListener(new a(this));
+            this.f45492f.addAnimatorListener(new b(this));
+            this.f45492f.playAnimation();
         }
     }
 
@@ -220,7 +220,7 @@ public class FrsRedpackRunView extends RelativeLayout {
                 return;
             }
         }
-        this.f45307h = context;
+        this.f45494h = context;
         c(context);
     }
 }

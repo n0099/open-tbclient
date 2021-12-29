@@ -57,7 +57,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,13 +103,13 @@ public class a extends Dialog {
     public HashMap<String, Runnable> t;
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C2222a extends WebViewClient {
+    /* loaded from: classes4.dex */
+    public class C2229a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C2222a(a aVar) {
+        public C2229a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -182,7 +182,7 @@ public class a extends Dialog {
                     this.a.f62747d.postDelayed(new Runnable(this) { // from class: com.tencent.connect.auth.a.a.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ C2222a a;
+                        public final /* synthetic */ C2229a a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -243,7 +243,7 @@ public class a extends Dialog {
                     public final /* synthetic */ SslErrorHandler a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ C2222a f62755b;
+                    public final /* synthetic */ C2229a f62755b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -278,7 +278,7 @@ public class a extends Dialog {
                     public final /* synthetic */ SslErrorHandler a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ C2222a f62756b;
+                    public final /* synthetic */ C2229a f62756b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -408,7 +408,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends DefaultUiListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -508,7 +508,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -556,7 +556,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -705,7 +705,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.f62754k.setVerticalScrollBarEnabled(false);
             this.f62754k.setHorizontalScrollBarEnabled(false);
-            this.f62754k.setWebViewClient(new C2222a());
+            this.f62754k.setWebViewClient(new C2229a());
             this.f62754k.setWebChromeClient(new WebChromeClient());
             this.f62754k.clearFormData();
             this.f62754k.clearSslPreferences();

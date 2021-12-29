@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.achievement;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.g1;
-import c.a.s0.d1.q1.c;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.g1;
+import c.a.t0.d1.q1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.s0.d1.q1.a inviteLetter;
+    public c.a.t0.d1.q1.a inviteLetter;
     public View.OnClickListener onShareClickListener;
     public c thanksLetter;
 
@@ -26,7 +26,7 @@ public class AchievementActivity extends BaseActivity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AchievementActivity f44624e;
+        public final /* synthetic */ AchievementActivity f44811e;
 
         public a(AchievementActivity achievementActivity) {
             Interceptable interceptable = $ic;
@@ -43,15 +43,15 @@ public class AchievementActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f44624e = achievementActivity;
+            this.f44811e = achievementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44624e.thanksLetter.h(false);
-                this.f44624e.inviteLetter.h(true);
+                this.f44811e.thanksLetter.h(false);
+                this.f44811e.inviteLetter.h(true);
             }
         }
     }
@@ -109,7 +109,7 @@ public class AchievementActivity extends BaseActivity {
             this.thanksLetter = cVar;
             cVar.h(true);
             this.thanksLetter.j(this.onShareClickListener);
-            c.a.s0.d1.q1.a aVar = new c.a.s0.d1.q1.a(getPageContext(), findViewById(f1.layout_invite_letter));
+            c.a.t0.d1.q1.a aVar = new c.a.t0.d1.q1.a(getPageContext(), findViewById(f1.layout_invite_letter));
             this.inviteLetter = aVar;
             aVar.h(false);
         }

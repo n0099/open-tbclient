@@ -20,7 +20,7 @@ public class c {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c.InterfaceC2136c a;
+        public c.InterfaceC2143c a;
 
         /* renamed from: b  reason: collision with root package name */
         public Integer f60640b;
@@ -169,14 +169,14 @@ public class c {
 
     public com.kwai.filedownloader.a.a b() {
         InterceptResult invokeV;
-        c.InterfaceC2136c interfaceC2136c;
+        c.InterfaceC2143c interfaceC2143c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a aVar = this.a;
-            if (aVar == null || (interfaceC2136c = aVar.a) == null) {
+            if (aVar == null || (interfaceC2143c = aVar.a) == null) {
                 return i();
             }
-            com.kwai.filedownloader.a.a a2 = interfaceC2136c.a();
+            com.kwai.filedownloader.a.a a2 = interfaceC2143c.a();
             if (a2 != null) {
                 if (com.kwai.filedownloader.e.d.a) {
                     com.kwai.filedownloader.e.d.c(this, "initial FileDownloader manager with the customize database: %s", a2);

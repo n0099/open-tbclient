@@ -1,6 +1,6 @@
 package com.baidu.nps.interfa;
 
-import c.a.j0.a.a;
+import c.a.k0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class IAlertManager_AlertManager_Provider implements a {
         }
     }
 
-    @Override // c.a.j0.a.a
+    @Override // c.a.k0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

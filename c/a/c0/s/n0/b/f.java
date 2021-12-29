@@ -17,16 +17,16 @@ public final class f extends b {
     public final ArrayList<a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Boolean f2069b;
+    public final Boolean f2496b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f2070c;
+    public final String f2497c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f2071d;
+    public final String f2498d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f2072e;
+    public final String f2499e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(ArrayList<a> arrayList, Boolean bool, String str, String str2, String str3) {
@@ -48,10 +48,10 @@ public final class f extends b {
             }
         }
         this.a = arrayList;
-        this.f2069b = bool;
-        this.f2070c = str;
-        this.f2071d = str2;
-        this.f2072e = str3;
+        this.f2496b = bool;
+        this.f2497c = str;
+        this.f2498d = str2;
+        this.f2499e = str3;
     }
 
     public final ArrayList<a> a() {
@@ -63,25 +63,25 @@ public final class f extends b {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2072e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2499e : (String) invokeV.objValue;
     }
 
     public Boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2069b : (Boolean) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2496b : (Boolean) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2070c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2497c : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2071d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2498d : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {

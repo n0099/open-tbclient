@@ -23,28 +23,28 @@ public class HistoryTraceData implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f36737b;
+    public double f36893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public double f36738c;
+    public double f36894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36739d;
+    public int f36895d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f36740e;
+    public LatLng f36896e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LatLng f36741f;
+    public LatLng f36897f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SyncCoordinateConverter.CoordType f36742g;
+    public SyncCoordinateConverter.CoordType f36898g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<HistoryTracePoint> f36743h;
+    public List<HistoryTracePoint> f36899h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f36744i;
+    public int f36900i;
 
     /* loaded from: classes10.dex */
     public static class HistoryTracePoint implements Parcelable {
@@ -54,10 +54,10 @@ public class HistoryTraceData implements Parcelable {
         public LatLng a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f36745b;
+        public long f36901b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36746c;
+        public String f36902c;
 
         static {
             InterceptResult invokeClinit;
@@ -105,8 +105,8 @@ public class HistoryTraceData implements Parcelable {
                 }
             }
             this.a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f36745b = parcel.readLong();
-            this.f36746c = parcel.readString();
+            this.f36901b = parcel.readLong();
+            this.f36902c = parcel.readString();
         }
 
         @Override // android.os.Parcelable
@@ -122,13 +122,13 @@ public class HistoryTraceData implements Parcelable {
         public String getCreateTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36746c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36902c : (String) invokeV.objValue;
         }
 
         public long getLocationTime() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36745b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36901b : invokeV.longValue;
         }
 
         public LatLng getPoint() {
@@ -140,14 +140,14 @@ public class HistoryTraceData implements Parcelable {
         public void setCreateTime(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f36746c = str;
+                this.f36902c = str;
             }
         }
 
         public void setLocationTime(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.f36745b = j2;
+                this.f36901b = j2;
             }
         }
 
@@ -163,8 +163,8 @@ public class HistoryTraceData implements Parcelable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
                 parcel.writeParcelable(this.a, i2);
-                parcel.writeLong(this.f36745b);
-                parcel.writeString(this.f36746c);
+                parcel.writeLong(this.f36901b);
+                parcel.writeString(this.f36902c);
             }
         }
     }
@@ -198,7 +198,7 @@ public class HistoryTraceData implements Parcelable {
                 return;
             }
         }
-        this.f36742g = SyncCoordinateConverter.CoordType.BD09LL;
+        this.f36898g = SyncCoordinateConverter.CoordType.BD09LL;
     }
 
     public HistoryTraceData(Parcel parcel) {
@@ -216,14 +216,14 @@ public class HistoryTraceData implements Parcelable {
                 return;
             }
         }
-        this.f36742g = SyncCoordinateConverter.CoordType.BD09LL;
+        this.f36898g = SyncCoordinateConverter.CoordType.BD09LL;
         this.a = parcel.readInt();
-        this.f36737b = parcel.readDouble();
-        this.f36738c = parcel.readDouble();
-        this.f36739d = parcel.readInt();
-        this.f36740e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f36741f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f36743h = parcel.createTypedArrayList(HistoryTracePoint.CREATOR);
+        this.f36893b = parcel.readDouble();
+        this.f36894c = parcel.readDouble();
+        this.f36895d = parcel.readInt();
+        this.f36896e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f36897f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f36899h = parcel.createTypedArrayList(HistoryTracePoint.CREATOR);
     }
 
     @Override // android.os.Parcelable
@@ -239,49 +239,49 @@ public class HistoryTraceData implements Parcelable {
     public SyncCoordinateConverter.CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36742g : (SyncCoordinateConverter.CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36898g : (SyncCoordinateConverter.CoordType) invokeV.objValue;
     }
 
     public int getCurrentOrderState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36739d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36895d : invokeV.intValue;
     }
 
     public int getCurrentPageIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36744i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36900i : invokeV.intValue;
     }
 
     public double getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36737b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36893b : invokeV.doubleValue;
     }
 
     public LatLng getOrderEndPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36741f : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36897f : (LatLng) invokeV.objValue;
     }
 
     public LatLng getOrderStartPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36740e : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36896e : (LatLng) invokeV.objValue;
     }
 
     public List<HistoryTracePoint> getPointsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36743h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36899h : (List) invokeV.objValue;
     }
 
     public double getTollDiatance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36738c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36894c : invokeV.doubleValue;
     }
 
     public int getTotalPoints() {
@@ -293,56 +293,56 @@ public class HistoryTraceData implements Parcelable {
     public void setCoordType(SyncCoordinateConverter.CoordType coordType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, coordType) == null) {
-            this.f36742g = coordType;
+            this.f36898g = coordType;
         }
     }
 
     public void setCurrentOrderState(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f36739d = i2;
+            this.f36895d = i2;
         }
     }
 
     public void setCurrentPageIndex(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f36744i = i2;
+            this.f36900i = i2;
         }
     }
 
     public void setDistance(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f36737b = d2;
+            this.f36893b = d2;
         }
     }
 
     public void setOrderEndPosition(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, latLng) == null) {
-            this.f36741f = latLng;
+            this.f36897f = latLng;
         }
     }
 
     public void setOrderStartPosition(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, latLng) == null) {
-            this.f36740e = latLng;
+            this.f36896e = latLng;
         }
     }
 
     public void setPointsList(List<HistoryTracePoint> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f36743h = list;
+            this.f36899h = list;
         }
     }
 
     public void setTollDiatance(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f36738c = d2;
+            this.f36894c = d2;
         }
     }
 
@@ -361,20 +361,20 @@ public class HistoryTraceData implements Parcelable {
             stringBuffer.append("TotalPoints = ");
             stringBuffer.append(this.a);
             stringBuffer.append("; Distance = ");
-            stringBuffer.append(this.f36737b);
+            stringBuffer.append(this.f36893b);
             stringBuffer.append("; TollDistance = ");
-            stringBuffer.append(this.f36738c);
+            stringBuffer.append(this.f36894c);
             stringBuffer.append("; CurrentOrderState = ");
-            stringBuffer.append(this.f36739d);
+            stringBuffer.append(this.f36895d);
             stringBuffer.append("; OrderStartPosition = ");
-            stringBuffer.append(this.f36740e);
+            stringBuffer.append(this.f36896e);
             stringBuffer.append("; OrderEndPosition = ");
-            stringBuffer.append(this.f36741f);
-            List<HistoryTracePoint> list = this.f36743h;
+            stringBuffer.append(this.f36897f);
+            List<HistoryTracePoint> list = this.f36899h;
             if (list != null && !list.isEmpty()) {
                 stringBuffer.append("\n#History Trace Points Info BEGIN# \n");
-                for (int i2 = 0; i2 < this.f36743h.size(); i2++) {
-                    HistoryTracePoint historyTracePoint = this.f36743h.get(i2);
+                for (int i2 = 0; i2 < this.f36899h.size(); i2++) {
+                    HistoryTracePoint historyTracePoint = this.f36899h.get(i2);
                     if (historyTracePoint != null) {
                         stringBuffer.append("The ");
                         stringBuffer.append(i2);
@@ -399,12 +399,12 @@ public class HistoryTraceData implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, parcel, i2) == null) {
             parcel.writeInt(this.a);
-            parcel.writeDouble(this.f36737b);
-            parcel.writeDouble(this.f36738c);
-            parcel.writeInt(this.f36739d);
-            parcel.writeParcelable(this.f36740e, i2);
-            parcel.writeParcelable(this.f36741f, i2);
-            parcel.writeTypedList(this.f36743h);
+            parcel.writeDouble(this.f36893b);
+            parcel.writeDouble(this.f36894c);
+            parcel.writeInt(this.f36895d);
+            parcel.writeParcelable(this.f36896e, i2);
+            parcel.writeParcelable(this.f36897f, i2);
+            parcel.writeTypedList(this.f36899h);
         }
     }
 }

@@ -31,7 +31,7 @@ public class b extends BaseBean<BindCardResponse> {
     public BindFastRequest a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PwdRequest f53975b;
+    public PwdRequest f53978b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> b(Context context) {
@@ -52,9 +52,9 @@ public class b extends BaseBean<BindCardResponse> {
             }
         }
         this.a = null;
-        this.f53975b = null;
+        this.f53978b = null;
         this.a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
-        this.f53975b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
+        this.f53978b = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
     public void a(BindFastRequest bindFastRequest) {
@@ -96,14 +96,14 @@ public class b extends BaseBean<BindCardResponse> {
                     arrayList.add(new RestNameValuePair("phone_number", PayUtils.encrypt("phone_number", this.a.getmPhone())));
                 }
                 arrayList.add(new RestNameValuePair("vcode", this.a.getmSmsVCode()));
-                PwdRequest pwdRequest = this.f53975b;
-                if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass) && !TextUtils.isEmpty(this.f53975b.mConfirmPayPass)) {
-                    String handlePwdSimple = PasswordController.handlePwdSimple(this.f53975b.mPayPass);
+                PwdRequest pwdRequest = this.f53978b;
+                if (pwdRequest != null && !TextUtils.isEmpty(pwdRequest.mPayPass) && !TextUtils.isEmpty(this.f53978b.mConfirmPayPass)) {
+                    String handlePwdSimple = PasswordController.handlePwdSimple(this.f53978b.mPayPass);
                     String seed = PasswordController.getSeed();
-                    String handlePwd = PasswordController.handlePwd(this.f53975b.mConfirmPayPass, seed);
+                    String handlePwd = PasswordController.handlePwd(this.f53978b.mConfirmPayPass, seed);
                     arrayList.add(new RestNameValuePair("mobile_pass", SecurePay.getInstance().encryptProxy(handlePwdSimple)));
                     arrayList.add(new RestNameValuePair("mobile_pass_confirm", handlePwd));
-                    arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f53975b.mConfirmPayPass)));
+                    arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f53978b.mConfirmPayPass)));
                     arrayList.add(new RestNameValuePair("seed", SecurePay.getInstance().encryptProxy(seed)));
                 }
                 if (!TextUtils.isEmpty(this.a.getmValidDate())) {

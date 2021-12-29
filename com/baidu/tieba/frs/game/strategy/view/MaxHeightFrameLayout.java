@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,10 +18,10 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f44834e;
+    public float f45021e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f44835f;
+    public float f45022f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxHeightFrameLayout(Context context) {
@@ -41,19 +41,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f44834e = 0.6f;
-        this.f44835f = 0.0f;
+        this.f45021e = 0.6f;
+        this.f45022f = 0.0f;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float f2 = this.f44835f;
+            float f2 = this.f45022f;
             if (f2 <= 0.0f) {
-                this.f44835f = this.f44834e * m.i(getContext());
+                this.f45022f = this.f45021e * n.i(getContext());
             } else {
-                this.f44835f = Math.min(f2, this.f44834e * m.i(getContext()));
+                this.f45022f = Math.min(f2, this.f45021e * n.i(getContext()));
             }
         }
     }
@@ -66,9 +66,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
             for (int i2 = 0; i2 < indexCount; i2++) {
                 int index = obtainStyledAttributes.getIndex(i2);
                 if (index == R$styleable.MaxHeightFrameLayout_mhf_HeightRatio) {
-                    this.f44834e = obtainStyledAttributes.getFloat(index, 0.6f);
+                    this.f45021e = obtainStyledAttributes.getFloat(index, 0.6f);
                 } else if (index == R$styleable.MaxHeightFrameLayout_mhf_HeightDimen) {
-                    this.f44835f = obtainStyledAttributes.getDimension(index, 0.0f);
+                    this.f45022f = obtainStyledAttributes.getDimension(index, 0.0f);
                 }
             }
             obtainStyledAttributes.recycle();
@@ -82,19 +82,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
             int mode = View.MeasureSpec.getMode(i3);
             int size = View.MeasureSpec.getSize(i3);
             if (mode == 1073741824) {
-                float f2 = this.f44835f;
+                float f2 = this.f45022f;
                 if (size > f2) {
                     size = (int) f2;
                 }
             }
             if (mode == 0) {
-                float f3 = this.f44835f;
+                float f3 = this.f45022f;
                 if (size > f3) {
                     size = (int) f3;
                 }
             }
             if (mode == Integer.MIN_VALUE) {
-                float f4 = this.f44835f;
+                float f4 = this.f45022f;
                 if (size > f4) {
                     size = (int) f4;
                 }
@@ -106,7 +106,7 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public void setMaxHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f44835f = i2;
+            this.f45022f = i2;
         }
     }
 
@@ -129,8 +129,8 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f44834e = 0.6f;
-        this.f44835f = 0.0f;
+        this.f45021e = 0.6f;
+        this.f45022f = 0.0f;
         b(context, attributeSet);
         a();
     }
@@ -154,8 +154,8 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f44834e = 0.6f;
-        this.f44835f = 0.0f;
+        this.f45021e = 0.6f;
+        this.f45022f = 0.0f;
         b(context, attributeSet);
         a();
     }

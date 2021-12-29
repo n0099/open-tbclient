@@ -1,22 +1,14 @@
 package com.kwad.sdk.core.request.model;
 
 import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
 import com.kwad.sdk.utils.av;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class d extends com.kwad.sdk.core.response.kwai.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String B;
-    public long C;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -62,109 +54,81 @@ public class d extends com.kwad.sdk.core.response.kwai.a {
     public String w;
     public JSONArray x;
     public String y;
-    public int z;
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.z = 0;
-        this.C = 0L;
-    }
+    public int z = 0;
+    public long C = 0;
 
     public static d a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            d dVar = new d();
-            dVar.f58355e = com.kwad.sdk.core.f.a.a();
-            dVar.q = av.u();
-            dVar.t = av.e();
-            dVar.f58358h = 1;
-            dVar.f58359i = av.r();
-            dVar.f58360j = av.q();
-            dVar.w = com.kwad.sdk.core.a.e.a();
-            dVar.v = com.kwad.sdk.core.a.e.b();
-            return dVar;
-        }
-        return (d) invokeV.objValue;
+        d dVar = new d();
+        dVar.f58355e = com.kwad.sdk.core.f.a.a();
+        dVar.q = av.u();
+        dVar.t = av.e();
+        dVar.f58358h = 1;
+        dVar.f58359i = av.r();
+        dVar.f58360j = av.q();
+        dVar.w = com.kwad.sdk.core.a.e.a();
+        dVar.v = com.kwad.sdk.core.a.e.b();
+        return dVar;
     }
 
     public static d a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) ? a(z, 0) : (d) invokeZ.objValue;
+        return a(z, 0);
     }
 
     public static d a(boolean z, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            d dVar = new d();
-            dVar.a = av.d(KsAdSDKImpl.get().getContext());
-            String[] g2 = av.g(KsAdSDKImpl.get().getContext());
-            dVar.f58352b = g2[0];
-            dVar.f58353c = g2[1];
-            dVar.f58354d = av.f(KsAdSDKImpl.get().getContext());
-            dVar.f58355e = com.kwad.sdk.core.f.a.a();
-            dVar.t = av.e();
-            dVar.u = av.g();
-            dVar.f58358h = 1;
-            dVar.f58359i = av.r();
-            dVar.f58360j = av.q();
-            dVar.f58361k = av.s();
-            dVar.m = av.o(KsAdSDKImpl.get().getContext());
-            dVar.l = av.n(KsAdSDKImpl.get().getContext());
-            dVar.n = av.p(KsAdSDKImpl.get().getContext());
-            dVar.o = av.q(KsAdSDKImpl.get().getContext());
-            dVar.p = av.t(KsAdSDKImpl.get().getContext());
-            if (z) {
-                dVar.x = InstalledAppInfoManager.a(KsAdSDKImpl.get().getContext());
-            }
-            dVar.q = av.u();
-            dVar.C = av.f();
-            dVar.r = av.n();
-            dVar.w = com.kwad.sdk.core.a.e.a();
-            dVar.v = com.kwad.sdk.core.a.e.b();
-            dVar.s = av.o();
-            StringBuilder sb = new StringBuilder();
-            sb.append("DeviceInfo i=");
-            sb.append(KsAdSDKImpl.get().getAppId());
-            sb.append(",n=");
-            sb.append(KsAdSDKImpl.get().getAppName());
-            sb.append(",external:");
-            sb.append(KsAdSDKImpl.get().getIsExternal());
-            sb.append(",v1:");
-            sb.append(KsAdSDKImpl.get().getApiVersion());
-            sb.append(",v2:");
-            sb.append("3.3.17.4");
-            sb.append(",d:");
-            sb.append(dVar.q);
-            sb.append(",dh:");
-            String str = dVar.q;
-            sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
-            sb.append(",o:");
-            sb.append(dVar.f58355e);
-            com.kwad.sdk.core.d.a.a(sb.toString());
-            dVar.y = av.p();
-            dVar.z = i2;
-            if (com.kwad.sdk.core.config.b.ar()) {
-                dVar.A = av.b(KsAdSDKImpl.get().getContext(), "com.smile.gifmaker");
-                dVar.B = av.b(KsAdSDKImpl.get().getContext(), "com.kuaishou.nebula");
-            }
-            dVar.f58356f = Build.BRAND;
-            dVar.f58357g = com.kwad.sdk.core.download.a.g.a(KsAdSDKImpl.get().getContext());
-            return dVar;
+        d dVar = new d();
+        dVar.a = av.d(KsAdSDKImpl.get().getContext());
+        String[] g2 = av.g(KsAdSDKImpl.get().getContext());
+        dVar.f58352b = g2[0];
+        dVar.f58353c = g2[1];
+        dVar.f58354d = av.f(KsAdSDKImpl.get().getContext());
+        dVar.f58355e = com.kwad.sdk.core.f.a.a();
+        dVar.t = av.e();
+        dVar.u = av.g();
+        dVar.f58358h = 1;
+        dVar.f58359i = av.r();
+        dVar.f58360j = av.q();
+        dVar.f58361k = av.s();
+        dVar.m = av.o(KsAdSDKImpl.get().getContext());
+        dVar.l = av.n(KsAdSDKImpl.get().getContext());
+        dVar.n = av.p(KsAdSDKImpl.get().getContext());
+        dVar.o = av.q(KsAdSDKImpl.get().getContext());
+        dVar.p = av.t(KsAdSDKImpl.get().getContext());
+        if (z) {
+            dVar.x = InstalledAppInfoManager.a(KsAdSDKImpl.get().getContext());
         }
-        return (d) invokeCommon.objValue;
+        dVar.q = av.u();
+        dVar.C = av.f();
+        dVar.r = av.n();
+        dVar.w = com.kwad.sdk.core.a.e.a();
+        dVar.v = com.kwad.sdk.core.a.e.b();
+        dVar.s = av.o();
+        StringBuilder sb = new StringBuilder();
+        sb.append("DeviceInfo i=");
+        sb.append(KsAdSDKImpl.get().getAppId());
+        sb.append(",n=");
+        sb.append(KsAdSDKImpl.get().getAppName());
+        sb.append(",external:");
+        sb.append(KsAdSDKImpl.get().getIsExternal());
+        sb.append(",v1:");
+        sb.append(KsAdSDKImpl.get().getApiVersion());
+        sb.append(",v2:");
+        sb.append("3.3.17.4");
+        sb.append(",d:");
+        sb.append(dVar.q);
+        sb.append(",dh:");
+        String str = dVar.q;
+        sb.append(str != null ? Integer.valueOf(str.hashCode()) : "");
+        sb.append(",o:");
+        sb.append(dVar.f58355e);
+        com.kwad.sdk.core.d.a.a(sb.toString());
+        dVar.y = av.p();
+        dVar.z = i2;
+        if (com.kwad.sdk.core.config.b.ar()) {
+            dVar.A = av.b(KsAdSDKImpl.get().getContext(), "com.smile.gifmaker");
+            dVar.B = av.b(KsAdSDKImpl.get().getContext(), "com.kuaishou.nebula");
+        }
+        dVar.f58356f = Build.BRAND;
+        dVar.f58357g = com.kwad.sdk.core.download.a.g.a(KsAdSDKImpl.get().getContext());
+        return dVar;
     }
 }

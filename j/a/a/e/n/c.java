@@ -15,16 +15,16 @@ public class c {
     public ProductInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64776b;
+    public int f64771b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64777c;
+    public boolean f64772c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64778d;
+    public boolean f64773d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f64779e;
+    public int f64774e;
 
     public c(boolean z) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public class c {
                 return;
             }
         }
-        this.f64776b = Integer.MIN_VALUE;
-        this.f64779e = -1;
-        this.f64777c = z;
+        this.f64771b = Integer.MIN_VALUE;
+        this.f64774e = -1;
+        this.f64772c = z;
     }
 
     public double a() {
@@ -78,7 +78,7 @@ public class c {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("PayAmount{currencyType=");
-            sb.append(this.f64776b);
+            sb.append(this.f64771b);
             sb.append(", srcAmount=");
             ProductInfo productInfo = this.a;
             sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
@@ -106,8 +106,8 @@ public class c {
                 return;
             }
         }
-        this.f64776b = Integer.MIN_VALUE;
-        this.f64779e = -1;
+        this.f64771b = Integer.MIN_VALUE;
+        this.f64774e = -1;
         this.a = productInfo;
     }
 
@@ -126,9 +126,9 @@ public class c {
                 return;
             }
         }
-        this.f64776b = Integer.MIN_VALUE;
-        this.f64779e = -1;
+        this.f64771b = Integer.MIN_VALUE;
+        this.f64774e = -1;
         this.a = productInfo;
-        this.f64776b = i2;
+        this.f64771b = i2;
     }
 }

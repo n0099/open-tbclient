@@ -95,10 +95,10 @@ public class SDKJumpManager {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ String f52743b;
+                        public final /* synthetic */ String f52746b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ SDKJumpManager f52744c;
+                        public final /* synthetic */ SDKJumpManager f52747c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -115,9 +115,9 @@ public class SDKJumpManager {
                                     return;
                                 }
                             }
-                            this.f52744c = this;
+                            this.f52747c = this;
                             this.a = context;
-                            this.f52743b = str3;
+                            this.f52746b = str3;
                         }
 
                         @Override // com.baidu.wallet.api.ILoginBackListener
@@ -125,9 +125,9 @@ public class SDKJumpManager {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str4) == null) {
                                 if (i2 == 603) {
-                                    WalletLoginHelper.getInstance().onlyLogin(this.f52744c.a);
+                                    WalletLoginHelper.getInstance().onlyLogin(this.f52747c.a);
                                 }
-                                this.f52744c.a = null;
+                                this.f52747c.a = null;
                             }
                         }
 
@@ -135,8 +135,8 @@ public class SDKJumpManager {
                         public void onSuccess(int i2, String str4) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str4) == null) {
-                                BaiduWalletDelegate.getInstance().openH5Module(this.a, this.f52743b, true);
-                                this.f52744c.a = null;
+                                BaiduWalletDelegate.getInstance().openH5Module(this.a, this.f52746b, true);
+                                this.f52747c.a = null;
                             }
                         }
                     });

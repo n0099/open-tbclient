@@ -1,6 +1,6 @@
 package com.baidu.searchbox.task.item;
 
-import c.a.r0.s.h;
+import c.a.s0.s.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;

@@ -1,10 +1,5 @@
 package com.kwad.sdk.core.webview.request;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.core.network.k;
 import com.kwad.sdk.utils.t;
@@ -12,8 +7,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a extends d {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
     public String f58696b;
@@ -23,20 +16,6 @@ public class a extends d {
 
     public a(String str, String str2, String str3) {
         JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.f58696b = str;
         this.f58697c = str2;
         try {
@@ -57,11 +36,6 @@ public class a extends d {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return com.kwad.sdk.d.a() + this.f58696b;
-        }
-        return (String) invokeV.objValue;
+        return com.kwad.sdk.d.a() + this.f58696b;
     }
 }

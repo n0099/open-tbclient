@@ -37,7 +37,7 @@ public abstract class Draft {
     public WebSocket.Role a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Framedata.Opcode f64877b;
+    public Framedata.Opcode f64872b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -190,7 +190,7 @@ public abstract class Draft {
             }
         }
         this.a = null;
-        this.f64877b = null;
+        this.f64872b = null;
     }
 
     public static ByteBuffer p(ByteBuffer byteBuffer) {
@@ -320,10 +320,10 @@ public abstract class Draft {
             if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
                 throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
             }
-            if (this.f64877b != null) {
+            if (this.f64872b != null) {
                 iVar = new h.b.h.c();
             } else {
-                this.f64877b = opcode;
+                this.f64872b = opcode;
                 if (opcode == Framedata.Opcode.BINARY) {
                     iVar = new h.b.h.a();
                 } else {
@@ -335,9 +335,9 @@ public abstract class Draft {
             try {
                 iVar.h();
                 if (z) {
-                    this.f64877b = null;
+                    this.f64872b = null;
                 } else {
-                    this.f64877b = opcode;
+                    this.f64872b = opcode;
                 }
                 return Collections.singletonList(iVar);
             } catch (InvalidDataException e2) {

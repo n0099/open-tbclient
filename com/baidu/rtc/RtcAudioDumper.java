@@ -57,7 +57,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                         openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
                         this.fileSizeInBytes = 0L;
                     }
-                    this.executor.execute(new Runnable() { // from class: c.a.k0.c
+                    this.executor.execute(new Runnable() { // from class: c.a.l0.c
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

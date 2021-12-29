@@ -5,9 +5,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.Window;
 import android.widget.FrameLayout;
-import c.a.r0.x.w.b;
-import c.a.r0.x.w.c.a;
-import c.a.r0.x.w.d.d;
+import c.a.s0.x.x.b;
+import c.a.s0.x.x.c.a;
+import c.a.s0.x.x.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,7 +19,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f42271e;
+    public a f42445e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -45,26 +45,26 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42271e = new a(this);
+            this.f42445e = new a(this);
         }
     }
 
-    @Override // c.a.r0.x.w.b
+    @Override // c.a.s0.x.x.b
     public void onKeyboardShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f42271e.a(z);
+            this.f42445e.a(z);
         }
     }
 
     public void recordKeyboardStatus(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, window) == null) {
-            this.f42271e.b(window);
+            this.f42445e.b(window);
         }
     }
 
-    @Override // c.a.r0.x.w.b
+    @Override // c.a.s0.x.x.b
     public void refreshHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {

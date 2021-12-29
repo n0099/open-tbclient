@@ -88,7 +88,7 @@ public class e implements com.yxcorp.kuaishou.addfp.a.b.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 d a = c.a(new String[]{str}, false, true);
-                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.f63947b) || !a.f63947b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
+                return !TextUtils.isEmpty(a.a) ? a.a : (TextUtils.isEmpty(a.f63942b) || !a.f63942b.contains("denied")) ? TextUtils.isEmpty(a.a) ? "KWE_N" : "KWE_OTHER" : "KWE_PN";
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "KWE_PE";

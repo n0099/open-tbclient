@@ -43,13 +43,13 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Set<String> f1466b;
+    public static final Set<String> f1893b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<File> f1467c;
+    public static final List<File> f1894c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, WeakReference<Lock>> f1468d;
+    public static Map<String, WeakReference<Lock>> f1895d;
     public transient /* synthetic */ FieldHolder $fh;
     public StringBuilder a;
 
@@ -66,9 +66,9 @@ public final class c {
                 return;
             }
         }
-        f1466b = Collections.synchronizedSet(new HashSet());
-        f1467c = new ArrayList();
-        f1468d = new ConcurrentHashMap();
+        f1893b = Collections.synchronizedSet(new HashSet());
+        f1894c = new ArrayList();
+        f1895d = new ConcurrentHashMap();
     }
 
     public c() {
@@ -93,10 +93,10 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (c.class) {
-                WeakReference<Lock> weakReference = f1468d.get(str);
+                WeakReference<Lock> weakReference = f1895d.get(str);
                 if (weakReference == null || (reentrantLock = weakReference.get()) == null) {
                     reentrantLock = new ReentrantLock();
-                    f1468d.put(str, new WeakReference<>(reentrantLock));
+                    f1895d.put(str, new WeakReference<>(reentrantLock));
                 }
             }
             return reentrantLock;
@@ -112,7 +112,7 @@ public final class c {
 
     public static void l(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || f1466b.contains(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || f1893b.contains(str)) {
             return;
         }
         m(context, str, null);
@@ -125,11 +125,11 @@ public final class c {
                 bVar = a.a();
             }
             c cVar = new c();
-            if (f1467c.size() == 0) {
+            if (f1894c.size() == 0) {
                 cVar.j(context);
             }
             if (cVar.r(context, str, bVar)) {
-                f1466b.add(str);
+                f1893b.add(str);
             }
         }
     }
@@ -143,8 +143,8 @@ public final class c {
             arrayList.add(new File(f(context)));
             arrayList.add(new File(context.getFilesDir(), "lib"));
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (!f1467c.contains(arrayList.get(i2))) {
-                    f1467c.add(arrayList.get(i2));
+                if (!f1894c.contains(arrayList.get(i2))) {
+                    f1894c.add(arrayList.get(i2));
                 }
             }
         }
@@ -159,8 +159,8 @@ public final class c {
             }
             for (String str2 : str.split(":")) {
                 File file = new File(str2);
-                if (!f1467c.contains(file)) {
-                    f1467c.add(file);
+                if (!f1894c.contains(file)) {
+                    f1894c.add(file);
                 }
             }
         }
@@ -583,7 +583,7 @@ public final class c {
                     return false;
                 }
                 int i2 = !d.d() ? 1 : 0;
-                String str2 = d.f1469b[i2] + File.separator + b2;
+                String str2 = d.f1896b[i2] + File.separator + b2;
                 long i3 = i(zipFile, str2);
                 if (o(context, bVar, b2, i3, str2)) {
                     if (zipFile != null) {

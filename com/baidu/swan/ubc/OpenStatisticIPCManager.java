@@ -3,7 +3,7 @@ package com.baidu.swan.ubc;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.u.e;
+import c.a.r0.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;

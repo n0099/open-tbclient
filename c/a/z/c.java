@@ -20,10 +20,10 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public McnVideoAdView f27606b;
+    public McnVideoAdView f27696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public McnVideoAdView.c f27607c;
+    public McnVideoAdView.c f27697c;
 
     /* loaded from: classes9.dex */
     public class a implements McnVideoAdView.c {
@@ -49,10 +49,10 @@ public class c {
         @Override // com.baidu.mcn.McnVideoAdView.c
         public void a(c.a.z.a aVar) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || StringUtils.isNull(aVar.f27600d)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null || StringUtils.isNull(aVar.f27690d)) {
                 return;
             }
-            b.b().c(aVar.f27600d);
+            b.b().c(aVar.f27690d);
         }
 
         @Override // com.baidu.mcn.McnVideoAdView.c
@@ -62,10 +62,10 @@ public class c {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13405");
-            statisticItem.param("tid", aVar.f27601e);
-            statisticItem.param("fid", aVar.f27602f);
+            statisticItem.param("tid", aVar.f27691e);
+            statisticItem.param("fid", aVar.f27692f);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", aVar.f27603g);
+            statisticItem.param("obj_locate", aVar.f27693g);
             TiebaStatic.log(statisticItem);
         }
 
@@ -76,10 +76,10 @@ public class c {
                 return;
             }
             StatisticItem statisticItem = new StatisticItem("c13404");
-            statisticItem.param("tid", aVar.f27601e);
-            statisticItem.param("fid", aVar.f27602f);
+            statisticItem.param("tid", aVar.f27691e);
+            statisticItem.param("fid", aVar.f27692f);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_locate", aVar.f27603g);
+            statisticItem.param("obj_locate", aVar.f27693g);
             TiebaStatic.log(statisticItem);
         }
     }
@@ -99,17 +99,17 @@ public class c {
                 return;
             }
         }
-        this.f27607c = new a(this);
+        this.f27697c = new a(this);
         this.a = context;
         McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
-        this.f27606b = mcnVideoAdView;
-        mcnVideoAdView.setIMcnStatListener(this.f27607c);
+        this.f27696b = mcnVideoAdView;
+        mcnVideoAdView.setIMcnStatListener(this.f27697c);
     }
 
     public void a() {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mcnVideoAdView = this.f27606b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mcnVideoAdView = this.f27696b) == null) {
             return;
         }
         mcnVideoAdView.dismiss();
@@ -118,7 +118,7 @@ public class c {
     public void b() {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mcnVideoAdView = this.f27606b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mcnVideoAdView = this.f27696b) == null) {
             return;
         }
         mcnVideoAdView.hideMcnVideoAdWithOutAnim();
@@ -128,7 +128,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            McnVideoAdView mcnVideoAdView = this.f27606b;
+            McnVideoAdView mcnVideoAdView = this.f27696b;
             if (mcnVideoAdView != null) {
                 return mcnVideoAdView.isShowing();
             }
@@ -140,7 +140,7 @@ public class c {
     public void d() {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (mcnVideoAdView = this.f27606b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (mcnVideoAdView = this.f27696b) == null) {
             return;
         }
         mcnVideoAdView.reset();
@@ -149,7 +149,7 @@ public class c {
     public void e(c.a.z.a aVar, ViewGroup viewGroup) {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, aVar, viewGroup) == null) || (mcnVideoAdView = this.f27606b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, aVar, viewGroup) == null) || (mcnVideoAdView = this.f27696b) == null) {
             return;
         }
         mcnVideoAdView.show(aVar, viewGroup);
@@ -158,7 +158,7 @@ public class c {
     public void f(c.a.z.a aVar, ViewGroup viewGroup) {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, aVar, viewGroup) == null) || (mcnVideoAdView = this.f27606b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, aVar, viewGroup) == null) || (mcnVideoAdView = this.f27696b) == null) {
             return;
         }
         mcnVideoAdView.showMcnVideoAdWithOutAnim(aVar, viewGroup);

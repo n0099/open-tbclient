@@ -18,13 +18,13 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.home.ui.a.a f53151b;
+    public com.baidu.wallet.home.ui.a.a f53154b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53152c;
+    public boolean f53155c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.TitleConfig f53153d;
+    public HomeCfgResponse.TitleConfig f53156d;
 
     public a(com.baidu.wallet.home.ui.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -41,14 +41,14 @@ public class a {
                 return;
             }
         }
-        this.f53152c = false;
-        this.f53151b = aVar;
+        this.f53155c = false;
+        this.f53154b = aVar;
     }
 
     private void b(Context context, HomeCfgResponse.TitleItemData titleItemData) {
         com.baidu.wallet.home.ui.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, titleItemData) == null) || (aVar = this.f53151b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, context, titleItemData) == null) || (aVar = this.f53154b) == null) {
             return;
         }
         aVar.refreshRightZoneDot(a(context, titleItemData));
@@ -59,30 +59,30 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, titleConfig, str2) == null) {
             this.a = str2;
-            com.baidu.wallet.home.ui.a.a aVar = this.f53151b;
+            com.baidu.wallet.home.ui.a.a aVar = this.f53154b;
             if (aVar == null) {
                 return;
             }
             if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
                 aVar.refreshRightZoneDot(false);
-                this.f53153d = titleConfig;
+                this.f53156d = titleConfig;
                 if (!TextUtils.isEmpty(titleConfig.data[0].titlebar)) {
-                    this.f53151b.refreshTitle(titleConfig.data[0].titlebar);
+                    this.f53154b.refreshTitle(titleConfig.data[0].titlebar);
                 }
-                this.f53151b.refreshSafeTip(titleConfig.data[0].safe_title);
+                this.f53154b.refreshSafeTip(titleConfig.data[0].safe_title);
                 HomeCfgResponse.TitleItem[] titleItemArr2 = titleConfig.data;
                 if (titleItemArr2[0].list != null && titleItemArr2[0].list.length >= 1) {
                     if (titleItemArr2[0].list.length > 1) {
-                        this.f53152c = true;
-                        this.f53151b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
-                        this.f53151b.refreshMenu(str, titleConfig.data[0].list, this.a);
+                        this.f53155c = true;
+                        this.f53154b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
+                        this.f53154b.refreshMenu(str, titleConfig.data[0].list, this.a);
                         return;
                     } else if (titleItemArr2[0].list.length == 1) {
                         HomeCfgResponse.TitleItemData titleItemData = titleItemArr2[0].list[0];
                         if (titleItemData != null && !TextUtils.isEmpty(titleItemData.setting_addr) && !TextUtils.isEmpty(titleItemData.setting_type)) {
-                            this.f53151b.refreshRightZone(ResUtils.drawable(context, a(this.a)));
+                            this.f53154b.refreshRightZone(ResUtils.drawable(context, a(this.a)));
                             b(context, titleItemData);
-                            this.f53152c = false;
+                            this.f53155c = false;
                             String str3 = titleConfig.data[0].list[0].setting_icon;
                             if (TextUtils.isEmpty(str3)) {
                                 return;
@@ -90,36 +90,36 @@ public class a {
                             if (TextUtils.isEmpty(str)) {
                                 str = "";
                             }
-                            this.f53151b.refreshRightZone(str + str3);
+                            this.f53154b.refreshRightZone(str + str3);
                             return;
                         }
-                        this.f53151b.hideRightZone();
+                        this.f53154b.hideRightZone();
                         return;
                     } else {
                         return;
                     }
                 }
-                this.f53151b.hideRightZone();
+                this.f53154b.hideRightZone();
                 return;
             }
-            this.f53151b.hideRightZone();
+            this.f53154b.hideRightZone();
         }
     }
 
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (this.f53152c) {
-                com.baidu.wallet.home.ui.a.a aVar = this.f53151b;
+            if (this.f53155c) {
+                com.baidu.wallet.home.ui.a.a aVar = this.f53154b;
                 if (aVar != null) {
                     aVar.showMenu();
                 }
-            } else if (this.f53153d.checkTitleConfig()) {
-                HomeCfgResponse.TitleItem[] titleItemArr = this.f53153d.data;
+            } else if (this.f53156d.checkTitleConfig()) {
+                HomeCfgResponse.TitleItem[] titleItemArr = this.f53156d.data;
                 if (titleItemArr[0].list == null || titleItemArr[0].list.length <= 0 || titleItemArr[0].list[0] == null || TextUtils.isEmpty(titleItemArr[0].list[0].setting_addr)) {
                     return;
                 }
-                HomeCfgResponse.TitleItemData titleItemData = this.f53153d.data[0].list[0];
+                HomeCfgResponse.TitleItemData titleItemData = this.f53156d.data[0].list[0];
                 if (a(context, titleItemData)) {
                     if (!TextUtils.isEmpty(titleItemData.getLinkAddr())) {
                         com.baidu.wallet.home.storage.a.a(context, titleItemData.getLinkAddr(), TextUtils.isEmpty(titleItemData.getTimeStamp()) ? "0" : titleItemData.getTimeStamp());

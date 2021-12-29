@@ -82,7 +82,7 @@ public class TrackUI {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (split = str.split(SEPERATOR)) == null || split.length != 4) {
+            if (TextUtils.isEmpty(str) || (split = str.split("\t")) == null || split.length != 4) {
                 return null;
             }
             return split;
@@ -151,9 +151,9 @@ public class TrackUI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder(getTime(this.mTimeStamp));
-            sb.append(SEPERATOR);
+            sb.append("\t");
             sb.append(this.mTimeStamp);
-            sb.append(SEPERATOR);
+            sb.append("\t");
             sb.append(this.mActivityPage);
             sb.append(this.mActivityPageTag);
             if (!TextUtils.isEmpty(this.mFragmentPage)) {
@@ -163,7 +163,7 @@ public class TrackUI {
                     sb.append(this.mFragmentPageTag);
                 }
             }
-            sb.append(SEPERATOR);
+            sb.append("\t");
             sb.append(this.mEvent);
             return sb.toString();
         }

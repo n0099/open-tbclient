@@ -27,10 +27,10 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
         public CustomMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CustomMessageTask f2166b;
+        public CustomMessageTask f2593b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ b f2167c;
+        public final /* synthetic */ b f2594c;
 
         public a(b bVar, CustomMessage customMessage, CustomMessageTask customMessageTask) {
             Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
                     return;
                 }
             }
-            this.f2167c = bVar;
+            this.f2594c = bVar;
             this.a = null;
-            this.f2166b = null;
+            this.f2593b = null;
             setPriority(customMessageTask.getPriority());
             setParallel(customMessageTask.getParallel());
             if (customMessage != null) {
@@ -61,7 +61,7 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
                 setPriority(4);
             }
             this.a = customMessage;
-            this.f2166b = customMessageTask;
+            this.f2593b = customMessageTask;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,16 +71,16 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                CustomMessageTask customMessageTask = this.f2166b;
+                CustomMessageTask customMessageTask = this.f2593b;
                 if (customMessageTask == null) {
                     return null;
                 }
                 if (customMessageTask.getRunnable() == null) {
-                    BdLog.e("CustomTask :" + this.f2166b.getClass().getName() + "did not contain a runnable!!");
+                    BdLog.e("CustomTask :" + this.f2593b.getClass().getName() + "did not contain a runnable!!");
                     return null;
                 }
                 try {
-                    return this.f2166b.getRunnable().run(this.a);
+                    return this.f2593b.getRunnable().run(this.a);
                 } catch (Exception e2) {
                     BdLog.detailException(e2);
                     return null;
@@ -103,10 +103,10 @@ public class b extends c.a.d.c.e.a<CustomMessage<?>, CustomMessageTask> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null) {
                     customResponsedMessage.setOrginalMessage(this.a);
-                    this.f2167c.a.dispatchResponsedMessage(customResponsedMessage);
+                    this.f2594c.a.dispatchResponsedMessage(customResponsedMessage);
                     return;
                 }
-                BdLog.e("CustomTask :" + this.f2166b.getClass().getName() + "returns a NULL!!");
+                BdLog.e("CustomTask :" + this.f2593b.getClass().getName() + "returns a NULL!!");
             }
         }
     }

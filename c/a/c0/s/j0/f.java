@@ -22,7 +22,7 @@ public class f extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f1991k;
+    public String f2418k;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -42,32 +42,32 @@ public class f extends a {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Y();
+            R();
         }
     }
 
     @Override // c.a.c0.s.j0.a
-    public void T(c.a.c0.s.f0.a aVar) {
+    public void N(c.a.c0.s.f0.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            super.T(aVar);
-            c.a.c0.s.f0.a aVar2 = this.f1984j;
+            super.N(aVar);
+            c.a.c0.s.f0.a aVar2 = this.f2411j;
             if (aVar2 != null) {
                 aVar2.d(this);
             }
         }
     }
 
-    public void W() {
+    public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if ("ad_video_tail_frame_layer".equals(this.f1991k) || "ad_video_detail_tail_frame_layer".equals(this.f1991k)) {
-                X();
+            if ("ad_video_tail_frame_layer".equals(this.f2418k) || "ad_video_detail_tail_frame_layer".equals(this.f2418k)) {
+                Q();
             }
         }
     }
 
-    public final void X() {
+    public final void Q() {
         BdVideoAd videoAd;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -78,27 +78,27 @@ public class f extends a {
             }
             c.a.c0.s.f0.e a = c.b.a().a(new HashMap(), videoAd.mAdVideoTailFrameData);
             a.a(u.V0());
-            T(a);
+            N(a);
         }
     }
 
-    public void Y() {
+    public void R() {
         c.a.c0.s.f0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f1984j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.f2411j) == null) {
             return;
         }
         aVar.onDestroy();
-        this.f1984j = null;
+        this.f2411j = null;
     }
 
-    public final void Z() {
+    public final void S() {
         BdVideoSeries o1;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (("ad_video_tail_frame_layer".equals(this.f1991k) || "ad_video_detail_tail_frame_layer".equals(this.f1991k)) && (this.f1984j instanceof c.a.c0.s.f0.e) && (o1 = u().o1()) != null) {
+            if (("ad_video_tail_frame_layer".equals(this.f2418k) || "ad_video_detail_tail_frame_layer".equals(this.f2418k)) && (this.f2411j instanceof c.a.c0.s.f0.e) && (o1 = u().o1()) != null) {
                 BdVideoAd videoAd = o1.getVideoAd();
-                ((c.a.c0.s.f0.e) this.f1984j).e(videoAd == null ? null : videoAd.mAdVideoTailFrameData);
+                ((c.a.c0.s.f0.e) this.f2411j).e(videoAd == null ? null : videoAd.mAdVideoTailFrameData);
             }
         }
     }
@@ -107,14 +107,14 @@ public class f extends a {
     public void d(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
-            if (PlayerEvent.ACTION_SET_DATA_SOURCE.equals(pVar.c()) && !TextUtils.isEmpty(this.f1991k)) {
-                if (this.f1984j != null) {
-                    Z();
+            if (PlayerEvent.ACTION_SET_DATA_SOURCE.equals(pVar.c()) && !TextUtils.isEmpty(this.f2418k)) {
+                if (this.f2411j != null) {
+                    S();
                 } else {
-                    W();
+                    P();
                 }
             }
-            c.a.c0.s.f0.a aVar = this.f1984j;
+            c.a.c0.s.f0.a aVar = this.f2411j;
             if (aVar != null) {
                 aVar.c(pVar);
             }
@@ -150,7 +150,7 @@ public class f extends a {
             if (LayerEvent.ACTION_SWITCH_FULL.equals(pVar.c()) || LayerEvent.ACTION_SWITCH_HALF.equals(pVar.c())) {
                 c.a.c0.f.a.a("AdLayer", "screen mode: " + pVar.c());
             }
-            c.a.c0.s.f0.a aVar = this.f1984j;
+            c.a.c0.s.f0.a aVar = this.f2411j;
             if (aVar != null) {
                 aVar.c(pVar);
             }
@@ -162,7 +162,7 @@ public class f extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, pVar) == null) {
             super.n(pVar);
-            c.a.c0.s.f0.a aVar = this.f1984j;
+            c.a.c0.s.f0.a aVar = this.f2411j;
             if (aVar != null) {
                 aVar.c(pVar);
             }
@@ -174,7 +174,7 @@ public class f extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLayerRelease();
-            Y();
+            R();
         }
     }
 
@@ -182,7 +182,7 @@ public class f extends a {
     public void q(@NonNull c.a.c0.s.c0.p pVar) {
         c.a.c0.s.f0.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) || (aVar = this.f1984j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) || (aVar = this.f2411j) == null) {
             return;
         }
         aVar.c(pVar);
@@ -203,6 +203,6 @@ public class f extends a {
                 return;
             }
         }
-        this.f1991k = str;
+        this.f2418k = str;
     }
 }

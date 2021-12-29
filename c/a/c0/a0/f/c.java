@@ -20,24 +20,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f1334g;
+    public static volatile c f1761g;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f1335b;
+    public Handler f1762b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a.c0.a0.f.a f1336c;
+    public c.a.c0.a0.f.a f1763c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.c0.a0.f.b f1337d;
+    public c.a.c0.a0.f.b f1764d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.a0.e.b f1338e;
+    public c.a.c0.a0.e.b f1765e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f1339f;
+    public d f1766f;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -76,7 +76,7 @@ public class c {
                         Object obj = message.obj;
                         if (obj instanceof b) {
                             b bVar = (b) obj;
-                            this.a.f1338e.d(bVar.a, bVar.f1340b, bVar.f1341c);
+                            this.a.f1765e.d(bVar.a, bVar.f1767b, bVar.f1768c);
                         }
                         this.a.r();
                         return;
@@ -84,7 +84,7 @@ public class c {
                         this.a.r();
                         return;
                     case 3:
-                        if (this.a.f1337d.a() > 0) {
+                        if (this.a.f1764d.a() > 0) {
                             this.a.r();
                             return;
                         }
@@ -93,7 +93,7 @@ public class c {
                         Object obj2 = message.obj;
                         if (obj2 instanceof b) {
                             b bVar2 = (b) obj2;
-                            this.a.f1339f.b(bVar2.a, bVar2.f1340b, bVar2.f1341c);
+                            this.a.f1766f.b(bVar2.a, bVar2.f1767b, bVar2.f1768c);
                             this.a.t();
                             return;
                         }
@@ -102,7 +102,7 @@ public class c {
                         this.a.t();
                         return;
                     case 6:
-                        this.a.f1339f.a();
+                        this.a.f1766f.a();
                         return;
                     default:
                         return;
@@ -118,10 +118,10 @@ public class c {
         public Runnable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1340b;
+        public String f1767b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1341c;
+        public int f1768c;
 
         public b(Runnable runnable, String str, int i2) {
             Interceptable interceptable = $ic;
@@ -139,8 +139,8 @@ public class c {
                 }
             }
             this.a = runnable;
-            this.f1340b = str;
-            this.f1341c = i2;
+            this.f1767b = str;
+            this.f1768c = i2;
         }
     }
 
@@ -181,14 +181,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f1334g == null) {
+            if (f1761g == null) {
                 synchronized (c.class) {
-                    if (f1334g == null) {
-                        f1334g = new c();
+                    if (f1761g == null) {
+                        f1761g = new c();
                     }
                 }
             }
-            return f1334g;
+            return f1761g;
         }
         return (c) invokeV.objValue;
     }
@@ -196,21 +196,21 @@ public class c {
     public c.a.c0.a0.e.b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1338e : (c.a.c0.a0.e.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1765e : (c.a.c0.a0.e.b) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1336c = new c.a.c0.a0.f.a();
-            this.f1337d = new c.a.c0.a0.f.b();
-            this.f1338e = new c.a.c0.a0.e.b();
-            this.f1339f = new d();
+            this.f1763c = new c.a.c0.a0.f.a();
+            this.f1764d = new c.a.c0.a0.f.b();
+            this.f1765e = new c.a.c0.a0.e.b();
+            this.f1766f = new d();
             HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
             this.a = handlerThread;
             handlerThread.start();
             this.a.setPriority(10);
-            this.f1335b = new a(this, this.a.getLooper());
+            this.f1762b = new a(this, this.a.getLooper());
         }
     }
 
@@ -226,7 +226,7 @@ public class c {
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 3;
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -242,7 +242,7 @@ public class c {
         if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 2;
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -252,7 +252,7 @@ public class c {
             Message obtain = Message.obtain();
             obtain.what = 1;
             obtain.obj = new b(runnable, str, i2);
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -261,7 +261,7 @@ public class c {
         if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 6;
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -277,7 +277,7 @@ public class c {
         if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
             Message obtain = Message.obtain();
             obtain.what = 5;
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -287,7 +287,7 @@ public class c {
             Message obtain = Message.obtain();
             obtain.what = 4;
             obtain.obj = new b(runnable, str, 4);
-            this.f1335b.sendMessageDelayed(obtain, j2);
+            this.f1762b.sendMessageDelayed(obtain, j2);
         }
     }
 
@@ -304,15 +304,15 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ElasticTask b2 = this.f1338e.b();
+            ElasticTask b2 = this.f1765e.b();
             if (b2 == null) {
                 return false;
             }
-            if (this.f1336c.a(b2)) {
-                this.f1338e.e(b2);
+            if (this.f1763c.a(b2)) {
+                this.f1765e.e(b2);
                 return true;
-            } else if (this.f1337d.c(b2)) {
-                this.f1338e.e(b2);
+            } else if (this.f1764d.c(b2)) {
+                this.f1765e.e(b2);
                 return true;
             } else {
                 return false;
@@ -324,7 +324,7 @@ public class c {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f1339f.c();
+            this.f1766f.c();
         }
     }
 }

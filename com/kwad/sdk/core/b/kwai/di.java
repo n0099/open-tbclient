@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class di implements com.kwad.sdk.core.d<PhotoInfo.ProductInfo.ProductDetail> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public di() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(PhotoInfo.ProductInfo.ProductDetail productDetail, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, productDetail, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         productDetail.weakStyleIcon = jSONObject.optString("weakStyleIcon");
@@ -102,35 +78,30 @@ public class di implements com.kwad.sdk.core.d<PhotoInfo.ProductInfo.ProductDeta
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(PhotoInfo.ProductInfo.ProductDetail productDetail, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, productDetail, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleIcon", productDetail.weakStyleIcon);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleTitle", productDetail.weakStyleTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAppearTime", productDetail.weakStyleAppearTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleShowTime", productDetail.weakStyleShowTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleEnableClose", productDetail.weakStyleEnableClose);
-            com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAdMark", productDetail.weakStyleAdMark);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemId", productDetail.strongStyleItemId);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStylePicUrl", productDetail.strongStylePicUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleTitle", productDetail.strongStyleTitle);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemPrice", productDetail.strongStyleItemPrice);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemUrl", productDetail.strongStyleItemUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleCardUrl", productDetail.strongStyleCardUrl);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleEnableClose", productDetail.strongStyleEnableClose);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAdMark", productDetail.strongStyleAdMark);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAppearTime", productDetail.strongStyleAppearTime);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStylePriceAfterComm", productDetail.strongStylePriceAfterComm);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountBuying", productDetail.strongStyleUserCommAmountBuying);
-            com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountSharing", productDetail.strongStyleUserCommAmountSharing);
-            com.kwad.sdk.utils.t.a(jSONObject, "platformTypeCode", productDetail.platformTypeCode);
-            com.kwad.sdk.utils.t.a(jSONObject, "nebulaKwaiLink", productDetail.nebulaKwaiLink);
-            com.kwad.sdk.utils.t.a(jSONObject, "linkCode", productDetail.linkCode);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleIcon", productDetail.weakStyleIcon);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleTitle", productDetail.weakStyleTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAppearTime", productDetail.weakStyleAppearTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleShowTime", productDetail.weakStyleShowTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleEnableClose", productDetail.weakStyleEnableClose);
+        com.kwad.sdk.utils.t.a(jSONObject, "weakStyleAdMark", productDetail.weakStyleAdMark);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemId", productDetail.strongStyleItemId);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStylePicUrl", productDetail.strongStylePicUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleTitle", productDetail.strongStyleTitle);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemPrice", productDetail.strongStyleItemPrice);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleItemUrl", productDetail.strongStyleItemUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleCardUrl", productDetail.strongStyleCardUrl);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleEnableClose", productDetail.strongStyleEnableClose);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAdMark", productDetail.strongStyleAdMark);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleAppearTime", productDetail.strongStyleAppearTime);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStylePriceAfterComm", productDetail.strongStylePriceAfterComm);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountBuying", productDetail.strongStyleUserCommAmountBuying);
+        com.kwad.sdk.utils.t.a(jSONObject, "strongStyleUserCommAmountSharing", productDetail.strongStyleUserCommAmountSharing);
+        com.kwad.sdk.utils.t.a(jSONObject, "platformTypeCode", productDetail.platformTypeCode);
+        com.kwad.sdk.utils.t.a(jSONObject, "nebulaKwaiLink", productDetail.nebulaKwaiLink);
+        com.kwad.sdk.utils.t.a(jSONObject, "linkCode", productDetail.linkCode);
+        return jSONObject;
     }
 }

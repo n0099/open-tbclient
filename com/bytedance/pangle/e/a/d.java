@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.log.ZeusLogger;
-import com.bytedance.pangle.util.g;
 import com.heytap.mcssdk.PushManager;
 import java.io.File;
 import java.io.InputStream;
@@ -31,7 +30,7 @@ public final class d {
         try {
             if (!file.exists()) {
                 ZeusLogger.e(ZeusLogger.TAG_INSTALL, file.getAbsolutePath() + " not exists!");
-                g.a(null);
+                com.bytedance.pangle.util.f.a(null);
                 return null;
             }
             ZipFile zipFile2 = new ZipFile(file);
@@ -39,7 +38,7 @@ public final class d {
                 ZipEntry entry = zipFile2.getEntry("AndroidManifest.xml");
                 if (entry == null) {
                     ZeusLogger.e(ZeusLogger.TAG_INSTALL, "没有找到AndroidManifest.xml entry");
-                    g.a(zipFile2);
+                    com.bytedance.pangle.util.f.a(zipFile2);
                     return null;
                 }
                 aVar = new a();
@@ -57,7 +56,7 @@ public final class d {
                                 aVar.close();
                             } catch (Throwable unused) {
                             }
-                            g.a(zipFile2);
+                            com.bytedance.pangle.util.f.a(zipFile2);
                             return null;
                         }
                     } while (next != 2);
@@ -82,7 +81,7 @@ public final class d {
                             aVar.close();
                         } catch (Throwable unused3) {
                         }
-                        g.a(zipFile2);
+                        com.bytedance.pangle.util.f.a(zipFile2);
                         return null;
                     }
                     e eVar = new e(str2, i2);
@@ -90,7 +89,7 @@ public final class d {
                         aVar.close();
                     } catch (Throwable unused4) {
                     }
-                    g.a(zipFile2);
+                    com.bytedance.pangle.util.f.a(zipFile2);
                     return eVar;
                 } catch (Throwable th) {
                     th = th;
@@ -110,7 +109,7 @@ public final class d {
                             } catch (Throwable unused5) {
                             }
                         }
-                        g.a(zipFile);
+                        com.bytedance.pangle.util.f.a(zipFile);
                         return eVar2;
                     } finally {
                         if (aVar != null) {
@@ -119,7 +118,7 @@ public final class d {
                             } catch (Throwable unused6) {
                             }
                         }
-                        g.a(zipFile);
+                        com.bytedance.pangle.util.f.a(zipFile);
                     }
                 }
             } catch (Throwable th3) {

@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public abstract class ClassClinitInterceptorDelegate implements ClassClinitInterceptable {
     public volatile ClassClinitInterceptable delegate;
 

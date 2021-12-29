@@ -42,7 +42,7 @@ import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BdSailorPlatform implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_STATE_BACKGROUND = 0;
@@ -71,7 +71,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public boolean mWebkitTimerPaused;
     public String mWorkspace;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public final class BdSailorPlatform implements INoProGuard {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -430,7 +430,7 @@ public final class BdSailorPlatform implements INoProGuard {
             c.a.k.b.d.a a2 = c.a.k.b.d.a.a();
             try {
                 a2.e();
-                a2.f3778b.clearCache(z);
+                a2.f4193b.clearCache(z);
             } catch (Exception e2) {
                 Log.printStackTrace(e2);
             }
@@ -574,7 +574,7 @@ public final class BdSailorPlatform implements INoProGuard {
         Context appContext = getAppContext();
         if (a2.a == null) {
             a2.a = appContext.getApplicationContext();
-            Log.d(c.a.k.b.d.a.f3776d, "in BdWebViewSingleton, init");
+            Log.d(c.a.k.b.d.a.f4191d, "in BdWebViewSingleton, init");
         }
         this.mIsWebkitInited = true;
         long currentTimeMillis2 = System.currentTimeMillis();

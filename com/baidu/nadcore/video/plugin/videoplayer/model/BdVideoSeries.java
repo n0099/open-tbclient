@@ -1773,11 +1773,11 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (!z || clarityUrlList == null || clarityUrlList.size() <= 0) {
                 return;
             }
-            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f38189f);
+            ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().f38345f);
             if (clarityByOriginRank != null) {
                 this.mClarityList.setCurrentClarityUrl(clarityByOriginRank);
                 if (c.a.c0.s.w.d.b()) {
-                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f38190g);
+                    this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.f38346g);
                     return;
                 }
                 return;

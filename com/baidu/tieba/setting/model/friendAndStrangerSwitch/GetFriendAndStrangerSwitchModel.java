@@ -1,12 +1,14 @@
 package com.baidu.tieba.setting.model.friendAndStrangerSwitch;
 
 import c.a.d.a.f;
+import c.a.s0.s.g0.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +25,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f49448e;
+    public HttpMessageListener f49671e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -53,10 +55,13 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            GetFriendAndStrangerSwitchResMsg getFriendAndStrangerSwitchResMsg;
             int i2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetFriendAndStrangerSwitchResMsg) && (i2 = ((GetFriendAndStrangerSwitchResMsg) httpResponsedMessage).mMaskType) > -1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetFriendAndStrangerSwitchResMsg) && (i2 = (getFriendAndStrangerSwitchResMsg = (GetFriendAndStrangerSwitchResMsg) httpResponsedMessage).mMaskType) > -1) {
                 GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = i2;
+                b j2 = b.j();
+                j2.v(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", getFriendAndStrangerSwitchResMsg.mMaskType);
             }
         }
     }
@@ -95,7 +100,7 @@ public class GetFriendAndStrangerSwitchModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_FRIEND_AND_STRANGER_MSG_SWITCH);
-        this.f49448e = aVar;
+        this.f49671e = aVar;
         registerListener(aVar);
         loadData();
     }

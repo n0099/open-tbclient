@@ -21,13 +21,13 @@ public abstract class a0 {
         public final /* synthetic */ v a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f28407b;
+        public final /* synthetic */ int f28481b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f28408c;
+        public final /* synthetic */ byte[] f28482c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ int f28409d;
+        public final /* synthetic */ int f28483d;
 
         public a(v vVar, int i2, byte[] bArr, int i3) {
             Interceptable interceptable = $ic;
@@ -45,16 +45,16 @@ public abstract class a0 {
                 }
             }
             this.a = vVar;
-            this.f28407b = i2;
-            this.f28408c = bArr;
-            this.f28409d = i3;
+            this.f28481b = i2;
+            this.f28482c = bArr;
+            this.f28483d = i3;
         }
 
         @Override // c.d.b.a0
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28407b : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28481b : invokeV.longValue;
         }
 
         @Override // c.d.b.a0
@@ -69,7 +69,7 @@ public abstract class a0 {
         public void e(BufferedSink bufferedSink) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                bufferedSink.write(this.f28408c, this.f28409d, this.f28407b);
+                bufferedSink.write(this.f28482c, this.f28483d, this.f28481b);
             }
         }
     }

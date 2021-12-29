@@ -33,7 +33,7 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f38368e;
+        public final /* synthetic */ SafeUrlDialog f38524e;
 
         public a(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -50,16 +50,16 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f38368e = safeUrlDialog;
+            this.f38524e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38368e.o.f38374k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38524e.o.f38530k == null) {
                 return;
             }
-            this.f38368e.o.f38374k.a(view);
+            this.f38524e.o.f38530k.a(view);
         }
     }
 
@@ -69,7 +69,7 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SafeUrlDialog f38369e;
+        public final /* synthetic */ SafeUrlDialog f38525e;
 
         public b(SafeUrlDialog safeUrlDialog) {
             Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
                     return;
                 }
             }
-            this.f38369e = safeUrlDialog;
+            this.f38525e = safeUrlDialog;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38369e.o.f38373j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38525e.o.f38529j == null) {
                 return;
             }
-            this.f38369e.o.f38373j.a(view);
+            this.f38525e.o.f38529j.a(view);
         }
     }
 
@@ -105,19 +105,19 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f38370g;
+        public int f38526g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f38371h;
+        public int f38527h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f38372i;
+        public int f38528i;
 
         /* renamed from: j  reason: collision with root package name */
-        public AutoOrientationBtnDialog.c f38373j;
+        public AutoOrientationBtnDialog.c f38529j;
 
         /* renamed from: k  reason: collision with root package name */
-        public AutoOrientationBtnDialog.c f38374k;
+        public AutoOrientationBtnDialog.c f38530k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(Context context) {
@@ -172,8 +172,8 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, cVar)) == null) {
-                this.f38370g = i2;
-                this.f38374k = cVar;
+                this.f38526g = i2;
+                this.f38530k = cVar;
                 return this;
             }
             return (c) invokeIL.objValue;
@@ -225,17 +225,17 @@ public class SafeUrlDialog extends AutoOrientationBtnDialog {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.o) == null) {
             return;
         }
-        this.m.setText(this.mContext.getText(cVar.f38370g));
+        this.m.setText(this.mContext.getText(cVar.f38526g));
         this.m.setOnClickListener(new a(this));
-        if (this.o.f38371h > 0) {
+        if (this.o.f38527h > 0) {
             this.n.setVisibility(0);
-            this.n.setText(this.mContext.getText(this.o.f38371h));
+            this.n.setText(this.mContext.getText(this.o.f38527h));
             this.n.setOnClickListener(new b(this));
         } else {
             this.n.setVisibility(8);
         }
-        if (this.o.f38372i > 0) {
-            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f38372i);
+        if (this.o.f38528i > 0) {
+            Drawable drawable = this.mContext.getResources().getDrawable(this.o.f38528i);
             c.a.c0.h0.f0.a.c(getContext(), drawable);
             drawable.setBounds(0, 0, f.c.a(this.mContext, 12.0f), f.c.a(this.mContext, 12.0f));
             this.n.setCompoundDrawables(drawable, null, null, null);

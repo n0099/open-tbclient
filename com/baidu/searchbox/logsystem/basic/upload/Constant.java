@@ -21,11 +21,16 @@ public final class Constant {
     public static final String CRASH_TIME = "crashtime";
     public static final String DATA = "data";
     public static final String DEVICE_SCORE = "devicescore";
+    public static final String EMULATOR = "emulator";
+    public static final String EXSTORAGE = "exStorage";
     public static final String FILE_ID = "fileid";
     public static final String FOREGROUND = "foreground";
+    public static final String HEAP = "heap";
     public static final String ID = "id";
     public static final String ID_TYPE = "idtype";
+    public static final String INSTORAGE = "inStorage";
     public static final String IS_REAL = "isreal";
+    public static final String KEY_LOKI_CONFIG = "loki_config";
     public static final String LAUNCH_ID = "launchid";
     public static final String LAUNCH_STAGE = "launchStage";
     public static final String LAUNCH_TIME = "launchTime";
@@ -40,17 +45,24 @@ public final class Constant {
     public static final String PAGE_TRACE_PAGE = "page";
     public static final String PAGE_TRACE_TAG = "tag";
     public static final String PAGE_TRACE_TIME = "time";
+    public static final String PROCBIT = "procBit";
     public static final String PROCESS_LIFE_TIME = "processLifeTime";
     public static final String PROCESS_NAME = "processName";
+    public static final String PSS = "PSS";
+    public static final String ROM = "ROM";
+    public static final String ROOT = "root";
     public static final String SDK_VERSION = "sdkversion";
     public static final String STACKTRACE = "stacktrace";
     public static final String STACKTRACE_BDMP = "stacktrace_crashpad_bdmp";
+    public static final String SYSMEM = "sysMem";
+    public static final String SYSMEM_LOW_MEME = "isLowMemory";
     public static final String TIMESTAMP = "timestamp";
     public static final String TRACE_ID = "traceid";
     public static final String TRACE_INFO = "traceinfo";
     public static final String TYPE = "type";
     public static final String TYPE_JAVA = "JAVA";
     public static final String TYPE_NATIVE = "NATIVE";
+    public static final String VSSRSS = "VSSRSS";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Constant() {

@@ -5,15 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
 import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.c;
 import com.ss.android.socialbase.downloader.downloader.j;
@@ -24,145 +15,84 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class b {
-    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
     public static volatile b f62673c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f62674e;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public static final Object f62674e = new Object();
+    public final long a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<Integer, Long> f62675b;
+    public final Map<Integer, Long> f62675b = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public final Set<String> f62676d;
+    public final Set<String> f62676d = new HashSet();
 
     /* renamed from: f  reason: collision with root package name */
-    public final SparseArray<a> f62677f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1472395743, "Lcom/ss/android/socialbase/downloader/notification/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1472395743, "Lcom/ss/android/socialbase/downloader/notification/b;");
-                return;
-            }
-        }
-        f62674e = new Object();
-    }
-
-    public b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 1000L;
-        this.f62675b = new HashMap();
-        this.f62676d = new HashSet();
-        this.f62677f = new SparseArray<>();
-    }
+    public final SparseArray<a> f62677f = new SparseArray<>();
 
     public static b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f62673c == null) {
-                synchronized (b.class) {
-                    if (f62673c == null) {
-                        f62673c = new b();
-                    }
+        if (f62673c == null) {
+            synchronized (b.class) {
+                if (f62673c == null) {
+                    f62673c = new b();
                 }
             }
-            return f62673c;
         }
-        return (b) invokeV.objValue;
+        return f62673c;
     }
 
     public static boolean b(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 == 1 || i2 == 3 : invokeI.booleanValue;
+        return i2 == 1 || i2 == 3;
     }
 
     public static boolean c(DownloadInfo downloadInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadInfo)) == null) ? downloadInfo.isDownloadOverStatus() && b(downloadInfo.getNotificationVisibility()) : invokeL.booleanValue;
+        return downloadInfo.isDownloadOverStatus() && b(downloadInfo.getNotificationVisibility());
     }
 
     public void b(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) && c(downloadInfo)) {
+        if (c(downloadInfo)) {
             f(downloadInfo.getId());
         }
     }
 
     public a d(int i2) {
-        InterceptResult invokeI;
         a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 == 0) {
-                return null;
-            }
-            synchronized (this.f62677f) {
-                aVar = this.f62677f.get(i2);
-                if (aVar != null) {
-                    this.f62677f.remove(i2);
-                    com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i2);
-                }
-            }
-            return aVar;
+        if (i2 == 0) {
+            return null;
         }
-        return (a) invokeI.objValue;
+        synchronized (this.f62677f) {
+            aVar = this.f62677f.get(i2);
+            if (aVar != null) {
+                this.f62677f.remove(i2);
+                com.ss.android.socialbase.downloader.c.a.a("removeNotificationId " + i2);
+            }
+        }
+        return aVar;
     }
 
     public a e(int i2) {
-        InterceptResult invokeI;
         a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (i2 == 0) {
-                return null;
-            }
-            synchronized (this.f62677f) {
-                aVar = this.f62677f.get(i2);
-            }
-            return aVar;
+        if (i2 == 0) {
+            return null;
         }
-        return (a) invokeI.objValue;
+        synchronized (this.f62677f) {
+            aVar = this.f62677f.get(i2);
+        }
+        return aVar;
     }
 
     public void f(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            d(i2);
-            if (i2 != 0) {
-                a().c(i2);
-            }
+        d(i2);
+        if (i2 != 0) {
+            a().c(i2);
         }
     }
 
     public void c(int i2) {
-        Context N;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (N = c.N()) == null || i2 == 0) {
+        Context N = c.N();
+        if (N == null || i2 == 0) {
             return;
         }
         try {
@@ -176,22 +106,16 @@ public class b {
     }
 
     public SparseArray<a> b() {
-        InterceptResult invokeV;
         SparseArray<a> sparseArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.f62677f) {
-                sparseArray = this.f62677f;
-            }
-            return sparseArray;
+        synchronized (this.f62677f) {
+            sparseArray = this.f62677f;
         }
-        return (SparseArray) invokeV.objValue;
+        return sparseArray;
     }
 
     public void a(int i2) {
-        DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(i2)) == null) {
+        DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(i2);
+        if (downloadInfo == null) {
             return;
         }
         a(downloadInfo);
@@ -199,9 +123,8 @@ public class b {
     }
 
     public void a(DownloadInfo downloadInfo) {
-        j x;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) && (x = c.x()) != null && downloadInfo.isDownloadOverStatus()) {
+        j x = c.x();
+        if (x != null && downloadInfo.isDownloadOverStatus()) {
             downloadInfo.setNotificationVisibility(3);
             try {
                 x.a(downloadInfo);
@@ -212,9 +135,8 @@ public class b {
     }
 
     public void a(int i2, int i3, Notification notification) {
-        Context N;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, notification) == null) || (N = c.N()) == null || i2 == 0 || notification == null) {
+        Context N = c.N();
+        if (N == null || i2 == 0 || notification == null) {
             return;
         }
         if (i3 == 4) {
@@ -240,8 +162,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
+        if (aVar == null) {
             return;
         }
         synchronized (this.f62677f) {

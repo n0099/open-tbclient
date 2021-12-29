@@ -1,9 +1,5 @@
 package com.ss.android.downloadlib.addownload.c;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.downloadlib.addownload.b.f;
 import com.ss.android.downloadlib.addownload.b.i;
 import com.ss.android.downloadlib.addownload.j;
@@ -14,33 +10,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public DownloadInfo a;
 
     public b(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {downloadInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = downloadInfo;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.ss.android.downloadad.api.a.b a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null || (a = f.a().a(this.a)) == null) {
+        final com.ss.android.downloadad.api.a.b a;
+        if (this.a == null || (a = f.a().a(this.a)) == null) {
             return;
         }
         com.ss.android.downloadlib.d.a.a().a("cleanspace_task", a);
@@ -68,32 +47,7 @@ public class b implements Runnable {
             Downloader.getInstance(j.getContext()).restart(this.a.getId());
         } else if (j.l() != null) {
             a.d(false);
-            d.a().a(a.a(), new e(this, a) { // from class: com.ss.android.downloadlib.addownload.c.b.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ com.ss.android.downloadad.api.a.b a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f61820b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, a};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f61820b = this;
-                    this.a = a;
-                }
+            d.a().a(a.a(), new e() { // from class: com.ss.android.downloadlib.addownload.c.b.1
             });
             if (j.l().a(this.a.getId(), this.a.getUrl(), true, longValue)) {
                 a.e(true);

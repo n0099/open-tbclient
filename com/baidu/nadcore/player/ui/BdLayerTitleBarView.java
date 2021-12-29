@@ -33,25 +33,25 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f38131e;
+    public final Context f38287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f38132f;
+    public RelativeLayout f38288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f38133g;
+    public ImageView f38289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f38134h;
+    public TextView f38290h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BdVideoBattery f38135i;
+    public BdVideoBattery f38291i;
 
     /* renamed from: j  reason: collision with root package name */
-    public BdTextProgressView f38136j;
+    public BdTextProgressView f38292j;
 
     /* renamed from: k  reason: collision with root package name */
-    public a f38137k;
+    public a f38293k;
     public View l;
 
     /* loaded from: classes10.dex */
@@ -83,16 +83,16 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.f38131e).cloneInContext(this.f38131e).inflate(s.nad_videoplayer_bd_layer_control_titlebar_layout, this);
-            this.f38132f = (RelativeLayout) findViewById(r.main_container);
+            LayoutInflater.from(this.f38287e).cloneInContext(this.f38287e).inflate(s.nad_videoplayer_bd_layer_control_titlebar_layout, this);
+            this.f38288f = (RelativeLayout) findViewById(r.main_container);
             ImageView imageView = (ImageView) findViewById(r.main_title_back_button);
-            this.f38133g = imageView;
+            this.f38289g = imageView;
             imageView.setOnClickListener(this);
-            this.f38134h = (TextView) findViewById(r.main_title_text);
+            this.f38290h = (TextView) findViewById(r.main_title_text);
             BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(r.main_battery_view);
-            this.f38135i = bdVideoBattery;
+            this.f38291i = bdVideoBattery;
             bdVideoBattery.setImage(q.nad_videoplayer_player_batteryhull);
-            this.f38136j = (BdTextProgressView) findViewById(r.main_system_time_text);
+            this.f38292j = (BdTextProgressView) findViewById(r.main_system_time_text);
             updateTimeText();
             this.l = findViewById(r.top_function_container);
         }
@@ -118,7 +118,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f38133g) && (aVar = this.f38137k) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view.equals(this.f38289g) && (aVar = this.f38293k) != null) {
             aVar.onBack();
         }
     }
@@ -126,7 +126,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setBatteryHullVisible(boolean z) {
         BdVideoBattery bdVideoBattery;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (bdVideoBattery = this.f38135i) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (bdVideoBattery = this.f38291i) == null) {
             return;
         }
         bdVideoBattery.setVisibility(z ? 0 : 8);
@@ -135,7 +135,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f38137k = aVar;
+            this.f38293k = aVar;
         }
     }
 
@@ -151,7 +151,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setSystemTimeVisible(boolean z) {
         BdTextProgressView bdTextProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (bdTextProgressView = this.f38136j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048583, this, z) == null) || (bdTextProgressView = this.f38292j) == null) {
             return;
         }
         bdTextProgressView.setVisibility(z ? 0 : 8);
@@ -160,9 +160,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void setVideoTitle(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
-            this.f38134h.setText(str);
-            this.f38134h.setTypeface(Typeface.DEFAULT_BOLD);
-            this.f38134h.setTextSize(0, i2);
+            this.f38290h.setText(str);
+            this.f38290h.setTypeface(Typeface.DEFAULT_BOLD);
+            this.f38290h.setTextSize(0, i2);
         }
     }
 
@@ -180,7 +180,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
     public void updateTimeText() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f38136j.setTimeText(String.format(Locale.US, "%02d:%02d", Integer.valueOf(Calendar.getInstance().get(11)), Integer.valueOf(Calendar.getInstance().get(12))));
+            this.f38292j.setTimeText(String.format(Locale.US, "%02d:%02d", Integer.valueOf(Calendar.getInstance().get(11)), Integer.valueOf(Calendar.getInstance().get(12))));
         }
     }
 
@@ -203,10 +203,10 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
                 return;
             }
         }
-        this.f38134h = null;
-        this.f38135i = null;
-        this.f38136j = null;
-        this.f38131e = context;
+        this.f38290h = null;
+        this.f38291i = null;
+        this.f38292j = null;
+        this.f38287e = context;
         a();
     }
 
@@ -214,9 +214,9 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                this.f38132f.setBackgroundColor(getContext().getResources().getColor(o.nad_videoplayer_transparent));
+                this.f38288f.setBackgroundColor(getContext().getResources().getColor(o.nad_videoplayer_transparent));
             } else {
-                this.f38132f.setBackground(getContext().getResources().getDrawable(q.nad_videoplayer_control_title_background));
+                this.f38288f.setBackground(getContext().getResources().getDrawable(q.nad_videoplayer_control_title_background));
             }
             show(z);
         }

@@ -111,7 +111,7 @@ public class BOSUploader {
         InterceptResult invokeLLLL;
         UploadPartResponse uploadPart;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sTSInfo, str, str2, file)) != null) {
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(65541, this, sTSInfo, str, str2, file)) != null) {
             return (BOSResponseEntity) invokeLLLL.objValue;
         }
         int i2 = 0;
@@ -253,10 +253,20 @@ public class BOSUploader {
         return (String) invokeLL.objValue;
     }
 
+    public BOSResponseEntity uploadByteSync(@NonNull String str, @NonNull String str2, @NonNull byte[] bArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bArr)) == null) {
+            BOSResponseEntity uploadByteSync = uploadByteSync(STSManager.getCurrentStsInfo(str), str, str2, bArr);
+            return (uploadByteSync.isSuccess() || uploadByteSync.getErrorCode() == 0 || !STSManager.checkRetry(str)) ? uploadByteSync : uploadByteSync(STSManager.retryGetStsInfo(str), str, str2, bArr);
+        }
+        return (BOSResponseEntity) invokeLLL.objValue;
+    }
+
     public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file, @NonNull UploadUrlListener uploadUrlListener) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, file, uploadUrlListener)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, file, uploadUrlListener)) == null) {
             UploadUrlProvider.getInstance().setUploadUrlListener(uploadUrlListener);
             return uploadFileSync(str, str2, file);
         }
@@ -266,10 +276,47 @@ public class BOSUploader {
     public BOSResponseEntity uploadFileSync(@NonNull String str, @NonNull String str2, @NonNull File file) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, file)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, file)) == null) {
             BOSResponseEntity uploadFileSyncPart = uploadFileSyncPart(STSManager.getCurrentStsInfo(str), str, str2, file);
             return (uploadFileSyncPart.isSuccess() || uploadFileSyncPart.getErrorCode() == 0 || !STSManager.checkRetry(str)) ? uploadFileSyncPart : uploadFileSyncPart(STSManager.retryGetStsInfo(str), str, str2, file);
         }
         return (BOSResponseEntity) invokeLLL.objValue;
+    }
+
+    private BOSResponseEntity uploadByteSync(STSInfo sTSInfo, @NonNull String str, @NonNull String str2, @NonNull byte[] bArr) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, sTSInfo, str, str2, bArr)) == null) {
+            try {
+                if (sTSInfo == null) {
+                    return new BOSResponseEntity(false, "stsInfo is null");
+                }
+                BosClient createBosClient = createBosClient(sTSInfo);
+                if (createBosClient == null) {
+                    return new BOSResponseEntity(false, "mBosClient is null");
+                }
+                String str3 = sTSInfo.bucket;
+                if (TextUtils.isEmpty(str3)) {
+                    return new BOSResponseEntity(false, "bucketName is null");
+                }
+                if (bArr.length > 104857600) {
+                    return new BOSResponseEntity(false, "byte array is too big");
+                }
+                return new BOSResponseEntity(true, createBosClient.putObject(str3, createObjectKey(str, str2), bArr).getETag());
+            } catch (BceServiceException e2) {
+                if (DEBUG) {
+                    String str4 = "Error Message: " + e2.getMessage();
+                }
+                return new BOSResponseEntity(false, e2.getMessage(), e2.getStatusCode());
+            } catch (BceClientException e3) {
+                if (DEBUG) {
+                    String str5 = "BceClientException Error Message:" + e3.getMessage();
+                }
+                return new BOSResponseEntity(false, e3.getMessage());
+            } catch (Exception e4) {
+                return new BOSResponseEntity(false, e4.getMessage());
+            }
+        }
+        return (BOSResponseEntity) invokeLLLL.objValue;
     }
 }

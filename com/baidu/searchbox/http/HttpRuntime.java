@@ -1,6 +1,6 @@
 package com.baidu.searchbox.http;
 
-import c.a.s0.p3.j;
+import c.a.t0.p3.j;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;

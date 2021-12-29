@@ -1,338 +1,130 @@
 package c.a.r0.a.e0;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.a.g;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.BuoyComponent;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.ui.components.buoy.TaskBuoyView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
+import c.a.r0.a.h0.u.g;
+import c.a.r0.a.k;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f11949b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f11950c;
+    public static final Map<String, c.a.r0.a.p.e.a> f5710b;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
-    /* loaded from: classes6.dex */
-    public class a implements c.a.j.d.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(423209475, "Lc/a/r0/a/e0/c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // c.a.j.d.b
-        public void a(TaskInfo taskInfo, TaskStatus taskStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, taskInfo, taskStatus) == null) {
-                BdLog.d(taskInfo.getActionId() + " taskStatus onChanged :" + taskStatus);
-                if (taskStatus.isRegistered()) {
-                    BdLog.d("isRegistered=============>");
-                }
-                if (taskStatus.isUnRegistered()) {
-                    BdLog.d("isUnRegistered=============>");
-                }
-                if (taskStatus.isRunning()) {
-                    BdLog.d("isRunning=============>");
-                }
-                if (taskStatus.isFinished()) {
-                    BdLog.d("isFinished=============>");
-                }
-            }
-        }
-
-        @Override // c.a.j.d.b
-        public void b(TaskInfo taskInfo, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i2, str) == null) {
-                BdLog.d("[debug]error:" + str + " " + i2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends c.a.j.l.h.a.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // c.a.j.l.h.a.b, c.a.j.l.h.a.c
-        public void a(View view, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, view, taskInfo, taskBuoyViewData) == null) {
-                super.a(view, taskInfo, taskBuoyViewData);
-                taskBuoyViewData.getTaskStatus().isFinished();
-            }
-        }
-    }
-
-    /* renamed from: c.a.r0.a.e0.c$c  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0791c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1317606620, "Lc/a/r0/a/e0/c$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-1317606620, "Lc/a/r0/a/e0/c$c;");
-                    return;
-                }
-            }
-            a = new c(null);
-        }
-    }
-
-    public /* synthetic */ c(a aVar) {
-        this();
-    }
-
-    public static c f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0791c.a : (c) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || b(str) == null) {
-            return;
-        }
-        BDPTask.m.h(str);
-    }
-
-    public TaskInfo b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (BDPTask.m.m(str) == null) {
-                return null;
-            }
-            return BDPTask.m.m(str).getTaskInfo();
-        }
-        return (TaskInfo) invokeL.objValue;
-    }
-
-    public final void c(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
-            String queryParameter = uri.getQueryParameter(g.d0);
-            if (TextUtils.isEmpty(queryParameter)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(423209475, "Lc/a/r0/a/e0/c;");
                 return;
             }
-            String queryParameter2 = uri.getQueryParameter(g.f0);
-            if (!TextUtils.isEmpty(queryParameter2)) {
-                l(queryParameter2, queryParameter);
+        }
+        a = k.a;
+        f5710b = new HashMap(2);
+    }
+
+    public static c.a.r0.a.p.e.a a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = a;
+            d.n(true);
+            return g.U().f0().b(AppRuntime.getAppContext());
+        }
+        return (c.a.r0.a.p.e.a) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x0063, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x004d, B:20:0x0051), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0051 A[Catch: all -> 0x0063, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x004d, B:20:0x0051), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized c.a.r0.a.p.e.a b() {
+        InterceptResult invokeV;
+        String str;
+        c.a.r0.a.p.e.a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (c.class) {
+                c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
+                if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
+                    str = a0.getAppId();
+                    String a2 = c.a.r0.a.v.a.a(str);
+                    aVar = f5710b.get(a2);
+                    if (aVar == null) {
+                        e();
+                        aVar = a();
+                        f5710b.put(a2, aVar);
+                        if (a) {
+                            String str2 = "can not find sconsole for appId - " + str;
+                        }
+                    }
+                    if (a) {
+                        String str3 = "get sconsole for appId - " + str;
+                    }
+                }
+                str = "_no_id_";
+                String a22 = c.a.r0.a.v.a.a(str);
+                aVar = f5710b.get(a22);
+                if (aVar == null) {
+                }
+                if (a) {
+                }
             }
-            d(uri, queryParameter);
+            return aVar;
         }
+        return (c.a.r0.a.p.e.a) invokeV.objValue;
     }
 
-    public final void d(Uri uri, String str) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, uri, str) == null) {
-            c.a.r0.a.c cVar = new c.a.r0.a.c(str);
-            int i2 = StringHelper.equals(uri.getQueryParameter(g.C), g.l0) ? 2 : 1;
-            String queryParameter = uri.getQueryParameter(g.t);
-            String queryParameter2 = uri.getQueryParameter(g.u);
-            String queryParameter3 = uri.getQueryParameter(g.Y);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", cVar.e()).param("obj_type", cVar.d()).param("obj_param1", cVar.q()).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, cVar.s()).param("extra", cVar.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", queryParameter).param("tid", queryParameter2).param("query", queryParameter3).param("pid", uri.getQueryParameter("hightlight_anchor_pid")).param(TiebaStatic.Params.REFER, uri.getQueryParameter(TiebaStatic.Params.REFER)).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
-        }
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            c.a.r0.s.g0.b j2 = c.a.r0.s.g0.b.j();
-            String p = j2.p("key_sdk_task_expand_data_" + str, "");
-            if (TextUtils.isEmpty(p)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            c.a.r0.a.d2.e a0 = c.a.r0.a.d2.e.a0();
+            if (a0 != null && !TextUtils.isEmpty(a0.f5660f)) {
+                return b.b(c.a.r0.a.v.a.a(a0.f5660f));
             }
-            try {
-                return new JSONObject(p).optString(str2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
-            }
+            boolean z = a;
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void g(Context context) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            c.a.r0.a.e0.a.e(context);
-            this.a = BdUniqueId.gen();
-            c.a.r0.a.e0.b.a().b(this.a);
-            f11950c = UtilHelper.getDimenPixelSize(R.dimen.tbds340);
-            f11949b = UtilHelper.getDimenPixelSize(R.dimen.M_W_X011);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
         }
     }
 
-    public void h(BuoyComponent buoyComponent) {
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof c.a.j.e.a.i.a)) {
-            ((c.a.j.e.a.i.a) buoyComponent).F();
-        }
-    }
-
-    public void i(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, uri) == null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter(g.e0);
-        if (TextUtils.isEmpty(queryParameter)) {
-            return;
-        }
-        j(queryParameter);
-        c(uri);
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            BDPTask.m.A(str, new a(this));
-        }
-    }
-
-    public void k(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, buoyComponent) == null) && buoyComponent != null && (buoyComponent instanceof c.a.j.e.a.i.a)) {
-            ((c.a.j.e.a.i.a) buoyComponent).H();
-        }
-    }
-
-    public void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            c.a.r0.s.g0.b j2 = c.a.r0.s.g0.b.j();
-            j2.x("key_sdk_task_expand_data_" + str, str2);
-        }
-    }
-
-    public BuoyComponent m(Activity activity, ViewGroup viewGroup, String str) {
-        InterceptResult invokeLLL;
-        TaskInfo b2;
-        BuoyComponent buoyComponent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, activity, viewGroup, str)) == null) {
-            if (activity == null || (b2 = b(str)) == null) {
-                return null;
-            }
-            TaskBuoyView taskBuoyView = new TaskBuoyView(activity);
-            taskBuoyView.U(new b(this));
-            if (b2.isClickAction()) {
-                buoyComponent = c.a.j.e.a.b.b(taskBuoyView, new TaskBuoyViewModel(b2), b2);
-            } else {
-                buoyComponent = c.a.j.e.a.b.a(taskBuoyView, new c.a.j.e.a.i.b(b2), b2);
-            }
-            if (viewGroup != null) {
-                buoyComponent.l(viewGroup, null);
-            } else {
-                int statusBarHeight = UtilHelper.getStatusBarHeight();
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 5;
-                layoutParams.topMargin = f11950c + statusBarHeight;
-                layoutParams.rightMargin = f11949b;
-                buoyComponent.l((FrameLayout) activity.findViewById(16908290), layoutParams);
-            }
-            if (buoyComponent instanceof c.a.j.e.a.i.a) {
-                ((c.a.j.e.a.i.a) buoyComponent).J();
-            }
-            return buoyComponent;
-        }
-        return (BuoyComponent) invokeLLL.objValue;
-    }
-
-    public void n(BuoyComponent buoyComponent) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, buoyComponent) == null) || buoyComponent == null) {
-            return;
-        }
-        buoyComponent.n();
-    }
-
-    public c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (c.class) {
+                if (f5710b.size() > 0) {
+                    for (String str : f5710b.keySet()) {
+                        c.a.r0.a.p.e.a aVar = f5710b.get(str);
+                        if (aVar != null) {
+                            aVar.F();
+                        }
+                    }
+                    f5710b.clear();
+                }
             }
         }
     }

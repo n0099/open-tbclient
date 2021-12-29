@@ -14,7 +14,7 @@ public final class f extends e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f4029d;
+    public b f4365d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -29,10 +29,10 @@ public final class f extends e {
         public Class<?> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f4030b;
+        public Method f4366b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f4031c;
+        public Method f4367c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 try {
-                    return ((Long) this.f4031c.invoke(obj, new Object[0])).longValue();
+                    return ((Long) this.f4367c.invoke(obj, new Object[0])).longValue();
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -72,8 +72,8 @@ public final class f extends e {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
                     this.a = Class.forName(i.a(c.b()), true, Object.class.getClassLoader());
-                    this.f4030b = i.b(this.a, i.a(c.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.f4031c = i.b(this.a, i.a(c.c()), null);
+                    this.f4366b = i.b(this.a, i.a(c.h()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.f4367c = i.b(this.a, i.a(c.c()), null);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -84,7 +84,7 @@ public final class f extends e {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i2, i3) == null) {
                 try {
-                    this.f4030b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
+                    this.f4366b.invoke(obj, bArr, Integer.valueOf(i2), Integer.valueOf(i3));
                 } catch (Exception unused) {
                     throw new i.a("");
                 }
@@ -114,9 +114,9 @@ public final class f extends e {
             }
         }
         this.a = 32;
-        this.f4027b = i2;
-        this.f4028c = i3;
-        this.f4029d = new b(null);
+        this.f4363b = i2;
+        this.f4364c = i3;
+        this.f4365d = new b(null);
     }
 
     @Override // c.a.m.h.e
@@ -126,9 +126,9 @@ public final class f extends e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
             try {
-                Object g2 = this.f4029d.g();
-                this.f4029d.f(g2, bArr, i2, i3);
-                j2 = this.f4029d.b(g2);
+                Object g2 = this.f4365d.g();
+                this.f4365d.f(g2, bArr, i2, i3);
+                j2 = this.f4365d.b(g2);
             } catch (Exception unused) {
                 j2 = 4294967295L;
             }

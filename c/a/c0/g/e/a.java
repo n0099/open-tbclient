@@ -32,11 +32,11 @@ public class a {
     public NotificationManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public NotificationCompat.Builder f1547b;
+    public NotificationCompat.Builder f1974b;
 
     /* renamed from: c.a.c0.g.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0036a {
+    public static /* synthetic */ class C0057a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0036a c0036a) {
+    public /* synthetic */ a(C0057a c0057a) {
         this();
     }
 
@@ -150,9 +150,9 @@ public class a {
             Context b2 = c.a.c0.e.a.b();
             Intent intent = new Intent(str);
             intent.setComponent(new ComponentName(b2.getPackageName(), NotificationReceiver.class.getName()));
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_PACKAGE_NAME, aVar.f1514d);
-            File file = aVar.f1518h;
-            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH, (file == null || !file.exists()) ? "" : aVar.f1518h.getAbsolutePath());
+            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_PACKAGE_NAME, aVar.f1941d);
+            File file = aVar.f1945h;
+            intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH, (file == null || !file.exists()) ? "" : aVar.f1945h.getAbsolutePath());
             intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFY_TYPE, aVar.o.l);
             intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_NOTIFICATION_ID, aVar.d().hashCode());
             intent.putExtra(NotificationReceiver.INTENT_PARAMS_KEY_EXTRA_PARAM, aVar.n.a);
@@ -194,7 +194,7 @@ public class a {
         try {
             b();
             Context b2 = c.a.c0.e.a.b();
-            String str2 = aVar.n.f1540h;
+            String str2 = aVar.n.f1967h;
             String str3 = "";
             if (TextUtils.equals(str, "notify_type_pause")) {
                 str3 = b2.getResources().getString(g.nad_download_paused);
@@ -221,7 +221,7 @@ public class a {
         try {
             b();
             Context b2 = c.a.c0.e.a.b();
-            String str = aVar.n.f1540h;
+            String str = aVar.n.f1967h;
             String string = b2.getResources().getString(g.nad_download_succeed);
             NotificationCompat.Builder c2 = c();
             c2.setTicker(string);
@@ -246,26 +246,26 @@ public class a {
             notificationManager.cancel(1743353008);
             this.a.cancel(-1276312226);
             Context b2 = c.a.c0.e.a.b();
-            String str = aVar.n.f1540h;
+            String str = aVar.n.f1967h;
             String string = b2.getResources().getString(g.nad_downloading);
-            int i2 = (int) (aVar.f1519i * 100.0f);
-            if (this.f1547b == null) {
+            int i2 = (int) (aVar.f1946i * 100.0f);
+            if (this.f1974b == null) {
                 NotificationCompat.Builder c2 = c();
-                this.f1547b = c2;
+                this.f1974b = c2;
                 c2.setAutoCancel(false);
-                this.f1547b.setOngoing(true);
-                NotificationCompat.Builder builder = this.f1547b;
+                this.f1974b.setOngoing(true);
+                NotificationCompat.Builder builder = this.f1974b;
                 builder.setTicker(string + "：" + str);
-                this.f1547b.setContentTitle(str);
-                this.f1547b.setContentText(string);
+                this.f1974b.setContentTitle(str);
+                this.f1974b.setContentText(string);
             } else {
-                NotificationCompat.Builder builder2 = this.f1547b;
+                NotificationCompat.Builder builder2 = this.f1974b;
                 builder2.setTicker(string + "：" + str);
-                this.f1547b.setContentTitle(str);
-                this.f1547b.setDefaults(4);
+                this.f1974b.setContentTitle(str);
+                this.f1974b.setDefaults(4);
             }
-            this.f1547b.setProgress(100, i2, false);
-            this.a.notify(135637042, this.f1547b.build());
+            this.f1974b.setProgress(100, i2, false);
+            this.a.notify(135637042, this.f1974b.build());
         } catch (Exception e2) {
             e2.printStackTrace();
         }

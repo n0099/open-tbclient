@@ -1,7 +1,8 @@
 package com.baidu.searchbox.logsystem.basic.upload;
 
-import c.a.s0.p3.f;
-import c.a.s0.p3.l;
+import androidx.core.view.InputDeviceCompat;
+import c.a.t0.p3.f;
+import c.a.t0.p3.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -103,7 +104,7 @@ public class LokiRuntime {
             }
 
             @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-            public String getSchemeHeader() {
+            public String getIID() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048581, this)) == null) {
@@ -113,7 +114,7 @@ public class LokiRuntime {
             }
 
             @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-            public String getSid() {
+            public String getSchemeHeader() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048582, this)) == null) {
@@ -123,13 +124,33 @@ public class LokiRuntime {
             }
 
             @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-            public String getZid() {
+            public String getSid() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048583, this)) == null) {
                     return null;
                 }
                 return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public String getZid() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    return null;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
+            public boolean hasPrivacyAuthority() {
+                InterceptResult invokeV;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048585, this)) == null) {
+                    return true;
+                }
+                return invokeV.booleanValue;
             }
         };
     }

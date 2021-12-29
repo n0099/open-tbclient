@@ -7,13 +7,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdProductInfo;
@@ -27,8 +20,6 @@ import com.kwad.sdk.widget.KSCouponLabelTextView;
 import com.kwad.sdk.widget.KsPriceView;
 /* loaded from: classes3.dex */
 public class g extends d implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -67,20 +58,6 @@ public class g extends d implements View.OnClickListener {
     }
 
     public g(ViewGroup viewGroup, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = viewGroup;
         this.f59526j = bVar;
         b();
@@ -88,175 +65,101 @@ public class g extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public View a(Context context, CouponInfo couponInfo, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, context, couponInfo, viewGroup)) == null) {
-            KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.ksad_reward_order_card_coupon, viewGroup, false);
-            kSCouponLabelTextView.setText(couponInfo.getDisplayName());
-            return kSCouponLabelTextView;
-        }
-        return (View) invokeLLL.objValue;
+        KSCouponLabelTextView kSCouponLabelTextView = (KSCouponLabelTextView) LayoutInflater.from(context).inflate(R.layout.ksad_reward_order_card_coupon, viewGroup, false);
+        kSCouponLabelTextView.setText(couponInfo.getDisplayName());
+        return kSCouponLabelTextView;
     }
 
-    private void a(AdProductInfo adProductInfo, AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, adProductInfo, adTemplate) == null) {
-            KSImageLoader.loadImage(this.f59519c, adProductInfo.getIcon(), adTemplate);
-            this.f59520d.setText(adProductInfo.getName());
-            if (adProductInfo.isCouponListEmpty()) {
-                this.f59521e.setVisibility(8);
-                this.f59527k.a();
-            } else {
-                this.f59521e.setVisibility(0);
-                this.f59521e.post(new Runnable(this, adProductInfo) { // from class: com.kwad.sdk.reward.d.g.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ AdProductInfo a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ g f59528b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, adProductInfo};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
+    private void a(final AdProductInfo adProductInfo, AdTemplate adTemplate) {
+        KSImageLoader.loadImage(this.f59519c, adProductInfo.getIcon(), adTemplate);
+        this.f59520d.setText(adProductInfo.getName());
+        if (adProductInfo.isCouponListEmpty()) {
+            this.f59521e.setVisibility(8);
+            this.f59527k.a();
+        } else {
+            this.f59521e.setVisibility(0);
+            this.f59521e.post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    for (CouponInfo couponInfo : adProductInfo.getCouponList()) {
+                        g gVar = g.this;
+                        View a2 = gVar.a(gVar.f59521e.getContext(), couponInfo, g.this.f59521e);
+                        ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
+                        if (layoutParams == null) {
+                            layoutParams = new ViewGroup.LayoutParams(-2, -1);
+                        } else {
+                            layoutParams.width = -2;
+                            layoutParams.height = -1;
                         }
-                        this.f59528b = this;
-                        this.a = adProductInfo;
+                        g.this.f59521e.addView(a2, layoutParams);
+                        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), g.this.f59521e);
                     }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            for (CouponInfo couponInfo : this.a.getCouponList()) {
-                                g gVar = this.f59528b;
-                                View a2 = gVar.a(gVar.f59521e.getContext(), couponInfo, this.f59528b.f59521e);
-                                ViewGroup.LayoutParams layoutParams = a2.getLayoutParams();
-                                if (layoutParams == null) {
-                                    layoutParams = new ViewGroup.LayoutParams(-2, -1);
-                                } else {
-                                    layoutParams.width = -2;
-                                    layoutParams.height = -1;
+                    if (g.this.f59527k != null) {
+                        if (g.this.f59521e.getChildCount() > 0) {
+                            g.this.f59521e.getChildAt(0).post(new Runnable() { // from class: com.kwad.sdk.reward.d.g.1.1
+                                @Override // java.lang.Runnable
+                                public void run() {
+                                    g.this.f59527k.a();
                                 }
-                                this.f59528b.f59521e.addView(a2, layoutParams);
-                                w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), this.f59528b.f59521e);
-                            }
-                            if (this.f59528b.f59527k != null) {
-                                if (this.f59528b.f59521e.getChildCount() > 0) {
-                                    this.f59528b.f59521e.getChildAt(0).post(new Runnable(this) { // from class: com.kwad.sdk.reward.d.g.1.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass1 a;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.a = this;
-                                        }
-
-                                        @Override // java.lang.Runnable
-                                        public void run() {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                                this.a.f59528b.f59527k.a();
-                                            }
-                                        }
-                                    });
-                                } else {
-                                    this.f59528b.f59527k.a();
-                                }
-                            }
+                            });
+                        } else {
+                            g.this.f59527k.a();
                         }
                     }
-                });
-            }
-            this.f59522f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
-            String aF = com.kwad.sdk.core.config.b.aF();
-            if (at.a(aF)) {
-                return;
-            }
-            KSImageLoader.loadImage(this.f59525i, aF, adTemplate);
+                }
+            });
         }
+        this.f59522f.a(adProductInfo.getPrice(), adProductInfo.getOriginPrice());
+        String aF = com.kwad.sdk.core.config.b.aF();
+        if (at.a(aF)) {
+            return;
+        }
+        KSImageLoader.loadImage(this.f59525i, aF, adTemplate);
     }
 
     private void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.f59518b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_root);
-            this.f59519c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_icon);
-            this.f59520d = (TextView) this.a.findViewById(R.id.ksad_reward_order_title);
-            this.f59521e = (LinearLayout) this.a.findViewById(R.id.ksad_reward_order_coupon_list);
-            this.f59522f = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_price);
-            this.f59523g = (TextView) this.a.findViewById(R.id.ksad_reward_order_btn_buy);
-            this.f59524h = this.a.findViewById(R.id.ksad_reward_order_text_area);
-            this.f59525i = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_kwai_logo);
-            this.f59523g.setText(com.kwad.sdk.core.config.b.aE());
-            this.f59523g.setOnClickListener(this);
-            this.f59519c.setOnClickListener(this);
-            this.f59524h.setOnClickListener(this);
-            Context context = this.a.getContext();
-            if (af.e(context)) {
-                return;
-            }
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof FrameLayout.LayoutParams) {
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-                layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_follow_card_width_horizontal);
-                this.a.setLayoutParams(layoutParams2);
-            }
+        this.f59518b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_order_root);
+        this.f59519c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_icon);
+        this.f59520d = (TextView) this.a.findViewById(R.id.ksad_reward_order_title);
+        this.f59521e = (LinearLayout) this.a.findViewById(R.id.ksad_reward_order_coupon_list);
+        this.f59522f = (KsPriceView) this.a.findViewById(R.id.ksad_reward_order_price);
+        this.f59523g = (TextView) this.a.findViewById(R.id.ksad_reward_order_btn_buy);
+        this.f59524h = this.a.findViewById(R.id.ksad_reward_order_text_area);
+        this.f59525i = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_order_kwai_logo);
+        this.f59523g.setText(com.kwad.sdk.core.config.b.aE());
+        this.f59523g.setOnClickListener(this);
+        this.f59519c.setOnClickListener(this);
+        this.f59524h.setOnClickListener(this);
+        Context context = this.a.getContext();
+        if (af.e(context)) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+            layoutParams2.width = context.getResources().getDimensionPixelSize(R.dimen.ksad_reward_follow_card_width_horizontal);
+            this.a.setLayoutParams(layoutParams2);
         }
     }
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59518b : (ViewGroup) invokeV.objValue;
+        return this.f59518b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
     public void a(AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate) == null) {
-            super.a(adTemplate);
-            a(com.kwad.sdk.core.response.a.a.aK(com.kwad.sdk.core.response.a.d.j(adTemplate)), adTemplate);
-        }
+        super.a(adTemplate);
+        a(com.kwad.sdk.core.response.a.a.aK(com.kwad.sdk.core.response.a.d.j(adTemplate)), adTemplate);
     }
 
     public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f59527k = aVar;
-        }
+        this.f59527k = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f59526j == null) {
+        if (this.f59526j == null) {
             return;
         }
         if (view.equals(this.f59523g)) {

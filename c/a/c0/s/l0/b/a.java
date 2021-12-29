@@ -29,13 +29,13 @@ public class a extends j implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f2031i;
+    public ViewGroup f2458i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ImageView f2032j;
+    public ImageView f2459j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f2033k;
+    public boolean f2460k;
     public LineLoadingView l;
 
     public a() {
@@ -51,7 +51,7 @@ public class a extends j implements View.OnClickListener {
                 return;
             }
         }
-        this.f2033k = false;
+        this.f2460k = false;
     }
 
     @Override // c.a.c0.s.j0.b
@@ -59,36 +59,36 @@ public class a extends j implements View.OnClickListener {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f1987g).inflate(s.nad_mini_video_control_layer, (ViewGroup) null);
-            this.f2031i = viewGroup;
-            this.f2032j = (ImageView) viewGroup.findViewById(r.video_pause_icon);
-            this.l = (LineLoadingView) this.f2031i.findViewById(r.line_loading_view);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.f2414g).inflate(s.nad_mini_video_control_layer, (ViewGroup) null);
+            this.f2458i = viewGroup;
+            this.f2459j = (ImageView) viewGroup.findViewById(r.video_pause_icon);
+            this.l = (LineLoadingView) this.f2458i.findViewById(r.line_loading_view);
         }
     }
 
-    public void O() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l.stop();
         }
     }
 
-    public void Q(boolean z) {
+    public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f2033k = z;
+            this.f2460k = z;
         }
     }
 
-    public void S(int i2) {
+    public void M(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f2033k) {
-            this.f2032j.setVisibility(i2);
-            this.f2033k = false;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && this.f2460k) {
+            this.f2459j.setVisibility(i2);
+            this.f2460k = false;
         }
     }
 
-    public final void T() {
+    public final void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.l.start();
@@ -102,18 +102,18 @@ public class a extends j implements View.OnClickListener {
             if (PlayerEvent.ACTION_ON_INFO.equals(pVar.c())) {
                 int intValue = ((Integer) pVar.f(1)).intValue();
                 if (intValue == 904 || 956 == intValue) {
-                    this.f2033k = false;
-                    this.f2032j.setVisibility(4);
-                    O();
+                    this.f2460k = false;
+                    this.f2459j.setVisibility(4);
+                    K();
                 } else if (701 == intValue) {
-                    T();
+                    N();
                 } else if (702 == intValue) {
-                    O();
+                    K();
                 }
             } else if (PlayerEvent.ACTION_ON_PREPARED.equals(pVar.c())) {
-                O();
+                K();
             } else if (PlayerEvent.ACTION_ON_ERROR.equals(pVar.c())) {
-                O();
+                K();
             }
         }
     }
@@ -122,7 +122,7 @@ public class a extends j implements View.OnClickListener {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2031i : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2458i : (View) invokeV.objValue;
     }
 
     @Override // c.a.c0.s.f0.j
@@ -139,7 +139,7 @@ public class a extends j implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, playerStatus, playerStatus2) == null) {
             super.h(playerStatus, playerStatus2);
             if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PAUSE || playerStatus == PlayerStatus.STOP) {
-                O();
+                K();
             }
         }
     }
@@ -165,19 +165,19 @@ public class a extends j implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, pVar) == null) {
             if (ControlEvent.ACTION_PAUSE.equals(pVar.c())) {
-                if (this.f2033k) {
-                    this.f2032j.setVisibility(0);
+                if (this.f2460k) {
+                    this.f2459j.setVisibility(0);
                 }
             } else if (ControlEvent.ACTION_RESUME.equals(pVar.c())) {
-                this.f2033k = false;
-                this.f2032j.setVisibility(4);
+                this.f2460k = false;
+                this.f2459j.setVisibility(4);
             } else if (ControlEvent.ACTION_START.equals(pVar.c())) {
                 if (u().Y()) {
                     return;
                 }
-                T();
+                N();
             } else if (ControlEvent.ACTION_STOP.equals(pVar.c())) {
-                O();
+                K();
             }
         }
     }

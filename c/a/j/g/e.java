@@ -20,10 +20,10 @@ public final class e {
     public final Set<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<Pair<Class<? extends a>, b<? extends a>>> f3521b;
+    public final Set<Pair<Class<? extends a>, b<? extends a>>> f3949b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TaskInfo f3522c;
+    public TaskInfo f3950c;
 
     public e(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
@@ -40,9 +40,9 @@ public final class e {
                 return;
             }
         }
-        this.f3522c = taskInfo;
+        this.f3950c = taskInfo;
         this.a = new HashSet();
-        this.f3521b = new HashSet();
+        this.f3949b = new HashSet();
     }
 
     public final Set<c> a() {
@@ -56,7 +56,7 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
-        Iterator<Pair<Class<? extends a>, b<? extends a>>> it = this.f3521b.iterator();
+        Iterator<Pair<Class<? extends a>, b<? extends a>>> it = this.f3949b.iterator();
         while (it.hasNext()) {
             if (Intrinsics.areEqual(it.next().getSecond(), bVar)) {
                 it.remove();
@@ -75,7 +75,7 @@ public final class e {
     public final void d(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
-            this.f3522c = taskInfo;
+            this.f3950c = taskInfo;
         }
     }
 
@@ -84,13 +84,13 @@ public final class e {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, cls, bVar) == null) || bVar == null) {
             return;
         }
-        this.f3521b.add(new Pair<>(cls, bVar));
+        this.f3949b.add(new Pair<>(cls, bVar));
     }
 
     public final Set<Pair<Class<? extends a>, b<? extends a>>> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.f3521b) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.f3949b) : (Set) invokeV.objValue;
     }
 
     public final void g(c cVar) {
@@ -104,6 +104,6 @@ public final class e {
     public final TaskInfo h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3522c : (TaskInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3950c : (TaskInfo) invokeV.objValue;
     }
 }

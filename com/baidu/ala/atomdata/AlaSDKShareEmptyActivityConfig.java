@@ -23,6 +23,8 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
     public static final String SHARE_ALA_SDK_LIVE_EXT_INFO = "liveextInfo";
     public static final String SHARE_ALA_SDK_LIVE_ID = "liveid";
     public static final String SHARE_ALA_SDK_TITLE_KEY = "title";
+    public static final String SHARE_ALA_SDK_VOICE_ROOM_ID = "room_id";
+    public static final String SHARE_ALA_SDK_VOICE_ROOM_TYPE = "share_type";
     public static final String SHARE_ALA_SDK_YY_ANCHOR_BDUID = "yy_anchor_bduid";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +53,9 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
         getIntent().putExtra("channel", i2);
         getIntent().putExtra("action", i3);
         getIntent().putExtra("liveid", shareItem.q);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.o0);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.r0);
         getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.z);
+        getIntent().putExtra("room_id", shareItem.U);
+        getIntent().putExtra(SHARE_ALA_SDK_VOICE_ROOM_TYPE, shareItem.V);
     }
 }

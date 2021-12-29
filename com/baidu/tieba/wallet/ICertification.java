@@ -2,10 +2,10 @@ package com.baidu.tieba.wallet;
 
 import android.content.Context;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public interface ICertification {
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface CertificationCallback {
         void onResult(int i2, Map<String, Object> map);
     }

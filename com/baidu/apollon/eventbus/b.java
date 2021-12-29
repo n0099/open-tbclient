@@ -29,29 +29,29 @@ public class b {
     public static final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33327b;
+    public static final String f33483b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, EventBus.Event> f33328c;
+    public final Map<String, EventBus.Event> f33484c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c f33329d;
+    public final c f33485d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.baidu.apollon.eventbus.a f33330e;
+    public final com.baidu.apollon.eventbus.a f33486e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<String, CopyOnWriteArrayList<g>> f33331f;
+    public final Map<String, CopyOnWriteArrayList<g>> f33487f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Map<Object, List<String>> f33332g;
+    public final Map<Object, List<String>> f33488g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final f f33333h;
+    public final f f33489h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ThreadLocal<a> f33334i;
+    public final ThreadLocal<a> f33490i;
 
     /* renamed from: com.baidu.apollon.eventbus.b$2  reason: invalid class name */
     /* loaded from: classes9.dex */
@@ -97,16 +97,16 @@ public class b {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f33335b;
+        public boolean f33491b;
 
         /* renamed from: c  reason: collision with root package name */
-        public g f33336c;
+        public g f33492c;
 
         /* renamed from: d  reason: collision with root package name */
-        public EventBus.Event f33337d;
+        public EventBus.Event f33493d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f33338e;
+        public boolean f33494e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class b {
             }
         }
         a = ApollonConstants.DEBUG;
-        f33327b = b.class.getSimpleName();
+        f33483b = b.class.getSimpleName();
     }
 
     public b() {
@@ -153,7 +153,7 @@ public class b {
                 return;
             }
         }
-        this.f33334i = new ThreadLocal<a>(this) { // from class: com.baidu.apollon.eventbus.b.1
+        this.f33490i = new ThreadLocal<a>(this) { // from class: com.baidu.apollon.eventbus.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -185,18 +185,18 @@ public class b {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new a() : (a) invokeV.objValue;
             }
         };
-        this.f33331f = new HashMap();
-        this.f33332g = new HashMap();
-        this.f33328c = new ConcurrentHashMap();
-        this.f33329d = new c(this, Looper.getMainLooper(), 10);
-        this.f33330e = new com.baidu.apollon.eventbus.a(this);
-        this.f33333h = new f();
+        this.f33487f = new HashMap();
+        this.f33488g = new HashMap();
+        this.f33484c = new ConcurrentHashMap();
+        this.f33485d = new c(this, Looper.getMainLooper(), 10);
+        this.f33486e = new com.baidu.apollon.eventbus.a(this);
+        this.f33489h = new f();
     }
 
     private void b(Object obj, String str) {
         CopyOnWriteArrayList<g> copyOnWriteArrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, this, obj, str) == null) || (copyOnWriteArrayList = this.f33331f.get(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, this, obj, str) == null) || (copyOnWriteArrayList = this.f33487f.get(str)) == null) {
             return;
         }
         int size = copyOnWriteArrayList.size();
@@ -204,7 +204,7 @@ public class b {
         while (i2 < size) {
             g gVar = copyOnWriteArrayList.get(i2);
             if (gVar.a == obj) {
-                gVar.f33348f = false;
+                gVar.f33504f = false;
                 copyOnWriteArrayList.remove(i2);
                 i2--;
                 size--;
@@ -217,7 +217,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{obj, strArr, Integer.valueOf(i2), Boolean.valueOf(z), threadMode}) == null) {
             synchronized (this) {
-                a(obj, this.f33333h.a(obj.getClass()), z, i2, strArr, threadMode);
+                a(obj, this.f33489h.a(obj.getClass()), z, i2, strArr, threadMode);
             }
         }
     }
@@ -225,13 +225,13 @@ public class b {
     public void c(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, event) == null) {
-            a aVar = this.f33334i.get();
+            a aVar = this.f33490i.get();
             if (!aVar.a) {
                 throw new EventBusException("This method may only be called from inside event handling methods on the posting thread");
             }
             if (event != null) {
-                if (aVar.f33337d == event) {
-                    aVar.f33338e = true;
+                if (aVar.f33493d == event) {
+                    aVar.f33494e = true;
                     return;
                 }
                 throw new EventBusException("Only the currently handled event may be aborted");
@@ -244,7 +244,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, str, Integer.valueOf(i2), Boolean.valueOf(z), threadMode}) == null) {
             synchronized (this) {
-                a(obj, this.f33333h.a(obj.getClass()), z, i2, str, threadMode);
+                a(obj, this.f33489h.a(obj.getClass()), z, i2, str, threadMode);
             }
         }
     }
@@ -261,8 +261,8 @@ public class b {
     public void b(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) {
-            synchronized (this.f33328c) {
-                this.f33328c.put(event.mEventKey, event);
+            synchronized (this.f33484c) {
+                this.f33484c.put(event.mEventKey, event);
             }
             a(event);
         }
@@ -272,10 +272,10 @@ public class b {
         EventBus.Event event;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{obj, method, Boolean.valueOf(z), Integer.valueOf(i2), str, threadMode}) == null) {
-            CopyOnWriteArrayList<g> copyOnWriteArrayList = this.f33331f.get(str);
+            CopyOnWriteArrayList<g> copyOnWriteArrayList = this.f33487f.get(str);
             if (copyOnWriteArrayList == null) {
                 copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-                this.f33331f.put(str, copyOnWriteArrayList);
+                this.f33487f.put(str, copyOnWriteArrayList);
             } else {
                 Iterator<g> it = copyOnWriteArrayList.iterator();
                 while (it.hasNext()) {
@@ -292,7 +292,7 @@ public class b {
             int size = copyOnWriteArrayList.size();
             if (size > 0) {
                 for (int i3 = 0; i3 <= size; i3++) {
-                    if (i3 == size || gVar.f33345c > copyOnWriteArrayList.get(i3).f33345c) {
+                    if (i3 == size || gVar.f33501c > copyOnWriteArrayList.get(i3).f33501c) {
                         copyOnWriteArrayList.add(i3, gVar);
                         break;
                     }
@@ -300,15 +300,15 @@ public class b {
             } else {
                 copyOnWriteArrayList.add(gVar);
             }
-            List<String> list = this.f33332g.get(obj);
+            List<String> list = this.f33488g.get(obj);
             if (list == null) {
                 list = new ArrayList<>();
-                this.f33332g.put(obj, list);
+                this.f33488g.put(obj, list);
             }
             list.add(str);
             if (z) {
-                synchronized (this.f33328c) {
-                    event = this.f33328c.get(str);
+                synchronized (this.f33484c) {
+                    event = this.f33484c.get(str);
                 }
                 if (event != null) {
                     a(gVar, event, Looper.getMainLooper() == Looper.myLooper());
@@ -322,14 +322,14 @@ public class b {
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             synchronized (this) {
                 if (obj != null) {
-                    List<String> list = this.f33332g.get(obj);
+                    List<String> list = this.f33488g.get(obj);
                     if (list != null) {
                         for (String str : list) {
                             b(obj, str);
                         }
-                        this.f33332g.remove(obj);
+                        this.f33488g.remove(obj);
                     } else {
-                        String str2 = f33327b;
+                        String str2 = f33483b;
                         LogUtil.w(str2, "Subscriber to unregister was not registered before: " + obj.getClass());
                     }
                 } else {
@@ -345,12 +345,12 @@ public class b {
             synchronized (this) {
                 if (!TextUtils.isEmpty(str)) {
                     b(obj, str);
-                    List<String> list = this.f33332g.get(obj);
+                    List<String> list = this.f33488g.get(obj);
                     if (list != null) {
                         list.remove(str);
                     }
                     if (list != null && list.size() == 0) {
-                        this.f33332g.remove(obj);
+                        this.f33488g.remove(obj);
                     }
                 } else {
                     throw new IllegalArgumentException("Provide at least one event class");
@@ -362,13 +362,13 @@ public class b {
     public void a(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            a aVar = this.f33334i.get();
+            a aVar = this.f33490i.get();
             if (aVar.a) {
                 return;
             }
-            aVar.f33335b = Looper.getMainLooper() == Looper.myLooper();
+            aVar.f33491b = Looper.getMainLooper() == Looper.myLooper();
             aVar.a = true;
-            if (aVar.f33338e) {
+            if (aVar.f33494e) {
                 aVar.a = false;
                 boolean z = a;
                 return;
@@ -377,7 +377,7 @@ public class b {
                 a(event, aVar);
             } finally {
                 aVar.a = false;
-                aVar.f33335b = false;
+                aVar.f33491b = false;
             }
         }
     }
@@ -385,8 +385,8 @@ public class b {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            synchronized (this.f33328c) {
-                this.f33328c.remove(str);
+            synchronized (this.f33484c) {
+                this.f33484c.remove(str);
             }
         }
     }
@@ -394,8 +394,8 @@ public class b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.f33328c) {
-                this.f33328c.clear();
+            synchronized (this.f33484c) {
+                this.f33484c.clear();
             }
         }
     }
@@ -406,24 +406,24 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, event, aVar) == null) {
             synchronized (this) {
-                copyOnWriteArrayList = this.f33331f.get(event.mEventKey);
+                copyOnWriteArrayList = this.f33487f.get(event.mEventKey);
             }
             boolean z = false;
             if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
                 Iterator<g> it = copyOnWriteArrayList.iterator();
                 while (it.hasNext()) {
                     g next = it.next();
-                    aVar.f33337d = event;
-                    aVar.f33336c = next;
+                    aVar.f33493d = event;
+                    aVar.f33492c = next;
                     try {
-                        a(next, event, aVar.f33335b);
-                        if (aVar.f33338e) {
+                        a(next, event, aVar.f33491b);
+                        if (aVar.f33494e) {
                             break;
                         }
                     } finally {
-                        aVar.f33337d = null;
-                        aVar.f33336c = null;
-                        aVar.f33338e = false;
+                        aVar.f33493d = null;
+                        aVar.f33492c = null;
+                        aVar.f33494e = false;
                     }
                 }
                 z = true;
@@ -438,19 +438,19 @@ public class b {
     private void a(g gVar, EventBus.Event event, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, gVar, event, z) == null) {
-            int i2 = AnonymousClass2.a[gVar.f33347e.ordinal()];
+            int i2 = AnonymousClass2.a[gVar.f33503e.ordinal()];
             if (i2 == 1) {
                 a(gVar, event);
             } else if (i2 == 2) {
                 if (z) {
                     a(gVar, event);
                 } else {
-                    this.f33329d.a(gVar, event);
+                    this.f33485d.a(gVar, event);
                 }
             } else if (i2 == 3) {
-                this.f33330e.a(gVar, event);
+                this.f33486e.a(gVar, event);
             } else {
-                throw new IllegalStateException("Unknown thread mode: " + gVar.f33347e);
+                throw new IllegalStateException("Unknown thread mode: " + gVar.f33503e);
             }
         }
     }
@@ -459,8 +459,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             EventBus.Event event = dVar.a;
-            g gVar = dVar.f33342b;
-            if (gVar.f33348f) {
+            g gVar = dVar.f33498b;
+            if (gVar.f33504f) {
                 a(gVar, event);
             }
         }
@@ -470,7 +470,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, gVar, event) == null) {
             try {
-                gVar.f33344b.invoke(gVar.a, event);
+                gVar.f33500b.invoke(gVar.a, event);
             } catch (IllegalAccessException e2) {
                 throw new IllegalStateException("Unexpected exception", e2);
             } catch (InvocationTargetException e3) {

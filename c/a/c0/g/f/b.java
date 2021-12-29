@@ -22,11 +22,11 @@ public class b extends c.a.c0.g.f.a {
     @NonNull
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.c0.g.d.a f1554j;
+    public final c.a.c0.g.d.a f1981j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final g f1555k;
-    public HashMap<String, C0038b> l;
+    public final g f1982k;
+    public HashMap<String, C0059b> l;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -74,15 +74,15 @@ public class b extends c.a.c0.g.f.a {
 
     /* renamed from: c.a.c0.g.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0038b {
+    public static class C0059b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1556b;
+        public String f1983b;
 
-        public C0038b() {
+        public C0059b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,8 +116,8 @@ public class b extends c.a.c0.g.f.a {
             }
         }
         this.l = new HashMap<>();
-        this.f1554j = aVar;
-        this.f1555k = new f(this);
+        this.f1981j = aVar;
+        this.f1982k = new f(this);
     }
 
     public void A(String str, String str2, String str3, String str4) {
@@ -132,27 +132,27 @@ public class b extends c.a.c0.g.f.a {
     public c.a.c0.g.d.a v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1554j : (c.a.c0.g.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1981j : (c.a.c0.g.d.a) invokeV.objValue;
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = a.a[this.f1554j.f1513c.ordinal()];
+            int i2 = a.a[this.f1981j.f1940c.ordinal()];
             if (i2 == 1) {
-                c.a.c0.g.d.a aVar = this.f1554j;
-                aVar.f1519i = 0.0f;
-                aVar.f1520j = 0.0f;
+                c.a.c0.g.d.a aVar = this.f1981j;
+                aVar.f1946i = 0.0f;
+                aVar.f1947j = 0.0f;
                 return "0";
             } else if (i2 != 2) {
                 if (i2 != 3) {
                     if (i2 != 4) {
                         return i2 != 5 ? "0" : "4";
                     }
-                    c.a.c0.g.d.a aVar2 = this.f1554j;
-                    aVar2.f1519i = 1.0f;
-                    aVar2.f1520j = 1.0f;
+                    c.a.c0.g.d.a aVar2 = this.f1981j;
+                    aVar2.f1946i = 1.0f;
+                    aVar2.f1947j = 1.0f;
                     return "3";
                 }
                 return "2";
@@ -166,7 +166,7 @@ public class b extends c.a.c0.g.f.a {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            p(this.f1555k);
+            p(this.f1982k);
         }
     }
 
@@ -181,12 +181,12 @@ public class b extends c.a.c0.g.f.a {
             c.a.c0.u.b.d(jSONObject, "message", "");
             c.a.c0.u.b.d(jSONObject, "data", a2);
             for (String str5 : this.l.keySet()) {
-                C0038b c0038b = (C0038b) c.a.c0.u.c.b(this.l, str5);
-                if (c0038b != null && !TextUtils.isEmpty(c0038b.a)) {
+                C0059b c0059b = (C0059b) c.a.c0.u.c.b(this.l, str5);
+                if (c0059b != null && !TextUtils.isEmpty(c0059b.a)) {
                     e.a aVar = new e.a();
-                    aVar.f1543b = c0038b.f1556b;
-                    aVar.a = c0038b.a;
-                    aVar.f1544c = jSONObject.toString();
+                    aVar.f1970b = c0059b.f1983b;
+                    aVar.a = c0059b.a;
+                    aVar.f1971c = jSONObject.toString();
                     c.a.c0.u.a.b(arrayList, aVar);
                 }
             }
@@ -204,9 +204,9 @@ public class b extends c.a.c0.g.f.a {
         }
         String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
         this.l.remove(str5);
-        C0038b c0038b = new C0038b();
-        c0038b.f1556b = str;
-        c0038b.a = str2;
-        this.l.put(str5, c0038b);
+        C0059b c0059b = new C0059b();
+        c0059b.f1983b = str;
+        c0059b.a = str2;
+        this.l.put(str5, c0059b);
     }
 }

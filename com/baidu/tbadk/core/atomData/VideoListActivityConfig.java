@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class VideoListActivityConfig extends IntentConfig {
             Intent intent = getIntent();
             intent.putExtra(KEY_FORUM_ID, str);
             intent.putExtra(KEY_THREAD_ID, str2);
-            if (!l.isEmpty(str3)) {
+            if (!m.isEmpty(str3)) {
                 intent.putExtra(KEY_SOURCE, str3);
             }
             if (!(this.mContext instanceof Activity)) {
@@ -68,7 +68,7 @@ public class VideoListActivityConfig extends IntentConfig {
         if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, str)) == null) {
             Intent intent = getIntent();
             intent.putExtra("user_id", j2);
-            if (!l.isEmpty(str)) {
+            if (!m.isEmpty(str)) {
                 intent.putExtra(KEY_SOURCE, str);
             }
             if (!(this.mContext instanceof Activity)) {

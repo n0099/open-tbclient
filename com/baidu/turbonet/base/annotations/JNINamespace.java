@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public @interface JNINamespace {
 }

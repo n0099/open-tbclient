@@ -1,6 +1,5 @@
 package com.baidu.searchbox.player.model;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,12 +31,11 @@ public class VideoUrlModel {
         this.playerStageType = -1;
     }
 
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoUrlModel{videoUrl='" + this.videoUrl + ExtendedMessageFormat.QUOTE + ", isNeedPrepare=" + this.isNeedPrepare + ", playerStageType=" + this.playerStageType + ", logId='" + this.logId + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "VideoUrlModel{videoUrl='" + this.videoUrl + ExtendedMessageFormat.QUOTE + ", isNeedPrepare=" + this.isNeedPrepare + ", playerStageType=" + this.playerStageType + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

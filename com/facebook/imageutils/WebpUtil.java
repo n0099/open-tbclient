@@ -12,7 +12,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";
@@ -108,7 +108,7 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, b.f52489e)) {
+                if (compare(bArr, b.f52492e)) {
                     getInt(inputStream);
                     inputStream.read(bArr);
                     if (!compare(bArr, "WEBP")) {

@@ -25,10 +25,10 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public AdImageView f38492h;
+    public AdImageView f38648h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f38493i;
+    public a f38649i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NadExpressSingleImgOperateView(Context context) {
@@ -60,7 +60,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
                 int a = oVar.a(AdBaseModel.STYLE.SMALL_IMAGE);
                 if (a != 0) {
                     i2 = a;
-                } else if (oVar.f1820b) {
+                } else if (oVar.f2247b) {
                     i2 = g.nad_single_image_for_img_right;
                 }
             }
@@ -74,15 +74,15 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setPadding(0, f.c.a(getContext(), 13.0f), 0, 0);
             AdImageView adImageView = (AdImageView) findViewById(e.nad_feed_template_single_image_id);
-            this.f38492h = adImageView;
+            this.f38648h = adImageView;
             if (adImageView == null) {
                 return;
             }
             int e2 = ((f.c.e(context) - (context.getResources().getDimensionPixelSize(c.NAD_F_M_W_X001) * 2)) - (f.c.a(getContext(), 6.0f) * 2)) / 3;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f38492h.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f38648h.getLayoutParams();
             layoutParams.width = e2;
             layoutParams.height = Math.round((e2 / getResources().getInteger(c.a.c0.b.f.nad_list_small_image_width)) * getResources().getInteger(c.a.c0.b.f.nad_list_small_image_height));
-            this.f38492h.setLayoutParams(layoutParams);
+            this.f38648h.setLayoutParams(layoutParams);
         }
     }
 
@@ -98,8 +98,8 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof a)) {
             a aVar = (a) adBaseModel;
-            this.f38493i = aVar;
-            AdImageView adImageView = this.f38492h;
+            this.f38649i = aVar;
+            AdImageView adImageView = this.f38648h;
             if (adImageView != null) {
                 adImageView.displayImage(aVar.m.a);
             }

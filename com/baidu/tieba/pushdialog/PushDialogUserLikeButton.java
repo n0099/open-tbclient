@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.core.content.ContextCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
@@ -48,11 +48,11 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
                 setBackgroundDrawable(null);
                 return;
             }
-            int f2 = m.f(getContext(), R.dimen.tbds32);
+            int f2 = n.f(getContext(), R.dimen.tbds32);
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_add_follow_blue_s);
             drawable.setBounds(0, 0, f2, f2);
             setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            setTextSize(0, m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
+            setTextSize(0, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds34));
             setTextColor(ContextCompat.getColor(getContext(), R.color.CAM_X0111));
             setBackgroundResource(R.drawable.selector_like_btn);
         }

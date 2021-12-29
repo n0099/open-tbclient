@@ -84,8 +84,8 @@ public final class FileDataSource implements e {
                 this.f56497c = gVar.a;
                 RandomAccessFile randomAccessFile = new RandomAccessFile(gVar.a.getPath(), "r");
                 this.f56496b = randomAccessFile;
-                randomAccessFile.seek(gVar.f30511d);
-                long length = gVar.f30512e == -1 ? this.f56496b.length() - gVar.f30511d : gVar.f30512e;
+                randomAccessFile.seek(gVar.f30589d);
+                long length = gVar.f30590e == -1 ? this.f56496b.length() - gVar.f30589d : gVar.f30590e;
                 this.f56498d = length;
                 if (length >= 0) {
                     this.f56499e = true;

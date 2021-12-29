@@ -579,7 +579,7 @@ public class LbSCashierActivity extends LBSBaseActivity implements LBSPayAli.INo
                     iChannelPay2.payCancel();
                 }
             } else {
-                string.equalsIgnoreCase(f.f31788j);
+                string.equalsIgnoreCase(f.f31931j);
             }
         }
     }

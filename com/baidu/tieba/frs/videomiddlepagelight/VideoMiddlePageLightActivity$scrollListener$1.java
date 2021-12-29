@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.videomiddlepagelight;
 
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.m.e;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.videomiddlepagelight.VideoMiddlePageLightActivity;
@@ -130,7 +130,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                         if (intValue < bdTypeRecyclerView3.getFirstCompletelyVisiblePosition()) {
                             e a = e.a();
                             final VideoMiddlePageLightActivity videoMiddlePageLightActivity = this.a;
-                            a.post(new Runnable() { // from class: c.a.s0.d1.b3.j
+                            a.post(new Runnable() { // from class: c.a.t0.d1.b3.j
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +152,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                             if (intValue2 > bdTypeRecyclerView4.getLastCompletelyVisiblePosition()) {
                                 e a2 = e.a();
                                 final VideoMiddlePageLightActivity videoMiddlePageLightActivity2 = this.a;
-                                a2.post(new Runnable() { // from class: c.a.s0.d1.b3.e
+                                a2.post(new Runnable() { // from class: c.a.t0.d1.b3.e
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -180,7 +180,7 @@ public final class VideoMiddlePageLightActivity$scrollListener$1 extends Recycle
                 if (Intrinsics.areEqual(this.a.getViewModel().getHasMore().getValue(), Boolean.FALSE) && Intrinsics.areEqual(this.a.getViewModel().isLoading().getValue(), Boolean.FALSE)) {
                     this.a.showToast(R.string.no_more_video_content);
                     return;
-                } else if (k.z()) {
+                } else if (l.z()) {
                     this.a.showToast(R.string.hard_loading);
                     this.a.getViewModel().loadData();
                     return;

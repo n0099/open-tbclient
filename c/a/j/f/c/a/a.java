@@ -15,10 +15,10 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f3482d;
+    public final String f3910d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3483e;
+    public int f3911e;
 
     public /* synthetic */ a(TaskInfo taskInfo, String str, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
         this(taskInfo, (i3 & 2) != 0 ? taskInfo.getSingleKey() : str, (i3 & 4) != 0 ? 8 : i2, (i3 & 8) != 0 ? null : num, (i3 & 16) != 0 ? null : str2);
@@ -35,13 +35,13 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3482d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3910d : (String) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3483e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3911e : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,7 +63,7 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3482d = str;
-        this.f3483e = i2;
+        this.f3910d = str;
+        this.f3911e = i2;
     }
 }

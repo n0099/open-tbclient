@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.d.l;
-import c.a.s0.a0.f.a.d;
-import c.a.s0.a0.f.b.b.a;
+import c.a.t0.a0.f.a.d;
+import c.a.t0.a0.f.b.b.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -20,7 +20,7 @@ import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
         l<byte[]> a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || hasError() || ListUtils.isEmpty(this.categoryList) || this.mPn != 1 || (a = BdCacheService.j().a("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || hasError() || ListUtils.isEmpty(this.categoryList) || this.mPn != 1 || (a = BdCacheService.k().a("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) == null) {
             return;
         }
         a.e("ala_square_live_key", bArr, 604800000L);

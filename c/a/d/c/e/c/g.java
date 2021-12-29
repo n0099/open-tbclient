@@ -2,7 +2,7 @@ package c.a.d.c.e.c;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.e.c.d;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import c.a.d.f.r.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
@@ -31,31 +31,31 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a f2185b;
+    public d.a f2612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<e> f2186c;
+    public final LinkedList<e> f2613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<e> f2187d;
+    public final LinkedList<e> f2614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedList<e> f2188e;
+    public final LinkedList<e> f2615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.e.c.k.a f2189f;
+    public c.a.d.c.e.c.k.a f2616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f2190g;
+    public boolean f2617g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.d.c.e.c.b f2191h;
+    public c.a.d.c.e.c.b f2618h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f2192i;
+    public long f2619i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f2193j;
+    public int f2620j;
 
     /* loaded from: classes.dex */
     public class a implements d.a {
@@ -144,17 +144,17 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
                 return;
             }
         }
-        this.f2185b = null;
-        this.f2186c = new LinkedList<>();
-        this.f2187d = new LinkedList<>();
-        this.f2188e = new LinkedList<>();
-        this.f2189f = null;
-        this.f2190g = true;
-        this.f2191h = null;
-        this.f2192i = 0L;
-        this.f2193j = 0;
+        this.f2612b = null;
+        this.f2613c = new LinkedList<>();
+        this.f2614d = new LinkedList<>();
+        this.f2615e = new LinkedList<>();
+        this.f2616f = null;
+        this.f2617g = true;
+        this.f2618h = null;
+        this.f2619i = 0L;
+        this.f2620j = 0;
         BdSocketLinkService.setConnStateCallBack(this);
-        this.f2185b = new a(this);
+        this.f2612b = new a(this);
     }
 
     public void A(e eVar) {
@@ -164,18 +164,18 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         }
         if (eVar.v()) {
             eVar.h();
-            c.j(this.f2187d, this.f2186c, eVar);
+            c.j(this.f2614d, this.f2613c, eVar);
             return;
         }
-        c.n(eVar, this.f2187d);
+        c.n(eVar, this.f2614d);
     }
 
     public void B(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
             if (eVar != null && eVar.i() && eVar.p() < eVar.l()) {
-                c.j(this.f2186c, this.f2188e, eVar);
-                c.a.d.c.e.c.b bVar = this.f2191h;
+                c.j(this.f2613c, this.f2615e, eVar);
+                c.a.d.c.e.c.b bVar = this.f2618h;
                 if (bVar != null) {
                     bVar.b(true, "timeout seq = " + eVar.q());
                 }
@@ -201,9 +201,9 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
             return;
         }
         eVar.w();
-        c.n(eVar, this.f2186c);
-        c.n(eVar, this.f2187d);
-        c.n(eVar, this.f2188e);
+        c.n(eVar, this.f2613c);
+        c.n(eVar, this.f2614d);
+        c.n(eVar, this.f2615e);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -212,7 +212,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, socketMessage, socketMessageTask) == null) {
-            m.c();
+            n.c();
             if (socketMessage == null || socketMessageTask == null) {
                 return;
             }
@@ -229,7 +229,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
                 eVar.a(h.p);
             } else {
                 i.c("queue", socketMessage, 0, "sendMessage", 0, "socketclient: send message");
-                c.h(eVar, this.f2187d);
+                c.h(eVar, this.f2614d);
                 F();
             }
         }
@@ -238,13 +238,13 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public final void F() {
         e f2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (f2 = c.f(this.f2187d)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (f2 = c.f(this.f2614d)) == null) {
             return;
         }
         if (BdSocketLinkService.isClose()) {
             i.c("queue", f2.m(), 0, "sendNext", h.r, "");
             BdSocketLinkService.startService(false, "send message");
-        } else if (!this.f2190g || f2.n() <= -3) {
+        } else if (!this.f2617g || f2.n() <= -3) {
             BdSocketLinkService.sendMessage(f2);
         }
     }
@@ -252,22 +252,22 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public void G(c.a.d.c.e.c.k.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.f2189f = aVar;
+            this.f2616f = aVar;
         }
     }
 
     public void H(c.a.d.c.e.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f2191h = bVar;
+            this.f2618h = bVar;
         }
     }
 
     public void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            boolean z = this.f2190g;
-            this.f2190g = false;
+            boolean z = this.f2617g;
+            this.f2617g = false;
             i.a("queue", 0, 0, "unBlockMessageQueue", h.s, "Queue block has release");
             if (z) {
                 F();
@@ -279,7 +279,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public void a(String str) {
         c.a.d.c.e.c.k.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (aVar = this.f2189f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (aVar = this.f2616f) == null) {
             return;
         }
         aVar.a(str);
@@ -290,27 +290,27 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, str)) == null) {
-            c.a.d.c.e.c.k.a aVar = this.f2189f;
+            c.a.d.c.e.c.k.a aVar = this.f2616f;
             if (aVar != null) {
                 aVar.b(i2, str);
             }
-            c.a.d.c.e.c.b bVar = this.f2191h;
+            c.a.d.c.e.c.b bVar = this.f2618h;
             if (bVar != null) {
                 bVar.a();
             }
-            if (m.C() && !c.a(this.f2188e) && !c.a(this.f2187d) && !c.a(this.f2186c) && BdSocketLinkService.isAvailable()) {
-                c.b(this.f2186c);
-                c.i(this.f2187d, this.f2188e);
-                c.i(this.f2187d, this.f2186c);
+            if (n.C() && !c.a(this.f2615e) && !c.a(this.f2614d) && !c.a(this.f2613c) && BdSocketLinkService.isAvailable()) {
+                c.b(this.f2613c);
+                c.i(this.f2614d, this.f2615e);
+                c.i(this.f2614d, this.f2613c);
                 while (true) {
-                    e k2 = c.k(this.f2187d);
+                    e k2 = c.k(this.f2614d);
                     if (k2 == null) {
                         break;
                     }
                     k2.w();
                     w(k2, h.o, null);
                 }
-                if (c.q(this.f2187d) > 0) {
+                if (c.q(this.f2614d) > 0) {
                     i.a("queue", 0, 0, "onClose", h.u, "have retry message, MessageQueue:reconnect");
                     BdSocketLinkService.startService(false, "have retry message");
                     return true;
@@ -328,7 +328,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
             F();
-            c.a.d.c.e.c.k.a aVar = this.f2189f;
+            c.a.d.c.e.c.k.a aVar = this.f2616f;
             if (aVar != null) {
                 aVar.c(cVar);
             }
@@ -342,42 +342,42 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         if (!(interceptable == null || interceptable.invokeL(1048588, this, kVar) == null) || kVar == null || (bArr = kVar.a) == null) {
             return;
         }
-        this.f2192i = System.currentTimeMillis();
+        this.f2619i = System.currentTimeMillis();
         try {
             c.a.d.c.e.c.j.c c2 = c.a.d.c.e.c.j.b.f().c(bArr);
-            this.f2193j = 0;
+            this.f2620j = 0;
             int b2 = c2.a.b();
             int h2 = c2.a.h();
             i.a("queue", b2, h2, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
             e p = p(b2, h2);
             if (p != null) {
-                p.m = kVar.f2700b;
-                p.n = kVar.f2701c;
+                p.m = kVar.f3128b;
+                p.n = kVar.f3129c;
             }
-            if (this.f2191h != null) {
-                if (c2.a.b() == this.f2191h.c() && c.i(this.f2187d, this.f2188e)) {
+            if (this.f2618h != null) {
+                if (c2.a.b() == this.f2618h.c() && c.i(this.f2614d, this.f2615e)) {
                     F();
                 }
-                this.f2191h.e();
+                this.f2618h.e();
             }
             if (h2 == 0 || (p != null && p.k() == b2)) {
-                new d(c2, p, this.f2185b, h2).execute(new String[0]);
+                new d(c2, p, this.f2612b, h2).execute(new String[0]);
             } else if (p != null) {
                 w(p, h.A, null);
             }
-            c.a.d.c.e.c.k.a aVar = this.f2189f;
+            c.a.d.c.e.c.k.a aVar = this.f2616f;
             if (aVar != null) {
                 aVar.d(kVar);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2000986));
         } catch (CoderException unused) {
             int q = c.a.d.f.n.m.a.o().q("alert_protobuf", 2);
-            int i2 = this.f2193j + 1;
-            this.f2193j = i2;
+            int i2 = this.f2620j + 1;
+            this.f2620j = i2;
             if (i2 >= q) {
                 BdStatisticsManager.getInstance().alert("alert_protobuf", "protbuf");
             }
-            i.a("queue", 0, 0, "onBinaryMesssage", h.f2202j, "onBinaryMesssage decodeHeader error");
+            i.a("queue", 0, 0, "onBinaryMesssage", h.f2629j, "onBinaryMesssage decodeHeader error");
         }
     }
 
@@ -396,13 +396,13 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, map) == null) {
             f.a().c(map);
-            c.a.d.c.e.c.b bVar = this.f2191h;
+            c.a.d.c.e.c.b bVar = this.f2618h;
             if (bVar != null) {
                 bVar.e();
             }
-            this.f2190g = true;
+            this.f2617g = true;
             i.a("queue", 0, 0, "onConnected", h.y, "Queue blocked");
-            c.a.d.c.e.c.k.a aVar = this.f2189f;
+            c.a.d.c.e.c.k.a aVar = this.f2616f;
             if (aVar != null) {
                 aVar.g(map);
             }
@@ -413,18 +413,18 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public void h(int i2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048592, this, i2, bdUniqueId) == null) {
-            c.m(this.f2186c, i2, bdUniqueId);
-            c.m(this.f2187d, i2, bdUniqueId);
-            c.m(this.f2188e, i2, bdUniqueId);
+            c.m(this.f2613c, i2, bdUniqueId);
+            c.m(this.f2614d, i2, bdUniqueId);
+            c.m(this.f2615e, i2, bdUniqueId);
         }
     }
 
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            k(this.f2186c);
-            k(this.f2187d);
-            k(this.f2188e);
+            k(this.f2613c);
+            k(this.f2614d);
+            k(this.f2615e);
         }
     }
 
@@ -458,17 +458,17 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
                 int cmd = socketMessage.getCmd();
                 int i2 = b.a[dupLicateMode.ordinal()];
                 if (i2 == 1) {
-                    c.o(this.f2187d, cmd);
-                    c.o(this.f2186c, cmd);
-                    c.o(this.f2188e, cmd);
+                    c.o(this.f2614d, cmd);
+                    c.o(this.f2613c, cmd);
+                    c.o(this.f2615e, cmd);
                     return false;
                 } else if (i2 == 2) {
-                    c.o(this.f2187d, cmd);
+                    c.o(this.f2614d, cmd);
                     return false;
                 } else if (i2 != 3) {
                     return false;
                 } else {
-                    return c.e(this.f2187d, cmd) || c.e(this.f2186c, cmd) || c.e(this.f2188e, cmd);
+                    return c.e(this.f2614d, cmd) || c.e(this.f2613c, cmd) || c.e(this.f2615e, cmd);
                 }
             }
             return false;
@@ -493,7 +493,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
                 return false;
             }
             c.a.d.c.e.c.a aVar = (c.a.d.c.e.c.a) socketMessage;
-            return c.d(this.f2187d, aVar, socketMessage.getCmd()) || c.d(this.f2186c, aVar, socketMessage.getCmd()) || c.d(this.f2188e, aVar, socketMessage.getCmd());
+            return c.d(this.f2614d, aVar, socketMessage.getCmd()) || c.d(this.f2613c, aVar, socketMessage.getCmd()) || c.d(this.f2615e, aVar, socketMessage.getCmd());
         }
         return invokeL.booleanValue;
     }
@@ -503,8 +503,8 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048599, this, i2, i3)) == null) {
             if (i3 != 0) {
-                e p = c.p(i3, this.f2186c);
-                if (p == null && (p = c.p(i3, this.f2188e)) == null && (p = c.p(i3, this.f2187d)) == null) {
+                e p = c.p(i3, this.f2613c);
+                if (p == null && (p = c.p(i3, this.f2615e)) == null && (p = c.p(i3, this.f2614d)) == null) {
                     i.a("queue", i2, i3, "findSenderData", h.w, "original message removed , responsedMessage not dispatchMessage");
                     return p;
                 }
@@ -519,13 +519,13 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f2192i : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f2619i : invokeV.longValue;
     }
 
     public c.a.d.c.e.c.b r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f2191h : (c.a.d.c.e.c.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f2618h : (c.a.d.c.e.c.b) invokeV.objValue;
     }
 
     public int s() {
@@ -543,13 +543,13 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
     public boolean u(int i2, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i2, bdUniqueId)) == null) ? c.c(this.f2187d, i2, bdUniqueId) || c.c(this.f2186c, i2, bdUniqueId) || c.c(this.f2188e, i2, bdUniqueId) : invokeIL.booleanValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048604, this, i2, bdUniqueId)) == null) ? c.c(this.f2614d, i2, bdUniqueId) || c.c(this.f2613c, i2, bdUniqueId) || c.c(this.f2615e, i2, bdUniqueId) : invokeIL.booleanValue;
     }
 
     public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? BdSocketLinkService.isOpen() && !this.f2190g && BdSocketLinkService.isAvailable() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? BdSocketLinkService.isOpen() && !this.f2617g && BdSocketLinkService.isAvailable() : invokeV.booleanValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x0098 A[RETURN] */
@@ -605,9 +605,9 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
         if (!(interceptable == null || interceptable.invokeL(1048607, this, bVar) == null) || bVar == null) {
             return;
         }
-        e eVar = bVar.f2173b;
+        e eVar = bVar.f2600b;
         if (eVar != null) {
-            w(eVar, h.f2195c, null);
+            w(eVar, h.f2622c, null);
             return;
         }
         SocketResponsedMessage socketResponsedMessage = bVar.a;
@@ -626,7 +626,7 @@ public class g extends c.a.d.c.e.a<SocketMessage, SocketMessageTask> implements 
                 if (eVar.r() != null) {
                     i3 = eVar.r().getErrorCode();
                 } else {
-                    i3 = h.f2201i;
+                    i3 = h.f2628i;
                 }
             } else {
                 i3 = h.n;

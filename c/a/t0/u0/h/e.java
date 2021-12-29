@@ -1,0 +1,243 @@
+package c.a.t0.u0.h;
+
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import c.a.d.f.m.g;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+/* loaded from: classes8.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f24711b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public PopupWindow f24712c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Handler f24713d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Runnable f24714e;
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f24715e;
+
+        public a(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f24715e = eVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f24715e.f24712c == null) {
+                return;
+            }
+            g.c(this.f24715e.f24712c);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f24716e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f24717f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ e f24718g;
+
+        public b(e eVar, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f24718g = eVar;
+            this.f24716e = i2;
+            this.f24717f = i3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f24718g.g(this.f24716e, this.f24717f);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ e f24719e;
+
+        public c(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f24719e = eVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f24719e.e();
+            }
+        }
+    }
+
+    public e(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f24713d = new Handler();
+        this.f24714e = new a(this);
+        this.a = tbPageContext;
+    }
+
+    public void c(LinkedList<VisitedForumData> linkedList, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, linkedList, i2) == null) {
+            if (linkedList != null && linkedList.size() >= 1) {
+                int d2 = d(linkedList);
+                if (d2 < 0) {
+                    c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
+                    return;
+                } else if (c.a.s0.s.g0.b.j().g("key_enter_forum_ufan_recent_visit_tip_show", false)) {
+                    return;
+                } else {
+                    this.f24713d.postDelayed(new b(this, i2, d2), 100L);
+                    return;
+                }
+            }
+            c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
+        }
+    }
+
+    public final int d(LinkedList<VisitedForumData> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedList)) == null) {
+            int size = linkedList.size();
+            for (int i2 = 0; i2 < 3 && i2 < size; i2++) {
+                VisitedForumData visitedForumData = linkedList.get(i2);
+                if (visitedForumData != null && visitedForumData.F()) {
+                    return i2;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void e() {
+        PopupWindow popupWindow;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (popupWindow = this.f24712c) == null) {
+            return;
+        }
+        g.c(popupWindow);
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f24713d.removeCallbacksAndMessages(null);
+        }
+    }
+
+    public final void g(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+            c.a.s0.s.g0.b.j().t("key_enter_forum_ufan_recent_visit_tip_show", true);
+            PopupWindow popupWindow = this.f24712c;
+            if (popupWindow == null || !popupWindow.isShowing()) {
+                if (this.f24711b == null) {
+                    View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.enter_forum_ufan_item_tip, (ViewGroup) null);
+                    this.f24711b = inflate;
+                    inflate.setOnClickListener(new c(this));
+                }
+                if (this.f24712c == null) {
+                    PopupWindow popupWindow2 = new PopupWindow(this.f24711b, -2, -2);
+                    this.f24712c = popupWindow2;
+                    popupWindow2.setOutsideTouchable(true);
+                }
+                g.m(this.f24712c, this.a.getPageActivity().findViewById(16908290), 51, this.a.getResources().getDimensionPixelSize(R.dimen.tbds44) + (i3 * this.a.getResources().getDimensionPixelSize(R.dimen.tbds220)), i2);
+                this.f24713d.postDelayed(this.f24714e, 5000L);
+            }
+        }
+    }
+}

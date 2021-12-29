@@ -36,7 +36,7 @@ public class fd {
     public byte[] f380a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f63463b;
+    public int f63458b;
 
     /* renamed from: b  reason: collision with other field name */
     public ByteBuffer f381b;
@@ -63,7 +63,7 @@ public class fd {
         this.f376a = fhVar;
         TimeZone timeZone = TimeZone.getDefault();
         this.a = timeZone.getRawOffset() / 3600000;
-        this.f63463b = timeZone.useDaylightTime() ? 1 : 0;
+        this.f63458b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fa faVar) {
@@ -127,7 +127,7 @@ public class fd {
             faVar.a(0L, "xiaomi.com", null);
             faVar.a(eVar.m333a(), (String) null);
             a(faVar);
-            com.xiaomi.channel.commonutils.logger.b.m122a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m664a() + " tz=" + this.a + ":" + this.f63463b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+            com.xiaomi.channel.commonutils.logger.b.m122a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m664a() + " tz=" + this.a + ":" + this.f63458b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 

@@ -19,8 +19,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.g;
-import c.a.g0.h;
+import c.a.h0.g;
+import c.a.h0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.mytransformapp.util.LogUtil;
@@ -52,7 +52,7 @@ public class PayWebActivity extends Activity {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f38921e;
+        public final /* synthetic */ PayWebActivity f39077e;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -69,15 +69,15 @@ public class PayWebActivity extends Activity {
                     return;
                 }
             }
-            this.f38921e = payWebActivity;
+            this.f39077e = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f38921e.setResult(0);
-                this.f38921e.finish();
+                this.f39077e.setResult(0);
+                this.f39077e.finish();
             }
         }
     }
@@ -105,7 +105,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith(URL_CLOSE_WINDOW)) {
-                c.a.g0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
+                c.a.h0.p.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.g0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
+            c.a.h0.p.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();

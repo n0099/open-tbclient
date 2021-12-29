@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class b extends d {
+public class b extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,25 +62,25 @@ public class b extends d {
         }
     }
 
-    @Override // com.baidu.android.pushservice.message.a.d
+    @Override // com.baidu.android.pushservice.message.a.c
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            int a = kVar.a();
+            int b2 = kVar.b();
             int i2 = 12;
-            if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.c()).a().ordinal()] != 1) {
+            if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.e()).a().ordinal()] != 1) {
                 i2 = 7;
             } else {
-                if (kVar.g() == l.f33197h.b()) {
-                    if (kVar.a() != 0 && com.baidu.android.pushservice.c.c.a(this.a, a)) {
-                        com.baidu.android.pushservice.j.h.a(this.a, a);
-                        if (com.baidu.android.pushservice.c.c.b(this.a, a)) {
+                if (kVar.i() == k.f33347h.b()) {
+                    if (kVar.b() != 0 && com.baidu.android.pushservice.c.c.a(this.a, b2)) {
+                        com.baidu.android.pushservice.i.h.a(this.a, b2);
+                        if (com.baidu.android.pushservice.c.c.b(this.a, b2)) {
                             i2 = 10;
                         }
                     } else {
-                        com.baidu.android.pushservice.j.h.a(this.a);
+                        com.baidu.android.pushservice.i.h.a(this.a);
                     }
                 }
                 i2 = 1;

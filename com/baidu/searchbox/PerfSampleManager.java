@@ -1,14 +1,16 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import c.a.j0.a.a;
-import c.a.j0.a.b.d;
+import c.a.k0.a.a;
+import c.a.k0.a.b.d;
 import c.a.p.b.b;
-import c.a.s0.p3.p;
+import c.a.t0.p3.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
+import com.baidu.searchbox.block.ubc.BlockPerfSampleCallback;
 import com.baidu.searchbox.fluency.ubc.FpsPerfSampleCallback;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +50,7 @@ public class PerfSampleManager {
             }
         }
 
-        @Override // c.a.j0.a.a
+        @Override // c.a.k0.a.a
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -56,9 +58,11 @@ public class PerfSampleManager {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new b());
                 arrayList.add(new ANRPerfSampleCallback());
+                arrayList.add(new BlockPerfSampleCallback());
                 arrayList.add(new FpsPerfSampleCallback());
+                arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new p());
+                arrayList.add(new n());
                 return arrayList;
             }
             return invokeV.objValue;
@@ -108,7 +112,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.j0.a.b.b b2 = c.a.j0.a.b.b.b();
+            c.a.k0.a.b.b b2 = c.a.k0.a.b.b.b();
             this.mCallbackList = b2;
             b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

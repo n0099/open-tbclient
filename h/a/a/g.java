@@ -11,10 +11,10 @@ public final class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f64075b;
+    public int[] f64070b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int[] f64076c;
+    public int[] f64071c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -33,11 +33,11 @@ public final class g {
     public static void a(g gVar, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, gVar, aVar) == null) {
-            int length = gVar.f64076c.length;
+            int length = gVar.f64071c.length;
             int i2 = 0;
             for (int i3 = 0; i3 < length; i3++) {
-                gVar.f64076c[i3] = i2;
-                d.n(gVar.a, gVar.f64075b, i2, aVar);
+                gVar.f64071c[i3] = i2;
+                d.n(gVar.a, gVar.f64070b, i2, aVar);
                 i2 += 1080;
             }
         }
@@ -47,8 +47,8 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65538, null, gVar, i2, i3) == null) {
             gVar.a = i2;
-            gVar.f64075b = new int[i3 * 1080];
-            gVar.f64076c = new int[i3];
+            gVar.f64070b = new int[i3 * 1080];
+            gVar.f64071c = new int[i3];
         }
     }
 }

@@ -13,6 +13,7 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -128,7 +129,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                 jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-                jSONObject.put("device_type", 2);
+                jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
                 jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     jSONObject.put("token", AccountManager.getToken(this.mContext));
@@ -153,7 +154,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x01a2  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x01a1  */
     /* JADX WARN: Removed duplicated region for block: B:48:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

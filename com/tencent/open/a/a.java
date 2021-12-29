@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkManager1;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -58,7 +57,7 @@ public class a {
                 return ConectivityUtils.APN_UNINET;
             }
             if (d2 == 64) {
-                return DeepLinkManager1.AD_WAP;
+                return "wap";
             }
             if (d2 == 32) {
                 return "net";
@@ -144,7 +143,7 @@ public class a {
                 if (lowerCase.startsWith(ConectivityUtils.APN_UNINET)) {
                     return 8;
                 }
-                if (lowerCase.startsWith(DeepLinkManager1.AD_WAP)) {
+                if (lowerCase.startsWith("wap")) {
                     return 64;
                 }
                 if (lowerCase.startsWith("net")) {

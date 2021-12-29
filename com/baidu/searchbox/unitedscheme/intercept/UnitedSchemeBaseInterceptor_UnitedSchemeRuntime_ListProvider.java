@@ -1,8 +1,8 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
-import c.a.j0.a.a;
-import c.a.q0.a.f2.g.b;
-import c.a.q0.a.f2.g.c;
+import c.a.k0.a.a;
+import c.a.r0.a.f2.g.b;
+import c.a.r0.a.f2.g.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,17 +28,17 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
         }
     }
 
-    @Override // c.a.j0.a.a
+    @Override // c.a.k0.a.a
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new c.a.q0.a.x0.a.e.a());
-            arrayList.add(new c.a.q0.a.f2.g.a());
+            arrayList.add(new c.a.r0.a.x0.a.e.a());
+            arrayList.add(new c.a.r0.a.f2.g.a());
             arrayList.add(new b());
             arrayList.add(new c());
-            arrayList.add(new c.a.q0.j.w.a());
+            arrayList.add(new c.a.r0.j.w.a());
             return arrayList;
         }
         return invokeV.objValue;

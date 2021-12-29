@@ -1,65 +1,126 @@
 package c.a.s0.h1.b;
 
-import c.a.r0.s.r.j0;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.BdTopToast;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<j0> f17970b;
-
-    public c() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2141835137, "Lc/a/s0/h1/b/c;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-2141835137, "Lc/a/s0/h1/b/c;");
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            c.a.s0.s.g0.b.j().C("key_youngster_verify");
+        }
+    }
+
+    public static String b(c.a.s0.h1.a.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, aVar)) == null) {
+            if (aVar == null || StringUtils.isNull(aVar.c()) || StringUtils.isNull(aVar.b()) || StringUtils.isNull(aVar.a())) {
+                return "";
             }
+            return aVar.c() + "," + aVar.b() + "," + aVar.a();
         }
+        return (String) invokeL.objValue;
     }
 
-    public int a() {
+    public static c.a.s0.h1.a.a c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String[] split = str.split(",");
+            if (split.length > 2) {
+                return new c.a.s0.h1.a.a(split[0], split[1], split[2]);
+            }
+            return null;
+        }
+        return (c.a.s0.h1.a.a) invokeL.objValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public List<j0> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17970b : (List) invokeV.objValue;
-    }
-
-    public void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(String str) {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            String p = c.a.s0.s.g0.b.j().p("key_youngster_verify", "");
+            if (StringUtils.isNull(p)) {
+                a();
+                return false;
+            }
+            c.a.s0.h1.a.a c2 = c(p);
+            if (c2 == null) {
+                return false;
+            }
+            return str.equals(c2.a());
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(List<j0> list) {
+    public static void f(String str) {
+        AccountData currentAccountInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f17970b = list;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str) || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
+            return;
+        }
+        c.a.s0.s.g0.b.j().x("key_youngster_verify", b(new c.a.s0.h1.a.a(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+    }
+
+    public static void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
+            Activity activity = context instanceof Activity ? (Activity) context : null;
+            if (activity == null) {
+                activity = TbadkApplication.getInst().getCurrentActivity();
+            }
+            if (activity == null || activity.isDestroyed()) {
+                return;
+            }
+            new BdTopToast(activity).setIcon(false).setContent(activity.getString(R.string.youngster_reject_toast)).show((ViewGroup) activity.findViewById(16908290));
         }
     }
 }

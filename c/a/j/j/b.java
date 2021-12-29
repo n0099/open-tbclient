@@ -16,28 +16,28 @@ public final class b extends c.a.j.h.b.b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.j.h.b.d.a f3623d;
+    public final c.a.j.h.b.d.a f4051d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.j.h.b.e.a f3624e;
+    public final c.a.j.h.b.e.a f4052e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.h.b.h.a f3625f;
+    public final c.a.j.h.b.h.a f4053f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f3626g;
+    public final c f4054g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.j.h.b.f.b f3627h;
+    public final c.a.j.h.b.f.b f4055h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final c.a.j.h.b.c.a f3628i;
+    public final c.a.j.h.b.c.a f4056i;
 
     /* renamed from: j  reason: collision with root package name */
-    public final c.a.j.h.b.g.a f3629j;
+    public final c.a.j.h.b.g.a f4057j;
 
     /* renamed from: k  reason: collision with root package name */
-    public final c.a.j.j.e.a.a f3630k;
+    public final c.a.j.j.e.a.a f4058k;
     public final c.a.j.j.i.a l;
 
     public /* synthetic */ b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7, int i2, DefaultConstructorMarker defaultConstructorMarker) {
@@ -48,35 +48,35 @@ public final class b extends c.a.j.h.b.b implements a {
     public c.a.j.h.b.g.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3629j : (c.a.j.h.b.g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4057j : (c.a.j.h.b.g.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.h.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3625f : (c.a.j.h.b.h.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4053f : (c.a.j.h.b.h.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.c.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3628i : (c.a.j.h.b.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f4056i : (c.a.j.h.b.c.a) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
     public c.a.j.j.e.a.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3630k : (c.a.j.j.e.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f4058k : (c.a.j.j.e.a.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3626g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f4054g : (c) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
@@ -90,21 +90,21 @@ public final class b extends c.a.j.h.b.b implements a {
     public c.a.j.h.b.e.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3624e : (c.a.j.h.b.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f4052e : (c.a.j.h.b.e.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.d.a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3623d : (c.a.j.h.b.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f4051d : (c.a.j.h.b.d.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.f.b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3627h : (c.a.j.h.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f4055h : (c.a.j.h.b.f.b) invokeV.objValue;
     }
 
     public b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7) {
@@ -122,14 +122,14 @@ public final class b extends c.a.j.h.b.b implements a {
                 return;
             }
         }
-        this.f3623d = aVar;
-        this.f3624e = aVar2;
-        this.f3625f = aVar3;
-        this.f3626g = cVar;
-        this.f3627h = bVar;
-        this.f3628i = aVar4;
-        this.f3629j = aVar5;
-        this.f3630k = aVar6;
+        this.f4051d = aVar;
+        this.f4052e = aVar2;
+        this.f4053f = aVar3;
+        this.f4054g = cVar;
+        this.f4055h = bVar;
+        this.f4056i = aVar4;
+        this.f4057j = aVar5;
+        this.f4058k = aVar6;
         this.l = aVar7;
     }
 }

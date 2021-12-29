@@ -43,7 +43,7 @@ public final class a {
                 return null;
             }
             try {
-                if (h.c()) {
+                if (g.c()) {
                     Object readField = FieldUtils.readField(theme, "mThemeImpl");
                     if (readField == null) {
                         return null;

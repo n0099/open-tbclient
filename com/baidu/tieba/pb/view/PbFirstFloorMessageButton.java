@@ -2,11 +2,11 @@ package com.baidu.tieba.pb.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d.f.p.m;
-import c.a.r0.s.i0.n.d;
-import c.a.s0.s2.f;
-import c.a.s0.s2.g;
-import c.a.s0.s2.h;
+import c.a.d.f.p.n;
+import c.a.s0.s.i0.n.d;
+import c.a.t0.s2.f;
+import c.a.t0.s2.g;
+import c.a.t0.s2.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -48,7 +48,7 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
             d dVar = new d();
             this.r = dVar;
             dVar.q(f.CAM_X0903);
-            this.r.g(m.f(TbadkCoreApplication.getInst().getContext(), g.M_H_X006));
+            this.r.g(n.f(TbadkCoreApplication.getInst().getContext(), g.M_H_X006));
             this.r.u(h.icon_mask_messageline, TBSpecificationButtonConfig.IconType.WEBP);
             this.r.o(TBSpecificationButtonConfig.WebpType.PURE);
             this.r.h(f.CAM_X0304);

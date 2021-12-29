@@ -61,13 +61,13 @@ public class a0 extends h {
         }
     }
 
-    public final boolean r(c.a.r0.s.r.a aVar) {
+    public final boolean r(c.a.s0.s.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().H2() || aVar.getThreadData().t1() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean s(c.a.r0.s.r.a aVar) {
+    public final boolean s(c.a.s0.s.q.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().J0() == null || aVar.getThreadData().J0().getOptions() == null || aVar.getThreadData().J0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
@@ -76,7 +76,7 @@ public class a0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
     /* renamed from: t */
-    public void onBindDataToView(c.a.r0.s.r.a aVar) {
+    public void onBindDataToView(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (!s(aVar) && !r(aVar) && aVar != null && aVar.getThreadData() != null && ((!ListUtils.isEmpty(aVar.getThreadData().B0()) || ListUtils.getCount(aVar.getThreadData().d0()) > 1) && ((!ListUtils.isEmpty(aVar.getThreadData().d0()) || ListUtils.getCount(aVar.getThreadData().B0()) > 1) && ListUtils.getCount(aVar.getThreadData().B0()) + ListUtils.getCount(aVar.getThreadData().d0()) > 1))) {

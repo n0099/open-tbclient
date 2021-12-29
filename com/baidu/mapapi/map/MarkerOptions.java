@@ -3,6 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,34 +21,34 @@ public final class MarkerOptions extends OverlayOptions {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f36396b;
+    public boolean f36552b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f36397c;
+    public Bundle f36553c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f36398d;
+    public LatLng f36554d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BitmapDescriptor f36399e;
+    public BitmapDescriptor f36555e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f36400f;
+    public float f36556f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f36401g;
+    public float f36557g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f36402h;
+    public boolean f36558h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f36403i;
+    public boolean f36559i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f36404j;
+    public float f36560j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f36405k;
+    public String f36561k;
     public int l;
     public boolean m;
     public ArrayList<BitmapDescriptor> n;
@@ -87,7 +88,7 @@ public final class MarkerOptions extends OverlayOptions {
             none = new MarkerAnimateType("none", 0);
             drop = new MarkerAnimateType("drop", 1);
             grow = new MarkerAnimateType("grow", 2);
-            MarkerAnimateType markerAnimateType = new MarkerAnimateType("jump", 3);
+            MarkerAnimateType markerAnimateType = new MarkerAnimateType(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, 3);
             jump = markerAnimateType;
             a = new MarkerAnimateType[]{none, drop, grow, markerAnimateType};
         }
@@ -137,10 +138,10 @@ public final class MarkerOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f36400f = 0.5f;
-        this.f36401g = 1.0f;
-        this.f36402h = true;
-        this.f36403i = false;
+        this.f36556f = 0.5f;
+        this.f36557g = 1.0f;
+        this.f36558h = true;
+        this.f36559i = false;
         this.m = false;
         this.o = 20;
         this.p = 1.0f;
@@ -148,7 +149,7 @@ public final class MarkerOptions extends OverlayOptions {
         this.r = 1.0f;
         this.s = MarkerAnimateType.none.ordinal();
         this.t = false;
-        this.f36396b = true;
+        this.f36552b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -157,24 +158,24 @@ public final class MarkerOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Marker marker = new Marker();
-            marker.A = this.f36396b;
+            marker.A = this.f36552b;
             marker.z = this.a;
-            marker.B = this.f36397c;
-            LatLng latLng = this.f36398d;
+            marker.B = this.f36553c;
+            LatLng latLng = this.f36554d;
             if (latLng != null) {
                 marker.a = latLng;
-                if (this.f36399e == null && this.n == null) {
+                if (this.f36555e == null && this.n == null) {
                     throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the icon or icons");
                 }
-                marker.f36386b = this.f36399e;
-                marker.f36387c = this.f36400f;
-                marker.f36388d = this.f36401g;
-                marker.f36389e = this.f36402h;
-                marker.f36390f = this.f36403i;
-                marker.f36391g = this.f36404j;
-                marker.f36392h = this.f36405k;
-                marker.f36393i = this.l;
-                marker.f36394j = this.m;
+                marker.f36542b = this.f36555e;
+                marker.f36543c = this.f36556f;
+                marker.f36544d = this.f36557g;
+                marker.f36545e = this.f36558h;
+                marker.f36546f = this.f36559i;
+                marker.f36547g = this.f36560j;
+                marker.f36548h = this.f36561k;
+                marker.f36549i = this.l;
+                marker.f36550j = this.m;
                 marker.o = this.n;
                 marker.p = this.o;
                 marker.l = this.r;
@@ -213,8 +214,8 @@ public final class MarkerOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             if (f2 >= 0.0f && f2 <= 1.0f && f3 >= 0.0f && f3 <= 1.0f) {
-                this.f36400f = f2;
-                this.f36401g = f3;
+                this.f36556f = f2;
+                this.f36557g = f3;
             }
             return this;
         }
@@ -238,7 +239,7 @@ public final class MarkerOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            this.f36403i = z;
+            this.f36559i = z;
             return this;
         }
         return (MarkerOptions) invokeZ.objValue;
@@ -248,7 +249,7 @@ public final class MarkerOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bundle)) == null) {
-            this.f36397c = bundle;
+            this.f36553c = bundle;
             return this;
         }
         return (MarkerOptions) invokeL.objValue;
@@ -284,13 +285,13 @@ public final class MarkerOptions extends OverlayOptions {
     public float getAnchorX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36400f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f36556f : invokeV.floatValue;
     }
 
     public float getAnchorY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36401g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f36557g : invokeV.floatValue;
     }
 
     public MarkerAnimateType getAnimateType() {
@@ -306,13 +307,13 @@ public final class MarkerOptions extends OverlayOptions {
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36397c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f36553c : (Bundle) invokeV.objValue;
     }
 
     public BitmapDescriptor getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f36399e : (BitmapDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f36555e : (BitmapDescriptor) invokeV.objValue;
     }
 
     public ArrayList<BitmapDescriptor> getIcons() {
@@ -330,20 +331,20 @@ public final class MarkerOptions extends OverlayOptions {
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f36398d : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f36554d : (LatLng) invokeV.objValue;
     }
 
     public float getRotate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f36404j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f36560j : invokeV.floatValue;
     }
 
     @Deprecated
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f36405k : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f36561k : (String) invokeV.objValue;
     }
 
     public int getZIndex() {
@@ -357,7 +358,7 @@ public final class MarkerOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, bitmapDescriptor)) == null) {
             if (bitmapDescriptor != null) {
-                this.f36399e = bitmapDescriptor;
+                this.f36555e = bitmapDescriptor;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: marker's icon can not be null");
@@ -399,7 +400,7 @@ public final class MarkerOptions extends OverlayOptions {
     public boolean isDraggable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f36403i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f36559i : invokeV.booleanValue;
     }
 
     public boolean isFlat() {
@@ -411,13 +412,13 @@ public final class MarkerOptions extends OverlayOptions {
     public boolean isPerspective() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f36402h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f36558h : invokeV.booleanValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f36396b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f36552b : invokeV.booleanValue;
     }
 
     public MarkerOptions period(int i2) {
@@ -437,7 +438,7 @@ public final class MarkerOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
-            this.f36402h = z;
+            this.f36558h = z;
             return this;
         }
         return (MarkerOptions) invokeZ.objValue;
@@ -448,7 +449,7 @@ public final class MarkerOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, latLng)) == null) {
             if (latLng != null) {
-                this.f36398d = latLng;
+                this.f36554d = latLng;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: marker's position can not be null");
@@ -463,7 +464,7 @@ public final class MarkerOptions extends OverlayOptions {
             while (f2 < 0.0f) {
                 f2 += 360.0f;
             }
-            this.f36404j = f2 % 360.0f;
+            this.f36560j = f2 % 360.0f;
             return this;
         }
         return (MarkerOptions) invokeF.objValue;
@@ -500,7 +501,7 @@ public final class MarkerOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
-            this.f36405k = str;
+            this.f36561k = str;
             return this;
         }
         return (MarkerOptions) invokeL.objValue;
@@ -510,7 +511,7 @@ public final class MarkerOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
-            this.f36396b = z;
+            this.f36552b = z;
             return this;
         }
         return (MarkerOptions) invokeZ.objValue;

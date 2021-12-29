@@ -1,8 +1,8 @@
 package c.a.d.f.j.a.j;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.r;
+import c.a.d.f.p.m;
+import c.a.d.f.p.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class d {
         int max;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (l.isEmpty(str)) {
+            if (m.isEmpty(str)) {
                 return "";
             }
             try {
@@ -69,7 +69,7 @@ public class d {
     public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? l.isEmpty(str) ? "" : str.startsWith("https://") ? str.replace("https://", "http://") : str : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? m.isEmpty(str) ? "" : str.startsWith("https://") ? str.replace("https://", "http://") : str : (String) invokeL.objValue;
     }
 
     public static String c() {
@@ -156,7 +156,7 @@ public class d {
                             sb.append(i2);
                             if (i2 == 200) {
                             }
-                            if (!l.isEmpty(str)) {
+                            if (!m.isEmpty(str)) {
                             }
                             sb.append("-costTime_");
                             sb.append(currentTimeMillis2);
@@ -183,7 +183,7 @@ public class d {
                         sb.append(i2);
                         if (i2 == 200) {
                         }
-                        if (!l.isEmpty(str)) {
+                        if (!m.isEmpty(str)) {
                         }
                         sb.append("-costTime_");
                         sb.append(currentTimeMillis22);
@@ -247,7 +247,7 @@ public class d {
                 if (i2 == 200) {
                     if (bArr2 != null) {
                         int length = bArr2.length;
-                        String d2 = r.d(bArr2);
+                        String d2 = t.d(bArr2);
                         if (!"BA30C9CC61C537ACBD68397F95684A27".equalsIgnoreCase(d2)) {
                             sb.append("-MD5Error_");
                             sb.append(d2);
@@ -262,7 +262,7 @@ public class d {
                         sb.append("-downSizeZero");
                     }
                 }
-                if (!l.isEmpty(str)) {
+                if (!m.isEmpty(str)) {
                     sb.append("-imgException_");
                     sb.append(str);
                 }
@@ -336,7 +336,7 @@ public class d {
                         sb.append(i2);
                         if (i2 == 200) {
                         }
-                        if (!l.isEmpty(str)) {
+                        if (!m.isEmpty(str)) {
                         }
                         sb.append("-costTime_");
                         sb.append(currentTimeMillis2);
@@ -384,7 +384,7 @@ public class d {
                     sb.append(i2);
                     if (i2 == 200) {
                     }
-                    if (!l.isEmpty(str)) {
+                    if (!m.isEmpty(str)) {
                     }
                     sb.append("-costTime_");
                     sb.append(currentTimeMillis22);
@@ -438,7 +438,7 @@ public class d {
                     if (i2 == 200) {
                         if (bArr2 != null) {
                             int length = bArr2.length;
-                            String d2 = r.d(bArr2);
+                            String d2 = t.d(bArr2);
                             if (!"BA30C9CC61C537ACBD68397F95684A27".equalsIgnoreCase(d2)) {
                                 sb.append("-MD5Error_");
                                 sb.append(d2);
@@ -453,7 +453,7 @@ public class d {
                             sb.append("-downSizeZero");
                         }
                     }
-                    if (!l.isEmpty(str)) {
+                    if (!m.isEmpty(str)) {
                         sb.append("-imgException_");
                         sb.append(str);
                     }

@@ -54,10 +54,10 @@ public class ContentProviderManager {
         public final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final ProviderInfo f55194b;
+        public final ProviderInfo f55193b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final PluginContentProvider f55195c;
+        public final PluginContentProvider f55194c;
 
         public a(b bVar, ProviderInfo providerInfo, PluginContentProvider pluginContentProvider) {
             Interceptable interceptable = $ic;
@@ -74,9 +74,9 @@ public class ContentProviderManager {
                     return;
                 }
             }
-            this.f55194b = providerInfo;
+            this.f55193b = providerInfo;
             this.a = bVar;
-            this.f55195c = pluginContentProvider;
+            this.f55194c = pluginContentProvider;
         }
     }
 
@@ -87,10 +87,10 @@ public class ContentProviderManager {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f55196b;
+        public final String f55195b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f55197c;
+        public final String f55196c;
 
         public b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -108,8 +108,8 @@ public class ContentProviderManager {
                 }
             }
             this.a = str2;
-            this.f55196b = str3;
-            this.f55197c = str;
+            this.f55195b = str3;
+            this.f55196c = str;
         }
 
         public boolean equals(Object obj) {
@@ -118,7 +118,7 @@ public class ContentProviderManager {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (TextUtils.equals(this.f55197c, bVar.f55197c) && TextUtils.equals(this.f55196b, bVar.f55196b) && TextUtils.equals(this.a, bVar.a)) {
+                    if (TextUtils.equals(this.f55196c, bVar.f55196c) && TextUtils.equals(this.f55195b, bVar.f55195b) && TextUtils.equals(this.a, bVar.a)) {
                         return true;
                     }
                 }
@@ -132,9 +132,9 @@ public class ContentProviderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (Build.VERSION.SDK_INT >= 19) {
-                    return Objects.hash(this.a, this.f55196b, this.f55197c);
+                    return Objects.hash(this.a, this.f55195b, this.f55196c);
                 }
-                return (this.a + this.f55196b + this.a).hashCode();
+                return (this.a + this.f55195b + this.a).hashCode();
             }
             return invokeV.intValue;
         }
@@ -146,7 +146,7 @@ public class ContentProviderManager {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public final ProviderInfo f55198d;
+        public final ProviderInfo f55197d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, String str2, ProviderInfo providerInfo) {
@@ -167,7 +167,7 @@ public class ContentProviderManager {
                     return;
                 }
             }
-            this.f55198d = providerInfo;
+            this.f55197d = providerInfo;
         }
     }
 
@@ -273,7 +273,7 @@ public class ContentProviderManager {
             if (aVar == null) {
                 return null;
             }
-            return aVar.f55195c;
+            return aVar.f55194c;
         }
         return (PluginContentProvider) invokeL.objValue;
     }
@@ -299,10 +299,10 @@ public class ContentProviderManager {
                     return;
                 }
                 for (ProviderInfo providerInfo : providerInfoArr) {
-                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f55032b)) {
+                    if (providerInfo != null && providerInfo.authority != null && providerInfo.authority.contains(ZeusConstants.f55035b)) {
                         try {
                             ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Need to init system provider info start [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);
-                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f55032b)) {
+                            if (providerInfo.authority.contains(Zeus.getAppApplication().getPackageName() + ZeusConstants.f55035b)) {
                                 String a2 = com.bytedance.pangle.helper.c.a(providerInfo.processName);
                                 this.mSystemProviderInfoMap.put(a2, new c(Zeus.getAppApplication().getPackageName(), a2, providerInfo));
                                 ZeusLogger.w(ZeusLogger.TAG_PROVIDER, "Init system provider info finish [packageNam:=" + providerInfo.packageName + "],[processName=" + providerInfo.processName + "],[authority:" + providerInfo.authority + PreferencesUtil.RIGHT_MOUNT);

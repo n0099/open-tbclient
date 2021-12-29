@@ -1,202 +1,64 @@
 package com.vivo.push.util;
 
-import android.content.Context;
-import android.os.Environment;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.Signature;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
 /* loaded from: classes4.dex */
-public final class u implements c {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f63144b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f63145c;
+public final class u {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public File f63146d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(744178759, "Lcom/vivo/push/util/u;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(744178759, "Lcom/vivo/push/util/u;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(744178759, "Lcom/vivo/push/util/u;")) == null) {
+            return;
         }
-        a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-        f63144b = a + File.separator + "config.txt";
-        f63145c = "SdcardCache";
-    }
-
-    public u() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(744178759, "Lcom/vivo/push/util/u;");
         }
     }
 
-    @Override // com.vivo.push.util.c
-    public final boolean a(Context context) {
+    public static PublicKey a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if ("mounted".equals(Environment.getExternalStorageState())) {
-                File file = new File(a);
-                boolean mkdirs = !file.exists() ? file.mkdirs() : true;
-                if (mkdirs) {
-                    File file2 = new File(f63144b);
-                    this.f63146d = file2;
-                    if (!file2.exists()) {
-                        try {
-                            this.f63146d.createNewFile();
-                            return true;
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                            return false;
-                        }
-                    }
-                }
-                return mkdirs;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                return KeyFactory.getInstance(a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            } catch (NullPointerException unused) {
+                throw new Exception("公钥数据为空");
+            } catch (NoSuchAlgorithmException unused2) {
+                throw new Exception("无此算法");
+            } catch (InvalidKeySpecException unused3) {
+                throw new Exception("公钥非法");
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (PublicKey) invokeL.objValue;
     }
 
-    @Override // com.vivo.push.util.c
-    public final void b(String str, String str2) {
-        FileOutputStream fileOutputStream;
+    public static boolean a(byte[] bArr, PublicKey publicKey, byte[] bArr2) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            Properties a2 = a();
-            String str3 = f63144b;
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    a2.setProperty(str, str2);
-                    fileOutputStream = new FileOutputStream(str3);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                a2.store(fileOutputStream, (String) null);
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (Exception unused) {
-                }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                throw th;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, publicKey, bArr2)) == null) {
+            Signature signature = Signature.getInstance("MD5withRSA");
+            signature.initVerify(publicKey);
+            signature.update(bArr);
+            return signature.verify(bArr2);
         }
-    }
-
-    @Override // com.vivo.push.util.c
-    public final String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? a().getProperty(str, str2) : (String) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0028, code lost:
-        if (r2 == null) goto L13;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0030 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Properties a() {
-        InterceptResult invokeV;
-        BufferedInputStream bufferedInputStream;
-        Exception e2;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (Properties) invokeV.objValue;
-        }
-        Properties properties = new Properties();
-        BufferedInputStream bufferedInputStream2 = null;
-        try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(f63144b));
-            try {
-                try {
-                    properties.load(bufferedInputStream);
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
-                }
-            } catch (Throwable th) {
-                th = th;
-                bufferedInputStream2 = bufferedInputStream;
-                if (bufferedInputStream2 != null) {
-                    try {
-                        bufferedInputStream2.close();
-                    } catch (IOException unused) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e4) {
-            bufferedInputStream = null;
-            e2 = e4;
-        } catch (Throwable th2) {
-            th = th2;
-            if (bufferedInputStream2 != null) {
-            }
-            throw th;
-        }
-        try {
-            bufferedInputStream.close();
-        } catch (IOException unused2) {
-            return properties;
-        }
+        return invokeLLL.booleanValue;
     }
 }

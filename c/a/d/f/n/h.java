@@ -2,7 +2,7 @@ package c.a.d.f.n;
 
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
@@ -26,28 +26,28 @@ public class h {
     public d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2512b;
+    public String f2939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2513c;
+    public String f2940c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2514d;
+    public String f2941d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f2515e;
+    public String f2942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2516f;
+    public String f2943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f2517g;
+    public String f2944g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2518h;
+    public String f2945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Map<String, String> f2519i;
+    public Map<String, String> f2946i;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -66,15 +66,15 @@ public class h {
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? k.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : k.t() ? "2G" : k.u() ? "3G" : (k.v() || k.z()) ? "4G" : PolyActivity.NONE_PANEL_TYPE : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? l.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : l.t() ? "2G" : l.u() ? "3G" : (l.v() || l.z()) ? "4G" : PolyActivity.NONE_PANEL_TYPE : (String) invokeV.objValue;
     }
 
     public void a(String str) {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.f2519i == null) {
-                this.f2519i = new HashMap();
+            if (this.f2946i == null) {
+                this.f2946i = new HashMap();
             }
             String[] split2 = str.split("&");
             if (split2 == null || split2.length == 0) {
@@ -83,7 +83,7 @@ public class h {
             for (String str2 : split2) {
                 if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
                     try {
-                        this.f2519i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
+                        this.f2946i.put(split[0], URLDecoder.decode(split[1], "utf-8"));
                     } catch (UnsupportedEncodingException e2) {
                         BdLog.e(e2);
                     }
@@ -95,10 +95,10 @@ public class h {
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (this.f2519i == null) {
-                this.f2519i = new HashMap();
+            if (this.f2946i == null) {
+                this.f2946i = new HashMap();
             }
-            this.f2519i.put(str, str2);
+            this.f2946i.put(str, str2);
         }
     }
 
@@ -110,11 +110,11 @@ public class h {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 if (this.a != null) {
-                    jSONObject2.put("app_version", this.a.f2491c);
+                    jSONObject2.put("app_version", this.a.f2918c);
                     jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                    jSONObject2.put("cuid", this.a.f2495g);
-                    jSONObject2.put("shoubai_cuid", this.a.f2496h);
-                    jSONObject2.put("from", this.a.f2492d);
+                    jSONObject2.put("cuid", this.a.f2922g);
+                    jSONObject2.put("shoubai_cuid", this.a.f2923h);
+                    jSONObject2.put("from", this.a.f2919d);
                     jSONObject2.put("uid", this.a.l);
                 }
                 jSONObject2.put("client_ip", g.b());
@@ -127,21 +127,21 @@ public class h {
                 jSONObject2.put("mission_id", g.c());
                 jSONObject.put("base_info", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
-                if (this.f2512b != null) {
-                    jSONObject3.put("module", this.f2512b);
+                if (this.f2939b != null) {
+                    jSONObject3.put("module", this.f2939b);
                 }
-                if (this.f2513c != null) {
-                    jSONObject3.put("action", this.f2513c);
+                if (this.f2940c != null) {
+                    jSONObject3.put("action", this.f2940c);
                 }
-                if (this.f2514d != null) {
-                    jSONObject3.put("error_code", this.f2514d);
+                if (this.f2941d != null) {
+                    jSONObject3.put("error_code", this.f2941d);
                 }
-                if (this.f2515e != null) {
-                    jSONObject3.put("error_message", this.f2515e);
+                if (this.f2942e != null) {
+                    jSONObject3.put("error_message", this.f2942e);
                 }
-                if (this.f2519i != null) {
+                if (this.f2946i != null) {
                     StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry : this.f2519i.entrySet()) {
+                    for (Map.Entry<String, String> entry : this.f2946i.entrySet()) {
                         sb.append(entry.getKey());
                         sb.append(":");
                         sb.append(entry.getValue());
@@ -152,14 +152,14 @@ public class h {
                     }
                     jSONObject3.put("ext1", sb);
                 }
-                if (this.f2516f != null) {
-                    jSONObject3.put("id", this.f2516f);
+                if (this.f2943f != null) {
+                    jSONObject3.put("id", this.f2943f);
                 }
-                if (this.f2517g != null) {
-                    jSONObject3.put("title", this.f2517g);
+                if (this.f2944g != null) {
+                    jSONObject3.put("title", this.f2944g);
                 }
-                if (this.f2518h != null) {
-                    jSONObject3.put("abstract", this.f2518h);
+                if (this.f2945h != null) {
+                    jSONObject3.put("abstract", this.f2945h);
                 }
                 jSONObject.put("debug_info", jSONObject3);
                 jSONObject.put("kpi", new JSONObject());
@@ -174,7 +174,7 @@ public class h {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f2513c = str;
+            this.f2940c = str;
         }
     }
 
@@ -188,21 +188,21 @@ public class h {
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f2514d = str;
+            this.f2941d = str;
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f2515e = str;
+            this.f2942e = str;
         }
     }
 
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2512b = str;
+            this.f2939b = str;
         }
     }
 }

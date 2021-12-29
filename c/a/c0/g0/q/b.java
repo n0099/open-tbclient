@@ -15,10 +15,10 @@ public class b {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.c0.g0.q.a f1586b;
+    public c.a.c0.g0.q.a f2013b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f1587c;
+    public int f2014c;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -40,14 +40,14 @@ public class b {
                 return;
             }
         }
-        this.f1587c = 0;
-        this.f1587c = i2;
+        this.f2014c = 0;
+        this.f2014c = i2;
     }
 
     public void a(c.a.c0.g0.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f1586b = aVar;
+            this.f2013b = aVar;
         }
     }
 
@@ -62,7 +62,7 @@ public class b {
     public void getPerformanceTiming(String str) {
         c.a.c0.g0.q.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f1586b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (aVar = this.f2013b) == null) {
             return;
         }
         aVar.b(str);
@@ -87,6 +87,6 @@ public class b {
     public int pageType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1587c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2014c : invokeV.intValue;
     }
 }

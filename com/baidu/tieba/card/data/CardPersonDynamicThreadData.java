@@ -4,9 +4,9 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.r0.s.r.a;
-import c.a.r0.s.r.d2;
-import c.a.r0.s.r.x0;
+import c.a.s0.s.q.a;
+import c.a.s0.s.q.d2;
+import c.a.s0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -47,7 +47,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CardPersonDynamicThreadData extends a {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId M;
@@ -66,25 +66,25 @@ public class CardPersonDynamicThreadData extends a {
     public int L;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f43777e;
+    public String f43964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43778f;
+    public String f43965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f43779g;
+    public int f43966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f43780h;
+    public int f43967h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f43781i;
+    public String f43968i;
 
     /* renamed from: j  reason: collision with root package name */
-    public String f43782j;
+    public String f43969j;
 
     /* renamed from: k  reason: collision with root package name */
-    public int f43783k;
+    public int f43970k;
     public String l;
     public String m;
     public String n;
@@ -101,7 +101,7 @@ public class CardPersonDynamicThreadData extends a {
     public Abs[] y;
     public List<PbContent> z;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Abs extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class AnchorInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class LabelInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +248,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +285,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Media extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -328,7 +328,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class MultipleForum extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,7 +362,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class PostInfoContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -410,7 +410,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Quote extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -453,7 +453,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -490,7 +490,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class Zan extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -521,7 +521,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class ZhiBoInfoTW extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -701,7 +701,7 @@ public class CardPersonDynamicThreadData extends a {
         }
     }
 
-    @Override // c.a.r0.s.r.a
+    @Override // c.a.s0.s.q.a
     public x0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -711,14 +711,14 @@ public class CardPersonDynamicThreadData extends a {
         return (x0) invokeV.objValue;
     }
 
-    @Override // c.a.r0.s.r.a
+    @Override // c.a.s0.s.q.a
     public d2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.t : (d2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -730,14 +730,14 @@ public class CardPersonDynamicThreadData extends a {
         if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i2) == null) || postInfoList == null) {
             return;
         }
-        this.f43777e = String.valueOf(postInfoList.forum_id);
-        this.f43778f = String.valueOf(postInfoList.thread_id);
-        this.f43779g = postInfoList.is_manager.intValue();
-        this.f43780h = postInfoList.is_origin_manager.intValue();
+        this.f43964e = String.valueOf(postInfoList.forum_id);
+        this.f43965f = String.valueOf(postInfoList.thread_id);
+        this.f43966g = postInfoList.is_manager.intValue();
+        this.f43967h = postInfoList.is_origin_manager.intValue();
         String valueOf = String.valueOf(postInfoList.post_id);
-        this.f43781i = valueOf;
-        this.f43782j = valueOf;
-        this.f43783k = postInfoList.create_time.intValue();
+        this.f43968i = valueOf;
+        this.f43969j = valueOf;
+        this.f43970k = postInfoList.create_time.intValue();
         long intValue = postInfoList.create_time.intValue() * 1000;
         this.v = StringHelper.getChineseYearBytime(intValue);
         this.w = StringHelper.getChineseMonthBytime(intValue);
@@ -806,10 +806,10 @@ public class CardPersonDynamicThreadData extends a {
                 multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i6));
                 this.F[i6] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.l) && b.g(this.f43777e, -1L) != -1) {
+        } else if (!TextUtils.isEmpty(this.l) && b.g(this.f43964e, -1L) != -1) {
             this.F = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = b.g(this.f43777e, 0L);
+            multipleForum2.forum_id = b.g(this.f43964e, 0L);
             multipleForum2.forum_name = this.l;
             this.F[0] = multipleForum2;
         }
@@ -834,7 +834,7 @@ public class CardPersonDynamicThreadData extends a {
             }
             AgreeData B = this.t.B();
             if (B != null) {
-                B.threadId = this.f43778f;
+                B.threadId = this.f43965f;
                 B.parseProtobuf(postInfoList.agree);
             }
         }
@@ -846,15 +846,15 @@ public class CardPersonDynamicThreadData extends a {
             d2Var.B1 = true;
         }
         this.t.w4(postInfoList.share_num.intValue());
-        this.t.S3(this.f43778f);
-        this.t.W3(this.f43779g);
-        this.t.Y3(this.f43780h);
-        this.t.E4(this.f43778f);
+        this.t.S3(this.f43965f);
+        this.t.W3(this.f43966g);
+        this.t.Y3(this.f43967h);
+        this.t.E4(this.f43965f);
         this.t.I3(postInfoList.forum_id.longValue());
         this.t.M3(this.l);
         this.t.r4(this.p);
         this.t.L4(this.q);
-        this.t.g4(this.f43783k);
+        this.t.g4(this.f43970k);
         this.t.F4(this.m);
         this.t.u4(this.z);
         this.t.t4(this.A);
@@ -886,7 +886,7 @@ public class CardPersonDynamicThreadData extends a {
         }
         d2 d2Var3 = this.t;
         d2Var3.m2 = this.s;
-        d2Var3.n2 = this.f43782j;
+        d2Var3.n2 = this.f43969j;
         Item item = postInfoList.item;
         if (item != null) {
             d2Var3.d4(item);
@@ -947,12 +947,12 @@ public class CardPersonDynamicThreadData extends a {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || threadInfo == null) {
             return;
         }
-        this.f43777e = String.valueOf(threadInfo.fid);
-        this.f43778f = String.valueOf(threadInfo.tid);
+        this.f43964e = String.valueOf(threadInfo.fid);
+        this.f43965f = String.valueOf(threadInfo.tid);
         String valueOf = String.valueOf(threadInfo.post_id);
-        this.f43781i = valueOf;
-        this.f43782j = valueOf;
-        this.f43783k = threadInfo.create_time.intValue();
+        this.f43968i = valueOf;
+        this.f43969j = valueOf;
+        this.f43970k = threadInfo.create_time.intValue();
         long j3 = j2 * 1000;
         this.v = StringHelper.getChineseYearBytime(j3);
         this.w = StringHelper.getChineseMonthBytime(j3);
@@ -1018,12 +1018,12 @@ public class CardPersonDynamicThreadData extends a {
         d2 d2Var = new d2();
         this.t = d2Var;
         d2Var.c3(threadInfo);
-        this.t.S3(this.f43778f);
-        this.t.E4(this.f43778f);
+        this.t.S3(this.f43965f);
+        this.t.E4(this.f43965f);
         this.t.I3(threadInfo.fid.longValue());
         this.t.r4(this.p);
         this.t.L4(this.q);
-        this.t.g4(this.f43783k);
+        this.t.g4(this.f43970k);
         Agree agree = threadInfo.agree;
         if (agree != null) {
             this.t.y3(agree.agree_type.intValue());

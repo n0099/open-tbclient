@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.k;
-import c.a.r0.s.t.l;
-import c.a.s0.n4.j;
+import c.a.d.f.p.l;
+import c.a.s0.s.s.m;
+import c.a.t0.o4.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class SelectClassDialogActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,25 +40,25 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     public boolean isSelectedTags;
     public TextView mDoneText;
     public c.a.d.c.g.a mGetSelectClassListener;
-    public c.a.s0.n4.e0.p.v.a selectClassDialogModel;
+    public c.a.t0.o4.e0.p.v.a selectClassDialogModel;
     public SelectClassDialogView selectClassDialogView;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectClassDialogActivity a;
 
         /* renamed from: com.baidu.tieba.write.write.work.classdialog.SelectClassDialogActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes12.dex */
-        public class View$OnClickListenerC1943a implements View.OnClickListener {
+        /* loaded from: classes13.dex */
+        public class View$OnClickListenerC1950a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f51687e;
+            public final /* synthetic */ a f51941e;
 
-            public View$OnClickListenerC1943a(a aVar) {
+            public View$OnClickListenerC1950a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,18 +73,18 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                         return;
                     }
                 }
-                this.f51687e = aVar;
+                this.f51941e = aVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51687e.a.selectClassDialogModel != null && k.z()) {
-                    this.f51687e.a.selectClassDialogModel.e();
-                    SelectClassDialogActivity selectClassDialogActivity = this.f51687e.a;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51941e.a.selectClassDialogModel != null && l.z()) {
+                    this.f51941e.a.selectClassDialogModel.e();
+                    SelectClassDialogActivity selectClassDialogActivity = this.f51941e.a;
                     selectClassDialogActivity.hideNetRefreshView(selectClassDialogActivity.contentView);
-                    SelectClassDialogActivity selectClassDialogActivity2 = this.f51687e.a;
-                    selectClassDialogActivity2.showLoadingView(selectClassDialogActivity2.contentView, true, UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds232));
+                    SelectClassDialogActivity selectClassDialogActivity2 = this.f51941e.a;
+                    selectClassDialogActivity2.showLoadingView(selectClassDialogActivity2.contentView, true, UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds232));
                 }
             }
         }
@@ -119,8 +119,8 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectClassDialogActivity selectClassDialogActivity = this.a;
-                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.contentView, null, this.a.getString(j.data_load_fail), null, true, new View$OnClickListenerC1943a(this));
-                this.a.setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds0));
+                selectClassDialogActivity.showNetRefreshView(selectClassDialogActivity.contentView, null, this.a.getString(j.data_load_fail), null, true, new View$OnClickListenerC1950a(this));
+                this.a.setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds0));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
@@ -147,13 +147,13 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectClassDialogActivity f51688e;
+        public final /* synthetic */ SelectClassDialogActivity f51942e;
 
         public b(SelectClassDialogActivity selectClassDialogActivity) {
             Interceptable interceptable = $ic;
@@ -170,25 +170,25 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f51688e = selectClassDialogActivity;
+            this.f51942e = selectClassDialogActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51688e.selectClassDialogModel == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f51942e.selectClassDialogModel == null) {
                 return;
             }
-            this.f51688e.selectClassDialogModel.e();
-            SelectClassDialogActivity selectClassDialogActivity = this.f51688e;
+            this.f51942e.selectClassDialogModel.e();
+            SelectClassDialogActivity selectClassDialogActivity = this.f51942e;
             selectClassDialogActivity.hideNetRefreshView(selectClassDialogActivity.contentView);
-            SelectClassDialogActivity selectClassDialogActivity2 = this.f51688e;
-            selectClassDialogActivity2.showLoadingView(selectClassDialogActivity2.contentView, true, UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds232));
+            SelectClassDialogActivity selectClassDialogActivity2 = this.f51942e;
+            selectClassDialogActivity2.showLoadingView(selectClassDialogActivity2.contentView, true, UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds232));
         }
     }
 
-    /* loaded from: classes12.dex */
-    public class c implements c.a.r0.f1.q.a.d.d {
+    /* loaded from: classes13.dex */
+    public class c implements c.a.s0.g1.q.a.d.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectClassDialogActivity a;
@@ -211,7 +211,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             this.a = selectClassDialogActivity;
         }
 
-        @Override // c.a.r0.f1.q.a.d.d
+        @Override // c.a.s0.g1.q.a.d.d
         public void a(int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
@@ -221,15 +221,15 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                 String str2 = this.a.selectClassDialogModel.c().get(i2).get(i3);
                 if ((i2 != 0 || i3 != 0) && (!str.equals(this.a.initFirstOption) || !str2.equals(this.a.initSecondOption))) {
                     this.a.canDone = true;
-                    c.a.r0.s.v.c.d(this.a.mDoneText).x(c.a.s0.n4.d.CAM_X0302);
+                    c.a.s0.s.u.c.d(this.a.mDoneText).x(c.a.t0.o4.d.CAM_X0302);
                 } else {
                     this.a.canDone = false;
-                    this.a.mDoneText.setTextColor(c.a.s0.v3.c.a(SkinManager.getColor(c.a.s0.n4.d.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.mDoneText.setTextColor(c.a.t0.w3.c.a(SkinManager.getColor(c.a.t0.o4.d.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     if (str.equals(this.a.initFirstOption) && str2.equals(this.a.initSecondOption)) {
                         this.a.initFirstOption = "";
                         this.a.initSecondOption = "";
                         this.a.canDone = true;
-                        c.a.r0.s.v.c.d(this.a.mDoneText).x(c.a.s0.n4.d.CAM_X0302);
+                        c.a.s0.s.u.c.d(this.a.mDoneText).x(c.a.t0.o4.d.CAM_X0302);
                     }
                 }
                 this.a.currentOption1 = i2;
@@ -238,21 +238,21 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectClassDialogActivity f51689e;
+        public final /* synthetic */ SelectClassDialogActivity f51943e;
 
-        /* loaded from: classes12.dex */
+        /* loaded from: classes13.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ d f51690e;
+            public final /* synthetic */ d f51944e;
 
             public a(d dVar) {
                 Interceptable interceptable = $ic;
@@ -269,15 +269,15 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                         return;
                     }
                 }
-                this.f51690e = dVar;
+                this.f51944e = dVar;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.f51690e.f51689e.selectClassDialogModel.a(this.f51690e.f51689e.currentOption1, this.f51690e.f51689e.currentOption2)));
-                    this.f51690e.f51689e.close();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.f51944e.f51943e.selectClassDialogModel.a(this.f51944e.f51943e.currentOption1, this.f51944e.f51943e.currentOption2)));
+                    this.f51944e.f51943e.close();
                 }
             }
         }
@@ -297,37 +297,37 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f51689e = selectClassDialogActivity;
+            this.f51943e = selectClassDialogActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51689e.canDone) {
-                if (this.f51689e.isSelectedTags && this.f51689e.initOption1 > 0 && (this.f51689e.initOption1 != this.f51689e.currentOption1 || this.f51689e.initOption2 != this.f51689e.currentOption2)) {
-                    l lVar = new l(this.f51689e.getPageContext().getPageActivity());
-                    lVar.q(j.select_class_dialog_alert_title);
-                    lVar.j(j.select_class_dialog_alert_content);
-                    lVar.l(true);
-                    lVar.p(new TBAlertConfig.a(j.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(j.confirm, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                    lVar.f();
-                    lVar.g(false);
-                    lVar.t();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && this.f51943e.canDone) {
+                if (this.f51943e.isSelectedTags && this.f51943e.initOption1 > 0 && (this.f51943e.initOption1 != this.f51943e.currentOption1 || this.f51943e.initOption2 != this.f51943e.currentOption2)) {
+                    m mVar = new m(this.f51943e.getPageContext().getPageActivity());
+                    mVar.r(j.select_class_dialog_alert_title);
+                    mVar.j(j.select_class_dialog_alert_content);
+                    mVar.l(true);
+                    mVar.p(new TBAlertConfig.a(j.dialog_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(j.confirm, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                    mVar.f();
+                    mVar.g(false);
+                    mVar.u();
                     return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.f51689e.selectClassDialogModel.a(this.f51689e.currentOption1, this.f51689e.currentOption2)));
-                this.f51689e.close();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.f51943e.selectClassDialogModel.a(this.f51943e.currentOption1, this.f51943e.currentOption2)));
+                this.f51943e.close();
             }
         }
     }
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SelectClassDialogActivity f51691e;
+        public final /* synthetic */ SelectClassDialogActivity f51945e;
 
         public e(SelectClassDialogActivity selectClassDialogActivity) {
             Interceptable interceptable = $ic;
@@ -344,14 +344,14 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                     return;
                 }
             }
-            this.f51691e = selectClassDialogActivity;
+            this.f51945e = selectClassDialogActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f51691e.close();
+                this.f51945e.close();
             }
         }
     }
@@ -386,7 +386,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.r0.x0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.s0.y0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -399,14 +399,14 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             this.selectClassDialogView = selectClassDialogView;
             return selectClassDialogView;
         }
-        return (c.a.r0.x0.a) invokeLL.objValue;
+        return (c.a.s0.y0.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public int getTranViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UtilHelper.getScreenHeight(this) - UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds999) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UtilHelper.getScreenHeight(this) - UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds999) : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -422,9 +422,9 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
             if (this.canDone) {
-                c.a.r0.s.v.c.d(this.mDoneText).x(c.a.s0.n4.d.CAM_X0302);
+                c.a.s0.s.u.c.d(this.mDoneText).x(c.a.t0.o4.d.CAM_X0302);
             } else {
-                this.mDoneText.setTextColor(c.a.s0.v3.c.a(SkinManager.getColor(c.a.s0.n4.d.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mDoneText.setTextColor(c.a.t0.w3.c.a(SkinManager.getColor(c.a.t0.o4.d.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -434,16 +434,16 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.selectClassDialogModel = new c.a.s0.n4.e0.p.v.a(getUniqueId());
+            this.selectClassDialogModel = new c.a.t0.o4.e0.p.v.a(getUniqueId());
             this.mGetSelectClassListener.getHttpMessageListener().setSelfListener(true);
             this.mGetSelectClassListener.getSocketMessageListener().setSelfListener(true);
             registerListener(this.mGetSelectClassListener);
-            if (k.z()) {
+            if (l.z()) {
                 this.selectClassDialogModel.e();
-                showLoadingView(this.contentView, true, UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds232));
+                showLoadingView(this.contentView, true, UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds232));
             } else {
                 showNetRefreshView(this.contentView, null, getString(j.data_load_fail), null, true, new b(this));
-                setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(c.a.s0.n4.e.tbds0));
+                setNetRefreshViewEmotionMarginTop(UtilHelper.getDimenPixelSize(c.a.t0.o4.e.tbds0));
             }
             this.initFirstOption = getIntent().getStringExtra(SelectClassDialogActivityConfig.SELECT_INIT_FIRST_OPTION);
             this.initSecondOption = getIntent().getStringExtra(SelectClassDialogActivityConfig.SELECT_INIT_SECOND_OPTION);

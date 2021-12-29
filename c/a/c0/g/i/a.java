@@ -89,10 +89,10 @@ public class a {
     public static void e(@NonNull c.a.c0.g.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar) == null) {
-            if (!TextUtils.isEmpty(aVar.n.f1535c)) {
-                c.a.c0.d.c.b(aVar.n.f1535c);
+            if (!TextUtils.isEmpty(aVar.n.f1962c)) {
+                c.a.c0.d.c.b(aVar.n.f1962c);
             } else {
-                g(aVar.f1514d);
+                g(aVar.f1941d);
             }
         }
     }

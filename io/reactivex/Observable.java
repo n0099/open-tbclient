@@ -1565,7 +1565,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -1931,7 +1931,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     public abstract void subscribeActual(Observer<? super T> observer);
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -2268,7 +2268,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048882, this)) == null) ? toSortedList(Functions.naturalOrder()) : (Single) invokeV.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> unsubscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -2351,7 +2351,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLII.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Observable<Long> interval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -2364,7 +2364,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Observable<Long> intervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -2441,7 +2441,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Observable<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -2713,7 +2713,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048720, this, function, z)) == null) ? (Observable<GroupedObservable<K, T>>) groupBy(function, Functions.identity(), z, bufferSize()) : (Observable) invokeLZ.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> observeOn(Scheduler scheduler, boolean z) {
         InterceptResult invokeLZ;
@@ -2855,7 +2855,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> throttleFirst(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -2868,7 +2868,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> throttleLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -2876,7 +2876,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048850, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? sample(j2, timeUnit, scheduler) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> throttleWithTimeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3269,7 +3269,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> observeOn(Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
@@ -3307,7 +3307,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Single) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3516,7 +3516,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         }
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> debounce(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3537,7 +3537,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j2, timeUnit, Schedulers.computation(), z) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3607,7 +3607,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(1048772, this, j2)) == null) ? retry(j2, Functions.alwaysTrue()) : (Observable) invokeJ.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> skip(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3643,7 +3643,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048813, this, consumer, consumer2, action)) == null) ? subscribe(consumer, consumer2, action, Functions.emptyConsumer()) : (Disposable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> take(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3814,7 +3814,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3930,7 +3930,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLII.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static <T> Observable<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3942,7 +3942,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Observable<Long> interval(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -3990,7 +3990,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
@@ -4015,7 +4015,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> sample(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
@@ -4028,7 +4028,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4036,7 +4036,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048798, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? skipLast(j2, timeUnit, scheduler, false, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4151,7 +4151,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048757, this, new Object[]{function, Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) ? replay(function, i2, j2, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
@@ -4159,7 +4159,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048799, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) ? skipLast(j2, timeUnit, scheduler, z, bufferSize()) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> takeLast(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
@@ -4176,7 +4176,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, ObservableSource<? extends T> observableSource) {
         InterceptResult invokeCommon;
@@ -4245,7 +4245,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? (Observable<List<T>>) buffer(j2, j3, timeUnit, Schedulers.computation(), ArrayListSupplier.asCallable()) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4268,7 +4268,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048775, this, predicate)) == null) ? retry(Long.MAX_VALUE, predicate) : (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> skipLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
@@ -4299,7 +4299,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Single) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4321,7 +4321,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static <T> Observable<T> fromFuture(Future<? extends T> future, Scheduler scheduler) {
         InterceptResult invokeLL;
@@ -4380,7 +4380,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<List<T>> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4410,7 +4410,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4418,7 +4418,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048859, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout0(j2, timeUnit, null, scheduler) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
@@ -4494,7 +4494,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <U extends Collection<? super T>> Observable<U> buffer(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable) {
         InterceptResult invokeCommon;
@@ -4694,7 +4694,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048604, this, j2, timeUnit)) == null) ? buffer(j2, timeUnit, Schedulers.computation(), Integer.MAX_VALUE) : (Observable) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, int i2, Scheduler scheduler) {
         InterceptResult invokeLIL;
@@ -4708,7 +4708,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLIL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4753,7 +4753,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Long.valueOf(j2), timeUnit, Integer.valueOf(i2)})) == null) ? buffer(j2, timeUnit, Schedulers.computation(), i2) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
@@ -4817,7 +4817,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
         InterceptResult invokeCommon;
@@ -4839,7 +4839,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<T> takeLast(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z, int i2) {
         InterceptResult invokeCommon;
@@ -4869,7 +4869,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <U extends Collection<? super T>> Observable<U> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, Callable<U> callable, boolean z) {
         InterceptResult invokeCommon;
@@ -4906,7 +4906,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -4914,7 +4914,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048896, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? window(j2, timeUnit, scheduler, Long.MAX_VALUE, false) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3) {
         InterceptResult invokeCommon;
@@ -4938,7 +4938,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048760, this, new Object[]{function, Long.valueOf(j2), timeUnit})) == null) ? replay(function, j2, timeUnit, Schedulers.computation()) : (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z) {
         InterceptResult invokeCommon;
@@ -4986,7 +4986,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048694, this, function, biFunction)) == null) ? flatMap(function, biFunction, false, bufferSize(), bufferSize()) : (Observable) invokeLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -5000,7 +5000,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<Observable<T>> window(long j2, TimeUnit timeUnit, Scheduler scheduler, long j3, boolean z, int i2) {
         InterceptResult invokeCommon;
@@ -5030,7 +5030,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLLLLL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Observable<List<T>> buffer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -5102,7 +5102,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final <R> Observable<R> replay(Function<? super Observable<T>, ? extends ObservableSource<R>> function, Scheduler scheduler) {
         InterceptResult invokeLL;
@@ -5316,7 +5316,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final ConnectableObservable<T> replay(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -5391,7 +5391,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeLI.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final ConnectableObservable<T> replay(int i2, Scheduler scheduler) {
         InterceptResult invokeIL;
@@ -5447,7 +5447,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (Observable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final ConnectableObservable<T> replay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -5460,7 +5460,7 @@ public abstract class Observable<T> implements ObservableSource<T> {
         return (ConnectableObservable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final ConnectableObservable<T> replay(Scheduler scheduler) {
         InterceptResult invokeL;

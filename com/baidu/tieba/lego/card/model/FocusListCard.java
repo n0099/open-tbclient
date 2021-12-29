@@ -1,6 +1,6 @@
 package com.baidu.tieba.lego.card.model;
 
-import c.a.s0.x1.o.k.b;
+import c.a.t0.x1.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,22 +30,22 @@ public class FocusListCard extends BaseCardInfo {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f47026b;
+        public String f47246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f47027c;
+        public String f47247c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f47028d;
+        public int f47248d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f47029e;
+        public int f47249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f47030f;
+        public String f47250f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f47031g;
+        public long f47251g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -97,15 +97,15 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.f47026b = optJSONArray.getString(1);
+                        aVar.f47246b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.f47027c = optJSONArray.getString(2);
+                        aVar.f47247c = optJSONArray.getString(2);
                     }
-                    aVar.f47028d = b.b(optJSONObject.optString("focusColor", ""));
-                    aVar.f47029e = b.b(optJSONObject.optString("focusColorNight", ""));
-                    aVar.f47030f = optJSONObject.optString("scheme");
-                    aVar.f47031g = optJSONObject.optLong("resourceId");
+                    aVar.f47248d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f47249e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f47250f = optJSONObject.optString("scheme");
+                    aVar.f47251g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
                 } catch (Exception unused) {
                 }

@@ -14,7 +14,7 @@ public class a implements ThreadFactory {
     public final AtomicInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f34643b;
+    public final /* synthetic */ d f34799b;
 
     public a(d dVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class a implements ThreadFactory {
                 return;
             }
         }
-        this.f34643b = dVar;
+        this.f34799b = dVar;
         this.a = new AtomicInteger(1);
     }
 

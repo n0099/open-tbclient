@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Label;
@@ -215,6 +216,7 @@ public class UnixCrypt {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00ac */
+    @SuppressLint({"BDThrowableCheck"})
     public static String crypt(byte[] bArr, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

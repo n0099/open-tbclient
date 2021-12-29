@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.r0.s.v.c;
+import c.a.s0.s.u.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
@@ -14,7 +14,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes12.dex */
 public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int ACTIVE_STATUS_JUST_BEEN_TO = 2;
+    public static final int ACTIVE_STATUS_OFFLINE = 3;
+    public static final int ACTIVE_STATUS_ONLINE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public HeadImageView mForumFriendItemHeadImg;
@@ -23,8 +26,10 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
     public View mLayoutForumFriendItemHi;
     public View mLayoutForumFriendItemSexAge;
     public View mRootView;
+    public TextView mTvForumFriendItemActiveStatus;
     public TextView mTvForumFriendItemAge;
     public TextView mTvForumFriendItemDistance;
+    public TextView mTvForumFriendItemDot;
     public TextView mTvForumFriendItemHi;
     public TextView mTvForumFriendItemLabel;
     public TextView mTvForumFriendItemNickname;
@@ -63,6 +68,8 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
         this.mLayoutForumFriendItemHi = view.findViewById(R.id.layout_forum_friend_item_hi);
         this.mIvForumFriendItemHi = (ImageView) view.findViewById(R.id.iv_forum_friend_item_hi);
         this.mTvForumFriendItemHi = (TextView) view.findViewById(R.id.tv_forum_friend_item_hi);
+        this.mTvForumFriendItemDot = (TextView) view.findViewById(R.id.tv_forum_friend_item_dot);
+        this.mTvForumFriendItemActiveStatus = (TextView) view.findViewById(R.id.tv_forum_friend_item_active_status);
         b();
     }
 
@@ -84,15 +91,21 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             c d5 = c.d(this.mTvForumFriendItemDistance);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X10);
-            c d6 = c.d(this.mTvForumFriendItemHi);
+            c d6 = c.d(this.mTvForumFriendItemDot);
             d6.A(R.string.F_X01);
-            d6.z(R.dimen.T_X08);
-            c d7 = c.d(this.mTvForumFriendItemLabel);
-            d7.A(R.string.F_X01);
+            d6.z(R.dimen.T_X10);
+            c d7 = c.d(this.mTvForumFriendItemActiveStatus);
+            d7.z(R.string.F_X01);
             d7.z(R.dimen.T_X10);
-            c d8 = c.d(this.mTvForumFriendItemSlogan);
+            c d8 = c.d(this.mTvForumFriendItemHi);
             d8.A(R.string.F_X01);
             d8.z(R.dimen.T_X08);
+            c d9 = c.d(this.mTvForumFriendItemLabel);
+            d9.A(R.string.F_X01);
+            d9.z(R.dimen.T_X10);
+            c d10 = c.d(this.mTvForumFriendItemSlogan);
+            d10.A(R.string.F_X01);
+            d10.z(R.dimen.T_X08);
         }
     }
 }

@@ -13,13 +13,13 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2055b;
+    public String f2482b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2056c;
+    public boolean f2483c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f2057d;
+    public int f2484d;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -34,14 +34,14 @@ public class h {
                 return;
             }
         }
-        this.f2057d = -1;
+        this.f2484d = -1;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "VideoPrepareModel{videoUrl='" + this.a + ExtendedMessageFormat.QUOTE + ", interactUrl='" + this.f2055b + ExtendedMessageFormat.QUOTE + ", isNeedPrepare=" + this.f2056c + ", playerStageType=" + this.f2057d + ExtendedMessageFormat.END_FE;
+            return "VideoPrepareModel{videoUrl='" + this.a + ExtendedMessageFormat.QUOTE + ", interactUrl='" + this.f2482b + ExtendedMessageFormat.QUOTE + ", isNeedPrepare=" + this.f2483c + ", playerStageType=" + this.f2484d + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

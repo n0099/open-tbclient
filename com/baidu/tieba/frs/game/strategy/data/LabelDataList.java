@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
-import c.a.s0.d1.d2.a.a.a;
+import c.a.t0.d1.d2.a.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class LabelDataList extends ArrayList<a> {
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null && next.a == i2) {
-                    return next.f15811b;
+                    return next.f16306b;
                 }
             }
             return null;
@@ -54,13 +54,13 @@ public class LabelDataList extends ArrayList<a> {
             Iterator<a> it = iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                if (next != null && next.f15812c) {
+                if (next != null && next.f16307c) {
                     return next.a;
                 }
             }
             a aVar = (a) ListUtils.getItem(this, 0);
             if (aVar != null) {
-                aVar.f15812c = true;
+                aVar.f16307c = true;
                 return aVar.a;
             }
             return 0;
@@ -79,14 +79,14 @@ public class LabelDataList extends ArrayList<a> {
                 if (forumSubLabel != null) {
                     a aVar = new a();
                     aVar.a = forumSubLabel.id.intValue();
-                    aVar.f15811b = forumSubLabel.sub_label_name;
+                    aVar.f16306b = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
             }
             if (isEmpty()) {
                 return;
             }
-            get(0).f15812c = true;
+            get(0).f16307c = true;
         }
     }
 
@@ -96,12 +96,12 @@ public class LabelDataList extends ArrayList<a> {
         if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || (aVar = (a) ListUtils.getItem(this, i2)) == null) {
             return;
         }
-        aVar.f15812c = true;
+        aVar.f16307c = true;
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next != aVar) {
-                next.f15812c = false;
+                next.f16307c = false;
             }
         }
     }

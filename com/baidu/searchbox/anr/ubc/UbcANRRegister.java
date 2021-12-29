@@ -10,6 +10,7 @@ import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.ruka.Ruka;
+import com.baidu.searchbox.ruka.basic.RukaTrackUIUtil;
 import com.baidu.searchbox.ruka.ioc.Constant;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -94,7 +95,21 @@ public class UbcANRRegister implements IANRRegister {
                     jSONObject.put("appversion", appVersion);
                 }
                 jSONObject.put("cpu", CommonUtils.getCPUInfo());
+                jSONObject.put("root", CommonUtils.getRootedInfo());
+                jSONObject.put("emulator", CommonUtils.getEmulator());
+                jSONObject.put("inStorage", CommonUtils.getInStorage());
+                jSONObject.put("exStorage", CommonUtils.getExStorage());
+                jSONObject.put("isLowMemory", CommonUtils.isLowMemory());
+                jSONObject.put("heap", CommonUtils.getHeapInfo());
+                jSONObject.put("sysMem", CommonUtils.getSysMem());
+                jSONObject.put("VSSRSS", CommonUtils.getVSSRSS());
+                jSONObject.put("PSS", CommonUtils.getPSS());
+                jSONObject.put("procBit", CommonUtils.getProcessBit());
+                jSONObject.put("ROM", CommonUtils.getROM());
                 jSONObject.put("memory", String.valueOf(CommonUtils.getMemoryInfo()));
+                if (Ruka.getLineMappingMode() >= 0) {
+                    jSONObject.put(Constant.KEY_LINEMAPPING, Ruka.getLineMappingMode());
+                }
                 Object sDKVersion = CommonUtils.getSDKVersion(Constant.KEY_RUKA_CONFIG);
                 if (sDKVersion != null) {
                     jSONObject.put("sdkversion", sDKVersion);
@@ -129,7 +144,7 @@ public class UbcANRRegister implements IANRRegister {
                         TrackUI trackUI = trackUIs.get(size);
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("time", trackUI.getTimeStamp());
-                        jSONObject2.put("page", trackUI.toStringPage());
+                        jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));
                         jSONObject2.put("event", trackUI.getEvent());
                         jSONArray.put(jSONObject2);
                         int i3 = i2 + 1;

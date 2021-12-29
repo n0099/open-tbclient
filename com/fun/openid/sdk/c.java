@@ -28,16 +28,16 @@ public class c {
     public com.fun.openid.sdk.a a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56337b = null;
+    public String f56336b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56338c = null;
+    public String f56337c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f56339d = new Object();
+    public final Object f56338d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f56340e = new a(this);
+    public ServiceConnection f56339e = new a(this);
 
     /* loaded from: classes3.dex */
     public class a implements ServiceConnection {
@@ -65,20 +65,20 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c2036a;
+            com.fun.openid.sdk.a c2043a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 c cVar = this.a;
-                int i2 = a.AbstractBinderC2035a.a;
+                int i2 = a.AbstractBinderC2042a.a;
                 if (iBinder == null) {
-                    c2036a = null;
+                    c2043a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                    c2036a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC2035a.C2036a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
+                    c2043a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC2042a.C2043a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
                 }
-                cVar.a = c2036a;
-                synchronized (this.a.f56339d) {
-                    this.a.f56339d.notify();
+                cVar.a = c2043a;
+                synchronized (this.a.f56338d) {
+                    this.a.f56338d.notify();
                 }
             }
         }
@@ -120,13 +120,13 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f56337b)) {
-                this.f56337b = context.getPackageName();
+            if (TextUtils.isEmpty(this.f56336b)) {
+                this.f56336b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f56338c)) {
+            if (TextUtils.isEmpty(this.f56337c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f56337b, 64).signatures;
+                    signatureArr = context.getPackageManager().getPackageInfo(this.f56336b, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e2) {
                     e2.printStackTrace();
                     signatureArr = null;
@@ -147,13 +147,13 @@ public class c {
                         e3.printStackTrace();
                     }
                 }
-                this.f56338c = str2;
+                this.f56337c = str2;
             }
             com.fun.openid.sdk.a aVar = this.a;
-            String str3 = this.f56337b;
-            String str4 = this.f56338c;
-            a.AbstractBinderC2035a.C2036a c2036a = (a.AbstractBinderC2035a.C2036a) aVar;
-            c2036a.getClass();
+            String str3 = this.f56336b;
+            String str4 = this.f56337c;
+            a.AbstractBinderC2042a.C2043a c2043a = (a.AbstractBinderC2042a.C2043a) aVar;
+            c2043a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -161,7 +161,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c2036a.a.transact(1, obtain, obtain2, 0);
+                c2043a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

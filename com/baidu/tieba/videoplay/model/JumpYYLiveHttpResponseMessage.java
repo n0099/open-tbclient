@@ -1,6 +1,6 @@
 package com.baidu.tieba.videoplay.model;
 
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -64,7 +64,7 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            return (yyExtData == null || l.isEmpty(yyExtData.mSid) || l.isEmpty(this.mYyExtData.mSsid)) ? false : true;
+            return (yyExtData == null || m.isEmpty(yyExtData.mSid) || m.isEmpty(this.mYyExtData.mSsid)) ? false : true;
         }
         return invokeV.booleanValue;
     }

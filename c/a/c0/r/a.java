@@ -13,7 +13,7 @@ public abstract class a implements k {
 
     /* renamed from: c.a.c0.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0058a {
+    public interface InterfaceC0079a {
         void a(Exception exc, int i2);
 
         void b(Headers headers, InputStream inputStream, int i2) throws Exception;

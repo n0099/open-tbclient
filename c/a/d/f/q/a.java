@@ -16,25 +16,25 @@ public class a {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2624b;
+    public static b f3052b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2625c;
+    public static String f3053c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2626d;
+    public static c f3054d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f2627e;
+    public static Handler f3055e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.d.f.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0086a implements Handler.Callback {
+    public static class C0107a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0086a() {
+        public C0107a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,23 +57,23 @@ public class a {
                 if (i2 != 0) {
                     if (i2 != 1) {
                         if (i2 != 6) {
-                            if (a.f2626d != null) {
-                                a.f2626d.error(message.what, h.a(R.string.voice_err_play));
+                            if (a.f3054d != null) {
+                                a.f3054d.error(message.what, h.a(R.string.voice_err_play));
                             }
                         } else {
-                            if (a.f2626d != null) {
-                                a.f2626d.d(message.arg1);
+                            if (a.f3054d != null) {
+                                a.f3054d.d(message.arg1);
                             }
                             return true;
                         }
-                    } else if (a.f2626d != null) {
-                        a.f2626d.error(message.what, h.a(R.string.voice_err_no_file));
+                    } else if (a.f3054d != null) {
+                        a.f3054d.error(message.what, h.a(R.string.voice_err_no_file));
                     }
-                } else if (a.f2626d != null) {
-                    a.f2626d.c(a.f2625c, message.arg1);
+                } else if (a.f3054d != null) {
+                    a.f3054d.c(a.f3053c, message.arg1);
                 }
                 int unused = a.a = 0;
-                c unused2 = a.f2626d = null;
+                c unused2 = a.f3054d = null;
                 return false;
             }
             return invokeL.booleanValue;
@@ -93,7 +93,7 @@ public class a {
                 return;
             }
         }
-        f2627e = new Handler(new C0086a());
+        f3055e = new Handler(new C0107a());
     }
 
     public static boolean e(String str, c cVar, int i2) {
@@ -101,17 +101,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, cVar, i2)) == null) {
             if (a == 0) {
-                b bVar = f2624b;
+                b bVar = f3052b;
                 if (bVar == null) {
-                    f2624b = new b(f2627e, i2);
+                    f3052b = new b(f3055e, i2);
                 } else {
                     bVar.k(i2);
                 }
-                f2625c = str;
-                f2626d = cVar;
-                f2624b.j(str);
+                f3053c = str;
+                f3054d = cVar;
+                f3052b.j(str);
                 a = 2;
-                new Thread(f2624b).start();
+                new Thread(f3052b).start();
                 return true;
             }
             return false;
@@ -122,7 +122,7 @@ public class a {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            b bVar = f2624b;
+            b bVar = f3052b;
             if (bVar != null) {
                 bVar.l();
             } else {

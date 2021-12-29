@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
-import c.a.r0.d1.h;
+import c.a.s0.e1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,7 +52,7 @@ public class AdExtParam {
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
                 hashMap.put(AdExtParam.KEY_IADEX, h.e());
-                if (c.a.s0.a.h().y()) {
+                if (c.a.t0.a.h().y()) {
                     aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "4.2.1.3");
                 }
                 return aVar;

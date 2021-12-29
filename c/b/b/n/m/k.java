@@ -17,26 +17,26 @@ public class k implements l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final IntBuffer f28117k;
+    public static final IntBuffer f28191k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.b.b.n.j f28118e;
+    public final c.b.b.n.j f28192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final FloatBuffer f28119f;
+    public final FloatBuffer f28193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ByteBuffer f28120g;
+    public final ByteBuffer f28194g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f28121h;
+    public final boolean f28195h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f28122i;
+    public int f28196i;
 
     /* renamed from: j  reason: collision with root package name */
-    public int f28123j;
+    public int f28197j;
 
     static {
         InterceptResult invokeClinit;
@@ -51,7 +51,7 @@ public class k implements l {
                 return;
             }
         }
-        f28117k = BufferUtils.d(1);
+        f28191k = BufferUtils.d(1);
     }
 
     public k(boolean z, int i2, c.b.b.n.j jVar) {
@@ -69,26 +69,26 @@ public class k implements l {
                 return;
             }
         }
-        this.f28123j = -1;
+        this.f28197j = -1;
         new c.b.b.q.l();
-        this.f28118e = jVar;
-        ByteBuffer e2 = BufferUtils.e(jVar.f27865f * i2);
-        this.f28120g = e2;
+        this.f28192e = jVar;
+        ByteBuffer e2 = BufferUtils.e(jVar.f27939f * i2);
+        this.f28194g = e2;
         FloatBuffer asFloatBuffer = e2.asFloatBuffer();
-        this.f28119f = asFloatBuffer;
-        this.f28121h = true;
+        this.f28193f = asFloatBuffer;
+        this.f28195h = true;
         asFloatBuffer.flip();
-        this.f28120g.flip();
-        this.f28122i = c.b.b.f.f27699f.n();
+        this.f28194g.flip();
+        this.f28196i = c.b.b.f.f27773f.n();
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f28117k.clear();
-            c.b.b.f.f27700g.v(1, f28117k);
-            this.f28123j = f28117k.get();
+            f28191k.clear();
+            c.b.b.f.f27774g.v(1, f28191k);
+            this.f28197j = f28191k.get();
         }
     }
 
@@ -96,26 +96,26 @@ public class k implements l {
     public c.b.b.n.j b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28118e : (c.b.b.n.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28192e : (c.b.b.n.j) invokeV.objValue;
     }
 
     @Override // c.b.b.n.m.l
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f28119f.limit() * 4) / this.f28118e.f27865f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f28193f.limit() * 4) / this.f28192e.f27939f : invokeV.intValue;
     }
 
     @Override // c.b.b.n.m.l, c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.b.b.n.d dVar = c.b.b.f.f27700g;
+            c.b.b.n.d dVar = c.b.b.f.f27774g;
             dVar.E(34962, 0);
-            dVar.b(this.f28122i);
-            this.f28122i = 0;
-            if (this.f28121h) {
-                BufferUtils.b(this.f28120g);
+            dVar.b(this.f28196i);
+            this.f28196i = 0;
+            if (this.f28195h) {
+                BufferUtils.b(this.f28194g);
             }
             f();
         }
@@ -123,28 +123,28 @@ public class k implements l {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f28123j == -1) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f28197j == -1) {
             return;
         }
-        f28117k.clear();
-        f28117k.put(this.f28123j);
-        f28117k.flip();
-        c.b.b.f.f27700g.A(1, f28117k);
-        this.f28123j = -1;
+        f28191k.clear();
+        f28191k.put(this.f28197j);
+        f28191k.flip();
+        c.b.b.f.f27774g.A(1, f28191k);
+        this.f28197j = -1;
     }
 
     @Override // c.b.b.n.m.l
     public FloatBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28119f : (FloatBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28193f : (FloatBuffer) invokeV.objValue;
     }
 
     @Override // c.b.b.n.m.l
     public void invalidate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f28122i = c.b.b.f.f27700g.n();
+            this.f28196i = c.b.b.f.f27774g.n();
             a();
         }
     }

@@ -20,7 +20,7 @@ public class b {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f29353b;
+    public static long f29431b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -97,7 +97,7 @@ public class b {
         FileReader fileReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f29353b == 0) {
+            if (f29431b == 0) {
                 FileReader fileReader2 = null;
                 try {
                     try {
@@ -119,8 +119,8 @@ public class b {
                     if (fileReader2 != null) {
                         fileReader2.close();
                     }
-                    f29353b = r1;
-                    return f29353b;
+                    f29431b = r1;
+                    return f29431b;
                 } catch (Throwable th2) {
                     th = th2;
                     fileReader2 = fileReader;
@@ -132,9 +132,9 @@ public class b {
                     }
                     throw th;
                 }
-                f29353b = r1;
+                f29431b = r1;
             }
-            return f29353b;
+            return f29431b;
         }
         return invokeV.longValue;
     }

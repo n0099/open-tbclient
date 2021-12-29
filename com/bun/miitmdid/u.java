@@ -18,10 +18,10 @@ public class u extends l implements ServiceConnection {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: j  reason: collision with root package name */
-    public Context f55022j;
+    public Context f55025j;
 
     /* renamed from: k  reason: collision with root package name */
-    public String f55023k;
+    public String f55026k;
     public ServiceConnection l;
     public IDeviceIdService m;
 
@@ -40,30 +40,30 @@ public class u extends l implements ServiceConnection {
                 return;
             }
         }
-        this.f55022j = context;
+        this.f55025j = context;
         Context a = a(context);
-        this.f55022j = a;
-        this.f55023k = a != null ? a.getPackageName() : "";
+        this.f55025j = a;
+        this.f55026k = a != null ? a.getPackageName() : "";
     }
 
     @Override // com.bun.miitmdid.interfaces.IIdProvider
     public void doStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f55022j = a(this.f55022j);
+            this.f55025j = a(this.f55025j);
             try {
                 Intent intent = new Intent();
                 intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
                 c();
-                if (this.f55022j.bindService(intent, this, 1)) {
+                if (this.f55025j.bindService(intent, this, 1)) {
                     b();
                 } else {
                     a();
-                    a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                    a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
                 }
             } catch (Exception unused) {
                 a();
-                a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+                a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
             }
         }
     }
@@ -88,28 +88,28 @@ public class u extends l implements ServiceConnection {
         this.m = asInterface;
         if (asInterface != null) {
             try {
-                this.f54998f = true;
+                this.f55001f = true;
                 String oaid = this.m.getOAID();
-                String vaid = this.m.getVAID(this.f55023k);
-                String aaid = this.m.getAAID(this.f55023k);
+                String vaid = this.m.getVAID(this.f55026k);
+                String aaid = this.m.getAAID(this.f55026k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f54995c = oaid;
+                this.f54998c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f54996d = vaid;
+                this.f54999d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f54997e = aaid;
-                this.f54999g = false;
+                this.f55000e = aaid;
+                this.f55002g = false;
             } catch (Exception unused) {
                 a();
             }
         }
-        a(this.f54995c, this.f54996d, this.f54997e, this.f54998f, this.f54999g);
+        a(this.f54998c, this.f54999d, this.f55000e, this.f55001f, this.f55002g);
     }
 
     @Override // android.content.ServiceConnection
@@ -125,7 +125,7 @@ public class u extends l implements ServiceConnection {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f55022j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (serviceConnection = this.l) == null || (context = this.f55025j) == null) {
             return;
         }
         context.unbindService(serviceConnection);

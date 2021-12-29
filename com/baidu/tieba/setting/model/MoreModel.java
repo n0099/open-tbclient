@@ -17,10 +17,10 @@ public class MoreModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f49436e;
+    public PersonChangeData f49659e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f49437f;
+    public boolean f49660f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes12.dex */
@@ -100,11 +100,11 @@ public class MoreModel extends BdBaseModel {
                 return;
             }
         }
-        this.f49436e = null;
-        this.f49437f = false;
-        this.f49436e = personChangeData;
+        this.f49659e = null;
+        this.f49660f = false;
+        this.f49659e = personChangeData;
         if (personChangeData == null) {
-            this.f49436e = new PersonChangeData();
+            this.f49659e = new PersonChangeData();
         }
     }
 
@@ -131,26 +131,26 @@ public class MoreModel extends BdBaseModel {
     public PersonChangeData w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49436e : (PersonChangeData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49659e : (PersonChangeData) invokeV.objValue;
     }
 
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49437f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49660f : invokeV.booleanValue;
     }
 
     public void y(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, personChangeData) == null) {
-            this.f49436e = personChangeData;
+            this.f49659e = personChangeData;
         }
     }
 
     public void z(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f49437f = z;
+            this.f49660f = z;
         }
     }
 }

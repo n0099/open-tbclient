@@ -30,10 +30,10 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63940b;
+    public String f63935b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ReentrantLock f63941c;
+    public ReentrantLock f63936c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class a {
                 return;
             }
         }
-        this.f63940b = "";
-        this.f63941c = new ReentrantLock();
+        this.f63935b = "";
+        this.f63936c = new ReentrantLock();
     }
 
     public /* synthetic */ a(byte b2) {
@@ -199,17 +199,17 @@ public class a {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, responseDfpCallback, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                this.f63941c.lock();
+                this.f63936c.lock();
             } finally {
                 try {
-                    this.f63941c.unlock();
-                    if (TextUtils.isEmpty(this.f63940b)) {
+                    this.f63936c.unlock();
+                    if (TextUtils.isEmpty(this.f63935b)) {
                     }
-                    return this.f63940b;
+                    return this.f63935b;
                 } finally {
                 }
             }
-            if (TextUtils.isEmpty(this.f63940b)) {
+            if (TextUtils.isEmpty(this.f63935b)) {
                 JSONObject jSONObject = new JSONObject();
                 String str = Build.MODEL;
                 jSONObject.put("k27", com.yxcorp.kuaishou.addfp.android.b.e.b(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace("&", "")));
@@ -256,14 +256,14 @@ public class a {
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 byte[] magicWrapper = Orange.getInstance().getMagicWrapper(context, jSONObject.toString().getBytes(), 0);
                 new StringBuilder("get mini lenth ").append(magicWrapper.length);
-                this.f63940b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
-                this.f63941c.unlock();
-                if (TextUtils.isEmpty(this.f63940b)) {
-                    this.f63940b = "KWE_N";
+                this.f63935b = URLEncoder.encode(Base64.encodeToString(magicWrapper, 0), "utf-8");
+                this.f63936c.unlock();
+                if (TextUtils.isEmpty(this.f63935b)) {
+                    this.f63935b = "KWE_N";
                 }
-                return this.f63940b;
+                return this.f63935b;
             }
-            return this.f63940b;
+            return this.f63935b;
         }
         return (String) invokeCommon.objValue;
     }

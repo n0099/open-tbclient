@@ -353,7 +353,7 @@ public final class Multimaps {
 
             /* renamed from: com.google.common.collect.Multimaps$MapMultimap$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2045a implements Iterator<V> {
+            public class C2052a implements Iterator<V> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -363,7 +363,7 @@ public final class Multimaps {
                 /* renamed from: f  reason: collision with root package name */
                 public final /* synthetic */ a f56941f;
 
-                public C2045a(a aVar) {
+                public C2052a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -447,7 +447,7 @@ public final class Multimaps {
             public Iterator<V> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2045a(this) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2052a(this) : (Iterator) invokeV.objValue;
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1154,7 +1154,7 @@ public final class Multimaps {
 
         /* renamed from: com.google.common.collect.Multimaps$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2046a extends Maps.k<K, Collection<V>> {
+        public class C2053a extends Maps.k<K, Collection<V>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1163,19 +1163,19 @@ public final class Multimaps {
 
             /* renamed from: com.google.common.collect.Multimaps$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2047a implements g<K, Collection<V>> {
+            public class C2054a implements g<K, Collection<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ C2046a f56944e;
+                public final /* synthetic */ C2053a f56944e;
 
-                public C2047a(C2046a c2046a) {
+                public C2054a(C2053a c2053a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c2046a};
+                        Object[] objArr = {c2053a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -1185,7 +1185,7 @@ public final class Multimaps {
                             return;
                         }
                     }
-                    this.f56944e = c2046a;
+                    this.f56944e = c2053a;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1198,7 +1198,7 @@ public final class Multimaps {
                 }
             }
 
-            public C2046a(a aVar) {
+            public C2053a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1227,7 +1227,7 @@ public final class Multimaps {
             public Iterator<Map.Entry<K, Collection<V>>> iterator() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f56943e.f56942h.keySet(), new C2047a(this)) : (Iterator) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Maps.d(this.f56943e.f56942h.keySet(), new C2054a(this)) : (Iterator) invokeV.objValue;
             }
 
             @Override // com.google.common.collect.Maps.k, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -1268,7 +1268,7 @@ public final class Multimaps {
         public Set<Map.Entry<K, Collection<V>>> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2046a(this) : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2053a(this) : (Set) invokeV.objValue;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -1425,14 +1425,14 @@ public final class Multimaps {
 
             /* renamed from: com.google.common.collect.Multimaps$c$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2048a extends Multisets.b<K> {
+            public class C2055a extends Multisets.b<K> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Map.Entry f56946e;
 
-                public C2048a(a aVar, Map.Entry entry) {
+                public C2055a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1491,7 +1491,7 @@ public final class Multimaps {
             public s0.a<K> a(Map.Entry<K, Collection<V>> entry) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2048a(this, entry) : (s0.a) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entry)) == null) ? new C2055a(this, entry) : (s0.a) invokeL.objValue;
             }
         }
 
@@ -1643,7 +1643,7 @@ public final class Multimaps {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, e1Var, oVar)) == null) {
             if (e1Var instanceof t) {
                 t tVar = (t) e1Var;
-                return new t(tVar.b(), Predicates.c(tVar.f30978f, oVar));
+                return new t(tVar.b(), Predicates.c(tVar.f31056f, oVar));
             } else if (e1Var instanceof w) {
                 return d((w) e1Var, Maps.q(oVar));
             } else {

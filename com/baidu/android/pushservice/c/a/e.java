@@ -11,22 +11,22 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32621b;
+    public String f32765b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f32622c;
+    public long f32766c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f32623d;
+    public long f32767d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32624e;
+    public long f32768e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32625f;
+    public String f32769f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f32626g;
+    public long f32770g;
 
     public e() {
         Interceptable interceptable = $ic;

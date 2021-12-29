@@ -34,7 +34,7 @@ public final class d {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f63945b = "";
+    public static String f63940b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -278,7 +278,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f63945b)) {
+                    if (TextUtils.isEmpty(f63940b)) {
                         String gMas = Orange.getInstance().gMas();
                         new StringBuilder("user dis :").append(gMas);
                         if (!TextUtils.isEmpty(gMas)) {
@@ -286,15 +286,15 @@ public final class d {
                             for (int i2 = 0; i2 < bytes.length; i2++) {
                                 bytes[i2] = (byte) (bytes[i2] ^ 165);
                             }
-                            f63945b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
+                            f63940b = "fuels:" + Base64.encodeToString(bytes, 0).replace(StringUtils.LF, "").replace(StringUtils.CR, "");
                         }
-                        if (TextUtils.isEmpty(f63945b)) {
-                            f63945b = "KWE_N";
+                        if (TextUtils.isEmpty(f63940b)) {
+                            f63940b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f63945b;
+                        return f63940b;
                     }
-                    return f63945b;
+                    return f63940b;
                 }
             }
         }

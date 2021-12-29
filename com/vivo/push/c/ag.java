@@ -1,48 +1,172 @@
 package com.vivo.push.c;
 
-import android.content.Context;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes4.dex */
-public final class ag implements Runnable {
+public final class ag {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ com.vivo.push.b.k a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ af f63041b;
-
-    public ag(af afVar, com.vivo.push.b.k kVar) {
+    public ag() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {afVar, kVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f63041b = afVar;
-        this.a = kVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Context context;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0071  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static com.vivo.push.l a(com.vivo.push.o oVar) {
+        InterceptResult invokeL;
+        com.vivo.push.l afVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            af afVar = this.f63041b;
-            PushMessageCallback pushMessageCallback = ((ab) afVar).f63032b;
-            context = afVar.a;
-            pushMessageCallback.onUnBind(context, this.a.h(), this.a.d());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oVar)) == null) {
+            int b2 = oVar.b();
+            if (b2 == 20) {
+                afVar = new af(oVar);
+            } else if (b2 == 100) {
+                afVar = new b(oVar);
+            } else if (b2 != 101) {
+                switch (b2) {
+                    case 0:
+                        afVar = new ah(oVar);
+                        break;
+                    case 1:
+                        afVar = new aa(oVar);
+                        break;
+                    case 2:
+                        afVar = new h(oVar);
+                        break;
+                    case 3:
+                        afVar = new p(oVar);
+                        break;
+                    case 4:
+                        afVar = new r(oVar);
+                        break;
+                    case 5:
+                        afVar = new u(oVar);
+                        break;
+                    case 6:
+                        afVar = new x(oVar);
+                        break;
+                    case 7:
+                        afVar = new n(oVar);
+                        break;
+                    case 8:
+                        afVar = new l(oVar);
+                        break;
+                    case 9:
+                        afVar = new g(oVar);
+                        break;
+                    case 10:
+                        afVar = new d(oVar);
+                        break;
+                    case 11:
+                        afVar = new ad(oVar);
+                        break;
+                    case 12:
+                        afVar = new f(oVar);
+                        break;
+                    default:
+                        switch (b2) {
+                            case 2000:
+                            case 2001:
+                            case 2002:
+                            case 2003:
+                            case 2004:
+                            case 2005:
+                            case 2008:
+                            case 2009:
+                            case 2010:
+                            case 2011:
+                            case 2012:
+                            case 2013:
+                            case 2014:
+                            case SpeedStatsStampTable.INIT_VERSION_STAMP_KEY /* 2015 */:
+                                break;
+                            case 2006:
+                                afVar = new a(oVar);
+                                break;
+                            case 2007:
+                                afVar = new ai(oVar);
+                                break;
+                            default:
+                                return null;
+                        }
+                }
+            } else {
+                afVar = new c(oVar);
+            }
+            return afVar;
         }
+        return (com.vivo.push.l) invokeL.objValue;
+    }
+
+    public static z b(com.vivo.push.o oVar) {
+        InterceptResult invokeL;
+        z afVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, oVar)) == null) {
+            int b2 = oVar.b();
+            if (b2 == 20) {
+                afVar = new af(oVar);
+            } else if (b2 != 2016) {
+                switch (b2) {
+                    case 1:
+                        afVar = new aa(oVar);
+                        break;
+                    case 2:
+                        afVar = new h(oVar);
+                        break;
+                    case 3:
+                        afVar = new p(oVar);
+                        break;
+                    case 4:
+                        afVar = new r(oVar);
+                        break;
+                    case 5:
+                        afVar = new u(oVar);
+                        break;
+                    case 6:
+                        afVar = new x(oVar);
+                        break;
+                    case 7:
+                        afVar = new n(oVar);
+                        break;
+                    case 8:
+                        afVar = new l(oVar);
+                        break;
+                    case 9:
+                        afVar = new g(oVar);
+                        break;
+                    case 10:
+                        afVar = new d(oVar);
+                        break;
+                    case 11:
+                        afVar = new ad(oVar);
+                        break;
+                    default:
+                        return null;
+                }
+            } else {
+                afVar = new k(oVar);
+            }
+            return afVar;
+        }
+        return (z) invokeL.objValue;
     }
 }

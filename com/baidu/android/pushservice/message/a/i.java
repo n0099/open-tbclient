@@ -2,71 +2,142 @@ package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class i extends d {
+public final class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(Context context) {
-        super(context);
+    public static PublicMsg a(Context context, String str, String str2, byte[] bArr) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, context, str, str2, bArr)) == null) {
+            PublicMsg publicMsg = new PublicMsg();
+            publicMsg.mMsgId = str;
+            publicMsg.mAppId = str2;
+            try {
+                JSONObject jSONObject = new JSONObject(new String(bArr));
+                if (!jSONObject.isNull("title")) {
+                    publicMsg.mTitle = jSONObject.getString("title");
+                }
+                if (!jSONObject.isNull("description")) {
+                    publicMsg.mDescription = jSONObject.getString("description");
+                }
+                if (!jSONObject.isNull("img")) {
+                    publicMsg.mImgUrl = jSONObject.getString("img");
+                }
+                if (!jSONObject.isNull("url")) {
+                    publicMsg.mUrl = jSONObject.getString("url");
+                }
+                if (!jSONObject.isNull("notification_builder_id")) {
+                    publicMsg.mNotificationBuilder = jSONObject.getInt("notification_builder_id");
+                }
+                if (!jSONObject.isNull("open_type")) {
+                    publicMsg.mOpenType = jSONObject.getInt("open_type");
+                }
+                if (!jSONObject.isNull("notification_basic_style")) {
+                    publicMsg.mNotificationBasicStyle = jSONObject.getInt("notification_basic_style");
+                }
+                if (!jSONObject.isNull("custom_content")) {
+                    publicMsg.mCustomContent = jSONObject.getString("custom_content");
+                }
+                if (!jSONObject.isNull("net_support")) {
+                    publicMsg.mNetType = jSONObject.getInt("net_support");
+                }
+                if (!jSONObject.isNull("app_situation")) {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("app_situation");
+                    boolean z = true;
+                    if (jSONObject2.getInt("as_is_support") != 1) {
+                        z = false;
+                    }
+                    publicMsg.mIsSupportApp = z;
+                    publicMsg.mSupportAppname = jSONObject2.getString("as_pkg_name");
+                }
+                if (!jSONObject.isNull(EmotionResourceInfo.JSON_KEY_PKG_NAME)) {
+                    publicMsg.mPkgName = jSONObject.getString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                }
+                if (!jSONObject.isNull("pkg_vercode")) {
+                    publicMsg.mPkgVercode = jSONObject.getInt("pkg_vercode");
+                }
+                if (jSONObject.isNull("pkg_content")) {
+                    return publicMsg;
+                }
+                publicMsg.mPkgContent = jSONObject.getString("pkg_content");
+                return publicMsg;
+            } catch (JSONException e2) {
+                com.baidu.android.pushservice.f.a.a("PublicMsgParser", e2, context.getApplicationContext());
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
+                return null;
             }
         }
+        return (PublicMsg) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.android.pushservice.message.a.d
-    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+    public static com.baidu.android.pushservice.message.i a(Context context, String str) {
         InterceptResult invokeLL;
-        int i2;
+        String string;
+        String string2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
-            String c2 = kVar.c();
-            String f2 = kVar.f();
-            int a = kVar.a();
-            PublicMsg a2 = j.a(this.a, f2, c2, bArr);
-            if (a2 == null || TextUtils.isEmpty(a2.mTitle) || TextUtils.isEmpty(a2.mDescription) || TextUtils.isEmpty(a2.mUrl)) {
-                m.a(">>> pMsg JSON parsing error!", this.a);
-                i2 = 2;
-            } else {
-                if (f.a(this.a, a2)) {
-                    Context context = this.a;
-                    if (m.d(context, context.getPackageName())) {
-                        m.a(">>> Show pMsg Notification!", this.a);
-                        f.a(this.a, a2, f2, a);
-                        i2 = 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (!jSONObject.isNull("msgContent")) {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("msgContent");
+                    if (!jSONObject2.isNull("adContent")) {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject("adContent");
+                        iVar.f33369e = jSONObject3.getString("notifyTitle");
+                        iVar.f33370f = jSONObject3.getString("content");
+                        if (!jSONObject3.isNull("param")) {
+                            JSONObject jSONObject4 = jSONObject3.getJSONObject("param");
+                            if (!jSONObject4.isNull("url")) {
+                                iVar.a = jSONObject4.getString("url");
+                            }
+                            if (!jSONObject4.isNull("intentUri")) {
+                                string2 = jSONObject4.getString("intentUri");
+                            } else if (!jSONObject4.isNull("acn")) {
+                                string2 = jSONObject4.getString("acn");
+                            }
+                            iVar.f33367c = string2;
+                        }
+                    }
+                    if (!jSONObject2.isNull("psContent")) {
+                        JSONObject jSONObject5 = jSONObject2.getJSONObject("psContent");
+                        iVar.f33371g = jSONObject5.getString("notifyTitle");
+                        iVar.f33372h = jSONObject5.getString("content");
+                        if (!jSONObject5.isNull("param")) {
+                            JSONObject jSONObject6 = jSONObject5.getJSONObject("param");
+                            if (!jSONObject6.isNull("url")) {
+                                iVar.f33366b = jSONObject6.getString("url");
+                            }
+                            if (!jSONObject6.isNull("intentUri")) {
+                                string = jSONObject6.getString("intentUri");
+                            } else if (!jSONObject6.isNull("acn")) {
+                                string = jSONObject6.getString("acn");
+                            }
+                            iVar.f33368d = string;
+                        }
+                    }
+                    if (!jSONObject2.isNull("extras")) {
+                        iVar.a(context, jSONObject2.getJSONArray("extras"));
+                    }
+                    if (TextUtils.isEmpty(iVar.f33374j)) {
+                        iVar.f33374j = com.baidu.android.pushservice.i.f.a(str.getBytes(), false);
                     }
                 }
-                StringBuilder sb = new StringBuilder();
-                sb.append(">>> Don't Show pMsg Notification! --- IsBaiduApp = ");
-                Context context2 = this.a;
-                sb.append(m.d(context2, context2.getPackageName()));
-                m.a(sb.toString(), this.a);
-                i2 = 0;
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
             }
-            com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            gVar.a(i2);
-            return gVar;
+            return iVar;
         }
-        return (com.baidu.android.pushservice.message.g) invokeLL.objValue;
+        return (com.baidu.android.pushservice.message.i) invokeLL.objValue;
     }
 }

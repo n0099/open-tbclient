@@ -77,7 +77,7 @@ public final class c {
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C2016c {
+    public static class C2024c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final X509Certificate[] a;
@@ -88,7 +88,7 @@ public final class c {
         /* renamed from: c  reason: collision with root package name */
         public byte[] f55158c;
 
-        public C2016c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C2024c(X509Certificate[] x509CertificateArr, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,22 +110,22 @@ public final class c {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static C2016c a(String str) {
+    public static C2024c a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (C2016c) invokeL.objValue;
+            return (C2024c) invokeL.objValue;
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(str, "r");
         try {
-            C2016c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
+            C2024c a2 = a(randomAccessFile, f.a(randomAccessFile, -262969152));
             randomAccessFile.close();
             return a2;
         } finally {
         }
     }
 
-    public static C2016c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C2024c a(RandomAccessFile randomAccessFile, m mVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, mVar)) == null) {
@@ -135,10 +135,10 @@ public final class c {
                 try {
                     ByteBuffer a2 = f.a(mVar.a);
                     int i2 = 0;
-                    C2016c c2016c = null;
+                    C2024c c2024c = null;
                     while (a2.hasRemaining()) {
                         try {
-                            c2016c = a(f.a(a2), arrayMap, certificateFactory);
+                            c2024c = a(f.a(a2), arrayMap, certificateFactory);
                             i2++;
                         } catch (a unused) {
                         } catch (IOException e2) {
@@ -152,16 +152,16 @@ public final class c {
                             throw new SecurityException("Failed to parse/verify signer #" + i2 + " block", e);
                         }
                     }
-                    if (i2 <= 0 || c2016c == null) {
+                    if (i2 <= 0 || c2024c == null) {
                         throw new SecurityException("No signers found");
                     }
                     if (i2 == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c2016c.f55158c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c2024c.f55158c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c2016c;
+                            return c2024c;
                         }
                         throw new SecurityException("No content digests found");
                     }
@@ -173,14 +173,14 @@ public final class c {
                 throw new RuntimeException("Failed to obtain X.509 CertificateFactory", e6);
             }
         }
-        return (C2016c) invokeLL.objValue;
+        return (C2024c) invokeLL.objValue;
     }
 
-    public static C2016c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C2024c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, map, certificateFactory)) != null) {
-            return (C2016c) invokeLLL.objValue;
+            return (C2024c) invokeLLL.objValue;
         }
         ByteBuffer a2 = f.a(byteBuffer);
         int i2 = byteBuffer.getInt();
@@ -307,7 +307,7 @@ public final class c {
         }
     }
 
-    public static C2016c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C2024c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, byteBuffer, list, certificateFactory)) == null) {
@@ -334,9 +334,9 @@ public final class c {
                     throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
                 }
             }
-            return new C2016c(x509CertificateArr, bVar);
+            return new C2024c(x509CertificateArr, bVar);
         }
-        return (C2016c) invokeLLL.objValue;
+        return (C2024c) invokeLLL.objValue;
     }
 
     public static b a(ByteBuffer byteBuffer, CertificateFactory certificateFactory) {

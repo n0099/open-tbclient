@@ -1,37 +1,13 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.report.p;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class aj implements com.kwad.sdk.core.d<p.a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public aj() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public void a(p.a aVar, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, aVar, jSONObject) == null) || jSONObject == null) {
+        if (jSONObject == null) {
             return;
         }
         aVar.a = jSONObject.optInt("photoPlaySecond");
@@ -81,41 +57,36 @@ public class aj implements com.kwad.sdk.core.d<p.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
     public JSONObject b(p.a aVar, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, jSONObject)) == null) {
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            com.kwad.sdk.utils.t.a(jSONObject, "photoPlaySecond", aVar.a);
-            com.kwad.sdk.utils.t.a(jSONObject, "itemClickType", aVar.f58262b);
-            com.kwad.sdk.utils.t.a(jSONObject, "itemCloseType", aVar.f58263c);
-            com.kwad.sdk.utils.t.a(jSONObject, "elementType", aVar.f58264d);
-            com.kwad.sdk.utils.t.a(jSONObject, "impFailReason", aVar.f58265e);
-            com.kwad.sdk.utils.t.a(jSONObject, "winEcpm", aVar.f58266f);
-            com.kwad.sdk.utils.t.a(jSONObject, "payload", aVar.f58268h);
-            com.kwad.sdk.utils.t.a(jSONObject, "deeplinkType", aVar.f58269i);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadSource", aVar.f58270j);
-            com.kwad.sdk.utils.t.a(jSONObject, "isPackageChanged", aVar.f58271k);
-            com.kwad.sdk.utils.t.a(jSONObject, "installedFrom", aVar.l);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadFailedReason", aVar.m);
-            com.kwad.sdk.utils.t.a(jSONObject, "isChangedEndcard", aVar.n);
-            com.kwad.sdk.utils.t.a(jSONObject, "adAggPageSource", aVar.o);
-            com.kwad.sdk.utils.t.a(jSONObject, "serverPackageName", aVar.p);
-            com.kwad.sdk.utils.t.a(jSONObject, "installedPackageName", aVar.q);
-            com.kwad.sdk.utils.t.a(jSONObject, "closeButtonImpressionTime", aVar.r);
-            com.kwad.sdk.utils.t.a(jSONObject, "closeButtonClickTime", aVar.s);
-            com.kwad.sdk.utils.t.a(jSONObject, "landingPageLoadedDuration", aVar.t);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadStatus", aVar.u);
-            com.kwad.sdk.utils.t.a(jSONObject, "downloadCardType", aVar.v);
-            com.kwad.sdk.utils.t.a(jSONObject, "landingPageType", aVar.w);
-            com.kwad.sdk.utils.t.a(jSONObject, "playedDuration", aVar.x);
-            com.kwad.sdk.utils.t.a(jSONObject, "playedRate", aVar.y);
-            com.kwad.sdk.utils.t.a(jSONObject, "adOrder", aVar.z);
-            com.kwad.sdk.utils.t.a(jSONObject, "adInterstitialSource", aVar.A);
-            com.kwad.sdk.utils.t.a(jSONObject, "splashShakeAcceleration", aVar.B);
-            return jSONObject;
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
         }
-        return (JSONObject) invokeLL.objValue;
+        com.kwad.sdk.utils.t.a(jSONObject, "photoPlaySecond", aVar.a);
+        com.kwad.sdk.utils.t.a(jSONObject, "itemClickType", aVar.f58262b);
+        com.kwad.sdk.utils.t.a(jSONObject, "itemCloseType", aVar.f58263c);
+        com.kwad.sdk.utils.t.a(jSONObject, "elementType", aVar.f58264d);
+        com.kwad.sdk.utils.t.a(jSONObject, "impFailReason", aVar.f58265e);
+        com.kwad.sdk.utils.t.a(jSONObject, "winEcpm", aVar.f58266f);
+        com.kwad.sdk.utils.t.a(jSONObject, "payload", aVar.f58268h);
+        com.kwad.sdk.utils.t.a(jSONObject, "deeplinkType", aVar.f58269i);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadSource", aVar.f58270j);
+        com.kwad.sdk.utils.t.a(jSONObject, "isPackageChanged", aVar.f58271k);
+        com.kwad.sdk.utils.t.a(jSONObject, "installedFrom", aVar.l);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadFailedReason", aVar.m);
+        com.kwad.sdk.utils.t.a(jSONObject, "isChangedEndcard", aVar.n);
+        com.kwad.sdk.utils.t.a(jSONObject, "adAggPageSource", aVar.o);
+        com.kwad.sdk.utils.t.a(jSONObject, "serverPackageName", aVar.p);
+        com.kwad.sdk.utils.t.a(jSONObject, "installedPackageName", aVar.q);
+        com.kwad.sdk.utils.t.a(jSONObject, "closeButtonImpressionTime", aVar.r);
+        com.kwad.sdk.utils.t.a(jSONObject, "closeButtonClickTime", aVar.s);
+        com.kwad.sdk.utils.t.a(jSONObject, "landingPageLoadedDuration", aVar.t);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadStatus", aVar.u);
+        com.kwad.sdk.utils.t.a(jSONObject, "downloadCardType", aVar.v);
+        com.kwad.sdk.utils.t.a(jSONObject, "landingPageType", aVar.w);
+        com.kwad.sdk.utils.t.a(jSONObject, "playedDuration", aVar.x);
+        com.kwad.sdk.utils.t.a(jSONObject, "playedRate", aVar.y);
+        com.kwad.sdk.utils.t.a(jSONObject, "adOrder", aVar.z);
+        com.kwad.sdk.utils.t.a(jSONObject, "adInterstitialSource", aVar.A);
+        com.kwad.sdk.utils.t.a(jSONObject, "splashShakeAcceleration", aVar.B);
+        return jSONObject;
     }
 }

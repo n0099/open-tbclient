@@ -40,34 +40,34 @@ public final class d {
     public static final String ad = "videoFileUploadTimeout";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f35304b = "@queryVideo";
+    public static final String f35460b = "@queryVideo";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f35305c = "enterLiveness";
+    public static final String f35461c = "enterLiveness";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f35306d = "userSwitchSound";
+    public static final String f35462d = "userSwitchSound";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f35307e = "@getPortrait";
+    public static final String f35463e = "@getPortrait";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f35308f = "passLiveness";
+    public static final String f35464f = "passLiveness";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f35309g = "faceDetected";
+    public static final String f35465g = "faceDetected";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f35310h = "showBlink";
+    public static final String f35466h = "showBlink";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f35311i = "detectBlink";
+    public static final String f35467i = "detectBlink";
 
     /* renamed from: j  reason: collision with root package name */
-    public static final String f35312j = "showMouth";
+    public static final String f35468j = "showMouth";
 
     /* renamed from: k  reason: collision with root package name */
-    public static final String f35313k = "detectMouth";
+    public static final String f35469k = "detectMouth";
     public static final String l = "firstTimeOut";
     public static final String m = "secondTimeOut";
     public static final String n = "cancelLiveness";

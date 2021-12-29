@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -88,7 +88,7 @@ public class MultiDexHelper {
                                 this.loading = nextElement;
                                 Class.forName(nextElement);
                                 this.loading = "";
-                                String str2 = nextElement + m.B();
+                                String str2 = nextElement + n.B();
                             }
                         }
                     } catch (IOException unused) {

@@ -19,7 +19,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.FrsTabInfo;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AttentionResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

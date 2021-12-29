@@ -9,10 +9,11 @@ import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
 import c.a.d.f.l.d;
 import c.a.d.f.l.e;
-import c.a.d.f.p.k;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.d.m.d.a;
+import c.a.d.f.p.n;
+import c.a.d.n.d.a;
+import c.a.s0.s.k;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
@@ -183,7 +184,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
             }
             sb.append(TbConfig.IMAGE_ADDRESS);
             sb.append("src=");
-            sb.append(l.getUrlEncode(str));
+            sb.append(m.getUrlEncode(str));
             sb.append("&width=");
             sb.append(String.valueOf(i2));
             sb.append("&height=");
@@ -202,7 +203,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? c.a.r0.s.l.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? k.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i2, int i3) {
@@ -213,7 +214,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 return null;
             }
             if (bitmap.getWidth() > i2 || bitmap.getHeight() > i3) {
-                c.a.r0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                c.a.s0.c0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i2, i3, true);
             }
             return bitmap;
@@ -257,7 +258,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 long currentTimeMillis = System.currentTimeMillis();
                 aVar.A(i2);
                 aVar.z(i3);
-                c.a.r0.c0.c.k().d(str, aVar);
+                c.a.s0.c0.c.k().d(str, aVar);
                 c.a.d.f.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -268,7 +269,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
     public a m45decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) ? decodeToResourceWithWH(bArr, m.k(TbadkCoreApplication.getInst()), m.i(TbadkCoreApplication.getInst())) : (a) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, bArr, objArr)) == null) ? decodeToResourceWithWH(bArr, n.k(TbadkCoreApplication.getInst()), n.i(TbadkCoreApplication.getInst())) : (a) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -299,7 +300,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 c.a.d.f.l.a.f(false, 0L);
                 return null;
             }
-            int i4 = k.H() ? 300 : 2000;
+            int i4 = l.H() ? 300 : 2000;
             synchronized (bArr) {
                 try {
                     bArr.wait(i4);
@@ -313,10 +314,10 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 i3 = getSuggestHeight();
             }
             if (i2 == 0) {
-                i2 = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                i2 = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             if (i3 == 0) {
-                i3 = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+                i3 = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
             }
             a createImageFromDiskPicOperate = createDiskPicOperate.isSuccess() ? createImageFromDiskPicOperate(createDiskPicOperate, str2, i2, i3) : null;
             c.a.d.f.l.a.f(createImageFromDiskPicOperate != null, System.currentTimeMillis() - currentTimeMillis);
@@ -333,7 +334,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            a m = c.a.r0.c0.c.k().m(str);
+            a m = c.a.s0.c0.c.k().m(str);
             if (z) {
                 c.a.d.f.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -391,11 +392,11 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         int suggestWidth = i2 == 0 ? getSuggestWidth() : i2;
         int suggestHeight = i3 == 0 ? getSuggestHeight() : i3;
         if (suggestWidth == 0) {
-            suggestWidth = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+            suggestWidth = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
         int i8 = suggestWidth;
         if (suggestHeight == 0) {
-            suggestHeight = m.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
+            suggestHeight = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
         int i9 = suggestHeight;
         boolean isFromCDN = isFromCDN();
@@ -436,7 +437,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                         InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
                         byte[] d2 = c.a.d.f.j.b.b.d(openRawResource);
                         Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d2, rect);
-                        if (!webClient3.isGif && !m.A(d2)) {
+                        if (!webClient3.isGif && !n.A(d2)) {
                             z6 = false;
                             if (checkBitmapValid(Bytes2NineBitmap)) {
                                 aVar = null;
@@ -500,7 +501,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
                 byte[] bArr2 = bArr;
-                c.a.r0.c0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
+                c.a.s0.c0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
                 if (getProcType() == 19) {
                     i7 = 1;
                     Object[] objArr3 = new Object[1];
@@ -534,7 +535,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 if (bArr3 == null || bitmap == null) {
                     return null;
                 }
-                boolean z8 = webClient2.isGif || m.A(bArr3);
+                boolean z8 = webClient2.isGif || n.A(bArr3);
                 Bitmap resizeBitmapSize = resizeBitmapSize(bitmap, i6, i5);
                 if (resizeBitmapSize != null && checkBitmapValid(resizeBitmapSize)) {
                     a aVar2 = new a(resizeBitmapSize, z8, str, rect);

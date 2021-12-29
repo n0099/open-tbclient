@@ -10,7 +10,7 @@ public class a {
     public static final int a = 300000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31875b = "1";
+    public static final String f32018b = "1";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

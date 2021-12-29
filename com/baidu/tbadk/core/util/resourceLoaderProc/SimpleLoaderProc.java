@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import c.a.d.f.a.d;
 import c.a.d.f.a.f.c;
 import c.a.d.f.l.b;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -46,20 +46,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
         this.mProcType = i2;
-        int k2 = m.k(TbadkCoreApplication.getInst());
-        int i5 = m.i(TbadkCoreApplication.getInst());
+        int k2 = n.k(TbadkCoreApplication.getInst());
+        int i5 = n.i(TbadkCoreApplication.getInst());
         if (i2 == 13) {
             k2 = k2 <= 0 ? 200 : k2;
             this.mSuggestWidth = k2;
             if (k2 > 480) {
                 this.mSuggestWidth = 480;
             }
-            if (this.mSuggestWidth > m.d(TbadkCoreApplication.getInst(), 320.0f)) {
-                this.mSuggestWidth = m.d(TbadkCoreApplication.getInst(), 320.0f);
+            if (this.mSuggestWidth > n.d(TbadkCoreApplication.getInst(), 320.0f)) {
+                this.mSuggestWidth = n.d(TbadkCoreApplication.getInst(), 320.0f);
             }
             this.mSuggestHeight = this.mSuggestWidth;
         } else if (i2 == 17) {
-            int min = Math.min(m.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
+            int min = Math.min(n.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i2 == 15) {
@@ -77,8 +77,8 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             if (k2 <= 0 || k2 > 644) {
                 this.mSuggestWidth = 644;
             }
-            if (this.mSuggestWidth > m.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
-                this.mSuggestWidth = m.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
+            if (this.mSuggestWidth > n.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
+                this.mSuggestWidth = n.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
         } else if (i2 == 46) {

@@ -38,6 +38,8 @@ public class InitMessageTask extends LaunchTask {
             TbadkApplication.getInst().handleInitMessage(message);
             message.what = 3;
             TbadkApplication.getInst().handleInitMessage(message);
+            message.what = 4;
+            TbadkApplication.getInst().handleInitMessage(message);
             message.what = 5;
             TbadkApplication.getInst().handleInitMessage(message);
             message.what = 6;

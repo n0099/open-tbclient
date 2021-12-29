@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.m;
-import com.baidu.android.pushservice.message.a.l;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.message.a.k;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.f33225k = l.f33191b.b();
+                iVar.f33375k = k.f33341b.b();
             } else {
                 content = iVar.b(context, content);
             }

@@ -47,14 +47,14 @@ public final class c implements Handler.Callback {
             int i2 = message.what;
             if (i2 == 1) {
                 com.vivo.push.util.p.a("AidlManager", "In connect, bind core service time out");
-                atomicInteger = this.a.f63005f;
+                atomicInteger = this.a.f63003f;
                 if (atomicInteger.get() == 2) {
                     this.a.a(1);
                 }
             } else if (i2 == 2) {
-                atomicInteger2 = this.a.f63005f;
+                atomicInteger2 = this.a.f63003f;
                 if (atomicInteger2.get() == 4) {
-                    this.a.e();
+                    this.a.f();
                 }
                 this.a.a(1);
             } else {

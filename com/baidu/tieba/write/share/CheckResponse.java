@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.share;
 
-import c.a.s0.n4.z.c;
+import c.a.t0.o4.z.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,11 +48,11 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             c cVar = new c();
             this.mCheckResponseData = cVar;
             cVar.a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f20544c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f20545d = jSONObject.optString("tbopen_app_icon");
+            this.mCheckResponseData.f21915c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f21916d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
-                this.mCheckResponseData.f20551j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.f21922j = optJSONObject.optString("default_pic");
             }
         }
     }

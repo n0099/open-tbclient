@@ -171,7 +171,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i9);
             nativeAllocateByteBuffer.limit(i9 + i8);
-            return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: c.a.k0.b
+            return new RTCI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: c.a.l0.b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
-import c.a.d.f.p.k;
-import c.a.r0.c0.d;
-import c.a.s0.y0.o;
-import c.a.s0.y0.q;
-import c.a.s0.y0.t;
-import c.a.s0.y0.u;
+import c.a.d.f.p.l;
+import c.a.s0.c0.d;
+import c.a.t0.y0.o;
+import c.a.t0.y0.q;
+import c.a.t0.y0.t;
+import c.a.t0.y0.u;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -63,31 +63,31 @@ public class FaceshopStatic {
 
         /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes12.dex */
-        public class RunnableC1882a implements Runnable {
+        public class RunnableC1889a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f44294e;
+            public final /* synthetic */ int f44481e;
 
             /* renamed from: com.baidu.tieba.faceshop.FaceshopStatic$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes12.dex */
-            public class RunnableC1883a implements Runnable {
+            public class RunnableC1890a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ StringBuilder f44295e;
+                public final /* synthetic */ StringBuilder f44482e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ RunnableC1882a f44296f;
+                public final /* synthetic */ RunnableC1889a f44483f;
 
-                public RunnableC1883a(RunnableC1882a runnableC1882a, StringBuilder sb) {
+                public RunnableC1890a(RunnableC1889a runnableC1889a, StringBuilder sb) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC1882a, sb};
+                        Object[] objArr = {runnableC1889a, sb};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -97,20 +97,20 @@ public class FaceshopStatic {
                             return;
                         }
                     }
-                    this.f44296f = runnableC1882a;
-                    this.f44295e = sb;
+                    this.f44483f = runnableC1889a;
+                    this.f44482e = sb;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f44296f.f44294e, this.f44295e.toString()));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(this.f44483f.f44481e, this.f44482e.toString()));
                     }
                 }
             }
 
-            public RunnableC1882a(a aVar, int i2) {
+            public RunnableC1889a(a aVar, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -125,14 +125,14 @@ public class FaceshopStatic {
                         return;
                     }
                 }
-                this.f44294e = i2;
+                this.f44481e = i2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    List<MyEmotionGroupData> f2 = c.a.s0.n2.c.i().f();
+                    List<MyEmotionGroupData> f2 = c.a.t0.n2.c.i().f();
                     StringBuilder sb = new StringBuilder();
                     if (f2 != null) {
                         int size = f2.size();
@@ -143,7 +143,7 @@ public class FaceshopStatic {
                             }
                         }
                     }
-                    c.a.d.f.m.e.a().post(new RunnableC1883a(this, sb));
+                    c.a.d.f.m.e.a().post(new RunnableC1890a(this, sb));
                 }
             }
         }
@@ -173,7 +173,7 @@ public class FaceshopStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                c.a.s0.n2.a.b().a(new RunnableC1882a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                c.a.t0.n2.a.b().a(new RunnableC1889a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
@@ -251,7 +251,7 @@ public class FaceshopStatic {
                 t.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof d.a) {
                 d.a aVar = (d.a) customResponsedMessage.getData();
-                t.s().g(aVar.a, aVar.f12112b);
+                t.s().g(aVar.a, aVar.f12569b);
             }
         }
     }
@@ -278,10 +278,10 @@ public class FaceshopStatic {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(c.a.r0.c0.d.f12107b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(c.a.s0.c0.d.f12564b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            t.s().g(intent.getStringExtra(c.a.r0.c0.d.f12107b), intent.getStringExtra(c.a.r0.c0.d.f12108c));
+            t.s().g(intent.getStringExtra(c.a.s0.c0.d.f12564b), intent.getStringExtra(c.a.s0.c0.d.f12565c));
         }
     }
 
@@ -309,7 +309,7 @@ public class FaceshopStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.s0.n2.d.m().v();
+                c.a.t0.n2.d.m().v();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -515,14 +515,14 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerListener(new c(2004610));
         d dVar = new d();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(c.a.r0.c0.d.a);
+        intentFilter.addAction(c.a.s0.c0.d.a);
         TbadkCoreApplication.getInst().registerReceiver(dVar, intentFilter);
         CustomMessageTask customMessageTask = new CustomMessageTask(2004611, new e());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2001141);
-        if (k.H() && TbadkCoreApplication.getCurrentAccount() != null) {
-            c.a.s0.n2.d.m().v();
+        if (l.H() && TbadkCoreApplication.getCurrentAccount() != null) {
+            c.a.t0.n2.d.m().v();
         }
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2902013, new f());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

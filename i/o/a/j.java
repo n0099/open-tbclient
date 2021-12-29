@@ -14,10 +14,10 @@ public final class j<T> implements d.b<Boolean, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.n.f<? super T, Boolean> f64280e;
+    public final i.n.f<? super T, Boolean> f64275e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f64281f;
+    public final boolean f64276f;
 
     /* loaded from: classes4.dex */
     public class a extends i.j<T> {
@@ -25,13 +25,13 @@ public final class j<T> implements d.b<Boolean, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f64282i;
+        public boolean f64277i;
 
         /* renamed from: j  reason: collision with root package name */
-        public boolean f64283j;
+        public boolean f64278j;
 
         /* renamed from: k  reason: collision with root package name */
-        public final /* synthetic */ SingleDelayedProducer f64284k;
+        public final /* synthetic */ SingleDelayedProducer f64279k;
         public final /* synthetic */ i.j l;
         public final /* synthetic */ j m;
 
@@ -51,21 +51,21 @@ public final class j<T> implements d.b<Boolean, T> {
                 }
             }
             this.m = jVar;
-            this.f64284k = singleDelayedProducer;
+            this.f64279k = singleDelayedProducer;
             this.l = jVar2;
         }
 
         @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64283j) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f64278j) {
                 return;
             }
-            this.f64283j = true;
-            if (this.f64282i) {
-                this.f64284k.setValue(Boolean.FALSE);
+            this.f64278j = true;
+            if (this.f64277i) {
+                this.f64279k.setValue(Boolean.FALSE);
             } else {
-                this.f64284k.setValue(Boolean.valueOf(this.m.f64281f));
+                this.f64279k.setValue(Boolean.valueOf(this.m.f64276f));
             }
         }
 
@@ -73,8 +73,8 @@ public final class j<T> implements d.b<Boolean, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f64283j) {
-                    this.f64283j = true;
+                if (!this.f64278j) {
+                    this.f64278j = true;
                     this.l.onError(th);
                     return;
                 }
@@ -85,14 +85,14 @@ public final class j<T> implements d.b<Boolean, T> {
         @Override // i.e
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f64283j) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.f64278j) {
                 return;
             }
-            this.f64282i = true;
+            this.f64277i = true;
             try {
-                if (this.m.f64280e.call(t).booleanValue()) {
-                    this.f64283j = true;
-                    this.f64284k.setValue(Boolean.valueOf(true ^ this.m.f64281f));
+                if (this.m.f64275e.call(t).booleanValue()) {
+                    this.f64278j = true;
+                    this.f64279k.setValue(Boolean.valueOf(true ^ this.m.f64276f));
                     unsubscribe();
                 }
             } catch (Throwable th) {
@@ -116,8 +116,8 @@ public final class j<T> implements d.b<Boolean, T> {
                 return;
             }
         }
-        this.f64280e = fVar;
-        this.f64281f = z;
+        this.f64275e = fVar;
+        this.f64276f = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

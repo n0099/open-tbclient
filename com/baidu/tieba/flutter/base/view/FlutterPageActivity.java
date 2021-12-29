@@ -15,13 +15,13 @@ import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.g;
 import c.a.d.a.h;
-import c.a.d.f.p.m;
-import c.a.r0.a.s;
-import c.a.r0.p0.a;
-import c.a.r0.p0.b;
-import c.a.r0.p0.d;
-import c.a.r0.p0.e;
-import c.a.r0.s.c;
+import c.a.d.f.p.n;
+import c.a.s0.a.s;
+import c.a.s0.q0.a;
+import c.a.s0.q0.b;
+import c.a.s0.q0.d;
+import c.a.s0.q0.e;
+import c.a.s0.s.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -84,7 +84,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public long lastResumeTime;
     public PermissionJudgePolicy mCurrentPermissionJudgePolicy;
     public BdUniqueId mId;
-    public c.a.r0.s.a mLayoutInflateFactory;
+    public c.a.s0.s.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
     public boolean mUseStyleImmersiveSticky;
@@ -233,7 +233,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             s.a(motionEvent, getPageId(), 0L);
-            c.a.s0.a4.a.getInstance().behaviorRecordEvent(motionEvent, this);
+            c.a.t0.b4.a.getInstance().behaviorRecordEvent(motionEvent, this);
             try {
                 return super.dispatchTouchEvent(motionEvent);
             } catch (Exception e2) {
@@ -255,7 +255,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            m.w(getApplicationContext(), getWindow().getDecorView());
+            n.w(getApplicationContext(), getWindow().getDecorView());
             super.finish();
             closeAnimation();
         }
@@ -280,20 +280,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
             hashMap.put("native_start_time", Long.valueOf(this.startTime));
             hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-            hashMap.put("sorce_key_list", c.a.r0.p0.c.a(getCurrentPageSourceKeyList()));
+            hashMap.put("sorce_key_list", c.a.s0.q0.c.a(getCurrentPageSourceKeyList()));
             return hashMap;
         }
         return (Map) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p0.a
+    @Override // c.a.s0.q0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? getContainerUrl() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p0.a
+    @Override // c.a.s0.q0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -313,7 +313,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mLayoutMode : (c) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p0.a
+    @Override // c.a.s0.q0.a
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -366,7 +366,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return (d) invokeV.objValue;
     }
 
-    @Override // c.a.r0.p0.a
+    @Override // c.a.s0.q0.a
     public b getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -393,7 +393,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 this.this$0 = this;
             }
 
-            @Override // c.a.r0.p0.b
+            @Override // c.a.s0.q0.b
             public boolean canStat(d dVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
@@ -403,14 +403,14 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 return invokeL.booleanValue;
             }
 
-            @Override // c.a.r0.p0.b
+            @Override // c.a.s0.q0.b
             public int getMaxCost() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e.b().c() : invokeV2.intValue;
             }
 
-            @Override // c.a.r0.p0.b
+            @Override // c.a.s0.q0.b
             public boolean isCurrentPageCanBeAddToSourceTrace() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
@@ -457,7 +457,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048596, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (c.a.r0.e1.a.c(i2, i3, intent)) {
+            if (c.a.s0.f1.a.c(i2, i3, intent)) {
             }
         }
     }
@@ -507,7 +507,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
                 BdSocketLinkService.startService(false, "app start");
             }
             this.mLayoutMode = new c();
-            c.a.r0.s.a aVar = new c.a.r0.s.a();
+            c.a.s0.s.a aVar = new c.a.s0.s.a();
             this.mLayoutInflateFactory = aVar;
             aVar.a(this.mLayoutMode);
             TbadkCoreApplication.setIsAppRunning(true);
@@ -549,7 +549,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            c.a.s0.a4.a.getInstance().onPause(this);
+            c.a.t0.b4.a.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -615,7 +615,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             this.flutterStartTime = System.currentTimeMillis();
             TbadkCoreApplication.getInst().AddResumeNum();
             super.onResume();
-            c.a.s0.a4.a.getInstance().onResume(this);
+            c.a.t0.b4.a.getInstance().onResume(this);
             this.lastResumeTime = System.currentTimeMillis();
             TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());

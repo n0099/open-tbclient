@@ -30,7 +30,7 @@ public final class j extends o {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ j f1904e;
+        public final /* synthetic */ j f2331e;
 
         public a(j jVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public final class j extends o {
                     return;
                 }
             }
-            this.f1904e = jVar;
+            this.f2331e = jVar;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1904e.t();
+                this.f2331e.t();
             }
         }
     }
@@ -93,17 +93,17 @@ public final class j extends o {
         int b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1916g.bottomMargin = c.a.c0.e0.a.d.b.b(10.0f);
-            FrameLayout.LayoutParams layoutParams = this.f1916g;
+            this.f2343g.bottomMargin = c.a.c0.e0.a.d.b.b(10.0f);
+            FrameLayout.LayoutParams layoutParams = this.f2343g;
             if (n().V()) {
                 b2 = c.a.c0.e0.a.d.b.b(45.0f);
             } else {
                 b2 = c.a.c0.e0.a.d.b.b(15.0f);
             }
             layoutParams.leftMargin = b2;
-            TextView mNextTips = this.f1915f;
+            TextView mNextTips = this.f2342f;
             Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
-            mNextTips.setLayoutParams(this.f1916g);
+            mNextTips.setLayoutParams(this.f2343g);
         }
     }
 
@@ -111,11 +111,11 @@ public final class j extends o {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1916g.bottomMargin = c.a.c0.e0.a.d.b.b(45.0f);
-            this.f1916g.leftMargin = c.a.c0.e0.a.d.b.b(15.0f);
-            TextView mNextTips = this.f1915f;
+            this.f2343g.bottomMargin = c.a.c0.e0.a.d.b.b(45.0f);
+            this.f2343g.leftMargin = c.a.c0.e0.a.d.b.b(15.0f);
+            TextView mNextTips = this.f2342f;
             Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
-            mNextTips.setLayoutParams(this.f1916g);
+            mNextTips.setLayoutParams(this.f2343g);
         }
     }
 
@@ -137,12 +137,12 @@ public final class j extends o {
             textView.setIncludeFontPadding(false);
             textView.setPadding(c.a.c0.e0.a.d.b.b(13.0f), 0, c.a.c0.e0.a.d.b.b(13.0f), 0);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, c.a.c0.e0.a.d.b.b(24.0f));
-            this.f1916g = layoutParams;
+            this.f2343g = layoutParams;
             layoutParams.gravity = BadgeDrawable.BOTTOM_START;
             layoutParams.leftMargin = c.a.c0.e0.a.d.b.b(15.0f);
-            textView.setLayoutParams(this.f1916g);
+            textView.setLayoutParams(this.f2343g);
             Unit unit = Unit.INSTANCE;
-            this.f1915f = textView;
+            this.f2342f = textView;
             u();
         }
     }
@@ -167,10 +167,10 @@ public final class j extends o {
                         if (str == null) {
                             str = "";
                         }
-                        TextView mNextTips = this.f1915f;
+                        TextView mNextTips = this.f2342f;
                         Intrinsics.checkNotNullExpressionValue(mNextTips, "mNextTips");
                         mNextTips.setText(str);
-                        if (this.f1917h) {
+                        if (this.f2344h) {
                             B();
                         } else {
                             A();
@@ -208,7 +208,7 @@ public final class j extends o {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f1915f.postDelayed(new a(this), 5000L);
+            this.f2342f.postDelayed(new a(this), 5000L);
         }
     }
 }

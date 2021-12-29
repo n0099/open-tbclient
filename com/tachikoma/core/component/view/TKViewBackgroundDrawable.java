@@ -35,7 +35,7 @@ import com.tachikoma.core.utility.TKSpacing;
 import java.util.Arrays;
 import java.util.Locale;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKViewBackgroundDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL_BITS_SET = -1;
@@ -78,7 +78,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     public RectF mTempRectForCenterDrawPath;
 
     /* renamed from: com.tachikoma.core.component.view.TKViewBackgroundDrawable$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$tachikoma$core$component$view$TKViewBackgroundDrawable$BorderStyle;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +115,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BorderRadiusLocation {
         public static final /* synthetic */ BorderRadiusLocation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -187,7 +187,7 @@ public class TKViewBackgroundDrawable extends Drawable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BorderStyle {
         public static final /* synthetic */ BorderStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -265,7 +265,7 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Gradient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class TKViewBackgroundDrawable extends Drawable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Shadow {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import c.i.b.a.x.k;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.CrashPadUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -556,9 +556,9 @@ public final class DefaultAudioSink implements AudioSink {
         this.f56374g = new long[10];
         this.T = 1.0f;
         this.P = 0;
-        this.r = c.i.b.a.x.b.f30757e;
+        this.r = c.i.b.a.x.b.f30835e;
         this.d0 = 0;
-        this.w = p.f30714d;
+        this.w = p.f30792d;
         this.a0 = -1;
         this.U = new AudioProcessor[0];
         this.V = new ByteBuffer[0];
@@ -666,7 +666,7 @@ public final class DefaultAudioSink implements AudioSink {
             if (v.a >= 21) {
                 audioTrack = q();
             } else {
-                int t = v.t(this.r.f30759c);
+                int t = v.t(this.r.f30837c);
                 if (this.d0 == 0) {
                     audioTrack = new AudioTrack(t, this.n, this.o, this.q, this.t, 1);
                 } else {
@@ -1003,13 +1003,13 @@ public final class DefaultAudioSink implements AudioSink {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, pVar)) == null) {
             if (this.s) {
-                p pVar2 = p.f30714d;
+                p pVar2 = p.f30792d;
                 this.w = pVar2;
                 return pVar2;
             }
             float k2 = this.f56371d.k(pVar.a);
             j jVar = this.f56371d;
-            float f2 = pVar.f30715b;
+            float f2 = pVar.f30793b;
             jVar.j(f2);
             p pVar3 = new p(k2, f2);
             p pVar4 = this.v;
@@ -1223,13 +1223,13 @@ public final class DefaultAudioSink implements AudioSink {
                 default:
                     throw new AudioSink.ConfigurationException("Unsupported channel count: " + i2);
             }
-            if (v.a <= 23 && "foster".equals(v.f30623b) && "NVIDIA".equals(v.f30624c)) {
+            if (v.a <= 23 && "foster".equals(v.f30701b) && "NVIDIA".equals(v.f30702c)) {
                 if (i2 != 3 && i2 != 5) {
                     if (i2 == 7) {
                         i9 = c.i.b.a.b.a;
                     }
                 }
-                if (v.a <= 25 || !"fugu".equals(v.f30623b) || !z2 || i2 != 1) {
+                if (v.a <= 25 || !"fugu".equals(v.f30701b) || !z2 || i2 != 1) {
                     i10 = i9;
                 }
                 if (z && D() && this.p == i4 && this.n == i3 && this.o == i10) {
@@ -1252,7 +1252,7 @@ public final class DefaultAudioSink implements AudioSink {
                     if (i11 != 5 && i11 != 6) {
                         this.t = 49152;
                     } else {
-                        this.t = LogSystemUploaderStrategy.CrashPadUtil.MAX_READ_EXTRA;
+                        this.t = CrashPadUtil.MAX_READ_EXTRA;
                     }
                 } else {
                     int minBufferSize = AudioTrack.getMinBufferSize(i3, i10, this.q);

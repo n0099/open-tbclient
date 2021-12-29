@@ -22,10 +22,10 @@ public class LivenessVideoState {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f35316b;
+    public long f35472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35317c;
+    public boolean f35473c;
     public int currentCount;
     public int currentState;
     public boolean isLrcTipAnimCalling;
@@ -49,7 +49,7 @@ public class LivenessVideoState {
         }
         this.currentState = -1;
         this.currentCount = 0;
-        this.f35317c = false;
+        this.f35473c = false;
         this.isLrcTipViewHadGone = false;
     }
 
@@ -78,8 +78,8 @@ public class LivenessVideoState {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jArr)) == null) {
-            if (this.currentState < 5 && !this.f35317c) {
-                this.f35317c = true;
+            if (this.currentState < 5 && !this.f35473c) {
+                this.f35473c = true;
                 return true;
             }
             if (this.currentState == 5 && jArr != null && jArr.length != 0) {
@@ -105,7 +105,7 @@ public class LivenessVideoState {
     public boolean isVideoStateLostFaceTimeout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.currentState == 5 && System.currentTimeMillis() - this.f35316b > 5000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.currentState == 5 && System.currentTimeMillis() - this.f35472b > 5000 : invokeV.booleanValue;
     }
 
     public boolean isWarnCancleTipAfterOnPause() {
@@ -117,7 +117,7 @@ public class LivenessVideoState {
     public void setLastFindFaceStartTime() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f35316b = System.currentTimeMillis();
+            this.f35472b = System.currentTimeMillis();
         }
     }
 

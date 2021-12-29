@@ -2,8 +2,8 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.s0.s1.f.i.b;
-import c.a.s0.s1.t.e;
+import c.a.t0.s1.f.i.b;
+import c.a.t0.s1.t.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;

@@ -1,6 +1,6 @@
 package com.baidu.swan.webcompat.impl;
 
-import c.a.q0.a.d2.d;
+import c.a.r0.a.d2.d;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;

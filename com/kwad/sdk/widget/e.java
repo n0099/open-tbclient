@@ -11,13 +11,6 @@ import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.download.a.a;
 import com.kwad.sdk.core.page.widget.webview.KsAdWebView;
 import com.kwad.sdk.core.report.p;
@@ -30,8 +23,6 @@ import com.kwad.sdk.utils.be;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class e {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public final KsAdWebView a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -66,91 +57,32 @@ public class e {
 
     /* loaded from: classes3.dex */
     public static class a implements z.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<e> a;
 
         public a(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
             this.a = new WeakReference<>(eVar);
         }
 
         @Override // com.kwad.sdk.core.webview.jshandler.z.b
         public void a(int i2) {
-            e eVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (eVar = this.a.get()) == null) {
-                return;
+            e eVar = this.a.get();
+            if (eVar != null) {
+                eVar.a(i2);
             }
-            eVar.a(i2);
         }
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
     public e(KsAdWebView ksAdWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksAdWebView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         this.a = ksAdWebView;
-        ksAdWebView.setOnTouchListener(new View.OnTouchListener(this) { // from class: com.kwad.sdk.widget.e.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        ksAdWebView.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.widget.e.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
-                    if (motionEvent.getAction() == 0) {
-                        this.a.f60360b = SystemClock.elapsedRealtime();
-                        return false;
-                    }
+                if (motionEvent.getAction() == 0) {
+                    e.this.f60360b = SystemClock.elapsedRealtime();
                     return false;
                 }
-                return invokeLL.booleanValue;
+                return false;
             }
         });
         a(this.a);
@@ -158,8 +90,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) || f() == null) {
+        if (f() == null) {
             return;
         }
         long X = com.kwad.sdk.core.config.b.X();
@@ -167,163 +98,94 @@ public class e {
             p.a aVar = new p.a();
             aVar.f58262b = i2;
             aVar.f58267g = this.f60361c.getTouchCoords();
-            com.kwad.sdk.core.download.a.a.a(new a.C2076a(this.f60362d).a(this.f60363e).a(this.f60364f).a(false).a(aVar).c(true));
+            com.kwad.sdk.core.download.a.a.a(new a.C2083a(this.f60362d).a(this.f60363e).a(this.f60364f).a(false).a(aVar).c(true));
         }
     }
 
     private void a(KsAdWebView ksAdWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, ksAdWebView) == null) {
-            WebSettings a2 = be.a(ksAdWebView);
-            a2.setCacheMode(2);
-            if (Build.VERSION.SDK_INT >= 17 && com.kwad.sdk.core.config.b.I()) {
-                a2.setMediaPlaybackRequiresUserGesture(false);
-            }
-            ksAdWebView.setWebChromeClient(new WebChromeClient(this) { // from class: com.kwad.sdk.widget.e.2
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ e a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
-                }
-
-                @Override // android.webkit.WebChromeClient
-                public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, consoleMessage)) == null) {
-                        com.kwad.sdk.core.d.a.a("PlayableViewHelper", "onConsoleMessage: " + consoleMessage.message());
-                        return super.onConsoleMessage(consoleMessage);
-                    }
-                    return invokeL.booleanValue;
-                }
-            });
+        WebSettings a2 = be.a(ksAdWebView);
+        a2.setCacheMode(2);
+        if (Build.VERSION.SDK_INT >= 17 && com.kwad.sdk.core.config.b.I()) {
+            a2.setMediaPlaybackRequiresUserGesture(false);
         }
+        ksAdWebView.setWebChromeClient(new WebChromeClient() { // from class: com.kwad.sdk.widget.e.2
+            @Override // android.webkit.WebChromeClient
+            public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+                com.kwad.sdk.core.d.a.a("PlayableViewHelper", "onConsoleMessage: " + consoleMessage.message());
+                return super.onConsoleMessage(consoleMessage);
+            }
+        });
     }
 
     private void a(com.kwad.sdk.core.webview.a aVar, com.kwad.sdk.core.webview.kwai.g gVar, com.kwad.sdk.core.download.a.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, this, aVar, gVar, bVar) == null) {
-            gVar.a(new z(aVar, bVar, new a(this)));
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.p(new p.b(this) { // from class: com.kwad.sdk.widget.e.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ e a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = this;
+        gVar.a(new z(aVar, bVar, new a(this)));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.p(new p.b() { // from class: com.kwad.sdk.widget.e.3
+            @Override // com.kwad.sdk.core.webview.jshandler.p.b
+            public void a(p.a aVar2) {
+                e.this.f60367i = aVar2.a;
+                if (aVar2.a == 1 && e.this.f60363e != null) {
+                    com.kwad.sdk.core.report.a.o(e.this.f60363e);
                 }
-
-                @Override // com.kwad.sdk.core.webview.jshandler.p.b
-                public void a(p.a aVar2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
-                        this.a.f60367i = aVar2.a;
-                        if (aVar2.a == 1 && this.a.f60363e != null) {
-                            com.kwad.sdk.core.report.a.o(this.a.f60363e);
-                        }
-                        if (this.a.f60368j != null) {
-                            this.a.f60368j.a(aVar2);
-                        }
-                    }
+                if (e.this.f60368j != null) {
+                    e.this.f60368j.a(aVar2);
                 }
-            }));
-            gVar.a(new com.kwad.sdk.core.webview.jshandler.k(aVar));
-            s sVar = new s();
-            this.f60366h = sVar;
-            gVar.a(sVar);
-        }
+            }
+        }));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.k(aVar));
+        s sVar = new s();
+        this.f60366h = sVar;
+        gVar.a(sVar);
     }
 
     private void g() {
-        com.kwad.sdk.core.webview.kwai.g gVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (gVar = this.f60365g) == null) {
-            return;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.f60365g;
+        if (gVar != null) {
+            gVar.a();
+            this.f60365g = null;
         }
-        gVar.a();
-        this.f60365g = null;
     }
 
     public void a() {
-        com.kwad.sdk.core.webview.kwai.g gVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.f60365g) == null) {
-            return;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.f60365g;
+        if (gVar != null) {
+            gVar.a();
+            this.f60365g = null;
         }
-        gVar.a();
-        this.f60365g = null;
     }
 
     @SuppressLint({"AddJavascriptInterface"})
     public void a(AdTemplate adTemplate, AdBaseFrameLayout adBaseFrameLayout, com.kwad.sdk.core.download.a.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adTemplate, adBaseFrameLayout, bVar) == null) {
-            if (this.a == null) {
-                com.kwad.sdk.core.d.a.d("PlayableViewHelper", "registerJsBridge mPlayableView is null");
-                return;
-            }
-            this.f60362d = adBaseFrameLayout.getContext();
-            this.f60361c = adBaseFrameLayout;
-            this.f60363e = adTemplate;
-            this.f60364f = bVar;
-            this.f60367i = -1;
-            com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-            aVar.a(adTemplate);
-            aVar.a = 0;
-            AdBaseFrameLayout adBaseFrameLayout2 = this.f60361c;
-            aVar.f58536b = adBaseFrameLayout2;
-            aVar.f58538d = adBaseFrameLayout2;
-            aVar.f58539e = this.a;
-            aVar.f58540f = bVar;
-            g();
-            com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.a);
-            this.f60365g = gVar;
-            a(aVar, gVar, bVar);
-            this.a.addJavascriptInterface(this.f60365g, "KwaiAd");
+        if (this.a == null) {
+            com.kwad.sdk.core.d.a.d("PlayableViewHelper", "registerJsBridge mPlayableView is null");
+            return;
         }
+        this.f60362d = adBaseFrameLayout.getContext();
+        this.f60361c = adBaseFrameLayout;
+        this.f60363e = adTemplate;
+        this.f60364f = bVar;
+        this.f60367i = -1;
+        com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
+        aVar.a(adTemplate);
+        aVar.a = 0;
+        AdBaseFrameLayout adBaseFrameLayout2 = this.f60361c;
+        aVar.f58536b = adBaseFrameLayout2;
+        aVar.f58538d = adBaseFrameLayout2;
+        aVar.f58539e = this.a;
+        aVar.f58540f = bVar;
+        g();
+        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.a);
+        this.f60365g = gVar;
+        a(aVar, gVar, bVar);
+        this.a.addJavascriptInterface(this.f60365g, "KwaiAd");
     }
 
     public void a(@Nullable p.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f60368j = bVar;
-        }
+        this.f60368j = bVar;
     }
 
     public void b() {
-        AdTemplate adTemplate;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (adTemplate = this.f60363e) == null || this.a == null) {
+        AdTemplate adTemplate = this.f60363e;
+        if (adTemplate == null || this.a == null) {
             return;
         }
         String ap = com.kwad.sdk.core.response.a.a.ap(com.kwad.sdk.core.response.a.d.j(adTemplate));
@@ -334,8 +196,7 @@ public class e {
     }
 
     public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null) {
+        if (this.a == null) {
             return;
         }
         com.kwad.sdk.core.d.a.a("PlayableViewHelper", "showPlayable");
@@ -351,34 +212,27 @@ public class e {
     }
 
     public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            com.kwad.sdk.core.d.a.a("PlayableViewHelper", "showPlayable");
-            if (this.a == null) {
-                return;
-            }
-            s sVar = this.f60366h;
-            if (sVar != null) {
-                sVar.e();
-            }
-            this.a.setVisibility(8);
-            s sVar2 = this.f60366h;
-            if (sVar2 != null) {
-                sVar2.f();
-            }
+        com.kwad.sdk.core.d.a.a("PlayableViewHelper", "showPlayable");
+        if (this.a == null) {
+            return;
+        }
+        s sVar = this.f60366h;
+        if (sVar != null) {
+            sVar.e();
+        }
+        this.a.setVisibility(8);
+        s sVar2 = this.f60366h;
+        if (sVar2 != null) {
+            sVar2.f();
         }
     }
 
     public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a != null && this.f60367i == 1 : invokeV.booleanValue;
+        return this.a != null && this.f60367i == 1;
     }
 
     @Nullable
     public AdTemplate f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f60363e : (AdTemplate) invokeV.objValue;
+        return this.f60363e;
     }
 }

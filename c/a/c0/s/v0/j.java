@@ -28,10 +28,10 @@ public class j {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f2112e;
+        public final /* synthetic */ View f2539e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f2113f;
+        public final /* synthetic */ Activity f2540f;
 
         public a(View view, Activity activity) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class j {
                     return;
                 }
             }
-            this.f2112e = view;
-            this.f2113f = activity;
+            this.f2539e = view;
+            this.f2540f = activity;
         }
 
         @Override // java.lang.Runnable
@@ -57,13 +57,13 @@ public class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int g2 = j.g();
-                int systemUiVisibility = this.f2112e.getSystemUiVisibility();
-                int h2 = j.h(this.f2113f);
+                int systemUiVisibility = this.f2539e.getSystemUiVisibility();
+                int h2 = j.h(this.f2540f);
                 if (g2 != systemUiVisibility) {
                     h2 |= systemUiVisibility;
                 }
                 h.b(BdViewOpUtils.TAG, "RESTORE KEY_SYSTEM_UI_VISIBILITY=" + h2);
-                this.f2112e.setSystemUiVisibility(h2);
+                this.f2539e.setSystemUiVisibility(h2);
             }
         }
     }

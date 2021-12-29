@@ -22,7 +22,7 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f1989k;
+    public boolean f2416k;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -30,7 +30,7 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f1990e;
+        public final /* synthetic */ c f2417e;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -47,14 +47,14 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
                     return;
                 }
             }
-            this.f1990e = cVar;
+            this.f2417e = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1990e.c0(false);
+                this.f2417e.V(false);
             }
         }
     }
@@ -74,67 +74,54 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
     }
 
     @Override // c.a.c0.s.j0.l
-    public void V() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1995i = new FrameLayout(this.f1987g);
+            this.f2422i = new FrameLayout(this.f2414g);
         }
     }
 
-    public void Z() {
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f1988h.removeMessages(1);
+            this.f2415h.removeMessages(1);
         }
     }
 
-    public void a0(int i2) {
+    public void T(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            Z();
-            this.f1988h.sendMessageDelayed(this.f1988h.obtainMessage(1), i2);
+            S();
+            this.f2415h.sendMessageDelayed(this.f2415h.obtainMessage(1), i2);
         }
     }
 
-    public boolean b0() {
+    public boolean U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1989k : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2416k : invokeV.booleanValue;
     }
 
-    public void c0(boolean z) {
+    public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            d0(z, false);
+            W(z, false);
         }
     }
 
-    @Override // c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.f0.j
-    public void d(@NonNull c.a.c0.s.c0.p pVar) {
+    public void W(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pVar) == null) {
-            if (PlayerEvent.ACTION_ON_COMPLETE.equals(pVar.c())) {
-                c0(false);
-            } else if (PlayerEvent.ACTION_ON_ERROR.equals(pVar.c())) {
-                c0(false);
-            }
-            S(pVar);
-        }
-    }
-
-    public void d0(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f1988h.removeMessages(2);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.f2415h.removeMessages(2);
             boolean z3 = z && (!v.W0() || !u().V0());
             if (z3) {
-                a0(3000);
-                this.f1989k = true;
+                T(3000);
+                this.f2416k = true;
             } else {
-                Z();
-                this.f1989k = false;
+                S();
+                this.f2416k = false;
             }
-            Iterator it = this.f1996j.iterator();
+            Iterator it = this.f2423j.iterator();
             while (it.hasNext()) {
                 ((c.a.c0.s.b0.g) it.next()).p(z3, z2);
             }
@@ -145,6 +132,19 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
                 c.a.c0.s.v0.j.o(c.a.c0.s.v0.j.e(getActivity()), true);
             }
             u().y().y(z3);
+        }
+    }
+
+    @Override // c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.f0.j
+    public void d(@NonNull c.a.c0.s.c0.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, pVar) == null) {
+            if (PlayerEvent.ACTION_ON_COMPLETE.equals(pVar.c())) {
+                V(false);
+            } else if (PlayerEvent.ACTION_ON_ERROR.equals(pVar.c())) {
+                V(false);
+            }
+            M(pVar);
         }
     }
 
@@ -246,16 +246,16 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
             }
             switch (c2) {
                 case 0:
-                    Z();
+                    S();
                     break;
                 case 1:
-                    c0(!this.f1989k);
+                    V(!this.f2416k);
                     break;
                 case 2:
-                    this.f1988h.postDelayed(new a(this), 100L);
+                    this.f2415h.postDelayed(new a(this), 100L);
                     break;
                 case 3:
-                    c0(true);
+                    V(true);
                     v().h();
                     break;
                 case 4:
@@ -266,10 +266,10 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
                 case '\t':
                 case '\n':
                 case 11:
-                    c0(false);
+                    V(false);
                     break;
             }
-            S(pVar);
+            M(pVar);
         }
     }
 
@@ -278,7 +278,7 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onContainerDetach();
-            c0(false);
+            V(false);
         }
     }
 
@@ -288,9 +288,9 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, pVar) == null) {
             if (ControlEvent.ACTION_SHOW_TIP.equals(pVar.c())) {
-                c0(false);
+                V(false);
             }
-            S(pVar);
+            M(pVar);
         }
     }
 
@@ -300,7 +300,7 @@ public abstract class c extends h<FrameLayout, c.a.c0.s.b0.g> {
         if (interceptable == null || interceptable.invokeL(1048586, this, message) == null) {
             super.z(message);
             if (message.what == 1) {
-                c0(false);
+                V(false);
             }
         }
     }

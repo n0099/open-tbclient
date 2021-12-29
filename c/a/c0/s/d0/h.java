@@ -25,18 +25,18 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f1949e;
+    public static String f2376e;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f1950b;
+    public ArrayList<String> f2377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<c> f1951c;
+    public ArrayList<c> f2378c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<c> f1952d;
+    public ArrayList<c> f2379d;
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
@@ -74,7 +74,7 @@ public class h {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1953b;
+        public String f2380b;
 
         public c(h hVar, String str, String str2) {
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class h {
                 }
             }
             this.a = str;
-            this.f1953b = str2;
+            this.f2380b = str2;
         }
     }
 
@@ -116,14 +116,14 @@ public class h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f1950b == null) {
+            if (this.f2377b == null) {
                 m();
             }
-            ArrayList<String> arrayList = this.f1950b;
+            ArrayList<String> arrayList = this.f2377b;
             if (arrayList == null || arrayList.size() <= 0) {
                 return false;
             }
-            Iterator<String> it = this.f1950b.iterator();
+            Iterator<String> it = this.f2377b.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && str.contains(next)) {
@@ -145,17 +145,17 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f1952d == null) {
+            if (this.f2379d == null) {
                 l();
             }
-            ArrayList<c> arrayList = this.f1952d;
+            ArrayList<c> arrayList = this.f2379d;
             if (arrayList == null || arrayList.size() <= 0) {
                 return false;
             }
-            Iterator<c> it = this.f1952d.iterator();
+            Iterator<c> it = this.f2379d.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (c.a.c0.s.v0.i.a(next.a, next.f1953b)) {
+                if (c.a.c0.s.v0.i.a(next.a, next.f2380b)) {
                     return true;
                 }
             }
@@ -219,17 +219,17 @@ public class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f1951c == null) {
+            if (this.f2378c == null) {
                 n();
             }
-            ArrayList<c> arrayList = this.f1951c;
+            ArrayList<c> arrayList = this.f2378c;
             if (arrayList == null || arrayList.size() <= 0) {
                 return false;
             }
-            Iterator<c> it = this.f1951c.iterator();
+            Iterator<c> it = this.f2378c.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (c.a.c0.s.v0.i.a(next.a, next.f1953b)) {
+                if (c.a.c0.s.v0.i.a(next.a, next.f2380b)) {
                     return true;
                 }
             }
@@ -263,13 +263,13 @@ public class h {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (TextUtils.isEmpty(f1949e)) {
-                f1949e = i("video_pcdn_scene_control_android");
+            if (TextUtils.isEmpty(f2376e)) {
+                f2376e = i("video_pcdn_scene_control_android");
             }
-            if (TextUtils.isEmpty(f1949e) || i2 >= f1949e.length() || i2 < 0) {
+            if (TextUtils.isEmpty(f2376e) || i2 >= f2376e.length() || i2 < 0) {
                 return i2 >= 0 && i2 < 4;
             }
-            return "1".equals(String.valueOf(f1949e.charAt(i2)));
+            return "1".equals(String.valueOf(f2376e.charAt(i2)));
         }
         return invokeI.booleanValue;
     }
@@ -281,7 +281,7 @@ public class h {
             if (TextUtils.isEmpty(f2)) {
                 return;
             }
-            this.f1952d = q(f2);
+            this.f2379d = q(f2);
         }
     }
 
@@ -292,7 +292,7 @@ public class h {
             if (TextUtils.isEmpty(g2)) {
                 return;
             }
-            this.f1950b = p(g2);
+            this.f2377b = p(g2);
         }
     }
 
@@ -303,7 +303,7 @@ public class h {
             if (TextUtils.isEmpty(n)) {
                 return;
             }
-            this.f1951c = q(n);
+            this.f2378c = q(n);
         }
     }
 

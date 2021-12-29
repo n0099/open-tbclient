@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -69,7 +69,7 @@ public class ImageLoggerHelper {
                 }
                 return UtilHelper.getIpFromDomain(host);
             } catch (Exception e2) {
-                BdLog.e(e2);
+                BdLog.e(e2, true);
                 return null;
             }
         }
@@ -83,7 +83,7 @@ public class ImageLoggerHelper {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0 || m.B()) {
+                if (indexOf <= 0 || n.B()) {
                     return "";
                 }
                 this.lastGetCdnIpTime = currentTimeMillis;
@@ -103,7 +103,7 @@ public class ImageLoggerHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (m.B()) {
+                if (n.B()) {
                     return "";
                 }
                 this.lastGetTiebaIpTime = currentTimeMillis;

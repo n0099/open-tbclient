@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class a implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HandlerC0065a a;
+    public final HandlerC0086a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1945b;
+    public int f2372b;
 
     /* renamed from: c.a.c0.s.d0.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0065a extends Handler {
+    public class HandlerC0086a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0065a(a aVar, Looper looper) {
+        public HandlerC0086a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,7 +50,7 @@ public abstract class a implements e {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 this.a.doTask();
-                sendMessageDelayed(obtainMessage(1), this.a.f1945b);
+                sendMessageDelayed(obtainMessage(1), this.a.f2372b);
             }
         }
     }
@@ -68,8 +68,8 @@ public abstract class a implements e {
                 return;
             }
         }
-        this.a = new HandlerC0065a(this, Looper.getMainLooper());
-        this.f1945b = 500;
+        this.a = new HandlerC0086a(this, Looper.getMainLooper());
+        this.f2372b = 500;
     }
 
     @Override // c.a.c0.s.d0.e

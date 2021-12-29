@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.t.h;
+import c.a.a1.t.h;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;

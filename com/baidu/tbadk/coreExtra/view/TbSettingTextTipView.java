@@ -11,8 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.r0.s.v.c;
+import c.a.d.f.p.n;
+import c.a.s0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -31,10 +31,10 @@ public class TbSettingTextTipView extends FrameLayout {
     public View dividerline;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42158e;
+    public boolean f42324e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42159f;
+    public int f42325f;
     public ImageView imageView;
     public Context mContext;
     public TextView textView;
@@ -59,7 +59,7 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f42158e = true;
+        this.f42324e = true;
         this.mContext = context;
         initialieView();
         initializeStyle(attributeSet);
@@ -82,13 +82,13 @@ public class TbSettingTextTipView extends FrameLayout {
     public void changeStyleTo1080() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int f2 = m.f(this.mContext, R.dimen.tbds42);
-            int f3 = m.f(this.mContext, R.dimen.tbds33);
+            int f2 = n.f(this.mContext, R.dimen.tbds42);
+            int f3 = n.f(this.mContext, R.dimen.tbds33);
             setMainTextSize(f2);
             setTipTextSize(f3);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
             layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-            ((LinearLayout.LayoutParams) this.tipView.getLayoutParams()).setMargins(0, 0, m.f(this.mContext, R.dimen.tbds18), 0);
+            ((LinearLayout.LayoutParams) this.tipView.getLayoutParams()).setMargins(0, 0, n.f(this.mContext, R.dimen.tbds18), 0);
             this.container.getLayoutParams().height = -1;
             requestLayout();
         }
@@ -149,12 +149,12 @@ public class TbSettingTextTipView extends FrameLayout {
                 if (string2 != null) {
                     this.tipView.setText(string2);
                 }
-                this.f42158e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
+                this.f42324e = obtainStyledAttributes.getBoolean(R$styleable.TbSettingView_settingShowArraw, true);
                 obtainStyledAttributes.recycle();
             }
             this.container.setClickable(false);
             this.container.setFocusable(false);
-            if (this.f42158e) {
+            if (this.f42324e) {
                 return;
             }
             this.imageView.setVisibility(4);
@@ -167,7 +167,7 @@ public class TbSettingTextTipView extends FrameLayout {
             setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
             SkinManager.setViewTextColor(this.textView, R.color.CAM_X0105);
             TextView textView = this.tipView;
-            int i3 = this.f42159f;
+            int i3 = this.f42325f;
             if (i3 == 0) {
                 i3 = R.color.CAM_X0109;
             }
@@ -210,7 +210,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void setTipViewColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.f42159f = i2;
+            this.f42325f = i2;
             SkinManager.setViewTextColor(this.tipView, i2);
         }
     }
@@ -240,7 +240,7 @@ public class TbSettingTextTipView extends FrameLayout {
                 return;
             }
         }
-        this.f42158e = true;
+        this.f42324e = true;
         this.mContext = context;
         initialieView();
         initializeStyle(null);

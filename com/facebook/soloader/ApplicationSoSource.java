@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ApplicationSoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

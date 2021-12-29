@@ -57,7 +57,7 @@ public class f implements c, Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{bVar, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             for (long j4 = 0; j4 < j2; j4++) {
-                c.AbstractC2063c a = bVar.a(j4);
+                c.AbstractC2070c a = bVar.a(j4);
                 if (a.a == 1) {
                     long j5 = a.f57536c;
                     if (j5 <= j3 && j3 <= a.f57537d + j5) {
@@ -159,7 +159,7 @@ public class f implements c, Closeable {
                     j2 = 0;
                     break;
                 }
-                c.AbstractC2063c a2 = a.a(j4);
+                c.AbstractC2070c a2 = a.a(j4);
                 if (a2.a == 2) {
                     j2 = a2.f57535b;
                     break;

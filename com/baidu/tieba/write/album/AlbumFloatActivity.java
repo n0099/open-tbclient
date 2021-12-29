@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.x0.a;
-import c.a.s0.n4.g;
-import c.a.s0.n4.u.e;
+import c.a.s0.y0.b;
+import c.a.t0.o4.g;
+import c.a.t0.o4.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,18 +95,18 @@ public class AlbumFloatActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.albumView == null) {
                 e eVar = new e(this, null, linearLayout.getId(), g.root_stub);
                 this.albumView = eVar;
-                eVar.S(navigationBar);
+                eVar.N(navigationBar);
             }
             return this.albumView;
         }
-        return (a) invokeLL.objValue;
+        return (b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -115,7 +115,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
-                this.albumView.G(intent);
+                this.albumView.H(intent);
             }
         }
     }
@@ -157,7 +157,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                this.albumView.z();
+                this.albumView.A();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -171,7 +171,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.A();
+                eVar.B();
             }
             super.onPause();
         }
@@ -184,7 +184,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.B(i2, strArr, iArr);
+                eVar.C(i2, strArr, iArr);
             }
         }
     }
@@ -208,7 +208,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.D();
+                eVar.E();
             }
         }
     }
@@ -220,7 +220,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.E();
+                eVar.F();
             }
         }
     }

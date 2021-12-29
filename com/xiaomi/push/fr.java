@@ -26,13 +26,13 @@ public final class fr {
     public static Vector<String> f415a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f63475b = 330000;
+    public static int f63470b = 330000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f63476c = 600000;
+    public static int f63471c = 600000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f63477d = 330000;
+    public static int f63472d = 330000;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,7 +67,7 @@ public final class fr {
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
                                     a = a(newPullParser, a);
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
-                                    f63475b = a(newPullParser, f63475b);
+                                    f63470b = a(newPullParser, f63470b);
                                 } else if (newPullParser.getName().equals("mechName")) {
                                     f415a.add(newPullParser.nextText());
                                 }
@@ -105,7 +105,7 @@ public final class fr {
     public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f63475b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f63470b : invokeV.intValue;
     }
 
     public static int a(XmlPullParser xmlPullParser, int i2) {
@@ -163,6 +163,6 @@ public final class fr {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f63476c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? f63471c : invokeV.intValue;
     }
 }

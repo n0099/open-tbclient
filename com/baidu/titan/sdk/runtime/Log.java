@@ -3,11 +3,11 @@ package com.baidu.titan.sdk.runtime;
 import com.baidu.titan.sdk.runtime.annotation.DisableIntercept;
 import java.util.logging.Level;
 @DisableIntercept
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class Log {
     public static Logging logging;
 
-    /* loaded from: classes12.dex */
+    /* loaded from: classes13.dex */
     public interface Logging {
         boolean isLoggable(Level level);
 

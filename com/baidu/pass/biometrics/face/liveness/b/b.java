@@ -9,16 +9,16 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f38695h = 0;
+    public static final int f38851h = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f38696i = 1;
+    public static final int f38852i = 1;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final int f38697j = 2;
+    public static final int f38853j = 2;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f38698k = 3;
+    public static final int f38854k = 3;
     public static final int l = 4;
     public static final int m = 5;
     public static final int n = 6;
@@ -37,22 +37,22 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38699b;
+    public boolean f38855b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38700c;
+    public boolean f38856c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f38701d;
+    public long f38857d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f38702e;
+    public long f38858e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f38703f;
+    public boolean f38859f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38704g;
+    public boolean f38860g;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -68,10 +68,10 @@ public class b {
             }
         }
         this.a = 0;
-        this.f38699b = false;
-        this.f38700c = false;
-        this.f38702e = 20000L;
-        this.f38703f = false;
-        this.f38704g = false;
+        this.f38855b = false;
+        this.f38856c = false;
+        this.f38858e = 20000L;
+        this.f38859f = false;
+        this.f38860g = false;
     }
 }

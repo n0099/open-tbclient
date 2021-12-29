@@ -12,15 +12,6 @@ import android.view.TextureView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
@@ -32,9 +23,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Deprecated
 /* loaded from: classes3.dex */
 public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTextureListener, d {
-    public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean o;
-    public transient /* synthetic */ FieldHolder $fh;
+    public static AtomicBoolean o = new AtomicBoolean(false);
     public BroadcastReceiver A;
     public int a;
 
@@ -78,363 +67,136 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     public c.e u;
     public c.h v;
     public c.b w;
-    public c.InterfaceC2087c x;
+    public c.InterfaceC2094c x;
     public c.d y;
     public c.a z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(800676657, "Lcom/kwad/sdk/core/video/videoview/b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(800676657, "Lcom/kwad/sdk/core/video/videoview/b;");
-                return;
-            }
-        }
-        o = new AtomicBoolean(false);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
         this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
         this.a = 0;
         this.m = false;
         this.p = false;
         this.q = false;
-        this.u = new c.e(this) { // from class: com.kwad.sdk.core.video.videoview.b.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.u = new c.e() { // from class: com.kwad.sdk.core.video.videoview.b.1
             @Override // com.kwad.sdk.core.video.kwai.c.e
             public void a(com.kwad.sdk.core.video.kwai.c cVar) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) {
-                    this.a.a = 2;
-                    this.a.f58462g.a(this.a.a);
-                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
-                    cVar.f();
-                    if (this.a.m) {
-                        cVar.a((int) as.a(this.a.f58457b, this.a.f58465j));
-                    }
-                    if (this.a.n != 0) {
-                        cVar.a((int) this.a.n);
-                    }
+                b.this.a = 2;
+                b.this.f58462g.a(b.this.a);
+                com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onPrepared ——> STATE_PREPARED");
+                cVar.f();
+                if (b.this.m) {
+                    cVar.a((int) as.a(b.this.f58457b, b.this.f58465j));
+                }
+                if (b.this.n != 0) {
+                    cVar.a((int) b.this.n);
                 }
             }
         };
-        this.v = new c.h(this) { // from class: com.kwad.sdk.core.video.videoview.b.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.v = new c.h() { // from class: com.kwad.sdk.core.video.videoview.b.2
             @Override // com.kwad.sdk.core.video.kwai.c.h
-            public void a(com.kwad.sdk.core.video.kwai.c cVar, int i4, int i5) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(1048576, this, cVar, i4, i5) == null) {
-                    if (!this.a.q || i5 <= i4) {
-                        this.a.f58461f.a(i4, i5);
-                        com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onVideoSizeChanged ——> width：" + i4 + "， height：" + i5);
-                    }
+            public void a(com.kwad.sdk.core.video.kwai.c cVar, int i2, int i3) {
+                if (!b.this.q || i3 <= i2) {
+                    b.this.f58461f.a(i2, i3);
+                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onVideoSizeChanged ——> width：" + i2 + "， height：" + i3);
                 }
             }
         };
-        this.w = new c.b(this) { // from class: com.kwad.sdk.core.video.videoview.b.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.w = new c.b() { // from class: com.kwad.sdk.core.video.videoview.b.3
             @Override // com.kwad.sdk.core.video.kwai.c.b
             public void a(com.kwad.sdk.core.video.kwai.c cVar) {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, cVar) == null) || this.a.a == 9) {
-                    return;
+                if (b.this.a != 9) {
+                    b.this.a = 9;
+                    b.this.f58462g.a(b.this.a);
+                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
+                    b.this.f58460e.setKeepScreenOn(false);
                 }
-                this.a.a = 9;
-                this.a.f58462g.a(this.a.a);
-                com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onCompletion ——> STATE_COMPLETED");
-                this.a.f58460e.setKeepScreenOn(false);
             }
         };
-        this.x = new c.InterfaceC2087c(this) { // from class: com.kwad.sdk.core.video.videoview.b.4
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC2087c
-            public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i4, int i5) {
-                InterceptResult invokeLII;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, cVar, i4, i5)) == null) {
-                    if (i4 != -38) {
-                        this.a.a = -1;
-                        this.a.f58462g.a(i4, i5);
-                        this.a.f58462g.a(this.a.a);
-                        com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i4 + ", extra: " + i5);
-                        return true;
-                    }
+        this.x = new c.InterfaceC2094c() { // from class: com.kwad.sdk.core.video.videoview.b.4
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC2094c
+            public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i2, int i3) {
+                if (i2 != -38) {
+                    b.this.a = -1;
+                    b.this.f58462g.a(i2, i3);
+                    b.this.f58462g.a(b.this.a);
+                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onError ——> STATE_ERROR ———— what：" + i2 + ", extra: " + i3);
                     return true;
                 }
-                return invokeLII.booleanValue;
+                return true;
             }
         };
-        this.y = new c.d(this) { // from class: com.kwad.sdk.core.video.videoview.b.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.y = new c.d() { // from class: com.kwad.sdk.core.video.videoview.b.5
             @Override // com.kwad.sdk.core.video.kwai.c.d
-            public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i4, int i5) {
-                InterceptResult invokeLII;
+            public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i2, int i3) {
                 StringBuilder sb;
                 String str;
                 String str2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, cVar, i4, i5)) == null) {
-                    if (i4 == 3) {
-                        this.a.a = 4;
-                        this.a.f58462g.a(this.a.a);
-                        str = "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING";
-                    } else if (i4 == 701) {
-                        if (this.a.a == 5 || this.a.a == 7) {
-                            this.a.a = 7;
-                            str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PAUSED";
-                        } else {
-                            this.a.a = 6;
-                            str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING";
-                        }
-                        com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str2);
-                        this.a.f58462g.a(this.a.a);
+                if (i2 == 3) {
+                    b.this.a = 4;
+                    b.this.f58462g.a(b.this.a);
+                    str = "onInfo ——> MEDIA_INFO_VIDEO_RENDERING_START：STATE_PLAYING";
+                } else if (i2 == 701) {
+                    if (b.this.a == 5 || b.this.a == 7) {
+                        b.this.a = 7;
+                        str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PAUSED";
+                    } else {
+                        b.this.a = 6;
+                        str2 = "onInfo ——> MEDIA_INFO_BUFFERING_START：STATE_BUFFERING_PLAYING";
+                    }
+                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str2);
+                    b.this.f58462g.a(b.this.a);
+                    return true;
+                } else if (i2 == 702) {
+                    if (b.this.a == 6) {
+                        b.this.a = 4;
+                        b.this.f58462g.a(b.this.a);
+                        com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
+                    }
+                    if (b.this.a != 7) {
                         return true;
-                    } else if (i4 == 702) {
-                        if (this.a.a == 6) {
-                            this.a.a = 4;
-                            this.a.f58462g.a(this.a.a);
-                            com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PLAYING");
-                        }
-                        if (this.a.a != 7) {
+                    }
+                    b.this.a = 5;
+                    b.this.f58462g.a(b.this.a);
+                    str = "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED";
+                } else {
+                    if (i2 == 10001) {
+                        if (b.this.f58461f == null) {
                             return true;
                         }
-                        this.a.a = 5;
-                        this.a.f58462g.a(this.a.a);
-                        str = "onInfo ——> MEDIA_INFO_BUFFERING_END： STATE_PAUSED";
+                        b.this.f58461f.setRotation(i3);
+                        sb = new StringBuilder();
+                        sb.append("视频旋转角度：");
+                        sb.append(i3);
+                    } else if (i2 == 801) {
+                        str = "视频不能seekTo，为直播视频";
                     } else {
-                        if (i4 == 10001) {
-                            if (this.a.f58461f == null) {
-                                return true;
-                            }
-                            this.a.f58461f.setRotation(i5);
-                            sb = new StringBuilder();
-                            sb.append("视频旋转角度：");
-                            sb.append(i5);
-                        } else if (i4 == 801) {
-                            str = "视频不能seekTo，为直播视频";
-                        } else {
-                            sb = new StringBuilder();
-                            sb.append("onInfo ——> what：");
-                            sb.append(i4);
-                        }
-                        str = sb.toString();
+                        sb = new StringBuilder();
+                        sb.append("onInfo ——> what：");
+                        sb.append(i2);
                     }
-                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
-                    return true;
+                    str = sb.toString();
                 }
-                return invokeLII.booleanValue;
+                com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
+                return true;
             }
         };
-        this.z = new c.a(this) { // from class: com.kwad.sdk.core.video.videoview.b.6
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.z = new c.a() { // from class: com.kwad.sdk.core.video.videoview.b.6
             @Override // com.kwad.sdk.core.video.kwai.c.a
-            public void a(com.kwad.sdk.core.video.kwai.c cVar, int i4) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, cVar, i4) == null) {
-                    this.a.l = i4;
-                }
+            public void a(com.kwad.sdk.core.video.kwai.c cVar, int i2) {
+                b.this.l = i2;
             }
         };
-        this.A = new BroadcastReceiver(this) { // from class: com.kwad.sdk.core.video.videoview.b.7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr3 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
-
+        this.A = new BroadcastReceiver() { // from class: com.kwad.sdk.core.video.videoview.b.7
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                NetworkInfo c2;
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) || (c2 = com.ksad.download.c.b.c(context2)) == null) {
-                    return;
+                NetworkInfo c2 = com.ksad.download.c.b.c(context2);
+                if (c2 != null) {
+                    c2.isConnected();
                 }
-                c2.isConnected();
             }
         };
         this.f58457b = context;
@@ -442,36 +204,24 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     private void a(AdTemplate adTemplate) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, adTemplate) == null) {
-            KSImageLoader.loadImage(this.t, com.kwad.sdk.core.response.a.d.n(adTemplate), adTemplate);
-        }
+        KSImageLoader.loadImage(this.t, com.kwad.sdk.core.response.a.d.n(adTemplate), adTemplate);
     }
 
     private void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            setBackgroundColor(-16777216);
-            this.t = q();
-            this.f58460e = new FrameLayout(this.f58457b);
-            addView(this.f58460e, new FrameLayout.LayoutParams(-1, -1));
-        }
+        setBackgroundColor(-16777216);
+        this.t = q();
+        this.f58460e = new FrameLayout(this.f58457b);
+        addView(this.f58460e, new FrameLayout.LayoutParams(-1, -1));
     }
 
     private ImageView q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
-            ImageView imageView = new ImageView(this.f58457b);
-            addView(imageView, new FrameLayout.LayoutParams(-1, -1));
-            return imageView;
-        }
-        return (ImageView) invokeV.objValue;
+        ImageView imageView = new ImageView(this.f58457b);
+        addView(imageView, new FrameLayout.LayoutParams(-1, -1));
+        return imageView;
     }
 
     private void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && this.f58459d == null) {
+        if (this.f58459d == null) {
             com.kwad.sdk.core.video.kwai.c a = com.kwad.sdk.contentalliance.detail.video.a.a(this.f58457b, false);
             this.f58459d = a;
             a.b(3);
@@ -483,8 +233,7 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     private void s() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && this.f58461f == null) {
+        if (this.f58461f == null) {
             com.kwad.sdk.core.video.a aVar = new com.kwad.sdk.core.video.a(this.f58457b);
             this.f58461f = aVar;
             aVar.setSurfaceTextureListener(this);
@@ -492,128 +241,109 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
     }
 
     private void setPlayType(int i2) {
-        com.kwad.sdk.contentalliance.detail.video.c cVar;
         VideoPlayerStatus videoPlayerStatus;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65555, this, i2) == null) || (cVar = this.r) == null || (videoPlayerStatus = cVar.f57770d) == null) {
+        com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
+        if (cVar == null || (videoPlayerStatus = cVar.f57770d) == null) {
             return;
         }
         videoPlayerStatus.mVideoPlayerType = i2;
     }
 
     private void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.f58460e.removeView(this.f58461f);
-            this.f58460e.addView(this.f58461f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
-        }
+        this.f58460e.removeView(this.f58461f);
+        this.f58460e.addView(this.f58461f, 0, new FrameLayout.LayoutParams(-1, -1, 17));
     }
 
     private void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, this) == null) {
-            this.f58460e.setKeepScreenOn(true);
-            this.f58459d.a(this.u);
-            this.f58459d.a(this.v);
-            this.f58459d.a(this.w);
-            this.f58459d.a(this.x);
-            this.f58459d.a(this.y);
-            this.f58459d.a(this.z);
-            try {
-                if (this.r != null && this.s != null) {
-                    this.r.f57771e = this.s;
-                }
-                this.f58459d.a(this.r);
-                if (this.f58464i == null) {
-                    this.f58464i = new Surface(this.f58463h);
-                }
-                this.f58459d.a(this.f58464i);
-                if (this.f58459d.e()) {
-                    this.a = 1;
-                    this.f58462g.a(1);
-                    com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_PREPARING");
-                }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                com.kwad.sdk.core.d.a.a("KSVideoPlayerViewView", "打开播放器发生错误", e2);
+        this.f58460e.setKeepScreenOn(true);
+        this.f58459d.a(this.u);
+        this.f58459d.a(this.v);
+        this.f58459d.a(this.w);
+        this.f58459d.a(this.x);
+        this.f58459d.a(this.y);
+        this.f58459d.a(this.z);
+        try {
+            if (this.r != null && this.s != null) {
+                this.r.f57771e = this.s;
             }
+            this.f58459d.a(this.r);
+            if (this.f58464i == null) {
+                this.f58464i = new Surface(this.f58463h);
+            }
+            this.f58459d.a(this.f58464i);
+            if (this.f58459d.e()) {
+                this.a = 1;
+                this.f58462g.a(1);
+                com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "STATE_PREPARING");
+            }
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+            com.kwad.sdk.core.d.a.a("KSVideoPlayerViewView", "打开播放器发生错误", e2);
         }
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void a() {
         VideoPlayerStatus videoPlayerStatus;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a != 0) {
-                com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "KSVideoPlayer只有在状态为STATE_IDLE时才能调用start方法.");
-                return;
-            }
-            r();
-            s();
-            t();
-            com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
-            if (cVar == null || (videoPlayerStatus = cVar.f57770d) == null) {
-                return;
-            }
-            setPlayType(videoPlayerStatus.mVideoPlayerType == 0 ? 1 : 3);
+        if (this.a != 0) {
+            com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", "KSVideoPlayer只有在状态为STATE_IDLE时才能调用start方法.");
+            return;
         }
+        r();
+        s();
+        t();
+        com.kwad.sdk.contentalliance.detail.video.c cVar = this.r;
+        if (cVar == null || (videoPlayerStatus = cVar.f57770d) == null) {
+            return;
+        }
+        setPlayType(videoPlayerStatus.mVideoPlayerType == 0 ? 1 : 3);
     }
 
     public void a(int i2) {
-        com.kwad.sdk.core.video.kwai.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (cVar = this.f58459d) == null) {
-            return;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar != null) {
+            cVar.a(i2);
         }
-        cVar.a(i2);
     }
 
     public void a(@NonNull com.kwad.sdk.contentalliance.detail.video.c cVar, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, map) == null) {
-            this.r = cVar;
-            this.f58465j = cVar.f57768b;
-            this.f58466k = map;
-            a(cVar.a);
-        }
+        this.r = cVar;
+        this.f58465j = cVar.f57768b;
+        this.f58466k = map;
+        a(cVar.a);
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void b() {
         String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = this.a;
-            if (i2 == 5) {
-                this.f58459d.f();
-                this.a = 4;
-                this.f58462g.a(4);
-                setPlayType(2);
-                str = "STATE_PLAYING";
-            } else if (i2 == 7) {
-                this.f58459d.f();
-                this.a = 6;
-                this.f58462g.a(6);
-                str = "STATE_BUFFERING_PLAYING";
-            } else if (i2 == 9 || i2 == -1) {
-                this.f58459d.m();
-                u();
-                setPlayType(3);
-                return;
-            } else {
-                str = "KSVideoPlayer在状态为 " + this.a + " 时不能调用restart()方法.";
-            }
-            com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
+        int i2 = this.a;
+        if (i2 == 5) {
+            this.f58459d.f();
+            this.a = 4;
+            this.f58462g.a(4);
+            setPlayType(2);
+            str = "STATE_PLAYING";
+        } else if (i2 == 7) {
+            this.f58459d.f();
+            this.a = 6;
+            this.f58462g.a(6);
+            str = "STATE_BUFFERING_PLAYING";
+        } else if (i2 == 9 || i2 == -1) {
+            this.f58459d.m();
+            u();
+            setPlayType(3);
+            return;
+        } else {
+            str = "KSVideoPlayer在状态为 " + this.a + " 时不能调用restart()方法.";
         }
+        com.kwad.sdk.core.d.a.c("KSVideoPlayerViewView", str);
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void c() {
-        com.kwad.sdk.core.video.kwai.c cVar;
         String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f58459d) == null) {
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar == null) {
             return;
         }
         int i2 = this.a;
@@ -635,142 +365,101 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a == 0 : invokeV.booleanValue;
+        return this.a == 0;
     }
 
     public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a == 6 : invokeV.booleanValue;
+        return this.a == 6;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a == 7 : invokeV.booleanValue;
+        return this.a == 7;
     }
 
     public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a == 4 : invokeV.booleanValue;
+        return this.a == 4;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public int getBufferPercentage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.l : invokeV.intValue;
+        return this.l;
     }
 
     public c getController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f58462g : (c) invokeV.objValue;
+        return this.f58462g;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public long getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
-            if (cVar != null) {
-                return cVar.j();
-            }
-            return 0L;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar != null) {
+            return cVar.j();
         }
-        return invokeV.longValue;
+        return 0L;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public long getDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
-            if (cVar != null) {
-                return cVar.k();
-            }
-            return 0L;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar != null) {
+            return cVar.k();
         }
-        return invokeV.longValue;
+        return 0L;
     }
 
     public int getMaxVolume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            AudioManager audioManager = this.f58458c;
-            if (audioManager != null) {
-                return audioManager.getStreamMaxVolume(3);
-            }
-            return 0;
+        AudioManager audioManager = this.f58458c;
+        if (audioManager != null) {
+            return audioManager.getStreamMaxVolume(3);
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     public c getVideoController() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f58462g : (c) invokeV.objValue;
+        return this.f58462g;
     }
 
     public int getVolume() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            AudioManager audioManager = this.f58458c;
-            if (audioManager != null) {
-                return audioManager.getStreamVolume(3);
-            }
-            return 0;
+        AudioManager audioManager = this.f58458c;
+        if (audioManager != null) {
+            return audioManager.getStreamVolume(3);
         }
-        return invokeV.intValue;
+        return 0;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.a == 5 : invokeV.booleanValue;
+        return this.a == 5;
     }
 
     public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.a == 9 : invokeV.booleanValue;
+        return this.a == 9;
     }
 
     public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            AudioManager audioManager = this.f58458c;
-            if (audioManager != null) {
-                audioManager.abandonAudioFocus(null);
-                this.f58458c = null;
-            }
-            com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
-            if (cVar != null) {
-                cVar.l();
-                this.f58459d = null;
-            }
-            this.f58460e.removeView(this.f58461f);
-            Surface surface = this.f58464i;
-            if (surface != null) {
-                surface.release();
-                this.f58464i = null;
-            }
-            SurfaceTexture surfaceTexture = this.f58463h;
-            if (surfaceTexture != null) {
-                surfaceTexture.release();
-                this.f58463h = null;
-            }
-            this.a = 0;
+        AudioManager audioManager = this.f58458c;
+        if (audioManager != null) {
+            audioManager.abandonAudioFocus(null);
+            this.f58458c = null;
         }
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar != null) {
+            cVar.l();
+            this.f58459d = null;
+        }
+        this.f58460e.removeView(this.f58461f);
+        Surface surface = this.f58464i;
+        if (surface != null) {
+            surface.release();
+            this.f58464i = null;
+        }
+        SurfaceTexture surfaceTexture = this.f58463h;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+            this.f58463h = null;
+        }
+        this.a = 0;
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
@@ -778,109 +467,78 @@ public class b extends AdBasePvFrameLayout implements TextureView.SurfaceTexture
         Context context;
         String str;
         long currentPosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            if (this.m) {
-                if (g() || e() || f() || h()) {
-                    context = this.f58457b;
-                    str = this.f58465j;
-                    currentPosition = getCurrentPosition();
-                } else if (i()) {
-                    context = this.f58457b;
-                    str = this.f58465j;
-                    currentPosition = 0;
-                }
-                as.a(context, str, currentPosition);
+        if (this.m) {
+            if (g() || e() || f() || h()) {
+                context = this.f58457b;
+                str = this.f58465j;
+                currentPosition = getCurrentPosition();
+            } else if (i()) {
+                context = this.f58457b;
+                str = this.f58465j;
+                currentPosition = 0;
             }
-            j();
-            c cVar = this.f58462g;
-            if (cVar != null) {
-                cVar.e();
-            }
+            as.a(context, str, currentPosition);
+        }
+        j();
+        c cVar = this.f58462g;
+        if (cVar != null) {
+            cVar.e();
         }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048596, this, surfaceTexture, i2, i3) == null) {
-            SurfaceTexture surfaceTexture2 = this.f58463h;
-            if (surfaceTexture2 != null) {
-                this.f58461f.setSurfaceTexture(surfaceTexture2);
-                return;
-            }
-            this.f58463h = surfaceTexture;
-            u();
+        SurfaceTexture surfaceTexture2 = this.f58463h;
+        if (surfaceTexture2 != null) {
+            this.f58461f.setSurfaceTexture(surfaceTexture2);
+            return;
         }
+        this.f58463h = surfaceTexture;
+        u();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, surfaceTexture)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
+        return false;
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048598, this, surfaceTexture, i2, i3) == null) {
-        }
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, surfaceTexture) == null) {
-        }
     }
 
     public void setController(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, cVar) == null) {
-            this.f58460e.removeView(this.f58462g);
-            this.f58462g = cVar;
-            cVar.e();
-            this.f58460e.addView(this.f58462g, new FrameLayout.LayoutParams(-1, -1));
-        }
+        this.f58460e.removeView(this.f58462g);
+        this.f58462g = cVar;
+        cVar.e();
+        this.f58460e.addView(this.f58462g, new FrameLayout.LayoutParams(-1, -1));
     }
 
     @Override // com.kwad.sdk.core.video.videoview.d
     public void setKsPlayLogParam(@NonNull com.kwad.sdk.contentalliance.detail.video.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, bVar) == null) {
-            this.s = bVar;
-        }
+        this.s = bVar;
     }
 
     public void setPortraitFullscreen(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
-            this.q = z;
-        }
+        this.q = z;
     }
 
     public void setVideoSoundEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.p = z;
-            com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
-            if (cVar != null) {
-                float f2 = z ? 1.0f : 0.0f;
-                cVar.a(f2, f2);
-            }
+        this.p = z;
+        com.kwad.sdk.core.video.kwai.c cVar = this.f58459d;
+        if (cVar != null) {
+            float f2 = z ? 1.0f : 0.0f;
+            cVar.a(f2, f2);
         }
     }
 
     public void setVolume(int i2) {
-        AudioManager audioManager;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (audioManager = this.f58458c) == null) {
-            return;
+        AudioManager audioManager = this.f58458c;
+        if (audioManager != null) {
+            audioManager.setStreamVolume(3, i2, 0);
         }
-        audioManager.setStreamVolume(3, i2, 0);
     }
 }

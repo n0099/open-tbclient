@@ -22,10 +22,10 @@ public class SelectAddressProxy extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ContactInfoPresenter f53400b;
+    public ContactInfoPresenter f53403b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f53401c;
+    public boolean f53404c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,13 +55,13 @@ public class SelectAddressProxy extends BaseActivity {
                 return;
             }
         }
-        this.f53401c = true;
+        this.f53404c = true;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f53400b = new ContactInfoPresenter(getActivity(), a);
+            this.f53403b = new ContactInfoPresenter(getActivity(), a);
             Intent intent = new Intent();
             intent.setAction("android.intent.action.PICK");
             intent.setType("vnd.android.cursor.dir/phone_v2");
@@ -72,7 +72,7 @@ public class SelectAddressProxy extends BaseActivity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f53400b = null;
+            this.f53403b = null;
             a = null;
             finish();
         }
@@ -110,7 +110,7 @@ public class SelectAddressProxy extends BaseActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
             if (i2 == 4) {
                 if (i3 == -1) {
-                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f53400b) != null) {
+                    if (intent != null && intent.getData() != null && (contactInfoPresenter = this.f53403b) != null) {
                         contactInfoPresenter.a(intent.getData());
                     }
                 } else {
@@ -131,9 +131,9 @@ public class SelectAddressProxy extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            if (this.f53401c) {
+            if (this.f53404c) {
                 a();
-                this.f53401c = false;
+                this.f53404c = false;
             }
         }
     }

@@ -22,6 +22,7 @@ public class Constant {
     public static final String KEY_ISLOWMEMORY = "isLowMemory";
     public static final String KEY_LAUNCH_ID = "launchid";
     public static final String KEY_LAUNCH_TYPE = "launchtype";
+    public static final String KEY_LINEMAPPING = "linemapping";
     public static final String KEY_LOG_ID = "logid";
     public static final String KEY_MEMORY = "memory";
     public static final String KEY_NETWORK = "network";

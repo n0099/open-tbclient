@@ -5,5 +5,7 @@ public interface AdRipper {
 
     RippedAd getRippedAd(Object obj);
 
+    void preParseRippedAd(Object obj);
+
     void report(Object obj, String str, long j2);
 }

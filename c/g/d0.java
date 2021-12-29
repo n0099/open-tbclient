@@ -4,33 +4,38 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.openid.sdk.OnGetOaidListener;
+import java.io.ObjectOutput;
 /* loaded from: classes9.dex */
-public final class d0 implements OnGetOaidListener {
+public abstract class d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int mVer;
 
-    public d0() {
+    public d0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.mVer = i2;
+    }
+
+    public final void srzable(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.mVer);
+            srzableInternal(objectOutput);
         }
     }
 
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public void onGetOaid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            g0.t.m = str;
-            LogPrinter.d("Got oaid:%s", str);
-        }
-    }
+    public abstract void srzableInternal(ObjectOutput objectOutput);
 }

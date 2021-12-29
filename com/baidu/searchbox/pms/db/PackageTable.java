@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public class PackageTable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String ABI = "abi";
     public static final String CHANNEL_ID = "channel_id";
     public static final String CREATE_TIME = "create_time";
     public static final String CURRENT_SIZE = "current_size";

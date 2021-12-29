@@ -2,8 +2,8 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.s0.a0.g.b.a;
-import c.a.s0.g0.b;
+import c.a.t0.a0.g.b.a;
+import c.a.t0.g0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public TbPageContext o;
     public int p;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,14 +78,14 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
         l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.s0.g0.b
+    @Override // c.a.t0.g0.b
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.ala_frs_game_live_no_data_view : invokeV.intValue;
     }
 
-    @Override // c.a.s0.g0.b
+    @Override // c.a.t0.g0.b
     public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || this.p == i2) {
@@ -104,7 +104,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.s0.g0.b
+    @Override // c.a.t0.g0.b
     /* renamed from: p */
     public void k(a aVar) {
         Interceptable interceptable = $ic;

@@ -265,7 +265,7 @@ public final class DummySurface extends Surface {
         String eglQueryString;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (v.a >= 26 || !ManufacturerUtils.SAMSUNG.equals(v.f30624c)) {
+            if (v.a >= 26 || !ManufacturerUtils.SAMSUNG.equals(v.f30702c)) {
                 return (v.a >= 26 || context.getPackageManager().hasSystemFeature("android.hardware.vr.high_performance")) && (eglQueryString = EGL14.eglQueryString(EGL14.eglGetDisplay(0), 12373)) != null && eglQueryString.contains("EGL_EXT_protected_content");
             }
             return false;

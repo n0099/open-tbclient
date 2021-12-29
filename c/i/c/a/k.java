@@ -13,7 +13,7 @@ public final class k extends AnimatorListenerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ InstallActivity f30885e;
+    public final /* synthetic */ InstallActivity f30963e;
 
     public k(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public final class k extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f30885e = installActivity;
+        this.f30963e = installActivity;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.f30885e.showSpinner();
+            this.f30963e.showSpinner();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.model.imageWatermarkType;
 
 import c.a.d.a.f;
-import c.a.r0.s.l;
+import c.a.s0.s.k;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -21,7 +21,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpMessageListener f49449e;
+    public HttpMessageListener f49672e;
 
     /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
@@ -55,7 +55,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
                 GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
                 if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                    l.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                    k.c().i(getImageWatermarkTypeResMsg.mMaskType);
                 }
             }
         }
@@ -80,7 +80,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
         }
         a aVar = new a(this, CmdConfigHttp.CMD_GET_IMAGE_WATERMARK_TYPE);
-        this.f49449e = aVar;
+        this.f49672e = aVar;
         registerListener(aVar);
         loadData();
     }

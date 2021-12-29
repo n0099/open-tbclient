@@ -1,12 +1,13 @@
 package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
-import c.a.j0.b.a.a;
+import c.a.k0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.devicescore.IDeviceScore;
 import com.baidu.searchbox.perfframe.basic.PerfFrameTrackUIUtil;
 import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
@@ -92,6 +93,16 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     }
                     jSONObject4.put("launchTime", String.valueOf(perfExpInfo.getLaunchTime()));
                     jSONObject4.put(Constant.KEY_PROCESSTIME_DURATION, perfExpInfo.getProcessDuration());
+                    jSONObject4.put("inStorage", CommonUtils.getInStorage());
+                    jSONObject4.put("exStorage", CommonUtils.getExStorage());
+                    jSONObject4.put("heap", CommonUtils.getHeapInfo());
+                    jSONObject4.put("sysMem", CommonUtils.getSysMem());
+                    jSONObject4.put("VSSRSS", CommonUtils.getVSSRSS());
+                    jSONObject4.put("PSS", CommonUtils.getPSS());
+                    jSONObject4.put("isLowMemory", CommonUtils.isLowMemory());
+                    if (AppConfig.isDebug()) {
+                        String str = "dynamicperfObj : " + jSONObject4;
+                    }
                     jSONObject2.put(Constant.KEY_DYNAMICPERF, jSONObject4);
                 }
                 if (perfExpInfo.isNeedStaticperf()) {
@@ -115,23 +126,32 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     }
                     jSONObject5.put("memory", String.valueOf(CommonUtils.getMemoryInfo()));
                     jSONObject5.put("cpu", CommonUtils.getCPUInfo());
+                    IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
+                    if (iDeviceScore != null) {
+                        jSONObject5.put("devicescore", String.valueOf(iDeviceScore.getFinalScore(context)));
+                    }
+                    jSONObject5.put("root", CommonUtils.getRootedInfo());
+                    jSONObject5.put("emulator", CommonUtils.getEmulator());
+                    jSONObject5.put("procBit", CommonUtils.getProcessBit());
+                    jSONObject5.put("ROM", CommonUtils.getROM());
+                    if (AppConfig.isDebug()) {
+                        String str2 = "staticperfObj : " + jSONObject5;
+                    }
                     jSONObject2.put(Constant.KEY_STATICPERF, jSONObject5);
                 }
                 if (perfExpInfo.isNeedMainStackTrace()) {
                     String mainThreadStackTrace = ThreadCollector.getMainThreadStackTrace();
                     if (AppConfig.isDebug()) {
-                        String str = "stack : " + mainThreadStackTrace;
+                        String str3 = "stack : " + mainThreadStackTrace;
                     }
                     jSONObject2.put("stacktrace", mainThreadStackTrace);
                 }
                 jSONObject.put("ext", jSONObject2);
                 if (AppConfig.isDebug()) {
-                    jSONObject.toString();
+                    String str4 = "content : " + jSONObject.toString();
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {
-                    String str2 = "ubc isDebug: " + uBCManager.isUBCDebug();
-                    String str3 = "content: " + jSONObject.toString();
                     uBCManager.onEvent(perfExpInfo.getUbcId(), jSONObject);
                 }
             } catch (JSONException e2) {

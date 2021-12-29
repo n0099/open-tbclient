@@ -26,25 +26,25 @@ public class f extends TouchDelegate {
         public Rect a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1726b;
+        public int f2153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f1727c;
+        public int f2154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f1728d;
+        public int f2155d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f1729e;
+        public int f2156e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f1730f;
+        public int f2157f;
 
         /* renamed from: g  reason: collision with root package name */
-        public Rect f1731g;
+        public Rect f2158g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f1732h;
+        public boolean f2159h;
 
         public a(f fVar, Rect rect, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -61,11 +61,11 @@ public class f extends TouchDelegate {
                     return;
                 }
             }
-            this.f1726b = i2;
+            this.f2153b = i2;
             this.a = rect;
-            this.f1728d = i3;
-            this.f1727c = i4;
-            this.f1729e = i5;
+            this.f2155d = i3;
+            this.f2154c = i4;
+            this.f2156e = i5;
         }
     }
 
@@ -110,14 +110,14 @@ public class f extends TouchDelegate {
                 int measuredHeight = key.getMeasuredHeight();
                 a value = entry.getValue();
                 Rect rect = value.a;
-                rect.left = iArr[0] - value.f1726b;
-                rect.right = iArr[0] + measuredWidth + value.f1727c;
-                rect.top = iArr[1] - value.f1728d;
-                rect.bottom = iArr[1] + measuredHeight + value.f1729e;
-                value.f1730f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
+                rect.left = iArr[0] - value.f2153b;
+                rect.right = iArr[0] + measuredWidth + value.f2154c;
+                rect.top = iArr[1] - value.f2155d;
+                rect.bottom = iArr[1] + measuredHeight + value.f2156e;
+                value.f2157f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
                 Rect rect2 = new Rect(value.a);
-                value.f1731g = rect2;
-                int i2 = value.f1730f;
+                value.f2158g = rect2;
+                int i2 = value.f2157f;
                 rect2.inset(-i2, -i2);
             }
         }
@@ -143,26 +143,26 @@ public class f extends TouchDelegate {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action == 1 || action == 2) {
-                        z2 = value.f1732h;
-                        if (z2 && !value.f1731g.contains(rawX, rawY)) {
+                        z2 = value.f2159h;
+                        if (z2 && !value.f2158g.contains(rawX, rawY)) {
                             z3 = false;
                         }
                     } else if (action == 3) {
-                        z2 = value.f1732h;
-                        value.f1732h = false;
+                        z2 = value.f2159h;
+                        value.f2159h = false;
                     }
                 } else if (value.a.contains(rawX, rawY)) {
-                    value.f1732h = true;
+                    value.f2159h = true;
                     z2 = true;
                 } else {
-                    value.f1732h = false;
+                    value.f2159h = false;
                     z2 = false;
                 }
                 if (z2) {
                     if (z3) {
                         motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
                     } else {
-                        float f2 = -(value.f1730f * 2);
+                        float f2 = -(value.f2157f * 2);
                         motionEvent.setLocation(f2, f2);
                     }
                     z = key.dispatchTouchEvent(motionEvent);

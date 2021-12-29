@@ -13,34 +13,34 @@ public class f {
     public static String a = "https://passport.baidu.com";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35217b = "https://passport.qatest.baidu.com";
+    public static String f35373b = "https://passport.qatest.baidu.com";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f35218c = "http://passport.rdtest.baidu.com";
+    public static String f35374c = "http://passport.rdtest.baidu.com";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f35219d = "http://wappass.baidu.com";
+    public static String f35375d = "http://wappass.baidu.com";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f35220e = "http://wappass.qatest.baidu.com";
+    public static String f35376e = "http://wappass.qatest.baidu.com";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f35221f = "http://wappass.rdtest.baidu.com";
+    public static String f35377f = "http://wappass.rdtest.baidu.com";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f35222g = "https://gss0.bdstatic.com";
+    public static String f35378g = "https://gss0.bdstatic.com";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f35223h = "https://passport.baidu.com";
+    public static String f35379h = "https://passport.baidu.com";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f35224i = "https://passport.qatest.baidu.com";
+    public static String f35380i = "https://passport.qatest.baidu.com";
 
     /* renamed from: j  reason: collision with root package name */
-    public static String f35225j = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String f35381j = "https://voiceprint.baidu.com/echo.fcgi";
 
     /* renamed from: k  reason: collision with root package name */
-    public static String f35226k = "https://voiceprint.baidu.com/echo.fcgi";
+    public static String f35382k = "https://voiceprint.baidu.com/echo.fcgi";
     public static String l = "/6bMWfDe8BsgCpNKfpU_Y_D3/static/appsapi/appdistribute/android.txt";
     public static String m = "/risk/living/authfacematch";
     public static String n = "/risk/living/facedetect";

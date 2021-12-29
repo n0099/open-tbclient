@@ -26,13 +26,13 @@ public class fz implements gd {
     public String[] f424a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f63485b;
+    public String f63480b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f63486c;
+    public String f63481c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class fz implements gd {
         this.f425b = null;
         this.f423a = null;
         this.a = str;
-        this.f63485b = str2;
+        this.f63480b = str2;
         this.f424a = strArr;
         this.f425b = strArr2;
     }
@@ -77,10 +77,10 @@ public class fz implements gd {
         this.f425b = null;
         this.f423a = null;
         this.a = str;
-        this.f63485b = str2;
+        this.f63480b = str2;
         this.f424a = strArr;
         this.f425b = strArr2;
-        this.f63486c = str3;
+        this.f63481c = str3;
         this.f423a = list;
     }
 
@@ -145,8 +145,8 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("ext_ele_name", this.a);
-            bundle.putString("ext_ns", this.f63485b);
-            bundle.putString("ext_text", this.f63486c);
+            bundle.putString("ext_ns", this.f63480b);
+            bundle.putString("ext_text", this.f63481c);
             Bundle bundle2 = new Bundle();
             String[] strArr = this.f424a;
             if (strArr != null && strArr.length > 0) {
@@ -229,20 +229,20 @@ public class fz implements gd {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f63486c = str;
+            this.f63481c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63485b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63480b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f63486c) ? gn.b(this.f63486c) : this.f63486c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f63481c) ? gn.b(this.f63481c) : this.f63481c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -253,11 +253,11 @@ public class fz implements gd {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
             sb.append(this.a);
-            if (!TextUtils.isEmpty(this.f63485b)) {
+            if (!TextUtils.isEmpty(this.f63480b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f63485b);
+                sb.append(this.f63480b);
                 sb.append("\"");
             }
             String[] strArr = this.f424a;
@@ -272,7 +272,7 @@ public class fz implements gd {
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f63486c)) {
+            if (TextUtils.isEmpty(this.f63481c)) {
                 List<fz> list = this.f423a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
@@ -284,7 +284,7 @@ public class fz implements gd {
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f63486c);
+                sb.append(this.f63481c);
             }
             sb.append("</");
             sb.append(this.a);

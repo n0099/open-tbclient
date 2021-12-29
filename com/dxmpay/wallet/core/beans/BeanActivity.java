@@ -93,9 +93,45 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f56076e;
+        public final /* synthetic */ BeanActivity f56075e;
 
         public a(BeanActivity beanActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {beanActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f56075e = beanActivity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                GlobalUtils.hideKeyboard(this.f56075e.getActivity());
+                this.f56075e.onBackPressed();
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BeanActivity f56076e;
+
+        public b(BeanActivity beanActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,57 +160,21 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
     }
 
     /* loaded from: classes2.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f56077e;
-
-        public b(BeanActivity beanActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {beanActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f56077e = beanActivity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                GlobalUtils.hideKeyboard(this.f56077e.getActivity());
-                this.f56077e.onBackPressed();
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f56078e;
+        public final /* synthetic */ int f56077e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f56079f;
+        public final /* synthetic */ Object f56078f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f56080g;
+        public final /* synthetic */ String f56079g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f56081h;
+        public final /* synthetic */ BeanActivity f56080h;
 
         public c(BeanActivity beanActivity, int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
@@ -191,19 +191,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f56081h = beanActivity;
-            this.f56078e = i2;
-            this.f56079f = obj;
-            this.f56080g = str;
+            this.f56080h = beanActivity;
+            this.f56077e = i2;
+            this.f56078f = obj;
+            this.f56079g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BeanActivity beanActivity = this.f56081h;
+                BeanActivity beanActivity = this.f56080h;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleResponse(this.f56078e, this.f56079f, this.f56080g);
+                    beanActivity.handleResponse(this.f56077e, this.f56078f, this.f56079g);
                 }
             }
         }
@@ -215,16 +215,16 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f56082e;
+        public final /* synthetic */ int f56081e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f56083f;
+        public final /* synthetic */ int f56082f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f56084g;
+        public final /* synthetic */ String f56083g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ BeanActivity f56085h;
+        public final /* synthetic */ BeanActivity f56084h;
 
         public d(BeanActivity beanActivity, int i2, int i3, String str) {
             Interceptable interceptable = $ic;
@@ -241,19 +241,19 @@ public abstract class BeanActivity extends BaseActivity implements IBeanResponse
                     return;
                 }
             }
-            this.f56085h = beanActivity;
-            this.f56082e = i2;
-            this.f56083f = i3;
-            this.f56084g = str;
+            this.f56084h = beanActivity;
+            this.f56081e = i2;
+            this.f56082f = i3;
+            this.f56083g = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BeanActivity beanActivity = this.f56085h;
+                BeanActivity beanActivity = this.f56084h;
                 if (beanActivity.mAct != null) {
-                    beanActivity.handleFailure(this.f56082e, this.f56083f, this.f56084g);
+                    beanActivity.handleFailure(this.f56081e, this.f56082f, this.f56083g);
                 }
             }
         }

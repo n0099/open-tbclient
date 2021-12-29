@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.g;
-import c.a.d.f.p.m;
-import c.a.r0.s.c;
+import c.a.d.f.p.n;
+import c.a.s0.s.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -137,7 +137,7 @@ public class MorePopupWindow extends PopupWindow {
         int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
         this.mWindowHeight = dimension;
         setHeight(dimension);
-        int[] p = m.p(this.mActivity);
+        int[] p = n.p(this.mActivity);
         if (p != null && p.length > 1 && p[0] > measuredWidth) {
             this.mShowRightTopXOff = p[0] - measuredWidth;
         }
@@ -155,7 +155,7 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int k2 = m.k(context);
+            int k2 = n.k(context);
             this.mContentView.getLayoutParams().width = k2;
             setWidth(k2);
         }

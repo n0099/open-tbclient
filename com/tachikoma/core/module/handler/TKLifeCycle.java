@@ -25,13 +25,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKLifeCycle implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public V8Object mV8AssociatedObject;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ActivityLifecycleCallbacksProxy implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<TKJSContext, TKLifeCycle> mCallBackMaps;

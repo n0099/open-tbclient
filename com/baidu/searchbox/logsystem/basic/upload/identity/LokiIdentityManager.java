@@ -23,6 +23,7 @@ public final class LokiIdentityManager {
     public static final String PARAM_C3AID = "c3_aid";
     public static final String PARAM_CFROM = "cfrom";
     public static final String PARAM_FROM = "from";
+    public static final String PARAM_IID = "iid";
     public static final String PARAM_SCHEME_HEADER = "scheme";
     public static final String PARAM_SID = "sid";
     public static final String PARAM_UA = "ua";
@@ -35,6 +36,8 @@ public final class LokiIdentityManager {
     public Context mContext;
     public DeviceInfoParam mDeviceInfoParam;
     public String mEnUid;
+    public boolean mHasPrivacy;
+    public String mIID;
     public NetworkParam mNetworkParam;
     public UaParam mUaParam;
     public String mUid;
@@ -53,6 +56,7 @@ public final class LokiIdentityManager {
             }
         }
         this.mC3Aid = null;
+        this.mHasPrivacy = true;
         init();
     }
 
@@ -99,22 +103,34 @@ public final class LokiIdentityManager {
             this.mNetworkParam = new NetworkParam();
             this.mDeviceInfoParam = new DeviceInfoParam();
             this.mUaParam = new UaParam();
-            String cuid = DeviceId.getCUID(this.mContext);
-            this.mUid = cuid;
-            if (TextUtils.isEmpty(cuid)) {
+            boolean hasPrivacyAuthority = LokiRuntime.getIdentityContext().hasPrivacyAuthority();
+            this.mHasPrivacy = hasPrivacyAuthority;
+            if (hasPrivacyAuthority) {
+                String cuid = DeviceId.getCUID(this.mContext);
+                this.mUid = cuid;
+                if (TextUtils.isEmpty(cuid)) {
+                    return;
+                }
+                this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
                 return;
             }
-            this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
+            this.mIID = LokiRuntime.getIdentityContext().getIID();
         }
     }
 
     public String processUrl(String str) {
         InterceptResult invokeL;
+        String addParam;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String addParam = addParam(addParam(addParam(addParam(this.mNetworkParam.addNetWorkParam(str, true), "ut", this.mDeviceInfoParam.getDeviceInfo()), "ua", this.mUaParam.getUA()), "uid", this.mEnUid), "appname", LokiRuntime.getIdentityNeedContext().getAppName());
+            String addParam2 = addParam(addParam(this.mNetworkParam.addNetWorkParam(str, true), "ut", this.mDeviceInfoParam.getDeviceInfo()), "ua", this.mUaParam.getUA());
+            if (this.mHasPrivacy) {
+                addParam = addParam(addParam2, "uid", this.mEnUid);
+            } else {
+                addParam = addParam(addParam2, "iid", this.mIID);
+            }
+            String addParam3 = addParam(addParam, "appname", LokiRuntime.getIdentityNeedContext().getAppName());
             ILokiIdentityContext identityContext = LokiRuntime.getIdentityContext();
-            String zid = identityContext.getZid();
             String sid = identityContext.getSid();
             String from = identityContext.getFrom();
             String cfrom = identityContext.getCfrom();
@@ -125,11 +141,14 @@ public final class LokiIdentityManager {
             if (TextUtils.isEmpty(cfrom)) {
                 cfrom = ChannelManager.getInstance().getLastChannel();
             }
-            String addParam2 = addParam(addParam(addParam(addParam(addParam(addParam(addParam, "bdvc", identityContext.getBDVCInfo()), "sid", sid), "zid", zid), "cfrom", cfrom), "from", from), "scheme", schemeHeader);
-            if (TextUtils.isEmpty(this.mC3Aid)) {
+            String addParam4 = addParam(addParam(addParam(addParam(addParam(addParam3, "bdvc", identityContext.getBDVCInfo()), "sid", sid), "cfrom", cfrom), "from", from), "scheme", schemeHeader);
+            if (this.mHasPrivacy) {
+                addParam4 = addParam(addParam4, "zid", identityContext.getZid());
+            }
+            if (this.mHasPrivacy && TextUtils.isEmpty(this.mC3Aid)) {
                 this.mC3Aid = identityContext.getC3Aid();
             }
-            return !TextUtils.isEmpty(this.mC3Aid) ? addParam(addParam2, "c3_aid", this.mC3Aid) : addParam2;
+            return (!this.mHasPrivacy || TextUtils.isEmpty(this.mC3Aid)) ? addParam4 : addParam(addParam4, "c3_aid", this.mC3Aid);
         }
         return (String) invokeL.objValue;
     }

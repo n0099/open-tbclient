@@ -20,17 +20,17 @@ public class a extends BaseBean {
     public static final String a = "/risk/init/stat";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f34685b = 1;
+    public static final int f34841b = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34686c;
+    public String f34842c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34687d;
+    public String f34843d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34688e;
+    public String f34844e;
     public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,9 +57,9 @@ public class a extends BaseBean {
     public void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-            this.f34686c = str;
-            this.f34687d = str2;
-            this.f34688e = str3;
+            this.f34842c = str;
+            this.f34843d = str2;
+            this.f34844e = str3;
         }
     }
 
@@ -77,11 +77,11 @@ public class a extends BaseBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (!TextUtils.isEmpty(this.f34686c)) {
-                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f34686c));
+            if (!TextUtils.isEmpty(this.f34842c)) {
+                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f34842c));
             }
-            arrayList.add(new RestNameValuePair("ek", this.f34687d));
-            arrayList.add(new RestNameValuePair("ev", this.f34688e));
+            arrayList.add(new RestNameValuePair("ek", this.f34843d));
+            arrayList.add(new RestNameValuePair("ev", this.f34844e));
             return arrayList;
         }
         return (List) invokeV.objValue;

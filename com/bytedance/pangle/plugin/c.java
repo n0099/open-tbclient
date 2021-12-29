@@ -25,7 +25,6 @@ import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.res.PluginResources;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,20 +63,20 @@ public final class c {
                     return true;
                 } else {
                     com.bytedance.pangle.log.c a = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.f55047g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
+                    a(com.bytedance.pangle.b.b.f55050g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
                     StringBuilder sb = new StringBuilder();
                     boolean a2 = a(str, plugin2, sb);
                     a.b("loadPluginInternal:".concat(String.valueOf(a2)));
                     if (a2) {
                         plugin2.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.f55048h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
+                        a(com.bytedance.pangle.b.b.f55051h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
                     } else {
                         sb.append("plugin:");
                         sb.append(plugin2.mPkgName);
                         sb.append(" versionCode:");
                         sb.append(plugin2.getVersion());
                         sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.f55048h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
+                        a(com.bytedance.pangle.b.b.f55051h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
                     }
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin2)));
                     if (plugin2.isLoaded()) {
@@ -226,7 +225,7 @@ public final class c {
                                     activityInfo.processName = activityInfo.processName.split(":")[1];
                                     plugin2.pluginActivities.put(activityInfo.name, activityInfo);
                                 }
-                                activityInfo.processName = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                                activityInfo.processName = "main";
                                 plugin2.pluginActivities.put(activityInfo.name, activityInfo);
                             }
                         }
@@ -237,7 +236,7 @@ public final class c {
                                     serviceInfo.processName = serviceInfo.processName.split(":")[1];
                                     plugin2.pluginServices.put(serviceInfo.name, serviceInfo);
                                 }
-                                serviceInfo.processName = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                                serviceInfo.processName = "main";
                                 plugin2.pluginServices.put(serviceInfo.name, serviceInfo);
                             }
                         }
@@ -254,7 +253,7 @@ public final class c {
                                     activityInfo2.processName = activityInfo2.processName.split(":")[1];
                                     plugin2.pluginReceiver.put(activityInfo2.name, activityInfo2);
                                 }
-                                activityInfo2.processName = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                                activityInfo2.processName = "main";
                                 plugin2.pluginReceiver.put(activityInfo2.name, activityInfo2);
                             }
                         }
@@ -271,7 +270,7 @@ public final class c {
                                     providerInfo.processName = providerInfo.processName.split(":")[1];
                                     plugin2.pluginProvider.put(providerInfo.name, providerInfo);
                                 }
-                                providerInfo.processName = FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT;
+                                providerInfo.processName = "main";
                                 plugin2.pluginProvider.put(providerInfo.name, providerInfo);
                             }
                         }

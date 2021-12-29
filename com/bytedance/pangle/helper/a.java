@@ -15,7 +15,7 @@ public class a {
     public static Class a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Object f55178b;
+    public static Object f55180b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -36,16 +36,16 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f55178b == null) {
+            if (f55180b == null) {
                 try {
                     synchronized (a.class) {
-                        if (f55178b == null) {
+                        if (f55180b == null) {
                             if (a == null) {
                                 a = Class.forName("android.app.ActivityThread");
                             }
-                            f55178b = MethodUtils.invokeStaticMethod(a, "currentActivityThread", new Object[0]);
+                            f55180b = MethodUtils.invokeStaticMethod(a, "currentActivityThread", new Object[0]);
                         }
-                        if (f55178b == null && Looper.myLooper() != Looper.getMainLooper()) {
+                        if (f55180b == null && Looper.myLooper() != Looper.getMainLooper()) {
                             Object obj = new Object();
                             new Handler(Looper.getMainLooper()).post(new Runnable(obj) { // from class: com.bytedance.pangle.helper.a.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -77,7 +77,7 @@ public class a {
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
                                             try {
-                                                Object unused = a.f55178b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
+                                                Object unused = a.f55180b = MethodUtils.invokeStaticMethod(a.a, "currentActivityThread", new Object[0]);
                                                 synchronized (this.a) {
                                                     this.a.notify();
                                                 }
@@ -96,7 +96,7 @@ public class a {
                                     }
                                 }
                             });
-                            if (f55178b == null) {
+                            if (f55180b == null) {
                                 synchronized (obj) {
                                     try {
                                         obj.wait(5000L);
@@ -111,7 +111,7 @@ public class a {
                     ZeusLogger.e(ZeusLogger.TAG, "ActivityThreadHelper currentActivityThread failed.", e3);
                 }
             }
-            return f55178b;
+            return f55180b;
         }
         return invokeV.objValue;
     }

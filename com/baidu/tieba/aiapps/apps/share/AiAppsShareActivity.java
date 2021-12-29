@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AiAppsShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener listener;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            c.a.s0.z.b.k.a aVar = new c.a.s0.z.b.k.a();
+            c.a.t0.z.b.k.a aVar = new c.a.t0.z.b.k.a();
             try {
                 aVar.p(new JSONObject(stringExtra));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));

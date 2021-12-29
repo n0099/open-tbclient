@@ -1,9 +1,0 @@
-package c.a.s0.n2.h.e.a;
-/* loaded from: classes7.dex */
-public interface a<E> {
-    void onFail();
-
-    void onSuccess(E e2);
-
-    void redraw();
-}

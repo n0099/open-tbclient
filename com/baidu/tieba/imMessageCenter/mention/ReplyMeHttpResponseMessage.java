@@ -1,6 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import c.a.s0.t1.b.m;
+import c.a.t0.t1.b.m;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

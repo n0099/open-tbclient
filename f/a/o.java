@@ -13,7 +13,7 @@ public class o {
     public static o a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Executor f64035b;
+    public static Executor f64030b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public o() {
@@ -38,7 +38,7 @@ public class o {
                 synchronized (o.class) {
                     if (a == null) {
                         a = new o();
-                        f64035b = Executors.newFixedThreadPool(1);
+                        f64030b = Executors.newFixedThreadPool(1);
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class o {
             return;
         }
         try {
-            f64035b.execute(runnable);
+            f64030b.execute(runnable);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

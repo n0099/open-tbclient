@@ -23,22 +23,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class AdAsyncRequestModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<PlaceId, String> f43041d;
+    public static final Map<PlaceId, String> f43229d;
     public transient /* synthetic */ FieldHolder $fh;
     public final PlaceId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b f43042b;
+    public final b f43230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f43043c;
+    public final HttpMessageListener f43231c;
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,14 +77,14 @@ public class AdAsyncRequestModel {
                         return;
                     }
                 }
-                if (this.a.f43042b != null) {
-                    this.a.f43042b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
+                if (this.a.f43230b != null) {
+                    this.a.f43230b.a(adAsyncResponseData.isSuccess(), adAsyncResponseData.getAds());
                 }
             }
         }
     }
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes12.dex */
     public interface b {
         void a(boolean z, List<AdvertAppInfo> list);
     }
@@ -102,7 +102,7 @@ public class AdAsyncRequestModel {
                 return;
             }
         }
-        f43041d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
+        f43229d = new HashMap<PlaceId, String>() { // from class: com.baidu.tieba.ad.asyncpv.AdAsyncRequestModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -141,10 +141,10 @@ public class AdAsyncRequestModel {
                 return;
             }
         }
-        this.f43043c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
+        this.f43231c = new a(this, CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST);
         this.a = placeId;
-        this.f43042b = bVar;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f43041d.get(placeId));
+        this.f43230b = bVar;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_ASYNC_BATCH_REQUEST, TbConfig.SERVER_ADDRESS + "tiebaads/commonbatch?adcmd=" + f43229d.get(placeId));
         tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsNeedAddStatisticsParam(false);
@@ -152,13 +152,13 @@ public class AdAsyncRequestModel {
         tbHttpMessageTask.setmIsNBaiduServer(false);
         tbHttpMessageTask.setResponsedClass(AdAsyncResponseData.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.f43043c);
+        MessageManager.getInstance().registerListener(this.f43231c);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f43043c);
+            MessageManager.getInstance().unRegisterListener(this.f43231c);
         }
     }
 

@@ -13,7 +13,7 @@ public class b extends c {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.c0.h0.b0.d.c f1676d;
+    public c.a.c0.h0.b0.d.c f2103d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b() {
@@ -39,7 +39,7 @@ public class b extends c {
     public c.a.c0.h0.b0.d.c h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1676d : (c.a.c0.h0.b0.d.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2103d : (c.a.c0.h0.b0.d.c) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -60,6 +60,6 @@ public class b extends c {
                 return;
             }
         }
-        this.f1676d = cVar;
+        this.f2103d = cVar;
     }
 }

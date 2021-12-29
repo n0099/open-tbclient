@@ -22,11 +22,11 @@ public interface a extends IInterface {
 
     /* renamed from: com.baidu.sofire.mutiprocess.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static abstract class AbstractBinderC1846a extends Binder implements a {
+    public static abstract class AbstractBinderC1853a extends Binder implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractBinderC1846a() {
+        public AbstractBinderC1853a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public interface a extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                     return (a) queryLocalInterface;
                 }
-                return new C1847a(iBinder);
+                return new C1854a(iBinder);
             }
             return (a) invokeL.objValue;
         }
@@ -117,20 +117,20 @@ public interface a extends IInterface {
         public static a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1847a.a : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C1854a.a : (a) invokeV.objValue;
         }
 
         /* renamed from: com.baidu.sofire.mutiprocess.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes10.dex */
-        public static class C1847a implements a {
+        public static class C1854a implements a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39651b;
+            public IBinder f39807b;
 
-            public C1847a(IBinder iBinder) {
+            public C1854a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,7 +145,7 @@ public interface a extends IInterface {
                         return;
                     }
                 }
-                this.f39651b = iBinder;
+                this.f39807b = iBinder;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -163,8 +163,8 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f39651b.transact(1, obtain, obtain2, 0) && AbstractBinderC1846a.a() != null) {
-                            return AbstractBinderC1846a.a().a(bundle);
+                        if (!this.f39807b.transact(1, obtain, obtain2, 0) && AbstractBinderC1853a.a() != null) {
+                            return AbstractBinderC1853a.a().a(bundle);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -180,7 +180,7 @@ public interface a extends IInterface {
             public final IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39651b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39807b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -198,8 +198,8 @@ public interface a extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (!this.f39651b.transact(2, obtain, obtain2, 0) && AbstractBinderC1846a.a() != null) {
-                            return AbstractBinderC1846a.a().b(bundle);
+                        if (!this.f39807b.transact(2, obtain, obtain2, 0) && AbstractBinderC1853a.a() != null) {
+                            return AbstractBinderC1853a.a().b(bundle);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
@@ -221,8 +221,8 @@ public interface a extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                         obtain.writeString(str);
-                        if (!this.f39651b.transact(3, obtain, obtain2, 0) && AbstractBinderC1846a.a() != null) {
-                            return AbstractBinderC1846a.a().a(str);
+                        if (!this.f39807b.transact(3, obtain, obtain2, 0) && AbstractBinderC1853a.a() != null) {
+                            return AbstractBinderC1853a.a().a(str);
                         }
                         obtain2.readException();
                         return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;

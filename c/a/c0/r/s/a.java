@@ -20,17 +20,17 @@ public class a {
     public static final MediaType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final MediaType f1857b;
+    public static final MediaType f2284b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.c0.r.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0060a {
+    public static /* synthetic */ class C0081a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f1858b;
+        public static final /* synthetic */ int[] f2285b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,21 +47,21 @@ public class a {
                 }
             }
             int[] iArr = new int[BodyStyle.values().length];
-            f1858b = iArr;
+            f2285b = iArr;
             try {
                 iArr[BodyStyle.BYTE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f1858b[BodyStyle.STRING.ordinal()] = 2;
+                f2285b[BodyStyle.STRING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f1858b[BodyStyle.FILE.ordinal()] = 3;
+                f2285b[BodyStyle.FILE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f1858b[BodyStyle.FORM.ordinal()] = 4;
+                f2285b[BodyStyle.FORM.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[RequestMethod.values().length];
@@ -115,7 +115,7 @@ public class a {
             }
         }
         a = MediaType.parse("text/plain");
-        f1857b = MediaType.parse("application/octet-stream");
+        f2284b = MediaType.parse("application/octet-stream");
         MediaType.parse("application/x-www-form-urlencoded");
     }
 
@@ -123,9 +123,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cVar)) == null) {
-            byte[] bArr = cVar.f1876d;
+            byte[] bArr = cVar.f2303d;
             if (bArr != null && bArr.length > 0) {
-                return RequestBody.create(d(cVar.f1874b, f1857b), cVar.f1876d);
+                return RequestBody.create(d(cVar.f2301b, f2284b), cVar.f2303d);
             }
             return RequestBody.create((MediaType) null, new byte[0]);
         }
@@ -136,8 +136,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cVar)) == null) {
-            if (cVar.f1877e != null) {
-                return RequestBody.create(d(cVar.f1874b, f1857b), cVar.f1877e);
+            if (cVar.f2304e != null) {
+                return RequestBody.create(d(cVar.f2301b, f2284b), cVar.f2304e);
             }
             return RequestBody.create((MediaType) null, new byte[0]);
         }
@@ -148,9 +148,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cVar)) == null) {
-            if (!c.a.c0.u.a.h(cVar.f1878f)) {
+            if (!c.a.c0.u.a.h(cVar.f2305f)) {
                 FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : cVar.f1878f.entrySet()) {
+                for (Map.Entry<String, String> entry : cVar.f2305f.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
                         builder.add(entry.getKey(), entry.getValue());
                     }
@@ -176,7 +176,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cVar)) == null) {
-            int i2 = C0060a.f1858b[cVar.a.ordinal()];
+            int i2 = C0081a.f2285b[cVar.a.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -198,8 +198,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cVar)) == null) {
-            if (!TextUtils.isEmpty(cVar.f1875c)) {
-                return RequestBody.create(d(cVar.f1874b, a), cVar.f1875c);
+            if (!TextUtils.isEmpty(cVar.f2302c)) {
+                return RequestBody.create(d(cVar.f2301b, a), cVar.f2302c);
             }
             return RequestBody.create((MediaType) null, new byte[0]);
         }
@@ -213,7 +213,7 @@ public class a {
             if (cVar == null) {
                 return null;
             }
-            int i2 = C0060a.a[RequestMethod.reverse(str).ordinal()];
+            int i2 = C0081a.a[RequestMethod.reverse(str).ordinal()];
             if (i2 == 3 || i2 == 4 || i2 == 5 || i2 == 6) {
                 return e(cVar);
             }

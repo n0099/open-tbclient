@@ -47,64 +47,125 @@ public class k extends c {
     }
 
     @Override // c.a.c0.s.j0.l
-    public void X() {
+    public void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             c.a.c0.s.b0.k kVar = new c.a.c0.s.b0.k();
             this.m = kVar;
-            M(kVar);
+            J(kVar);
             c.a.c0.s.b0.m mVar = new c.a.c0.s.b0.m();
             this.p = mVar;
-            M(mVar);
+            J(mVar);
             c.a.c0.s.b0.l lVar = new c.a.c0.s.b0.l();
             this.r = lVar;
-            M(lVar);
-            M(new c.a.c0.s.b0.n());
+            J(lVar);
+            J(new c.a.c0.s.b0.n());
             c.a.c0.s.b0.o oVar = new c.a.c0.s.b0.o();
             this.q = oVar;
-            M(oVar);
-            e0();
-            f0();
-            M(new c.a.c0.s.b0.p());
-            M(new c.a.c0.s.b0.j());
-            g0();
+            J(oVar);
+            X();
+            Y();
+            J(new c.a.c0.s.b0.p());
+            J(new c.a.c0.s.b0.j());
+            Z();
         }
+    }
+
+    public void X() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c.a.c0.s.b0.f fVar = new c.a.c0.s.b0.f();
+            this.n = fVar;
+            J(fVar);
+        }
+    }
+
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c.a.c0.s.b0.i iVar = new c.a.c0.s.b0.i();
+            this.o = iVar;
+            J(iVar);
+        }
+    }
+
+    public void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void a0() {
+        c.a.c0.s.b0.e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (eVar = this.n) == null) {
+            return;
+        }
+        eVar.s();
+    }
+
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public boolean c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     @Override // c.a.c0.s.j0.c, c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void d(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) {
             super.d(pVar);
             if (PlayerEvent.ACTION_PLAYER_DETACH.equals(pVar.c())) {
-                c0(false);
+                V(false);
             } else if (PlayerEvent.ACTION_ON_ERROR.equals(pVar.c())) {
-                c0(false);
+                V(false);
             }
         }
     }
 
-    public void e0() {
+    public void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.c0.s.b0.f fVar = new c.a.c0.s.b0.f();
-            this.n = fVar;
-            M(fVar);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f2415h.removeMessages(0);
+        }
+    }
+
+    public final void e0(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && c.a.c0.s.v0.r.f()) {
+            int a = z ? c.a.c0.s.v0.d.a(this.f2422i, 20.0f) : 0;
+            T t = this.f2422i;
+            ((FrameLayout) t).setPadding(((FrameLayout) t).getPaddingLeft(), ((FrameLayout) this.f2422i).getPaddingTop(), ((FrameLayout) this.f2422i).getPaddingRight(), a);
         }
     }
 
     public void f0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.c0.s.b0.i iVar = new c.a.c0.s.b0.i();
-            this.o = iVar;
-            M(iVar);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            c.a.c0.s.v0.r.k(this);
         }
     }
 
-    public void g0() {
+    public void g0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (z) {
+                if (u().V0()) {
+                    return;
+                }
+                u().c1(1);
+            } else if (u().V0()) {
+                u().d1(1);
+            }
         }
     }
 
@@ -113,53 +174,53 @@ public class k extends c {
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new int[]{4, 2, 3, 5, 1, 8} : (int[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? new int[]{4, 2, 3, 5, 1, 8} : (int[]) invokeV.objValue;
     }
 
     public void h0() {
-        c.a.c0.s.b0.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.n) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
-        eVar.s();
     }
 
     public void i0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
     @Override // c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void j(@NonNull c.a.c0.s.c0.p pVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, pVar) == null) {
             super.j(pVar);
             if (InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL.equals(pVar.c())) {
                 if (pVar.d(9)) {
-                    o0();
+                    h0();
                 } else {
-                    p0();
+                    i0();
                 }
             }
         }
     }
 
-    public boolean j0() {
-        InterceptResult invokeV;
+    public final void j0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f2415h.removeMessages(0);
+            Iterator it = this.f2423j.iterator();
+            while (it.hasNext()) {
+                ((c.a.c0.s.b0.g) it.next()).q();
+            }
+            this.l = false;
         }
-        return invokeV.booleanValue;
     }
 
     @Override // c.a.c0.s.j0.c, c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.f0.j
     public void k(@NonNull c.a.c0.s.c0.p pVar) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, pVar) == null) {
             super.k(pVar);
             String c3 = pVar.c();
             int hashCode = c3.hashCode();
@@ -181,87 +242,48 @@ public class k extends c {
             }
             if (c2 == 0) {
                 c.a.c0.s.v0.r.i(this);
-                c0(false);
+                V(false);
                 c.a.c0.s.c0.p w = c.a.c0.s.c0.f.w(LayerEvent.ACTION_BARRAGE_EDIT_VIEW_VISIBLE_STATUS);
                 w.n(16, Boolean.FALSE);
                 F(w);
                 if (this.l) {
-                    r0();
-                    this.f1988h.removeMessages(0);
-                    this.f1988h.sendEmptyMessageDelayed(0, 2000L);
+                    k0();
+                    this.f2415h.removeMessages(0);
+                    this.f2415h.sendEmptyMessageDelayed(0, 2000L);
                 }
-                l0(false);
+                e0(false);
             } else if (c2 != 1) {
                 if (c2 != 2) {
                     return;
                 }
-                this.f1988h.removeMessages(0);
+                this.f2415h.removeMessages(0);
                 this.l = false;
             } else {
                 u().f1();
-                m0();
-                c0(j0());
-                h0();
-                i0();
-                l0(true);
+                f0();
+                V(c0());
+                a0();
+                b0();
+                e0(true);
             }
         }
     }
 
-    public void k0() {
+    public final void k0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f1988h.removeMessages(0);
-        }
-    }
-
-    public final void l0(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && c.a.c0.s.v0.r.f()) {
-            int a = z ? c.a.c0.s.v0.d.a(this.f1995i, 20.0f) : 0;
-            T t = this.f1995i;
-            ((FrameLayout) t).setPadding(((FrameLayout) t).getPaddingLeft(), ((FrameLayout) this.f1995i).getPaddingTop(), ((FrameLayout) this.f1995i).getPaddingRight(), a);
-        }
-    }
-
-    public void m0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            c.a.c0.s.v0.r.k(this);
-        }
-    }
-
-    public void n0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            if (z) {
-                if (u().V0()) {
-                    return;
-                }
-                u().c1(1);
-            } else if (u().V0()) {
-                u().d1(1);
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            Iterator it = this.f2423j.iterator();
+            while (it.hasNext()) {
+                ((c.a.c0.s.b0.g) it.next()).r();
             }
-        }
-    }
-
-    public void o0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
     @Override // c.a.c0.s.j0.l, c.a.c0.s.j0.b, c.a.c0.s.j0.o
     public void onLayerRelease() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onLayerRelease();
-        }
-    }
-
-    public void p0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
         }
     }
 
@@ -269,7 +291,7 @@ public class k extends c {
     public void q(@NonNull c.a.c0.s.c0.p pVar) {
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, pVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, pVar) == null) {
             super.q(pVar);
             String c3 = pVar.c();
             int hashCode = c3.hashCode();
@@ -290,49 +312,27 @@ public class k extends c {
                 c2 = 65535;
             }
             if (c2 == 0) {
-                c0(false);
+                V(false);
                 BdVideoSeries o1 = u().o1();
                 if (o1 == null || !o1.getSelectedVideo().getShowTitle()) {
                     return;
                 }
-                this.f1988h.removeMessages(0);
+                this.f2415h.removeMessages(0);
                 if (!u().V0()) {
-                    r0();
+                    k0();
                 }
-                this.f1988h.sendEmptyMessageDelayed(0, 2000L);
+                this.f2415h.sendEmptyMessageDelayed(0, 2000L);
                 this.l = true;
             } else if (c2 != 1) {
                 if (c2 != 2) {
                     return;
                 }
-                a0(3000);
+                T(3000);
             } else if (pVar.g(11) != 2 || u().p1()) {
             } else {
-                k0();
-                c0(true);
-                Z();
-            }
-        }
-    }
-
-    public final void q0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.f1988h.removeMessages(0);
-            Iterator it = this.f1996j.iterator();
-            while (it.hasNext()) {
-                ((c.a.c0.s.b0.g) it.next()).q();
-            }
-            this.l = false;
-        }
-    }
-
-    public final void r0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            Iterator it = this.f1996j.iterator();
-            while (it.hasNext()) {
-                ((c.a.c0.s.b0.g) it.next()).r();
+                d0();
+                V(true);
+                S();
             }
         }
     }
@@ -343,8 +343,8 @@ public class k extends c {
         if (interceptable == null || interceptable.invokeL(1048597, this, message) == null) {
             super.z(message);
             if (message.what == 0) {
-                q0();
-                c0(false);
+                j0();
+                V(false);
             }
         }
     }

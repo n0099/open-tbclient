@@ -37,7 +37,7 @@ public class ap implements ar {
     public volatile String f127a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f63296b;
+    public volatile String f63291b;
 
     /* renamed from: b  reason: collision with other field name */
     public volatile boolean f128b;
@@ -180,7 +180,7 @@ public class ap implements ar {
         this.f123a = 0;
         this.f127a = null;
         this.f128b = false;
-        this.f63296b = null;
+        this.f63291b = null;
         this.f126a = new Object();
         this.f124a = context;
         a();
@@ -325,14 +325,14 @@ public class ap implements ar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f63296b == null) {
+            if (this.f63291b == null) {
                 synchronized (this) {
-                    if (this.f63296b == null) {
-                        this.f63296b = a(this.f124a);
+                    if (this.f63291b == null) {
+                        this.f63291b = a(this.f124a);
                     }
                 }
             }
-            return this.f63296b;
+            return this.f63291b;
         }
         return (String) invokeV.objValue;
     }

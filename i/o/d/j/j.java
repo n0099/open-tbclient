@@ -44,8 +44,8 @@ public final class j<E> extends n<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
             if (e2 != null) {
-                E[] eArr = this.f64489f;
-                long j2 = this.f64488e;
+                E[] eArr = this.f64484f;
+                long j2 = this.f64483e;
                 long h2 = h();
                 long a = a(h2);
                 if (e(eArr, a) != null) {
@@ -108,7 +108,7 @@ public final class j<E> extends n<E> {
                 }
             } while (!j(k2, 1 + k2));
             long a = a(k2);
-            E[] eArr = this.f64489f;
+            E[] eArr = this.f64484f;
             E c2 = c(eArr, a);
             f(eArr, a, null);
             return c2;

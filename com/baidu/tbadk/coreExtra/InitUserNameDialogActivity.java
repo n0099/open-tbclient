@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra;
 
 import android.os.Bundle;
-import c.a.r0.t.i.b;
+import c.a.s0.t.i.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.t.i.b mInputUserNameDialog;
+    public c.a.s0.t.i.b mInputUserNameDialog;
 
     /* loaded from: classes11.dex */
     public class a implements b.e {
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.r0.t.i.b.e
+        @Override // c.a.s0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -77,7 +77,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.r0.t.i.b.e
+        @Override // c.a.s0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -127,7 +127,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            c.a.r0.t.i.b bVar = new c.a.r0.t.i.b(this);
+            c.a.s0.t.i.b bVar = new c.a.s0.t.i.b(this);
             this.mInputUserNameDialog = bVar;
             bVar.v(new a(this));
             this.mInputUserNameDialog.w(new b(this));

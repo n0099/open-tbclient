@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -160,7 +160,7 @@ public class CustomToast {
     public void showToast(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
-            showToast(str, i2, m.d(BdBaseApplication.getInst().getApp(), 100.0f));
+            showToast(str, i2, n.d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
     }
 

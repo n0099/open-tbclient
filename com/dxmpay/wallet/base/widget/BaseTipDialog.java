@@ -20,10 +20,10 @@ public class BaseTipDialog extends Dialog {
     public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f55849b;
+    public TextView f55848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout.LayoutParams f55850c;
+    public LinearLayout.LayoutParams f55849c;
     public Context mContext;
     public LayoutInflater mInflater;
 
@@ -33,9 +33,44 @@ public class BaseTipDialog extends Dialog {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseTipDialog f55851e;
+        public final /* synthetic */ BaseTipDialog f55850e;
 
         public a(BaseTipDialog baseTipDialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseTipDialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f55850e = baseTipDialog;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                this.f55850e.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ BaseTipDialog f55851e;
+
+        public b(BaseTipDialog baseTipDialog) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,41 +93,6 @@ public class BaseTipDialog extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 this.f55851e.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseTipDialog f55852e;
-
-        public b(BaseTipDialog baseTipDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseTipDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f55852e = baseTipDialog;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f55852e.dismiss();
             }
         }
     }
@@ -123,7 +123,7 @@ public class BaseTipDialog extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             this.a.removeAllViews();
-            this.a.addView(view, this.f55850c);
+            this.a.addView(view, this.f55849c);
         }
     }
 
@@ -138,10 +138,10 @@ public class BaseTipDialog extends Dialog {
                 this.mInflater = LayoutInflater.from(this.mContext);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            this.f55850c = layoutParams;
+            this.f55849c = layoutParams;
             layoutParams.gravity = 17;
             this.a = (LinearLayout) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_content_layout"));
-            this.f55849b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
+            this.f55848b = (TextView) findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title"));
             findViewById(ResUtils.id(this.mContext, "ebpay_dialog_title_close")).setOnClickListener(new a(this));
             findViewById(ResUtils.id(this.mContext, "i_konw_btn")).setOnClickListener(new b(this));
             setCancelable(false);
@@ -152,7 +152,7 @@ public class BaseTipDialog extends Dialog {
     public void setTitleMessage(int i2) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (textView = this.f55849b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (textView = this.f55848b) == null) {
             return;
         }
         textView.setText(i2);
@@ -192,7 +192,7 @@ public class BaseTipDialog extends Dialog {
     public void setTitleMessage(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (textView = this.f55849b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (textView = this.f55848b) == null) {
             return;
         }
         textView.setText(str);

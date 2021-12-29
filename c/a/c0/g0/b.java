@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-    public static final a.InterfaceC0041a a;
+    public static final a.InterfaceC0062a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

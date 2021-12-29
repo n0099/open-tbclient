@@ -19,64 +19,23 @@ import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes3.dex */
 public class ResFragment extends DelegateFragment {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResFragment() {
         super(new KsFragment(null));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((KsFragment) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
         getBase().setBase(this);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @SuppressLint({"ValidFragment"})
     public ResFragment(KsFragment ksFragment) {
         super(ksFragment);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksFragment};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((KsFragment) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, com.kwad.sdk.api.core.fragment.IDelegateFragment
     public final Activity getActivity2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getActivity() : (Activity) invokeV.objValue;
+        return super.getActivity();
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, com.kwad.sdk.api.core.fragment.IDelegateFragment
@@ -87,24 +46,17 @@ public class ResFragment extends DelegateFragment {
     @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
     @Nullable
     public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (super.getContext() == null) {
-                return null;
-            }
-            return Wrapper.wrapContextIfNeed(super.getContext());
+        if (super.getContext() == null) {
+            return null;
         }
-        return (Context) invokeV.objValue;
+        return Wrapper.wrapContextIfNeed(super.getContext());
     }
 
     @Override // androidx.fragment.app.Fragment
     @NonNull
     @SuppressLint({"RestrictedApi"})
     public LayoutInflater getLayoutInflater(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) ? Wrapper.wrapInflaterIfNeed(super.getLayoutInflater(bundle)) : (LayoutInflater) invokeL.objValue;
+        return Wrapper.wrapInflaterIfNeed(super.getLayoutInflater(bundle));
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -125,10 +77,7 @@ public class ResFragment extends DelegateFragment {
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     public void onAttach(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            super.onAttach(Wrapper.wrapContextIfNeed(context));
-        }
+        super.onAttach(Wrapper.wrapContextIfNeed(context));
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -179,11 +128,8 @@ public class ResFragment extends DelegateFragment {
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.onDestroy();
-            ComponentDestroyer.destroyFragment(this);
-        }
+        super.onDestroy();
+        ComponentDestroyer.destroyFragment(this);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -204,9 +150,7 @@ public class ResFragment extends DelegateFragment {
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
     @NonNull
     public LayoutInflater onGetLayoutInflater(@Nullable Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, bundle)) == null) ? Wrapper.wrapInflaterIfNeed(super.onGetLayoutInflater(bundle)) : (LayoutInflater) invokeL.objValue;
+        return Wrapper.wrapInflaterIfNeed(super.onGetLayoutInflater(bundle));
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment

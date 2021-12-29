@@ -1,32 +1,33 @@
 package com.vivo.push.b;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public abstract class x extends u {
+public final class x extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public HashMap<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f63030b;
+    public long f63032b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(int i2) {
-        super(i2);
+    public x() {
+        super(2012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,35 +36,78 @@ public abstract class x extends u {
         }
     }
 
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public void c(com.vivo.push.a aVar) {
+    public final void a(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            super.c(aVar);
-            aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
-            aVar.a("notify_id", this.f63030b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            this.a = hashMap;
         }
     }
 
-    @Override // com.vivo.push.b.u, com.vivo.push.y
-    public void d(com.vivo.push.a aVar) {
+    @Override // com.vivo.push.o
+    public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            super.d(aVar);
-            this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f63030b = aVar.b("notify_id", -1L);
+            aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f63032b);
         }
     }
 
-    public final long f() {
-        InterceptResult invokeV;
+    @Override // com.vivo.push.o
+    public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f63030b : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
+            this.f63032b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f63032b);
+        }
     }
 
-    public final String i() {
+    @Override // com.vivo.push.o
+    public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "ReporterCommand（" + this.f63032b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public x(long j2) {
+        this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.f63032b = j2;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                com.vivo.push.util.p.d("ReporterCommand", "reportParams is empty");
+                return;
+            }
+            StringBuilder sb = new StringBuilder("report message reportType:");
+            sb.append(this.f63032b);
+            sb.append(",msgId:");
+            String str = this.a.get("messageID");
+            if (TextUtils.isEmpty(str)) {
+                str = this.a.get("message_id");
+            }
+            sb.append(str);
+            com.vivo.push.util.p.d("ReporterCommand", sb.toString());
+        }
     }
 }

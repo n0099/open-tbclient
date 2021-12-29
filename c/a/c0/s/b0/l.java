@@ -20,7 +20,7 @@ public class l extends g implements BdLayerTitleBarView.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdLayerTitleBarView f1909f;
+    public BdLayerTitleBarView f2336f;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class l extends g implements BdLayerTitleBarView.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1909f = new BdLayerTitleBarView(getContext());
-            this.f1909f.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            this.f1909f.setVisibility(4);
-            this.f1909f.setListener(this);
+            this.f2336f = new BdLayerTitleBarView(getContext());
+            this.f2336f.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            this.f2336f.setVisibility(4);
+            this.f2336f.setListener(this);
         }
     }
 
@@ -52,7 +52,7 @@ public class l extends g implements BdLayerTitleBarView.a {
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1909f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2336f : (View) invokeV.objValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -118,14 +118,14 @@ public class l extends g implements BdLayerTitleBarView.a {
             }
             if (c2 == 0 || c2 == 1 || c2 == 2) {
                 if (n().V0()) {
-                    this.f1909f.show(false, true, n().r1());
+                    this.f2336f.show(false, true, n().r1());
                 }
             } else if (c2 != 4 && c2 != 5) {
                 if (c2 == 6 && !n().Y()) {
                     p(true, false);
                 }
             } else {
-                this.f1909f.hide(false);
+                this.f2336f.hide(false);
             }
         }
     }
@@ -136,11 +136,11 @@ public class l extends g implements BdLayerTitleBarView.a {
         if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
             super.k(playerStatus, playerStatus2);
             if (playerStatus == PlayerStatus.PLAYING && n().V0()) {
-                c.a.c0.s.j0.l lVar = this.f1891e;
-                if (!(lVar instanceof c.a.c0.s.j0.c) || ((c.a.c0.s.j0.c) lVar).b0()) {
+                c.a.c0.s.j0.l lVar = this.f2318e;
+                if (!(lVar instanceof c.a.c0.s.j0.c) || ((c.a.c0.s.j0.c) lVar).U()) {
                     return;
                 }
-                this.f1909f.hide(true);
+                this.f2336f.hide(true);
             }
         }
     }
@@ -160,10 +160,10 @@ public class l extends g implements BdLayerTitleBarView.a {
             super.p(z, z2);
             if (z) {
                 if (n().V0() && n().f1() == 0) {
-                    this.f1909f.show(true, !n().Y(), n().r1());
+                    this.f2336f.show(true, !n().Y(), n().r1());
                 }
-            } else if (n().V0() && n().f1() == 0 && this.f1909f.getVisibility() != 4 && n().Y()) {
-                this.f1909f.hide(true);
+            } else if (n().V0() && n().f1() == 0 && this.f2336f.getVisibility() != 4 && n().Y()) {
+                this.f2336f.hide(true);
             }
         }
     }

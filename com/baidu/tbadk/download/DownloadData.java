@@ -1,7 +1,7 @@
 package com.baidu.tbadk.download;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.w.e;
+import c.a.s0.w.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;

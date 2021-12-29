@@ -13,13 +13,13 @@ public final class f {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f30581b;
+    public final int f30659b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f30582c;
+    public final int f30660c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final long f30583d;
+    public final long f30661d;
 
     public f(byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
@@ -43,20 +43,20 @@ public final class f {
         kVar.g(24);
         kVar.g(24);
         this.a = kVar.g(20);
-        this.f30581b = kVar.g(3) + 1;
-        this.f30582c = kVar.g(5) + 1;
-        this.f30583d = ((kVar.g(4) & 15) << 32) | (kVar.g(32) & 4294967295L);
+        this.f30659b = kVar.g(3) + 1;
+        this.f30660c = kVar.g(5) + 1;
+        this.f30661d = ((kVar.g(4) & 15) << 32) | (kVar.g(32) & 4294967295L);
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30582c * this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30660c * this.a : invokeV.intValue;
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f30583d * 1000000) / this.a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f30661d * 1000000) / this.a : invokeV.longValue;
     }
 }

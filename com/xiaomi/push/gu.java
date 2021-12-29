@@ -32,11 +32,11 @@ public /* synthetic */ class gu {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[av.c.f63832b.ordinal()] = 2;
+            a[av.c.f63827b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[av.c.f63833c.ordinal()] = 3;
+            a[av.c.f63828c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

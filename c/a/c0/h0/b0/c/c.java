@@ -19,7 +19,7 @@ public class c extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f1677c;
+    public d f2104c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public c() {
@@ -42,7 +42,7 @@ public class c extends a {
     public d h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1677c : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2104c : (d) invokeV.objValue;
     }
 
     public c i(boolean z) {
@@ -89,7 +89,7 @@ public class c extends a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            this.f1677c.s(i2, f2);
+            this.f2104c.s(i2, f2);
             return this;
         }
         return (c) invokeCommon.objValue;
@@ -129,7 +129,7 @@ public class c extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.f1677c.f().D(charSequence);
+            this.f2104c.f().D(charSequence);
             return this;
         }
         return (c) invokeL.objValue;
@@ -140,11 +140,11 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
             try {
-                this.f1677c.f().E(i2, i3);
+                this.f2104c.f().E(i2, i3);
                 return this;
             } catch (Exception e2) {
                 c.a.c0.f.a.h("BubbleTextBuilder", "", e2);
-                this.f1677c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
+                this.f2104c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
                 return this;
             }
         }
@@ -169,6 +169,6 @@ public class c extends a {
                 return;
             }
         }
-        this.f1677c = dVar;
+        this.f2104c = dVar;
     }
 }

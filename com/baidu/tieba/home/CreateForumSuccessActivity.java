@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -41,7 +41,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CreateForumSuccessActivity f45560e;
+        public final /* synthetic */ CreateForumSuccessActivity f45747e;
 
         public a(CreateForumSuccessActivity createForumSuccessActivity) {
             Interceptable interceptable = $ic;
@@ -58,14 +58,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
                     return;
                 }
             }
-            this.f45560e = createForumSuccessActivity;
+            this.f45747e = createForumSuccessActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45560e.finish();
+                this.f45747e.finish();
             }
         }
     }
@@ -108,7 +108,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.create_bar);
             this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-            int f2 = m.f(getActivity(), R.dimen.ds100);
+            int f2 = n.f(getActivity(), R.dimen.ds100);
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.emotion_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f2), null, null);
             this.emptyView = a2;
             a2.setVisibility(0);
@@ -143,7 +143,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             super.changeSkinType(i2);
             super.changeSkinType(i2);
             getLayoutMode().j(this.mRootView);
-            c.a.r0.w0.a.a(getPageContext(), this.mRootView);
+            c.a.s0.x0.a.a(getPageContext(), this.mRootView);
             NoNetworkView noNetworkView = this.mNoNetView;
             if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
                 this.mNoNetView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

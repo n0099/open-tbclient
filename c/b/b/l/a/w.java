@@ -21,16 +21,16 @@ public class w extends g {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27822d;
+    public boolean f27896d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27823e;
+    public long f27897e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a0 f27824f;
+    public a0 f27898f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f27825g;
+    public String f27899g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(String str) {
@@ -60,9 +60,9 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.a.getPath().length() == 0) {
-                return new w(new File(str), this.f27845b);
+                return new w(new File(str), this.f27919b);
             }
-            return new w(new File(this.a, str), this.f27845b);
+            return new w(new File(this.a, str), this.f27919b);
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -71,7 +71,7 @@ public class w extends g {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27822d || this.f27824f.b(v()).length != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27896d || this.f27898f.b(v()).length != 0 : invokeV.booleanValue;
     }
 
     @Override // c.b.b.l.a.g, c.b.b.m.a
@@ -79,8 +79,8 @@ public class w extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f27822d) {
-                return this.f27823e;
+            if (this.f27896d) {
+                return this.f27897e;
             }
             return 0L;
         }
@@ -107,7 +107,7 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return this.f27824f.c(v());
+                return this.f27898f.c(v());
             } catch (IOException e2) {
                 throw new GdxRuntimeException("Error reading file: " + this.a + " (ZipResourceFile)", e2);
             }
@@ -121,7 +121,7 @@ public class w extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (this.a.getPath().length() != 0) {
-                return c.b.b.f.f27697d.d(new File(this.a.getParent(), str).getPath(), this.f27845b);
+                return c.b.b.f.f27771d.d(new File(this.a.getParent(), str).getPath(), this.f27919b);
             }
             throw new GdxRuntimeException("Cannot get the sibling of the root.");
         }
@@ -132,34 +132,34 @@ public class w extends g {
     public AssetFileDescriptor u() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27824f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27898f.a(v()) : (AssetFileDescriptor) invokeV.objValue;
     }
 
     public final String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27825g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27899g : (String) invokeV.objValue;
     }
 
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f27825g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/');
-            a0 c2 = ((h) c.b.b.f.f27697d).c();
-            this.f27824f = c2;
+            this.f27899g = this.a.getPath().replace(FileUtil.WINDOWS_SEPARATOR, '/');
+            a0 c2 = ((h) c.b.b.f.f27771d).c();
+            this.f27898f = c2;
             AssetFileDescriptor a = c2.a(v());
             if (a != null) {
-                this.f27822d = true;
-                this.f27823e = a.getLength();
+                this.f27896d = true;
+                this.f27897e = a.getLength();
                 try {
                     a.close();
                 } catch (IOException unused) {
                 }
             } else {
-                this.f27822d = false;
+                this.f27896d = false;
             }
             if (x()) {
-                this.f27825g += "/";
+                this.f27899g += "/";
             }
         }
     }
@@ -167,7 +167,7 @@ public class w extends g {
     public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f27822d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? !this.f27896d : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

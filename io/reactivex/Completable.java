@@ -385,7 +385,7 @@ public abstract class Completable implements CompletableSource {
         return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? RxJavaPlugins.onAssembly(CompletableNever.INSTANCE) : (Completable) invokeV.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     private Completable timeout0(long j2, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
         InterceptResult invokeCommon;
@@ -685,7 +685,7 @@ public abstract class Completable implements CompletableSource {
         return (Completable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable observeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -792,7 +792,7 @@ public abstract class Completable implements CompletableSource {
 
     public abstract void subscribeActual(CompletableObserver completableObserver);
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable subscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -920,7 +920,7 @@ public abstract class Completable implements CompletableSource {
         return (Single) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable unsubscribeOn(Scheduler scheduler) {
         InterceptResult invokeL;
@@ -932,7 +932,7 @@ public abstract class Completable implements CompletableSource {
         return (Completable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public static Completable timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -959,7 +959,7 @@ public abstract class Completable implements CompletableSource {
         return (Completable) invokeCommon.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1059,7 +1059,7 @@ public abstract class Completable implements CompletableSource {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
@@ -1195,7 +1195,7 @@ public abstract class Completable implements CompletableSource {
         return (interceptable == null || (invokeJL = interceptable.invokeJL(1048615, this, j2, predicate)) == null) ? fromPublisher(toFlowable().retry(j2, predicate)) : (Completable) invokeJL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
@@ -1238,7 +1238,7 @@ public abstract class Completable implements CompletableSource {
         return (Flowable) invokeL.objValue;
     }
 
-    @SchedulerSupport(SchedulerSupport.CUSTOM)
+    @SchedulerSupport("custom")
     @CheckReturnValue
     public final Completable timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, CompletableSource completableSource) {
         InterceptResult invokeCommon;

@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import c.g.a0.a.e;
+import c.g.b0.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -75,7 +75,7 @@ public class CsjModule implements Module {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
-            TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).customController(funAdConfig.ttCustomCtr).build(), new a(this));
+            TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).customController(funAdConfig.ttCustomCtr).supportMultiProcess(funAdConfig.supportMultiProcess).build(), new a(this));
             return new e();
         }
         return (PidLoaderCreator) invokeLL.objValue;

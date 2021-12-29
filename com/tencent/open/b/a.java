@@ -26,11 +26,11 @@ public class a extends RelativeLayout {
     public boolean f62900c;
 
     /* renamed from: d  reason: collision with root package name */
-    public InterfaceC2231a f62901d;
+    public InterfaceC2238a f62901d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC2231a {
+    public interface InterfaceC2238a {
         void a();
 
         void a(int i2);
@@ -78,10 +78,10 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC2231a interfaceC2231a) {
+    public void a(InterfaceC2238a interfaceC2238a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2231a) == null) {
-            this.f62901d = interfaceC2231a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC2238a) == null) {
+            this.f62901d = interfaceC2238a;
         }
     }
 
@@ -93,12 +93,12 @@ public class a extends RelativeLayout {
             Activity activity = (Activity) getContext();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f62899b);
             int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f62899b.top) - size;
-            InterfaceC2231a interfaceC2231a = this.f62901d;
-            if (interfaceC2231a != null && size != 0) {
+            InterfaceC2238a interfaceC2238a = this.f62901d;
+            if (interfaceC2238a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC2231a.a((Math.abs(this.f62899b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC2238a.a((Math.abs(this.f62899b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC2231a.a();
+                    interfaceC2238a.a();
                 }
             }
             super.onMeasure(i2, i3);

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.growthFunnel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.r0.s.z.a;
+import c.a.s0.s.y.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,10 +18,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f41520e = true;
+    public static boolean f41679e = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public static long f41521f;
+    public static long f41680f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -66,13 +66,13 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            if (f41520e) {
-                f41520e = false;
+            if (f41679e) {
+                f41679e = false;
                 a.k("lifecycle-1st-create", false);
                 a.p();
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - f41521f;
+            long currentTimeMillis = System.currentTimeMillis() - f41680f;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
@@ -87,7 +87,7 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             a.o(null, true);
-            f41521f = System.currentTimeMillis();
+            f41680f = System.currentTimeMillis();
         }
     }
 }

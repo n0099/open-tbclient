@@ -18,6 +18,7 @@ public class TbadkCoreStatisticKey {
     public static final String BUBBLE_PAY_MEMBER_CLICK = "c10055";
     public static final String BUBBLE_PAY_MEMBER_SUCCESS = "c10383";
     public static final String CHANDE_OLD_SUCCESS = "c10492";
+    public static final String CLOSE_AD_TIME = "c14534";
     public static final String CONCERN_TAB_THREAD_CLICK = "c12352";
     public static final String ENTER_FORUM_EDIT_MENTION_CLICK = "c10149";
     public static final String ENTER_FORUM_EDIT_RECOMMENDFRS_CLICK = "c10098";
@@ -203,7 +204,9 @@ public class TbadkCoreStatisticKey {
     public static final String PUSH_RECOMMEND_PB_RECEIVE = "c10146";
     public static final String REF_TYPE_MAINTAB_AD = "4000401";
     public static final String REMIND_EXPIRED = "remind_expired";
+    public static final String REQUEST_AD_TIME = "c14532";
     public static final String SET_NIGHT_MODE = "c10647";
+    public static final String SHOW_AD_TIME = "c14533";
     public static final String SUBPB_CLICK_SEND = "c10090";
     public static final String TAIL_PAY_MEMBER_SUCCESS = "c10061";
     public static final String THREAD_ACHIEVEMENT_DETAIL_SHARE = "c13724";

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class PlayerEventTrigger extends SingleTargetTrigger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean ignoreInfoEventFilter;
     public final ArrayList<Integer> mAttentionEventArray;
 
     public PlayerEventTrigger() {
@@ -32,6 +33,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
             }
         }
         this.mAttentionEventArray = new ArrayList<>(17);
+        this.ignoreInfoEventFilter = false;
         initAttentionArray();
     }
 
@@ -74,9 +76,16 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
         }
     }
 
+    public void ignoreInfoEventFilter(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.ignoreInfoEventFilter = z;
+        }
+    }
+
     public void onBufferingUpdate(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_BUFFER_UPDATE);
             obtainEvent.putExtra(2, Integer.valueOf(i2));
             obtainEvent.setLogLevel(1);
@@ -86,7 +95,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
 
     public void onCompletion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_COMPLETE));
         }
     }
@@ -94,7 +103,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
     public boolean onError(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, obj)) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_ERROR);
             obtainEvent.putExtra(1, Integer.valueOf(i2));
             obtainEvent.putExtra(2, Integer.valueOf(i3));
@@ -108,9 +117,9 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
     public boolean onInfo(int i2, int i3, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, obj)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i2, i3, obj)) == null) {
             BdVideoLog.v("player trigger on info what:" + i2);
-            if (filterOnInfoEvent(i2)) {
+            if (this.ignoreInfoEventFilter || filterOnInfoEvent(i2)) {
                 VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_INFO);
                 if (i2 == 910) {
                     obtainEvent.setLogLevel(1);
@@ -128,7 +137,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
 
     public void onMediaSourceChanged(int i2, int i3, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, obj) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, obj) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_MEDIA_SOURCE_CHANGED);
             obtainEvent.putExtra(7, Integer.valueOf(i2));
             obtainEvent.putExtra(8, Integer.valueOf(i3));
@@ -139,35 +148,35 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
 
     public void onPlayerAttach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_PLAYER_ATTACH));
         }
     }
 
     public void onPlayerDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_PLAYER_DETACH));
         }
     }
 
     public void onPrepared() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_ON_PREPARED));
         }
     }
 
     public void onSeekComplete() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_SEEK_COMPLETE));
         }
     }
 
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048586, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048587, this, i2, i3, i4, i5) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED);
             obtainEvent.putExtra(5, Integer.valueOf(i2));
             obtainEvent.putExtra(6, Integer.valueOf(i3));
@@ -177,7 +186,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
 
     public void setDataSource(String str, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE);
             VideoUrlModel videoUrlModel = new VideoUrlModel();
             videoUrlModel.videoUrl = str;
@@ -192,7 +201,7 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
     @Override // com.baidu.searchbox.player.event.SingleTargetTrigger, com.baidu.searchbox.player.event.IEventTrigger
     public void triggerEvent(@NonNull VideoEvent videoEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, videoEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, videoEvent) == null) {
             super.triggerEvent(videoEvent);
         }
     }
@@ -200,14 +209,14 @@ public class PlayerEventTrigger extends SingleTargetTrigger {
     @PublicMethod
     public void updateDataSource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             triggerEvent(PlayerEvent.obtainEvent(PlayerEvent.ACTION_UPDATE_DATA_SOURCE));
         }
     }
 
     public void setDataSource(@NonNull VideoUrlModel videoUrlModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, videoUrlModel) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, videoUrlModel) == null) {
             VideoEvent obtainEvent = PlayerEvent.obtainEvent(PlayerEvent.ACTION_SET_DATA_SOURCE);
             obtainEvent.putExtra(3, videoUrlModel);
             obtainEvent.setPriority(1);

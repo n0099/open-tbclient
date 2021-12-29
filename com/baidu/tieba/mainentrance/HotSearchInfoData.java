@@ -19,16 +19,16 @@ public class HotSearchInfoData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f47263e;
+    public String f47484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f47264f;
+    public long f47485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f47265g;
+    public long f47486g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f47266h;
+    public String f47487h;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -47,39 +47,39 @@ public class HotSearchInfoData extends OrmObject {
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47265g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f47486g : invokeV.longValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47266h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47487h : (String) invokeV.objValue;
     }
 
     public long getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47264f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47485f : invokeV.longValue;
     }
 
     public void setId(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.f47265g = j2;
+            this.f47486g = j2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f47266h = str;
+            this.f47487h = str;
         }
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47263e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47484e : (String) invokeV.objValue;
     }
 
     public void x(HotSearch hotSearch) {
@@ -88,24 +88,24 @@ public class HotSearchInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, hotSearch) == null) || hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f47263e = hotSearch.search_title;
-        this.f47265g = searchValue.id.longValue();
+        this.f47484e = hotSearch.search_title;
+        this.f47486g = searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
-        this.f47266h = searchValue2.name;
-        this.f47264f = searchValue2.type.longValue();
+        this.f47487h = searchValue2.name;
+        this.f47485f = searchValue2.type.longValue();
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f47263e = str;
+            this.f47484e = str;
         }
     }
 
     public void z(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.f47264f = j2;
+            this.f47485f = j2;
         }
     }
 }

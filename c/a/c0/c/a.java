@@ -24,26 +24,26 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f1412d;
+    public static final Pattern f1839d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile a f1413e;
+    public static volatile a f1840e;
     public transient /* synthetic */ FieldHolder $fh;
     public final LruCache<String, c.a.c0.c.b<?>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.c0.c.c f1414b;
+    public final c.a.c0.c.c f1841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1415c;
+    public final String f1842c;
 
     /* renamed from: c.a.c0.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0025a implements d<Bitmap> {
+    public class C0046a implements d<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0025a(a aVar) {
+        public C0046a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,10 +106,10 @@ public class a {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f1416b;
+        public final /* synthetic */ c f1843b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f1417c;
+        public final /* synthetic */ a f1844c;
 
         public b(a aVar, String str, c cVar) {
             Interceptable interceptable = $ic;
@@ -126,17 +126,17 @@ public class a {
                     return;
                 }
             }
-            this.f1417c = aVar;
+            this.f1844c = aVar;
             this.a = str;
-            this.f1416b = cVar;
+            this.f1843b = cVar;
         }
 
         @Override // c.a.c0.c.c.e
         public void a(String str, c.a.c0.c.b<File> bVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && this.a.equals(str)) {
-                this.f1416b.a();
-                this.f1417c.f1414b.n(this);
+                this.f1843b.a();
+                this.f1844c.f1841b.n(this);
             }
         }
 
@@ -151,8 +151,8 @@ public class a {
         public void c(String str, c.a.c0.c.b<File> bVar) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bVar) == null) && this.a.equals(str)) {
-                this.f1416b.b();
-                this.f1417c.f1414b.n(this);
+                this.f1843b.b();
+                this.f1844c.f1841b.n(this);
             }
         }
     }
@@ -184,7 +184,7 @@ public class a {
                 return;
             }
         }
-        f1412d = Pattern.compile("[^a-zA-Z0-9]");
+        f1839d = Pattern.compile("[^a-zA-Z0-9]");
     }
 
     public a(Context context, int i2, int i3) {
@@ -203,9 +203,9 @@ public class a {
             }
         }
         File cacheDir = context.getCacheDir();
-        this.f1415c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
+        this.f1842c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
         this.a = new LruCache<>(i2);
-        this.f1414b = c.a.c0.c.c.l(this.f1415c, i3);
+        this.f1841b = c.a.c0.c.c.l(this.f1842c, i3);
     }
 
     public static String b(String str) {
@@ -215,7 +215,7 @@ public class a {
             if (str.length() >= 160) {
                 return i.b(str, false);
             }
-            return f1412d.matcher(str).replaceAll("").trim();
+            return f1839d.matcher(str).replaceAll("").trim();
         }
         return (String) invokeL.objValue;
     }
@@ -224,14 +224,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f1413e == null) {
+            if (f1840e == null) {
                 synchronized (a.class) {
-                    if (f1413e == null) {
-                        f1413e = new a(c.a.c0.e.a.b(), 6, 50000000);
+                    if (f1840e == null) {
+                        f1840e = new a(c.a.c0.e.a.b(), 6, 50000000);
                     }
                 }
             }
-            return f1413e;
+            return f1840e;
         }
         return (a) invokeV.objValue;
     }
@@ -241,7 +241,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String b2 = b(str);
-            return this.f1415c + b2;
+            return this.f1842c + b2;
         }
         return (String) invokeL.objValue;
     }
@@ -259,7 +259,7 @@ public class a {
     public final c.a.c0.c.b<File> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f1414b.i(str) : (c.a.c0.c.b) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.f1841b.i(str) : (c.a.c0.c.b) invokeL.objValue;
     }
 
     public final c.a.c0.c.b<?> g(String str) {
@@ -272,7 +272,7 @@ public class a {
     public Bitmap h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (Bitmap) i(str, new C0025a(this)) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (Bitmap) i(str, new C0046a(this)) : (Bitmap) invokeL.objValue;
     }
 
     public final <T> T i(String str, d<T> dVar) {
@@ -289,7 +289,7 @@ public class a {
                 }
                 return dVar.a(e2.a());
             }
-            if (!this.f1414b.f1421e) {
+            if (!this.f1841b.f1848e) {
                 File file = new File(c(str));
                 if (file.exists()) {
                     return dVar.b(new c.a.c0.c.b(file).b());
@@ -315,11 +315,11 @@ public class a {
                 if (z) {
                     this.a.put(b2, bVar);
                 }
-                File file = new File(this.f1414b.j() + b2);
+                File file = new File(this.f1841b.j() + b2);
                 if (cVar != null) {
-                    this.f1414b.e(new b(this, b2, cVar));
+                    this.f1841b.e(new b(this, b2, cVar));
                 }
-                this.f1414b.q(bVar.b(), new c.a.c0.c.b<>(file));
+                this.f1841b.q(bVar.b(), new c.a.c0.c.b<>(file));
             } catch (Throwable unused) {
             }
         }

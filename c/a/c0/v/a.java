@@ -13,15 +13,15 @@ public interface a {
     public static final ServiceReference a = new ServiceReference("nad.core", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f2132b = new C0072a();
+    public static final a f2559b = new C0093a();
 
     /* renamed from: c.a.c0.v.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0072a implements a {
+    public static class C0093a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0072a() {
+        public C0093a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

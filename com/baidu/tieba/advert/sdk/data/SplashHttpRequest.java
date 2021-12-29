@@ -1,8 +1,8 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import c.a.s0.y.a.d.d;
-import c.a.s0.y.a.h.c;
+import c.a.t0.y.a.d.d;
+import c.a.t0.y.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TbHttpMessageTask mTask;

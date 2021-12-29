@@ -142,14 +142,14 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
             /* renamed from: com.google.common.collect.ImmutableMap$MapViewOfValuesAsSingletonSets$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class C2042a extends c.i.d.c.b<K, ImmutableSet<V>> {
+            public class C2049a extends c.i.d.c.b<K, ImmutableSet<V>> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: e  reason: collision with root package name */
                 public final /* synthetic */ Map.Entry f56772e;
 
-                public C2042a(a aVar, Map.Entry entry) {
+                public C2049a(a aVar, Map.Entry entry) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             public Map.Entry<K, ImmutableSet<V>> next() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2042a(this, (Map.Entry) this.f56771e.next()) : (Map.Entry) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2049a(this, (Map.Entry) this.f56771e.next()) : (Map.Entry) invokeV.objValue;
             }
 
             @Override // java.util.Iterator

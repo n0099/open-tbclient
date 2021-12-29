@@ -1,11 +1,6 @@
 package com.kwad.sdk.feed;
 
 import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.feed.widget.c;
 import com.kwad.sdk.feed.widget.d;
 import com.kwad.sdk.feed.widget.e;
@@ -15,29 +10,13 @@ import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
 /* loaded from: classes3.dex */
 public class a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwad.sdk.feed.a$1  reason: invalid class name */
     /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
-        public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
 
         static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1832945315, "Lcom/kwad/sdk/feed/a$1;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(1832945315, "Lcom/kwad/sdk/feed/a$1;");
-                    return;
-                }
-            }
             int[] iArr = new int[FeedType.values().length];
             a = iArr;
             try {
@@ -72,94 +51,74 @@ public class a {
     }
 
     public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, feedType)) == null) {
-            switch (AnonymousClass1.a[feedType.ordinal()]) {
-                case 1:
-                    return new g(context);
-                case 2:
-                    return new c(context);
-                case 3:
-                    return new e(context);
-                case 4:
-                    return new h(context);
-                case 5:
-                    return new i(context);
-                case 6:
-                case 7:
-                    com.kwad.sdk.core.d.a.e("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
-                    return null;
-                default:
-                    return null;
-            }
+        switch (AnonymousClass1.a[feedType.ordinal()]) {
+            case 1:
+                return new g(context);
+            case 2:
+                return new c(context);
+            case 3:
+                return new e(context);
+            case 4:
+                return new h(context);
+            case 5:
+                return new i(context);
+            case 6:
+            case 7:
+                com.kwad.sdk.core.d.a.e("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
+                return null;
+            default:
+                return null;
         }
-        return (com.kwad.sdk.feed.widget.base.a) invokeLL.objValue;
     }
 
     public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType, int i2) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, feedType, i2)) == null) {
-            if (feedType == FeedType.FEED_TYPE_TEXT_NEW) {
-                return i2 == 1 ? new f(context) : new e(context);
-            } else if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        com.kwad.sdk.core.d.a.e("KSFeedFactory", "getNewFeedView materialType is unknown");
-                        return null;
-                    }
-                    return b(context, feedType);
+        if (feedType == FeedType.FEED_TYPE_TEXT_NEW) {
+            return i2 == 1 ? new f(context) : new e(context);
+        } else if (i2 != 1) {
+            if (i2 != 2) {
+                if (i2 != 3) {
+                    com.kwad.sdk.core.d.a.e("KSFeedFactory", "getNewFeedView materialType is unknown");
+                    return null;
                 }
-                return a(context, feedType);
-            } else {
-                return c(context, feedType);
+                return b(context, feedType);
             }
+            return a(context, feedType);
+        } else {
+            return c(context, feedType);
         }
-        return (com.kwad.sdk.feed.widget.base.a) invokeLLI.objValue;
     }
 
     public static com.kwad.sdk.feed.widget.base.a b(Context context, FeedType feedType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, feedType)) == null) {
-            switch (AnonymousClass1.a[feedType.ordinal()]) {
-                case 1:
-                    return new g(context);
-                case 2:
-                    return new c(context);
-                case 3:
-                    return new e(context);
-                case 4:
-                    return new h(context);
-                case 5:
-                    return new i(context);
-                case 6:
-                    return new com.kwad.sdk.feed.widget.b(context);
-                case 7:
-                    com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown" + feedType);
-                    return null;
-                default:
-                    return null;
-            }
+        switch (AnonymousClass1.a[feedType.ordinal()]) {
+            case 1:
+                return new g(context);
+            case 2:
+                return new c(context);
+            case 3:
+                return new e(context);
+            case 4:
+                return new h(context);
+            case 5:
+                return new i(context);
+            case 6:
+                return new com.kwad.sdk.feed.widget.b(context);
+            case 7:
+                com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown" + feedType);
+                return null;
+            default:
+                return null;
         }
-        return (com.kwad.sdk.feed.widget.base.a) invokeLL.objValue;
     }
 
     public static com.kwad.sdk.feed.widget.base.a c(Context context, FeedType feedType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, feedType)) == null) {
-            int i2 = AnonymousClass1.a[feedType.ordinal()];
-            if (i2 != 2) {
-                if (i2 != 3) {
-                    com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);
-                    return null;
-                }
-                return new f(context);
+        int i2 = AnonymousClass1.a[feedType.ordinal()];
+        if (i2 != 2) {
+            if (i2 != 3) {
+                com.kwad.sdk.core.d.a.e("KSFeedFactory", "getVideoView type is unknown:" + feedType);
+                return null;
             }
-            return new d(context);
+            return new f(context);
         }
-        return (com.kwad.sdk.feed.widget.base.a) invokeLL.objValue;
+        return new d(context);
     }
 }

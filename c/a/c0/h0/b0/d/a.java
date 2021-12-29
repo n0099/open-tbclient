@@ -24,25 +24,25 @@ public abstract class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1678e;
+    public boolean f2105e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f1679f;
+    public boolean f2106f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f1680g;
+    public int f2107g;
 
     /* renamed from: h  reason: collision with root package name */
-    public BubbleManager.b f1681h;
+    public BubbleManager.b f2108h;
 
     /* renamed from: i  reason: collision with root package name */
-    public BubbleManager.a f1682i;
+    public BubbleManager.a f2109i;
 
     /* renamed from: j  reason: collision with root package name */
-    public g f1683j;
+    public g f2110j;
 
     /* renamed from: k  reason: collision with root package name */
-    public boolean f1684k;
+    public boolean f2111k;
     public boolean l;
     public boolean m;
     public ObjectAnimator n;
@@ -52,14 +52,14 @@ public abstract class a {
 
     /* renamed from: c.a.c0.h0.b0.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0053a implements Runnable {
+    public class RunnableC0074a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1685e;
+        public final /* synthetic */ a f2112e;
 
-        public RunnableC0053a(a aVar) {
+        public RunnableC0074a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -74,14 +74,14 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1685e = aVar;
+            this.f2112e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1685e.k();
+                this.f2112e.k();
             }
         }
     }
@@ -92,7 +92,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1686e;
+        public final /* synthetic */ a f2113e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -109,24 +109,24 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1686e = aVar;
+            this.f2113e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f1686e;
+                a aVar = this.f2113e;
                 BubblePosition b2 = aVar.q.b(aVar.p);
                 if (b2 == BubblePosition.INVALID) {
-                    this.f1686e.p.m();
+                    this.f2113e.p.m();
                     c.a.c0.h0.b0.a.a().b("——>show: remove bubble view end");
-                    a aVar2 = this.f1686e;
-                    if (aVar2.f1684k) {
+                    a aVar2 = this.f2113e;
+                    if (aVar2.f2111k) {
                         aVar2.p.l();
                         c.a.c0.h0.b0.a.a().b("——>show: remove bg view end");
                     }
-                    a aVar3 = this.f1686e;
+                    a aVar3 = this.f2113e;
                     if (aVar3.l) {
                         aVar3.p.k();
                         c.a.c0.h0.b0.a.a().b("——>show: remove anchorlayer view end");
@@ -134,8 +134,8 @@ public abstract class a {
                     }
                     return;
                 }
-                this.f1686e.p.z(b2);
-                this.f1686e.q(b2);
+                this.f2113e.p.z(b2);
+                this.f2113e.q(b2);
             }
         }
     }
@@ -146,10 +146,10 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BubblePosition f1687e;
+        public final /* synthetic */ BubblePosition f2114e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f1688f;
+        public final /* synthetic */ a f2115f;
 
         public c(a aVar, BubblePosition bubblePosition) {
             Interceptable interceptable = $ic;
@@ -166,43 +166,43 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1688f = aVar;
-            this.f1687e = bubblePosition;
+            this.f2115f = aVar;
+            this.f2114e = bubblePosition;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a aVar = this.f1688f;
-                int[] i2 = aVar.q.i(this.f1687e, aVar.p);
-                this.f1688f.p.A(i2);
-                a aVar2 = this.f1688f;
+                a aVar = this.f2115f;
+                int[] i2 = aVar.q.i(this.f2114e, aVar.p);
+                this.f2115f.p.A(i2);
+                a aVar2 = this.f2115f;
                 if (aVar2.m) {
-                    int a = f.c.a(null, aVar2.q.f1670b + 11.0f);
-                    BubblePosition bubblePosition = this.f1687e;
+                    int a = f.c.a(null, aVar2.q.f2097b + 11.0f);
+                    BubblePosition bubblePosition = this.f2114e;
                     if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
                         if (bubblePosition == BubblePosition.RIGHT || bubblePosition == BubblePosition.LEFT) {
-                            int i3 = this.f1687e == BubblePosition.LEFT ? i2[0] + a : i2[0] - a;
-                            a aVar3 = this.f1688f;
-                            aVar3.b(aVar3.p.f1693b, i3, i2[0], i2[1], i2[1]);
+                            int i3 = this.f2114e == BubblePosition.LEFT ? i2[0] + a : i2[0] - a;
+                            a aVar3 = this.f2115f;
+                            aVar3.b(aVar3.p.f2120b, i3, i2[0], i2[1], i2[1]);
                         }
                     } else {
-                        int i4 = this.f1687e == BubblePosition.UP ? i2[1] + a : i2[1] - a;
-                        a aVar4 = this.f1688f;
-                        aVar4.b(aVar4.p.f1693b, i2[0], i2[0], i4, i2[1]);
+                        int i4 = this.f2114e == BubblePosition.UP ? i2[1] + a : i2[1] - a;
+                        a aVar4 = this.f2115f;
+                        aVar4.b(aVar4.p.f2120b, i2[0], i2[0], i4, i2[1]);
                     }
                 }
-                a aVar5 = this.f1688f;
+                a aVar5 = this.f2115f;
                 if (aVar5.l) {
                     aVar5.p.y();
                 }
-                a aVar6 = this.f1688f;
-                aVar6.f1678e = true;
-                if (aVar6.f1679f) {
-                    aVar6.f1683j.sendEmptyMessageDelayed(0, aVar6.f1680g);
+                a aVar6 = this.f2115f;
+                aVar6.f2105e = true;
+                if (aVar6.f2106f) {
+                    aVar6.f2110j.sendEmptyMessageDelayed(0, aVar6.f2107g);
                 }
-                BubbleManager.b bVar = this.f1688f.f1681h;
+                BubbleManager.b bVar = this.f2115f.f2108h;
                 if (bVar != null) {
                     bVar.c();
                 }
@@ -216,7 +216,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1689e;
+        public final /* synthetic */ a f2116e;
 
         public d(a aVar) {
             Interceptable interceptable = $ic;
@@ -233,14 +233,14 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1689e = aVar;
+            this.f2116e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f1689e.i(view);
+                this.f2116e.i(view);
             }
         }
     }
@@ -251,7 +251,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1690e;
+        public final /* synthetic */ a f2117e;
 
         public e(a aVar) {
             Interceptable interceptable = $ic;
@@ -268,14 +268,14 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1690e = aVar;
+            this.f2117e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f1690e.i(view);
+                this.f2117e.i(view);
             }
         }
     }
@@ -286,7 +286,7 @@ public abstract class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f1691e;
+        public final /* synthetic */ a f2118e;
 
         public f(a aVar) {
             Interceptable interceptable = $ic;
@@ -303,15 +303,15 @@ public abstract class a {
                     return;
                 }
             }
-            this.f1691e = aVar;
+            this.f2118e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f1691e.i(view);
-                BubbleManager.a aVar = this.f1691e.f1682i;
+                this.f2118e.i(view);
+                BubbleManager.a aVar = this.f2118e.f2109i;
                 if (aVar != null) {
                     aVar.a();
                 }
@@ -368,8 +368,8 @@ public abstract class a {
                 return;
             }
         }
-        this.f1679f = true;
-        this.f1680g = w0.Y3;
+        this.f2106f = true;
+        this.f2107g = w0.Y3;
         this.o = true;
         this.q = new c.a.c0.h0.b0.b();
         this.p = aVar;
@@ -390,8 +390,8 @@ public abstract class a {
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f1678e) {
-            c.a.c0.e.g.b(new RunnableC0053a(this));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f2105e) {
+            c.a.c0.e.g.b(new RunnableC0074a(this));
         }
     }
 
@@ -413,7 +413,7 @@ public abstract class a {
     public void g() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.p.g()) {
-            this.f1683j = new g(this);
+            this.f2110j = new g(this);
             this.p.v(new d(this));
             this.p.u(new e(this));
             this.p.t(new f(this));
@@ -423,13 +423,13 @@ public abstract class a {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f1678e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !this.f2105e : invokeV.booleanValue;
     }
 
     public void i(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
-            BubbleManager.b bVar = this.f1681h;
+            BubbleManager.b bVar = this.f2108h;
             if (bVar != null) {
                 bVar.a();
             }
@@ -443,12 +443,12 @@ public abstract class a {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f1678e) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f2105e) {
             ObjectAnimator objectAnimator = this.n;
             if (objectAnimator != null && objectAnimator.isRunning()) {
                 this.n.cancel();
             }
-            if (this.f1684k) {
+            if (this.f2111k) {
                 this.p.l();
                 c.a.c0.h0.b0.a.a().b("——>dismiss BgView end");
             }
@@ -458,12 +458,12 @@ public abstract class a {
             }
             this.p.m();
             c.a.c0.h0.b0.a.a().b("——>dismiss BubbleView end");
-            this.f1678e = false;
-            g gVar = this.f1683j;
+            this.f2105e = false;
+            g gVar = this.f2110j;
             if (gVar != null) {
                 gVar.removeMessages(0);
             }
-            BubbleManager.b bVar = this.f1681h;
+            BubbleManager.b bVar = this.f2108h;
             if (bVar != null) {
                 bVar.b();
             }
@@ -479,8 +479,8 @@ public abstract class a {
                 aVar.n();
                 this.p = null;
             }
-            this.f1681h = null;
-            this.f1683j = null;
+            this.f2108h = null;
+            this.f2110j = null;
             this.n = null;
         }
     }
@@ -489,9 +489,9 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             if (i2 <= 0) {
-                this.f1680g = w0.Y3;
+                this.f2107g = w0.Y3;
             } else {
-                this.f1680g = i2;
+                this.f2107g = i2;
             }
         }
     }
@@ -499,7 +499,7 @@ public abstract class a {
     public void n(BubbleManager.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.f1681h = bVar;
+            this.f2108h = bVar;
         }
     }
 
@@ -508,7 +508,7 @@ public abstract class a {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             c.a.c0.h0.b0.a.a().b("——>show");
             g();
-            if (this.f1684k) {
+            if (this.f2111k) {
                 this.p.q();
             }
             if (this.l) {
@@ -527,7 +527,7 @@ public abstract class a {
     public void p() {
         c.a.c0.h0.b0.e.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.p) == null || aVar.f1694c == null || TextUtils.isEmpty(aVar.c()) || !this.p.h() || !h()) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.p) == null || aVar.f2121c == null || TextUtils.isEmpty(aVar.c()) || !this.p.h() || !h()) {
             return;
         }
         o();

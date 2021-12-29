@@ -1,6 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
-import c.a.s0.f2.h.a.f;
+import c.a.t0.f2.h.a.f;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;

@@ -3,7 +3,8 @@ package io.flutter.plugins;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import c.a.p.a.a;
-import c.a.p.d.b;
+import c.a.p.e.b;
+import c.o.a.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import io.flutter.Log;
 import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.plugins.packageinfo.PackageInfoPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 @Keep
@@ -48,29 +50,49 @@ public final class GeneratedPluginRegistrant {
                 Log.e(TAG, "Error registering plugin flutter_boost, com.idlefish.flutterboost.FlutterBoostPlugin", e3);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.p.b.a());
+                flutterEngine.getPlugins().add(new c.a.p.c.a());
             } catch (Exception e4) {
-                Log.e(TAG, "Error registering plugin flutter_exception_perf_plugin, com.baidu.flutter.flutter_exception_perf_plugin.FlutterExceptionPerfPlugin", e4);
+                Log.e(TAG, "Error registering plugin flutter_cloud_config_gcp_plugin, com.baidu.flutter.fluttercloudconfiggcpplugin.FlutterCloudConfigGcpPlugin", e4);
             }
             try {
-                flutterEngine.getPlugins().add(new c.a.p.c.a());
+                flutterEngine.getPlugins().add(new c.a.p.b.a());
             } catch (Exception e5) {
-                Log.e(TAG, "Error registering plugin flutter_open_page_perf, com.baidu.flutter.perf.FlutterOpenPagePerfPlugin", e5);
+                Log.e(TAG, "Error registering plugin flutter_exception_perf_plugin, com.baidu.flutter.flutter_exception_perf_plugin.FlutterExceptionPerfPlugin", e5);
+            }
+            try {
+                flutterEngine.getPlugins().add(new c.a.p.d.a());
+            } catch (Exception e6) {
+                Log.e(TAG, "Error registering plugin flutter_open_page_perf, com.baidu.flutter.perf.FlutterOpenPagePerfPlugin", e6);
             }
             try {
                 flutterEngine.getPlugins().add(new b());
-            } catch (Exception e6) {
-                Log.e(TAG, "Error registering plugin flutter_performance_report_plugin, com.baidu.flutter.report.FlutterPerformanceReportPlugin", e6);
+            } catch (Exception e7) {
+                Log.e(TAG, "Error registering plugin flutter_performance_report_plugin, com.baidu.flutter.report.FlutterPerformanceReportPlugin", e7);
+            }
+            try {
+                flutterEngine.getPlugins().add(new PackageInfoPlugin());
+            } catch (Exception e8) {
+                Log.e(TAG, "Error registering plugin package_info, io.flutter.plugins.packageinfo.PackageInfoPlugin", e8);
             }
             try {
                 flutterEngine.getPlugins().add(new PathProviderPlugin());
-            } catch (Exception e7) {
-                Log.e(TAG, "Error registering plugin path_provider, io.flutter.plugins.pathprovider.PathProviderPlugin", e7);
+            } catch (Exception e9) {
+                Log.e(TAG, "Error registering plugin path_provider, io.flutter.plugins.pathprovider.PathProviderPlugin", e9);
             }
             try {
                 flutterEngine.getPlugins().add(new SharedPreferencesPlugin());
-            } catch (Exception e8) {
-                Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e8);
+            } catch (Exception e10) {
+                Log.e(TAG, "Error registering plugin shared_preferences_android, io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin", e10);
+            }
+            try {
+                flutterEngine.getPlugins().add(new c());
+            } catch (Exception e11) {
+                Log.e(TAG, "Error registering plugin sqflite, com.tekartik.sqflite.SqflitePlugin", e11);
+            }
+            try {
+                flutterEngine.getPlugins().add(new c.a.w0.b());
+            } catch (Exception e12) {
+                Log.e(TAG, "Error registering plugin ubcflutter, com.baidu.ubcflutter.UbcflutterPlugin", e12);
             }
         }
     }

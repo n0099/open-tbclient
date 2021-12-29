@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
@@ -31,6 +30,6 @@ public class f extends com.alipay.sdk.packet.e {
     public JSONObject a() throws JSONException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.packet.e.a("cashier", FlutterActivityLaunchConfigs.DEFAULT_DART_ENTRYPOINT) : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? com.alipay.sdk.packet.e.a("cashier", "main") : (JSONObject) invokeV.objValue;
     }
 }

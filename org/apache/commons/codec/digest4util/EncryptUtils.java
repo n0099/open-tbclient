@@ -1,5 +1,6 @@
 package org.apache.commons.codec.digest4util;
 
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,6 +13,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
+@SuppressLint({"BDThrowableCheck"})
 @Deprecated
 /* loaded from: classes4.dex */
 public class EncryptUtils {

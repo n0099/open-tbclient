@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
-import com.bytedance.pangle.e;
-import com.bytedance.pangle.g;
+import com.bytedance.pangle.d;
+import com.bytedance.pangle.f;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.servermanager.b;
@@ -31,7 +31,7 @@ public class ServiceManagerNative {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<ServiceConnection, HashSet<ServiceInfo>> conn2Service;
     public HashMap<IBinder, HashMap<ServiceConnection, HashSet<ComponentName>>> process2ConnAndService;
-    public final HashMap<ServiceConnection, g> serviceConn2ServiceConn;
+    public final HashMap<ServiceConnection, f> serviceConn2ServiceConn;
 
     public ServiceManagerNative() {
         Interceptable interceptable = $ic;
@@ -76,13 +76,13 @@ public class ServiceManagerNative {
                 return context.bindService(intent, serviceConnection, i2);
             }
             if (!this.serviceConn2ServiceConn.containsKey(serviceConnection)) {
-                this.serviceConn2ServiceConn.put(serviceConnection, new g.a(this, serviceConnection) { // from class: com.bytedance.pangle.service.client.ServiceManagerNative.1
+                this.serviceConn2ServiceConn.put(serviceConnection, new f.a(this, serviceConnection) { // from class: com.bytedance.pangle.service.client.ServiceManagerNative.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ServiceConnection a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f55227b;
+                    public final /* synthetic */ ServiceManagerNative f55226b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -99,11 +99,11 @@ public class ServiceManagerNative {
                                 return;
                             }
                         }
-                        this.f55227b = this;
+                        this.f55226b = this;
                         this.a = serviceConnection;
                     }
 
-                    @Override // com.bytedance.pangle.g
+                    @Override // com.bytedance.pangle.f
                     public final void a(ComponentName componentName, IBinder iBinder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
@@ -111,7 +111,7 @@ public class ServiceManagerNative {
                         }
                     }
 
-                    @Override // com.bytedance.pangle.g
+                    @Override // com.bytedance.pangle.f
                     public final int a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
@@ -123,7 +123,7 @@ public class ServiceManagerNative {
                 this.conn2Service.put(serviceConnection, new HashSet<>());
             }
             this.conn2Service.get(serviceConnection).add(queryServiceFromPlugin);
-            e a = b.a(queryServiceFromPlugin.processName);
+            d a = b.a(queryServiceFromPlugin.processName);
             IBinder asBinder = a.asBinder();
             HashMap<ServiceConnection, HashSet<ComponentName>> hashMap = this.process2ConnAndService.get(asBinder);
             if (hashMap == null) {

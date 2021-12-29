@@ -14,22 +14,22 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31861b;
+    public String f32004b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31862c;
+    public String f32005c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f31863d;
+    public String f32006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f31864e;
+    public String f32007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f31865f;
+    public String f32008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f31866g;
+    public String f32009g;
 
     public a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public final class a {
             }
         }
         this.a = str;
-        this.f31861b = str2;
-        this.f31862c = str3;
-        this.f31863d = str4;
-        this.f31864e = str5;
-        this.f31865f = str6;
-        this.f31866g = str7;
+        this.f32004b = str2;
+        this.f32005c = str3;
+        this.f32006d = str4;
+        this.f32007e = str5;
+        this.f32008f = str6;
+        this.f32009g = str7;
     }
 
     public final String toString() {
@@ -67,33 +67,33 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer(new SimpleDateFormat("yyyyMMddHHmmssSSS").format(Calendar.getInstance().getTime()));
             stringBuffer.append("," + this.a);
-            stringBuffer.append("," + this.f31861b);
-            stringBuffer.append("," + this.f31862c);
-            stringBuffer.append("," + this.f31863d);
-            if (com.alipay.security.mobile.module.a.a.a(this.f31864e) || this.f31864e.length() < 20) {
+            stringBuffer.append("," + this.f32004b);
+            stringBuffer.append("," + this.f32005c);
+            stringBuffer.append("," + this.f32006d);
+            if (com.alipay.security.mobile.module.a.a.a(this.f32007e) || this.f32007e.length() < 20) {
                 sb = new StringBuilder(",");
-                str = this.f31864e;
+                str = this.f32007e;
             } else {
                 sb = new StringBuilder(",");
-                str = this.f31864e.substring(0, 20);
+                str = this.f32007e.substring(0, 20);
             }
             sb.append(str);
             stringBuffer.append(sb.toString());
-            if (com.alipay.security.mobile.module.a.a.a(this.f31865f) || this.f31865f.length() < 20) {
+            if (com.alipay.security.mobile.module.a.a.a(this.f32008f) || this.f32008f.length() < 20) {
                 sb2 = new StringBuilder(",");
-                str2 = this.f31865f;
+                str2 = this.f32008f;
             } else {
                 sb2 = new StringBuilder(",");
-                str2 = this.f31865f.substring(0, 20);
+                str2 = this.f32008f.substring(0, 20);
             }
             sb2.append(str2);
             stringBuffer.append(sb2.toString());
-            if (com.alipay.security.mobile.module.a.a.a(this.f31866g) || this.f31866g.length() < 20) {
+            if (com.alipay.security.mobile.module.a.a.a(this.f32009g) || this.f32009g.length() < 20) {
                 sb3 = new StringBuilder(",");
-                str3 = this.f31866g;
+                str3 = this.f32009g;
             } else {
                 sb3 = new StringBuilder(",");
-                str3 = this.f31866g.substring(0, 20);
+                str3 = this.f32009g.substring(0, 20);
             }
             sb3.append(str3);
             stringBuffer.append(sb3.toString());

@@ -23,12 +23,12 @@ public class aj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ByteBuffer f37460c;
+    public static final ByteBuffer f37616c;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f37461b;
+    public b f37617b;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -82,7 +82,7 @@ public class aj {
                 return;
             }
         }
-        f37460c = ByteBuffer.allocate(0);
+        f37616c = ByteBuffer.allocate(0);
     }
 
     public aj(URI uri, a aVar) throws c {
@@ -103,7 +103,7 @@ public class aj {
         this.a = aVar;
         try {
             b bVar = new b(this, uri, 5000, uri.toString().startsWith("wss://") ? c() : null);
-            this.f37461b = bVar;
+            this.f37617b = bVar;
             bVar.c();
         } catch (InterruptedException e2) {
             throw new c(this, e2);
@@ -137,13 +137,13 @@ public class aj {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f37461b.f() || this.f37461b.g() || this.f37461b.e()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f37617b.f() || this.f37617b.g() || this.f37617b.e()) ? false : true : invokeV.booleanValue;
     }
 
     public void a() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f37461b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f37617b) == null) {
             return;
         }
         bVar.d();
@@ -285,9 +285,9 @@ public class aj {
 
     public void a(JSONObject jSONObject) throws NotYetConnectedException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f37461b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || this.f37617b == null) {
             return;
         }
-        this.f37461b.a(jSONObject.toString().getBytes());
+        this.f37617b.a(jSONObject.toString().getBytes());
     }
 }

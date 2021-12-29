@@ -12,10 +12,10 @@ public final class k {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1459b;
+    public static String f1886b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f1460c;
+    public static boolean f1887c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,20 +31,20 @@ public final class k {
                 return;
             }
         }
-        f1459b = c.a.c0.e.a.b().getApplicationInfo().processName;
+        f1886b = c.a.c0.e.a.b().getApplicationInfo().processName;
         String a2 = b.a();
         a = a2;
-        f1460c = a(a2);
+        f1887c = a(a2);
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.equals(str, f1459b)) {
+            if (TextUtils.equals(str, f1886b)) {
                 return true;
             }
-            return str.startsWith(f1459b) && !str.contains(":");
+            return str.startsWith(f1886b) && !str.contains(":");
         }
         return invokeL.booleanValue;
     }
@@ -52,6 +52,6 @@ public final class k {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1460c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f1887c : invokeV.booleanValue;
     }
 }

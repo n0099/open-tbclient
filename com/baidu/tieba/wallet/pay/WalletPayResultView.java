@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.d;
 import c.a.d.a.f;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes12.dex */
+/* loaded from: classes13.dex */
 public class WalletPayResultView extends d implements IWalletPayResultView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +85,9 @@ public class WalletPayResultView extends d implements IWalletPayResultView {
             Bitmap moneyIconBitmap = CurrencySwitchUtil.getMoneyIconBitmap();
             BitmapDrawable bitmapDrawable = new BitmapDrawable(moneyIconBitmap);
             bitmapDrawable.setBounds(0, 0, moneyIconBitmap.getWidth(), moneyIconBitmap.getHeight());
-            c.a.r0.f1.d dVar = new c.a.r0.f1.d(bitmapDrawable);
-            dVar.b(m.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
-            dVar.c(m.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
+            c.a.s0.g1.d dVar = new c.a.s0.g1.d(bitmapDrawable);
+            dVar.b(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
+            dVar.c(n.f(this.mActivity.getPageContext().getPageActivity(), R.dimen.ds4));
             SpannableString spannableString = new SpannableString(str);
             BuyTBeanStringUlti.setSpan(spannableString, str, formatTBeanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
             BuyTBeanStringUlti.setSpan(spannableString, str, "[image]", dVar);

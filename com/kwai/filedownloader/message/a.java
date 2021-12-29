@@ -11,7 +11,7 @@ public interface a {
 
     /* renamed from: com.kwai.filedownloader.message.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C2137a extends MessageSnapshot implements a {
+    public static class C2144a extends MessageSnapshot implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -19,7 +19,7 @@ public interface a {
         public final MessageSnapshot f60598b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2137a(MessageSnapshot messageSnapshot) {
+        public C2144a(MessageSnapshot messageSnapshot) {
             super(messageSnapshot.m());
             Interceptable interceptable = $ic;
             if (interceptable != null) {

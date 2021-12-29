@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FontManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EXTENSIONS;
@@ -26,13 +26,13 @@ public class FontManager {
     public Map<String, FontFamily> mFontCache;
 
     /* renamed from: com.tachikoma.core.component.text.FontManager$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class FontFamily {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

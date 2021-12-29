@@ -24,31 +24,31 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f1606b;
+    public c f2033b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1607c;
+    public String f2034c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1608d;
+    public String f2035d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1609e;
+    public String f2036e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1610f;
+    public String f2037f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1611g;
+    public String f2038g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1612h;
+    public String f2039h;
 
     /* renamed from: i  reason: collision with root package name */
-    public a f1613i;
+    public a f2040i;
 
     /* renamed from: j  reason: collision with root package name */
-    public C0048b f1614j;
+    public C0069b f2041j;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -57,10 +57,10 @@ public class b {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f1615b;
+        public int f2042b;
 
         /* renamed from: c  reason: collision with root package name */
-        public double f1616c;
+        public double f2043c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -83,8 +83,8 @@ public class b {
                 a aVar = new a();
                 JSONObject b2 = c.a.c0.u.b.b(str);
                 aVar.a = b2.optString("defer_charge_url");
-                aVar.f1615b = b2.optInt("defer_type", 3);
-                aVar.f1616c = b2.optDouble("defer_time", 0.0d);
+                aVar.f2042b = b2.optInt("defer_type", 3);
+                aVar.f2043c = b2.optDouble("defer_time", 0.0d);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -94,8 +94,8 @@ public class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.f1615b;
-                return (i2 == 2 || i2 == 3) && this.f1616c > 0.0d && !TextUtils.isEmpty(this.a);
+                int i2 = this.f2042b;
+                return (i2 == 2 || i2 == 3) && this.f2043c > 0.0d && !TextUtils.isEmpty(this.a);
             }
             return invokeV.booleanValue;
         }
@@ -103,24 +103,24 @@ public class b {
 
     /* renamed from: c.a.c0.g0.s.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0048b {
+    public static class C0069b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f1617b;
+        public String f2044b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f1618c;
+        public String f2045c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f1619d;
+        public String f2046d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f1620e;
+        public String f2047e;
 
-        public C0048b() {
+        public C0069b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,22 +134,22 @@ public class b {
             }
         }
 
-        public static C0048b a(@NonNull String str) {
+        public static C0069b a(@NonNull String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                C0048b c0048b = new C0048b();
+                C0069b c0069b = new C0069b();
                 JSONObject b2 = c.a.c0.u.b.b(str);
-                c0048b.f1620e = b2.optString("key");
+                c0069b.f2047e = b2.optString("key");
                 b2.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                c0048b.a = b2.optString("download_url");
+                c0069b.a = b2.optString("download_url");
                 b2.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
-                c0048b.f1617b = b2.optString("close_virtual_progress");
-                c0048b.f1618c = b2.optString("apk_label");
-                c0048b.f1619d = b2.optString("apk_icon");
-                return c0048b;
+                c0069b.f2044b = b2.optString("close_virtual_progress");
+                c0069b.f2045c = b2.optString("apk_label");
+                c0069b.f2046d = b2.optString("apk_icon");
+                return c0069b;
             }
-            return (C0048b) invokeL.objValue;
+            return (C0069b) invokeL.objValue;
         }
     }
 
@@ -215,29 +215,29 @@ public class b {
                 HashMap hashMap = (HashMap) serializable;
                 if (hashMap != null && !hashMap.isEmpty()) {
                     bVar = new b();
-                    bVar.f1607c = (String) c.a.c0.u.c.b(hashMap, LegoListActivityConfig.AD_ID);
+                    bVar.f2034c = (String) c.a.c0.u.c.b(hashMap, LegoListActivityConfig.AD_ID);
                     bVar.a = (String) c.a.c0.u.c.b(hashMap, "url");
-                    bVar.f1610f = (String) c.a.c0.u.c.b(hashMap, "ext_info");
-                    bVar.f1611g = (String) c.a.c0.u.c.b(hashMap, TiebaStatic.Params.REFER);
-                    bVar.f1608d = (String) c.a.c0.u.c.b(hashMap, "charge_url");
-                    bVar.f1609e = (String) c.a.c0.u.c.b(hashMap, "ad_invoke_flag");
+                    bVar.f2037f = (String) c.a.c0.u.c.b(hashMap, "ext_info");
+                    bVar.f2038g = (String) c.a.c0.u.c.b(hashMap, TiebaStatic.Params.REFER);
+                    bVar.f2035d = (String) c.a.c0.u.c.b(hashMap, "charge_url");
+                    bVar.f2036e = (String) c.a.c0.u.c.b(hashMap, "ad_invoke_flag");
                     String str = (String) c.a.c0.u.c.b(hashMap, "lp_real_url");
                     String str2 = (String) c.a.c0.u.c.b(hashMap, "log_switch");
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "1";
                     }
-                    bVar.f1612h = str2;
+                    bVar.f2039h = str2;
                     String str3 = (String) c.a.c0.u.c.b(hashMap, "sdk_script");
                     if (!TextUtils.isEmpty(str3)) {
-                        bVar.f1606b = c.a(str3);
+                        bVar.f2033b = c.a(str3);
                     }
                     String str4 = (String) c.a.c0.u.c.b(hashMap, "defer_charge");
                     if (!TextUtils.isEmpty(str4)) {
-                        bVar.f1613i = a.b(str4);
+                        bVar.f2040i = a.b(str4);
                     }
                     String str5 = (String) c.a.c0.u.c.b(hashMap, "download");
                     if (!TextUtils.isEmpty(str5)) {
-                        bVar.f1614j = C0048b.a(str5);
+                        bVar.f2041j = C0069b.a(str5);
                     }
                     bVar.c();
                 }
@@ -251,21 +251,21 @@ public class b {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.equals(this.f1609e, "0") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.equals(this.f2036e, "0") : invokeV.booleanValue;
     }
 
     public final void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.f1611g)) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TextUtils.isEmpty(this.f2038g)) {
             return;
         }
-        if (this.f1611g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.f1608d)) {
-            this.f1611g = this.f1611g.replace("__CHARGE_URL__", this.f1608d);
+        if (this.f2038g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.f2035d)) {
+            this.f2038g = this.f2038g.replace("__CHARGE_URL__", this.f2035d);
         }
-        if (!this.f1611g.contains("__DEFER_CHARGE_URL__") || (aVar = this.f1613i) == null || TextUtils.isEmpty(aVar.a)) {
+        if (!this.f2038g.contains("__DEFER_CHARGE_URL__") || (aVar = this.f2040i) == null || TextUtils.isEmpty(aVar.a)) {
             return;
         }
-        this.f1611g = this.f1611g.replace("__DEFER_CHARGE_URL__", this.f1613i.a);
+        this.f2038g = this.f2038g.replace("__DEFER_CHARGE_URL__", this.f2040i.a);
     }
 }

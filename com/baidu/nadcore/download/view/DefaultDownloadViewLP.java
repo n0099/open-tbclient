@@ -28,7 +28,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BannerDownloadView f38059e;
+    public BannerDownloadView f38215e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public DefaultDownloadViewLP(@NonNull Context context) {
@@ -56,7 +56,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(f.nad_download_lp_view, this);
             setBackgroundResource(b.nad_white);
-            this.f38059e = (BannerDownloadView) findViewById(e.lp_download_btn);
+            this.f38215e = (BannerDownloadView) findViewById(e.lp_download_btn);
         }
     }
 
@@ -84,7 +84,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void setProgress(float f2) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (bannerDownloadView = this.f38059e) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048580, this, f2) == null) || (bannerDownloadView = this.f38215e) == null) {
             return;
         }
         bannerDownloadView.setProgress(f2);
@@ -93,7 +93,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void setText(String str) {
         BannerDownloadView bannerDownloadView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bannerDownloadView = this.f38059e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (bannerDownloadView = this.f38215e) == null) {
             return;
         }
         bannerDownloadView.setText(str);
@@ -112,9 +112,9 @@ public class DefaultDownloadViewLP extends FrameLayout implements i<DefaultDownl
     public void update(String str, @NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, aVar) == null) {
-            if (aVar.f1513c == AdDownloadStatus.DOWNLOADING) {
+            if (aVar.f1940c == AdDownloadStatus.DOWNLOADING) {
                 str = getResources().getString(g.nad_download_progress_text) + str;
-                setProgress(aVar.f1519i);
+                setProgress(aVar.f1946i);
             } else {
                 setProgress(0.0f);
             }

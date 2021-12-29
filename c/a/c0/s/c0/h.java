@@ -16,7 +16,7 @@ public class h extends j {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ArrayList<Integer> f1929b;
+    public final ArrayList<Integer> f2356b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class h extends j {
                 return;
             }
         }
-        this.f1929b = new ArrayList<>(13);
+        this.f2356b = new ArrayList<>(13);
         e();
     }
 
@@ -46,29 +46,29 @@ public class h extends j {
     public final boolean d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f1929b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.f2356b.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1929b.add(904);
-            this.f1929b.add(701);
-            this.f1929b.add(702);
-            this.f1929b.add(11004);
-            this.f1929b.add(11005);
-            this.f1929b.add(946);
-            this.f1929b.add(924);
-            this.f1929b.add(5000);
-            this.f1929b.add(937);
-            this.f1929b.add(936);
-            this.f1929b.add(955);
-            this.f1929b.add(956);
-            this.f1929b.add(910);
-            this.f1929b.add(10103);
-            this.f1929b.add(12005);
-            this.f1929b.add(12006);
-            this.f1929b.add(10009);
+            this.f2356b.add(904);
+            this.f2356b.add(701);
+            this.f2356b.add(702);
+            this.f2356b.add(11004);
+            this.f2356b.add(11005);
+            this.f2356b.add(946);
+            this.f2356b.add(924);
+            this.f2356b.add(5000);
+            this.f2356b.add(937);
+            this.f2356b.add(936);
+            this.f2356b.add(955);
+            this.f2356b.add(956);
+            this.f2356b.add(910);
+            this.f2356b.add(10103);
+            this.f2356b.add(12005);
+            this.f2356b.add(12006);
+            this.f2356b.add(10009);
         }
     }
 
@@ -168,8 +168,8 @@ public class h extends j {
             p w = g.w(PlayerEvent.ACTION_SET_DATA_SOURCE);
             c.a.c0.s.m0.h hVar = new c.a.c0.s.m0.h();
             hVar.a = str;
-            hVar.f2056c = z;
-            hVar.f2057d = i2;
+            hVar.f2483c = z;
+            hVar.f2484d = i2;
             w.n(3, hVar);
             w.s(1);
             c(w);

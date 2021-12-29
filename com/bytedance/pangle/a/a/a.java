@@ -19,13 +19,13 @@ public final class a {
     public static Map<String, Field> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Method> f55033b;
+    public static Map<String, Method> f55036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Constructor> f55034c;
+    public static Map<String, Constructor> f55037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Map<String, Class> f55035d;
+    public static Map<String, Class> f55038d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,9 +42,9 @@ public final class a {
             }
         }
         a = new HashMap();
-        f55033b = new HashMap();
-        f55034c = new HashMap();
-        f55035d = new HashMap();
+        f55036b = new HashMap();
+        f55037c = new HashMap();
+        f55038d = new HashMap();
         try {
             FieldUtils.writeField(b.class, "classLoader", (Object) null);
             ZeusLogger.w(ZeusLogger.TAG_INIT, "HackHelper HackHelperImpl use BootClassLoader");
@@ -59,8 +59,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, clsArr)) == null) {
             String b2 = b(cls, str, clsArr);
-            synchronized (f55033b) {
-                method = f55033b.get(b2);
+            synchronized (f55036b) {
+                method = f55036b.get(b2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -71,8 +71,8 @@ public final class a {
             try {
                 Method a2 = b.a(cls, str, clsArr);
                 if (a2 != null) {
-                    synchronized (f55033b) {
-                        f55033b.put(b2, a2);
+                    synchronized (f55036b) {
+                        f55036b.put(b2, a2);
                     }
                 }
                 return a2;
@@ -111,8 +111,8 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
             String b2 = b(cls, "clinit", clsArr);
-            synchronized (f55034c) {
-                constructor = f55034c.get(b2);
+            synchronized (f55037c) {
+                constructor = f55037c.get(b2);
             }
             if (constructor != null) {
                 if (!constructor.isAccessible()) {
@@ -123,8 +123,8 @@ public final class a {
             try {
                 Constructor a2 = b.a(cls, clsArr);
                 if (a2 != null) {
-                    synchronized (f55034c) {
-                        f55034c.put(b2, a2);
+                    synchronized (f55037c) {
+                        f55037c.put(b2, a2);
                     }
                 }
                 return a2;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes10.dex */
 public final class BuildConfig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String AAR_VERSION = "5.21.11";
+    public static final String AAR_VERSION = "5.19.32";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.searchbox.videoplayer.core";

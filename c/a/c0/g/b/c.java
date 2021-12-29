@@ -29,10 +29,10 @@ public class c implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HashMap f1504e;
+        public final /* synthetic */ HashMap f1931e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f1505f;
+        public final /* synthetic */ c f1932f;
 
         public a(c cVar, HashMap hashMap) {
             Interceptable interceptable = $ic;
@@ -49,28 +49,28 @@ public class c implements f {
                     return;
                 }
             }
-            this.f1505f = cVar;
-            this.f1504e = hashMap;
+            this.f1932f = cVar;
+            this.f1931e = hashMap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1505f.a.beginTransaction();
+                this.f1932f.a.beginTransaction();
                 try {
-                    for (Map.Entry entry : this.f1504e.entrySet()) {
+                    for (Map.Entry entry : this.f1931e.entrySet()) {
                         c.a.c0.g.d.a aVar = (c.a.c0.g.d.a) entry.getValue();
                         if (aVar != null) {
                             c.a.c0.w.a.a a = c.a.c0.g.b.d.a(aVar);
                             if (!TextUtils.isEmpty(a.c())) {
-                                this.f1505f.a.a(a, new c.a.c0.z.b[0]);
+                                this.f1932f.a.a(a, new c.a.c0.z.b[0]);
                             }
                         }
                     }
-                    this.f1505f.a.setTransactionSuccessful();
+                    this.f1932f.a.setTransactionSuccessful();
                 } finally {
-                    this.f1505f.a.endTransaction();
+                    this.f1932f.a.endTransaction();
                 }
             }
         }
@@ -82,10 +82,10 @@ public class c implements f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.w.a.a f1506e;
+        public final /* synthetic */ c.a.c0.w.a.a f1933e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f1507f;
+        public final /* synthetic */ c f1934f;
 
         public b(c cVar, c.a.c0.w.a.a aVar) {
             Interceptable interceptable = $ic;
@@ -102,32 +102,32 @@ public class c implements f {
                     return;
                 }
             }
-            this.f1507f = cVar;
-            this.f1506e = aVar;
+            this.f1934f = cVar;
+            this.f1933e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1507f.a.a(this.f1506e, new c.a.c0.z.b[0]);
+                this.f1934f.a.a(this.f1933e, new c.a.c0.z.b[0]);
             }
         }
     }
 
     /* renamed from: c.a.c0.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0033c implements Runnable {
+    public class RunnableC0054c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.w.a.a f1508e;
+        public final /* synthetic */ c.a.c0.w.a.a f1935e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ c f1509f;
+        public final /* synthetic */ c f1936f;
 
-        public RunnableC0033c(c cVar, c.a.c0.w.a.a aVar) {
+        public RunnableC0054c(c cVar, c.a.c0.w.a.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,15 +142,15 @@ public class c implements f {
                     return;
                 }
             }
-            this.f1509f = cVar;
-            this.f1508e = aVar;
+            this.f1936f = cVar;
+            this.f1935e = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f1509f.a.update(this.f1508e, new c.a.c0.z.b[0]);
+                this.f1936f.a.update(this.f1935e, new c.a.c0.z.b[0]);
             }
         }
     }
@@ -161,7 +161,7 @@ public class c implements f {
         public static f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f f1510b;
+        public static final f f1937b;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes.dex */
@@ -237,7 +237,7 @@ public class c implements f {
             } catch (Throwable th) {
                 a = b(th);
             }
-            f1510b = a;
+            f1937b = a;
         }
 
         public static f b(Throwable th) {
@@ -254,7 +254,7 @@ public class c implements f {
     public static f d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.f1510b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.f1937b : (f) invokeV.objValue;
     }
 
     @Override // c.a.c0.g.b.f
@@ -280,7 +280,7 @@ public class c implements f {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || TextUtils.isEmpty(aVar.c())) {
             return;
         }
-        c.a.c0.a0.b.c(new RunnableC0033c(this, aVar), "update_apk_data", 3);
+        c.a.c0.a0.b.c(new RunnableC0054c(this, aVar), "update_apk_data", 3);
     }
 
     public c() {

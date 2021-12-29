@@ -42,7 +42,7 @@ public class BankCardDetectionAction implements RouterAction {
                 public final /* synthetic */ RouterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BankCardDetectionAction f52453b;
+                public final /* synthetic */ BankCardDetectionAction f52456b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -59,7 +59,7 @@ public class BankCardDetectionAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f52453b = this;
+                    this.f52456b = this;
                     this.a = routerCallback;
                 }
 

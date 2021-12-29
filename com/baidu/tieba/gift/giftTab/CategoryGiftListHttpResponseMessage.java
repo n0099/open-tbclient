@@ -1,6 +1,6 @@
 package com.baidu.tieba.gift.giftTab;
 
-import c.a.r0.s.r.j0;
+import c.a.s0.s.q.j0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,20 +75,20 @@ public class CategoryGiftListHttpResponseMessage extends TbHttpResponsedMessage 
                 if (presentGiftListByCategoryId1 != null) {
                     j0 j0Var = new j0();
                     j0Var.a = presentGiftListByCategoryId1.gift_id.intValue();
-                    j0Var.f13358b = presentGiftListByCategoryId1.gift_name;
-                    j0Var.f13359c = presentGiftListByCategoryId1.price.intValue();
-                    j0Var.f13360d = presentGiftListByCategoryId1.thumbnail_url;
+                    j0Var.f13734b = presentGiftListByCategoryId1.gift_name;
+                    j0Var.f13735c = presentGiftListByCategoryId1.price.intValue();
+                    j0Var.f13736d = presentGiftListByCategoryId1.thumbnail_url;
                     presentGiftListByCategoryId1.ios_price.intValue();
-                    j0Var.f13361e = presentGiftListByCategoryId1.gift_desc;
-                    j0Var.f13362f = presentGiftListByCategoryId1.activity_type.intValue();
-                    j0Var.f13363g = presentGiftListByCategoryId1.mark_url;
-                    j0Var.f13364h = presentGiftListByCategoryId1.begin_time.intValue();
-                    j0Var.f13365i = presentGiftListByCategoryId1.end_time.intValue();
-                    j0Var.f13366j = presentGiftListByCategoryId1.discount.intValue();
+                    j0Var.f13737e = presentGiftListByCategoryId1.gift_desc;
+                    j0Var.f13738f = presentGiftListByCategoryId1.activity_type.intValue();
+                    j0Var.f13739g = presentGiftListByCategoryId1.mark_url;
+                    j0Var.f13740h = presentGiftListByCategoryId1.begin_time.intValue();
+                    j0Var.f13741i = presentGiftListByCategoryId1.end_time.intValue();
+                    j0Var.f13742j = presentGiftListByCategoryId1.discount.intValue();
                     presentGiftListByCategoryId1.ios_discount.intValue();
                     presentGiftListByCategoryId1.proportion.intValue();
                     presentGiftListByCategoryId1.pitch_on.intValue();
-                    j0Var.f13367k = presentGiftListByCategoryId1.gift_count.intValue();
+                    j0Var.f13743k = presentGiftListByCategoryId1.gift_count.intValue();
                     j0Var.q = presentGiftListByCategoryId1.currency_unit.intValue();
                     j0Var.s = presentGiftListByCategoryId1.currency.intValue();
                     this.giftList.add(j0Var);

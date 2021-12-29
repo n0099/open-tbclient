@@ -11,7 +11,7 @@ public interface c {
     public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f1781b = new a();
+    public static final c f2208b = new a();
 
     /* loaded from: classes.dex */
     public static class a implements c {

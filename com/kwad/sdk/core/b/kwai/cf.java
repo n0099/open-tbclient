@@ -1,10 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
 import com.kwad.sdk.contentalliance.coupon.model.CouponStatus;
@@ -69,23 +64,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class cf {
-    public static /* synthetic */ Interceptable $ic;
     public static Map<Class<? extends com.kwad.sdk.core.response.kwai.a>, com.kwad.sdk.core.d> a;
-    public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2048576129, "Lcom/kwad/sdk/core/b/kwai/cf;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-2048576129, "Lcom/kwad/sdk/core/b/kwai/cf;");
-                return;
-            }
-        }
         HashMap hashMap = new HashMap(150);
         a = hashMap;
         hashMap.put(AdInfo.AdSplashInfo.class, new s());
@@ -168,7 +149,7 @@ public class cf {
         a.put(p.a.class, new aj());
         a.put(LiveInfo.CoverThumbnailUrl.class, new au());
         a.put(AdStyleInfo.PlayEndInfo.class, new dc());
-        a.put(a.C2086a.class, new bi());
+        a.put(a.C2093a.class, new bi());
         a.put(PhotoInfo.ProductInfo.ProductDetail.class, new di());
         a.put(InsertScreenConfigItem.InsertScreenConfig.class, new bz());
         a.put(com.kwad.sdk.core.webview.a.kwai.e.class, new du());
@@ -230,7 +211,7 @@ public class cf {
         a.put(g.a.class, new ab());
         a.put(com.kwad.sdk.c.kwai.c.class, new cr());
         a.put(AdMatrixInfo.ShakeInfo.class, new dq());
-        a.put(b.C2093b.class, new cj());
+        a.put(b.C2100b.class, new cj());
         a.put(AdMatrixInfo.class, new o());
         a.put(InstallActivateReminderConfigItem.InstallActivateReminderConfig.class, new cb());
         a.put(LiveInfo.User.HeadUrl.class, new bq());
@@ -241,8 +222,6 @@ public class cf {
     }
 
     public static com.kwad.sdk.core.d a(Class<? extends com.kwad.sdk.core.response.kwai.a> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? a.get(cls) : (com.kwad.sdk.core.d) invokeL.objValue;
+        return a.get(cls);
     }
 }

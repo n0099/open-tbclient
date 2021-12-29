@@ -18,22 +18,22 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1434f;
+    public static final String f1861f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f1435b;
+    public final String f1862b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f1436c;
+    public final String f1863c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f1437d;
+    public final String f1864d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashMap<String, String> f1438e;
+    public final HashMap<String, String> f1865e;
 
     static {
         InterceptResult invokeClinit;
@@ -48,7 +48,7 @@ public class a {
                 return;
             }
         }
-        f1434f = c.a.c0.e.a.c().a().j() + "://";
+        f1861f = c.a.c0.e.a.c().a().j() + "://";
     }
 
     public a(String str) {
@@ -68,16 +68,16 @@ public class a {
         }
         Uri parse = Uri.parse(str);
         this.a = str;
-        this.f1435b = d.f(parse);
-        this.f1436c = d.d(parse);
-        this.f1437d = d.c(parse);
-        this.f1438e = d.e(parse);
+        this.f1862b = d.f(parse);
+        this.f1863c = d.d(parse);
+        this.f1864d = d.c(parse);
+        this.f1865e = d.e(parse);
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1437d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1864d : (String) invokeV.objValue;
     }
 
     public String b() {
@@ -89,27 +89,27 @@ public class a {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1436c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f1863c : (String) invokeV.objValue;
     }
 
     @NonNull
     public HashMap<String, String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1438e : (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f1865e : (HashMap) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1435b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f1862b : (String) invokeV.objValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (TextUtils.isEmpty(this.f1436c) || TextUtils.isEmpty(this.f1437d)) {
-                d.h(this.a, this.f1438e.get("ext_info"));
+            if (TextUtils.isEmpty(this.f1863c) || TextUtils.isEmpty(this.f1864d)) {
+                d.h(this.a, this.f1865e.get("ext_info"));
             }
         }
     }

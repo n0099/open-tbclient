@@ -27,14 +27,14 @@ public class a {
     public final HashMap<String, List<h>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ReentrantReadWriteLock f1499b;
+    public final ReentrantReadWriteLock f1926b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final IAdDownloader f1500c;
+    public final IAdDownloader f1927c;
 
     /* renamed from: c.a.c0.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0031a {
+    public static /* synthetic */ class C0052a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0031a c0031a) {
+    public /* synthetic */ a(C0052a c0052a) {
         this();
     }
 
@@ -128,7 +128,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, adDownloadAction, aVar) == null) || TextUtils.isEmpty(aVar.n.a)) {
             return;
         }
-        switch (C0031a.a[adDownloadAction.ordinal()]) {
+        switch (C0052a.a[adDownloadAction.ordinal()]) {
             case 1:
                 logType = ClogBuilder.LogType.DOWNLOAD_START;
                 break;
@@ -157,12 +157,12 @@ public class a {
                 return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.r(logType).m(aVar.n.a).g(aVar.o.f1529i).h(aVar.f1514d).i(aVar.o.a).j(aVar.o.f1522b).k(aVar.f1517g);
+        clogBuilder.r(logType).m(aVar.n.a).g(aVar.o.f1956i).h(aVar.f1941d).i(aVar.o.a).j(aVar.o.f1949b).k(aVar.f1944g);
         JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(aVar.o.f1523c)) {
-            c.a.c0.u.b.d(jSONObject, "ad_download_content_type", aVar.o.f1523c);
+        if (!TextUtils.isEmpty(aVar.o.f1950c)) {
+            c.a.c0.u.b.d(jSONObject, "ad_download_content_type", aVar.o.f1950c);
         }
-        long j2 = aVar.o.f1524d;
+        long j2 = aVar.o.f1951d;
         if (j2 > 0) {
             c.a.c0.u.b.c(jSONObject, "ad_download_content_length", j2);
         }
@@ -177,8 +177,8 @@ public class a {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar.e()) {
             return;
         }
-        this.f1500c.d(aVar.f1512b);
-        aVar.f1513c = AdDownloadStatus.NONE;
+        this.f1927c.d(aVar.f1939b);
+        aVar.f1940c = AdDownloadStatus.NONE;
         d(AdDownloadAction.FAIL, aVar);
     }
 
@@ -186,7 +186,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadAction, aVar) == null) {
             c(adDownloadAction, aVar);
-            this.f1499b.readLock().lock();
+            this.f1926b.readLock().lock();
             try {
                 List list = (List) c.a.c0.u.c.b(this.a, aVar.d());
                 if (list == null) {
@@ -200,7 +200,7 @@ public class a {
                     }
                 }
             } finally {
-                this.f1499b.readLock().unlock();
+                this.f1926b.readLock().unlock();
             }
         }
     }
@@ -208,7 +208,7 @@ public class a {
     public void e(@NonNull c.a.c0.g.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f1500c.b(aVar.f1512b);
+            this.f1927c.b(aVar.f1939b);
         }
     }
 
@@ -217,7 +217,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, hVar) == null) || TextUtils.isEmpty(str) || hVar == null) {
             return;
         }
-        this.f1499b.writeLock().lock();
+        this.f1926b.writeLock().lock();
         try {
             List list = (List) c.a.c0.u.c.b(this.a, str);
             if (list == null) {
@@ -226,7 +226,7 @@ public class a {
             }
             c.a.c0.u.a.b(list, hVar);
         } finally {
-            this.f1499b.writeLock().unlock();
+            this.f1926b.writeLock().unlock();
         }
     }
 
@@ -234,7 +234,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             d(AdDownloadAction.PROGRESS_UPDATE, aVar);
-            this.f1500c.c(aVar.f1512b, aVar.f1517g, new c.a.c0.g.a.b(aVar));
+            this.f1927c.c(aVar.f1939b, aVar.f1944g, new c.a.c0.g.a.b(aVar));
         }
     }
 
@@ -242,8 +242,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             d(AdDownloadAction.PROGRESS_UPDATE, aVar);
-            aVar.f1512b = this.f1500c.a(aVar.f1517g, new c.a.c0.g.a.b(aVar));
-            aVar.f1513c = AdDownloadStatus.DOWNLOADING;
+            aVar.f1939b = this.f1927c.a(aVar.f1944g, new c.a.c0.g.a.b(aVar));
+            aVar.f1940c = AdDownloadStatus.DOWNLOADING;
         }
     }
 
@@ -252,7 +252,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, hVar) == null) || TextUtils.isEmpty(str) || hVar == null) {
             return;
         }
-        this.f1499b.writeLock().lock();
+        this.f1926b.writeLock().lock();
         try {
             List list = (List) c.a.c0.u.c.b(this.a, str);
             if (list == null) {
@@ -260,7 +260,7 @@ public class a {
             }
             c.a.c0.u.a.j(list, hVar);
         } finally {
-            this.f1499b.writeLock().unlock();
+            this.f1926b.writeLock().unlock();
         }
     }
 
@@ -278,7 +278,7 @@ public class a {
             }
         }
         this.a = new HashMap<>(32);
-        this.f1499b = new ReentrantReadWriteLock();
-        this.f1500c = c.a.c0.g.g.a.b();
+        this.f1926b = new ReentrantReadWriteLock();
+        this.f1927c = c.a.c0.g.g.a.b();
     }
 }

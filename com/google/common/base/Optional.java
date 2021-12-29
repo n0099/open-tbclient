@@ -28,7 +28,7 @@ public abstract class Optional<T> implements Serializable {
 
         /* renamed from: com.google.common.base.Optional$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2040a extends AbstractIterator<T> {
+        public class C2047a extends AbstractIterator<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,7 +39,7 @@ public abstract class Optional<T> implements Serializable {
             public final /* synthetic */ a f56564h;
 
             /* JADX DEBUG: Type inference failed for r6v4. Raw type applied. Possible types: java.util.Iterator<T>, java.util.Iterator<? extends com.google.common.base.Optional<? extends T>> */
-            public C2040a(a aVar) {
+            public C2047a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public abstract class Optional<T> implements Serializable {
         public Iterator<T> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2040a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2047a(this) : (Iterator) invokeV.objValue;
         }
     }
 

@@ -44,7 +44,7 @@ public class a implements v {
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener = this.a.f36523c;
+                            mKOfflineMapListener = this.a.f36679c;
                             mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -54,21 +54,21 @@ public class a implements v {
             }
             int i4 = 6;
             if (i2 == 6) {
-                mKOfflineMapListener2 = this.a.f36523c;
+                mKOfflineMapListener2 = this.a.f36679c;
             } else if (i2 == 8) {
                 int i5 = i3 >> 8;
-                mKOfflineMapListener3 = this.a.f36523c;
+                mKOfflineMapListener3 = this.a.f36679c;
                 mKOfflineMapListener3.onGetOfflineMapState(0, i5);
                 return;
             } else if (i2 != 10) {
                 if (i2 != 12) {
                     return;
                 }
-                rVar = this.a.f36522b;
+                rVar = this.a.f36678b;
                 rVar.a(true, false);
                 return;
             } else {
-                mKOfflineMapListener2 = this.a.f36523c;
+                mKOfflineMapListener2 = this.a.f36679c;
                 i4 = 2;
             }
             mKOfflineMapListener2.onGetOfflineMapState(i4, i3);

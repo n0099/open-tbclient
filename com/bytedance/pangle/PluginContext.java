@@ -23,7 +23,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 @Keep
 /* loaded from: classes2.dex */
-public class PluginContext extends f {
+public class PluginContext extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater mInflater;
@@ -168,7 +168,7 @@ public class PluginContext extends f {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPlugin.mPkgName : (String) invokeV.objValue;
     }
 
-    @Override // com.bytedance.pangle.f
+    @Override // com.bytedance.pangle.e
     public String getPluginPkg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

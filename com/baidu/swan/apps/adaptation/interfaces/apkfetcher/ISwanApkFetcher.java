@@ -3,7 +3,7 @@ package com.baidu.swan.apps.adaptation.interfaces.apkfetcher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.a.d2.m;
+import c.a.r0.a.d2.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public interface ISwanApkFetcher {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static final class FetchStates {
         public static final /* synthetic */ FetchStates[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,11 +91,11 @@ public interface ISwanApkFetcher {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public interface a {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes11.dex */
     public static class b extends m implements ISwanApkFetcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,21 +132,21 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void c(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar) {
+        public void c(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void d(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar) {
+        public void d(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void e(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar) {
+        public void e(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, aVar) == null) {
             }
@@ -160,14 +160,14 @@ public interface ISwanApkFetcher {
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void g(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar) {
+        public void g(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048582, this, str, aVar) == null) {
             }
         }
 
         @Override // com.baidu.swan.apps.adaptation.interfaces.apkfetcher.ISwanApkFetcher
-        public void i(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar) {
+        public void i(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, str, aVar) == null) {
             }
@@ -185,17 +185,17 @@ public interface ISwanApkFetcher {
 
     void E(@NonNull String str, @Nullable a aVar);
 
-    void c(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar);
+    void c(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar);
 
-    void d(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar);
+    void d(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar);
 
-    void e(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar);
+    void e(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar);
 
     void f(@NonNull String str, @Nullable a aVar);
 
-    void g(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar);
+    void g(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar);
 
-    void i(@NonNull String str, @NonNull c.a.q0.a.p.d.s1.a aVar);
+    void i(@NonNull String str, @NonNull c.a.r0.a.p.d.s1.a aVar);
 
     void release();
 }

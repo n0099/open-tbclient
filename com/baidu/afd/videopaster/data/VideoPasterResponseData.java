@@ -216,19 +216,19 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f3081g = optString3;
+                                        aVar6.f3509g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f3080f = optString2;
-                                        aVar7.f3084j = optInt;
-                                        aVar7.f3083i = optString5;
-                                        aVar7.f3082h = optString4;
+                                        aVar7.f3508f = optString2;
+                                        aVar7.f3512j = optInt;
+                                        aVar7.f3511i = optString5;
+                                        aVar7.f3510h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;
                                         aVar7.m = str2;
                                         aVar7.l = str3;
-                                        aVar7.f3085k = str;
+                                        aVar7.f3513k = str;
                                         return;
                                     }
                                     throw new ParseError(1, "operate_info has no element");

@@ -2,6 +2,7 @@ package com.baidu.android.pushservice;
 
 import android.app.Notification;
 import android.content.Context;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,6 +17,7 @@ public abstract class PushNotificationBuilder implements Serializable {
     public String mChannelId;
     public String mChannelName;
     public int mColor;
+    public Bitmap mLargeIcon;
     public int mNotificationDefaults;
     public int mNotificationFlags;
     public String mNotificationText;
@@ -61,44 +63,51 @@ public abstract class PushNotificationBuilder implements Serializable {
         }
     }
 
+    public void setLargeIcon(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bitmap) == null) {
+            this.mLargeIcon = bitmap;
+        }
+    }
+
     public void setNotificationDefaults(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             this.mNotificationDefaults = i2;
         }
     }
 
     public void setNotificationFlags(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             this.mNotificationFlags = i2;
         }
     }
 
     public void setNotificationSound(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.mNotificationsound = str;
         }
     }
 
     public void setNotificationText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.mNotificationText = str;
         }
     }
 
     public void setNotificationTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.mNotificationTitle = str;
         }
     }
 
     public void setStatusbarIcon(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             this.mStatusbarIcon = i2;
         }
     }

@@ -7,14 +7,14 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.r0.b.d;
-import c.a.r0.b.g.a;
-import c.a.r0.d1.h0;
-import c.a.r0.s.r.d2;
-import c.a.s0.d1.y2.k;
-import c.a.s0.j3.y;
+import c.a.d.f.p.n;
+import c.a.s0.b.d;
+import c.a.s0.b.g.a;
+import c.a.s0.e1.h0;
+import c.a.s0.s.q.d2;
+import c.a.t0.d1.y2.k;
+import c.a.t0.j3.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -200,7 +200,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.r() && a.f12095c != a.d()) {
+            if (d.s() && a.f12553c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -209,7 +209,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", l.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", m.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
@@ -219,9 +219,9 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.M(stringExtra);
             frsRequestData.Z(1);
             frsRequestData.E(0);
-            frsRequestData.Y(m.k(TbadkCoreApplication.getInst()));
-            frsRequestData.X(m.i(TbadkCoreApplication.getInst()));
-            frsRequestData.W(m.h(TbadkCoreApplication.getInst()));
+            frsRequestData.Y(n.k(TbadkCoreApplication.getInst()));
+            frsRequestData.X(n.i(TbadkCoreApplication.getInst()));
+            frsRequestData.W(n.h(TbadkCoreApplication.getInst()));
             frsRequestData.b0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             if (uri != null) {
                 frsRequestData.V(uri.toString());
@@ -236,7 +236,7 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (d2.U3.get() && y.q().b() != null) {
+            if (d2.W3.get() && y.q().b() != null) {
                 int d2 = y.q().b().d(stringExtra, false);
                 int e2 = y.q().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {

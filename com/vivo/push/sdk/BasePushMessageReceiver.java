@@ -12,9 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.vivo.push.e;
 import com.vivo.push.model.UnvarnishedMessage;
+import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
-import com.vivo.push.util.s;
+import com.vivo.push.util.t;
 import java.util.List;
 /* loaded from: classes4.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
@@ -54,7 +56,7 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
             intent.setPackage(packageName);
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
             if (queryIntentServices != null && queryIntentServices.size() > 0) {
-                return s.a(context, packageName);
+                return t.a(context, packageName);
             }
             p.a("PushMessageReceiver", "this is client sdk");
             return true;
@@ -108,14 +110,14 @@ public abstract class BasePushMessageReceiver extends BroadcastReceiver implemen
     public final void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, context, intent) == null) {
-            Context applicationContext = context.getApplicationContext();
-            com.vivo.push.p.a().a(applicationContext);
+            Context applicationContext = ContextDelegate.getContext(context).getApplicationContext();
+            e.a().a(applicationContext);
             try {
                 int intExtra = intent.getIntExtra("method", -1);
                 String stringExtra = intent.getStringExtra("req_id");
                 p.d("PushMessageReceiver", "PushMessageReceiver " + applicationContext.getPackageName() + " ; type = " + intExtra + " ; requestId = " + stringExtra);
                 try {
-                    com.vivo.push.p.a().a(intent, this);
+                    e.a().a(intent, this);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

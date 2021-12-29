@@ -1,18 +1,11 @@
 package com.kwad.sdk.splashscreen.a;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends Presenter {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
     public com.kwad.sdk.splashscreen.g a;
 
     /* renamed from: b  reason: collision with root package name */
@@ -22,132 +15,70 @@ public class d extends Presenter {
     public List<Integer> f60054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwad.sdk.contentalliance.detail.video.d f60055d;
-
-    public d() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    public final com.kwad.sdk.contentalliance.detail.video.d f60055d = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.splashscreen.a.d.1
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void a(long j2, long j3) {
+            d.this.a(j3);
         }
-        this.f60055d = new com.kwad.sdk.contentalliance.detail.video.e(this) { // from class: com.kwad.sdk.splashscreen.a.d.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.a = this;
-            }
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void c() {
+            d.this.e();
+        }
 
-            @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
-            public void a(long j2, long j3) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                    this.a.a(j3);
-                }
-            }
-
-            @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
-            public void c() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.e();
-                }
-            }
-
-            @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
-            public void f() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.a.f();
-                }
-            }
-        };
-    }
+        @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
+        public void f() {
+            d.this.f();
+        }
+    };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
-            int ceil = (int) Math.ceil(((float) j2) / 1000.0f);
-            List<Integer> list = this.f60054c;
-            if (list == null || list.isEmpty()) {
+        int ceil = (int) Math.ceil(((float) j2) / 1000.0f);
+        List<Integer> list = this.f60054c;
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        Iterator<Integer> it = this.f60054c.iterator();
+        while (it.hasNext()) {
+            if (ceil >= it.next().intValue()) {
+                com.kwad.sdk.core.report.a.b(this.f60053b, ceil, null);
+                it.remove();
                 return;
-            }
-            Iterator<Integer> it = this.f60054c.iterator();
-            while (it.hasNext()) {
-                if (ceil >= it.next().intValue()) {
-                    com.kwad.sdk.core.report.a.b(this.f60053b, ceil, null);
-                    it.remove();
-                    return;
-                }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            com.kwad.sdk.core.report.a.i(this.f60053b);
-        }
+        com.kwad.sdk.core.report.a.i(this.f60053b);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            com.kwad.sdk.core.report.a.j(this.f60053b);
-        }
+        com.kwad.sdk.core.report.a.j(this.f60053b);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
-            com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
-            this.a = gVar;
-            AdTemplate adTemplate = gVar.f60158d;
-            this.f60053b = adTemplate;
-            this.f60054c = com.kwad.sdk.core.response.a.a.S(com.kwad.sdk.core.response.a.d.j(adTemplate));
-            com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
-            if (aVar != null) {
-                aVar.a(this.f60055d);
-            }
+        super.a();
+        com.kwad.sdk.splashscreen.g gVar = (com.kwad.sdk.splashscreen.g) p();
+        this.a = gVar;
+        AdTemplate adTemplate = gVar.f60158d;
+        this.f60053b = adTemplate;
+        this.f60054c = com.kwad.sdk.core.response.a.a.S(com.kwad.sdk.core.response.a.d.j(adTemplate));
+        com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
+        if (aVar != null) {
+            aVar.a(this.f60055d);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
-            com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
-            if (aVar != null) {
-                aVar.b(this.f60055d);
-            }
+        super.c();
+        com.kwad.sdk.splashscreen.b.a aVar = this.a.f60160f;
+        if (aVar != null) {
+            aVar.b(this.f60055d);
         }
     }
 }

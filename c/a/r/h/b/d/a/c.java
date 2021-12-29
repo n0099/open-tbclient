@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class c implements c.a.r.h.b.e.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BigInteger a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BigInteger f11766b;
+    public BigInteger f5053b;
 
     public c(byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
@@ -32,14 +32,14 @@ public class c implements c.a.r.h.b.e.a {
             }
         }
         this.a = new BigInteger(bArr);
-        this.f11766b = new BigInteger(bArr2);
+        this.f5053b = new BigInteger(bArr2);
     }
 
     @Override // c.a.r.h.b.e.a
     public BigInteger a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f11766b : (BigInteger) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f5053b : (BigInteger) invokeV.objValue;
     }
 
     @Override // c.a.r.h.b.e.a

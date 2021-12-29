@@ -112,7 +112,6 @@ public class PersonInfoActivityConfig extends IntentConfig {
         getIntent().putExtra("user_name", str2);
         getIntent().putExtra("from", str3);
         getIntent().putExtra("st_type", str4);
-        getIntent().putExtra("thread_id", str4);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

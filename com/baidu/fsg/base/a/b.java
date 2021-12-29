@@ -26,20 +26,20 @@ public final class b {
     public static final String a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f34612b = "content://downloads/my_downloads/";
+    public static final String f34768b = "content://downloads/my_downloads/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f34613c;
+    public static b f34769c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final DownloadManager f34614d;
+    public final DownloadManager f34770d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HashMap<Long, C1783b> f34615e;
+    public final HashMap<Long, C1790b> f34771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f34616f;
+    public Context f34772f;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -48,28 +48,28 @@ public final class b {
 
     /* renamed from: com.baidu.fsg.base.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public final class C1783b extends ContentObserver {
+    public final class C1790b extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashSet<a> f34617b;
+        public final HashSet<a> f34773b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f34618c;
+        public long f34774c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f34619d;
+        public long f34775d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f34620e;
+        public int f34776e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ b f34621f;
+        public final /* synthetic */ b f34777f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1783b(b bVar, Context context, long j2) {
+        public C1790b(b bVar, Context context, long j2) {
             super(context != null ? new Handler(context.getMainLooper()) : new Handler());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -86,15 +86,15 @@ public final class b {
                     return;
                 }
             }
-            this.f34621f = bVar;
-            this.f34617b = new HashSet<>();
-            this.f34618c = 0L;
-            this.f34619d = 0L;
-            this.f34620e = 1;
+            this.f34777f = bVar;
+            this.f34773b = new HashSet<>();
+            this.f34774c = 0L;
+            this.f34775d = 0L;
+            this.f34776e = 1;
             this.a = new c(j2);
         }
 
-        public /* synthetic */ C1783b(b bVar, Context context, long j2, com.baidu.fsg.base.a.a aVar) {
+        public /* synthetic */ C1790b(b bVar, Context context, long j2, com.baidu.fsg.base.a.a aVar) {
             this(bVar, context, j2);
         }
 
@@ -105,7 +105,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
                 synchronized (this) {
-                    add = this.f34617b.add(aVar);
+                    add = this.f34773b.add(aVar);
                 }
                 return add;
             }
@@ -117,7 +117,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65541, this) == null) {
                 synchronized (this) {
-                    this.f34617b.clear();
+                    this.f34773b.clear();
                 }
             }
         }
@@ -129,7 +129,7 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
                 synchronized (this) {
-                    remove = this.f34617b.remove(aVar);
+                    remove = this.f34773b.remove(aVar);
                 }
                 return remove;
             }
@@ -139,7 +139,7 @@ public final class b {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34617b.isEmpty() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34773b.isEmpty() : invokeV.booleanValue;
         }
 
         @Override // android.database.ContentObserver
@@ -149,26 +149,26 @@ public final class b {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
                 super.onChange(z);
-                this.f34621f.a(this.a);
+                this.f34777f.a(this.a);
                 long currentTimeMillis = System.currentTimeMillis();
-                if ((this.f34620e == this.a.c() && this.f34618c == this.a.a()) || this.f34619d == currentTimeMillis) {
+                if ((this.f34776e == this.a.c() && this.f34774c == this.a.a()) || this.f34775d == currentTimeMillis) {
                     return;
                 }
                 if (2 == this.a.c()) {
                     cVar = this.a;
-                    j2 = ((cVar.a() - this.f34618c) * 1000) / (currentTimeMillis - this.f34619d);
+                    j2 = ((cVar.a() - this.f34774c) * 1000) / (currentTimeMillis - this.f34775d);
                 } else {
                     cVar = this.a;
                     j2 = 0;
                 }
                 cVar.b(j2);
-                this.f34618c = this.a.a();
-                this.f34620e = this.a.c();
-                this.f34619d = currentTimeMillis;
+                this.f34774c = this.a.a();
+                this.f34776e = this.a.c();
+                this.f34775d = currentTimeMillis;
                 synchronized (this) {
-                    int size = this.f34617b.size();
+                    int size = this.f34773b.size();
                     a[] aVarArr = new a[size];
-                    this.f34617b.toArray(aVarArr);
+                    this.f34773b.toArray(aVarArr);
                     for (int i2 = 0; i2 < size; i2++) {
                         aVarArr[i2].a(this.a);
                     }
@@ -192,20 +192,20 @@ public final class b {
                 return;
             }
         }
-        this.f34615e = new HashMap<>();
-        this.f34616f = null;
-        this.f34616f = context;
-        this.f34614d = (DownloadManager) context.getSystemService("download");
+        this.f34771e = new HashMap<>();
+        this.f34772f = null;
+        this.f34772f = context;
+        this.f34770d = (DownloadManager) context.getSystemService("download");
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f34613c == null) {
-                f34613c = new b(context);
+            if (f34769c == null) {
+                f34769c = new b(context);
             }
-            return f34613c;
+            return f34769c;
         }
         return (b) invokeL.objValue;
     }
@@ -232,7 +232,7 @@ public final class b {
                 return -1L;
             }
             if (str3.startsWith("http://") || str3.startsWith("https://")) {
-                return this.f34614d.enqueue(b(str, str2, str3, z, z2, z3, str4));
+                return this.f34770d.enqueue(b(str, str2, str3, z, z2, z3, str4));
             }
             return -1L;
         }
@@ -247,7 +247,7 @@ public final class b {
                 return -1L;
             }
             if (str2.startsWith("http://") || str2.startsWith("https://")) {
-                return this.f34614d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, Constant.FILE.SUFFIX.BUNDLE_SUFFIX));
+                return this.f34770d.enqueue(b(Environment.DIRECTORY_DOWNLOADS, str, str2, z, z2, z3, Constant.FILE.SUFFIX.BUNDLE_SUFFIX));
             }
             return -1L;
         }
@@ -257,19 +257,19 @@ public final class b {
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f34614d.remove(j2);
+            this.f34770d.remove(j2);
         }
     }
 
     public void a(Context context, long j2) {
-        C1783b c1783b;
+        C1790b c1790b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, context, j2) == null) || j2 == -1 || (c1783b = this.f34615e.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048579, this, context, j2) == null) || j2 == -1 || (c1790b = this.f34771e.get(Long.valueOf(j2))) == null) {
             return;
         }
-        c1783b.b();
-        context.getContentResolver().unregisterContentObserver(c1783b);
-        this.f34615e.remove(Uri.parse("content://downloads/my_downloads/" + j2));
+        c1790b.b();
+        context.getContentResolver().unregisterContentObserver(c1790b);
+        this.f34771e.remove(Uri.parse("content://downloads/my_downloads/" + j2));
     }
 
     public void a(Context context, long j2, a aVar) {
@@ -277,13 +277,13 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Long.valueOf(j2), aVar}) == null) || aVar == null || -1 == j2) {
             return;
         }
-        C1783b c1783b = this.f34615e.get(Long.valueOf(j2));
-        if (c1783b == null) {
-            c1783b = new C1783b(this, context, j2, null);
-            this.f34615e.put(Long.valueOf(j2), c1783b);
-            context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j2), true, c1783b);
+        C1790b c1790b = this.f34771e.get(Long.valueOf(j2));
+        if (c1790b == null) {
+            c1790b = new C1790b(this, context, j2, null);
+            this.f34771e.put(Long.valueOf(j2), c1790b);
+            context.getContentResolver().registerContentObserver(Uri.parse("content://downloads/my_downloads/" + j2), true, c1790b);
         }
-        c1783b.a(aVar);
+        c1790b.a(aVar);
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -292,7 +292,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || -1 == cVar.b()) {
             return;
         }
-        Cursor query = this.f34614d.query(new DownloadManager.Query().setFilterById(cVar.b()));
+        Cursor query = this.f34770d.query(new DownloadManager.Query().setFilterById(cVar.b()));
         if (query != null) {
             try {
                 if (query.getCount() != 0 && query.moveToFirst()) {
@@ -337,15 +337,15 @@ public final class b {
     }
 
     public void b(Context context, long j2, a aVar) {
-        C1783b c1783b;
+        C1790b c1790b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j2), aVar}) == null) || j2 == -1 || (c1783b = this.f34615e.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, Long.valueOf(j2), aVar}) == null) || j2 == -1 || (c1790b = this.f34771e.get(Long.valueOf(j2))) == null) {
             return;
         }
-        c1783b.b(aVar);
-        if (c1783b.a()) {
-            context.getContentResolver().unregisterContentObserver(c1783b);
-            this.f34615e.remove(Uri.parse("content://downloads/my_downloads/" + j2));
+        c1790b.b(aVar);
+        if (c1790b.a()) {
+            context.getContentResolver().unregisterContentObserver(c1790b);
+            this.f34771e.remove(Uri.parse("content://downloads/my_downloads/" + j2));
         }
     }
 }

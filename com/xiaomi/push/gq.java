@@ -57,7 +57,7 @@ public class gq {
         public String f452a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f63542b;
+        public int f63537b;
 
         /* renamed from: b  reason: collision with other field name */
         public long f453b;
@@ -83,13 +83,13 @@ public class gq {
             this.f452a = "";
             this.f451a = 0L;
             this.a = -1;
-            this.f63542b = -1;
+            this.f63537b = -1;
             this.f454b = "";
             this.f453b = 0L;
             this.f452a = str;
             this.f451a = j2;
             this.a = i2;
-            this.f63542b = i3;
+            this.f63537b = i3;
             this.f454b = str2;
             this.f453b = j3;
         }
@@ -97,7 +97,7 @@ public class gq {
         public boolean a(a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.f63542b == this.f63542b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? TextUtils.equals(aVar.f452a, this.f452a) && TextUtils.equals(aVar.f454b, this.f454b) && aVar.a == this.a && aVar.f63537b == this.f63537b && Math.abs(aVar.f451a - this.f451a) <= 5000 : invokeL.booleanValue;
         }
     }
 
@@ -283,7 +283,7 @@ public class gq {
                             contentValues.put("message_ts", Long.valueOf(aVar.f451a));
                             contentValues.put("network_type", Integer.valueOf(aVar.a));
                             contentValues.put("bytes", Long.valueOf(aVar.f453b));
-                            contentValues.put("rcv", Integer.valueOf(aVar.f63542b));
+                            contentValues.put("rcv", Integer.valueOf(aVar.f63537b));
                             contentValues.put(BaseStatisContent.IMSI, aVar.f454b);
                             writableDatabase.insert("traffic", null, contentValues);
                         }

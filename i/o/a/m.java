@@ -19,13 +19,13 @@ public final class m<T> implements d.b<T, T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i.g f64286e;
+    public final i.g f64281e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f64287f;
+    public final boolean f64282f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f64288g;
+    public final int f64283g;
 
     /* loaded from: classes4.dex */
     public static final class a<T> extends i.j<T> implements i.n.a {
@@ -33,13 +33,13 @@ public final class m<T> implements d.b<T, T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: i  reason: collision with root package name */
-        public final i.j<? super T> f64289i;
+        public final i.j<? super T> f64284i;
 
         /* renamed from: j  reason: collision with root package name */
-        public final g.a f64290j;
+        public final g.a f64285j;
 
         /* renamed from: k  reason: collision with root package name */
-        public final boolean f64291k;
+        public final boolean f64286k;
         public final Queue<Object> l;
         public final int m;
         public volatile boolean n;
@@ -50,14 +50,14 @@ public final class m<T> implements d.b<T, T> {
 
         /* renamed from: i.o.a.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C2256a implements i.f {
+        public class C2264a implements i.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f64292e;
+            public final /* synthetic */ a f64287e;
 
-            public C2256a(a aVar) {
+            public C2264a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public final class m<T> implements d.b<T, T> {
                         return;
                     }
                 }
-                this.f64292e = aVar;
+                this.f64287e = aVar;
             }
 
             @Override // i.f
@@ -81,8 +81,8 @@ public final class m<T> implements d.b<T, T> {
                 if (!(interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) || j2 <= 0) {
                     return;
                 }
-                i.o.a.a.b(this.f64292e.o, j2);
-                this.f64292e.i();
+                i.o.a.a.b(this.f64287e.o, j2);
+                this.f64287e.i();
             }
         }
 
@@ -103,10 +103,10 @@ public final class m<T> implements d.b<T, T> {
             }
             this.o = new AtomicLong();
             this.p = new AtomicLong();
-            this.f64289i = jVar;
-            this.f64290j = gVar.createWorker();
-            this.f64291k = z;
-            i2 = i2 <= 0 ? i.o.d.f.f64441g : i2;
+            this.f64284i = jVar;
+            this.f64285j = gVar.createWorker();
+            this.f64286k = z;
+            i2 = i2 <= 0 ? i.o.d.f.f64436g : i2;
             this.m = i2 - (i2 >> 2);
             if (f0.b()) {
                 this.l = new i.o.d.j.r(i2);
@@ -123,7 +123,7 @@ public final class m<T> implements d.b<T, T> {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long j2 = this.r;
                 Queue<Object> queue = this.l;
-                i.j<? super T> jVar = this.f64289i;
+                i.j<? super T> jVar = this.f64284i;
                 long j3 = 1;
                 do {
                     long j4 = this.o.get();
@@ -166,7 +166,7 @@ public final class m<T> implements d.b<T, T> {
                     queue.clear();
                     return true;
                 } else if (z) {
-                    if (this.f64291k) {
+                    if (this.f64286k) {
                         if (z2) {
                             Throwable th = this.q;
                             try {
@@ -208,9 +208,9 @@ public final class m<T> implements d.b<T, T> {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                i.j<? super T> jVar = this.f64289i;
-                jVar.f(new C2256a(this));
-                jVar.b(this.f64290j);
+                i.j<? super T> jVar = this.f64284i;
+                jVar.f(new C2264a(this));
+                jVar.b(this.f64285j);
                 jVar.b(this);
             }
         }
@@ -218,7 +218,7 @@ public final class m<T> implements d.b<T, T> {
         public void i() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.p.getAndIncrement() == 0) {
-                this.f64290j.b(this);
+                this.f64285j.b(this);
             }
         }
 
@@ -275,9 +275,9 @@ public final class m<T> implements d.b<T, T> {
                 return;
             }
         }
-        this.f64286e = gVar;
-        this.f64287f = z;
-        this.f64288g = i2 <= 0 ? i.o.d.f.f64441g : i2;
+        this.f64281e = gVar;
+        this.f64282f = z;
+        this.f64283g = i2 <= 0 ? i.o.d.f.f64436g : i2;
     }
 
     @Override // i.d.b, i.n.f
@@ -289,11 +289,11 @@ public final class m<T> implements d.b<T, T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            i.g gVar = this.f64286e;
+            i.g gVar = this.f64281e;
             if ((gVar instanceof i.o.c.e) || (gVar instanceof i.o.c.j)) {
                 return jVar;
             }
-            a aVar = new a(gVar, jVar, this.f64287f, this.f64288g);
+            a aVar = new a(gVar, jVar, this.f64282f, this.f64283g);
             aVar.h();
             return aVar;
         }

@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
-import c.a.r0.i0.f.a;
+import c.a.s0.i0.f.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -39,14 +39,14 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         }
     }
 
-    @Override // c.a.r0.i0.f.a
+    @Override // c.a.s0.i0.f.a
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // c.a.r0.i0.f.a
+    @Override // c.a.s0.i0.f.a
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

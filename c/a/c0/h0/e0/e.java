@@ -18,10 +18,10 @@ public class e extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final TextView f1716f;
+    public final TextView f2143f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final TextView f1717g;
+    public final TextView f2144g;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -29,10 +29,10 @@ public class e extends b {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdBaseModel f1718e;
+        public final /* synthetic */ AdBaseModel f2145e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ e f1719f;
+        public final /* synthetic */ e f2146f;
 
         public a(e eVar, AdBaseModel adBaseModel) {
             Interceptable interceptable = $ic;
@@ -49,19 +49,19 @@ public class e extends b {
                     return;
                 }
             }
-            this.f1719f = eVar;
-            this.f1718e = adBaseModel;
+            this.f2146f = eVar;
+            this.f2145e = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.c0.d.c.c(this.f1718e.f38065f.f38073d, this.f1719f.getContext());
-                c.a.c0.x.a.b(new ClogBuilder().r(ClogBuilder.LogType.CLICK).f(ClogBuilder.Area.BUTTON).m(this.f1718e.f38063d.f1800b));
-                c.a.c0.h0.c0.b bVar = this.f1719f.f1711d;
+                c.a.c0.d.c.c(this.f2145e.f38221f.f38229d, this.f2146f.getContext());
+                c.a.c0.x.a.b(new ClogBuilder().r(ClogBuilder.LogType.CLICK).f(ClogBuilder.Area.BUTTON).m(this.f2145e.f38219d.f2227b));
+                c.a.c0.h0.c0.b bVar = this.f2146f.f2138d;
                 if (bVar != null) {
-                    bVar.b(this.f1718e);
+                    bVar.b(this.f2145e);
                 }
             }
         }
@@ -86,22 +86,22 @@ public class e extends b {
                 return;
             }
         }
-        this.f1717g = (TextView) a(c.a.c0.b.e.feed_ad_operate_command_app_name);
-        this.f1716f = (TextView) a(c.a.c0.b.e.nad_feed_ad_operate_command_button);
+        this.f2144g = (TextView) a(c.a.c0.b.e.feed_ad_operate_command_app_name);
+        this.f2143f = (TextView) a(c.a.c0.b.e.nad_feed_ad_operate_command_button);
         k();
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b() instanceof AdBaseModel)) {
-            this.f1717g.setTextColor(getResources().getColor(c.a.c0.b.b.NAD_FC1));
-            this.f1716f.setTextColor(getResources().getColor(c.a.c0.b.b.NAD_FC13));
-            if (this.f1716f.getBackground() instanceof GradientDrawable) {
-                ((GradientDrawable) this.f1716f.getBackground()).setColor(getResources().getColor(c.a.c0.b.b.NAD_GC52));
-                ((GradientDrawable) this.f1716f.getBackground()).setStroke(2, getResources().getColor(c.a.c0.b.b.NAD_GC53));
+            this.f2144g.setTextColor(getResources().getColor(c.a.c0.b.b.NAD_FC1));
+            this.f2143f.setTextColor(getResources().getColor(c.a.c0.b.b.NAD_FC13));
+            if (this.f2143f.getBackground() instanceof GradientDrawable) {
+                ((GradientDrawable) this.f2143f.getBackground()).setColor(getResources().getColor(c.a.c0.b.b.NAD_GC52));
+                ((GradientDrawable) this.f2143f.getBackground()).setStroke(2, getResources().getColor(c.a.c0.b.b.NAD_GC53));
                 return;
             }
-            this.f1716f.setBackground(getResources().getDrawable(c.a.c0.b.d.nad_progress_button_bg));
+            this.f2143f.setBackground(getResources().getDrawable(c.a.c0.b.d.nad_progress_button_bg));
         }
     }
 
@@ -112,20 +112,20 @@ public class e extends b {
             super.update(adBaseModel, nadExpressNaBaseView);
             b.d(adBaseModel);
             k();
-            String str = adBaseModel.f38065f.f38071b.a;
+            String str = adBaseModel.f38221f.f38227b.a;
             if (!TextUtils.isEmpty(str)) {
-                this.f1717g.setText(str);
-                this.f1717g.setVisibility(0);
+                this.f2144g.setText(str);
+                this.f2144g.setVisibility(0);
             } else {
-                this.f1717g.setVisibility(8);
+                this.f2144g.setVisibility(8);
             }
-            this.f1716f.setText(adBaseModel.f38065f.f38072c);
-            if (!TextUtils.isEmpty(adBaseModel.f38065f.f38073d)) {
-                this.f1716f.setVisibility(0);
-                this.f1716f.setOnClickListener(new a(this, adBaseModel));
+            this.f2143f.setText(adBaseModel.f38221f.f38228c);
+            if (!TextUtils.isEmpty(adBaseModel.f38221f.f38229d)) {
+                this.f2143f.setVisibility(0);
+                this.f2143f.setOnClickListener(new a(this, adBaseModel));
                 return;
             }
-            this.f1716f.setVisibility(8);
+            this.f2143f.setVisibility(8);
         }
     }
 }

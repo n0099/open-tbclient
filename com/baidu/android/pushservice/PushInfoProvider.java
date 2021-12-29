@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PushInfoProvider extends ContentProvider {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UriMatcher f32486b;
+    public UriMatcher f32629b;
 
     public PushInfoProvider() {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class PushInfoProvider extends ContentProvider {
                 return;
             }
         }
-        this.f32486b = new UriMatcher(-1);
+        this.f32629b = new UriMatcher(-1);
     }
 
     @Override // android.content.ContentProvider
@@ -79,17 +79,17 @@ public class PushInfoProvider extends ContentProvider {
             Context context = getContext();
             this.a = context;
             String str = m.o(context) ? "pushinfo_v3" : "pushinfo";
-            if (this.f32486b == null) {
-                this.f32486b = new UriMatcher(-1);
+            if (this.f32629b == null) {
+                this.f32629b = new UriMatcher(-1);
             }
             try {
-                UriMatcher uriMatcher = this.f32486b;
+                UriMatcher uriMatcher = this.f32629b;
                 uriMatcher.addURI(this.a.getPackageName() + ".bdpush", str, 1);
-                UriMatcher uriMatcher2 = this.f32486b;
+                UriMatcher uriMatcher2 = this.f32629b;
                 uriMatcher2.addURI(this.a.getPackageName() + ".bdpush", "verif", 2);
-                UriMatcher uriMatcher3 = this.f32486b;
+                UriMatcher uriMatcher3 = this.f32629b;
                 uriMatcher3.addURI(this.a.getPackageName() + ".bdpush", "msgInfo", 3);
-                UriMatcher uriMatcher4 = this.f32486b;
+                UriMatcher uriMatcher4 = this.f32629b;
                 uriMatcher4.addURI(this.a.getPackageName() + ".bdpush", "appstatus", 4);
             } catch (Throwable th) {
                 new b.c(this.a).a(Log.getStackTraceString(th)).a();
@@ -111,7 +111,7 @@ public class PushInfoProvider extends ContentProvider {
             synchronized (com.baidu.android.pushservice.c.c.a()) {
                 cursor = null;
                 try {
-                    match = this.f32486b.match(uri);
+                    match = this.f32629b.match(uri);
                 } catch (Exception e2) {
                     new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 }
@@ -159,7 +159,7 @@ public class PushInfoProvider extends ContentProvider {
                 j2 = -1;
                 try {
                     try {
-                        if (this.f32486b.match(uri) != 1) {
+                        if (this.f32629b.match(uri) != 1) {
                             sQLiteDatabase = null;
                         } else {
                             sQLiteDatabase = com.baidu.android.pushservice.c.c.a(this.a);

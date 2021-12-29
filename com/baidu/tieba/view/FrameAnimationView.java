@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
 import c.a.d.f.m.e;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -39,7 +39,7 @@ public class FrameAnimationView extends TbImageView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrameAnimationView f50772e;
+        public final /* synthetic */ FrameAnimationView f51020e;
 
         public a(FrameAnimationView frameAnimationView) {
             Interceptable interceptable = $ic;
@@ -56,16 +56,16 @@ public class FrameAnimationView extends TbImageView {
                     return;
                 }
             }
-            this.f50772e = frameAnimationView;
+            this.f51020e = frameAnimationView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e.a().removeCallbacks(this.f50772e.a0);
-                if (this.f50772e.T != null) {
-                    this.f50772e.v();
+                e.a().removeCallbacks(this.f51020e.a0);
+                if (this.f51020e.T != null) {
+                    this.f51020e.v();
                 }
             }
         }
@@ -108,8 +108,8 @@ public class FrameAnimationView extends TbImageView {
             }
             String frameUrl = getFrameUrl();
             this.P++;
-            if (!l.isEmpty(frameUrl)) {
-                c.a.d.m.d.a aVar = (c.a.d.m.d.a) d.h().n(frameUrl, 10, new Object[0]);
+            if (!m.isEmpty(frameUrl)) {
+                c.a.d.n.d.a aVar = (c.a.d.n.d.a) d.h().n(frameUrl, 10, new Object[0]);
                 if (aVar != null) {
                     return aVar.p();
                 }
@@ -272,7 +272,7 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || l.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || m.isEmpty(str)) {
             return;
         }
         this.V = true;

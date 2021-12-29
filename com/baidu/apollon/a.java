@@ -10,19 +10,19 @@ public final class a {
     public static final boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33239b = "com.baidu.apollon";
+    public static final String f33395b = "com.baidu.apollon";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33240c = "release";
+    public static final String f33396c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33241d = "common";
+    public static final String f33397d = "common";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33242e = 155;
+    public static final int f33398e = 155;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33243f = "1.5.5";
+    public static final String f33399f = "1.5.5";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

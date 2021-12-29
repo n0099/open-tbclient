@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.q0.h.e;
-import c.a.q0.h.f;
-import c.a.q0.j.p0.g.b.c;
-import c.a.q0.j.p0.g.f.d;
+import c.a.r0.h.e;
+import c.a.r0.h.f;
+import c.a.r0.j.p0.g.b.c;
+import c.a.r0.j.p0.g.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
@@ -30,13 +30,13 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f41087e;
+    public Context f41243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<RecommendItemModel> f41088f;
+    public List<RecommendItemModel> f41244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f41089g;
+    public c f41245g;
 
     /* loaded from: classes11.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -45,7 +45,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         public SimpleDraweeView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f41090b;
+        public TextView f41246b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(GameGuideAdapter gameGuideAdapter, View view) {
@@ -66,7 +66,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                 }
             }
             this.a = (SimpleDraweeView) view.findViewById(e.dv_icon);
-            this.f41090b = (TextView) view.findViewById(e.tv_name);
+            this.f41246b = (TextView) view.findViewById(e.tv_name);
         }
     }
 
@@ -85,32 +85,32 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                 return;
             }
         }
-        this.f41087e = context;
-        this.f41088f = list;
-        this.f41089g = new c();
+        this.f41243e = context;
+        this.f41244f = list;
+        this.f41245g = new c();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41088f.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41244f.size() : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view.getTag() == null || (intValue = ((Integer) view.getTag()).intValue()) >= this.f41088f.size()) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view.getTag() == null || (intValue = ((Integer) view.getTag()).intValue()) >= this.f41244f.size()) {
             return;
         }
-        RecommendItemModel recommendItemModel = this.f41088f.get(intValue);
+        RecommendItemModel recommendItemModel = this.f41244f.get(intValue);
         if (TextUtils.isEmpty(recommendItemModel.getScheme()) || TextUtils.isEmpty(recommendItemModel.getAppKey())) {
             return;
         }
-        SchemeRouter.invokeSchemeForInner(this.f41087e, Uri.parse(recommendItemModel.getScheme()));
-        c.a.q0.j.p0.g.b.e.d(4, recommendItemModel.getAppKey());
-        this.f41089g.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
+        SchemeRouter.invokeSchemeForInner(this.f41243e, Uri.parse(recommendItemModel.getScheme()));
+        c.a.r0.j.p0.g.b.e.d(4, recommendItemModel.getAppKey());
+        this.f41245g.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -118,11 +118,11 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public void onBindViewHolder(a aVar, int i2) {
         RecommendItemModel recommendItemModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) || (recommendItemModel = this.f41088f.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) || (recommendItemModel = this.f41244f.get(i2)) == null) {
             return;
         }
         aVar.a.setController(Fresco.newDraweeControllerBuilder().setUri(recommendItemModel.getIconUrl()).build());
-        aVar.f41090b.setText(recommendItemModel.getAppName());
+        aVar.f41246b.setText(recommendItemModel.getAppName());
         aVar.itemView.setTag(Integer.valueOf(i2));
     }
 
@@ -133,7 +133,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.f41087e).inflate(f.swangame_game_close_guide_item_view, (ViewGroup) null));
+            a aVar = new a(this, LayoutInflater.from(this.f41243e).inflate(f.swangame_game_close_guide_item_view, (ViewGroup) null));
             aVar.itemView.setOnClickListener(this);
             d.a(aVar.itemView);
             return aVar;

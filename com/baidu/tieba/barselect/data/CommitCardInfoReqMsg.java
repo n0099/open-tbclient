@@ -1,6 +1,6 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.r0.d1.b0;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommitCardInfo.CommitCardInfoReqIdl;
 import tbclient.CommitCardInfo.DataReq;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CommitCardInfoReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

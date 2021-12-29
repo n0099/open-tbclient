@@ -13,13 +13,13 @@ public final class b {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54924b;
+    public int f54927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f54925c;
+    public int f54928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f54926d;
+    public byte[] f54929d;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class b {
                 return;
             }
         }
-        this.f54926d = str.getBytes();
+        this.f54929d = str.getBytes();
     }
 
     public static String a(String str, String str2) {
@@ -47,9 +47,9 @@ public final class b {
             try {
                 b bVar = new b(str2);
                 byte[] decode = Base64.decode(str.getBytes(), 0);
-                byte[] bArr = bVar.f54926d;
-                bVar.f54924b = 0;
-                bVar.f54925c = 0;
+                byte[] bArr = bVar.f54929d;
+                bVar.f54927b = 0;
+                bVar.f54928c = 0;
                 if (bVar.a == null) {
                     bVar.a = new byte[256];
                 }
@@ -77,10 +77,10 @@ public final class b {
                     sb.append(i6);
                 } else if (i6 <= length) {
                     for (int i7 = 0; i7 < length2; i7++) {
-                        int i8 = (bVar.f54924b + 1) & 255;
-                        bVar.f54924b = i8;
-                        int i9 = (bVar.a[i8] + bVar.f54925c) & 255;
-                        bVar.f54925c = i9;
+                        int i8 = (bVar.f54927b + 1) & 255;
+                        bVar.f54927b = i8;
+                        int i9 = (bVar.a[i8] + bVar.f54928c) & 255;
+                        bVar.f54928c = i9;
                         byte b3 = bVar.a[i8];
                         bVar.a[i8] = bVar.a[i9];
                         bVar.a[i9] = b3;

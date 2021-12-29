@@ -17,30 +17,30 @@ public class p implements c.a.c0.s.p0.c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final q f1931i;
+    public static final q f2358i;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Object> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1932b;
+    public String f2359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f1933c;
+    public Object f2360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f1934d;
+    public int f2361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f1935e;
+    public int f2362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f1936f;
+    public int f2363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public StringBuilder f1937g;
+    public StringBuilder f2364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f1938h;
+    public int f2365h;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class p implements c.a.c0.s.p0.c {
                 return;
             }
         }
-        f1931i = new q();
+        f2358i = new q();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -80,14 +80,14 @@ public class p implements c.a.c0.s.p0.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pVar)) == null) {
-            p a = f1931i.a();
-            a.v(pVar.f1934d);
-            a.p(pVar.f1932b);
-            a.t(pVar.f1933c);
-            a.u(pVar.f1935e);
-            a.s(pVar.f1936f);
+            p a = f2358i.a();
+            a.v(pVar.f2361d);
+            a.p(pVar.f2359b);
+            a.t(pVar.f2360c);
+            a.u(pVar.f2362e);
+            a.s(pVar.f2363f);
             a.q(pVar.a);
-            a.r(pVar.f1938h);
+            a.r(pVar.f2365h);
             return a;
         }
         return (p) invokeL.objValue;
@@ -97,7 +97,7 @@ public class p implements c.a.c0.s.p0.c {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
-            p a = f1931i.a();
+            p a = f2358i.a();
             a.v(i2);
             a.p(str);
             return a;
@@ -115,7 +115,7 @@ public class p implements c.a.c0.s.p0.c {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1932b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2359b : (String) invokeV.objValue;
     }
 
     public boolean d(int i2) {
@@ -149,7 +149,7 @@ public class p implements c.a.c0.s.p0.c {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f1934d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f2361d : invokeV.intValue;
     }
 
     public int h(int i2, int i3) {
@@ -165,26 +165,26 @@ public class p implements c.a.c0.s.p0.c {
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f1938h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f2365h : invokeV.intValue;
     }
 
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f1936f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f2363f : invokeV.intValue;
     }
 
     @Nullable
     public Object k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f1933c : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f2360c : invokeV.objValue;
     }
 
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f1935e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f2362e : invokeV.intValue;
     }
 
     public void n(int i2, Object obj) {
@@ -197,7 +197,7 @@ public class p implements c.a.c0.s.p0.c {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            f1931i.d(this);
+            f2358i.d(this);
         }
     }
 
@@ -213,12 +213,12 @@ public class p implements c.a.c0.s.p0.c {
     public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f1932b = "";
-            this.f1933c = null;
-            this.f1935e = -1;
-            this.f1934d = -1;
-            this.f1936f = 0;
-            this.f1938h = 0;
+            this.f2359b = "";
+            this.f2360c = null;
+            this.f2362e = -1;
+            this.f2361d = -1;
+            this.f2363f = 0;
+            this.f2365h = 0;
             this.a.clear();
         }
     }
@@ -226,7 +226,7 @@ public class p implements c.a.c0.s.p0.c {
     public void p(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.f1932b = str;
+            this.f2359b = str;
         }
     }
 
@@ -242,21 +242,21 @@ public class p implements c.a.c0.s.p0.c {
     public void r(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f1938h = i2;
+            this.f2365h = i2;
         }
     }
 
     public void s(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f1936f = i2;
+            this.f2363f = i2;
         }
     }
 
     public void t(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, obj) == null) {
-            this.f1933c = obj;
+            this.f2360c = obj;
         }
     }
 
@@ -265,29 +265,29 @@ public class p implements c.a.c0.s.p0.c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            StringBuilder sb = this.f1937g;
+            StringBuilder sb = this.f2364g;
             if (sb == null) {
-                this.f1937g = new StringBuilder();
+                this.f2364g = new StringBuilder();
             } else if (sb.length() > 0) {
-                StringBuilder sb2 = this.f1937g;
+                StringBuilder sb2 = this.f2364g;
                 sb2.delete(0, sb2.length());
             }
-            StringBuilder sb3 = this.f1937g;
+            StringBuilder sb3 = this.f2364g;
             sb3.append("Action :");
-            sb3.append(this.f1932b);
+            sb3.append(this.f2359b);
             sb3.append(", type :");
-            sb3.append(this.f1934d);
+            sb3.append(this.f2361d);
             sb3.append(", from :");
-            sb3.append(this.f1933c);
+            sb3.append(this.f2360c);
             sb3.append(", priority :");
-            sb3.append(this.f1936f);
+            sb3.append(this.f2363f);
             sb3.append(", targetType :");
-            sb3.append(this.f1935e);
+            sb3.append(this.f2362e);
             sb3.append(", bundle :");
             sb3.append(this.a.toString());
             sb3.append(", hash :");
             sb3.append(hashCode());
-            return this.f1937g.toString();
+            return this.f2364g.toString();
         }
         return (String) invokeV.objValue;
     }
@@ -295,14 +295,14 @@ public class p implements c.a.c0.s.p0.c {
     public void u(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.f1935e = i2;
+            this.f2362e = i2;
         }
     }
 
     public void v(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.f1934d = i2;
+            this.f2361d = i2;
         }
     }
 
@@ -332,10 +332,10 @@ public class p implements c.a.c0.s.p0.c {
             }
         }
         this.a = new SparseArray<>(3);
-        this.f1934d = -1;
-        this.f1935e = -1;
-        this.f1936f = 0;
-        this.f1938h = 0;
-        this.f1932b = str;
+        this.f2361d = -1;
+        this.f2362e = -1;
+        this.f2363f = 0;
+        this.f2365h = 0;
+        this.f2359b = str;
     }
 }

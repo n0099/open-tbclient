@@ -15,9 +15,9 @@ public abstract class a {
 
     /* renamed from: c.a.c0.s.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0070a extends a {
+    public static final class C0091a extends a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0070a a;
+        public static final C0091a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -33,11 +33,11 @@ public abstract class a {
                     return;
                 }
             }
-            a = new C0070a();
+            a = new C0091a();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0070a() {
+        public C0091a() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {

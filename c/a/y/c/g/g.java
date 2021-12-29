@@ -18,7 +18,7 @@ public class g extends b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: k  reason: collision with root package name */
-    public Surface f27205k;
+    public Surface f27628k;
 
     static {
         InterceptResult invokeClinit;
@@ -53,22 +53,22 @@ public class g extends b {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f27192h == 0) {
-                this.f27192h = this.f27189e.presentationTimeUs;
-                b.f27184i = 0L;
+            if (this.f27615h == 0) {
+                this.f27615h = this.f27612e.presentationTimeUs;
+                b.f27607i = 0L;
             }
-            MediaCodec.BufferInfo bufferInfo = this.f27189e;
-            long j2 = bufferInfo.presentationTimeUs - this.f27192h;
+            MediaCodec.BufferInfo bufferInfo = this.f27612e;
+            long j2 = bufferInfo.presentationTimeUs - this.f27615h;
             bufferInfo.presentationTimeUs = j2;
-            b.f27184i = j2;
-            c.a.y.c.d.x().V(b.f27184i / 1000);
+            b.f27607i = j2;
+            c.a.y.c.d.x().V(b.f27607i / 1000);
         }
     }
 
     public Surface k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27205k : (Surface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27628k : (Surface) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
@@ -84,7 +84,7 @@ public class g extends b {
         }
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.f27187c = eVar;
+            this.f27610c = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.j(), dVar.n(), dVar.l());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger("bitrate", dVar.i());
@@ -92,14 +92,14 @@ public class g extends b {
             createVideoFormat.setInteger("i-frame-interval", dVar.m());
             try {
                 MediaCodec createEncoderByType = MediaCodec.createEncoderByType(dVar.j());
-                this.f27188d = createEncoderByType;
+                this.f27611d = createEncoderByType;
                 createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                this.f27205k = this.f27188d.createInputSurface();
-                this.f27191g = true;
+                this.f27628k = this.f27611d.createInputSurface();
+                this.f27614g = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            cVar = this.f27190f;
+            cVar = this.f27613f;
             if (cVar == null) {
                 cVar.b(z);
                 return;
@@ -107,7 +107,7 @@ public class g extends b {
             return;
         }
         z = false;
-        cVar = this.f27190f;
+        cVar = this.f27613f;
         if (cVar == null) {
         }
     }

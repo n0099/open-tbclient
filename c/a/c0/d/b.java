@@ -23,15 +23,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<c.a.c0.d.d.a> f1431c;
+    public static final List<c.a.c0.d.d.a> f1858c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final List<c.a.c0.d.e.a> f1432d;
+    public static final List<c.a.c0.d.e.a> f1859d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, c.a.c0.d.d.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c.a.c0.d.e.a> f1433b;
+    public final Map<String, c.a.c0.d.e.a> f1860b;
 
     static {
         InterceptResult invokeClinit;
@@ -47,8 +47,8 @@ public class b {
             }
         }
         e eVar = new e();
-        f1431c = eVar.a.getList();
-        f1432d = eVar.f1441b.getList();
+        f1858c = eVar.a.getList();
+        f1859d = eVar.f1868b.getList();
     }
 
     public b() {
@@ -65,18 +65,18 @@ public class b {
             }
         }
         this.a = new HashMap();
-        this.f1433b = Collections.synchronizedMap(new LinkedHashMap());
+        this.f1860b = Collections.synchronizedMap(new LinkedHashMap());
         synchronized (b.class) {
-            if (f1431c != null && this.a.isEmpty()) {
-                for (c.a.c0.d.d.a aVar : f1431c) {
+            if (f1858c != null && this.a.isEmpty()) {
+                for (c.a.c0.d.d.a aVar : f1858c) {
                     if (aVar != null && c.a.c0.u.c.b(this.a, aVar.a()) == null) {
                         c.a.c0.u.c.e(this.a, aVar.a(), aVar);
                     }
                 }
             }
-            if (f1432d != null && this.f1433b.isEmpty()) {
-                for (c.a.c0.d.e.a aVar2 : f1432d) {
-                    this.f1433b.put(aVar2.a(), aVar2);
+            if (f1859d != null && this.f1860b.isEmpty()) {
+                for (c.a.c0.d.e.a aVar2 : f1859d) {
+                    this.f1860b.put(aVar2.a(), aVar2);
                 }
             }
         }
@@ -112,12 +112,12 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, aVar)) == null) {
-            if (this.f1433b.isEmpty()) {
+            if (this.f1860b.isEmpty()) {
                 return false;
             }
             c.a.c0.d.e.a aVar2 = null;
             try {
-                for (Map.Entry<String, c.a.c0.d.e.a> entry : this.f1433b.entrySet()) {
+                for (Map.Entry<String, c.a.c0.d.e.a> entry : this.f1860b.entrySet()) {
                     if (entry != null) {
                         aVar2 = entry.getValue();
                     }

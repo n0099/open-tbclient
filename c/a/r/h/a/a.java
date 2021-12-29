@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,17 +35,17 @@ public class a {
             return (byte[]) invokeL.objValue;
         }
         c cVar = new c();
-        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * c.f11749b));
+        byte[] b2 = b.b(bArr, bArr.length + ((this.a.length + 1) * c.f5036b));
         b.a(b2, cVar.b(), bArr.length);
         int i2 = 0;
         while (true) {
             d[] dVarArr = this.a;
             if (i2 >= dVarArr.length) {
-                return Arrays.copyOf(cVar.b(), c.f11749b);
+                return Arrays.copyOf(cVar.b(), c.f5036b);
             }
             d dVar = dVarArr[i2];
             i2++;
-            int length = bArr.length + (c.f11749b * i2);
+            int length = bArr.length + (c.f5036b * i2);
             cVar.a(dVar.b(b2, 0, length), dVar.a(), dVar.c(), dVar.d());
             b.a(b2, cVar.b(), length);
         }

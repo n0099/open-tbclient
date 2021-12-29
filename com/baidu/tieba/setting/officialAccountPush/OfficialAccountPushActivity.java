@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.k;
-import c.a.d.f.p.m;
-import c.a.s0.m3.d.a;
+import c.a.d.f.p.l;
+import c.a.d.f.p.n;
+import c.a.t0.m3.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -63,7 +63,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private void InitData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (!k.z() && ListUtils.isEmpty(this.list)) {
+            if (!l.z() && ListUtils.isEmpty(this.list)) {
                 showNoNetWorkView();
             } else if (ListUtils.isEmpty(this.list)) {
                 showNoData();
@@ -92,7 +92,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
             this.mList = (BdListView) findViewById(R.id.list);
-            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, m.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.e.a(R.string.no_data_text), null);
+            NoDataView a = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.e.a(R.string.no_data_text), null);
             this.mNoDataView = a;
             a.setVisibility(0);
             this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
@@ -113,7 +113,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || this.list == null || this.mAdapter == null) {
             return;
         }
-        if (!k.z()) {
+        if (!l.z()) {
             this.mAdapter.notifyDataSetChanged();
             return;
         }

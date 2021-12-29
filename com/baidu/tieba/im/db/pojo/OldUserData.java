@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.db.pojo;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
+import c.a.d.f.p.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -291,7 +291,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return;
         }
         userData.setUserIdLong(Math.max(this.id, this.userId));
-        userData.setUserName((l.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+        userData.setUserName((m.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
         userData.setPortrait(this.portrait);
         userData.setSex(this.sex);
         userData.setPosition(this.position);

@@ -22,34 +22,34 @@ public class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f1512b;
+    public int f1939b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdDownloadStatus f1513c;
+    public AdDownloadStatus f1940c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1514d;
+    public String f1941d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1515e;
+    public boolean f1942e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1516f;
+    public String f1943f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1517g;
+    public String f1944g;
 
     /* renamed from: h  reason: collision with root package name */
-    public File f1518h;
+    public File f1945h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f1519i;
+    public float f1946i;
 
     /* renamed from: j  reason: collision with root package name */
-    public float f1520j;
+    public float f1947j;
 
     /* renamed from: k  reason: collision with root package name */
-    public Uri f1521k;
+    public Uri f1948k;
     public long l;
     public long m;
     public d n;
@@ -58,7 +58,7 @@ public class a {
 
     /* renamed from: c.a.c0.g.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0035a {
+    public static /* synthetic */ class C0056a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,10 +103,10 @@ public class a {
             }
         }
         this.a = "";
-        this.f1512b = -1;
-        this.f1513c = AdDownloadStatus.NONE;
-        this.f1519i = 0.0f;
-        this.f1520j = 0.0f;
+        this.f1939b = -1;
+        this.f1940c = AdDownloadStatus.NONE;
+        this.f1946i = 0.0f;
+        this.f1947j = 0.0f;
         this.n = new d();
         this.o = new b();
         this.p = new c();
@@ -119,13 +119,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
             a aVar = new a();
-            if (adBaseModel != null && (cVar = adBaseModel.f38068i) != null && cVar.f1788d) {
-                aVar.f1517g = cVar.f1786b;
-                aVar.g(cVar.f1787c);
-                aVar.f1514d = adBaseModel.f38068i.a;
-                AdOperator adOperator = adBaseModel.f38065f;
-                aVar.f1516f = adOperator == null ? null : adOperator.f38073d;
-                aVar.n.a = adBaseModel.f38063d.f1800b;
+            if (adBaseModel != null && (cVar = adBaseModel.f38224i) != null && cVar.f2215d) {
+                aVar.f1944g = cVar.f2213b;
+                aVar.g(cVar.f2214c);
+                aVar.f1941d = adBaseModel.f38224i.a;
+                AdOperator adOperator = adBaseModel.f38221f;
+                aVar.f1943f = adOperator == null ? null : adOperator.f38229d;
+                aVar.n.a = adBaseModel.f38219d.f2227b;
             }
             return aVar;
         }
@@ -138,12 +138,12 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cVar, str, str2)) == null) {
             a aVar = new a();
-            if (cVar != null && cVar.f1788d) {
-                aVar.f1517g = cVar.f1786b;
-                aVar.g(cVar.f1787c);
-                aVar.f1514d = cVar.a;
+            if (cVar != null && cVar.f2215d) {
+                aVar.f1944g = cVar.f2213b;
+                aVar.g(cVar.f2214c);
+                aVar.f1941d = cVar.a;
                 aVar.n.a = str;
-                aVar.f1516f = str2;
+                aVar.f1943f = str2;
             }
             return aVar;
         }
@@ -153,7 +153,7 @@ public class a {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o.f1526f != 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.o.f1953f != 1 : invokeV.booleanValue;
     }
 
     public String d() {
@@ -165,16 +165,16 @@ public class a {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f1517g) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.f1944g) : invokeV.booleanValue;
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f1513c = AdDownloadStatus.NONE;
-            this.f1519i = 0.0f;
-            this.f1520j = 0.0f;
-            this.f1518h = null;
+            this.f1940c = AdDownloadStatus.NONE;
+            this.f1946i = 0.0f;
+            this.f1947j = 0.0f;
+            this.f1945h = null;
         }
     }
 
@@ -190,41 +190,41 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             if (aVar != null && TextUtils.equals(d(), aVar.d())) {
-                int i2 = C0035a.a[aVar.f1513c.ordinal()];
+                int i2 = C0056a.a[aVar.f1940c.ordinal()];
                 if (i2 != 1) {
-                    if (i2 == 2 && !c.a.c0.g.i.a.b(aVar.f1514d)) {
-                        File file = aVar.f1518h;
+                    if (i2 == 2 && !c.a.c0.g.i.a.b(aVar.f1941d)) {
+                        File file = aVar.f1945h;
                         if (file != null && file.exists()) {
-                            aVar.f1513c = AdDownloadStatus.COMPLETED;
+                            aVar.f1940c = AdDownloadStatus.COMPLETED;
                         } else {
                             aVar.f();
                             return;
                         }
                     }
-                } else if (c.a.c0.g.i.a.b(aVar.f1514d)) {
-                    aVar.f1513c = AdDownloadStatus.INSTALLED;
-                } else if (!c.a.c0.g.i.a.f(aVar.f1518h)) {
+                } else if (c.a.c0.g.i.a.b(aVar.f1941d)) {
+                    aVar.f1940c = AdDownloadStatus.INSTALLED;
+                } else if (!c.a.c0.g.i.a.f(aVar.f1945h)) {
                     c.a.c0.g.a.a.b().a(aVar);
                     aVar.f();
                 }
-                if (TextUtils.isEmpty(this.f1514d)) {
-                    this.f1514d = aVar.f1514d;
+                if (TextUtils.isEmpty(this.f1941d)) {
+                    this.f1941d = aVar.f1941d;
                 }
-                this.f1512b = aVar.f1512b;
-                this.f1513c = aVar.f1513c;
-                this.f1519i = aVar.f1519i;
-                this.f1520j = aVar.f1520j;
-                this.f1518h = aVar.f1518h;
-                this.f1514d = aVar.f1514d;
+                this.f1939b = aVar.f1939b;
+                this.f1940c = aVar.f1940c;
+                this.f1946i = aVar.f1946i;
+                this.f1947j = aVar.f1947j;
+                this.f1945h = aVar.f1945h;
+                this.f1941d = aVar.f1941d;
                 this.l = aVar.l;
                 this.m = aVar.m;
                 b bVar = this.o;
                 b bVar2 = aVar.o;
-                bVar.f1530j = bVar2.f1530j;
-                bVar.f1531k = bVar2.f1531k;
-                this.n.f1540h = aVar.n.f1540h;
-            } else if (c.a.c0.g.i.a.b(this.f1514d)) {
-                this.f1513c = AdDownloadStatus.INSTALLED;
+                bVar.f1957j = bVar2.f1957j;
+                bVar.f1958k = bVar2.f1958k;
+                this.n.f1967h = aVar.n.f1967h;
+            } else if (c.a.c0.g.i.a.b(this.f1941d)) {
+                this.f1940c = AdDownloadStatus.INSTALLED;
             }
         }
     }

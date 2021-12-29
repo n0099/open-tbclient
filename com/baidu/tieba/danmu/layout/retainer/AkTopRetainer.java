@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.s0.m0.h.i.a;
-import c.a.s0.m0.j.b;
+import c.a.t0.m0.h.i.a;
+import c.a.t0.m0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tieba.danmu.collection.OrderedRangeList;
@@ -17,17 +17,17 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u0001B\u0019\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\u0010\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\bH\u0016J\u0018\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0017H\u0016R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/AkTopRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "startRatio", "", "endRatio", "(FF)V", "ranges", "Lcom/baidu/tieba/danmu/collection/OrderedRangeList;", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "clear", "", "layout", "drawItem", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public final class AkTopRetainer implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final float f43848b;
+    public final float f44035b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final OrderedRangeList<c.a.s0.m0.e.a> f43849c;
+    public final OrderedRangeList<c.a.t0.m0.e.a> f44036c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AkTopRetainer() {
@@ -64,12 +64,12 @@ public final class AkTopRetainer implements a {
             }
         }
         this.a = f2;
-        this.f43848b = f3;
-        this.f43849c = new OrderedRangeList<>(0, 0, 0, 4, null);
+        this.f44035b = f3;
+        this.f44036c = new OrderedRangeList<>(0, 0, 0, 4, null);
     }
 
-    @Override // c.a.s0.m0.h.i.a
-    public float a(c.a.s0.m0.e.a drawItem, long j2, b displayer, c.a.s0.m0.a config) {
+    @Override // c.a.t0.m0.h.i.a
+    public float a(c.a.t0.m0.e.a drawItem, long j2, b displayer, c.a.t0.m0.a config) {
         InterceptResult invokeCommon;
         boolean p;
         int h2;
@@ -80,20 +80,20 @@ public final class AkTopRetainer implements a {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f2 = drawItem.f();
             long t = drawItem.e().j() == 1 ? config.t() : config.k();
-            if (c.a.s0.m0.g.b.d(drawItem, j2)) {
+            if (c.a.t0.m0.g.b.d(drawItem, j2)) {
                 b(drawItem);
                 return -1.0f;
             }
             boolean z = f2.e() != config.o();
-            boolean d2 = this.f43849c.d(drawItem);
+            boolean d2 = this.f44036c.d(drawItem);
             if (z && !d2) {
-                List<OrderedRangeList.a<c.a.s0.m0.e.a>> e2 = this.f43849c.e((int) f2.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j2, t));
+                List<OrderedRangeList.a<c.a.t0.m0.e.a>> e2 = this.f44036c.e((int) f2.d(), new AkTopRetainer$layout$holder$1(drawItem, displayer, j2, t));
                 if (e2.isEmpty()) {
                     if (config.e()) {
-                        this.f43849c.c();
-                        e2 = this.f43849c.e((int) f2.d(), AkTopRetainer$layout$1.INSTANCE);
+                        this.f44036c.c();
+                        e2 = this.f44036c.e((int) f2.d(), AkTopRetainer$layout$1.INSTANCE);
                     } else if (drawItem.e().p()) {
-                        e2 = this.f43849c.h((int) f2.d(), new AkTopRetainer$layout$2(displayer));
+                        e2 = this.f44036c.h((int) f2.d(), new AkTopRetainer$layout$2(displayer));
                     }
                 }
                 if (e2.isEmpty()) {
@@ -101,7 +101,7 @@ public final class AkTopRetainer implements a {
                     p = false;
                 } else {
                     int d3 = ((OrderedRangeList.a) CollectionsKt___CollectionsKt.first((List<? extends Object>) e2)).d();
-                    p = this.f43849c.a(e2, d3, ((int) f2.d()) + d3, drawItem);
+                    p = this.f44036c.a(e2, d3, ((int) f2.d()) + d3, drawItem);
                     h2 = d3;
                 }
             } else {
@@ -120,28 +120,28 @@ public final class AkTopRetainer implements a {
         return invokeCommon.floatValue;
     }
 
-    @Override // c.a.s0.m0.h.i.a
-    public void b(c.a.s0.m0.e.a item) {
+    @Override // c.a.t0.m0.h.i.a
+    public void b(c.a.t0.m0.e.a item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
-            this.f43849c.m(item);
+            this.f44036c.m(item);
         }
     }
 
-    @Override // c.a.s0.m0.h.i.a
+    @Override // c.a.t0.m0.h.i.a
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43849c.c();
+            this.f44036c.c();
         }
     }
 
-    @Override // c.a.s0.m0.h.i.a
+    @Override // c.a.t0.m0.h.i.a
     public void update(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f43849c.update((int) (i2 * this.a), (int) (i3 * this.f43848b));
+            this.f44036c.update((int) (i2 * this.a), (int) (i3 * this.f44035b));
         }
     }
 

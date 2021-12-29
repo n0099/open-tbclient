@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes10.dex */
+/* loaded from: classes11.dex */
 public class EmotionUsageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_USAGE_FILE_NAME = "emotion-usage.json";

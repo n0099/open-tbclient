@@ -19,10 +19,10 @@ public interface l<T> {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public T f2322b;
+        public T f2749b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f2323c;
+        public long f2750c;
 
         public b() {
             Interceptable interceptable = $ic;

@@ -1,5 +1,6 @@
 package com.github.anrwatchdog;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -7,11 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
 import java.io.Serializable;
+import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class ANRError$$ implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String _name;
+    public final LinkedHashMap<Long, StackTraceElement[]> _stackMap;
     public final StackTraceElement[] _stackTrace;
 
     /* loaded from: classes3.dex */
@@ -33,6 +36,12 @@ public class ANRError$$ implements Serializable {
                 return this;
             }
             return (Throwable) invokeV.objValue;
+        }
+
+        public LinkedHashMap<Long, StackTraceElement[]> getStackMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.this$0._stackMap : (LinkedHashMap) invokeV.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,6 +67,10 @@ public class ANRError$$ implements Serializable {
         }
     }
 
+    public /* synthetic */ ANRError$$(String str, LinkedHashMap linkedHashMap, ANRError.a aVar) {
+        this(str, linkedHashMap);
+    }
+
     public /* synthetic */ ANRError$$(String str, StackTraceElement[] stackTraceElementArr, ANRError.a aVar) {
         this(str, stackTraceElementArr);
     }
@@ -68,6 +81,28 @@ public class ANRError$$ implements Serializable {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str, stackTraceElementArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this._name = str;
+        this._stackTrace = stackTraceElementArr;
+        LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = new LinkedHashMap<>();
+        this._stackMap = linkedHashMap;
+        linkedHashMap.put(Long.valueOf(System.currentTimeMillis()), this._stackTrace);
+    }
+
+    public ANRError$$(String str, LinkedHashMap<Long, StackTraceElement[]> linkedHashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, linkedHashMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -78,6 +113,7 @@ public class ANRError$$ implements Serializable {
             }
         }
         this._name = str;
-        this._stackTrace = stackTraceElementArr;
+        this._stackTrace = linkedHashMap.entrySet().iterator().next().getValue();
+        this._stackMap = linkedHashMap;
     }
 }

@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class f implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +85,9 @@ public class f implements i {
                     for (b.g gVar : fVar.b()) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("aid", gVar.f11588b);
+                            jSONObject.put("aid", gVar.f4875b);
                             jSONObject.put("pkg", gVar.a);
-                            jSONObject.put("priority", gVar.f11589c);
+                            jSONObject.put("priority", gVar.f4876c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
@@ -170,11 +170,11 @@ public class f implements i {
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("pkg", bVar.a);
-                            jSONObject.put("sigs", Arrays.toString(bVar.f11789b));
-                            jSONObject.put("vc", bVar.f11790c);
-                            jSONObject.put("va", bVar.f11791d);
-                            jSONObject.put("installts", bVar.f11792e);
-                            jSONObject.put("lstupdatets", bVar.f11793f);
+                            jSONObject.put("sigs", Arrays.toString(bVar.f5076b));
+                            jSONObject.put("vc", bVar.f5077c);
+                            jSONObject.put("va", bVar.f5078d);
+                            jSONObject.put("installts", bVar.f5079e);
+                            jSONObject.put("lstupdatets", bVar.f5080f);
                             jSONArray.put(jSONObject);
                         } catch (Exception e2) {
                             e2.printStackTrace();

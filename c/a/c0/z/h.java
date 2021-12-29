@@ -38,13 +38,13 @@ public class h {
                 if (column.isAssignedValue) {
                     int type = column.type();
                     if (type == 1) {
-                        contentValues.put(column.field.f2147b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
+                        contentValues.put(column.field.f2574b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
                     } else if (type == 2) {
-                        contentValues.put(column.field.f2147b, Integer.valueOf(((IntegerColumn) column).getValue()));
+                        contentValues.put(column.field.f2574b, Integer.valueOf(((IntegerColumn) column).getValue()));
                     } else if (type == 3) {
-                        contentValues.put(column.field.f2147b, Long.valueOf(((LongColumn) column).getValue()));
+                        contentValues.put(column.field.f2574b, Long.valueOf(((LongColumn) column).getValue()));
                     } else if (type == 4) {
-                        contentValues.put(column.field.f2147b, ((StringColumn) column).getValue());
+                        contentValues.put(column.field.f2574b, ((StringColumn) column).getValue());
                     } else {
                         throw new IllegalStateException("Unsupported type:" + column.type());
                     }
@@ -67,16 +67,16 @@ public class h {
                     int i3 = bVar.a;
                     if (i3 == 1) {
                         a(obj, Boolean.class);
-                        contentValues.put(bVar.f2147b, Boolean.valueOf(((Boolean) obj).booleanValue()));
+                        contentValues.put(bVar.f2574b, Boolean.valueOf(((Boolean) obj).booleanValue()));
                     } else if (i3 == 2) {
                         a(obj, Integer.class, Short.class, Byte.class);
-                        contentValues.put(bVar.f2147b, Integer.valueOf(((Integer) obj).intValue()));
+                        contentValues.put(bVar.f2574b, Integer.valueOf(((Integer) obj).intValue()));
                     } else if (i3 == 3) {
                         a(obj, Long.class, Integer.class, Short.class, Byte.class);
-                        contentValues.put(bVar.f2147b, Long.valueOf(((Long) obj).longValue()));
+                        contentValues.put(bVar.f2574b, Long.valueOf(((Long) obj).longValue()));
                     } else if (i3 == 4) {
                         a(obj, String.class, CharSequence.class);
-                        contentValues.put(bVar.f2147b, (String) obj);
+                        contentValues.put(bVar.f2574b, (String) obj);
                     } else {
                         throw new IllegalArgumentException("Unsupported field type.");
                     }
@@ -110,13 +110,13 @@ public class h {
                 if (column.isAssignedValue) {
                     int type = column.type();
                     if (type == 1) {
-                        contentValues.put(column.field.f2147b, Integer.valueOf(b.a(column) ? 1 : 0));
+                        contentValues.put(column.field.f2574b, Integer.valueOf(b.a(column) ? 1 : 0));
                     } else if (type == 2) {
-                        contentValues.put(column.field.f2147b, Integer.valueOf(b.b(column)));
+                        contentValues.put(column.field.f2574b, Integer.valueOf(b.b(column)));
                     } else if (type == 3) {
-                        contentValues.put(column.field.f2147b, Long.valueOf(b.c(column)));
+                        contentValues.put(column.field.f2574b, Long.valueOf(b.c(column)));
                     } else if (type == 4) {
-                        contentValues.put(column.field.f2147b, b.d(column));
+                        contentValues.put(column.field.f2574b, b.d(column));
                     } else {
                         throw new IllegalArgumentException("Unsupported column type.");
                     }
@@ -245,6 +245,6 @@ public class h {
     public static boolean m(Column column) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, column)) == null) ? column != null && column.field.f2149d == 3 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, column)) == null) ? column != null && column.field.f2576d == 3 : invokeL.booleanValue;
     }
 }

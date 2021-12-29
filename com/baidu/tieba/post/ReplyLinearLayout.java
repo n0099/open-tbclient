@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,14 +24,14 @@ public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static ViewGroup.LayoutParams f49048g;
+    public static ViewGroup.LayoutParams f49277g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f49049e;
+    public List<TextView> f49278e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f49050f;
+    public View.OnClickListener f49279f;
 
     /* loaded from: classes12.dex */
     public class a implements View.OnClickListener {
@@ -39,7 +39,7 @@ public class ReplyLinearLayout extends LinearLayout {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ReplyLinearLayout f49051e;
+        public final /* synthetic */ ReplyLinearLayout f49280e;
 
         public a(ReplyLinearLayout replyLinearLayout) {
             Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f49051e = replyLinearLayout;
+            this.f49280e = replyLinearLayout;
         }
 
         @Override // android.view.View.OnClickListener
@@ -66,7 +66,7 @@ public class ReplyLinearLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (strArr = (String[]) view.getTag()) == null) {
                 return;
             }
-            Context context = this.f49051e.getContext();
+            Context context = this.f49280e.getContext();
             if ("0".equals(strArr[3])) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -104,17 +104,17 @@ public class ReplyLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i2) == null) {
             if (i2 == 0) {
-                SkinManager.setViewTextColor(textView, c.a.s0.y2.a.common_color_10039, 1);
-                textView.setPadding(0, m.d(getContext(), 10.0f), 0, m.d(getContext(), 10.0f));
+                SkinManager.setViewTextColor(textView, c.a.t0.y2.a.common_color_10039, 1);
+                textView.setPadding(0, n.d(getContext(), 10.0f), 0, n.d(getContext(), 10.0f));
                 return;
             }
             int i3 = i2 % 3;
             if (i3 == 2) {
-                SkinManager.setViewTextColor(textView, c.a.s0.y2.a.common_color_10081, 1);
-                textView.setPadding(0, m.d(getContext(), 10.0f), 0, m.d(getContext(), 2.0f));
+                SkinManager.setViewTextColor(textView, c.a.t0.y2.a.common_color_10081, 1);
+                textView.setPadding(0, n.d(getContext(), 10.0f), 0, n.d(getContext(), 2.0f));
             } else if (i3 == 0) {
-                SkinManager.setViewTextColor(textView, c.a.s0.y2.a.common_color_10005, 1);
-                textView.setPadding(0, m.d(getContext(), 2.0f), 0, m.d(getContext(), 10.0f));
+                SkinManager.setViewTextColor(textView, c.a.t0.y2.a.common_color_10005, 1);
+                textView.setPadding(0, n.d(getContext(), 2.0f), 0, n.d(getContext(), 10.0f));
             }
         }
     }
@@ -131,19 +131,19 @@ public class ReplyLinearLayout extends LinearLayout {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            if (f49048g == null) {
-                f49048g = new LinearLayout.LayoutParams(-1, -2);
+            if (f49277g == null) {
+                f49277g = new LinearLayout.LayoutParams(-1, -2);
             }
             ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
             int size = ((arrayList.size() - 1) * 3) + 1;
-            int size2 = size - this.f49049e.size();
+            int size2 = size - this.f49278e.size();
             for (int i5 = 0; i5 < size2; i5++) {
                 TextView textView = new TextView(getContext());
-                this.f49049e.add(textView);
+                this.f49278e.add(textView);
                 addView(textView);
             }
-            for (int i6 = 0; i6 < this.f49049e.size(); i6++) {
-                TextView textView2 = this.f49049e.get(i6);
+            for (int i6 = 0; i6 < this.f49278e.size(); i6++) {
+                TextView textView2 = this.f49278e.get(i6);
                 if (i6 < size) {
                     if (i6 != 0 && i6 != 1) {
                         int i7 = i6 % 3;
@@ -159,25 +159,25 @@ public class ReplyLinearLayout extends LinearLayout {
                             textView2.setText(charSequenceArr[4]);
                         }
                         textView2.setTag(charSequenceArr);
-                        textView2.setOnClickListener(this.f49050f);
+                        textView2.setOnClickListener(this.f49279f);
                         a(textView2, i6);
                         if (i6 != 0) {
                             textView2.setTextSize(17.0f);
                             textView2.setMaxLines(3);
-                            textView2.setLayoutParams(f49048g);
-                            SkinManager.setViewTextColor(textView2, c.a.s0.y2.a.CAM_X0105, 1);
+                            textView2.setLayoutParams(f49277g);
+                            SkinManager.setViewTextColor(textView2, c.a.t0.y2.a.CAM_X0105, 1);
                         } else if (i6 == 1 || (i3 = i6 % 3) == 1) {
                             textView2.setLayoutParams(layoutParams);
-                            SkinManager.setBackgroundResource(textView2, c.a.s0.y2.a.CAM_X0204);
+                            SkinManager.setBackgroundResource(textView2, c.a.t0.y2.a.CAM_X0204);
                         } else if (i3 == 2) {
                             textView2.setTextSize(15.0f);
                             textView2.setMaxLines(2);
-                            textView2.setLayoutParams(f49048g);
-                            SkinManager.setViewTextColor(textView2, c.a.s0.y2.a.CAM_X0106, 1);
+                            textView2.setLayoutParams(f49277g);
+                            SkinManager.setViewTextColor(textView2, c.a.t0.y2.a.CAM_X0106, 1);
                         } else if (i3 == 0) {
                             textView2.setTextSize(10.0f);
-                            textView2.setLayoutParams(f49048g);
-                            SkinManager.setViewTextColor(textView2, c.a.s0.y2.a.CAM_X0109, 1);
+                            textView2.setLayoutParams(f49277g);
+                            SkinManager.setViewTextColor(textView2, c.a.t0.y2.a.CAM_X0109, 1);
                         }
                         textView2.setVisibility(0);
                     }
@@ -187,7 +187,7 @@ public class ReplyLinearLayout extends LinearLayout {
                     }
                     textView2.setText(charSequenceArr[0]);
                     textView2.setTag(charSequenceArr);
-                    textView2.setOnClickListener(this.f49050f);
+                    textView2.setOnClickListener(this.f49279f);
                     a(textView2, i6);
                     if (i6 != 0) {
                     }
@@ -218,7 +218,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f49050f = new a(this);
-        this.f49049e = new ArrayList();
+        this.f49279f = new a(this);
+        this.f49278e = new ArrayList();
     }
 }

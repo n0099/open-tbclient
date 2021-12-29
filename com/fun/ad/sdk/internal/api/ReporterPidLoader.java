@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api;
 
 import androidx.core.view.InputDeviceCompat;
-import c.g.o0;
+import c.g.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -139,8 +139,8 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             super.onAdShow(a);
             this.mReporter.recordShowSucceed(z);
             AdRipper adRipper = this.mAdRipper;
-            o0 o0Var = this.mReporter.mAdIdent;
-            adRipper.report(a, o0Var.a, o0Var.f29272c);
+            u0 u0Var = this.mReporter.mAdIdent;
+            adRipper.report(a, u0Var.a, u0Var.f29353c);
         }
     }
 
@@ -161,10 +161,11 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
         }
     }
 
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void onLoadStart(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, funAdSlot) == null) {
-            super.onLoadStart();
+            super.onLoadStart(funAdSlot);
             this.mReporter.recordLoadStart(funAdSlot, this.mPid);
         }
     }

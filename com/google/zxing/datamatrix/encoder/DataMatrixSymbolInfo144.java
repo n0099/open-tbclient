@@ -39,7 +39,7 @@ public final class DataMatrixSymbolInfo144 extends SymbolInfo {
             if (i2 <= 8) {
                 return 156;
             }
-            return a.f33242e;
+            return a.f33398e;
         }
         return invokeI.intValue;
     }

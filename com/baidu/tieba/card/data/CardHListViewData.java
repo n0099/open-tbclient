@@ -1,7 +1,7 @@
 package com.baidu.tieba.card.data;
 
-import c.a.d.f.p.l;
-import c.a.d.m.e.n;
+import c.a.d.f.p.m;
+import c.a.d.n.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes11.dex */
+/* loaded from: classes12.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
@@ -72,7 +72,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.m.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.n.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         }
         this.mList.clear();
         for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !l.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !l.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !m.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !m.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
                 CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                 cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                 this.mList.add(cardHListViewNormalItemData);

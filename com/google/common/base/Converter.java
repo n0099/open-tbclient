@@ -379,7 +379,7 @@ public abstract class Converter<A, B> implements g<A, B> {
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C2039a implements Iterator<B> {
+        public class C2046a implements Iterator<B> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -389,7 +389,7 @@ public abstract class Converter<A, B> implements g<A, B> {
             /* renamed from: f  reason: collision with root package name */
             public final /* synthetic */ a f56559f;
 
-            public C2039a(a aVar) {
+            public C2046a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -454,7 +454,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         public Iterator<B> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2039a(this) : (Iterator) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C2046a(this) : (Iterator) invokeV.objValue;
         }
     }
 

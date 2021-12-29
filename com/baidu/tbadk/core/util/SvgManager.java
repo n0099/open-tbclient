@@ -17,7 +17,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.InputDeviceCompat;
 import androidx.vectordrawable.graphics.drawable.AnimatedVectorDrawableCompat;
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
-import c.a.s0.v3.c;
+import c.a.t0.w3.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -307,9 +307,9 @@ public class SvgManager {
             return (StateListDrawable) invokeIL.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:19:0x003d  */
-        /* JADX WARN: Removed duplicated region for block: B:24:0x004a A[RETURN] */
-        /* JADX WARN: Removed duplicated region for block: B:25:0x004b A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x003e  */
+        /* JADX WARN: Removed duplicated region for block: B:24:0x004b A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:25:0x004c A[RETURN] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -327,7 +327,7 @@ public class SvgManager {
                                 constantState = vectorDrawableCompat.getConstantState();
                             } catch (Throwable th) {
                                 th = th;
-                                BdLog.e(th);
+                                BdLog.e(th, true);
                                 if (constantState != null) {
                                 }
                                 if (vectorDrawableCompat == null) {

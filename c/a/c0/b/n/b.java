@@ -82,7 +82,7 @@ public class b implements c.a.c0.m.b {
 
     /* renamed from: c.a.c0.b.n.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0023b {
+    public static class C0044b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class b implements c.a.c0.m.b {
     public static b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0023b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0044b.a : (b) invokeV.objValue;
     }
 
     @Override // c.a.c0.m.b

@@ -30,6 +30,6 @@ public class a implements e {
     public c.b.b.m.a resolve(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f.f27697d.a(str) : (c.b.b.m.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f.f27771d.a(str) : (c.b.b.m.a) invokeL.objValue;
     }
 }

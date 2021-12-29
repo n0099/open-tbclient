@@ -31,34 +31,34 @@ public class a {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f1693b;
+    public View f2120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f1694c;
+    public View f2121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f1695d;
+    public ViewGroup f2122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f1696e;
+    public TextView f2123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskViewGroup f1697f;
+    public MaskViewGroup f2124f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ArrowView f1698g;
+    public ArrowView f2125g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrowView f1699h;
+    public ArrowView f2126h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrowView f1700i;
+    public ArrowView f2127i;
 
     /* renamed from: j  reason: collision with root package name */
-    public ArrowView f1701j;
+    public ArrowView f2128j;
 
     /* renamed from: k  reason: collision with root package name */
-    public ArrowView f1702k;
+    public ArrowView f2129k;
     public View l;
     public View m;
     @ColorInt
@@ -67,15 +67,15 @@ public class a {
 
     /* renamed from: c.a.c0.h0.b0.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0054a implements b.a {
+    public class C0075a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Resources a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f1703b;
+        public final /* synthetic */ a f2130b;
 
-        public C0054a(a aVar, Resources resources) {
+        public C0075a(a aVar, Resources resources) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class a {
                     return;
                 }
             }
-            this.f1703b = aVar;
+            this.f2130b = aVar;
             this.a = resources;
         }
 
@@ -106,9 +106,9 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, motionEvent) == null) {
                 if (motionEvent.getAction() == 0) {
-                    this.f1703b.f1696e.setLinkTextColor(this.a.getColor(o.nad_bubble_link_text_color));
+                    this.f2130b.f2123e.setLinkTextColor(this.a.getColor(o.nad_bubble_link_text_color));
                 } else {
-                    this.f1703b.f1696e.setLinkTextColor(this.a.getColorStateList(o.nad_home_tab_bubble_tips_text_color));
+                    this.f2130b.f2123e.setLinkTextColor(this.a.getColorStateList(o.nad_home_tab_bubble_tips_text_color));
                 }
             }
         }
@@ -177,16 +177,16 @@ public class a {
     public void A(int[] iArr) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, iArr) == null) || (view = this.f1693b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iArr) == null) || (view = this.f2120b) == null) {
             return;
         }
         view.setX(iArr[0]);
-        this.f1693b.setY(iArr[1]);
-        this.f1695d.setVisibility(0);
-        this.f1693b.setVisibility(0);
-        this.f1698g.setVisibility(0);
+        this.f2120b.setY(iArr[1]);
+        this.f2122d.setVisibility(0);
+        this.f2120b.setVisibility(0);
+        this.f2125g.setVisibility(0);
         this.l.setVisibility(0);
-        MaskViewGroup maskViewGroup = this.f1697f;
+        MaskViewGroup maskViewGroup = this.f2124f;
         if (maskViewGroup != null) {
             maskViewGroup.setVisibility(0);
         }
@@ -204,10 +204,10 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f1699h.setVisibility(8);
-            this.f1700i.setVisibility(8);
-            this.f1701j.setVisibility(8);
-            this.f1702k.setVisibility(8);
+            this.f2126h.setVisibility(8);
+            this.f2127i.setVisibility(8);
+            this.f2128j.setVisibility(8);
+            this.f2129k.setVisibility(8);
         }
     }
 
@@ -215,7 +215,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View view = this.f1694c;
+            View view = this.f2121c;
             return view != null ? view.getClass().getSimpleName() : "NULL";
         }
         return (String) invokeV.objValue;
@@ -237,15 +237,15 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Resources resources = c.a.c0.e.a.b().getResources();
-            this.f1696e.setLinkTextColor(resources.getColorStateList(o.nad_home_tab_bubble_tips_text_color));
-            this.f1696e.setHighlightColor(0);
+            this.f2123e.setLinkTextColor(resources.getColorStateList(o.nad_home_tab_bubble_tips_text_color));
+            this.f2123e.setHighlightColor(0);
             c.a.c0.h0.d0.b bVar = new c.a.c0.h0.d0.b();
-            bVar.a(new C0054a(this, resources));
-            this.f1696e.setMovementMethod(bVar);
+            bVar.a(new C0075a(this, resources));
+            this.f2123e.setMovementMethod(bVar);
             if (this.o == null) {
-                this.o = new c.a.c0.h0.d0.a(this.f1696e);
+                this.o = new c.a.c0.h0.d0.a(this.f2123e);
             }
-            this.f1696e.getViewTreeObserver().addOnGlobalLayoutListener(this.o);
+            this.f2123e.getViewTreeObserver().addOnGlobalLayoutListener(this.o);
         }
     }
 
@@ -253,34 +253,34 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f1693b == null) {
-                View inflate = LayoutInflater.from(this.f1694c.getContext()).inflate(e(), this.a, false);
-                this.f1693b = inflate;
+            if (this.f2120b == null) {
+                View inflate = LayoutInflater.from(this.f2121c.getContext()).inflate(e(), this.a, false);
+                this.f2120b = inflate;
                 inflate.setVisibility(4);
-                this.f1695d = (ViewGroup) this.f1693b.findViewById(r.bubble_content);
-                this.f1697f = (MaskViewGroup) this.f1693b.findViewById(r.shadowLayout);
-                this.f1699h = (ArrowView) this.f1693b.findViewById(r.bubble_arrow_up);
-                this.f1700i = (ArrowView) this.f1693b.findViewById(r.bubble_arrow_down);
-                this.f1701j = (ArrowView) this.f1693b.findViewById(r.bubble_arrow_left);
-                this.f1702k = (ArrowView) this.f1693b.findViewById(r.bubble_arrow_right);
+                this.f2122d = (ViewGroup) this.f2120b.findViewById(r.bubble_content);
+                this.f2124f = (MaskViewGroup) this.f2120b.findViewById(r.shadowLayout);
+                this.f2126h = (ArrowView) this.f2120b.findViewById(r.bubble_arrow_up);
+                this.f2127i = (ArrowView) this.f2120b.findViewById(r.bubble_arrow_down);
+                this.f2128j = (ArrowView) this.f2120b.findViewById(r.bubble_arrow_left);
+                this.f2129k = (ArrowView) this.f2120b.findViewById(r.bubble_arrow_right);
                 int d2 = d();
-                MaskViewGroup maskViewGroup = this.f1697f;
+                MaskViewGroup maskViewGroup = this.f2124f;
                 if (maskViewGroup != null) {
                     maskViewGroup.setShadowColor(d2);
                 }
-                if (this.f1695d.getBackground() instanceof GradientDrawable) {
-                    ((GradientDrawable) this.f1695d.getBackground()).setColor(d2);
+                if (this.f2122d.getBackground() instanceof GradientDrawable) {
+                    ((GradientDrawable) this.f2122d.getBackground()).setColor(d2);
                 }
-                this.f1695d.setVisibility(4);
-                this.f1699h.setArrowViewColor(d2);
-                this.f1700i.setArrowViewColor(d2);
-                this.f1701j.setArrowViewColor(d2);
-                this.f1702k.setArrowViewColor(d2);
-                View view = new View(this.f1694c.getContext());
+                this.f2122d.setVisibility(4);
+                this.f2126h.setArrowViewColor(d2);
+                this.f2127i.setArrowViewColor(d2);
+                this.f2128j.setArrowViewColor(d2);
+                this.f2129k.setArrowViewColor(d2);
+                View view = new View(this.f2121c.getContext());
                 this.l = view;
                 view.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                 this.l.setVisibility(4);
-                this.m = new View(this.f1694c.getContext());
+                this.m = new View(this.f2121c.getContext());
                 return true;
             }
             return false;
@@ -291,19 +291,19 @@ public class a {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f1694c == null || this.a == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.f2121c == null || this.a == null) ? false : true : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.f1694c == null || this.a == null || this.f1693b == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (this.f2121c == null || this.a == null || this.f2120b == null) ? false : true : invokeV.booleanValue;
     }
 
     public void j(Runnable runnable) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) || (view = this.f1694c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, runnable) == null) || (view = this.f2121c) == null) {
             return;
         }
         view.post(runnable);
@@ -312,7 +312,7 @@ public class a {
     public void k() {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (viewGroup = this.a) == null || this.f1693b == null || this.l == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (viewGroup = this.a) == null || this.f2120b == null || this.l == null) {
             return;
         }
         viewGroup.removeView(this.m);
@@ -322,7 +322,7 @@ public class a {
         ViewGroup viewGroup;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (viewGroup = this.a) == null || this.f1693b == null || (view = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (viewGroup = this.a) == null || this.f2120b == null || (view = this.l) == null) {
             return;
         }
         viewGroup.removeView(view);
@@ -332,7 +332,7 @@ public class a {
         ViewGroup viewGroup;
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (viewGroup = this.a) == null || (view = this.f1693b) == null || this.l == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (viewGroup = this.a) == null || (view = this.f2120b) == null || this.l == null) {
             return;
         }
         viewGroup.removeView(view);
@@ -342,21 +342,21 @@ public class a {
         TextView textView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (this.o != null && (textView = this.f1696e) != null) {
+            if (this.o != null && (textView = this.f2123e) != null) {
                 textView.getViewTreeObserver().removeOnGlobalLayoutListener(this.o);
                 this.o = null;
             }
             this.a = null;
-            this.f1693b = null;
-            this.f1695d = null;
-            this.f1698g = null;
-            this.f1696e = null;
-            this.f1694c = null;
-            this.f1699h = null;
-            this.f1700i = null;
+            this.f2120b = null;
+            this.f2122d = null;
+            this.f2125g = null;
+            this.f2123e = null;
+            this.f2121c = null;
+            this.f2126h = null;
+            this.f2127i = null;
             this.l = null;
             this.m = null;
-            this.f1697f = null;
+            this.f2124f = null;
         }
     }
 
@@ -396,21 +396,21 @@ public class a {
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.f1693b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || this.f2120b == null) {
             return;
         }
         c.a.c0.h0.b0.a.a().b("——>check bubble view begin");
-        a(this.f1693b);
+        a(this.f2120b);
         c.a.c0.h0.b0.a.a().b("——>check bubble view end");
-        this.f1693b.setVisibility(4);
-        this.a.addView(this.f1693b);
+        this.f2120b.setVisibility(4);
+        this.a.addView(this.f2120b);
     }
 
     public void s(View view, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, view, viewGroup) == null) {
             if (view != null) {
-                this.f1694c = view;
+                this.f2121c = view;
                 this.a = viewGroup;
                 if (viewGroup != null || view == null) {
                     return;
@@ -447,7 +447,7 @@ public class a {
     public void v(View.OnClickListener onClickListener) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) || (view = this.f1693b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, onClickListener) == null) || (view = this.f2120b) == null) {
             return;
         }
         view.setOnClickListener(onClickListener);
@@ -469,15 +469,15 @@ public class a {
     public void y() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (view = this.m) == null || this.f1694c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || (view = this.m) == null || this.f2121c == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = this.f1694c.getMeasuredWidth();
-        layoutParams.height = this.f1694c.getMeasuredHeight();
+        layoutParams.width = this.f2121c.getMeasuredWidth();
+        layoutParams.height = this.f2121c.getMeasuredHeight();
         this.m.setLayoutParams(layoutParams);
         int[] iArr = new int[2];
-        this.f1694c.getLocationOnScreen(iArr);
+        this.f2121c.getLocationOnScreen(iArr);
         int[] iArr2 = new int[2];
         this.a.getLocationOnScreen(iArr2);
         this.m.setX(iArr[0] - iArr2[0]);
@@ -490,31 +490,31 @@ public class a {
             b();
             int i2 = b.a[bubblePosition.ordinal()];
             if (i2 == 1) {
-                this.f1699h.setDirection(2);
-                ArrowView arrowView = this.f1699h;
-                this.f1698g = arrowView;
+                this.f2126h.setDirection(2);
+                ArrowView arrowView = this.f2126h;
+                this.f2125g = arrowView;
                 if (Build.VERSION.SDK_INT <= 25) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f1698g.getLayoutParams();
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f2125g.getLayoutParams();
                     marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin - ((int) arrowView.dpToPixel(1.0f)));
-                    this.f1698g.setLayoutParams(marginLayoutParams);
+                    this.f2125g.setLayoutParams(marginLayoutParams);
                 }
             } else if (i2 == 2) {
-                this.f1700i.setDirection(4);
-                this.f1698g = this.f1700i;
+                this.f2127i.setDirection(4);
+                this.f2125g = this.f2127i;
             } else if (i2 != 3) {
                 if (i2 != 4) {
                     return;
                 }
-                this.f1702k.setDirection(3);
-                this.f1698g = this.f1702k;
+                this.f2129k.setDirection(3);
+                this.f2125g = this.f2129k;
             } else {
-                this.f1701j.setDirection(1);
-                ArrowView arrowView2 = this.f1701j;
-                this.f1698g = arrowView2;
+                this.f2128j.setDirection(1);
+                ArrowView arrowView2 = this.f2128j;
+                this.f2125g = arrowView2;
                 if (Build.VERSION.SDK_INT <= 25) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f1698g.getLayoutParams();
+                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f2125g.getLayoutParams();
                     marginLayoutParams2.setMargins(marginLayoutParams2.leftMargin, marginLayoutParams2.topMargin, marginLayoutParams2.rightMargin - ((int) arrowView2.dpToPixel(1.0f)), marginLayoutParams2.bottomMargin);
-                    this.f1698g.setLayoutParams(marginLayoutParams2);
+                    this.f2125g.setLayoutParams(marginLayoutParams2);
                 }
             }
         }

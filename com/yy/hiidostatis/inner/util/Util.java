@@ -3,7 +3,7 @@ package com.yy.hiidostatis.inner.util;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -184,7 +184,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f32438b, "getInnerIP ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f32578b, "getInnerIP ex=%s", th);
                 return "";
             }
         }
@@ -218,7 +218,7 @@ public class Util {
                     return str;
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f32438b, "getOutNetIp ex=%s", th);
+                L.debug(com.baidu.android.common.util.Util.f32578b, "getOutNetIp ex=%s", th);
             }
             return "";
         }
@@ -229,7 +229,7 @@ public class Util {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) {
-            byte[] bArr = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
+            byte[] bArr = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
             byte[] bArr2 = new byte[i2];
             Random random = new Random();
             for (int i3 = 0; i3 < i2; i3++) {
@@ -286,7 +286,7 @@ public class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
             if (j2 >= 2147483647L) {
-                L.debug(com.baidu.android.common.util.Util.f32438b, "Failed to convert long %d to int.", Long.valueOf(j2));
+                L.debug(com.baidu.android.common.util.Util.f32578b, "Failed to convert long %d to int.", Long.valueOf(j2));
             }
             return (int) j2;
         }
@@ -324,7 +324,7 @@ public class Util {
                 }
                 return "";
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f32438b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f32578b, th.getMessage(), new Object[0]);
                 return "";
             }
         }
@@ -342,7 +342,7 @@ public class Util {
                     hashMap.put(split[0], split[1]);
                 }
             } catch (Throwable th) {
-                L.debug(com.baidu.android.common.util.Util.f32438b, th.getMessage(), new Object[0]);
+                L.debug(com.baidu.android.common.util.Util.f32578b, th.getMessage(), new Object[0]);
             }
             return hashMap;
         }

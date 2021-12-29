@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -42,7 +42,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.init();
-            setTextSize(0, m.f(getContext(), R.dimen.fontsize26));
+            setTextSize(0, n.f(getContext(), R.dimen.fontsize26));
         }
     }
 
@@ -62,7 +62,7 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.r0.s.i0.t.b
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.s0.s.i0.t.b
     public void updateLikeStatus(boolean z, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {

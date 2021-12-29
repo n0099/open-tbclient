@@ -13,19 +13,19 @@ public class j implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f35617b;
+    public final /* synthetic */ boolean f35773b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f35618c;
+    public final /* synthetic */ String f35774c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f35619d;
+    public final /* synthetic */ String f35775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f35620e;
+    public final /* synthetic */ Hashtable f35776e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f35621f;
+    public final /* synthetic */ LBSAuthManager f35777f;
 
     public j(LBSAuthManager lBSAuthManager, int i2, boolean z, String str, String str2, Hashtable hashtable) {
         Interceptable interceptable = $ic;
@@ -42,12 +42,12 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f35621f = lBSAuthManager;
+        this.f35777f = lBSAuthManager;
         this.a = i2;
-        this.f35617b = z;
-        this.f35618c = str;
-        this.f35619d = str2;
-        this.f35620e = hashtable;
+        this.f35773b = z;
+        this.f35774c = str;
+        this.f35775d = str2;
+        this.f35776e = hashtable;
     }
 
     @Override // java.lang.Runnable
@@ -63,26 +63,26 @@ public class j implements Runnable {
             sb.append("status = ");
             sb.append(this.a);
             sb.append("; forced = ");
-            sb.append(this.f35617b);
+            sb.append(this.f35773b);
             sb.append("checkAK = ");
-            b2 = this.f35621f.b(this.f35618c);
+            b2 = this.f35777f.b(this.f35774c);
             sb.append(b2);
             a.a(sb.toString());
             int i2 = this.a;
-            if (i2 != 601 && !this.f35617b && i2 != -1) {
-                b3 = this.f35621f.b(this.f35618c);
+            if (i2 != 601 && !this.f35773b && i2 != -1) {
+                b3 = this.f35777f.b(this.f35774c);
                 if (!b3) {
                     if (602 == this.a) {
                         a.a("authenticate wait ");
-                        mVar = LBSAuthManager.f35601d;
+                        mVar = LBSAuthManager.f35757d;
                         if (mVar != null) {
-                            mVar2 = LBSAuthManager.f35601d;
+                            mVar2 = LBSAuthManager.f35757d;
                             mVar2.b();
                         }
                     } else {
                         a.a("authenticate else");
                     }
-                    this.f35621f.a((String) null, this.f35618c);
+                    this.f35777f.a((String) null, this.f35774c);
                     return;
                 }
             }
@@ -91,11 +91,11 @@ public class j implements Runnable {
             String[] b4 = b.b(context);
             a.a("authStrings.length:" + b4.length);
             if (b4 == null || b4.length <= 1) {
-                this.f35621f.a(this.f35617b, this.f35619d, this.f35620e, this.f35618c);
+                this.f35777f.a(this.f35773b, this.f35775d, this.f35776e, this.f35774c);
                 return;
             }
             a.a("more sha1 auth");
-            this.f35621f.a(this.f35617b, this.f35619d, this.f35620e, b4, this.f35618c);
+            this.f35777f.a(this.f35773b, this.f35775d, this.f35776e, b4, this.f35774c);
         }
     }
 }

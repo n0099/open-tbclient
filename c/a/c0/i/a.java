@@ -22,14 +22,14 @@ public final class a {
     public final c.a.c0.v.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f1757b;
+    public final Map<String, String> f2184b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, Map<String, String>> f1758c;
+    public final Map<String, Map<String, String>> f2185c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f1759d;
+    public volatile boolean f2186d;
 
     public a() {
         String[] a;
@@ -45,13 +45,13 @@ public final class a {
                 return;
             }
         }
-        this.f1757b = new ConcurrentHashMap(128);
-        this.f1758c = new ConcurrentHashMap(8);
+        this.f2184b = new ConcurrentHashMap(128);
+        this.f2185c = new ConcurrentHashMap(8);
         this.a = c.a.c0.v.e.a().b("nad.cold.launch.config");
         for (String str : h.a().a()) {
             String string = this.a.getString(str, null);
             if (string != null) {
-                c.a.c0.u.c.e(this.f1757b, str, string);
+                c.a.c0.u.c.e(this.f2184b, str, string);
             }
         }
     }
@@ -60,30 +60,30 @@ public final class a {
     public Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f1757b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2184b : (Map) invokeV.objValue;
     }
 
     @NonNull
     public Map<String, Map<String, String>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1758c : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2185c : (Map) invokeV.objValue;
     }
 
     public final void c(@NonNull JSONObject jSONObject) {
         String[] a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.f1757b.clear();
+            this.f2184b.clear();
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                c.a.c0.u.c.e(this.f1757b, next, jSONObject.optString(next));
+                c.a.c0.u.c.e(this.f2184b, next, jSONObject.optString(next));
             }
             SharedPreferences.Editor edit = this.a.edit();
             edit.clear();
             for (String str : h.a().a()) {
-                String str2 = (String) c.a.c0.u.c.b(this.f1757b, str);
+                String str2 = (String) c.a.c0.u.c.b(this.f2184b, str);
                 if (str2 != null) {
                     edit.putString(str, str2);
                 }
@@ -91,8 +91,8 @@ public final class a {
             edit.apply();
             SharedPreferences.Editor edit2 = c.a.c0.v.e.a().b("nad.launch.config.global").edit();
             edit2.clear();
-            for (String str3 : this.f1757b.keySet()) {
-                String str4 = (String) c.a.c0.u.c.b(this.f1757b, str3);
+            for (String str3 : this.f2184b.keySet()) {
+                String str4 = (String) c.a.c0.u.c.b(this.f2184b, str3);
                 if (str4 != null) {
                     edit2.putString(str3, str4);
                 }
@@ -104,7 +104,7 @@ public final class a {
     public final void d(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.f1758c.clear();
+            this.f2185c.clear();
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
@@ -120,7 +120,7 @@ public final class a {
                     }
                 }
                 if (hashMap != null) {
-                    c.a.c0.u.c.e(this.f1758c, next, hashMap);
+                    c.a.c0.u.c.e(this.f2185c, next, hashMap);
                     c.a.c0.v.e a = c.a.c0.v.e.a();
                     SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
                     edit.clear();

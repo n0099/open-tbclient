@@ -39,13 +39,13 @@ public abstract class v extends e {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2109b;
+        public boolean f2536b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f2110c;
+        public long f2537c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ v f2111d;
+        public final /* synthetic */ v f2538d;
 
         public a(v vVar) {
             Interceptable interceptable = $ic;
@@ -62,8 +62,8 @@ public abstract class v extends e {
                     return;
                 }
             }
-            this.f2111d = vVar;
-            this.f2110c = 0L;
+            this.f2538d = vVar;
+            this.f2537c = 0L;
         }
 
         @Override // c.a.c0.s.d0.g.a
@@ -72,33 +72,33 @@ public abstract class v extends e {
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || v.W0()) {
                 return;
             }
-            v vVar = this.f2111d;
-            if (vVar.f1960e == null || !vVar.N0() || this.f2111d.U0() || c.a.c0.s.d0.g.f(d.b())) {
+            v vVar = this.f2538d;
+            if (vVar.f2387e == null || !vVar.N0() || this.f2538d.U0() || c.a.c0.s.d0.g.f(d.b())) {
                 return;
             }
-            if (!this.f2111d.V0()) {
+            if (!this.f2538d.V0()) {
                 this.a = false;
                 if (c.a.c0.s.d0.g.d(i2)) {
-                    this.f2109b = true;
+                    this.f2536b = true;
                 }
-                if (this.f2109b && c.a.c0.s.d0.g.c(i2) && this.f2111d.f1960e.getVisibility() == 0 && System.currentTimeMillis() - this.f2110c > 1000) {
-                    this.f2110c = System.currentTimeMillis();
-                    this.f2111d.c1(0);
-                    this.f2109b = false;
+                if (this.f2536b && c.a.c0.s.d0.g.c(i2) && this.f2538d.f2387e.getVisibility() == 0 && System.currentTimeMillis() - this.f2537c > 1000) {
+                    this.f2537c = System.currentTimeMillis();
+                    this.f2538d.c1(0);
+                    this.f2536b = false;
                     return;
                 }
                 return;
             }
-            this.f2109b = false;
+            this.f2536b = false;
             if (c.a.c0.s.d0.g.e(i2)) {
                 this.a = true;
-                c.a.c0.s.v0.a.a(this.f2111d.getActivity(), true);
+                c.a.c0.s.v0.a.a(this.f2538d.getActivity(), true);
             } else if (c.a.c0.s.d0.g.c(i2)) {
                 this.a = true;
-                c.a.c0.s.v0.a.a(this.f2111d.getActivity(), false);
-            } else if (c.a.c0.s.d0.g.d(i2) && this.a && System.currentTimeMillis() - this.f2110c > 1000) {
-                this.f2110c = System.currentTimeMillis();
-                this.f2111d.d1(0);
+                c.a.c0.s.v0.a.a(this.f2538d.getActivity(), false);
+            } else if (c.a.c0.s.d0.g.d(i2) && this.a && System.currentTimeMillis() - this.f2537c > 1000) {
+                this.f2537c = System.currentTimeMillis();
+                this.f2538d.d1(0);
                 this.a = false;
             }
         }

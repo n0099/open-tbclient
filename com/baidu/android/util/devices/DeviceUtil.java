@@ -687,16 +687,34 @@ public class DeviceUtil implements IDevices {
         }
     }
 
+    public static boolean isHonorFoldableDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if ("HONOR".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.hihonor.hardware.sensor.posture")) {
+                return true;
+            }
+            return isHonorSpecifiedDevice();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isHonorSpecifiedDevice() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "HONOR".equalsIgnoreCase(Build.MANUFACTURER) && "HNMGI".equalsIgnoreCase(Build.DEVICE) && ("DIA-AN00".equalsIgnoreCase(Build.MODEL) || "MGI-AN00".equalsIgnoreCase(Build.MODEL)) : invokeV.booleanValue;
+    }
+
     public static boolean isHwFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture") : invokeV.booleanValue;
     }
 
     public static boolean isInMagicWindow(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (context == null) {
                 return false;
             }
@@ -712,7 +730,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isMateX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
             if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i2 = 0; i2 < 7; i2++) {
@@ -729,7 +747,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isSamSungFolded() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (TextUtils.isEmpty(Build.MODEL)) {
                 return false;
             }
@@ -752,6 +770,6 @@ public class DeviceUtil implements IDevices {
     public static boolean isSupportFoldable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() : invokeV.booleanValue;
     }
 }

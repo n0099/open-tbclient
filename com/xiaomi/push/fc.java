@@ -39,7 +39,7 @@ public class fc {
     public byte[] f375a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ByteBuffer f63462b;
+    public ByteBuffer f63457b;
 
     public fc(InputStream inputStream, fh fhVar) {
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class fc {
             }
         }
         this.f372a = ByteBuffer.allocate(2048);
-        this.f63462b = ByteBuffer.allocate(4);
+        this.f63457b = ByteBuffer.allocate(4);
         this.f373a = new Adler32();
         this.f371a = new BufferedInputStream(inputStream);
         this.f370a = fhVar;
@@ -95,10 +95,10 @@ public class fc {
                 allocate.put(this.f372a.array(), 0, this.f372a.arrayOffset() + this.f372a.position());
             }
             a(this.f372a, i3);
-            this.f63462b.clear();
-            a(this.f63462b, 4);
-            this.f63462b.position(0);
-            i2 = this.f63462b.getInt();
+            this.f63457b.clear();
+            a(this.f63457b, 4);
+            this.f63457b.position(0);
+            i2 = this.f63457b.getInt();
             this.f373a.reset();
             this.f373a.update(this.f372a.array(), 0, this.f372a.position());
             if (i2 != ((int) this.f373a.getValue())) {
@@ -115,10 +115,10 @@ public class fc {
         allocate.put(this.f372a.array(), 0, this.f372a.arrayOffset() + this.f372a.position());
         this.f372a = allocate;
         a(this.f372a, i3);
-        this.f63462b.clear();
-        a(this.f63462b, 4);
-        this.f63462b.position(0);
-        i2 = this.f63462b.getInt();
+        this.f63457b.clear();
+        a(this.f63457b, 4);
+        this.f63457b.position(0);
+        i2 = this.f63457b.getInt();
         this.f373a.reset();
         this.f373a.update(this.f372a.array(), 0, this.f372a.position());
         if (i2 != ((int) this.f373a.getValue())) {
@@ -196,7 +196,7 @@ public class fc {
                         }
                     } else if ("SECMSG".equals(m362a2.m354a()) && ((m362a2.a() == 2 || m362a2.a() == 3) && TextUtils.isEmpty(m362a2.m360b()))) {
                         try {
-                            this.f370a.b(this.a.a(m362a2.m359a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m362a2.a()).toString(), m362a2.g()).f63827h), this.f370a));
+                            this.f370a.b(this.a.a(m362a2.m359a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m362a2.a()).toString(), m362a2.g()).f63822h), this.f370a));
                         } catch (Exception e3) {
                             e = e3;
                             sb = new StringBuilder();

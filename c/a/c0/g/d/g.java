@@ -15,10 +15,10 @@ public class g {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public p f1545b;
+    public p f1972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1546c;
+    public String f1973c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public class g {
             JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
             if (optJSONObject != null) {
                 try {
-                    gVar.f1545b = p.c(optJSONObject);
+                    gVar.f1972b = p.c(optJSONObject);
                 } catch (ParseError e2) {
                     e2.printStackTrace();
                 }
             }
-            gVar.f1546c = jSONObject.optString("download_hint");
+            gVar.f1973c = jSONObject.optString("download_hint");
             return gVar;
         }
         return (g) invokeL.objValue;

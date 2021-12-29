@@ -42,7 +42,7 @@ public final class a implements LivePlayer {
         }
         Intrinsics.checkNotNullParameter(mediaSource, "mediaSource");
         String a = mediaSource.a();
-        this.a = LivePlayerProvider.f35860b.a(a == null ? "0000" : a);
+        this.a = LivePlayerProvider.f36016b.a(a == null ? "0000" : a);
     }
 
     @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer

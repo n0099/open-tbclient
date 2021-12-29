@@ -21,13 +21,13 @@ public class f {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SharedPreferences f26647e;
+        public final /* synthetic */ SharedPreferences f27086e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f26648f;
+        public final /* synthetic */ String f27087f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Object f26649g;
+        public final /* synthetic */ Object f27088g;
 
         public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
@@ -44,16 +44,16 @@ public class f {
                     return;
                 }
             }
-            this.f26647e = sharedPreferences;
-            this.f26648f = str;
-            this.f26649g = obj;
+            this.f27086e = sharedPreferences;
+            this.f27087f = str;
+            this.f27088g = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f.D(this.f26647e, this.f26648f, this.f26649g);
+                f.D(this.f27086e, this.f27087f, this.f27088g);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import c.a.s0.s1.s.a;
-import c.a.s0.s1.s.c;
+import c.a.t0.s1.s.a;
+import c.a.t0.s1.s.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;

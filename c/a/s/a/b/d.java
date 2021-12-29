@@ -75,8 +75,8 @@ public final class d implements b, c {
             c.a.s.a.e.d dVar = new c.a.s.a.e.d(this.a);
             boolean isEmpty = TextUtils.isEmpty(dVar.a);
             String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-            if (!isEmpty && (num = c.a.s.a.e.d.f14154c.get(dVar.a)) != null) {
-                str5 = num + "_" + dVar.f14155b;
+            if (!isEmpty && (num = c.a.s.a.e.d.f12333c.get(dVar.a)) != null) {
+                str5 = num + "_" + dVar.f12334b;
             }
             if (str5 == null) {
                 str5 = "unknown";

@@ -1,18 +1,19 @@
 package com.vivo.push.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.provider.Settings;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class w extends a {
+public final class w implements d {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static w f63147b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ContentResolver a;
 
     public w() {
         Interceptable interceptable = $ic;
@@ -28,27 +29,46 @@ public final class w extends a {
         }
     }
 
-    public static synchronized w b() {
-        InterceptResult invokeV;
-        w wVar;
+    @Override // com.vivo.push.util.d
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (w.class) {
-                if (f63147b == null) {
-                    f63147b = new w();
-                }
-                wVar = f63147b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (j.b()) {
+                this.a = context.getContentResolver();
+                return true;
             }
-            return wVar;
+            return false;
         }
-        return (w) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void a(Context context) {
+    @Override // com.vivo.push.util.d
+    public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.a == null) {
-            this.a = context;
-            a(context, "com.vivo.push_preferences");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            try {
+                Settings.System.putString(this.a, str, str2);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                p.b("SettingsCache", "putString error by ".concat(String.valueOf(str)));
+            }
         }
+    }
+
+    @Override // com.vivo.push.util.d
+    public final String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            try {
+                return Settings.System.getString(this.a, str);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                p.b("SettingsCache", "getString error by ".concat(String.valueOf(str)));
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

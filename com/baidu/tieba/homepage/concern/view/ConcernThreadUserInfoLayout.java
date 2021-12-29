@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.concern.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;

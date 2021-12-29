@@ -12,7 +12,7 @@ public abstract class a implements c {
     public Type a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f31489b;
+    public byte[] f31632b;
 
     public a(Type type, byte[] bArr) {
         Interceptable interceptable = $ic;
@@ -30,6 +30,6 @@ public abstract class a implements c {
             }
         }
         this.a = type;
-        this.f31489b = bArr;
+        this.f31632b = bArr;
     }
 }

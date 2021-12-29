@@ -5,7 +5,7 @@ import c.i.b.a.i0.l;
 import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.rtc.record.MediaEncodeParams;
-import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public final class g extends h {
             }
         }
         o = v.q("Opus");
-        p = new byte[]{79, 112, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
+        p = new byte[]{79, 112, ContentUtil.GZIP_HEAD_1, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
     }
 
     public g() {

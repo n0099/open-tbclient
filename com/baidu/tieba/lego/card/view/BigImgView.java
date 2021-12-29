@@ -2,7 +2,7 @@ package com.baidu.tieba.lego.card.view;
 
 import android.view.View;
 import android.widget.FrameLayout;
-import c.a.d.f.p.m;
+import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
@@ -18,7 +18,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f47065f;
+    public TbImageView f47285f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BigImgView(TbPageContext tbPageContext) {
@@ -46,7 +46,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             TbImageView tbImageView = new TbImageView(getContext());
-            this.f47065f = tbImageView;
+            this.f47285f = tbImageView;
             return tbImageView;
         }
         return (View) invokeV.objValue;
@@ -65,18 +65,18 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     public void onUpdateCardView(BigImgCard bigImgCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bigImgCard) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47065f.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47285f.getLayoutParams();
             if (bigImgCard.getRatio() > 0.0d) {
-                int ratio = (int) (bigImgCard.getRatio() * m.k(getContext()));
+                int ratio = (int) (bigImgCard.getRatio() * n.k(getContext()));
                 if (Math.abs(ratio - layoutParams.height) > 10) {
                     layoutParams.height = ratio;
-                    this.f47065f.setLayoutParams(layoutParams);
+                    this.f47285f.setLayoutParams(layoutParams);
                 }
             } else {
-                layoutParams.height = (int) ((m.k(getContext()) * 0.5f) + 0.5f);
-                this.f47065f.setLayoutParams(layoutParams);
+                layoutParams.height = (int) ((n.k(getContext()) * 0.5f) + 0.5f);
+                this.f47285f.setLayoutParams(layoutParams);
             }
-            this.f47065f.startLoad(bigImgCard.getUrl(), 10, false);
+            this.f47285f.startLoad(bigImgCard.getUrl(), 10, false);
         }
     }
 }

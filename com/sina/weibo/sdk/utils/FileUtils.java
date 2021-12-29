@@ -184,7 +184,7 @@ public class FileUtils {
     public static boolean isMediaDocument(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.f39154k.equals(uri.getAuthority()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, uri)) == null) ? ImageClipActivity.f39310k.equals(uri.getAuthority()) : invokeL.booleanValue;
     }
 
     public static boolean isVideoFile(Context context, Uri uri) {

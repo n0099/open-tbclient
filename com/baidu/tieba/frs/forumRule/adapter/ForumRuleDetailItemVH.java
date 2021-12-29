@@ -2,12 +2,12 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.r0.f1.n.a;
-import c.a.r0.s.v.c;
-import c.a.s0.d1.c1;
-import c.a.s0.d1.d1;
-import c.a.s0.d1.f1;
-import c.a.s0.d1.i1;
+import c.a.s0.g1.n.a;
+import c.a.s0.s.u.c;
+import c.a.t0.d1.c1;
+import c.a.t0.d1.d1;
+import c.a.t0.d1.f1;
+import c.a.t0.d1.i1;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -26,7 +26,7 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f44764b;
+    public View f44951b;
     public TbRichTextView mContent;
     public boolean mCurrentStatus;
     public EMTextView mTitle;
@@ -50,7 +50,7 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.f44764b = view;
+        this.f44951b = view;
         initView(view);
     }
 

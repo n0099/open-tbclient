@@ -10,7 +10,7 @@ public abstract class f extends a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final g f1980f;
+    public final g f2407f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -25,15 +25,15 @@ public abstract class f extends a {
                 return;
             }
         }
-        this.f1980f = new g();
+        this.f2407f = new g();
     }
 
     @Override // c.a.c0.s.i0.a
     public void E(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-            this.f1980f.a(eVar);
-            S(this.f1980f);
+            this.f2407f.a(eVar);
+            S(this.f2407f);
         }
     }
 

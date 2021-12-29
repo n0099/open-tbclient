@@ -2,7 +2,7 @@ package com.win.opensdk;
 
 import android.content.Context;
 import android.content.IntentFilter;
-import c.p.a.i0;
+import c.q.a.i0;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;

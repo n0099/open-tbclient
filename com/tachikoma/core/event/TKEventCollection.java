@@ -21,7 +21,7 @@ import com.tachikoma.core.event.view.TKInputEvent;
 import com.tachikoma.core.event.view.TKScrollEvent;
 import com.tachikoma.core.event.view.TKSwitchEvent;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKEventCollection {
     public static /* synthetic */ Interceptable $ic;
     public static TKEventCollection instance;

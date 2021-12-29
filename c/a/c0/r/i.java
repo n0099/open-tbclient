@@ -14,10 +14,10 @@ public class i {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1851b;
+    public String f2278b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1852c;
+    public boolean f2279c;
 
     public i() {
         Interceptable interceptable = $ic;

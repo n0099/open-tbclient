@@ -1,7 +1,7 @@
 package c.a.l;
 
 import android.widget.RelativeLayout;
-import c.a.r0.s.r.d2;
+import c.a.s0.s.q.d2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.Align;
 import com.baidu.card.view.UnfollowedDecorView;
@@ -21,14 +21,14 @@ public class r0 extends c implements p<d2>, q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final int f3877k;
+    public static final int f4292k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public UnfollowedDecorView f3878i;
+    public UnfollowedDecorView f4293i;
 
     /* renamed from: j  reason: collision with root package name */
-    public Align f3879j;
+    public Align f4294j;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class r0 extends c implements p<d2>, q {
                 return;
             }
         }
-        f3877k = c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+        f4292k = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     }
 
     public r0(TbPageContext tbPageContext, Align align) {
@@ -63,15 +63,15 @@ public class r0 extends c implements p<d2>, q {
         }
         g(-1);
         UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.f3878i = unfollowedDecorView;
+        this.f4293i = unfollowedDecorView;
         unfollowedDecorView.setId(R.id.decor_item_right_id);
-        f(this.f3878i);
+        f(this.f4293i);
         j(align);
     }
 
     public void j(Align align) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, align) == null) || align == this.f3879j) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, align) == null) || align == this.f4294j) {
             return;
         }
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
@@ -83,9 +83,9 @@ public class r0 extends c implements p<d2>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             h(layoutParams);
-            this.f3878i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f3878i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f3878i.setLayoutParams(layoutParams);
+            this.f4293i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f4293i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f4293i.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -93,34 +93,34 @@ public class r0 extends c implements p<d2>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.bottomMargin = 0;
             h(layoutParams2);
-            this.f3878i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f3878i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f3878i.setLayoutParams(layoutParams2);
+            this.f4293i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f4293i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f4293i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i2 = f3877k;
-            int f2 = c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int f3 = c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int f4 = c.a.d.f.p.m.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            int i2 = f4292k;
+            int f2 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int f3 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int f4 = c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i2, i2);
             layoutParams3.addRule(11);
             layoutParams3.addRule(12);
             layoutParams3.rightMargin = f3;
             layoutParams3.bottomMargin = f4;
             h(layoutParams3);
-            this.f3878i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f3878i.setPadding(f2, f2, f2, f2);
-            this.f3878i.setLayoutParams(layoutParams3);
+            this.f4293i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f4293i.setPadding(f2, f2, f2, f2);
+            this.f4293i.setLayoutParams(layoutParams3);
         }
-        this.f3879j = align;
+        this.f4294j = align;
     }
 
-    public void k(c.a.r0.s.r.a aVar) {
+    public void k(c.a.s0.s.q.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             if (aVar.isSupportTop()) {
                 j(Align.ALIGN_RIGHT_TOP);
             } else if (aVar.isSupportBottom()) {
-                l0 l0Var = this.f3809h;
+                l0 l0Var = this.f4224h;
                 if (l0Var != null) {
                     l0Var.n(this);
                 }
@@ -136,7 +136,7 @@ public class r0 extends c implements p<d2>, q {
     public void onBindDataToView(d2 d2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2Var) == null) {
-            this.f3878i.bindData(d2Var);
+            this.f4293i.bindData(d2Var);
         }
     }
 
@@ -144,7 +144,7 @@ public class r0 extends c implements p<d2>, q {
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            this.f3878i.onChangeSkinType();
+            this.f4293i.onChangeSkinType();
         }
     }
 }

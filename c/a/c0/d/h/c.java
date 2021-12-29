@@ -26,10 +26,10 @@ public class c {
         public final /* synthetic */ WeakReference a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Intent f1442b;
+        public final /* synthetic */ Intent f1869b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c.a.c0.d.h.a f1443c;
+        public final /* synthetic */ c.a.c0.d.h.a f1870c;
 
         public a(WeakReference weakReference, Intent intent, c.a.c0.d.h.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,8 +47,8 @@ public class c {
                 }
             }
             this.a = weakReference;
-            this.f1442b = intent;
-            this.f1443c = aVar;
+            this.f1869b = intent;
+            this.f1870c = aVar;
         }
 
         @Override // c.a.c0.d.h.a
@@ -57,9 +57,9 @@ public class c {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z && (context = (Context) this.a.get()) != null) {
-                    c.a.c0.d0.a.c(context, this.f1442b);
+                    c.a.c0.d0.a.c(context, this.f1869b);
                 }
-                c.a.c0.d.h.a aVar = this.f1443c;
+                c.a.c0.d.h.a aVar = this.f1870c;
                 if (aVar != null) {
                     aVar.onResult(z);
                 }

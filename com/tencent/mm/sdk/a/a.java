@@ -18,7 +18,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C2226a {
+    public static class C2233a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
@@ -35,7 +35,7 @@ public final class a {
         /* renamed from: k  reason: collision with root package name */
         public Bundle f62845k;
 
-        public C2226a() {
+        public C2233a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,33 +52,33 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C2226a c2226a) {
+    public static boolean a(Context context, C2233a c2233a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2226a)) == null) {
-            if (context == null || c2226a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2233a)) == null) {
+            if (context == null || c2233a == null) {
                 com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
                 return false;
-            } else if (c.a(c2226a.f62842h)) {
-                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2226a.f62842h);
+            } else if (c.a(c2233a.f62842h)) {
+                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2233a.f62842h);
                 return false;
             } else {
-                if (c.a(c2226a.f62843i)) {
-                    c2226a.f62843i = c2226a.f62842h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+                if (c.a(c2233a.f62843i)) {
+                    c2233a.f62843i = c2233a.f62842h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
                 }
-                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2226a.f62842h + ", targetClassName = " + c2226a.f62843i);
+                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2233a.f62842h + ", targetClassName = " + c2233a.f62843i);
                 Intent intent = new Intent();
-                intent.setClassName(c2226a.f62842h, c2226a.f62843i);
-                Bundle bundle = c2226a.f62845k;
+                intent.setClassName(c2233a.f62842h, c2233a.f62843i);
+                Bundle bundle = c2233a.f62845k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c2226a.f62844j);
-                intent.putExtra("_mmessage_checksum", b.a(c2226a.f62844j, 570490883, packageName));
-                int i2 = c2226a.flags;
+                intent.putExtra("_mmessage_content", c2233a.f62844j);
+                intent.putExtra("_mmessage_checksum", b.a(c2233a.f62844j, 570490883, packageName));
+                int i2 = c2233a.flags;
                 if (i2 == -1) {
                     intent.addFlags(268435456).addFlags(134217728);
                 } else {

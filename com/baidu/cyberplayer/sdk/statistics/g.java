@@ -18,7 +18,7 @@ public class g {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<f> f34566b;
+    public List<f> f34722b;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class g {
             }
         }
         this.a = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f34566b = new ArrayList();
+        this.f34722b = new ArrayList();
     }
 
     public JSONObject a() throws JSONException {
@@ -46,12 +46,12 @@ public class g {
             if (cVar != null) {
                 cVar.a(jSONObject);
             }
-            if (this.f34566b != null) {
+            if (this.f34722b != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (int i2 = 0; i2 < this.f34566b.size(); i2++) {
+                for (int i2 = 0; i2 < this.f34722b.size(); i2++) {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("type", this.f34566b.get(i2).a());
-                    if (this.f34566b.get(i2).a(jSONObject2) != null) {
+                    jSONObject2.put("type", this.f34722b.get(i2).a());
+                    if (this.f34722b.get(i2).a(jSONObject2) != null) {
                         jSONArray.put(jSONObject2);
                     }
                 }
@@ -70,10 +70,10 @@ public class g {
             c cVar = this.a;
             if (cVar != null && i2 == 24322) {
                 cVar.a(new e(i2, str, str2));
-            } else if (this.f34566b != null) {
+            } else if (this.f34722b != null) {
                 e eVar = new e(i2, str, str2);
-                for (int i3 = 0; i3 < this.f34566b.size(); i3++) {
-                    f fVar = this.f34566b.get(i3);
+                for (int i3 = 0; i3 < this.f34722b.size(); i3++) {
+                    f fVar = this.f34722b.get(i3);
                     if (fVar.a() == i2) {
                         fVar.a(eVar);
                         return;
@@ -81,7 +81,7 @@ public class g {
                 }
                 f fVar2 = new f(i2);
                 fVar2.a(eVar);
-                this.f34566b.add(fVar2);
+                this.f34722b.add(fVar2);
             }
         }
     }
@@ -93,7 +93,7 @@ public class g {
             if (cVar != null) {
                 cVar.b();
             }
-            List<f> list = this.f34566b;
+            List<f> list = this.f34722b;
             if (list != null) {
                 list.clear();
             }

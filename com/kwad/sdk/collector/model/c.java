@@ -2,10 +2,6 @@ package com.kwad.sdk.collector.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.AppStatusRules;
 import com.kwad.sdk.collector.model.jni.AnalyseTaskNative;
@@ -22,187 +18,128 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
     public static AppRunningInfoNative a(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, appPackageInfo, strategy)) == null) {
-            return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
-        }
-        return (AppRunningInfoNative) invokeLL.objValue;
+        return new AppRunningInfoNative(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
     }
 
     public static String a(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if (bVar instanceof AppRunningInfoNative) {
-                return AppStatusNative.appRunningInfoGetName((AppRunningInfoNative) bVar);
-            }
-            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
-                return ((com.kwad.sdk.collector.model.kwai.b) bVar).b();
-            }
-            return null;
+        if (bVar instanceof AppRunningInfoNative) {
+            return AppStatusNative.appRunningInfoGetName((AppRunningInfoNative) bVar);
         }
-        return (String) invokeL.objValue;
+        if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+            return ((com.kwad.sdk.collector.model.kwai.b) bVar).b();
+        }
+        return null;
     }
 
     public static String a(d dVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dVar)) == null) {
-            if (dVar instanceof RulesTargetNative) {
-                return AppStatusNative.rulesTargetGetPackageName((RulesTargetNative) dVar);
-            }
-            if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
-                return ((com.kwad.sdk.collector.model.kwai.c) dVar).a();
-            }
-            return null;
+        if (dVar instanceof RulesTargetNative) {
+            return AppStatusNative.rulesTargetGetPackageName((RulesTargetNative) dVar);
         }
-        return (String) invokeL.objValue;
+        if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
+            return ((com.kwad.sdk.collector.model.kwai.c) dVar).a();
+        }
+        return null;
     }
 
     public static ArrayList<d> a(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            return com.kwad.sdk.core.config.b.ai() ? b(jSONArray) : c(jSONArray);
+        if (jSONArray == null) {
+            return null;
         }
-        return (ArrayList) invokeL.objValue;
+        return com.kwad.sdk.core.config.b.ai() ? b(jSONArray) : c(jSONArray);
     }
 
     public static void a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map, @NonNull List<a> list) {
         InstalledAppInfoManager.AppPackageInfo appPackageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, strategy, map, list) == null) {
-            boolean ai = com.kwad.sdk.core.config.b.ai();
-            ArrayList<d> target = strategy.getTarget();
-            if (target == null || target.size() == 0) {
-                return;
-            }
-            for (d dVar : target) {
-                if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
-                    HashSet hashSet = new HashSet(b(dVar));
-                    long startTimeWithMS = strategy.getStartTimeWithMS();
-                    list.add(ai ? new AnalyseTaskNative(a(appPackageInfo, strategy), hashSet, startTimeWithMS) : new com.kwad.sdk.collector.model.kwai.a(b(appPackageInfo, strategy), hashSet, startTimeWithMS));
-                }
+        boolean ai = com.kwad.sdk.core.config.b.ai();
+        ArrayList<d> target = strategy.getTarget();
+        if (target == null || target.size() == 0) {
+            return;
+        }
+        for (d dVar : target) {
+            if (b(dVar) != null && b(dVar).size() != 0 && (appPackageInfo = map.get(a(dVar))) != null) {
+                HashSet hashSet = new HashSet(b(dVar));
+                long startTimeWithMS = strategy.getStartTimeWithMS();
+                list.add(ai ? new AnalyseTaskNative(a(appPackageInfo, strategy), hashSet, startTimeWithMS) : new com.kwad.sdk.collector.model.kwai.a(b(appPackageInfo, strategy), hashSet, startTimeWithMS));
             }
         }
     }
 
     public static void a(b bVar, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, bVar, j2) == null) {
-            if (bVar instanceof AppRunningInfoNative) {
-                AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j2);
-            } else if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
-                ((com.kwad.sdk.collector.model.kwai.b) bVar).b(j2);
-            }
+        if (bVar instanceof AppRunningInfoNative) {
+            AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j2);
+        } else if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+            ((com.kwad.sdk.collector.model.kwai.b) bVar).b(j2);
         }
     }
 
     public static com.kwad.sdk.collector.model.kwai.b b(InstalledAppInfoManager.AppPackageInfo appPackageInfo, @Nullable AppStatusRules.Strategy strategy) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, appPackageInfo, strategy)) == null) {
-            return new com.kwad.sdk.collector.model.kwai.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
-        }
-        return (com.kwad.sdk.collector.model.kwai.b) invokeLL.objValue;
+        return new com.kwad.sdk.collector.model.kwai.b(strategy == null ? -1L : strategy.getHistoryGranularity(), appPackageInfo.appName, appPackageInfo.packageName);
     }
 
     public static String b(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bVar)) == null) {
-            if (bVar instanceof AppRunningInfoNative) {
-                return AppStatusNative.appRunningInfoGetPackageName((AppRunningInfoNative) bVar);
-            }
-            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
-                return ((com.kwad.sdk.collector.model.kwai.b) bVar).c();
-            }
-            return null;
+        if (bVar instanceof AppRunningInfoNative) {
+            return AppStatusNative.appRunningInfoGetPackageName((AppRunningInfoNative) bVar);
         }
-        return (String) invokeL.objValue;
+        if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+            return ((com.kwad.sdk.collector.model.kwai.b) bVar).c();
+        }
+        return null;
     }
 
     public static ArrayList<d> b(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
-            ArrayList<d> arrayList = new ArrayList<>();
-            int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject jSONObject = null;
-                try {
-                    jSONObject = jSONArray.getJSONObject(i2);
-                } catch (JSONException unused) {
-                }
-                if (jSONObject != null) {
-                    RulesTargetNative rulesTargetNative = new RulesTargetNative();
-                    rulesTargetNative.parseJson(jSONObject);
-                    arrayList.add(rulesTargetNative);
-                }
+        ArrayList<d> arrayList = new ArrayList<>();
+        int length = jSONArray.length();
+        for (int i2 = 0; i2 < length; i2++) {
+            JSONObject jSONObject = null;
+            try {
+                jSONObject = jSONArray.getJSONObject(i2);
+            } catch (JSONException unused) {
             }
-            return arrayList;
+            if (jSONObject != null) {
+                RulesTargetNative rulesTargetNative = new RulesTargetNative();
+                rulesTargetNative.parseJson(jSONObject);
+                arrayList.add(rulesTargetNative);
+            }
         }
-        return (ArrayList) invokeL.objValue;
+        return arrayList;
     }
 
     public static List<String> b(d dVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, dVar)) == null) {
-            if (dVar instanceof RulesTargetNative) {
-                return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
-            }
-            if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
-                return ((com.kwad.sdk.collector.model.kwai.c) dVar).b();
-            }
-            return null;
+        if (dVar instanceof RulesTargetNative) {
+            return Arrays.asList(AppStatusNative.rulesTargetGetPaths((RulesTargetNative) dVar));
         }
-        return (List) invokeL.objValue;
+        if (dVar instanceof com.kwad.sdk.collector.model.kwai.c) {
+            return ((com.kwad.sdk.collector.model.kwai.c) dVar).b();
+        }
+        return null;
     }
 
     public static long c(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bVar)) == null) {
-            if (bVar instanceof AppRunningInfoNative) {
-                return AppStatusNative.appRunningInfoGetLastRunningTime((AppRunningInfoNative) bVar);
-            }
-            if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
-                return ((com.kwad.sdk.collector.model.kwai.b) bVar).d();
-            }
-            return 0L;
+        if (bVar instanceof AppRunningInfoNative) {
+            return AppStatusNative.appRunningInfoGetLastRunningTime((AppRunningInfoNative) bVar);
         }
-        return invokeL.longValue;
+        if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
+            return ((com.kwad.sdk.collector.model.kwai.b) bVar).d();
+        }
+        return 0L;
     }
 
     public static ArrayList<d> c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONArray)) == null) {
-            ArrayList<d> arrayList = new ArrayList<>();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    com.kwad.sdk.collector.model.kwai.c cVar = new com.kwad.sdk.collector.model.kwai.c();
-                    cVar.parseJson(jSONObject);
-                    arrayList.add(cVar);
-                } catch (JSONException unused) {
-                }
-            }
+        ArrayList<d> arrayList = new ArrayList<>();
+        if (jSONArray == null) {
             return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
+        int length = jSONArray.length();
+        for (int i2 = 0; i2 < length; i2++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                com.kwad.sdk.collector.model.kwai.c cVar = new com.kwad.sdk.collector.model.kwai.c();
+                cVar.parseJson(jSONObject);
+                arrayList.add(cVar);
+            } catch (JSONException unused) {
+            }
+        }
+        return arrayList;
     }
 }

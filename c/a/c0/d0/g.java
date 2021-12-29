@@ -9,6 +9,7 @@ import com.baidu.down.utils.Utils;
 import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -32,19 +33,19 @@ public final class g {
     public static HashMap<String, Integer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<String, Integer> f1454b;
+    public static HashMap<String, Integer> f1881b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, String> f1455c;
+    public static HashMap<String, String> f1882c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, String> f1456d;
+    public static HashMap<String, String> f1883d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HashMap<String, Integer> f1457e;
+    public static HashMap<String, Integer> f1884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Pattern f1458f;
+    public static final Pattern f1885f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -61,10 +62,10 @@ public final class g {
             }
         }
         a = new HashMap<>();
-        f1454b = new HashMap<>();
-        f1455c = new HashMap<>();
-        f1456d = new HashMap<>();
-        f1457e = new HashMap<>();
+        f1881b = new HashMap<>();
+        f1882c = new HashMap<>();
+        f1883d = new HashMap<>();
+        f1884e = new HashMap<>();
         a("application/andrew-inset", "ez", 5);
         a("application/dsptype", "tsp", 5);
         a("application/futuresplash", "spl", 5);
@@ -336,7 +337,7 @@ public final class g {
         a("text/x-csrc", "c", 5);
         a("text/x-dsrc", "d", 5);
         a("text/x-haskell", "hs", 5);
-        a("text/x-java", "java", 5);
+        a("text/x-java", ExceptionHandlerImpl.EXCEPTION_TYPE_JAVA, 5);
         a("text/x-literate-haskell", "lhs", 5);
         a("text/x-moc", "moc", 5);
         a("text/x-pascal", "p", 5);
@@ -390,21 +391,21 @@ public final class g {
         a("application/vnd.apple.mpegurl", "m3u8", 0);
         a("application/x.mpegurl", "m3u", 0);
         a("application/vnd.apple.mpegurl", "m3u", 0);
-        f1458f = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        f1885f = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     public static void a(String str, String str2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65537, null, str, str2, i2) == null) {
             a.put(str2, Integer.valueOf(i2));
-            f1454b.put(str, Integer.valueOf(i2));
-            HashMap<String, Integer> hashMap = f1457e;
+            f1881b.put(str, Integer.valueOf(i2));
+            HashMap<String, Integer> hashMap = f1884e;
             hashMap.put(str + "@" + str2, Integer.valueOf(i2));
-            f1455c.put(str2, str);
-            if (f1456d.containsKey(str)) {
+            f1882c.put(str2, str);
+            if (f1883d.containsKey(str)) {
                 return;
             }
-            f1456d.put(str, str2);
+            f1883d.put(str, str2);
         }
     }
 
@@ -415,18 +416,18 @@ public final class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             String lowerCase = !TextUtils.isEmpty(str) ? str.toLowerCase(Locale.getDefault()) : "";
             if (!TextUtils.isEmpty(lowerCase) && !TextUtils.isEmpty(str2)) {
-                HashMap<String, Integer> hashMap = f1457e;
+                HashMap<String, Integer> hashMap = f1884e;
                 num = hashMap.get(str2 + "@" + lowerCase);
                 if (num == null) {
                     num = a.get(lowerCase);
                 }
                 if (num == null) {
-                    num = f1454b.get(str2);
+                    num = f1881b.get(str2);
                 }
             } else if (TextUtils.isEmpty(str2)) {
                 num = a.get(lowerCase);
             } else {
-                num = f1454b.get(str2);
+                num = f1881b.get(str2);
             }
             if (num == null) {
                 num = 5;
@@ -450,7 +451,7 @@ public final class g {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f1456d.get(str);
+            return f1883d.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -559,7 +560,7 @@ public final class g {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f1455c.get(str);
+            return f1882c.get(str);
         }
         return (String) invokeL.objValue;
     }
@@ -569,7 +570,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             try {
-                Matcher matcher = f1458f.matcher(str);
+                Matcher matcher = f1885f.matcher(str);
                 if (matcher.find()) {
                     return matcher.group(2);
                 }

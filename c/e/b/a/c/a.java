@@ -22,21 +22,21 @@ public class a {
     public final List<c.e.b.a.c.b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f28874b;
+    public Handler f28948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f28875c;
+    public WeakReference<Activity> f28949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f28876d;
+    public final AtomicBoolean f28950d;
 
     /* renamed from: c.e.b.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C1612a implements Comparator<c.e.b.a.c.b> {
+    public class C1616a implements Comparator<c.e.b.a.c.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C1612a(a aVar) {
+        public C1616a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,7 +86,7 @@ public class a {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f28877e;
+        public final /* synthetic */ a f28951e;
 
         public b(a aVar) {
             Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class a {
                     return;
                 }
             }
-            this.f28877e = aVar;
+            this.f28951e = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -111,14 +111,14 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f28877e.a.get(0);
+                    c.e.b.a.c.b bVar = (c.e.b.a.c.b) this.f28951e.a.get(0);
                     if (bVar.isShowing()) {
                         return;
                     }
                     bVar.show();
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    this.f28877e.f();
+                    this.f28951e.f();
                 }
             }
         }
@@ -140,9 +140,9 @@ public class a {
             }
         }
         this.a = new ArrayList();
-        this.f28876d = new AtomicBoolean(false);
-        this.f28875c = new WeakReference<>(activity);
-        this.f28874b = new Handler(Looper.getMainLooper());
+        this.f28950d = new AtomicBoolean(false);
+        this.f28949c = new WeakReference<>(activity);
+        this.f28948b = new Handler(Looper.getMainLooper());
     }
 
     public List<c.e.b.a.c.b> a() {
@@ -159,7 +159,7 @@ public class a {
                 return false;
             }
             if (this.a.isEmpty()) {
-                this.f28876d.set(false);
+                this.f28950d.set(false);
             }
             this.a.add(bVar);
             bVar.setHostQuene(this);
@@ -173,7 +173,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.clear();
-            this.f28876d.set(false);
+            this.f28950d.set(false);
         }
     }
 
@@ -197,19 +197,19 @@ public class a {
             if (!this.a.isEmpty()) {
                 this.a.remove(0);
             }
-            this.f28876d.set(false);
+            this.f28950d.set(false);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            WeakReference<Activity> weakReference = this.f28875c;
-            if (weakReference == null || weakReference.get() == null || this.f28875c.get().isFinishing()) {
+            WeakReference<Activity> weakReference = this.f28949c;
+            if (weakReference == null || weakReference.get() == null || this.f28949c.get().isFinishing()) {
                 d();
-            } else if (this.a.isEmpty() || this.f28876d.getAndSet(true)) {
+            } else if (this.a.isEmpty() || this.f28950d.getAndSet(true)) {
             } else {
-                this.f28874b.postDelayed(new b(this), 500L);
+                this.f28948b.postDelayed(new b(this), 500L);
             }
         }
     }
@@ -217,7 +217,7 @@ public class a {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            Collections.sort(this.a, new C1612a(this));
+            Collections.sort(this.a, new C1616a(this));
         }
     }
 }

@@ -19,23 +19,23 @@ public final class e {
     @JvmField
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1789b;
+    public boolean f2216b;
     @JvmField
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f1790c;
+    public boolean f2217c;
     @JvmField
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f1791d;
+    public boolean f2218d;
     @JvmField
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f1792e;
+    public boolean f2219e;
     @JvmField
 
     /* renamed from: f  reason: collision with root package name */
-    public b f1793f;
+    public b f2220f;
 
     /* loaded from: classes.dex */
     public static final class a {
@@ -70,7 +70,7 @@ public final class e {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, praiseSource)) == null) {
                 Intrinsics.checkNotNullParameter(praiseSource, "praiseSource");
-                this.a.f1793f = praiseSource;
+                this.a.f2220f = praiseSource;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -80,7 +80,7 @@ public final class e {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.f1792e = z;
+                this.a.f2219e = z;
                 return this;
             }
             return (a) invokeZ.objValue;
@@ -136,8 +136,8 @@ public final class e {
             }
         }
         this.a = true;
-        this.f1789b = true;
-        this.f1790c = true;
-        this.f1793f = new b();
+        this.f2216b = true;
+        this.f2217c = true;
+        this.f2220f = new b();
     }
 }

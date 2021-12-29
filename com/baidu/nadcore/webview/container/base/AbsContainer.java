@@ -28,7 +28,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.c0.g0.n.a.a f38274e;
+    public c.a.c0.g0.n.a.a f38430e;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -49,7 +49,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
                 return;
             }
         }
-        this.f38274e = aVar;
+        this.f38430e = aVar;
     }
 
     public abstract boolean canSlide(MotionEvent motionEvent);
@@ -59,7 +59,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public void doFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38274e.doFinish();
+            this.f38430e.doFinish();
         }
     }
 
@@ -73,7 +73,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38274e.getActivity() : (Activity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38430e.getActivity() : (Activity) invokeV.objValue;
     }
 
     @NonNull
@@ -87,7 +87,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38274e.getIntent() : (Intent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38430e.getIntent() : (Intent) invokeV.objValue;
     }
 
     @NonNull
@@ -235,7 +235,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public void setContentView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, view) == null) {
-            c.a.c0.g0.n.a.a aVar = this.f38274e;
+            c.a.c0.g0.n.a.a aVar = this.f38430e;
             if (aVar == null || !aVar.handleSetContentView()) {
                 getActivity().setContentView(view);
             }

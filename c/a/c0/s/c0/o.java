@@ -15,7 +15,7 @@ public class o extends a implements r.a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final r f1930b;
+    public final r f2357b;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class o extends a implements r.a {
                 return;
             }
         }
-        this.f1930b = new r(this);
+        this.f2357b = new r(this);
     }
 
     @Override // c.a.c0.s.c0.r.a
@@ -106,7 +106,7 @@ public class o extends a implements r.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             try {
-                this.f1930b.registerReceiver();
+                this.f2357b.registerReceiver();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -117,7 +117,7 @@ public class o extends a implements r.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                this.f1930b.unregisterReceiver();
+                this.f2357b.unregisterReceiver();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

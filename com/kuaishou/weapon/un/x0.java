@@ -172,12 +172,12 @@ public class x0 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0076  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0093  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x006c A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0062 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0092  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -197,73 +197,73 @@ public class x0 {
                 bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
                 try {
                     bufferedInputStream = new BufferedInputStream(process.getInputStream());
+                } catch (Exception unused) {
+                    bufferedInputStream = null;
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedInputStream = null;
+                }
+                try {
+                    bufferedOutputStream.write(str.getBytes());
+                    bufferedOutputStream.write(10);
+                    bufferedOutputStream.flush();
+                    bufferedOutputStream.close();
+                    process.waitFor();
+                    String a2 = a(bufferedInputStream);
                     try {
-                        bufferedOutputStream.write(str.getBytes());
-                        bufferedOutputStream.write(10);
-                        bufferedOutputStream.flush();
                         bufferedOutputStream.close();
-                        process.waitFor();
-                        String a2 = a(bufferedInputStream);
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                    try {
+                        bufferedInputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    return a2;
+                } catch (Exception unused2) {
+                    if (bufferedOutputStream != null) {
                         try {
                             bufferedOutputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
+                    }
+                    if (bufferedInputStream != null) {
                         try {
                             bufferedInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
                         }
-                        if (process != null) {
-                            process.destroy();
-                        }
-                        return a2;
-                    } catch (Exception unused) {
-                        if (bufferedOutputStream != null) {
-                            try {
-                                bufferedOutputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        if (bufferedInputStream != null) {
-                            try {
-                                bufferedInputStream.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        if (process != null) {
-                            process.destroy();
-                        }
-                        return null;
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        if (bufferedOutputStream2 != null) {
-                            try {
-                                bufferedOutputStream2.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                        }
-                        if (bufferedInputStream != null) {
-                            try {
-                                bufferedInputStream.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        if (process != null) {
-                            process.destroy();
-                        }
-                        throw th;
                     }
-                } catch (Exception unused2) {
-                    bufferedInputStream = null;
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    return null;
                 } catch (Throwable th2) {
                     th = th2;
-                    bufferedInputStream = null;
+                    bufferedOutputStream2 = bufferedOutputStream;
+                    if (bufferedOutputStream2 != null) {
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
+                        }
+                    }
+                    if (bufferedInputStream != null) {
+                        try {
+                            bufferedInputStream.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    throw th;
                 }
             } catch (Exception unused3) {
                 bufferedOutputStream = null;

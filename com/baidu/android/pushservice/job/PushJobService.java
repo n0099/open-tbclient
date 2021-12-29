@@ -10,11 +10,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.g;
-import com.baidu.android.pushservice.i.a.b;
-import com.baidu.android.pushservice.j.l;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.i;
+import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,9 +62,11 @@ public class PushJobService extends JobService {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
                     this.a.jobFinished(jobParameters, true);
-                    if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.a, false);
+                    int b2 = i.b(this.a.getApplicationContext(), "key_push_launch_task_level", 0);
+                    if (jobParameters.getJobId() != 1 || b2 == 1) {
+                        return;
                     }
+                    com.baidu.android.pushservice.job.a.a(this.a, false, 0);
                 } catch (Throwable th) {
                     new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
@@ -106,13 +109,15 @@ public class PushJobService extends JobService {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jobParameters)) == null) {
-            if (m.p(getApplicationContext()) || !l.a(getApplicationContext(), null)) {
+            int i2 = jobParameters.getExtras().getInt("push_start_source");
+            if (m.p(getApplicationContext()) || !l.a(getApplicationContext(), (Intent) null, i2)) {
                 try {
-                    Intent a2 = f.a(getApplicationContext());
-                    if (Build.VERSION.SDK_INT >= 28 && m.j()) {
+                    Intent a2 = e.a(getApplicationContext());
+                    if (Build.VERSION.SDK_INT >= 28 && m.k()) {
                         a2.putExtra("disable_alarm", true);
                     }
-                    g.a(getApplicationContext()).a(a2);
+                    a2.putExtra("push_start_source", i2);
+                    f.a(getApplicationContext()).a(a2);
                 } catch (Exception unused) {
                 }
             }

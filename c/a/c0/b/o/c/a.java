@@ -16,11 +16,11 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static a f1405f;
+    public static a f1832f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f1406e;
+    public b f1833e;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,14 +40,14 @@ public final class a implements Application.ActivityLifecycleCallbacks {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f1405f == null) {
+            if (f1832f == null) {
                 synchronized (a.class) {
-                    if (f1405f == null) {
-                        f1405f = new a();
+                    if (f1832f == null) {
+                        f1832f = new a();
                     }
                 }
             }
-            return f1405f;
+            return f1832f;
         }
         return (a) invokeV.objValue;
     }
@@ -56,10 +56,10 @@ public final class a implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (b.class) {
-                if (this.f1406e != null) {
+                if (this.f1833e != null) {
                     return;
                 }
-                this.f1406e = bVar;
+                this.f1833e = bVar;
             }
         }
     }
@@ -68,7 +68,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
-            this.f1406e.onActivityCreated(activity, bundle);
+            this.f1833e.onActivityCreated(activity, bundle);
         }
     }
 
@@ -76,7 +76,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityDestroyed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            this.f1406e.onActivityDestroyed(activity);
+            this.f1833e.onActivityDestroyed(activity);
         }
     }
 
@@ -84,7 +84,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityPaused(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            this.f1406e.onActivityPaused(activity);
+            this.f1833e.onActivityPaused(activity);
         }
     }
 
@@ -92,7 +92,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
-            this.f1406e.onActivityResumed(activity);
+            this.f1833e.onActivityResumed(activity);
         }
     }
 
@@ -100,7 +100,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
-            this.f1406e.onActivitySaveInstanceState(activity, bundle);
+            this.f1833e.onActivitySaveInstanceState(activity, bundle);
         }
     }
 
@@ -108,7 +108,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStarted(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            this.f1406e.onActivityStarted(activity);
+            this.f1833e.onActivityStarted(activity);
         }
     }
 
@@ -116,7 +116,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            this.f1406e.onActivityStopped(activity);
+            this.f1833e.onActivityStopped(activity);
         }
     }
 }

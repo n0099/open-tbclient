@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import c.a.d.f.p.k;
+import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,6 +41,6 @@ public class NewUserGuideActivityConfig extends IntentConfig {
     public static boolean canResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? k.z() && MessageManager.getInstance().findTask(2012116) != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? l.z() && MessageManager.getInstance().findTask(2012116) != null : invokeV.booleanValue;
     }
 }

@@ -20,10 +20,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: j  reason: collision with root package name */
-    public static float f1144j = 0.0f;
+    public static float f1536j = 0.0f;
 
     /* renamed from: k  reason: collision with root package name */
-    public static float f1145k = 0.0f;
+    public static float f1537k = 0.0f;
     public static float l = 1.0f;
     public static float m = 1.0f;
     public static float n;
@@ -36,28 +36,28 @@ public class b {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f1146b;
+    public float f1538b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f1147c;
+    public float f1539c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f1148d;
+    public float f1540d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f1149e;
+    public float f1541e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<Point> f1150f;
+    public List<Point> f1542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<Point> f1151g;
+    public List<Point> f1543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<Point> f1152h;
+    public List<Point> f1544h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<Point> f1153i;
+    public List<Point> f1545i;
 
     static {
         InterceptResult invokeClinit;
@@ -88,15 +88,15 @@ public class b {
                 return;
             }
         }
-        this.a = f1144j;
-        this.f1146b = f1145k;
-        this.f1147c = l;
-        this.f1148d = m;
-        this.f1149e = n;
-        this.f1150f = o;
-        this.f1151g = p;
-        this.f1152h = q;
-        this.f1153i = r;
+        this.a = f1536j;
+        this.f1538b = f1537k;
+        this.f1539c = l;
+        this.f1540d = m;
+        this.f1541e = n;
+        this.f1542f = o;
+        this.f1543g = p;
+        this.f1544h = q;
+        this.f1545i = r;
     }
 
     public static void a() {
@@ -155,15 +155,15 @@ public class b {
                     jSONObject3.optDouble("intensity_white");
                 }
                 bVar.a = (float) jSONObject.optDouble("intensity_sharpness");
-                bVar.f1146b = (float) jSONObject.optDouble("intensity_brightness");
-                bVar.f1147c = (float) jSONObject.optDouble("intensity_contrast");
-                bVar.f1148d = (float) jSONObject.optDouble("intensity_saturation");
+                bVar.f1538b = (float) jSONObject.optDouble("intensity_brightness");
+                bVar.f1539c = (float) jSONObject.optDouble("intensity_contrast");
+                bVar.f1540d = (float) jSONObject.optDouble("intensity_saturation");
                 JSONObject optJSONObject = jSONObject.optJSONObject("curves");
                 if (optJSONObject != null && optJSONObject.length() > 0) {
-                    bVar.f1149e = (float) optJSONObject.optDouble("intensity_curves");
+                    bVar.f1541e = (float) optJSONObject.optDouble("intensity_curves");
                     JSONArray jSONArray = optJSONObject.getJSONArray(PayDataCache.PAY_TYPE_COMPOSITE);
                     if (jSONArray != null && jSONArray.length() > 0) {
-                        bVar.f1150f = new CopyOnWriteArrayList();
+                        bVar.f1542f = new CopyOnWriteArrayList();
                         for (int i10 = 0; i10 < jSONArray.length(); i10++) {
                             JSONObject jSONObject4 = jSONArray.getJSONObject(i10);
                             if (jSONObject4 == null || jSONObject4.length() <= 0) {
@@ -173,12 +173,12 @@ public class b {
                                 i9 = jSONObject4.optInt("x");
                                 i8 = jSONObject4.optInt("y");
                             }
-                            bVar.f1150f.add(new Point(i9, i8));
+                            bVar.f1542f.add(new Point(i9, i8));
                         }
                     }
                     JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
                     if (jSONArray2 != null && jSONArray2.length() > 0) {
-                        bVar.f1151g = new CopyOnWriteArrayList();
+                        bVar.f1543g = new CopyOnWriteArrayList();
                         for (int i11 = 0; i11 < jSONArray2.length(); i11++) {
                             JSONObject jSONObject5 = jSONArray2.getJSONObject(i11);
                             if (jSONObject5 == null || jSONObject5.length() <= 0) {
@@ -188,12 +188,12 @@ public class b {
                                 i7 = jSONObject5.optInt("x");
                                 i6 = jSONObject5.optInt("y");
                             }
-                            bVar.f1151g.add(new Point(i7, i6));
+                            bVar.f1543g.add(new Point(i7, i6));
                         }
                     }
                     JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
                     if (jSONArray3 != null && jSONArray3.length() > 0) {
-                        bVar.f1152h = new CopyOnWriteArrayList();
+                        bVar.f1544h = new CopyOnWriteArrayList();
                         for (int i12 = 0; i12 < jSONArray3.length(); i12++) {
                             JSONObject jSONObject6 = jSONArray3.getJSONObject(i12);
                             if (jSONObject6 == null || jSONObject6.length() <= 0) {
@@ -203,12 +203,12 @@ public class b {
                                 i5 = jSONObject6.optInt("x");
                                 i4 = jSONObject6.optInt("y");
                             }
-                            bVar.f1152h.add(new Point(i5, i4));
+                            bVar.f1544h.add(new Point(i5, i4));
                         }
                     }
                     JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
                     if (jSONArray4 != null && jSONArray4.length() > 0) {
-                        bVar.f1153i = new CopyOnWriteArrayList();
+                        bVar.f1545i = new CopyOnWriteArrayList();
                         for (int i13 = 0; i13 < jSONArray4.length(); i13++) {
                             JSONObject jSONObject7 = jSONArray4.getJSONObject(i13);
                             if (jSONObject7 == null || jSONObject7.length() <= 0) {
@@ -218,7 +218,7 @@ public class b {
                                 i3 = jSONObject7.optInt("x");
                                 i2 = jSONObject7.optInt("y");
                             }
-                            bVar.f1153i.add(new Point(i3, i2));
+                            bVar.f1545i.add(new Point(i3, i2));
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.pb.godreply;
 
-import c.a.d.f.p.m;
-import c.a.r0.d1.b0;
+import c.a.d.f.p.n;
+import c.a.s0.e1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -52,8 +52,8 @@ public class LookMoreReqMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
-                int k2 = m.k(TbadkCoreApplication.getInst());
-                int i2 = m.i(TbadkCoreApplication.getInst());
+                int k2 = n.k(TbadkCoreApplication.getInst());
+                int i2 = n.i(TbadkCoreApplication.getInst());
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.kz = this.kz;
                 builder.with_floor = Integer.valueOf(this.with_floor);

@@ -99,10 +99,7 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         if (interceptable == null || interceptable.invokeL(1048580, this, videoEvent) == null) {
             Iterator<S> it = this.mElements.iterator();
             while (it.hasNext()) {
-                S next = it.next();
-                if (videoEvent.getSender() != next) {
-                    next.onEventNotify(videoEvent);
-                }
+                it.next().onEventNotify(videoEvent);
             }
         }
     }
@@ -267,15 +264,6 @@ public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> ex
         if ((interceptable == null || interceptable.invokeL(1048599, this, s) == null) && this.mElements.remove(s)) {
             detachElementView(s);
         }
-    }
-
-    public void sendEvent(VideoEvent videoEvent, @NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048600, this, videoEvent, obj) == null) || getMessenger() == null) {
-            return;
-        }
-        videoEvent.setSender(obj);
-        getMessenger().notifyEvent(videoEvent);
     }
 
     public abstract void setupElement();

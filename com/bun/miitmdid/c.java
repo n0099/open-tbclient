@@ -18,34 +18,34 @@ public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f54958b;
+    public static final c f54961b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final c f54959c;
+    public static final c f54962c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final c f54960d;
+    public static final c f54963d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f54961e;
+    public static final c f54964e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c f54962f;
+    public static final c f54965f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final c f54963g;
+    public static final c f54966g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final c f54964h;
+    public static final c f54967h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final c f54965i;
+    public static final c f54968i;
 
     /* renamed from: j  reason: collision with root package name */
-    public static final c f54966j;
+    public static final c f54969j;
 
     /* renamed from: k  reason: collision with root package name */
-    public static final c f54967k;
+    public static final c f54970k;
     public static final c l;
     public static final c m;
     public static final c n;
@@ -73,25 +73,25 @@ public final class c {
             }
         }
         c cVar = new c("UNSUPPORT", 0, -1, "unsupport");
-        f54958b = cVar;
+        f54961b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
-        f54959c = cVar2;
+        f54962c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
-        f54960d = cVar3;
+        f54963d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f54961e = cVar4;
+        f54964e = cVar4;
         c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f54962f = cVar5;
+        f54965f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
-        f54963g = cVar6;
+        f54966g = cVar6;
         c cVar7 = new c("LENOVO", 6, 5, "lenovo");
-        f54964h = cVar7;
+        f54967h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
-        f54965i = cVar8;
+        f54968i = cVar8;
         c cVar9 = new c(com.kuaishou.weapon.un.g.f57226j, 8, 7, ManufacturerUtils.SAMSUNG);
-        f54966j = cVar9;
+        f54969j = cVar9;
         c cVar10 = new c("MEIZU", 9, 8, "meizu");
-        f54967k = cVar10;
+        f54970k = cVar10;
         c cVar11 = new c(RomUtils.ROM_NUBIA, 10, 10, "nubia");
         l = cVar11;
         c cVar12 = new c("ZTE", 11, 11, "ZTE");
@@ -140,14 +140,14 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f54958b;
+                return f54961b;
             }
             for (c cVar : values()) {
                 if (cVar.a.equalsIgnoreCase(str)) {
                     return cVar;
                 }
             }
-            return f54958b;
+            return f54961b;
         }
         return (c) invokeL.objValue;
     }

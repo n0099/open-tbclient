@@ -1,9 +1,9 @@
 package c.a.s0.r0;
-
-import android.webkit.JsPromptResult;
-/* loaded from: classes8.dex */
+/* loaded from: classes6.dex */
 public interface b {
-    void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult);
+    void a();
 
-    String b();
+    void b();
+
+    void onError(String str);
 }

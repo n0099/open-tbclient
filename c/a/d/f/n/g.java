@@ -10,31 +10,31 @@ public class g {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2509b;
+    public static String f2936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2510c;
+    public static String f2937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2511d;
+    public static String f2938d;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f2510c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? f2937c : (String) invokeV.objValue;
     }
 
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f2509b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f2936b : (String) invokeV.objValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2511d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f2938d : (String) invokeV.objValue;
     }
 
     public static boolean d(c.a.d.f.n.j.a aVar) {
@@ -52,14 +52,14 @@ public class g {
     public static void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            f2510c = str;
+            f2937c = str;
         }
     }
 
     public static void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            f2509b = str;
+            f2936b = str;
         }
     }
 
@@ -73,7 +73,7 @@ public class g {
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            f2511d = str;
+            f2938d = str;
         }
     }
 }

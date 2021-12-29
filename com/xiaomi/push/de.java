@@ -13,7 +13,7 @@ public class de implements LoggerInterface {
     public LoggerInterface a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f63359b;
+    public LoggerInterface f63354b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
         Interceptable interceptable = $ic;
@@ -31,9 +31,9 @@ public class de implements LoggerInterface {
             }
         }
         this.a = null;
-        this.f63359b = null;
+        this.f63354b = null;
         this.a = loggerInterface;
-        this.f63359b = loggerInterface2;
+        this.f63354b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
@@ -44,7 +44,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str);
             }
-            LoggerInterface loggerInterface2 = this.f63359b;
+            LoggerInterface loggerInterface2 = this.f63354b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str);
             }
@@ -59,7 +59,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str, th);
             }
-            LoggerInterface loggerInterface2 = this.f63359b;
+            LoggerInterface loggerInterface2 = this.f63354b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str, th);
             }

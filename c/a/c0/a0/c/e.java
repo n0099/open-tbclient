@@ -37,9 +37,9 @@ public class e extends BaseExecutorCell {
         if (i2 != 1) {
             d();
             String str = "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.";
-            this.f38167b = 1;
+            this.f38323b = 1;
         }
-        this.f38168c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.f38324c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
     @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
@@ -62,8 +62,8 @@ public class e extends BaseExecutorCell {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
             synchronized (this) {
                 super.f(elasticTask);
-                if (c.a.c0.a0.a.f1315b) {
-                    c.a.c0.a0.f.c.f().n(c.a.c0.a0.a.f1316c + 10);
+                if (c.a.c0.a0.a.f1742b) {
+                    c.a.c0.a0.f.c.f().n(c.a.c0.a0.a.f1743c + 10);
                 }
             }
         }
@@ -84,9 +84,9 @@ public class e extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
             elasticTask.h(null);
-            this.f38168c.shutdown();
+            this.f38324c.shutdown();
             this.a.clear();
-            this.f38168c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+            this.f38324c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
             c.a.c0.a0.f.c.f().o();
         }
     }
@@ -96,12 +96,12 @@ public class e extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                if (c.a.c0.a0.a.f1315b) {
+                if (c.a.c0.a0.a.f1742b) {
                     ElasticTask k2 = k();
                     if (k2 == null) {
                         return false;
                     }
-                    if (k2.c() >= c.a.c0.a0.a.f1316c) {
+                    if (k2.c() >= c.a.c0.a0.a.f1743c) {
                         i(k2);
                         return true;
                     }

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TKDownEvent extends TKBaseEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

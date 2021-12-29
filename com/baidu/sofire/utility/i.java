@@ -19,7 +19,7 @@ public final class i {
     public static final String[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f39688b;
+    public static final String[] f39844b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class i {
             }
         }
         a = new String[]{"java.lang.UnsatisfiedLinkError"};
-        f39688b = new String[]{"space left"};
+        f39844b = new String[]{"space left"};
     }
 
     public static String a(Context context, String str, String str2) {
@@ -50,7 +50,7 @@ public final class i {
                 if (str.contains(a[0])) {
                     c2 = 1;
                 } else {
-                    c2 = str.contains(f39688b[0]) ? (char) 2 : (char) 0;
+                    c2 = str.contains(f39844b[0]) ? (char) 2 : (char) 0;
                 }
                 if (c2 != 1) {
                     return c2 != 2 ? str : a(context, str);

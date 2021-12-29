@@ -193,7 +193,7 @@ public final class r {
                 com.baidu.sofire.h.a a2 = com.baidu.sofire.h.a.a(context);
                 String o = a2.o();
                 if (TextUtils.isEmpty(o)) {
-                    String string = a2.f39610c.getString("rpnewuid", "");
+                    String string = a2.f39766c.getString("rpnewuid", "");
                     if (TextUtils.isEmpty(string)) {
                         return "";
                     }

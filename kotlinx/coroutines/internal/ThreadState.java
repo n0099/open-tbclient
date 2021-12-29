@@ -9,7 +9,7 @@ public final class ThreadState {
     public final CoroutineContext context;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f64874i;
+    public int f64869i;
 
     public ThreadState(CoroutineContext coroutineContext, int i2) {
         this.context = coroutineContext;
@@ -18,8 +18,8 @@ public final class ThreadState {
 
     public final void append(Object obj) {
         Object[] objArr = this.a;
-        int i2 = this.f64874i;
-        this.f64874i = i2 + 1;
+        int i2 = this.f64869i;
+        this.f64869i = i2 + 1;
         objArr[i2] = obj;
     }
 
@@ -28,13 +28,13 @@ public final class ThreadState {
     }
 
     public final void start() {
-        this.f64874i = 0;
+        this.f64869i = 0;
     }
 
     public final Object take() {
         Object[] objArr = this.a;
-        int i2 = this.f64874i;
-        this.f64874i = i2 + 1;
+        int i2 = this.f64869i;
+        this.f64869i = i2 + 1;
         return objArr[i2];
     }
 }

@@ -8,9 +8,9 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
-import c.a.y0.b;
-import c.a.y0.t.c;
-import c.a.y0.t.h;
+import c.a.a1.b;
+import c.a.a1.t.c;
+import c.a.a1.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -355,7 +355,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fc, code lost:
-        c.a.y0.t.c.g(r0);
+        c.a.a1.t.c.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x00ff, code lost:
         if (r1 != null) goto L39;

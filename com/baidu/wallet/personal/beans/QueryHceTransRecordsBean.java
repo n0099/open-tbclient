@@ -21,7 +21,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54640b;
+    public String f54643b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QueryHceTransRecordsBean(Context context) {
@@ -42,7 +42,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
             }
         }
         this.a = "";
-        this.f54640b = "";
+        this.f54643b = "";
     }
 
     @Override // com.dxmpay.apollon.beans.ApollonBean
@@ -62,8 +62,8 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
             if (!TextUtils.isEmpty(this.a)) {
                 arrayList.add(new RestNameValuePair("pn", this.a));
             }
-            if (!TextUtils.isEmpty(this.f54640b)) {
-                arrayList.add(new RestNameValuePair("type", this.f54640b));
+            if (!TextUtils.isEmpty(this.f54643b)) {
+                arrayList.add(new RestNameValuePair("type", this.f54643b));
             }
             return arrayList;
         }
@@ -110,7 +110,7 @@ public class QueryHceTransRecordsBean extends BaseBean<TransRecordsResponse> {
     public void setType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f54640b = str;
+            this.f54643b = str;
         }
     }
 }

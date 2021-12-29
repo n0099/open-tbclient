@@ -1,7 +1,7 @@
 package com.baidu.ar.record;
 
 import com.baidu.ar.bean.Watermark;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IRecord {
     void pauseRecord();
 

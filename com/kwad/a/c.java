@@ -24,7 +24,7 @@ public class c {
     public final Set<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.InterfaceC2062b f57516b;
+    public final b.InterfaceC2069b f57516b;
 
     /* renamed from: c  reason: collision with root package name */
     public final b.a f57517c;
@@ -49,7 +49,7 @@ public class c {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((b.InterfaceC2062b) objArr[0], (b.a) objArr[1]);
+                this((b.InterfaceC2069b) objArr[0], (b.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,12 +57,12 @@ public class c {
         }
     }
 
-    public c(b.InterfaceC2062b interfaceC2062b, b.a aVar) {
+    public c(b.InterfaceC2069b interfaceC2069b, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC2062b, aVar};
+            Object[] objArr = {interfaceC2069b, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -73,13 +73,13 @@ public class c {
             }
         }
         this.a = new HashSet();
-        if (interfaceC2062b == null) {
+        if (interfaceC2069b == null) {
             throw new IllegalArgumentException("Cannot pass null library loader");
         }
         if (aVar == null) {
             throw new IllegalArgumentException("Cannot pass null library installer");
         }
-        this.f57516b = interfaceC2062b;
+        this.f57516b = interfaceC2069b;
         this.f57517c = aVar;
     }
 

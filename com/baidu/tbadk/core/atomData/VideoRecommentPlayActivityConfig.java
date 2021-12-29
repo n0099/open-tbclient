@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
 import com.baidu.tieba.video.VideoItemData;
@@ -24,8 +25,12 @@ import java.util.Map;
 public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
+    public static final String FROM_AGREE_PAGE = "from_agree_page";
+    public static final String FROM_AT_PAGE = "from_at_page";
+    public static final String FROM_CREATE_CENTER = "from_create_center";
     public static final String FROM_DEFAULT = "from_default";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_LINK_PAGE = "from_link_page";
     public static final String FROM_MAINTAB_CONCERN = "concern_tab";
     public static final String FROM_MAINTAB_DAILY = "daily_tab";
     public static final String FROM_MAINTAB_RECOMMEND = "index";
@@ -33,10 +38,12 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static final String FROM_NANI_VIDEO = "from_nani_video";
     public static final String FROM_PB_VIDEO_SCHEME = "from_pb_video_scheme";
     public static final String FROM_PERSONAL_PAGE = "from_personal_page";
+    public static final String FROM_REPLY_PAGE = "from_reply_page";
     public static final String FROM_VIDEO_ACCOUNT_ATTENTION_TAB = "video_attention_tab";
     public static final String FROM_VIDEO_ACCOUNT_TAB = "video_channel_tab";
     public static final String FROM_VIDEO_HOT_TOPIC = "from_video_hot_topic";
     public static final String FROM_VIDEO_MIDDLE_VIDEO = "from_video_middle_video";
+    public static final String FROM_WORK_MANAGEMENT = "from_work_management";
     public static final String IS_FROM_BJH_PB = "is_from_bjh_pb";
     public static final String KEY_NID = "key_nid";
     public static final String OBJ_ID = "obj_id";
@@ -255,6 +262,30 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("video_index", i2);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2, boolean z) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65542, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65542, newInitContext);
+                return;
+            }
+        }
+        getIntent().putExtra("video_list", (Serializable) list);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str2);
+        TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -27,7 +27,7 @@ public final class b {
 
     /* renamed from: c.f.b.a.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public static class C1621b {
+    public static class C1625b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public final class b {
     public static final b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1621b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1625b.a : (b) invokeV.objValue;
     }
 
     public void b(Camera.AutoFocusCallback autoFocusCallback) {

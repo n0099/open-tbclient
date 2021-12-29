@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.s0.f2.c.k.o;
+import c.a.t0.f2.c.k.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
@@ -21,25 +21,25 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47383e;
+    public Context f47604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47384f;
+    public View f47605f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47385g;
+    public View f47606g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47386h;
+    public TbImageView f47607h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f47387i;
+    public TextView f47608i;
 
     /* renamed from: j  reason: collision with root package name */
-    public TextView f47388j;
+    public TextView f47609j;
 
     /* renamed from: k  reason: collision with root package name */
-    public TbImageView f47389k;
+    public TbImageView f47610k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasicSeperateBaMemberItemView(Context context) {
@@ -59,20 +59,20 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47383e = context;
+        this.f47604e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f47383e).inflate(R.layout.index_seperate_ba_item, this);
-            this.f47384f = inflate;
-            this.f47385g = inflate.findViewById(R.id.ly_desc);
-            this.f47386h = (TbImageView) this.f47384f.findViewById(R.id.task_icon);
-            this.f47387i = (TextView) this.f47384f.findViewById(R.id.txt_title);
-            this.f47388j = (TextView) this.f47384f.findViewById(R.id.txt_desc);
-            this.f47389k = (TbImageView) this.f47384f.findViewById(R.id.privilege_spread_icon);
+            View inflate = LayoutInflater.from(this.f47604e).inflate(R.layout.index_seperate_ba_item, this);
+            this.f47605f = inflate;
+            this.f47606g = inflate.findViewById(R.id.ly_desc);
+            this.f47607h = (TbImageView) this.f47605f.findViewById(R.id.task_icon);
+            this.f47608i = (TextView) this.f47605f.findViewById(R.id.txt_title);
+            this.f47609j = (TextView) this.f47605f.findViewById(R.id.txt_desc);
+            this.f47610k = (TbImageView) this.f47605f.findViewById(R.id.privilege_spread_icon);
         }
     }
 
@@ -81,15 +81,15 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) || oVar == null) {
             return;
         }
-        this.f47385g.setTag(oVar);
-        this.f47386h.startLoad(oVar.b(), 10, false);
-        this.f47387i.setText(oVar.f());
+        this.f47606g.setTag(oVar);
+        this.f47607h.startLoad(oVar.b(), 10, false);
+        this.f47608i.setText(oVar.f());
         if (StringUtils.isNull(oVar.e())) {
-            this.f47389k.setVisibility(4);
+            this.f47610k.setVisibility(4);
         } else {
-            this.f47389k.setVisibility(0);
+            this.f47610k.setVisibility(0);
         }
-        this.f47388j.setText(oVar.a());
+        this.f47609j.setText(oVar.a());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -111,7 +111,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47383e = context;
+        this.f47604e = context;
         a();
     }
 
@@ -134,7 +134,7 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
                 return;
             }
         }
-        this.f47383e = context;
+        this.f47604e = context;
         a();
     }
 }

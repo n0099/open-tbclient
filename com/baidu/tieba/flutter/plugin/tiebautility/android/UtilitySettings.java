@@ -1,6 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
-import c.a.r0.s.m.f;
+import c.a.s0.s.l.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.flutter.plugin.tiebautility.TiebaUtilitySettingsAuto;

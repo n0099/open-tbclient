@@ -26,6 +26,7 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
 import com.baidu.android.common.util.Util;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.main.facesdk.BuildConfig;
@@ -1067,7 +1068,7 @@ public class l {
             bundle.putString("cmd", str5);
             bundle.putString("uin", str6);
             bundle.putString("appid", str7);
-            bundle.putString("share_type", str8);
+            bundle.putString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE, str8);
             bundle.putString("detail", str9);
             bundle.putString("os_ver", Build.VERSION.RELEASE);
             bundle.putString("network", com.tencent.open.a.a.a(f.a()));
@@ -1112,7 +1113,7 @@ public class l {
                     }
                     return b(context, ContentUris.withAppendedId(Uri.parse(ImageClipActivity.n), Long.parseLong(documentId)));
                 } else {
-                    if (ImageClipActivity.f39154k.equals(authority)) {
+                    if (ImageClipActivity.f39310k.equals(authority)) {
                         String[] split2 = DocumentsContract.getDocumentId(uri).split(":");
                         String str2 = split2[0];
                         if ("image".equals(str2)) {
@@ -1153,7 +1154,7 @@ public class l {
                     }
                     return bArr2;
                 } catch (Throwable th) {
-                    SLog.e(Util.f32438b, "xor Exception! ", th);
+                    SLog.e(Util.f32578b, "xor Exception! ", th);
                 }
             }
             return bArr;

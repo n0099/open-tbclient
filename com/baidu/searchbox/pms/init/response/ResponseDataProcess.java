@@ -18,6 +18,7 @@ import com.baidu.searchbox.pms.db.PackageManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.searchbox.pms.init.request.RequestDataUtils;
 import com.baidu.searchbox.pms.statistic.PackageFileStatisticManager;
+import com.baidu.searchbox.pms.utils.ABIUtils;
 import com.baidu.searchbox.pms.utils.CommonUtils;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,6 +103,8 @@ public class ResponseDataProcess {
     }
 
     private void dispatchChannelCallbacks(@NonNull RequestParams.Channel channel, @NonNull List<PackageInfo> list, @NonNull Map<String, PackageInfo> map) {
+        PackageCallback packageCallback;
+        List<PackageInfo> list2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, channel, list, map) == null) {
             String channelId = channel.getChannelId();
@@ -114,29 +117,54 @@ public class ResponseDataProcess {
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             ArrayList arrayList4 = new ArrayList();
-            for (PackageInfo packageInfo : list) {
-                PackageInfo packageInfo2 = map.get(packageInfo.packageName);
-                if (!packageInfo.isValid() || (packageInfo2 != null && packageInfo2.updateVersion > packageInfo.updateVersion)) {
-                    arrayList.add(packageInfo);
-                } else if (packageInfo2 == null) {
-                    arrayList2.add(packageInfo);
-                } else if (packageInfo2.isOlderThan(packageInfo)) {
-                    arrayList3.add(packageInfo);
-                } else {
-                    try {
-                        PackageInfo packageInfo3 = (PackageInfo) packageInfo2.clone();
-                        packageInfo.copyTo(packageInfo3);
-                        PackageControl.getInstance().addOrUpdate(packageInfo3);
-                    } catch (CloneNotSupportedException e2) {
-                        DebugUtils.printStackTrace(e2);
-                    }
-                    arrayList4.add(packageInfo);
+            Iterator<PackageInfo> it = list.iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
+                    break;
                 }
+                PackageInfo next = it.next();
+                PackageInfo packageInfo = map.get(next.packageName);
+                z = (packageInfo == null || !ABIUtils.checkLocalABIIsValid(packageInfo.abi, next.abi)) ? false : false;
+                if (next.isValid() && ABIUtils.checkABIIsValid(next.abi)) {
+                    if (packageInfo != null) {
+                        packageCallback = callback;
+                        list2 = filteredAndRemove;
+                        if (packageInfo.updateVersion > next.updateVersion && z) {
+                            arrayList.add(next);
+                        }
+                    } else {
+                        packageCallback = callback;
+                        list2 = filteredAndRemove;
+                    }
+                    if (packageInfo == null) {
+                        arrayList2.add(next);
+                    } else if (!packageInfo.isOlderThan(next) && (packageInfo.version != next.version || z)) {
+                        try {
+                            PackageInfo packageInfo2 = (PackageInfo) packageInfo.clone();
+                            next.copyTo(packageInfo2);
+                            PackageControl.getInstance().addOrUpdate(packageInfo2);
+                        } catch (CloneNotSupportedException e2) {
+                            DebugUtils.printStackTrace(e2);
+                        }
+                        arrayList4.add(next);
+                    } else {
+                        arrayList3.add(next);
+                    }
+                } else {
+                    packageCallback = callback;
+                    list2 = filteredAndRemove;
+                    arrayList.add(next);
+                }
+                callback = packageCallback;
+                filteredAndRemove = list2;
             }
+            PackageCallback packageCallback2 = callback;
+            List<PackageInfo> list3 = filteredAndRemove;
             if (AppConfig.isDebug()) {
-                Iterator<PackageInfo> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    DebugUtils.logE("【无效资源】channelId:", channelId, it.next());
+                Iterator<PackageInfo> it2 = arrayList.iterator();
+                while (it2.hasNext()) {
+                    DebugUtils.logE("【无效资源】channelId:", channelId, it2.next());
                 }
             }
             if (list.size() > 0 && list.size() == arrayList.size()) {
@@ -147,10 +175,10 @@ public class ResponseDataProcess {
             resultData.addList = arrayList2;
             resultData.updateList = arrayList3;
             resultData.configChangeList = arrayList4;
-            resultData.filterList = filteredAndRemove;
+            resultData.filterList = list3;
             resultData.invalidList = arrayList;
             DebugUtils.log("【响应结果】channelId:", channelId, resultData);
-            callback.onResultData(resultData);
+            packageCallback2.onResultData(resultData);
         }
     }
 

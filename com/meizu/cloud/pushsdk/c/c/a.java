@@ -20,7 +20,7 @@ public class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static abstract class AbstractC2145a<T extends AbstractC2145a<T>> {
+    public static abstract class AbstractC2152a<T extends AbstractC2152a<T>> {
         public List<com.meizu.cloud.pushsdk.c.a.b> a = new LinkedList();
 
         /* renamed from: b  reason: collision with root package name */
@@ -37,13 +37,13 @@ public class a {
         }
     }
 
-    public a(AbstractC2145a<?> abstractC2145a) {
-        d.a(abstractC2145a.a);
-        d.a(abstractC2145a.f61011c);
-        d.a(!abstractC2145a.f61011c.isEmpty(), "eventId cannot be empty");
-        this.a = abstractC2145a.a;
-        this.f61008b = abstractC2145a.f61010b;
-        this.f61009c = abstractC2145a.f61011c;
+    public a(AbstractC2152a<?> abstractC2152a) {
+        d.a(abstractC2152a.a);
+        d.a(abstractC2152a.f61011c);
+        d.a(!abstractC2152a.f61011c.isEmpty(), "eventId cannot be empty");
+        this.a = abstractC2152a.a;
+        this.f61008b = abstractC2152a.f61010b;
+        this.f61009c = abstractC2152a.f61011c;
     }
 
     public c a(c cVar) {
